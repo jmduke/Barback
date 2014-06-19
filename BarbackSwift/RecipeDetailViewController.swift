@@ -77,7 +77,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         self.favoriteButton.selected = recipe!.favorited
         
+        
+        // Allow folks to swipe right to go back.
+        var rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
+        rightSwipeRecognizer.numberOfTouchesRequired = 1
+        rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(rightSwipeRecognizer)
+        
         styleController()
+    }
+    
+    func goToPreviousView(sender: AnyObject) {
+        self.navigationController.popToRootViewControllerAnimated(true)
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
