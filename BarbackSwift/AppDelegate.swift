@@ -10,12 +10,27 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+    
+    var tabBarController: UITabBarController?
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Set titles programmatically.
+        let tabBarController = self.window!.rootViewController as UITabBarController
+        let tabBar = tabBarController.tabBar
+        let tabControllers = tabBarController.viewControllers as UINavigationController[]
+        /*
+        for (ind: Int, controller: UINavigationController) in enumerate(tabControllers) {
+            let tableController = controller.viewControllers[0] as RecipeListViewController
+            (tabBar.items as UITabBarItem[])[ind].title = tableController.viewTitle
+        }
+        */
+        
+        // Set status bar to white.
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
         return true
     }
 

@@ -3,15 +3,15 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "extent" : "full-screen",
+      "filename" : "biglaunch.png",
       "minimum-system-version" : "7.0",
+      "subtype" : "retina4",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "subtype" : "retina4",
-      "extent" : "full-screen",
+      "filename" : "launch.png",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
     }
