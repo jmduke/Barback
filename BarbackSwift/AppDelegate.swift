@@ -8,6 +8,15 @@
 
 import UIKit
 
+extension UIFont {
+    
+    var primaryF0nt: String {
+    get {
+        return "Futura-Medium"
+    }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -17,19 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         
-        // Set titles programmatically.
-        let tabBarController = self.window!.rootViewController as UITabBarController
-        let tabBar = tabBarController.tabBar
-        let tabControllers = tabBarController.viewControllers as UINavigationController[]
-        /*
-        for (ind: Int, controller: UINavigationController) in enumerate(tabControllers) {
-            let tableController = controller.viewControllers[0] as RecipeListViewController
-            (tabBar.items as UITabBarItem[])[ind].title = tableController.viewTitle
-        }
-        */
-        
         // Set status bar to white.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        // Set font of tab bar items.
+        var tabBarAttributes = NSMutableDictionary(dictionary: UITabBarItem.appearance().titleTextAttributesForState(UIControlState.Normal))
+        tabBarAttributes.setValue(
+            UIFont(name: UIFont().primaryF0nt, size: 10), forKey: UITextAttributeFont)
+        UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
         return true
     }
