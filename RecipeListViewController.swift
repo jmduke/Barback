@@ -48,9 +48,11 @@ class RecipeListViewController: UITableViewController {
         self.tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
         self.tableView.sectionIndexColor = UIColor().darkColor()
         
-        self.tabBarController.tabBar.translucent = false
-        self.tabBarController.tabBar.barTintColor = UIColor().darkColor()
-        self.tabBarController.tabBar.tintColor = UIColor().tintColor()
+        if (self.tabBarController) {
+            self.tabBarController.tabBar.translucent = false
+            self.tabBarController.tabBar.barTintColor = UIColor().darkColor()
+            self.tabBarController.tabBar.tintColor = UIColor().tintColor()
+        }
         
         self.tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         self.tableView.sectionIndexColor = UIColor().darkColor()
@@ -103,7 +105,7 @@ class RecipeListViewController: UITableViewController {
         cell.detailTextLabel.textColor = UIColor().lighterColor()
         
         
-        if (cell.textLabel.text == "Bartender's Choice") {
+        if (cell.textLabel.text == "Bartender's Choice" || cell.textLabel.text == "Shopping List") {
             cell.textLabel.textColor = UIColor().tintColor()
         }
     }
@@ -116,7 +118,16 @@ class RecipeListViewController: UITableViewController {
         return recipes[self.tableView.indexPathForSelectedRow().row]
     }
     
-    // #pragma mark - Navigation
+    
+    // We have this logic in here so we don't try and segue on Shopping List.
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+        let selectedIndex = self.tableView.indexPathForSelectedRow()
+        
+        if selectedIndex.row >= recipes.count {
+            return false
+        }
+        return true
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         

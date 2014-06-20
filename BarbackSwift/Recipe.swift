@@ -29,6 +29,14 @@ class Recipe {
     }
     }
     
+    // Should only be used for 'fake' recipes.
+    init(name: String) {
+        self.name = name
+        self.directions = ""
+        self.glassware = ""
+        self.ingredients = Ingredient[]()
+    }
+    
     init(name: String, directions: String, glassware: String, ingredients: Ingredient[]) {
         self.name = name
         self.directions = directions
