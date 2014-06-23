@@ -134,11 +134,13 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.brandTableLabel.text = "Recommended \(ingredient.name) brands"
         self.drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
+        self.viewDidLayoutSubviews()
+        
         if ingredient.brands.count == 0 {
-            NSLog("0")
             self.ingredientDescriptionLabel.removeFromSuperview()
             self.brandTableLabel.removeFromSuperview()
             self.brandsTableView.removeFromSuperview()
+            self.view.layoutIfNeeded()
         }
         
         styleController()
