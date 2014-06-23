@@ -8,5 +8,11 @@
             "price":2
             }
             ]
+  },
+  {
+  "name":"Amaretto",
+  "description":"Vodka is an alcoholic drink that is usually about 40% alcohol. It is clear (but can be flavoured), though it is sometimes mixed with other liquids before people drink it. It was first popular in the Slavic countries of Eastern Europe, after being invented in Poland or in Russia",
+  "brands":[
+            ]
   }
   ]

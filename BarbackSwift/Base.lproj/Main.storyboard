@@ -215,6 +215,9 @@
                                 <subviews>
                                     <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
                                         <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="mbo-Hl-N4w"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -228,11 +231,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ofi-CB-1bM">
+                                    <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ofi-CB-1bM">
                                         <rect key="frame" x="0.0" y="100" width="320" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="184" id="f2D-z2-cbQ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="f2D-z2-cbQ"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YNQ-Vr-5kT">
@@ -253,7 +256,7 @@
                                         <rect key="frame" x="0.0" y="321" width="320" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="184" id="THi-Fv-EzK"/>
+                                            <constraint firstAttribute="height" constant="184" id="THi-Fv-EzK"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Jx8-lm-2lT" detailTextLabel="a93-TI-cat" style="IBUITableViewCellStyleSubtitle" id="pUp-42-4Cb">
@@ -290,12 +293,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="RRo-wd-9l9" secondAttribute="bottom" constant="30" id="0eT-JS-IoX"/>
-                                    <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="8" id="Kjp-iG-iPb"/>
+                                    <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="EXL-7v-QHr"/>
+                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="16" id="F2r-ww-ceS"/>
+                                    <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="20" id="Kjp-iG-iPb"/>
                                     <constraint firstItem="aer-O9-w0l" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="top" constant="20" id="N47-Wh-btj"/>
-                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="Ofi-CB-1bM" secondAttribute="bottom" constant="8" id="P9o-Jz-M9m"/>
-                                    <constraint firstItem="RRo-wd-9l9" firstAttribute="top" secondItem="jRn-d5-hzv" secondAttribute="bottom" constant="8" id="TOy-pR-KXd"/>
-                                    <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="1" id="ySL-pG-Gi5"/>
-                                    <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="8" id="zPC-Xn-bGE"/>
+                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="Ofi-CB-1bM" secondAttribute="bottom" constant="20" id="P9o-Jz-M9m"/>
+                                    <constraint firstItem="RRo-wd-9l9" firstAttribute="top" secondItem="jRn-d5-hzv" secondAttribute="bottom" constant="10" id="TOy-pR-KXd"/>
+                                    <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="ySL-pG-Gi5"/>
+                                    <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="20" id="zPC-Xn-bGE"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

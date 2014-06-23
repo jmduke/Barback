@@ -94,8 +94,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     override func viewDidLayoutSubviews()  {
-        let correctBrandsHeight = self.brandsTableView.contentSize.height
-        self.brandTableViewHeight.constant = correctBrandsHeight
+        
+        if self.brandTableViewHeight {
+            let correctBrandsHeight = self.brandsTableView.contentSize.height
+            NSLog(ingredient.brands.description)
+            self.brandTableViewHeight.constant = correctBrandsHeight
+        }
         
         let correctDrinksHeight = self.drinksTableView.contentSize.height
         self.drinkTableViewHeight.constant = correctDrinksHeight
@@ -124,10 +128,18 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.drinksTableView.dataSource = self
         self.drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
 
+        // Give our labels some text.
         self.ingredientNameLabel.text = ingredient.name
         self.ingredientDescriptionLabel.text = ingredient.description
         self.brandTableLabel.text = "Recommended \(ingredient.name) brands"
         self.drinksTableLabel.text = "Drinks containing \(ingredient.name)"
+        
+        if ingredient.brands.count == 0 {
+            NSLog("0")
+            self.ingredientDescriptionLabel.removeFromSuperview()
+            self.brandTableLabel.removeFromSuperview()
+            self.brandsTableView.removeFromSuperview()
+        }
         
         styleController()
     }
@@ -159,6 +171,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
