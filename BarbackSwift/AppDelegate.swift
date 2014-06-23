@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        // Override point for customization after application launch.
         
         // Set status bar to white.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
@@ -34,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarAttributes.setValue(
             UIFont(name: UIFont().primaryF0nt, size: 10), forKey: UITextAttributeFont)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
+        
+        // Configure review-nagger.
+        Appirater.setAppId("829469529")
+        Appirater.setDaysUntilPrompt(7)
+        Appirater.setUsesUntilPrompt(5)
+        Appirater.setSignificantEventsUntilPrompt(-1)
+        Appirater.setTimeBeforeReminding(2)
+        Appirater.setDebug(true)
+        Appirater.appLaunched(true)
         
         return true
     }
