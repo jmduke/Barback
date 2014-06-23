@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appirater.setUsesUntilPrompt(5)
         Appirater.setSignificantEventsUntilPrompt(-1)
         Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(true)
+        Appirater.setDebug(false)
         Appirater.appLaunched(true)
         
         return true

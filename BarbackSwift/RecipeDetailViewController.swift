@@ -178,18 +178,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
         
-        // Main label.
-        cell!.textLabel.text = ingredient.base
-
-        // Detail label.
-        var extraInformation = ingredient.displayAmount()
-        if let special = ingredient.label {
-            if !extraInformation.isEmpty {
-                extraInformation += " · "
-            }
-            extraInformation += special
-        }
-        cell!.detailTextLabel.text = extraInformation
+        cell!.textLabel.text = ingredient.base.name
+        cell!.detailTextLabel.text = ingredient.displayDetails
 
         
         styleCell(cell!)
@@ -206,7 +196,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        
+        self.performSegueWithIdentifier("ingredientDetail", sender: nil)
     }
     
 
@@ -226,5 +216,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         // Disallow shake gestures.
         self.resignFirstResponder()
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+        
+        let destination = segue!.destinationViewController as IngredientDetailViewController
+        
+        var ingredient = getSelectedIngredient()
+        destination.setIngredient(ingredient)
+    }
+    
+    
+    func getSelectedIngredient() -> IngredientBase {
+        return self.recipe!.ingredients[self.ingredientsTableView.indexPathForSelectedRow().row].base
+    }
+    
 }

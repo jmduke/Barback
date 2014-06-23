@@ -85,12 +85,7 @@ class RecipeListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
         cell.text = recipe.name
-        
-        let ingredients = recipe.ingredients.filter({ingredient in !ingredient.isSpecial}).map({
-            (ingredient: Ingredient) -> String in
-            return ingredient.base
-            })
-        cell.detailTextLabel.text = join(", ", ingredients)
+        cell.detailTextLabel.text = recipe.listedIngredients
         
         styleCell(cell)
         

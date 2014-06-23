@@ -28,6 +28,15 @@ class Recipe {
         NSUserDefaults.standardUserDefaults().setObject(currentFavorites, forKey: "saved")
     }
     }
+    var listedIngredients: String {
+    get {
+    let ingredients = self.ingredients.filter({ingredient in !ingredient.isSpecial}).map({
+        (ingredient: Ingredient) -> String in
+        return ingredient.base.name
+        })
+    return join(", ", ingredients)
+    }
+    }
     
     // Should only be used for 'fake' recipes.
     init(name: String) {

@@ -49,7 +49,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // Grab all the ingredient names.
         let allIngredients = recipes.map({
             (recipe: Recipe) -> String[] in
-            return recipe.ingredients.map({$0.base})
+            return recipe.ingredients.map({$0.base.name})
             })
         
         // Flatten it into a list.

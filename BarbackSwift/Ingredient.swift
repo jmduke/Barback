@@ -9,35 +9,47 @@
 import Foundation
 
 class Ingredient {
-    var base: String
+    var base: IngredientBase
     var amount: Float?
     var label: String?
     var isSpecial = false
     
+    var displayDetails: String {
+    get {
+        var extraInformation = self.displayAmount()
+        if let special = self.label {
+            if !extraInformation.isEmpty {
+                extraInformation += " · "
+            }
+            extraInformation += special
+        }
+        return extraInformation
+    }
+    }
+    
     init(base: String, amount: Float?, label: String?) {
-        self.base = base
+        self.base = IngredientBase(name: base)
         self.amount = amount
         self.label = label
     }
     
     init(rawIngredient: NSDictionary) {
-        var base = rawIngredient.objectForKey("ingredient") as? String
-        if base {
-            self.base = base!
-        } else {
-            self.base = rawIngredient.objectForKey("special") as String
+        var baseName = rawIngredient.objectForKey("ingredient") as? String
+        if !baseName {
+            baseName = rawIngredient.objectForKey("special") as String
             self.isSpecial = true
         }
+        self.base = IngredientBase.getIngredientBase(baseName!)
         self.label = rawIngredient.objectForKey("label") as? String
         self.amount = rawIngredient.objectForKey("cl") as? Float
     }
     
     func description() -> String {
-        return self.base
+        return self.base.name
     }
     
     func matchesTerm(searchTerm: String) -> Bool {
-        return self.base.lowercaseString.hasPrefix(searchTerm) || (self.label && self.label!.lowercaseString.hasPrefix(searchTerm))
+        return self.base.name.lowercaseString.hasPrefix(searchTerm) || (self.label && self.label!.lowercaseString.hasPrefix(searchTerm))
     }
     
     func displayAmount() -> String {
