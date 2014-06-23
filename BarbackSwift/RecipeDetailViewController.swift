@@ -65,6 +65,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.ingredientsTableView.dataSource = self
         self.ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
 
+        // Set nav bar title.
+        self.title = recipe!.name
+        
         // Grab data from recipe.
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
