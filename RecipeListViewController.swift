@@ -21,7 +21,7 @@ extension UIFont {
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    let allRecipes: Recipe[] = Recipe.allRecipes()
+    let allRecipes: Recipe[] = AllRecipes.sharedInstance
     var recipes: Recipe[] = Recipe[]()
     
     override func viewDidAppear(animated: Bool)  {

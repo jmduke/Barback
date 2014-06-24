@@ -88,6 +88,16 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addGestureRecognizer(rightSwipeRecognizer)
         
         styleController()
+        
+        /*
+        let firstCell = tableView(self.ingredientsTableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)).frame
+        let firstCellPosition = CGRectOffset(firstCell, -self.ingredientsTableView.contentOffset.x, -self.ingredientsTableView.contentOffset.y)
+        
+        let coachMarks = [["rect": NSValue(CGRect: firstCellPosition), "caption": "test"]]
+        let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
+        self.view.addSubview(coachMarksView)
+        coachMarksView.start()
+        */
     }
     
     func goToPreviousView(sender: AnyObject) {

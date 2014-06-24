@@ -97,7 +97,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         if self.brandTableViewHeight {
             let correctBrandsHeight = self.brandsTableView.contentSize.height
-            NSLog(ingredient.brands.description)
             self.brandTableViewHeight.constant = correctBrandsHeight
         }
         
@@ -117,6 +116,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set nav bar title.
+        self.title = ingredient.name
         
         // Tell table to look at this class for info.
         self.brandsTableView.delegate = self
@@ -189,7 +191,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        self.recipes = Recipe.allRecipes().filter({ $0.matchesTerms([self.ingredient.name.lowercaseString]) })
+        self.recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([self.ingredient.name.lowercaseString]) })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
