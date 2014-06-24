@@ -7,3 +7,4 @@
 //
 
 #import "Appirater.h"
+#import "WSCoachMarksView.h"
