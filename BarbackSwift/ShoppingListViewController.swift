@@ -65,7 +65,6 @@ class ShoppingListViewController: RecipeListViewController {
     }
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        NSLog(ingredients.count.description)
         return ingredients.count
     }
 
