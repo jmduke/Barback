@@ -68,6 +68,8 @@ class Ingredient {
                 switch imperialRemainder {
                 case 0.5:
                     remainderString = " ⅙"
+                case 0.75:
+                    remainderString = " ¼"
                 case 1:
                     remainderString = " ⅓"
                 case 1.5:
