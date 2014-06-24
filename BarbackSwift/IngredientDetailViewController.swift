@@ -138,8 +138,11 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         self.viewDidLayoutSubviews()
         
-        if ingredient.brands.count == 0 {
+        if ingredient.description == "" {
             self.ingredientDescriptionLabel.removeFromSuperview()
+        }
+        
+        if ingredient.brands.count == 0 {
             self.brandTableLabel.removeFromSuperview()
             self.brandsTableView.removeFromSuperview()
             self.view.layoutIfNeeded()
