@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
@@ -299,6 +298,7 @@
                                     <constraint firstItem="aer-O9-w0l" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="top" constant="20" id="N47-Wh-btj"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="Ofi-CB-1bM" secondAttribute="bottom" constant="20" id="P9o-Jz-M9m"/>
                                     <constraint firstItem="RRo-wd-9l9" firstAttribute="top" secondItem="jRn-d5-hzv" secondAttribute="bottom" constant="10" id="TOy-pR-KXd"/>
+                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="20" id="bfX-K8-Haf"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="ySL-pG-Gi5"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="20" id="zPC-Xn-bGE"/>
                                 </constraints>

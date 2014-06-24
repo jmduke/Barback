@@ -24,7 +24,7 @@ class IngredientBase {
     }
     
     class func getIngredientBase(fromName: String) -> IngredientBase {
-        let possibleMatch: IngredientBase[] = IngredientBase.allIngredients().filter({$0.name == fromName})
+        let possibleMatch: IngredientBase[] = AllIngredients.sharedInstance.filter({$0.name == fromName})
         if possibleMatch.count > 0 {
             return possibleMatch[0]
         }
@@ -33,7 +33,7 @@ class IngredientBase {
     
     
     init(rawIngredient: NSDictionary) {
-        self.name = rawIngredient.objectForKey("name") as String
+        self.name = (rawIngredient.objectForKey("name") as String)
         self.description = rawIngredient.objectForKey("description") as String
         
         let rawBrands = rawIngredient.objectForKey("brands") as NSDictionary[]
@@ -56,6 +56,16 @@ class IngredientBase {
             return IngredientBase(rawIngredient: rawIngredient)
             })
         allIngredients = sort(allIngredients) { $0.name < $1.name }
+
         return allIngredients
+    }
+}
+
+class AllIngredients {
+    class var sharedInstance : IngredientBase[] {
+    struct Static {
+        static let instance : IngredientBase[] = IngredientBase.allIngredients()
+        }
+        return Static.instance
     }
 }
