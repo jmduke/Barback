@@ -84,7 +84,6 @@ class Recipe {
             return Recipe(rawRecipe: rawRecipe)
             })
         allRecipes = sort(allRecipes) { $0.name < $1.name }
-        NSLog("BANGBANG")
         return allRecipes
     }
     
