@@ -68,6 +68,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         // Set nav bar title.
         self.title = recipe!.name
         
+        // Switch tab bar item title back to the title if necessary.
+        if self.isRandom {
+            self.navigationController.tabBarItem.title = "Random"
+        }
+        
         // Grab data from recipe.
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions

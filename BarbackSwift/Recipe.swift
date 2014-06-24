@@ -88,8 +88,8 @@ class Recipe {
     }
     
     class func random() -> Recipe {
-        let allRec = allRecipes()
-        return allRec[Int(rand()) % allRec.count]
+        let allRec = AllRecipes.sharedInstance
+        return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
     }
     
     func matchesTerms(searchTerms: NSString[]) -> Bool {

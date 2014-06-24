@@ -130,7 +130,7 @@ class RecipeListViewController: UITableViewController {
         
         var recipe = getSelectedRecipe()
         if (recipe.name == "Bartender's Choice") {
-            let randomIndex = Int(rand()) % (recipes.count - 1)
+            let randomIndex = Int(arc4random_uniform(UInt32(recipes.count)))
             recipe = recipes[randomIndex]
         }
         destination.setRecipe(recipe)
