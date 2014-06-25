@@ -12,6 +12,16 @@ class Brand {
     var name: String
     var price: Int // ranges from 1 to 5
     
+    var detailDescription: String {
+        get {
+            var price = ""
+            for _ in 0..self.price {
+                price += "$"
+            }
+            return price
+        }
+    }
+    
     init() {
         self.name = ""
         self.price = 0

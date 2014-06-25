@@ -80,7 +80,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             let brand = ingredient.brands[indexPath.row]
             primaryText = brand.name
-            detailText = String(brand.price)
+            detailText = String(brand.detailDescription)
             
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                 reuseIdentifier: cellIdentifier)
@@ -139,7 +139,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.viewDidLayoutSubviews()
         
         if ingredient.description == "" {
+            NSLog("poo")
             self.ingredientDescriptionLabel.removeFromSuperview()
+            self.view.layoutIfNeeded()
         }
         
         if ingredient.brands.count == 0 {
@@ -210,7 +212,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        self.performSegueWithIdentifier("recipeDetail", sender: nil)
+        if tableView == self.drinksTableView {
+            self.performSegueWithIdentifier("recipeDetail", sender: nil)
+        }
     }
     
 }

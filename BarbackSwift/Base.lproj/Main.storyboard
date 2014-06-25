@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
@@ -212,7 +213,7 @@
                             <scrollView appearanceType="aqua" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-66-Hw0">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <subviews>
-                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
                                         <rect key="frame" x="20" y="20" width="280" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="mbo-Hl-N4w"/>
@@ -283,8 +284,11 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB">
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB">
                                         <rect key="frame" x="20" y="78" width="280" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mZt-7Q-Mri"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -292,13 +296,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="RRo-wd-9l9" secondAttribute="bottom" constant="30" id="0eT-JS-IoX"/>
-                                    <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="EXL-7v-QHr"/>
-                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="16" id="F2r-ww-ceS"/>
+                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="16" id="F2r-ww-ceS"/>
                                     <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="20" id="Kjp-iG-iPb"/>
                                     <constraint firstItem="aer-O9-w0l" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="top" constant="20" id="N47-Wh-btj"/>
+                                    <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="37" id="OSB-lS-CVz"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="Ofi-CB-1bM" secondAttribute="bottom" constant="20" id="P9o-Jz-M9m"/>
                                     <constraint firstItem="RRo-wd-9l9" firstAttribute="top" secondItem="jRn-d5-hzv" secondAttribute="bottom" constant="10" id="TOy-pR-KXd"/>
-                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="20" id="bfX-K8-Haf"/>
+                                    <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" priority="500" constant="20" id="bfX-K8-Haf"/>
+                                    <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bo6-DK-JAx" secondAttribute="bottom" priority="500" constant="30" id="h4U-7D-JMd"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="ySL-pG-Gi5"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="20" id="zPC-Xn-bGE"/>
                                 </constraints>
