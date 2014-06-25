@@ -14,17 +14,17 @@ class Ingredient {
     var label: String?
     var isSpecial = false
     
-    var displayDetails: String {
-    get {
-        var extraInformation = self.displayAmount()
-        if let special = self.label {
-            if !extraInformation.isEmpty {
-                extraInformation += " · "
+    var detailDescription: String {
+        get {
+            var extraInformation = self.displayAmount()
+            if let special = self.label {
+                if !extraInformation.isEmpty {
+                    extraInformation += " · "
+                }
+                extraInformation += special
             }
-            extraInformation += special
+            return extraInformation
         }
-        return extraInformation
-    }
     }
     
     init(base: String, amount: Float?, label: String?) {
@@ -36,7 +36,7 @@ class Ingredient {
     init(rawIngredient: NSDictionary) {
         var baseName = rawIngredient.objectForKey("ingredient") as? String
         if !baseName {
-            baseName = rawIngredient.objectForKey("special") as String
+            baseName = rawIngredient.objectForKey("special") as? String
             self.isSpecial = true
         }
         self.base = IngredientBase.getIngredientBase(baseName!)

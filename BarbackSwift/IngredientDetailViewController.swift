@@ -70,7 +70,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             
             let recipe = recipes[indexPath.row]
             primaryText = recipe.name
-            detailText = recipe.listedIngredients
+            detailText = recipe.detailDescription
             
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
                 reuseIdentifier: cellIdentifier)

@@ -194,7 +194,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
         
         cell!.textLabel.text = ingredient.base.name
-        cell!.detailTextLabel.text = ingredient.displayDetails
+        cell!.detailTextLabel.text = ingredient.detailDescription
 
         
         styleCell(cell!)

@@ -85,7 +85,7 @@ class RecipeListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
         cell.text = recipe.name
-        cell.detailTextLabel.text = recipe.listedIngredients
+        cell.detailTextLabel.text = recipe.detailDescription
         
         styleCell(cell)
         
