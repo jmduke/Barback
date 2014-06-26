@@ -77,7 +77,7 @@ class Recipe {
     func matchesTerms(searchTerms: NSString[]) -> Bool {
         for term: NSString in searchTerms {
             // If the term matches the name of the recipe..
-            if self.name.lowercaseString.hasPrefix(term) {
+            if self.name.lowercaseString.bridgeToObjectiveC().containsString(term) {
                 continue
             }
             

@@ -49,7 +49,7 @@ class Ingredient {
     }
     
     func matchesTerm(searchTerm: String) -> Bool {
-        return self.base.name.lowercaseString.hasPrefix(searchTerm) || (self.label && self.label!.lowercaseString.hasPrefix(searchTerm))
+        return self.base.name.lowercaseString.bridgeToObjectiveC().containsString(searchTerm) || (self.label && self.label!.lowercaseString.bridgeToObjectiveC().containsString(searchTerm))
     }
     
     func displayAmount() -> String {
