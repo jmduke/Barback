@@ -42,6 +42,20 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // We manually reload each appearance to account for favorites in other tabs.
         self.viewDidLoad()
         self.tableView.reloadData()
+        
+        loadCoachMarks()
+    }
+    
+    func loadCoachMarks() {
+        
+        let favoritePosition = tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)).frame.rectByUnion(tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)).frame).rectByUnion(tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)).frame)
+        let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"
+        
+        let shakePosition = tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: recipes.count, inSection: 0)).frame
+        let shakeCaption = "We can make you a shopping list with all the ingredients you need to make them, too."
+        
+        let coachMarks = [["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption], ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]]
+        runCoachMarks(coachMarks)
     }
     
     func ingredientsNeeded() -> String[] {

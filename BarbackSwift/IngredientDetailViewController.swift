@@ -139,7 +139,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.viewDidLayoutSubviews()
         
         if ingredient.description == "" {
-            NSLog("poo")
             self.ingredientDescriptionLabel.removeFromSuperview()
             self.view.layoutIfNeeded()
         }
@@ -152,7 +151,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         styleController()
     }
-    
+
     func styleController() {
         self.setNeedsStatusBarAppearanceUpdate()
         self.navigationController.navigationBar.barTintColor = UIColor().darkColor()

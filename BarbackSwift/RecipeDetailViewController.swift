@@ -24,7 +24,7 @@ extension UIFont {
     }
 }
 
-class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     var recipe: Recipe?
     var isRandom: Bool?
@@ -83,6 +83,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
         self.favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
+        self.scrollView.delegate = self
+        
         self.favoriteButton.selected = recipe!.favorited
         
         
@@ -93,16 +95,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addGestureRecognizer(rightSwipeRecognizer)
         
         styleController()
-        
-        /*
-        let firstCell = tableView(self.ingredientsTableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)).frame
-        let firstCellPosition = CGRectOffset(firstCell, -self.ingredientsTableView.contentOffset.x, -self.ingredientsTableView.contentOffset.y)
-        
-        let coachMarks = [["rect": NSValue(CGRect: firstCellPosition), "caption": "test"]]
-        let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
-        self.view.addSubview(coachMarksView)
-        coachMarksView.start()
-        */
     }
     
     func goToPreviousView(sender: AnyObject) {
@@ -147,6 +139,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
+        
+        loadCoachMarks()
     }
     
     override func viewDidLayoutSubviews()  {
@@ -175,6 +169,48 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.glasswareLabel.font = UIFont(name: UIFont().heavyFont, size: 15)
         self.glasswareLabel.textAlignment = NSTextAlignment.Center
         self.glasswareLabel.textColor = UIColor().lightColor()
+        
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    func loadCoachMarks() {
+        var coachMarks = NSDictionary[]()
+        
+        if self.isRandom {
+            // We want the entire thing to hide, so define a 0,0 rect.
+            let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
+            let shakeCaption = "Don't like this one?  Shake the phone for a new recipe."
+            
+            let coachMark = ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]
+            coachMarks.append(coachMark)
+        }
+        
+        let directionsPosition = self.directionsLabel.frame
+        let directionsCaption = "Simple instructions on making your drinks."
+        coachMarks.append(["rect": NSValue(CGRect: directionsPosition), "caption": directionsCaption])
+        
+        let ingredientsPosition = self.ingredientsTableView.frame
+        let ingredientsCaption = "Tap an ingredient to learn more about it."
+        coachMarks.append(["rect": NSValue(CGRect: ingredientsPosition), "caption": ingredientsCaption])
+        
+        runCoachMarks(coachMarks)
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView!) {
+        let scrollViewHeight = scrollView.frame.size.height;
+        let scrollContentSizeHeight = scrollView.contentSize.height;
+        let scrollOffset = scrollView.contentOffset.y;
+        
+        if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+            
+            var favoritePosition = self.favoriteButton.frame
+            favoritePosition.offset(dx: 0, dy: -scrollOffset)
+            let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
+            let scrolledCoachMarks = [["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption]]
+            runCoachMarks(scrolledCoachMarks)
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -188,6 +224,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cellIdentifier = "ingredientCell"
+        
         var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Value1,
                 reuseIdentifier: cellIdentifier)
         

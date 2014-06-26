@@ -14,9 +14,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     @IBOutlet var searchBar: UISearchBar
     
     override var viewTitle: String {
-    get {
-        return "Search"
-    }
+        get {
+            return "Search"
+        }
     }
     
     override func styleController() {
@@ -40,19 +40,15 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         
-        
-        runCoachMarks()
+        loadCoachMarks()
     }
     
-    func runCoachMarks() {
+    func loadCoachMarks() {
         let searchBarPosition = self.searchBar.bounds
         let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
         
         let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
-        let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
-        coachMarksView.lblCaption.font = UIFont(name: "Futura-Medium", size: 20)
-        self.view.addSubview(coachMarksView)
-        coachMarksView.start()
+        runCoachMarks(coachMarks)
     }
     
     func dismissKeyboard() {
