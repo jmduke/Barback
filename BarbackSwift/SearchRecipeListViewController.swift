@@ -40,22 +40,20 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         
+        
+        runCoachMarks()
     }
     
-    /*
-        override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count + 1
+    func runCoachMarks() {
+        let searchBarPosition = self.searchBar.bounds
+        let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
+        
+        let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
+        let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
+        coachMarksView.lblCaption.font = UIFont(name: "Futura-Medium", size: 20)
+        self.view.addSubview(coachMarksView)
+        coachMarksView.start()
     }
-    
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        if indexPath.row < recipes.count {
-            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-        }
-        
-        // Otherwise, we return the option to pick randomly!
-        
-        
-    }*/
     
     func dismissKeyboard() {
         self.searchBar.resignFirstResponder()
@@ -63,7 +61,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func filterRecipes(recipe: Recipe) -> Bool {
         var searchTerms = self.searchBar.text.componentsSeparatedByString(",") as NSString[]
-        searchTerms = searchTerms.map({searchTerm in searchTerm.lowercaseString})
+        searchTerms = searchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
         return recipe.matchesTerms(searchTerms)
     }
     
