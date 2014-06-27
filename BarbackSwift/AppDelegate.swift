@@ -25,6 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey:"HasLaunchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            // Set some random recipes to be favorites.
+            Recipe.random().favorited = true
+            Recipe.random().favorited = true
+            Recipe.random().favorited = true
+        }
+        
+        
         // Set status bar to white.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
