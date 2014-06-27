@@ -239,8 +239,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFont, size: 15)
-        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont, size: 12)
+        cell.textLabel.font = UIFont(name: UIFont().primaryFont, size: 20)
+        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont, size: 16)
         
         cell.textLabel.textColor = UIColor().darkColor()
         cell.detailTextLabel.textColor = UIColor().lighterColor()

@@ -83,7 +83,7 @@ class Recipe {
             }
             
             // If the term matches the name of the recipe..
-            if self.name.lowercaseString.bridgeToObjectiveC().containsString(term) {
+            if self.name.lowercaseString.rangeOfString(term) {
                 continue
             }
             

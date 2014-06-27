@@ -107,8 +107,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFant, size: 15)
-        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFant, size: 12)
+        cell.textLabel.font = UIFont(name: UIFont().primaryFant, size: 20)
+        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFant, size: 14)
         
         cell.textLabel.textColor = UIColor().darkColor()
         cell.detailTextLabel.textColor = UIColor().lighterColor()
@@ -195,7 +195,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        self.recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([self.ingredient.name.lowercaseString]) })
+        self.recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([self.ingredient.name.lowercaseString as NSString]) })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {

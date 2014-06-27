@@ -148,7 +148,18 @@
    },
    {
       "brands":[
-
+        {
+            "name": "Tito's",
+            "price": 1
+        },
+        {
+            "name": "Sobieski",
+            "price": 2
+        },
+        {
+            "name": "Belvedere",
+            "price": 4
+        }
       ],
       "name":"Vodka",
       "description":"Vodka (Polish: w\u00f3dka [\u02c8vutka], Russian: \u0432\u043e\u0434\u043a\u0430 [\u02c8votk\u0259]) is a distilled beverage composed primarily of water and ethanol, sometimes with traces of impurities and flavorings. Traditionally, vodka is made by the distillation of fermented grains or potatoes, though some modern brands use other substances, such as fruits or sugar.\nSince the 1890s, the standard Russian, Ukrainian, Estonian, Polish, Latvian, Lithuanian and Czech vodkas are 40% alcohol by volume ABV (80 proof), a percentage attributed to Dimitri Mendeleev. The European Union has established a minimum of 37.5% ABV for any \"European vodka\" to be named as such. Products sold as \"vodka\" in the United States must have a minimum alcohol content of 40%. Even with these loose restrictions, most vodka sold contains 40% ABV. For homemade vodkas and distilled beverages referred to as \"moonshine\", see moonshine by country.\nVodka is traditionally drunk neat and often chilled in the vodka belt countries of Eastern Europe and around the Baltic Sea. It is also commonly used in cocktails and mixed drinks, such as the vodka martini, vodka tonic, Screwdriver, Greyhound, Black or White Russian, Bloody Mary, and Sex on the Beach."
@@ -263,7 +274,7 @@
 
       ],
       "name":"Water",
-      "description":"Water is a clear, pellucid, transparent fluid which forms the streams, lakes, oceans and rain, is the major constituent of the fluids of living things chemical compound, and the most widely used of all solvents. A water molecule contains one oxygen and two hydrogen atoms that are connected by covalent bonds. Water is a liquid at standard ambient temperature and pressure, but it often co-exists on Earth with its solid state, ice, and gaseous state, steam (water vapor).\nWater covers 71% of the Earth's surface. It is vital for all known forms of life. On Earth, 96.5% of the planet's water is found in seas and oceans, 1.7% in groundwater, 1.7% in glaciers and the ice caps of Antarctica and Greenland, a small fraction in other large water bodies, and 0.001% in the air as vapor, clouds (formed of solid and liquid water particles suspended in air), and precipitation. Only 2.5% of the Earth's water is freshwater, and 98.8% of that water is in ice and groundwater. Less than 0.3% of all freshwater is in rivers, lakes, and the atmosphere, and an even smaller amount of the Earth's freshwater (0.003%) is contained within biological bodies and manufactured products.\nWater on Earth moves continually through the water cycle of evaporation and transpiration (evapotranspiration), condensation, precipitation, and runoff, usually reaching the sea. Evaporation and transpiration contribute to the precipitation over land. Water used in the production of a good or service is known as virtual water.\nSafe drinking water is essential to humans and other lifeforms even though it provides no calories or organic nutrients. Access to safe drinking water has improved over the last decades in almost every part of the world, but approximately one billion people still lack access to safe water and over 2.5 billion lack access to adequate sanitation. There is a clear correlation between access to safe water and gross domestic product per capita. However, some observers have estimated that by 2025 more than half of the world population will be facing water-based vulnerability. A report, issued in November 2009, suggests that by 2030, in some developing regions of the world, water demand will exceed supply by 50%. Water plays an important role in the world economy, as it functions as a solvent for a wide variety of chemical substances and facilitates industrial cooling and transportation. Approximately 70% of the fresh water used by humans goes to agriculture."
+      "description":"It's water, preferably of the filtered variety.  That's all you need to know."
    },
    {
       "brands":[
@@ -295,7 +306,14 @@
    },
    {
       "brands":[
-
+        {
+            "name": "Matusalem",
+            "price": 2
+        },
+        {
+            "name": "10 Cane",
+            "price": 3
+        }
       ],
       "name":"White rum",
       "description":"Rum is a distilled alcoholic beverage made from sugarcane byproducts, such as molasses, or directly from sugarcane juice, by a process of fermentation and distillation. The distillate, a clear liquid, is then usually aged in oak barrels. Rum can be referred to in Spanish by descriptors such as ron viejo (\"old rum\") and ron a\u00f1ejo (\"aged rum\").\nThe majority of the world's rum production occurs in the Caribbean and Latin America. Rum is also produced in Austria, Spain, Australia, New Zealand, Fiji, Mexico, Hawaii, the Philippines, India, Reunion Island, Mauritius, South Africa, Taiwan, Japan, the United States and Canada.\nLight rums are commonly used in cocktails, whereas \"golden\" and \"dark\" rums were typically consumed individually (i.e., \"straight\" or \"neat\") or used for cooking, but are now commonly consumed with mixers. Premium rums are also available, made to be consumed either straight or iced.\nRum plays a part in the culture of most islands of the West Indies as well as in the Canadian Maritimes and Newfoundland. This beverage has famous associations with the Royal Navy (where it was mixed with water or beer to make grog) and piracy (where it was consumed as bumbo). Rum has also served as a popular medium of economic exchange, used to help fund enterprises such as slavery, organized crime, and military insurgencies (e.g., the American Revolution and Australia's Rum Rebellion). See Triangular trade.\n\n"
@@ -372,7 +390,18 @@
    },
    {
       "brands":[
-
+        {
+            "name": "Los Generales",
+            "price": 2
+        },
+        {
+            "name": "El Espólon Blanco",
+            "price": 3
+        },
+        {
+            "name": "Don Julio",
+            "price": 4
+        }
       ],
       "name":"Tequila",
       "description":"Tequila (Spanish pronunciation: [te\u02c8kila]) is a regional specific name for a distilled beverage made from the blue agave plant, primarily in the area surrounding the city of Tequila, 65 km (40 mi) northwest of Guadalajara, and in the highlands (Los Altos) of the north western Mexican state of Jalisco. Although tequila is a kind of mezcal, modern tequila differs somewhat in the method of its production, in the use of only blue agave plants, as well as in its regional specificity.\nThe red volcanic soil in the surrounding region is particularly well suited to the growing of the blue agave, and more than 300 million of the plants are harvested there each year. Agave tequila grows differently depending on the region. Blue agaves grown in the highlands region are larger in size and sweeter in aroma and taste. Agaves harvested in the lowlands, on the other hand, have a more herbaceous fragrance and flavor.\nMexican laws state that tequila can be produced only in the state of Jalisco and limited regions in the states of Guanajuato, Michoac\u00e1n, Nayarit, and Tamaulipas. The United States officially recognizes that spirits called \"tequila\" can only be produced in Mexico, although by agreement bulk amounts can be shipped to be bottled in the U.S.\nTequila is most often made at a 38\u201340% alcohol content (76\u201380 proof), but can be produced between 31 and 55% alcohol content (62 and 110 proof)."
@@ -572,7 +601,10 @@
    },
    {
       "brands":[
-
+          {
+            "name": "Rittenhouse",
+            "price": 2
+          }
       ],
       "name":"Rye",
       "description":"Rye (Secale cereale) is a grass grown extensively as a grain and as a forage crop. It is a member of the wheat tribe (Triticeae) and is closely related to barley (Hordeum) and wheat (Triticum). Rye grain is used for flour, rye bread, rye beer, crisp bread, some whiskeys, some vodkas, and animal fodder. It can also be eaten whole, either as boiled rye berries, or by being rolled, similar to rolled oats.\nRye is a cereal grain and should not be confused with ryegrass, which is used for lawns, pasture, and hay for livestock."
