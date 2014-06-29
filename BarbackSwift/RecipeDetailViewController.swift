@@ -9,21 +9,6 @@
 import Social
 import UIKit
 
-extension UIFont {
-    
-    var primaryFont: String {
-    get {
-        return "Futura"
-    }
-    }
-    
-    var heavyFont: String {
-    get {
-        return "Futura-MediumItalic"
-    }
-    }
-}
-
 class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
     var recipe: Recipe?
@@ -154,19 +139,19 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
         self.navigationController.navigationBar.translucent = false
         self.navigationController.navigationBar.tintColor = UIColor().backgroundColor()
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont, size: 20)]
+        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
         
         self.scrollView.backgroundColor = UIColor().backgroundColor()
         
         self.nameLabel.textColor = UIColor().darkColor()
-        self.nameLabel.font = UIFont(name: UIFont().heavyFont, size: 32)
+        self.nameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
         self.nameLabel.textAlignment = NSTextAlignment.Center
         
-        self.directionsLabel.font = UIFont(name: UIFont().primaryFont, size: 15)
+        self.directionsLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
         self.directionsLabel.textAlignment = NSTextAlignment.Center
         self.directionsLabel.textColor = UIColor().darkColor()
         
-        self.glasswareLabel.font = UIFont(name: UIFont().heavyFont, size: 15)
+        self.glasswareLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
         self.glasswareLabel.textAlignment = NSTextAlignment.Center
         self.glasswareLabel.textColor = UIColor().lightColor()
         
@@ -239,8 +224,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFont, size: 20)
-        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont, size: 16)
+        cell.textLabel.font = UIFont(name: UIFont().primaryFont(), size: 20)
+        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont(), size: 16)
         
         cell.textLabel.textColor = UIColor().darkColor()
         cell.detailTextLabel.textColor = UIColor().lighterColor()

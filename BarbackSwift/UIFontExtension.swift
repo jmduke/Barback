@@ -9,3 +9,13 @@
 import Foundation
 import UIKit
 
+extension UIFont {
+    
+    func primaryFont() -> String {
+        return "Futura-Medium"
+    }
+    
+    func heavyFont() -> String {
+        return "Futura-MediumItalic"
+    }
+}

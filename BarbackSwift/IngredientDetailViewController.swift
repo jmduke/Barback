@@ -8,21 +8,6 @@
 
 import UIKit
 
-extension UIFont {
-    
-    var primaryFant: String {
-    get {
-        return "Futura"
-    }
-    }
-    
-    var heavyFant: String {
-    get {
-        return "Futura-MediumItalic"
-    }
-    }
-}
-
 class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var ingredientNameLabel : UILabel
@@ -107,8 +92,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFant, size: 20)
-        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFant, size: 14)
+        cell.textLabel.font = UIFont(name: UIFont().primaryFont(), size: 20)
+        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont(), size: 14)
         
         cell.textLabel.textColor = UIColor().darkColor()
         cell.detailTextLabel.textColor = UIColor().lighterColor()
@@ -157,19 +142,19 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
         self.navigationController.navigationBar.translucent = false
         self.navigationController.navigationBar.tintColor = UIColor().backgroundColor()
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFant, size: 20)]
+        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
         
         self.scrollView.backgroundColor = UIColor().backgroundColor()
         
         self.ingredientNameLabel.textColor = UIColor().darkColor()
-        self.ingredientNameLabel.font = UIFont(name: UIFont().heavyFant, size: 32)
+        self.ingredientNameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
         self.ingredientNameLabel.textAlignment = NSTextAlignment.Center
         
         self.ingredientDescriptionLabel.textColor = UIColor().darkColor()
-        self.ingredientDescriptionLabel.font = UIFont(name: UIFont().primaryFant, size: 15)
+        self.ingredientDescriptionLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
         
         for label in [self.brandTableLabel, self.drinksTableLabel] {
-            label.font = UIFont(name: UIFont().heavyFant, size: 15)
+            label.font = UIFont(name: UIFont().heavyFont(), size: 15)
             label.textAlignment = NSTextAlignment.Center
             label.textColor = UIColor().lightColor()
         }

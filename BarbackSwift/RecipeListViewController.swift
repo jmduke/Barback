@@ -9,15 +9,6 @@
 import Foundation
 import UIKit
 
-extension UIFont {
-    
-    var primaryFOnt: String {
-    get {
-        return "Futura-Medium"
-    }
-    }
-}
-
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
@@ -43,7 +34,7 @@ class RecipeListViewController: UITableViewController {
         
         self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
         self.navigationController.navigationBar.topItem.title = viewTitle
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFOnt, size: 20)]
+        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
         
         self.tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
         self.tableView.sectionIndexColor = UIColor().darkColor()
@@ -57,7 +48,7 @@ class RecipeListViewController: UITableViewController {
         self.tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         self.tableView.sectionIndexColor = UIColor().darkColor()
         
-        UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFOnt, size: 16)], forState: UIControlState.Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
 
     }
     
@@ -93,8 +84,8 @@ class RecipeListViewController: UITableViewController {
     }
     
     func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFOnt, size: 20)
-        cell.detailTextLabel.font = UIFont(name: UIFont().primaryFOnt, size: 14)
+        cell.textLabel.font = UIFont(name: UIFont().primaryFont(), size: 20)
+        cell.detailTextLabel.font = UIFont(name: UIFont().primaryFont(), size: 14)
         
         cell.textLabel.textColor = UIColor().lightColor()
         cell.detailTextLabel.textColor = UIColor().lighterColor()
