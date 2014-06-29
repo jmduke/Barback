@@ -22,13 +22,18 @@ class Brand {
         }
     }
     
-    init() {
-        self.name = ""
-        self.price = 0
+    init(name: String, price: Int) {
+        self.name = name
+        self.price = price
     }
     
-    init(rawBrand: NSDictionary) {
-        self.name = rawBrand.objectForKey("name") as String
-        self.price = rawBrand.objectForKey("price") as Int
+    convenience init() {
+        self.init(name: "", price: 0)
+    }
+    
+    convenience init(rawBrand: NSDictionary) {
+        let name = rawBrand.objectForKey("name") as String
+        let price = rawBrand.objectForKey("price") as Int
+        self.init(name: name, price: price)
     }
 }

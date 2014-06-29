@@ -44,12 +44,8 @@ class Recipe {
     }
     
     // Should only be used for 'fake' recipes.
-    init(name: String) {
-        self.name = name
-        self.lowercaseName = name.lowercaseString
-        self.directions = ""
-        self.glassware = ""
-        self.ingredients = Ingredient[]()
+    convenience init(name: String) {
+        self.init(name: name, directions: "", glassware: "", ingredients: Ingredient[]())
     }
     
     init(name: String, directions: String, glassware: String, ingredients: Ingredient[]) {
@@ -60,17 +56,18 @@ class Recipe {
         self.ingredients = ingredients
     }
     
-    init(rawRecipe: NSDictionary) {
-        self.name = rawRecipe.objectForKey("name") as String
-        self.lowercaseName = self.name.lowercaseString
-        self.directions = rawRecipe.objectForKey("preparation") as String
-        self.glassware = rawRecipe.objectForKey("glass") as String
+    convenience init(rawRecipe: NSDictionary) {
+        let name = rawRecipe.objectForKey("name") as String
+        let directions = rawRecipe.objectForKey("preparation") as String
+        let glassware = rawRecipe.objectForKey("glass") as String
         
         let rawIngredients = rawRecipe.objectForKey("ingredients") as NSDictionary[]
-        self.ingredients =  rawIngredients.map({
+        let ingredients = rawIngredients.map({
             (rawIngredient: NSDictionary) -> Ingredient in
             return Ingredient(rawIngredient: rawIngredient)
             })
+        
+        self.init(name: name, directions: directions, glassware: glassware, ingredients: ingredients)
     }
     
     class func random() -> Recipe {

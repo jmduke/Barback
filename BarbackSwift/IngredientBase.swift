@@ -18,24 +18,28 @@ class IngredientBase {
         self.init(name: "")
     }
     
-    init(name: String) {
+    init(name: String, brands: Brand[], description: String) {
         self.name = name
         self.lowercaseName = name.lowercaseString
-        self.brands = Brand[]()
-        self.description = ""
+        self.brands = brands
+        self.description = description
+    }
+    
+    convenience init(name: String) {
+        self.init(name: name, brands: Brand[](), description: "")
     }
 
-    init(rawIngredient: NSDictionary) {
-        self.name = (rawIngredient.objectForKey("name") as String)
-        self.lowercaseName = self.name.lowercaseString
-        self.description = rawIngredient.objectForKey("description") as String
+    convenience init(rawIngredient: NSDictionary) {
+        let name = (rawIngredient.objectForKey("name") as String)
+        let description = rawIngredient.objectForKey("description") as String
         
         let rawBrands = rawIngredient.objectForKey("brands") as NSDictionary[]
-        
-        self.brands =  rawBrands.map({
+        let brands = rawBrands.map({
             (rawBrand: NSDictionary) -> Brand in
             return Brand(rawBrand: rawBrand)
             })
+        
+        self.init(name: name, brands: brands, description: description)
     }
     
     class func getIngredientBase(fromName: String) -> IngredientBase {

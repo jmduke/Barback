@@ -28,23 +28,24 @@ class Ingredient {
         }
     }
     
-    init(base: String, amount: Float?, label: String?) {
-        self.base = IngredientBase(name: base)
+    init(base: String, amount: Float?, label: String?, isSpecial: Bool) {
+        self.base = IngredientBase.getIngredientBase(base)
         self.amount = amount
         self.label = label
         self.lowercaseLabel = label?.lowercaseString
+        self.isSpecial = isSpecial
     }
     
-    init(rawIngredient: NSDictionary) {
+    convenience init(rawIngredient: NSDictionary) {
         var baseName = rawIngredient.objectForKey("ingredient") as? String
+        var isSpecial = false
         if !baseName {
             baseName = rawIngredient.objectForKey("special") as? String
-            self.isSpecial = true
+            isSpecial = true
         }
-        self.base = IngredientBase.getIngredientBase(baseName!)
-        self.label = rawIngredient.objectForKey("label") as? String
-        self.lowercaseLabel = self.label?.lowercaseString
-        self.amount = rawIngredient.objectForKey("cl") as? Float
+        let label = rawIngredient.objectForKey("label") as? String
+        let amount = rawIngredient.objectForKey("cl") as? Float
+        self.init(base: baseName!, amount: amount, label: label, isSpecial: isSpecial)
     }
     
     func description() -> String {
