@@ -205,7 +205,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cellIdentifier = "ingredientCell"
-        
         var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Value1,
                 reuseIdentifier: cellIdentifier)
         
@@ -213,19 +212,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         cell!.textLabel.text = ingredient.base.name
         cell!.detailTextLabel.text = ingredient.detailDescription
-
+        cell!.stylePrimary()
         
-        styleCell(cell!)
         return cell
-    }
-    
-    func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFont(), size: 20)
-        cell.detailTextLabel.font = UIFont(name: UIFont().heavyFont(), size: 16)
-        
-        cell.textLabel.textColor = UIColor().darkColor()
-        cell.detailTextLabel.textColor = UIColor().lighterColor()
-        
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {

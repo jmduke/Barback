@@ -65,23 +65,9 @@ class RecipeListViewController: UITableViewController {
 
         cell.text = recipe.name
         cell.detailTextLabel.text = recipe.detailDescription
-        
-        styleCell(cell)
+        cell.stylePrimary()
         
         return cell
-    }
-    
-    func styleCell(cell: UITableViewCell) {
-        cell.textLabel.font = UIFont(name: UIFont().primaryFont(), size: 20)
-        cell.detailTextLabel.font = UIFont(name: UIFont().primaryFont(), size: 14)
-        
-        cell.textLabel.textColor = UIColor().lightColor()
-        cell.detailTextLabel.textColor = UIColor().lighterColor()
-        
-        
-        if (cell.textLabel.text == "Bartender's Choice" || cell.textLabel.text == "Shopping List") {
-            cell.textLabel.textColor = UIColor().tintColor()
-        }
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

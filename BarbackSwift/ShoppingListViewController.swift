@@ -73,7 +73,6 @@ class ShoppingListViewController: RecipeListViewController {
         }
         
         cell!.textLabel.text = self.ingredients[indexPath.row]
-        styleCell(cell!)
         if find(selectedCellIndices, indexPath.row) {
             cell!.textLabel.textColor = UIColor().lighterColor()
         }
