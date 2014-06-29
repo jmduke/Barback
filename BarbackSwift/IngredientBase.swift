@@ -10,6 +10,7 @@ import Foundation
 
 class IngredientBase {
     var name: String
+    var lowercaseName: String // Making this an actual variable for performance reasons.
     var brands: Brand[]
     var description: String
     
@@ -19,12 +20,14 @@ class IngredientBase {
     
     init(name: String) {
         self.name = name
+        self.lowercaseName = name.lowercaseString
         self.brands = Brand[]()
         self.description = ""
     }
 
     init(rawIngredient: NSDictionary) {
         self.name = (rawIngredient.objectForKey("name") as String)
+        self.lowercaseName = self.name.lowercaseString
         self.description = rawIngredient.objectForKey("description") as String
         
         let rawBrands = rawIngredient.objectForKey("brands") as NSDictionary[]
@@ -36,32 +39,32 @@ class IngredientBase {
     }
     
     class func getIngredientBase(fromName: String) -> IngredientBase {
-        let possibleMatch: IngredientBase[] = AllIngredients.sharedInstance.filter({$0.name == fromName})
-        if possibleMatch.count > 0 {
-            return possibleMatch[0]
+        if let possibleMatch = AllIngredients.sharedInstance[fromName] {
+            return possibleMatch
         }
         return IngredientBase(name: fromName)
     }
 }
 
 class AllIngredients {
-    class var sharedInstance : IngredientBase[] {
+    class var sharedInstance : Dictionary<String,IngredientBase> {
         struct Static {
         
-            static let instance : IngredientBase[] = Static.allIngredients()
-            static func allIngredients() -> IngredientBase[] {
+            static let instance : Dictionary<String,IngredientBase> = Static.allIngredients()
+            static func allIngredients() -> Dictionary<String,IngredientBase> {
                 let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
                 let jsonData = NSString.stringWithContentsOfFile(filepath, encoding:NSUTF8StringEncoding, error: nil)
                 let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
                 var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData, options: nil, error: nil) as NSDictionary[]
                 
-                var allIngredients = rawIngredients.map({
-                    (rawIngredient: NSDictionary) -> IngredientBase in
-                    return IngredientBase(rawIngredient: rawIngredient)
-                    })
-                allIngredients = sort(allIngredients) { $0.name < $1.name }
+                var ingredientDict: Dictionary<String,IngredientBase> = [:]
+                for rawIngredient in rawIngredients {
+                    let ingredientBase = IngredientBase(rawIngredient: rawIngredient)
+                    ingredientDict[ingredientBase.name] = ingredientBase
+                }
                 
-                return allIngredients
+                
+                return ingredientDict
             }
         }
         return Static.instance

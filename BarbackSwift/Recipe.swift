@@ -10,6 +10,7 @@ import Foundation
 
 class Recipe {
     var name: String
+    var lowercaseName: String // Actually making this a variable for performance reasons.
     var directions: String
     var glassware: String
     var ingredients: Ingredient[]
@@ -45,6 +46,7 @@ class Recipe {
     // Should only be used for 'fake' recipes.
     init(name: String) {
         self.name = name
+        self.lowercaseName = name.lowercaseString
         self.directions = ""
         self.glassware = ""
         self.ingredients = Ingredient[]()
@@ -52,6 +54,7 @@ class Recipe {
     
     init(name: String, directions: String, glassware: String, ingredients: Ingredient[]) {
         self.name = name
+        self.lowercaseName = name.lowercaseString
         self.directions = directions
         self.glassware = glassware
         self.ingredients = ingredients
@@ -59,6 +62,7 @@ class Recipe {
     
     init(rawRecipe: NSDictionary) {
         self.name = rawRecipe.objectForKey("name") as String
+        self.lowercaseName = self.name.lowercaseString
         self.directions = rawRecipe.objectForKey("preparation") as String
         self.glassware = rawRecipe.objectForKey("glass") as String
         
@@ -83,7 +87,7 @@ class Recipe {
             }
             
             // If the term matches the name of the recipe..
-            if self.name.lowercaseString.rangeOfString(term) {
+            if self.lowercaseName.rangeOfString(term) {
                 continue
             }
             

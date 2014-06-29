@@ -331,6 +331,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="height" secondItem="ct9-66-Hw0" secondAttribute="height" id="Wcc-eP-i7s"/>
                             <constraint firstItem="Q29-Ke-qiu" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="bottom" id="gbg-vj-sZE"/>
                         </constraints>
                     </view>

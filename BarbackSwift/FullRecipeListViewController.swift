@@ -43,9 +43,10 @@ class FullRecipeListViewController: RecipeListViewController {
     }
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+        let firstCharacter = self.firstCharactersOfRecipes![section]
         return recipes.filter({
             (recipe: Recipe) -> Bool in
-            return recipe.name.hasPrefix(self.firstCharactersOfRecipes![section])
+            return recipe.name.hasPrefix(firstCharacter)
             }).count
     }
     

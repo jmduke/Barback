@@ -30,7 +30,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
         // If it's the last row, return the Shopping List row.
-        if indexPath.row >= recipes.count {
+        if indexPath.row == recipes.count {
             let shoppingListRecipe = Recipe(name: "Shopping List")
             var cell = cellForRecipe(shoppingListRecipe, andIndexPath: indexPath)
             return cell
@@ -44,9 +44,14 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         self.tableView.reloadData()
         
         loadCoachMarks()
+        
+        super.viewDidAppear(animated)
     }
     
     func loadCoachMarks() {
+        if recipes.count < 3 {
+            return
+        }
         
         let favoritePosition = tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)).frame.rectByUnion(tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)).frame).rectByUnion(tableView(self.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)).frame)
         let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"

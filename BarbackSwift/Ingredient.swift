@@ -12,6 +12,7 @@ class Ingredient {
     var base: IngredientBase
     var amount: Float?
     var label: String?
+    var lowercaseLabel: String?
     var isSpecial = false
     
     var detailDescription: String {
@@ -31,6 +32,7 @@ class Ingredient {
         self.base = IngredientBase(name: base)
         self.amount = amount
         self.label = label
+        self.lowercaseLabel = label?.lowercaseString
     }
     
     init(rawIngredient: NSDictionary) {
@@ -41,6 +43,7 @@ class Ingredient {
         }
         self.base = IngredientBase.getIngredientBase(baseName!)
         self.label = rawIngredient.objectForKey("label") as? String
+        self.lowercaseLabel = self.label?.lowercaseString
         self.amount = rawIngredient.objectForKey("cl") as? Float
     }
     
@@ -49,7 +52,7 @@ class Ingredient {
     }
     
     func matchesTerm(searchTerm: String) -> Bool {
-        return self.base.name.lowercaseString.rangeOfString(searchTerm) || (self.label && self.label!.lowercaseString.rangeOfString(searchTerm))
+        return self.base.lowercaseName.rangeOfString(searchTerm) || (self.label && self.lowercaseLabel!.rangeOfString(searchTerm))
     }
     
     func displayAmount() -> String {
