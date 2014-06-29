@@ -137,12 +137,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         styleController()
     }
 
-    func styleController() {
-        self.setNeedsStatusBarAppearanceUpdate()
-        self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        self.navigationController.navigationBar.translucent = false
-        self.navigationController.navigationBar.tintColor = UIColor().backgroundColor()
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
+    override func styleController() {
+        super.styleController()
         
         self.scrollView.backgroundColor = UIColor().backgroundColor()
         

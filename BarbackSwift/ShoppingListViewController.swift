@@ -39,14 +39,6 @@ class ShoppingListViewController: RecipeListViewController {
         let backButton = UIBarButtonItem(title: "Back", style:UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
         backButton.setTitleTextAttributes([UITextAttributeFont: UIFont(name: "Futura-Medium", size: 16)], forState: UIControlState.Normal)
         self.navigationItem.leftBarButtonItem = backButton
-        self.setNeedsStatusBarAppearanceUpdate()
-        
-        // Style the top bar.
-        self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        
-        self.navigationController.navigationBar.translucent = false
-        self.navigationController.navigationBar.tintColor = UIColor().backgroundColor()
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: "Futura-Medium", size: 20)]
         
         // Preserve selection of table elements.
         self.clearsSelectionOnViewWillAppear = false

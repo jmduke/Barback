@@ -26,30 +26,18 @@ class RecipeListViewController: UITableViewController {
         self.recipes = self.allRecipes.filter(filterRecipes)
     }
     
-    func styleController() {
-        self.navigationController.navigationBar.translucent = false
+    override func styleController() {
+        super.styleController()
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.tableView.backgroundView = nil
         self.tableView.backgroundColor = UIColor().backgroundColor()
         
-        self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        self.navigationController.navigationBar.topItem.title = viewTitle
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
-        
         self.tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
         self.tableView.sectionIndexColor = UIColor().darkColor()
         
-        if (self.tabBarController) {
-            self.tabBarController.tabBar.translucent = false
-            self.tabBarController.tabBar.barTintColor = UIColor().darkColor()
-            self.tabBarController.tabBar.tintColor = UIColor().tintColor()
-        }
-        
         self.tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         self.tableView.sectionIndexColor = UIColor().darkColor()
-        
-        UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
-
     }
     
     override func didReceiveMemoryWarning() {

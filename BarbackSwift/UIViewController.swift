@@ -26,5 +26,21 @@ extension UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    
+    func styleController() {
+        self.navigationController.navigationBar.translucent = false
+        
+        self.navigationController.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
+        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
+        
+        if (self.tabBarController) {
+            self.tabBarController.tabBar.translucent = false
+            self.tabBarController.tabBar.barTintColor = UIColor().darkColor()
+            self.tabBarController.tabBar.tintColor = UIColor().tintColor()
+        }
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
+    }
 
 }
