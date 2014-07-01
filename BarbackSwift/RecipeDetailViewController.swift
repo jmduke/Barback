@@ -220,28 +220,25 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell: UITableViewCell?
         if (tableView == self.ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
-            var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Value1,
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
-            
             cell!.textLabel.text = ingredient.base.name
             cell!.detailTextLabel.text = ingredient.detailDescription
-            
-            return cell
         } else {
             let cellIdentifier = "similarCell"
-            var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Subtitle,
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
                 reuseIdentifier: cellIdentifier)
             
             let similarRecipe = similarRecipes![indexPath.row]
             cell!.textLabel.text = similarRecipe.name
             cell!.detailTextLabel.text = similarRecipe.detailDescription
-
-            return cell
         }
+        return cell
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
