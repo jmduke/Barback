@@ -80,6 +80,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addGestureRecognizer(rightSwipeRecognizer)
         
         styleController()
+        NSLog(self.recipe!.similarRecipes().map({ $0.name }).description)
     }
     
     func goToPreviousView(sender: AnyObject) {
