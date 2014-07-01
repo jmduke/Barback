@@ -13,6 +13,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
 
     var recipe: Recipe?
     var isRandom: Bool?
+    var similarRecipes: Recipe[]?
     
     @IBOutlet var nameLabel: UILabel
     @IBOutlet var directionsLabel : UILabel
@@ -22,6 +23,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var favoriteButton : UIButton
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint
     @IBOutlet var facebookButton : UIButton
+    @IBOutlet var similarDrinksTableView: UITableView
+    @IBOutlet var similarDrinksLabel: UILabel
     @IBOutlet var twitterButton : UIButton
 
     
@@ -42,13 +45,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         if !recipe {
             recipe = Recipe.random()
+            similarRecipes = recipe!.similarRecipes(3)
             self.isRandom = true
         }
         
-        // Tell table to look at this class for info.
+        // Tell tables to look at this class for info.
         self.ingredientsTableView.delegate = self
         self.ingredientsTableView.dataSource = self
         self.ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
+        self.similarDrinksTableView.delegate = self
+        self.similarDrinksTableView.dataSource = self
+        self.similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
+        
 
         // Set nav bar title.
         self.title = recipe!.name
@@ -80,7 +88,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.view.addGestureRecognizer(rightSwipeRecognizer)
         
         styleController()
-        NSLog(self.recipe!.similarRecipes().map({ $0.name }).description)
     }
     
     func goToPreviousView(sender: AnyObject) {
@@ -121,6 +128,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.ingredientsTableView.reloadData()
+        self.similarDrinksTableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool)  {
@@ -152,6 +160,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         self.glasswareLabel.textAlignment = NSTextAlignment.Center
         self.glasswareLabel.textColor = UIColor().lightColor()
         
+        self.similarDrinksLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
+        self.similarDrinksLabel.textAlignment = NSTextAlignment.Center
+        self.similarDrinksLabel.textColor = UIColor().lightColor()
         
         self.view.layoutIfNeeded()
     }
@@ -201,25 +212,44 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return recipe!.ingredients.count
+        if (tableView == self.ingredientsTableView) {
+            return recipe!.ingredients.count
+        } else {
+            return similarRecipes!.count
+        }
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cellIdentifier = "ingredientCell"
-        var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Value1,
+        if (tableView == self.ingredientsTableView) {
+            let cellIdentifier = "ingredientCell"
+            var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Value1,
+                    reuseIdentifier: cellIdentifier)
+            
+            let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
+            
+            cell!.textLabel.text = ingredient.base.name
+            cell!.detailTextLabel.text = ingredient.detailDescription
+            
+            return cell
+        } else {
+            let cellIdentifier = "similarCell"
+            var cell: UITableViewCell? = UITableViewCell(style: UITableViewCellStyle.Subtitle,
                 reuseIdentifier: cellIdentifier)
-        
-        let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
-        
-        cell!.textLabel.text = ingredient.base.name
-        cell!.detailTextLabel.text = ingredient.detailDescription
-        cell!.stylePrimary()
-        
-        return cell
+            
+            let similarRecipe = similarRecipes![indexPath.row]
+            cell!.textLabel.text = similarRecipe.name
+            cell!.detailTextLabel.text = similarRecipe.detailDescription
+
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        self.performSegueWithIdentifier("ingredientDetail", sender: nil)
+        if tableView == self.ingredientsTableView {
+            self.performSegueWithIdentifier("ingredientDetail", sender: nil)
+        } else {
+            self.performSegueWithIdentifier("similarRecipe", sender: nil)
+        }
     }
     
 
@@ -235,22 +265,35 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func setRecipe(recipe: Recipe) {
         self.recipe = recipe
+        self.similarRecipes = recipe.similarRecipes(2)
         
         // Disallow shake gestures.
         self.resignFirstResponder()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        
-        let destination = segue!.destinationViewController as IngredientDetailViewController
-        
-        var ingredient = getSelectedIngredient()
-        destination.setIngredient(ingredient)
+        if segue!.identifier == "ingredientDetail" {
+            let destination = segue!.destinationViewController as IngredientDetailViewController
+            var ingredient = getSelectedIngredient()
+            destination.setIngredient(ingredient)
+        } else {
+            let destination = segue!.destinationViewController as RecipeDetailViewController
+            var recipe = getSelectedRecipe()
+            destination.setRecipe(recipe)
+        }
+    }
+    
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.stylePrimary()
     }
     
     
     func getSelectedIngredient() -> IngredientBase {
         return self.recipe!.ingredients[self.ingredientsTableView.indexPathForSelectedRow().row].base
+    }
+    
+    func getSelectedRecipe() -> Recipe {
+        return self.similarRecipes![self.similarDrinksTableView.indexPathForSelectedRow().row]
     }
     
 }

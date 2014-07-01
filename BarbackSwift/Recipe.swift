@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Recipe {
+class Recipe: Equatable {
     var name: String
     var lowercaseName: String // Actually making this a variable for performance reasons.
     var directions: String
@@ -30,8 +30,6 @@ class Recipe {
             NSUserDefaults.standardUserDefaults().setObject(currentFavorites, forKey: "saved")
         }
     }
-    
-    
     
     var detailDescription: String {
         get {
@@ -75,19 +73,30 @@ class Recipe {
         return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
     }
     
-    func similarRecipes() -> Recipe[] {
+    func similarRecipes(recipeCount: Int) -> Recipe[] {
         let ingredientBases = self.ingredients.map({$0.base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(self.ingredients.count) / 2.0))
         
-        let similarRecipes = AllRecipes.sharedInstance.filter({
+        var similarRecipes = AllRecipes.sharedInstance.filter({
             (recipe: Recipe) -> Bool in
             let comparisonBases = recipe.ingredients.map({$0.base.name})
             let matchedIngredients = ingredientBases.filter({ contains(comparisonBases, $0) })
             return matchedIngredients.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
         })
-        return similarRecipes
+        
+        if similarRecipes.count <= recipeCount {
+            return similarRecipes
+        }
+        
+        var chosenRecipes: Recipe[] = Recipe[]()
+        while chosenRecipes.count < recipeCount {
+            let randomIndex = Int(arc4random_uniform(UInt32(similarRecipes.count)))
+            chosenRecipes.append(similarRecipes[randomIndex])
+            similarRecipes.removeAtIndex(randomIndex)
+        }
+        return chosenRecipes
     }
-    
+
     func matchesTerms(searchTerms: NSString[]) -> Bool {
         for term: NSString in searchTerms {
             
@@ -116,6 +125,12 @@ class Recipe {
         return true
     }
 }
+
+
+func == (lhs: Recipe, rhs: Recipe) -> Bool {
+    return lhs.name == rhs.name
+}
+
 
 class AllRecipes {
     class var sharedInstance : Recipe[] {

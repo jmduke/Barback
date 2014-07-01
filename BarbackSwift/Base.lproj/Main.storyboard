@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
         <!--Full Recipe List View Controller-->
         <scene sceneID="uNH-Wj-m3w">
             <objects>
                 <tableViewController id="7ox-qJ-BHw" customClass="FullRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ugv-9C-Rdu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ugv-9C-Rdu">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +80,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m">
@@ -165,14 +166,47 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0">
+                                        <rect key="frame" x="0.0" y="338" width="320" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="similarCell" textLabel="aDT-PN-Wvg" detailTextLabel="857-Jv-YYs" style="IBUITableViewCellStyleSubtitle" id="5Vb-3X-SjO">
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Vb-3X-SjO" id="cQn-W1-mb0">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aDT-PN-Wvg">
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="857-Jv-YYs">
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="kG0-vg-g5x" kind="show" identifier="similarRecipe" id="S6h-SI-1T4"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE">
+                                        <rect key="frame" x="20" y="309" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="32" id="0GJ-jC-Mm7"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ccw-eS-3yg" secondAttribute="bottom" constant="101" id="GkR-JJ-DnO"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Ccw-eS-3yg" secondAttribute="bottom" constant="32" id="9TD-Al-FmO"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
                                     <constraint firstItem="Ccw-eS-3yg" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="O1s-dk-TyA"/>
-                                    <constraint firstAttribute="bottom" secondItem="QAV-SX-C6f" secondAttribute="bottom" constant="101" id="PuP-vH-X97"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Zg-K2-heU" secondAttribute="bottom" constant="101" id="PwF-vB-EEF"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
                                     <constraint firstItem="Ccw-eS-3yg" firstAttribute="leading" secondItem="0Zg-K2-heU" secondAttribute="trailing" constant="8" id="SNc-RU-76q"/>
                                     <constraint firstItem="QAV-SX-C6f" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="YpK-NA-8Tj"/>
@@ -180,8 +214,12 @@
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="8" id="aCB-5K-Tjc"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="gu7-eq-yev"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="0Zg-K2-heU" secondAttribute="bottom" constant="32" id="hgh-st-Ycf"/>
                                     <constraint firstItem="QAV-SX-C6f" firstAttribute="leading" secondItem="Ccw-eS-3yg" secondAttribute="trailing" constant="8" id="jRS-Q9-Xgy"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
+                                    <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="QAV-SX-C6f" secondAttribute="bottom" constant="32" id="vgK-FW-Q6N"/>
+                                    <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -206,6 +244,8 @@
                         <outlet property="ingredientsTableViewHeight" destination="KgV-r4-PpH" id="RbZ-9c-sXy"/>
                         <outlet property="nameLabel" destination="gmf-0i-cR3" id="jgN-ns-KiQ"/>
                         <outlet property="scrollView" destination="YnV-Wv-43m" id="cRF-FC-oko"/>
+                        <outlet property="similarDrinksLabel" destination="S12-BL-WRE" id="oHv-uq-UCS"/>
+                        <outlet property="similarDrinksTableView" destination="2QU-SY-UI0" id="dnT-7d-Vnt"/>
                         <outlet property="twitterButton" destination="QAV-SX-C6f" id="lhD-kY-FKS"/>
                     </connections>
                 </viewController>
@@ -356,7 +396,7 @@
         <scene sceneID="5CN-yM-Nyi">
             <objects>
                 <tableViewController id="CSS-iK-FbD" customClass="SearchRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3iu-ex-daL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3iu-ex-daL">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -409,7 +449,7 @@
         <scene sceneID="MWD-dZ-zRQ">
             <objects>
                 <tableViewController id="D1i-5W-v7Y" customClass="FavoriteRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P5R-xW-b3z">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P5R-xW-b3z">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
