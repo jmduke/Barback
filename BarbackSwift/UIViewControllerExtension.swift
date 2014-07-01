@@ -18,7 +18,7 @@ extension UIViewController {
         
         if !haveCoachMarksBeenShown {
             let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
-            coachMarksView.lblCaption.font = UIFont(name: "Futura-Medium", size: 20)
+            coachMarksView.lblCaption.font = UIFont(name: UIFont().primaryFont(), size: 20)
             self.view.addSubview(coachMarksView)
             coachMarksView.start()
             
