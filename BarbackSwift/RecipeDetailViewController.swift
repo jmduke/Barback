@@ -97,6 +97,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
         if motion == UIEventSubtype.MotionShake && self.isRandom {
             self.recipe = Recipe.random()
+            self.similarRecipes = self.recipe!.similarRecipes(2)
             self.viewDidLoad()
             self.viewWillAppear(true)
         }
