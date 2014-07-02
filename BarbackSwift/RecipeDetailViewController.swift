@@ -25,6 +25,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var facebookButton : UIButton
     @IBOutlet var similarDrinksTableView: UITableView
     @IBOutlet var similarDrinksLabel: UILabel
+    @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint
     @IBOutlet var twitterButton : UIButton
 
     
@@ -87,6 +88,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(rightSwipeRecognizer)
         
+        if self.similarRecipes!.count == 0 {
+            self.similarDrinksLabel.removeFromSuperview()
+            self.similarDrinksTableView.removeFromSuperview()
+            self.view.layoutIfNeeded()
+        }
+        
         styleController()
     }
     
@@ -97,7 +104,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
         if motion == UIEventSubtype.MotionShake && self.isRandom {
             self.recipe = Recipe.random()
-            self.similarRecipes = self.recipe!.similarRecipes(2)
+            self.similarRecipes = self.recipe!.similarRecipes(3)
             self.viewDidLoad()
             self.viewWillAppear(true)
         }
@@ -141,6 +148,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLayoutSubviews()  {
         let correctIngredientsHeight = min(self.view.bounds.size.height, self.ingredientsTableView.contentSize.height)
         self.ingredientsTableViewHeight.constant = correctIngredientsHeight
+        
+        let correctSimilarDrinksHeight = min(self.view.bounds.size.height, self.similarDrinksTableView.contentSize.height)
+        self.similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
         self.view.layoutIfNeeded()
     }
     
