@@ -23,6 +23,11 @@ class FullRecipeListViewController: RecipeListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapRecipesToCharacters()
+    }
+    
+    // Map recipes to their first characters to allow searching with the UITableViewIndex.
+    func mapRecipesToCharacters() {
         let firstCharacters = recipes.map({
             (recipe: Recipe) -> String in
             return String(Array(recipe.name)[0])
