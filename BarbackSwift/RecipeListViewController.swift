@@ -12,7 +12,6 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    let allRecipes: Recipe[] = AllRecipes.sharedInstance
     var recipes: Recipe[] = Recipe[]()
     
     override func viewDidAppear(animated: Bool)  {
@@ -23,7 +22,7 @@ class RecipeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleController()
-        self.recipes = self.allRecipes.filter(filterRecipes)
+        self.recipes = AllRecipes.sharedInstance.filter(filterRecipes)
     }
     
     override func styleController() {

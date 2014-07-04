@@ -62,13 +62,17 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
+        
+        // Grab search bar text and the recipes that match it.
         let rawSearchTerms = self.searchBar.text.componentsSeparatedByString(",") as NSString[]
         self.searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-
-        self.recipes = self.allRecipes.filter(filterRecipes)
+        self.recipes = AllRecipes.sharedInstance.filter(filterRecipes)
+        
+        // Allow a random choice!
         if (recipes.count > 1) {
             recipes.append(Recipe(name: "Bartender's Choice", directions: "", glassware: "", ingredients: Ingredient[]()))
         }
+        
         self.tableView.reloadData()
     }
 }
