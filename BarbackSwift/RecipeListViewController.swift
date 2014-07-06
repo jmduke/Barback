@@ -16,27 +16,27 @@ class RecipeListViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
-        self.title = viewTitle
+        title = viewTitle
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         styleController()
-        self.recipes = AllRecipes.sharedInstance.filter(filterRecipes)
+        recipes = AllRecipes.sharedInstance.filter(filterRecipes)
     }
     
     override func styleController() {
         super.styleController()
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.backgroundView = nil
-        self.tableView.backgroundColor = UIColor().backgroundColor()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.backgroundView = nil
+        tableView.backgroundColor = UIColor().backgroundColor()
         
-        self.tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
-        self.tableView.sectionIndexColor = UIColor().darkColor()
+        tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
+        tableView.sectionIndexColor = UIColor().darkColor()
         
-        self.tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
-        self.tableView.sectionIndexColor = UIColor().darkColor()
+        tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
+        tableView.sectionIndexColor = UIColor().darkColor()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,13 +74,13 @@ class RecipeListViewController: UITableViewController {
     }
     
     func getSelectedRecipe() -> Recipe {
-        return recipes[self.tableView.indexPathForSelectedRow().row]
+        return recipes[tableView.indexPathForSelectedRow().row]
     }
     
     
     // We have this logic in here so we don't try and segue on Shopping List.
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
-        let selectedIndex = self.tableView.indexPathForSelectedRow()
+        let selectedIndex = tableView.indexPathForSelectedRow()
         
         if selectedIndex.row >= recipes.count {
             return false

@@ -18,14 +18,14 @@ class Recipe: Equatable {
     var favorited: Bool {
         get {
             var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved"))
-            return currentFavorites.containsObject(self.name)
+            return currentFavorites.containsObject(name)
         }
         set(newBool) {
             var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved"))
-            if currentFavorites.containsObject(self.name) && !newBool {
-                currentFavorites.removeObject(self.name)
+            if currentFavorites.containsObject(name) && !newBool {
+                currentFavorites.removeObject(name)
             } else if newBool {
-                currentFavorites.addObject(self.name)
+                currentFavorites.addObject(name)
             }
             NSUserDefaults.standardUserDefaults().setObject(currentFavorites, forKey: "saved")
         }
@@ -74,8 +74,8 @@ class Recipe: Equatable {
     }
     
     func similarRecipes(recipeCount: Int) -> Recipe[] {
-        let ingredientBases = self.ingredients.map({$0.base.name})
-        let numberOfSimilarIngredientsRequired = Int(ceil(Double(self.ingredients.count) / 2.0))
+        let ingredientBases = ingredients.map({$0.base.name})
+        let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
         
         var similarRecipes = AllRecipes.sharedInstance.filter({
             (recipe: Recipe) -> Bool in
@@ -106,7 +106,7 @@ class Recipe: Equatable {
             }
             
             // If the term matches the name of the recipe..
-            if self.lowercaseName.rangeOfString(term) {
+            if lowercaseName.rangeOfString(term) {
                 continue
             }
             

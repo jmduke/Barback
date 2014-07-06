@@ -49,11 +49,11 @@ class Ingredient {
     }
     
     func description() -> String {
-        return self.base.name
+        return base.name
     }
     
     func matchesTerm(searchTerm: String) -> Bool {
-        return self.base.lowercaseName.rangeOfString(searchTerm) || (self.label && self.lowercaseLabel!.rangeOfString(searchTerm))
+        return base.lowercaseName.rangeOfString(searchTerm) || (label && lowercaseLabel!.rangeOfString(searchTerm))
     }
     
     func displayAmount() -> String {

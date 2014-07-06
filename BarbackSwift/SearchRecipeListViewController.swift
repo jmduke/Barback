@@ -24,29 +24,29 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     override func styleController() {
         super.styleController()
         
-        self.searchBar.translucent = false
-        self.searchBar.barTintColor = UIColor().darkColor()
+        searchBar.translucent = false
+        searchBar.barTintColor = UIColor().darkColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Allow us to actually pick up search bar input.
-        self.searchBar.delegate = self
+        searchBar.delegate = self
         
         // Initialize the filter function.
-        self.searchBar(self.searchBar, textDidChange: self.searchBar.text)
+        searchBar(searchBar, textDidChange: searchBar.text)
         
         // So we hide the keyboard when we tap away from it.
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tapRecognizer.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapRecognizer)
+        view.addGestureRecognizer(tapRecognizer)
         
         loadCoachMarks()
     }
     
     func loadCoachMarks() {
-        let searchBarPosition = self.searchBar.bounds
+        let searchBarPosition = searchBar.bounds
         let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
         
         let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
@@ -54,25 +54,25 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func dismissKeyboard() {
-        self.searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.matchesTerms(self.searchTerms)
+        return recipe.matchesTerms(searchTerms)
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
         
         // Grab search bar text and the recipes that match it.
-        let rawSearchTerms = self.searchBar.text.componentsSeparatedByString(",") as NSString[]
-        self.searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-        self.recipes = AllRecipes.sharedInstance.filter(filterRecipes)
+        let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as NSString[]
+        searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
+        recipes = AllRecipes.sharedInstance.filter(filterRecipes)
         
         // Allow a random choice!
         if (recipes.count > 1) {
             recipes.append(Recipe(name: "Bartender's Choice", directions: "", glassware: "", ingredients: Ingredient[]()))
         }
         
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 }

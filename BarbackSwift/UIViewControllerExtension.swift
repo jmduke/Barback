@@ -17,9 +17,9 @@ extension UIViewController {
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
         
         if !haveCoachMarksBeenShown {
-            let coachMarksView = WSCoachMarksView(frame: self.view.bounds, coachMarks: coachMarks)
+            let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: coachMarks)
             coachMarksView.lblCaption.font = UIFont(name: UIFont().primaryFont(), size: 20)
-            self.view.addSubview(coachMarksView)
+            view.addSubview(coachMarksView)
             coachMarksView.start()
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: userDefaultsKey)
@@ -28,16 +28,16 @@ extension UIViewController {
     }
     
     func styleController() {
-        self.navigationController.navigationBar.translucent = false
+        navigationController.navigationBar.translucent = false
         
-        self.navigationController.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        self.navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
+        navigationController.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController.navigationBar.barTintColor = UIColor().darkColor()
+        navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
         
-        if (self.tabBarController) {
-            self.tabBarController.tabBar.translucent = false
-            self.tabBarController.tabBar.barTintColor = UIColor().darkColor()
-            self.tabBarController.tabBar.tintColor = UIColor().tintColor()
+        if (tabBarController) {
+            tabBarController.tabBar.translucent = false
+            tabBarController.tabBar.barTintColor = UIColor().darkColor()
+            tabBarController.tabBar.tintColor = UIColor().tintColor()
         }
         
         UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)

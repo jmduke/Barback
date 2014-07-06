@@ -47,66 +47,63 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         if !recipe {
             recipe = Recipe.random()
             similarRecipes = recipe!.similarRecipes(3)
-            self.isRandom = true
+            isRandom = true
         }
         
-        // Tell tables to look at this class for info.
-        self.ingredientsTableView.delegate = self
-        self.ingredientsTableView.dataSource = self
-        self.ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
-        self.similarDrinksTableView.delegate = self
-        self.similarDrinksTableView.dataSource = self
-        self.similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
+        ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
         
-
-        // Set nav bar title.
-        self.title = recipe!.name
+        similarDrinksTableView.delegate = self
+        similarDrinksTableView.dataSource = self
+        similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
+        
+        title = recipe!.name
         
         // Switch tab bar item title back to the title if necessary.
-        if self.isRandom {
-            self.navigationController.tabBarItem.title = "Random"
+        if isRandom {
+            navigationController.tabBarItem.title = "Random"
         }
         
-        // Grab data from recipe.
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
-        // Register methods for buttons.
-        self.facebookButton.addTarget(self, action: "shareOnFacebook", forControlEvents: UIControlEvents.TouchUpInside)
-        self.twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
-        self.favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
+        facebookButton.addTarget(self, action: "shareOnFacebook", forControlEvents: UIControlEvents.TouchUpInside)
+        twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
+        favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
-        self.scrollView.delegate = self
+        scrollView.delegate = self
         
-        self.favoriteButton.selected = recipe!.favorited
+        favoriteButton.selected = recipe!.favorited
         
         
         // Allow folks to swipe right to go back.
         var rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
         rightSwipeRecognizer.numberOfTouchesRequired = 1
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
-        self.view.addGestureRecognizer(rightSwipeRecognizer)
+        view.addGestureRecognizer(rightSwipeRecognizer)
         
-        if self.similarRecipes!.count == 0 {
-            self.similarDrinksLabel.removeFromSuperview()
-            self.similarDrinksTableView.removeFromSuperview()
-            self.view.layoutIfNeeded()
+        // If there aren't any similar recipes, we can just hide the relevant elements.
+        if similarRecipes!.count == 0 {
+            similarDrinksLabel.removeFromSuperview()
+            similarDrinksTableView.removeFromSuperview()
+            view.layoutIfNeeded()
         }
         
         styleController()
     }
     
     func goToPreviousView(sender: AnyObject) {
-        self.navigationController.popToRootViewControllerAnimated(true)
+        navigationController.popToRootViewControllerAnimated(true)
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
-        if motion == UIEventSubtype.MotionShake && self.isRandom {
-            self.recipe = Recipe.random()
-            self.similarRecipes = self.recipe!.similarRecipes(3)
-            self.viewDidLoad()
-            self.viewWillAppear(true)
+        if motion == UIEventSubtype.MotionShake && isRandom {
+            recipe = Recipe.random()
+            similarRecipes = recipe!.similarRecipes(3)
+            viewDidLoad()
+            viewWillAppear(true)
         }
     }
     
@@ -116,7 +113,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         facebookController.setInitialText("Just made a \(recipe!.name) with Barback!")
         facebookController.addURL(NSURL(fileURLWithPath: "http://getbarback.com"))
         
-        self.presentViewController(facebookController, animated: true, completion: nil)
+        presentViewController(facebookController, animated: true, completion: nil)
     }
     
     func shareOnTwitter() {
@@ -125,18 +122,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         twitterController.setInitialText("Just made a \(recipe!.name) with @getbarback!")
         twitterController.addURL(NSURL(fileURLWithPath: "http://getbarback.com"))
         
-        self.presentViewController(twitterController, animated: true, completion: nil)
+        presentViewController(twitterController, animated: true, completion: nil)
     }
     
     func markRecipeAsFavorite() {
         recipe!.favorited = !recipe!.favorited
-        self.favoriteButton.selected = !self.favoriteButton.selected
+        favoriteButton.selected = !favoriteButton.selected
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.ingredientsTableView.reloadData()
-        self.similarDrinksTableView.reloadData()
+        ingredientsTableView.reloadData()
+        similarDrinksTableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool)  {
@@ -146,42 +143,42 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidLayoutSubviews()  {
-        let correctIngredientsHeight = min(self.view.bounds.size.height, self.ingredientsTableView.contentSize.height)
-        self.ingredientsTableViewHeight.constant = correctIngredientsHeight
+        let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
+        ingredientsTableViewHeight.constant = correctIngredientsHeight
         
-        let correctSimilarDrinksHeight = min(self.view.bounds.size.height, self.similarDrinksTableView.contentSize.height)
-        self.similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
-        self.view.layoutIfNeeded()
+        let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
+        similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
+        view.layoutIfNeeded()
     }
     
     override func styleController() {
         super.styleController()
         
-        self.scrollView.backgroundColor = UIColor().backgroundColor()
+        scrollView.backgroundColor = UIColor().backgroundColor()
         
-        self.nameLabel.textColor = UIColor().darkColor()
-        self.nameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
-        self.nameLabel.textAlignment = NSTextAlignment.Center
+        nameLabel.textColor = UIColor().darkColor()
+        nameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
+        nameLabel.textAlignment = NSTextAlignment.Center
         
-        self.directionsLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
-        self.directionsLabel.textAlignment = NSTextAlignment.Center
-        self.directionsLabel.textColor = UIColor().darkColor()
+        directionsLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
+        directionsLabel.textAlignment = NSTextAlignment.Center
+        directionsLabel.textColor = UIColor().darkColor()
         
-        self.glasswareLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
-        self.glasswareLabel.textAlignment = NSTextAlignment.Center
-        self.glasswareLabel.textColor = UIColor().lightColor()
+        glasswareLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
+        glasswareLabel.textAlignment = NSTextAlignment.Center
+        glasswareLabel.textColor = UIColor().lightColor()
         
-        self.similarDrinksLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
-        self.similarDrinksLabel.textAlignment = NSTextAlignment.Center
-        self.similarDrinksLabel.textColor = UIColor().lightColor()
+        similarDrinksLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
+        similarDrinksLabel.textAlignment = NSTextAlignment.Center
+        similarDrinksLabel.textColor = UIColor().lightColor()
         
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     func loadCoachMarks() {
         var coachMarks = NSDictionary[]()
         
-        if self.isRandom {
+        if isRandom {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
             let shakeCaption = "Don't like this one?  Shake the phone for a new recipe."
@@ -190,11 +187,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             coachMarks.append(coachMark)
         }
         
-        let directionsPosition = self.directionsLabel.frame
+        let directionsPosition = directionsLabel.frame
         let directionsCaption = "Simple instructions on making your drinks."
         coachMarks.append(["rect": NSValue(CGRect: directionsPosition), "caption": directionsCaption])
         
-        let ingredientsPosition = self.ingredientsTableView.frame
+        let ingredientsPosition = ingredientsTableView.frame
         let ingredientsCaption = "Tap an ingredient to learn more about it."
         coachMarks.append(["rect": NSValue(CGRect: ingredientsPosition), "caption": ingredientsCaption])
         
@@ -208,7 +205,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
             
-            var favoritePosition = self.favoriteButton.frame
+            var favoritePosition = favoriteButton.frame
             favoritePosition.offset(dx: 0, dy: -scrollOffset)
             let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
             let scrolledCoachMarks = [["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption]]
@@ -223,7 +220,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        if (tableView == self.ingredientsTableView) {
+        if (tableView == ingredientsTableView) {
             return recipe!.ingredients.count
         } else {
             return similarRecipes!.count
@@ -232,7 +229,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell: UITableViewCell?
-        if (tableView == self.ingredientsTableView) {
+        if (tableView == ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
@@ -253,10 +250,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        if tableView == self.ingredientsTableView {
-            self.performSegueWithIdentifier("ingredientDetail", sender: nil)
+        if tableView == ingredientsTableView {
+            performSegueWithIdentifier("ingredientDetail", sender: nil)
         } else {
-            self.performSegueWithIdentifier("similarRecipe", sender: nil)
+            performSegueWithIdentifier("similarRecipe", sender: nil)
         }
     }
     
@@ -273,10 +270,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func setRecipe(recipe: Recipe) {
         self.recipe = recipe
-        self.similarRecipes = recipe.similarRecipes(2)
+        similarRecipes = recipe.similarRecipes(2)
         
         // Disallow shake gestures.
-        self.resignFirstResponder()
+        resignFirstResponder()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
@@ -297,11 +294,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func getSelectedIngredient() -> IngredientBase {
-        return self.recipe!.ingredients[self.ingredientsTableView.indexPathForSelectedRow().row].base
+        return recipe!.ingredients[ingredientsTableView.indexPathForSelectedRow().row].base
     }
     
     func getSelectedRecipe() -> Recipe {
-        return self.similarRecipes![self.similarDrinksTableView.indexPathForSelectedRow().row]
+        return similarRecipes![similarDrinksTableView.indexPathForSelectedRow().row]
     }
     
 }

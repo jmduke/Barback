@@ -32,14 +32,14 @@ class FullRecipeListViewController: RecipeListViewController {
             (recipe: Recipe) -> String in
             return String(Array(recipe.name)[0])
             })
-        self.firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? String[]
+        firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? String[]
         
-        for firstCharacter in self.firstCharactersOfRecipes! {
+        for firstCharacter in firstCharactersOfRecipes! {
             let firstCharacters = recipes.filter({
                 (recipe: Recipe) -> Bool in
                 return recipe.name.hasPrefix(firstCharacter)
                 })
-            self.filteredRecipesByFirstCharacter.append(firstCharacters)
+            filteredRecipesByFirstCharacter.append(firstCharacters)
         }
     }
     
@@ -48,7 +48,7 @@ class FullRecipeListViewController: RecipeListViewController {
     }
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        let firstCharacter = self.firstCharactersOfRecipes![section]
+        let firstCharacter = firstCharactersOfRecipes![section]
         return recipes.filter({
             (recipe: Recipe) -> Bool in
             return recipe.name.hasPrefix(firstCharacter)
@@ -56,7 +56,7 @@ class FullRecipeListViewController: RecipeListViewController {
     }
     
     override func getSelectedRecipe() -> Recipe {
-        return filteredRecipesByFirstCharacter[self.tableView.indexPathForSelectedRow().section][self.tableView.indexPathForSelectedRow().row]
+        return filteredRecipesByFirstCharacter[tableView.indexPathForSelectedRow().section][tableView.indexPathForSelectedRow().row]
     }
     
     override func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {

@@ -50,7 +50,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         var primaryText: String
         var detailText: String
         
-        if (tableView == self.drinksTableView) {
+        if (tableView == drinksTableView) {
             cellIdentifier = "drinkCell"
             
             let recipe = recipes[indexPath.row]
@@ -80,50 +80,46 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLayoutSubviews()  {
         
-        if self.brandTableViewHeight {
-            let correctBrandsHeight = self.brandsTableView.contentSize.height
-            self.brandTableViewHeight.constant = correctBrandsHeight
+        if brandTableViewHeight {
+            let correctBrandsHeight = brandsTableView.contentSize.height
+            brandTableViewHeight.constant = correctBrandsHeight
         }
         
-        let correctDrinksHeight = self.drinksTableView.contentSize.height
-        self.drinkTableViewHeight.constant = correctDrinksHeight
+        let correctDrinksHeight = drinksTableView.contentSize.height
+        drinkTableViewHeight.constant = correctDrinksHeight
         
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set nav bar title.
-        self.title = ingredient.name
+        title = ingredient.name
         
-        // Tell table to look at this class for info.
-        self.brandsTableView.delegate = self
-        self.brandsTableView.dataSource = self
-        self.brandsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "brandCell")
+        brandsTableView.delegate = self
+        brandsTableView.dataSource = self
+        brandsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "brandCell")
         
-        // Tell table to look at this class for info.
-        self.drinksTableView.delegate = self
-        self.drinksTableView.dataSource = self
-        self.drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
+        drinksTableView.delegate = self
+        drinksTableView.dataSource = self
+        drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
 
-        // Give our labels some text.
-        self.ingredientNameLabel.text = ingredient.name
-        self.ingredientDescriptionLabel.text = ingredient.description
-        self.brandTableLabel.text = "Recommended \(ingredient.name) brands"
-        self.drinksTableLabel.text = "Drinks containing \(ingredient.name)"
+        ingredientNameLabel.text = ingredient.name
+        ingredientDescriptionLabel.text = ingredient.description
+        brandTableLabel.text = "Recommended \(ingredient.name) brands"
+        drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
-        self.viewDidLayoutSubviews()
+        viewDidLayoutSubviews()
         
         if ingredient.description == "" {
             self.ingredientDescriptionLabel.removeFromSuperview()
-            self.view.layoutIfNeeded()
+            view.layoutIfNeeded()
         }
         
         if ingredient.brands.count == 0 {
-            self.brandTableLabel.removeFromSuperview()
-            self.brandsTableView.removeFromSuperview()
-            self.view.layoutIfNeeded()
+            brandTableLabel.removeFromSuperview()
+            brandsTableView.removeFromSuperview()
+            view.layoutIfNeeded()
         }
         
         styleController()
@@ -132,14 +128,14 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     override func styleController() {
         super.styleController()
         
-        self.scrollView.backgroundColor = UIColor().backgroundColor()
+        scrollView.backgroundColor = UIColor().backgroundColor()
         
-        self.ingredientNameLabel.textColor = UIColor().darkColor()
-        self.ingredientNameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
-        self.ingredientNameLabel.textAlignment = NSTextAlignment.Center
+        ingredientNameLabel.textColor = UIColor().darkColor()
+        ingredientNameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
+        ingredientNameLabel.textAlignment = NSTextAlignment.Center
         
-        self.ingredientDescriptionLabel.textColor = UIColor().darkColor()
-        self.ingredientDescriptionLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
+        ingredientDescriptionLabel.textColor = UIColor().darkColor()
+        ingredientDescriptionLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
         
         for label in [self.brandTableLabel, self.drinksTableLabel] {
             label.font = UIFont(name: UIFont().heavyFont(), size: 15)
@@ -155,7 +151,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        self.recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([self.ingredient.name.lowercaseString as NSString]) })
+        recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
@@ -167,12 +163,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func getSelectedRecipe() -> Recipe {
-        return recipes[self.drinksTableView.indexPathForSelectedRow().row]
+        return recipes[drinksTableView.indexPathForSelectedRow().row]
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        if tableView == self.drinksTableView {
-            self.performSegueWithIdentifier("recipeDetail", sender: nil)
+        if tableView == drinksTableView {
+            performSegueWithIdentifier("recipeDetail", sender: nil)
         }
     }
     
