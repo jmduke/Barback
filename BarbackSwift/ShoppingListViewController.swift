@@ -10,7 +10,8 @@ import UIKit
 
 class ShoppingListViewController: RecipeListViewController {
 
-    var ingredients: String[] = String[]()
+    var ingredients: IngredientBase[] = IngredientBase[]()
+    let ingredientTypes = ["spirit", "liqueur", "garnish", "mixer", "other"]
     var selectedCellIndices = Int[]()
     
     override var viewTitle: String {
@@ -28,7 +29,7 @@ class ShoppingListViewController: RecipeListViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    func setIngredients(ingredients: String[]) {
+    func setIngredients(ingredients: IngredientBase[]) {
         self.ingredients = ingredients
     }
  
@@ -42,9 +43,6 @@ class ShoppingListViewController: RecipeListViewController {
         
         // Preserve selection of table elements.
         self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func goBack() {
@@ -55,15 +53,25 @@ class ShoppingListViewController: RecipeListViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+        return ingredientTypes.count
+    }
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        return ingredients.count
+        let ingredientType = ingredientTypes[section]
+        let ingredientsForType = ingredients.filter({$0.type == ingredientType})
+        return ingredientsForType.count
     }
 
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 40
     }
 
+    override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+        return ingredientTypes[section]
+    }
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         
         let cellIdentifier = "shoppingCell"
@@ -72,22 +80,30 @@ class ShoppingListViewController: RecipeListViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel.text = self.ingredients[indexPath.row]
-        if find(selectedCellIndices, indexPath.row) {
+        let ingredientType = ingredientTypes[indexPath.section]
+        let ingredientsForType = ingredients.filter({$0.type == ingredientType})
+        cell!.textLabel.text = ingredientsForType[indexPath.row].name
+        cell!.stylePrimary()
+        
+        
+        let cellKey = indexPath.section * 100 + indexPath.row
+        if find(selectedCellIndices, cellKey) {
             cell!.textLabel.textColor = UIColor().lighterColor()
         }
+        
         return cell!
     }
 
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
-        if let cellIndex = find(selectedCellIndices, indexPath.row) {
+        let cellKey = indexPath.section * 100 + indexPath.row
+        if let cellIndex = find(selectedCellIndices, cellKey) {
             selectedCell.textLabel.textColor = UIColor().lightColor()
             selectedCellIndices.removeAtIndex(cellIndex)
         } else {
             selectedCell.textLabel.textColor = UIColor().lighterColor()
-            selectedCellIndices.append(indexPath.row)
+            selectedCellIndices.append(cellKey)
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)

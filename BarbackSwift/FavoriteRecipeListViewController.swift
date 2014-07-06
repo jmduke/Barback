@@ -63,16 +63,16 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         runCoachMarks(coachMarks)
     }
     
-    func ingredientsNeeded() -> String[] {
+    func ingredientsNeeded() -> IngredientBase[] {
         
         // Grab all the ingredient names.
         let allIngredients = recipes.map({
-            (recipe: Recipe) -> String[] in
-            return recipe.ingredients.map({$0.base.name})
+            (recipe: Recipe) -> IngredientBase[] in
+            return recipe.ingredients.map({$0.base})
             })
         
         // Flatten it into a list.
-        var flattenedIngredients = String[]()
+        var flattenedIngredients = IngredientBase[]()
         for ingredientList in allIngredients {
             for ingredient in ingredientList {
                 flattenedIngredients.append(ingredient)
@@ -80,8 +80,8 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         }
         
         // Remove duplicates.
-        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as String[]
-        uniqueIngredients.sort({$0 < $1})
+        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as IngredientBase[]
+        uniqueIngredients.sort({$0.name < $1.name})
         return uniqueIngredients
     }
     
