@@ -63,6 +63,26 @@ class ShoppingListViewController: RecipeListViewController {
         let ingredientsForType = ingredients.filter({$0.type == ingredientType})
         return ingredientsForType.count
     }
+    
+    override func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
+        var sectionLabel = UILabel()
+        sectionLabel.frame = CGRectMake(20, 0, 320, 40)
+        sectionLabel.font = UIFont(name: UIFont().heavyFont(), size: 16)
+        sectionLabel.textAlignment = NSTextAlignment.Left
+        sectionLabel.textColor = UIColor().lightColor()
+        
+        sectionLabel.text = ingredientTypes[section].capitalizedString + "s"
+        
+        var headerView = UIView()
+        headerView.addSubview(sectionLabel)
+        
+        return headerView
+    }
+    
+    
+    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
 
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 40

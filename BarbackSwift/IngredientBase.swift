@@ -41,7 +41,6 @@ class IngredientBase {
             (rawBrand: NSDictionary) -> Brand in
             return Brand(rawBrand: rawBrand)
             })
-        
         self.init(name: name, brands: brands, description: description, type: type)
     }
     
