@@ -56,7 +56,7 @@
       ],
       "name":"Calvados",
       "type":"spirit",
-      "description":"Calvados (French pronunciation: \u200b[kal.va.dos]; English /\u02c8k\u00e6lv\u0259do\u028as/) is a department in the Lower Normandy region in northwestern France. It takes its name from a cluster of rocks off the English Channel coast.\n\n"
+      "description":"Calvados (French pronunciation: ​[kal.va.dos]) is an apple brandy from the French region of Lower Normandy (Basse-Normandie)."
    },
    {
       "brands":[
@@ -196,7 +196,7 @@
       ],
       "name":"Peach bitters",
       "type":"garnish",
-      "description":"Joe Gilmore (born 19 May 1922) was one of the longest running Head Barmen at The Savoy Hotel's American Bar. Gilmore started as a trainee barman at The American Bar in 1940 and was appointed Head Barman in 1955, a position he held until he retired in 1976. Over his years as Head Barman, Gilmore invented numerous cocktails to mark special events and important guests, a longstanding tradition at the American Bar. Gilmore has invented cocktails in honor of a number of royalty, politicians and celebrities including The Prince of Wales, Prince William, The Princess Anne, Queen Elizabeth The Queen Mother, The Prince Andrew, Sir Winston Churchill, and American Presidents Harry S. Truman and Richard Nixon. He also invented cocktails to commemorate the first walk on the moon in 1969 by Neil Armstrong, and the American and Russian link-up in space in 1975. He was born in Belfast.\nIn addition to serving five generations of royals at private receptions and parties, Gilmore has also served Errol Flynn, Laurel and Hardy, Charlie Chaplin, Dwight D. Eisenhower, Grace Kelly, George Bernard Shaw, Ernest Hemingway, No\u00ebl Coward, Agatha Christie, Alice Faye, Ingrid Bergman, Julie Andrews, Laurence Olivier Joan Crawford, Judy Garland, Liza Minnelli, Bing Crosby and Frank Sinatra."
+      "description":""
    },
    {
       "brands":[
@@ -236,7 +236,7 @@
       ],
       "name":"Benedictine",
       "type":"liqueur",
-      "description":"The Order of Saint Benedict (OSB; Latin: Ordo Sancti Benedicti), also known \u2013 in reference to the colour of its members' habits \u2013 as the Black Monks, is a Roman Catholic religious order of independent monastic communities that observe the Rule of Saint Benedict. Each community (monastery, priory or abbey) within the order maintains its own autonomy, while the order itself represents their mutual interests. The terms \"Order of Saint Benedict\" and \"Benedictine Order\" are, however, also used to refer to Benedictine communities in toto, sometimes giving the incorrect impression that there exists a generalate or motherhouse with jurisdiction over them.\nInternationally, the order is governed by the Benedictine Confederation, a body, established in 1883 by Pope Leo XIII's Brief Summum semper, whose head is known as the Abbot Primate. Individuals whose communities are members of the order generally add the initials \"OSB\" after their names.\n\n"
+      "description": "Bénédictine is an herbal liqueur beverage developed by Alexandre Le Grand in the 19th century and produced in France. Every bottle of Bénédictine has the initials D.O.M. on the label, which stands for "Deo Optimo Maximo" ("To God, most good, most great"). This abbreviation is commonly used at the beginning of documents of the Benedictine Order as a short dedication of the work."
    },
    {
       "brands":[
@@ -339,8 +339,7 @@
 
       ],
       "name":"Strawberry syrup",
-      "type":"other",
-      "description":"A milkshake is a sweet, cold beverage which is usually made from milk, ice cream, or iced milk, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate sauce, or fruit syrup. Outside the United States, the drink is sometimes called a thickshake or a thick milkshake or in New England, a frappe, to differentiate it from other less viscous forms of flavored milk.\nFull-service restaurants, soda fountains, and diners usually prepare and mix the shake \"by hand\" from scoops of ice cream and milk in a blender or drink mixer using a stainless steel cup. Many fast food outlets do not make shakes by hand with ice cream. Instead, they make shakes in automatic milkshake machines which freeze and serve a premade milkshake mixture consisting of milk, a sweetened flavoring agent, and a thickening agent. However, some fast food outlets still follow the traditional method, and some serve milkshakes which are prepared by blending soft-serve ice cream (or ice milk) with flavoring or syrups. A milkshake can also be made by adding powder into fresh milk, and stirring the powder into the milk. Milkshakes made in this way can come in a variety of flavors, including chocolate, caramel, strawberry, and banana."
+      "type":"other"
    },
    {
       "brands":[
@@ -561,7 +560,7 @@
       ],
       "name":"Pepper",
       "type":"garnish",
-      "description":"Iron Man's armor is a fictional powered exoskeleton worn by the fictional comic book character Tony Stark when he assumes the superhero identity of Iron Man. The first armor (which in the story, was created by Stark and Ho Yinsen), was designed by artists Don Heck and Jack Kirby, and first appeared, along with Tony Stark, in Tales of Suspense #39 (March 1963).\nIn the fictional multiverse appearance of Stark's armor has radically changed over the years, either as a result of modifications made by Stark or specialized armors created for specific situations. In real life, it changed as different artists took over the series and decided to change it to what they wanted."
+      "description":"Regular ol' pepper.",
    },
    {
       "brands":[
@@ -812,7 +811,7 @@
       ],
       "name":"Olive juice",
       "type":"garnish",
-      "description":"Olive Juice is a romantic comedy shot on location in Mount Dora, Kissimmee and Orlando, Florida. It was the feature film directorial debut for Ken Hastings. It was one of the more significant independent films produced in the Florida film industry."
+      "description":""
    },
    {
       "brands":[
