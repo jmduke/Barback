@@ -71,7 +71,12 @@ class ShoppingListViewController: RecipeListViewController {
         sectionLabel.textAlignment = NSTextAlignment.Left
         sectionLabel.textColor = UIColor().lightColor()
         
-        sectionLabel.text = ingredientTypes[section].capitalizedString + "s"
+        sectionLabel.text = ingredientTypes[section].capitalizedString
+        if sectionLabel.text == "garnish" {
+            sectionLabel.text = "garnishes"
+        } else {
+            sectionLabel.text = sectionLabel.text + "s"
+        }
         
         var headerView = UIView()
         headerView.addSubview(sectionLabel)
