@@ -97,6 +97,18 @@ class ShoppingListViewController: RecipeListViewController {
         return ingredientTypes[section]
     }
     
+    
+    // Used in conjunction with selectedCellIndices to keep track of selected cells
+    func cellKeyForIndexPath(indexPath: NSIndexPath!) -> Int {
+        return indexPath.section * 100 + indexPath.row
+    }
+    
+    // Used in conjunction with selectedCellIndices to keep track of selected cells
+    func selectedCellTableIndexForIndexPath(indexPath: NSIndexPath!) -> Int? {
+        let cellKey = cellKeyForIndexPath(indexPath)
+        return find(selectedCellIndices, cellKey)
+    }
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         
         let cellIdentifier = "shoppingCell"
@@ -110,9 +122,7 @@ class ShoppingListViewController: RecipeListViewController {
         cell!.textLabel.text = ingredientsForType[indexPath.row].name
         cell!.stylePrimary()
         
-        
-        let cellKey = indexPath.section * 100 + indexPath.row
-        if find(selectedCellIndices, cellKey) {
+        if selectedCellTableIndexForIndexPath(indexPath) {
             cell!.textLabel.textColor = UIColor().lighterColor()
         }
         
@@ -122,13 +132,12 @@ class ShoppingListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
-        let cellKey = indexPath.section * 100 + indexPath.row
-        if let cellIndex = find(selectedCellIndices, cellKey) {
+        if let cellIndex = selectedCellTableIndexForIndexPath(indexPath) {
             selectedCell.textLabel.textColor = UIColor().lightColor()
             selectedCellIndices.removeAtIndex(cellIndex)
         } else {
             selectedCell.textLabel.textColor = UIColor().lighterColor()
-            selectedCellIndices.append(cellKey)
+            selectedCellIndices.append(cellKeyForIndexPath(indexPath))
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
