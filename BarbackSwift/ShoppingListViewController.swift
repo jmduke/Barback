@@ -72,6 +72,8 @@ class ShoppingListViewController: RecipeListViewController {
         sectionLabel.textColor = UIColor().lightColor()
         
         sectionLabel.text = ingredientTypes[section].capitalizedString
+        
+        // Special case because spelling.
         if sectionLabel.text == "garnish" {
             sectionLabel.text = "garnishes"
         } else {
