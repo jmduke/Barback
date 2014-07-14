@@ -23,4 +23,8 @@ extension UITableViewCell {
         }
     }
     
+    func primaryCellHeight() -> Float {
+        return 60
+    }
+    
 }
