@@ -10,9 +10,9 @@ import UIKit
 
 class ShoppingListViewController: RecipeListViewController {
 
-    var ingredients: IngredientBase[] = IngredientBase[]()
+    var ingredients: [IngredientBase] = [IngredientBase]()
     let ingredientTypes = ["spirit", "liqueur", "garnish", "mixer", "other"]
-    var selectedCellIndices = Int[]()
+    var selectedCellIndices = [Int]()
     
     override var viewTitle: String {
         get {
@@ -29,7 +29,7 @@ class ShoppingListViewController: RecipeListViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    func setIngredients(ingredients: IngredientBase[]) {
+    func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
     }
  
@@ -38,7 +38,7 @@ class ShoppingListViewController: RecipeListViewController {
         
         // Create ourselves a back button.
         let backButton = UIBarButtonItem(title: "Back", style:UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
-        backButton.setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
+        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
         navigationItem.leftBarButtonItem = backButton
         
         // Preserve selection of table elements.

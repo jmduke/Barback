@@ -13,7 +13,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
 
     var recipe: Recipe?
     var isRandom: Bool?
-    var similarRecipes: Recipe[]?
+    var similarRecipes: [Recipe]?
     
     @IBOutlet var nameLabel: UILabel
     @IBOutlet var directionsLabel : UILabel
@@ -178,7 +178,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func loadCoachMarks() {
-        var coachMarks = NSDictionary[]()
+        var coachMarks = [NSDictionary]()
         
         if isRandom {
             // We want the entire thing to hide, so define a 0,0 rect.

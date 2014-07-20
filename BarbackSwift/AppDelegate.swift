@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set font of tab bar items.
         var tabBarAttributes = NSMutableDictionary(dictionary: UITabBarItem.appearance().titleTextAttributesForState(UIControlState.Normal))
         tabBarAttributes.setValue(
-            UIFont(name: UIFont().primaryFont(), size: 10), forKey: UITextAttributeFont)
+            UIFont(name: UIFont().primaryFont(), size: 10), forKey: NSFontAttributeName)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
         // Configure review-nagger.

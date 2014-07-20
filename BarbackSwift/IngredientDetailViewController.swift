@@ -21,17 +21,17 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint
     
     var ingredient: IngredientBase
-    var recipes: Recipe[]
+    var recipes: [Recipe]
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         self.ingredient = IngredientBase()
-        self.recipes = Recipe[]()
+        self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     init(coder aDecoder: NSCoder!) {
         self.ingredient = IngredientBase()
-        self.recipes = Recipe[]()
+        self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
     

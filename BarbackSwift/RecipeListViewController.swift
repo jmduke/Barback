@@ -12,7 +12,7 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    var recipes: Recipe[] = Recipe[]()
+    var recipes: [Recipe] = [Recipe]()
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -62,7 +62,7 @@ class RecipeListViewController: UITableViewController {
         let cellIdentifier = "recipeCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
-        cell.text = recipe.name
+        cell.textLabel.text = recipe.name
         cell.detailTextLabel.text = recipe.detailDescription
         cell.stylePrimary()
         
