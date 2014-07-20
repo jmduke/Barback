@@ -15,7 +15,7 @@ class Brand {
     var detailDescription: String {
         get {
             var price = ""
-            for _ in 0..self.price {
+            for _ in 0..<self.price {
                 price += "$"
             }
             return price

@@ -13,7 +13,7 @@ class Recipe: Equatable {
     var lowercaseName: String // Actually making this a variable for performance reasons.
     var directions: String
     var glassware: String
-    var ingredients: Ingredient[]
+    var ingredients: [Ingredient]
     
     var favorited: Bool {
         get {
@@ -43,10 +43,10 @@ class Recipe: Equatable {
     
     // Should only be used for 'fake' recipes.
     convenience init(name: String) {
-        self.init(name: name, directions: "", glassware: "", ingredients: Ingredient[]())
+        self.init(name: name, directions: "", glassware: "", ingredients: [Ingredient]())
     }
     
-    init(name: String, directions: String, glassware: String, ingredients: Ingredient[]) {
+    init(name: String, directions: String, glassware: String, ingredients: [Ingredient]) {
         self.name = name
         self.lowercaseName = name.lowercaseString
         self.directions = directions
@@ -59,7 +59,7 @@ class Recipe: Equatable {
         let directions = rawRecipe.objectForKey("preparation") as String
         let glassware = rawRecipe.objectForKey("glass") as String
         
-        let rawIngredients = rawRecipe.objectForKey("ingredients") as NSDictionary[]
+        let rawIngredients = rawRecipe.objectForKey("ingredients") as [NSDictionary]
         let ingredients = rawIngredients.map({
             (rawIngredient: NSDictionary) -> Ingredient in
             return Ingredient(rawIngredient: rawIngredient)
@@ -73,7 +73,7 @@ class Recipe: Equatable {
         return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
     }
     
-    func similarRecipes(recipeCount: Int) -> Recipe[] {
+    func similarRecipes(recipeCount: Int) -> [Recipe] {
         let ingredientBases = ingredients.map({$0.base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
         
@@ -88,7 +88,7 @@ class Recipe: Equatable {
             return similarRecipes
         }
         
-        var chosenRecipes: Recipe[] = Recipe[]()
+        var chosenRecipes: [Recipe] = [Recipe]()
         while chosenRecipes.count < recipeCount {
             let randomIndex = Int(arc4random_uniform(UInt32(similarRecipes.count)))
             chosenRecipes.append(similarRecipes[randomIndex])
@@ -97,7 +97,7 @@ class Recipe: Equatable {
         return chosenRecipes
     }
 
-    func matchesTerms(searchTerms: NSString[]) -> Bool {
+    func matchesTerms(searchTerms: [NSString]) -> Bool {
         for term: NSString in searchTerms {
             
             // If the term is nil (e.g. the second item in "orange,", match errything.
@@ -133,20 +133,20 @@ func == (lhs: Recipe, rhs: Recipe) -> Bool {
 
 
 class AllRecipes {
-    class var sharedInstance : Recipe[] {
+    class var sharedInstance : [Recipe] {
         struct Static {
-            static let instance : Recipe[] = Static.allRecipes()
-            static func allRecipes() -> Recipe[] {
+            static let instance : [Recipe] = Static.allRecipes()
+            static func allRecipes() -> [Recipe] {
                 let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
                 let jsonData = NSString.stringWithContentsOfFile(filepath, encoding:NSUTF8StringEncoding, error: nil)
                 let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData, options: nil, error: nil) as NSDictionary[]
+                var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData, options: nil, error: nil) as [NSDictionary]
                 
-                var allRecipes = rawRecipes.map({
+                var allRecipes: [Recipe] = rawRecipes.map({
                     (rawRecipe: NSDictionary) -> Recipe in
                     return Recipe(rawRecipe: rawRecipe)
                     })
-                allRecipes = sort(allRecipes) { $0.name < $1.name }
+                allRecipes = allRecipes.sorted({ $0.name < $1.name })
                 return allRecipes
             }
         }

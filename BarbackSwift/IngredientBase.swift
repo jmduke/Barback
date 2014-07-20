@@ -11,7 +11,7 @@ import Foundation
 class IngredientBase {
     var name: String
     var lowercaseName: String // Making this an actual variable for performance reasons.
-    var brands: Brand[]
+    var brands: [Brand]
     var type: String
     var description: String
     
@@ -19,7 +19,7 @@ class IngredientBase {
         self.init(name: "")
     }
     
-    init(name: String, brands: Brand[], description: String, type: String) {
+    init(name: String, brands: [Brand], description: String, type: String) {
         self.name = name
         self.lowercaseName = name.lowercaseString
         self.brands = brands
@@ -28,7 +28,7 @@ class IngredientBase {
     }
     
     convenience init(name: String) {
-        self.init(name: name, brands: Brand[](), description: "", type: "")
+        self.init(name: name, brands: [Brand](), description: "", type: "")
     }
 
     convenience init(rawIngredient: NSDictionary) {
@@ -36,7 +36,7 @@ class IngredientBase {
         let description = rawIngredient.objectForKey("description") as String
         let type = rawIngredient.objectForKey("type") as String
         
-        let rawBrands = rawIngredient.objectForKey("brands") as NSDictionary[]
+        let rawBrands = rawIngredient.objectForKey("brands") as [NSDictionary]
         let brands = rawBrands.map({
             (rawBrand: NSDictionary) -> Brand in
             return Brand(rawBrand: rawBrand)
@@ -61,7 +61,7 @@ class AllIngredients {
                 let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
                 let jsonData = NSString.stringWithContentsOfFile(filepath, encoding:NSUTF8StringEncoding, error: nil)
                 let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData, options: nil, error: nil) as NSDictionary[]
+                var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData, options: nil, error: nil) as [NSDictionary]
                 
                 var ingredientDict: Dictionary<String,IngredientBase> = [:]
                 for rawIngredient in rawIngredients {

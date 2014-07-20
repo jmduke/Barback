@@ -11,8 +11,8 @@ import UIKit
 
 class FullRecipeListViewController: RecipeListViewController {
     
-    var firstCharactersOfRecipes: String[]?
-    var filteredRecipesByFirstCharacter: Recipe[][] = Recipe[][]()
+    var firstCharactersOfRecipes: [String]?
+    var filteredRecipesByFirstCharacter: [[Recipe]] = [[Recipe]]()
     
     override var viewTitle: String {
         get {
@@ -32,7 +32,7 @@ class FullRecipeListViewController: RecipeListViewController {
             (recipe: Recipe) -> String in
             return String(Array(recipe.name)[0])
             })
-        firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? String[]
+        firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? [String]
         
         for firstCharacter in firstCharactersOfRecipes! {
             let firstCharacters = recipes.filter({
@@ -59,7 +59,7 @@ class FullRecipeListViewController: RecipeListViewController {
         return filteredRecipesByFirstCharacter[tableView.indexPathForSelectedRow().section][tableView.indexPathForSelectedRow().row]
     }
     
-    override func sectionIndexTitlesForTableView(tableView: UITableView!) -> AnyObject[]! {
+    override func sectionIndexTitlesForTableView(tableView: UITableView!) -> [AnyObject]! {
         return firstCharactersOfRecipes
     }
     

@@ -11,7 +11,7 @@ import UIKit
 
 extension UIViewController {
     
-    func runCoachMarks(coachMarks: AnyObject[]) {
+    func runCoachMarks(coachMarks: [AnyObject]) {
         
         let userDefaultsKey = "coachMarksFor" + (((coachMarks[0] as NSDictionary)["caption"] as NSString).componentsSeparatedByString(" ")[0] as NSString)
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
@@ -32,7 +32,7 @@ extension UIViewController {
         
         navigationController.navigationBar.tintColor = UIColor.whiteColor()
         navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        navigationController.navigationBar.titleTextAttributes = [UITextAttributeTextColor: UIColor.whiteColor(), UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 20)]
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 20)]
         
         if (tabBarController) {
             tabBarController.tabBar.translucent = false
@@ -40,7 +40,7 @@ extension UIViewController {
             tabBarController.tabBar.tintColor = UIColor().tintColor()
         }
         
-        UIBarButtonItem.appearance().setTitleTextAttributes([UITextAttributeFont: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
     }
 
 }

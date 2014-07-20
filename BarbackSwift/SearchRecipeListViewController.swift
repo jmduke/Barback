@@ -13,7 +13,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     @IBOutlet var searchBar: UISearchBar
     
-    var searchTerms = String[]()
+    var searchTerms = [String]()
     
     override var viewTitle: String {
         get {
@@ -64,13 +64,13 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
         
         // Grab search bar text and the recipes that match it.
-        let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as NSString[]
+        let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as [NSString]
         searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
         recipes = AllRecipes.sharedInstance.filter(filterRecipes)
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(Recipe(name: "Bartender's Choice", directions: "", glassware: "", ingredients: Ingredient[]()))
+            recipes.append(Recipe(name: "Bartender's Choice", directions: "", glassware: "", ingredients: [Ingredient]()))
         }
         
         tableView.reloadData()
