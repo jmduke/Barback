@@ -146,9 +146,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
         
-        let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
-        similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
-        view.layoutIfNeeded()
+        if (similarDrinksTableView) {
+            let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
+            similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
+            view.layoutIfNeeded()
+        }
     }
     
     override func styleController() {
