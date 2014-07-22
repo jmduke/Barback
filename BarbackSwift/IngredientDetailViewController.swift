@@ -10,15 +10,15 @@ import UIKit
 
 class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet var ingredientNameLabel : UILabel
-    @IBOutlet var ingredientDescriptionLabel : UILabel
-    @IBOutlet var brandTableLabel : UILabel
-    @IBOutlet var drinksTableLabel : UILabel
-    @IBOutlet var brandsTableView : UITableView
-    @IBOutlet var scrollView : UIScrollView
-    @IBOutlet var drinksTableView : UITableView
-    @IBOutlet var drinkTableViewHeight : NSLayoutConstraint
-    @IBOutlet var brandTableViewHeight : NSLayoutConstraint
+    @IBOutlet var ingredientNameLabel : UILabel!
+    @IBOutlet var ingredientDescriptionLabel : UILabel!
+    @IBOutlet var brandTableLabel : UILabel!
+    @IBOutlet var drinksTableLabel : UILabel!
+    @IBOutlet var brandsTableView : UITableView!
+    @IBOutlet var scrollView : UIScrollView!
+    @IBOutlet var drinksTableView : UITableView!
+    @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
+    @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
     
     var ingredient: IngredientBase
     var recipes: [Recipe]

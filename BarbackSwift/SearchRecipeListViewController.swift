@@ -11,7 +11,7 @@ import UIKit
 
 class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate {
     
-    @IBOutlet var searchBar: UISearchBar
+    @IBOutlet var searchBar: UISearchBar!
     
     var searchTerms = [String]()
     

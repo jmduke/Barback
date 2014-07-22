@@ -15,18 +15,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var isRandom: Bool?
     var similarRecipes: [Recipe]?
     
-    @IBOutlet var nameLabel: UILabel
-    @IBOutlet var directionsLabel : UILabel
-    @IBOutlet var glasswareLabel : UILabel
-    @IBOutlet var ingredientsTableView : UITableView
-    @IBOutlet var scrollView : UIScrollView
-    @IBOutlet var favoriteButton : UIButton
-    @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint
-    @IBOutlet var facebookButton : UIButton
-    @IBOutlet var similarDrinksTableView: UITableView
-    @IBOutlet var similarDrinksLabel: UILabel
-    @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint
-    @IBOutlet var twitterButton : UIButton
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var directionsLabel : UILabel!
+    @IBOutlet var glasswareLabel : UILabel!
+    @IBOutlet var ingredientsTableView : UITableView!
+    @IBOutlet var scrollView : UIScrollView!
+    @IBOutlet var favoriteButton : UIButton!
+    @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
+    @IBOutlet var facebookButton : UIButton!
+    @IBOutlet var similarDrinksTableView: UITableView!
+    @IBOutlet var similarDrinksLabel: UILabel!
+    @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
+    @IBOutlet var twitterButton : UIButton!
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
