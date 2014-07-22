@@ -21,9 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             // Set some random recipes to be favorites.
-            Recipe.random().favorited = true
-            Recipe.random().favorited = true
-            Recipe.random().favorited = true
+            let initialNumberOfFavoritedRecipes = 3
+            for _ in 1...initialNumberOfFavoritedRecipes {
+                Recipe.random().favorited = true
+            }
         }
         
         
