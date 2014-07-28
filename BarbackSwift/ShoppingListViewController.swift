@@ -74,8 +74,8 @@ class ShoppingListViewController: RecipeListViewController {
         sectionLabel.text = ingredientTypes[section].capitalizedString
         
         // Special case because spelling.
-        if sectionLabel.text == "garnish" {
-            sectionLabel.text = "garnishes"
+        if ingredientTypes[section] == "garnish" {
+            sectionLabel.text = "Garnishes"
         } else {
             sectionLabel.text = sectionLabel.text + "s"
         }

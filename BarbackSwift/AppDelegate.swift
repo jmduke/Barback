@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
         // Set status bar to white.
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
