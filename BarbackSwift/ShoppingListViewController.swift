@@ -14,7 +14,9 @@ class ShoppingListViewController: RecipeListViewController {
     willSet(newIngredients) {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
-            return true
+            return (
+                newIngredients.filter({ $0.type == type }).count > 0
+            )
         })
     }
     }
