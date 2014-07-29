@@ -12,14 +12,14 @@ class IngredientBase {
     var name: String
     var lowercaseName: String // Making this an actual variable for performance reasons.
     var brands: [Brand]
-    var type: String
+    var type: IngredientType
     var description: String
     
     convenience init() {
         self.init(name: "")
     }
     
-    init(name: String, brands: [Brand], description: String, type: String) {
+    init(name: String, brands: [Brand], description: String, type: IngredientType) {
         self.name = name
         self.lowercaseName = name.lowercaseString
         self.brands = brands
@@ -28,13 +28,13 @@ class IngredientBase {
     }
     
     convenience init(name: String) {
-        self.init(name: name, brands: [Brand](), description: "", type: "")
+        self.init(name: name, brands: [Brand](), description: "", type: IngredientType.Other)
     }
 
     convenience init(rawIngredient: NSDictionary) {
         let name = (rawIngredient.objectForKey("name") as String)
         let description = rawIngredient.objectForKey("description") as String
-        let type = rawIngredient.objectForKey("type") as String
+        let type = IngredientType.fromRaw(rawIngredient.objectForKey("type") as String)!
         
         let rawBrands = rawIngredient.objectForKey("brands") as [NSDictionary]
         let brands = rawBrands.map({
