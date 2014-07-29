@@ -10,8 +10,15 @@ import UIKit
 
 class ShoppingListViewController: RecipeListViewController {
 
-    var ingredients: [IngredientBase] = [IngredientBase]()
-    let ingredientTypes = ["spirit", "liqueur", "garnish", "mixer", "other"]
+    var ingredients: [IngredientBase] = [IngredientBase]() {
+    willSet(newIngredients) {
+        ingredientTypes = IngredientType.allValues.filter({
+            (type: IngredientType) -> Bool in
+            return true
+        })
+    }
+    }
+    var ingredientTypes: [IngredientType] = [IngredientType]()
     var selectedCellIndices = [Int]()
     
     override var viewTitle: String {
@@ -71,14 +78,7 @@ class ShoppingListViewController: RecipeListViewController {
         sectionLabel.textAlignment = NSTextAlignment.Left
         sectionLabel.textColor = UIColor().lightColor()
         
-        sectionLabel.text = ingredientTypes[section].capitalizedString
-        
-        // Special case because spelling.
-        if ingredientTypes[section] == "garnish" {
-            sectionLabel.text = "Garnishes"
-        } else {
-            sectionLabel.text = sectionLabel.text + "s"
-        }
+        sectionLabel.text = ingredientTypes[section].pluralize().capitalizedString
         
         var headerView = UIView()
         headerView.addSubview(sectionLabel)
@@ -96,7 +96,7 @@ class ShoppingListViewController: RecipeListViewController {
     }
 
     override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
-        return ingredientTypes[section]
+        return ingredientTypes[section].toRaw()
     }
     
     
