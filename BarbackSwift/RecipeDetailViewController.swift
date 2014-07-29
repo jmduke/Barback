@@ -11,7 +11,11 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
-    var recipe: Recipe?
+    var recipe: Recipe? {
+    willSet {
+        similarRecipes = newValue!.similarRecipes(2)
+    }
+    }
     var isRandom: Bool?
     var similarRecipes: [Recipe]?
     
@@ -46,7 +50,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         if !recipe {
             recipe = Recipe.random()
-            similarRecipes = recipe!.similarRecipes(3)
             isRandom = true
         }
         
@@ -101,7 +104,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
         if motion == UIEventSubtype.MotionShake && isRandom {
             recipe = Recipe.random()
-            similarRecipes = recipe!.similarRecipes(3)
             viewDidLoad()
             viewWillAppear(true)
         }
@@ -272,7 +274,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func setRecipe(recipe: Recipe) {
         self.recipe = recipe
-        similarRecipes = recipe.similarRecipes(2)
         
         // Disallow shake gestures.
         resignFirstResponder()
