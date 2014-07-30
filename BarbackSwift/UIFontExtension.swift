@@ -11,11 +11,11 @@ import UIKit
 
 extension UIFont {
     
-    func primaryFont() -> String {
+    class func primaryFont() -> String {
         return "Futura-Medium"
     }
     
-    func heavyFont() -> String {
+    class func heavyFont() -> String {
         return "Futura-MediumItalic"
     }
 }

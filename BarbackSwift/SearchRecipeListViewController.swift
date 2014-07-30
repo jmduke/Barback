@@ -25,7 +25,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         super.styleController()
         
         searchBar.translucent = false
-        searchBar.barTintColor = UIColor().darkColor()
+        searchBar.barTintColor = UIColor.darkColor()
     }
     
     override func viewDidLoad() {

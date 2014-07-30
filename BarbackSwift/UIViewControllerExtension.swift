@@ -18,7 +18,7 @@ extension UIViewController {
         
         if !haveCoachMarksBeenShown {
             let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: coachMarks)
-            coachMarksView.lblCaption.font = UIFont(name: UIFont().primaryFont(), size: 20)
+            coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: 20)
             view.addSubview(coachMarksView)
             coachMarksView.start()
             
@@ -31,16 +31,16 @@ extension UIViewController {
         navigationController.navigationBar.translucent = false
         
         navigationController.navigationBar.tintColor = UIColor.whiteColor()
-        navigationController.navigationBar.barTintColor = UIColor().darkColor()
-        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 20)]
+        navigationController.navigationBar.barTintColor = UIColor.darkColor()
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20)]
         
         if (tabBarController) {
             tabBarController.tabBar.translucent = false
-            tabBarController.tabBar.barTintColor = UIColor().darkColor()
-            tabBarController.tabBar.tintColor = UIColor().tintColor()
+            tabBarController.tabBar.barTintColor = UIColor.darkColor()
+            tabBarController.tabBar.tintColor = UIColor.tintColor()
         }
         
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)], forState: UIControlState.Normal)
     }
 
 }
