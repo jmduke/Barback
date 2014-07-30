@@ -158,23 +158,23 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func styleController() {
         super.styleController()
         
-        scrollView.backgroundColor = UIColor().backgroundColor()
+        scrollView.backgroundColor = UIColor.backgroundColor()
         
-        nameLabel.textColor = UIColor().darkColor()
-        nameLabel.font = UIFont(name: UIFont().heavyFont(), size: 32)
+        nameLabel.textColor = UIColor.darkColor()
+        nameLabel.font = UIFont(name: UIFont.heavyFont(), size: 32)
         nameLabel.textAlignment = NSTextAlignment.Center
         
-        directionsLabel.font = UIFont(name: UIFont().primaryFont(), size: 15)
+        directionsLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
         directionsLabel.textAlignment = NSTextAlignment.Center
-        directionsLabel.textColor = UIColor().darkColor()
+        directionsLabel.textColor = UIColor.darkColor()
         
-        glasswareLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
+        glasswareLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
         glasswareLabel.textAlignment = NSTextAlignment.Center
-        glasswareLabel.textColor = UIColor().lightColor()
+        glasswareLabel.textColor = UIColor.lightColor()
         
-        similarDrinksLabel.font = UIFont(name: UIFont().heavyFont(), size: 15)
+        similarDrinksLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
         similarDrinksLabel.textAlignment = NSTextAlignment.Center
-        similarDrinksLabel.textColor = UIColor().lightColor()
+        similarDrinksLabel.textColor = UIColor.lightColor()
         
         view.layoutIfNeeded()
     }

@@ -30,13 +30,13 @@ class RecipeListViewController: UITableViewController {
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.backgroundView = nil
-        tableView.backgroundColor = UIColor().backgroundColor()
+        tableView.backgroundColor = UIColor.backgroundColor()
         
-        tableView.sectionIndexBackgroundColor = UIColor().backgroundColor();
-        tableView.sectionIndexColor = UIColor().darkColor()
+        tableView.sectionIndexBackgroundColor = UIColor.backgroundColor();
+        tableView.sectionIndexColor = UIColor.darkColor()
         
         tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
-        tableView.sectionIndexColor = UIColor().darkColor()
+        tableView.sectionIndexColor = UIColor.darkColor()
     }
     
     override func didReceiveMemoryWarning() {

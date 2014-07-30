@@ -47,7 +47,7 @@ class ShoppingListViewController: RecipeListViewController {
         
         // Create ourselves a back button.
         let backButton = UIBarButtonItem(title: "Back", style:UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
-        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont().primaryFont(), size: 16)], forState: UIControlState.Normal)
+        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)], forState: UIControlState.Normal)
         navigationItem.leftBarButtonItem = backButton
         
         // Preserve selection of table elements.
@@ -76,9 +76,9 @@ class ShoppingListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
         var sectionLabel = UILabel()
         sectionLabel.frame = CGRectMake(20, 0, 320, 40)
-        sectionLabel.font = UIFont(name: UIFont().heavyFont(), size: 16)
+        sectionLabel.font = UIFont(name: UIFont.heavyFont(), size: 16)
         sectionLabel.textAlignment = NSTextAlignment.Left
-        sectionLabel.textColor = UIColor().lightColor()
+        sectionLabel.textColor = UIColor.lightColor()
         
         sectionLabel.text = ingredientTypes[section].pluralize().capitalizedString
         
@@ -127,7 +127,7 @@ class ShoppingListViewController: RecipeListViewController {
         cell!.stylePrimary()
         
         if selectedCellTableIndexForIndexPath(indexPath) {
-            cell!.textLabel.textColor = UIColor().lighterColor()
+            cell!.textLabel.textColor = UIColor.lighterColor()
         }
         
         return cell!
@@ -137,10 +137,10 @@ class ShoppingListViewController: RecipeListViewController {
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
         if let cellIndex = selectedCellTableIndexForIndexPath(indexPath) {
-            selectedCell.textLabel.textColor = UIColor().lightColor()
+            selectedCell.textLabel.textColor = UIColor.lightColor()
             selectedCellIndices.removeAtIndex(cellIndex)
         } else {
-            selectedCell.textLabel.textColor = UIColor().lighterColor()
+            selectedCell.textLabel.textColor = UIColor.lighterColor()
             selectedCellIndices.append(cellKeyForIndexPath(indexPath))
         }
         
