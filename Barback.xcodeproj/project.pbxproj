@@ -10,7 +10,6 @@
 		2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB7E194BFF500025DCF5 /* AppDelegate.swift */; };
 		2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2631DB84194BFF500025DCF5 /* Main.storyboard */; };
 		2631DB94194BFF500025DCF5 /* BarbackSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB93194BFF500025DCF5 /* BarbackSwiftTests.swift */; };
-		2631DBA0194C00980025DCF5 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB9F194C00980025DCF5 /* RecipeListViewController.swift */; };
 		2631DBA6194C01C40025DCF5 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBA5194C01C40025DCF5 /* Recipe.swift */; };
 		2631DBA8194C02190025DCF5 /* FullRecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBA7194C02190025DCF5 /* FullRecipeListViewController.swift */; };
 		2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBA9194C022A0025DCF5 /* SearchRecipeListViewController.swift */; };
@@ -32,6 +31,14 @@
 		26AAB740195010AC00AF126B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73F195010AC00AF126B /* Images.xcassets */; };
 		26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */; };
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
+		655B44CB19C1434500A1351F /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B44CA19C1434500A1351F /* RecipeListViewController.swift */; };
+		65B129C119C146C500F5B8C4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129BE19C146C500F5B8C4 /* Brand.swift */; };
+		65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129BF19C146C500F5B8C4 /* IngredientBase.swift */; };
+		65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129C019C146C500F5B8C4 /* IngredientType.swift */; };
+		65B129C619C146CE00F5B8C4 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129C419C146CE00F5B8C4 /* UITableViewCellExtension.swift */; };
+		65B129C719C146CE00F5B8C4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */; };
+		65B129C919C146FC00F5B8C4 /* ingredients.json in Resources */ = {isa = PBXBuildFile; fileRef = 65B129C819C146FC00F5B8C4 /* ingredients.json */; };
+		65B129CB19C1470B00F5B8C4 /* IngredientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +59,6 @@
 		2631DB8D194BFF500025DCF5 /* BarbackSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarbackSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631DB92194BFF500025DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2631DB93194BFF500025DCF5 /* BarbackSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbackSwiftTests.swift; sourceTree = "<group>"; };
-		2631DB9F194C00980025DCF5 /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeListViewController.swift; path = ../RecipeListViewController.swift; sourceTree = "<group>"; };
 		2631DBA5194C01C40025DCF5 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2631DBA7194C02190025DCF5 /* FullRecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullRecipeListViewController.swift; sourceTree = "<group>"; };
 		2631DBA9194C022A0025DCF5 /* SearchRecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRecipeListViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +80,15 @@
 		26AAB73F195010AC00AF126B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		655B44CA19C1434500A1351F /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
+		65B129BE19C146C500F5B8C4 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		65B129BF19C146C500F5B8C4 /* IngredientBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientBase.swift; sourceTree = "<group>"; };
+		65B129C019C146C500F5B8C4 /* IngredientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientType.swift; sourceTree = "<group>"; };
+		65B129C419C146CE00F5B8C4 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
+		65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		65B129C819C146FC00F5B8C4 /* ingredients.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ingredients.json; sourceTree = "<group>"; };
+		65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientDetailViewController.swift; sourceTree = "<group>"; };
+		65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BarbackSwift-Bridging-Header.h"; path = "BarbackSwift/BarbackSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +112,7 @@
 		2631DB70194BFF500025DCF5 = {
 			isa = PBXGroup;
 			children = (
+				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
 				26AAB73D194ED3A400AF126B /* Settings.bundle */,
 				2631DB7B194BFF500025DCF5 /* BarbackSwift */,
 				2631DB90194BFF500025DCF5 /* BarbackSwiftTests */,
@@ -158,7 +174,8 @@
 		2631DBA3194C01A60025DCF5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2631DB9F194C00980025DCF5 /* RecipeListViewController.swift */,
+				65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */,
+				655B44CA19C1434500A1351F /* RecipeListViewController.swift */,
 				2631DBA7194C02190025DCF5 /* FullRecipeListViewController.swift */,
 				2631DBA9194C022A0025DCF5 /* SearchRecipeListViewController.swift */,
 				2631DBAB194C02460025DCF5 /* FavoriteRecipeListViewController.swift */,
@@ -171,6 +188,9 @@
 		2631DBA4194C01B60025DCF5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				65B129BE19C146C500F5B8C4 /* Brand.swift */,
+				65B129BF19C146C500F5B8C4 /* IngredientBase.swift */,
+				65B129C019C146C500F5B8C4 /* IngredientType.swift */,
 				2631DBA5194C01C40025DCF5 /* Recipe.swift */,
 				2631DBAD194C0EB80025DCF5 /* Ingredient.swift */,
 			);
@@ -180,6 +200,7 @@
 		2631DBB1194C15720025DCF5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				65B129C819C146FC00F5B8C4 /* ingredients.json */,
 				2631DBB2194C159A0025DCF5 /* recipes.json */,
 			);
 			name = Data;
@@ -188,6 +209,8 @@
 		26AAB724194D11C500AF126B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				65B129C419C146CE00F5B8C4 /* UITableViewCellExtension.swift */,
+				65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */,
 				26AAB725194D11DC00AF126B /* UIColorExtension.swift */,
 				26AAB727194D1C5E00AF126B /* UIFontExtension.swift */,
 			);
@@ -273,7 +296,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2631DB74194BFF500025DCF5 /* Build configuration list for PBXProject "BarbackSwift" */;
+			buildConfigurationList = 2631DB74194BFF500025DCF5 /* Build configuration list for PBXProject "Barback" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -309,6 +332,7 @@
 				26AAB73B194E4EDA00AF126B /* twitter.png in Resources */,
 				26AAB732194D558E00AF126B /* random.png in Resources */,
 				2631DBB3194C159A0025DCF5 /* recipes.json in Resources */,
+				65B129C919C146FC00F5B8C4 /* ingredients.json in Resources */,
 				26AAB72F194D558E00AF126B /* book.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,14 +352,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */,
+				65B129C119C146C500F5B8C4 /* Brand.swift in Sources */,
 				26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */,
-				2631DBA0194C00980025DCF5 /* RecipeListViewController.swift in Sources */,
+				655B44CB19C1434500A1351F /* RecipeListViewController.swift in Sources */,
+				65B129C719C146CE00F5B8C4 /* UIViewControllerExtension.swift in Sources */,
 				2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */,
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
+				65B129CB19C1470B00F5B8C4 /* IngredientDetailViewController.swift in Sources */,
 				2631DBA6194C01C40025DCF5 /* Recipe.swift in Sources */,
 				26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */,
+				65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */,
+				65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */,
 				2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */,
+				65B129C619C146CE00F5B8C4 /* UITableViewCellExtension.swift in Sources */,
 				2631DBAC194C02460025DCF5 /* FavoriteRecipeListViewController.swift in Sources */,
 				2631DBA8194C02190025DCF5 /* FullRecipeListViewController.swift in Sources */,
 			);
@@ -509,7 +539,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2631DB74194BFF500025DCF5 /* Build configuration list for PBXProject "BarbackSwift" */ = {
+		2631DB74194BFF500025DCF5 /* Build configuration list for PBXProject "Barback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2631DB95194BFF500025DCF5 /* Debug */,
