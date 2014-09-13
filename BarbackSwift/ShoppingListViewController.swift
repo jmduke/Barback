@@ -29,11 +29,11 @@ class ShoppingListViewController: RecipeListViewController {
         }
     }
     
-    init(style: UITableViewStyle) {
+    override init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
     }
-    
+override     
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -117,7 +117,7 @@ class ShoppingListViewController: RecipeListViewController {
         
         let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-        if !cell {
+        if !(cell != nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
         }
         
@@ -126,7 +126,7 @@ class ShoppingListViewController: RecipeListViewController {
         cell!.textLabel.text = ingredientsForType[indexPath.row].name
         cell!.stylePrimary()
         
-        if selectedCellTableIndexForIndexPath(indexPath) {
+        if (selectedCellTableIndexForIndexPath(indexPath) != nil) {
             cell!.textLabel.textColor = UIColor.lighterColor()
         }
         
