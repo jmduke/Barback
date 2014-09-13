@@ -34,7 +34,7 @@ extension UIViewController {
         navigationController.navigationBar.barTintColor = UIColor.darkColor()
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20)]
         
-        if (tabBarController) {
+        if (tabBarController != nil) {
             tabBarController.tabBar.translucent = false
             tabBarController.tabBar.barTintColor = UIColor.darkColor()
             tabBarController.tabBar.tintColor = UIColor.tintColor()

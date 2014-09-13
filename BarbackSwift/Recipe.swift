@@ -106,7 +106,7 @@ class Recipe: Equatable {
             }
             
             // If the term matches the name of the recipe..
-            if lowercaseName.rangeOfString(term) {
+            if (lowercaseName.rangeOfString(term) != nil) {
                 continue
             }
             
@@ -138,9 +138,9 @@ class AllRecipes {
             static let instance : [Recipe] = Static.allRecipes()
             static func allRecipes() -> [Recipe] {
                 let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
-                let jsonData = NSString.stringWithContentsOfFile(filepath, encoding:NSUTF8StringEncoding, error: nil)
+                let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
                 let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData, options: nil, error: nil) as [NSDictionary]
+                var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
                 
                 var allRecipes: [Recipe] = rawRecipes.map({
                     (rawRecipe: NSDictionary) -> Recipe in
