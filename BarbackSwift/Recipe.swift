@@ -17,11 +17,11 @@ class Recipe: Equatable {
     
     var favorited: Bool {
         get {
-            var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved"))
+            var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved")!)
             return currentFavorites.containsObject(name)
         }
         set(newBool) {
-            var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved"))
+            var currentFavorites: NSMutableArray = NSMutableArray(array: NSUserDefaults.standardUserDefaults().arrayForKey("saved")!)
             if currentFavorites.containsObject(name) && !newBool {
                 currentFavorites.removeObject(name)
             } else if newBool {

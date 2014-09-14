@@ -36,7 +36,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
-        if userDefaults.boolForKey("useImperialUnits") == nil {
+        if (!userDefaults.boolForKey("useImperialUnits")) {
             let appDefaults = ["useImperialUnits": true]
             userDefaults.registerDefaults(appDefaults)
             userDefaults.synchronize()
@@ -48,7 +48,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !recipe {
+        if !(recipe != nil) {
             recipe = Recipe.random()
             isRandom = true
         }
@@ -64,8 +64,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         title = recipe!.name
         
         // Switch tab bar item title back to the title if necessary.
-        if isRandom {
-            navigationController.tabBarItem.title = "Random"
+        if( isRandom != nil) {
+            navigationController?.tabBarItem.title = "Random"
         }
         
         nameLabel.text = recipe!.name
@@ -98,11 +98,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func goToPreviousView(sender: AnyObject) {
-        navigationController.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent!)  {
-        if motion == UIEventSubtype.MotionShake && isRandom {
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent)  {
+        if (motion == UIEventSubtype.MotionShake && isRandom != nil) {
             recipe = Recipe.random()
             viewDidLoad()
             viewWillAppear(true)
@@ -148,7 +148,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
         
-        if (similarDrinksTableView) {
+        if ((similarDrinksTableView) != nil) {
             let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
             similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
             view.layoutIfNeeded()
@@ -182,7 +182,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func loadCoachMarks() {
         var coachMarks = [NSDictionary]()
         
-        if isRandom {
+        if (isRandom != nil) {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
             let shakeCaption = "Don't like this one?  Shake the phone for a new recipe."
@@ -223,7 +223,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == ingredientsTableView) {
             return recipe!.ingredients.count
         } else {
@@ -231,7 +231,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         if (tableView == ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
@@ -239,18 +239,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                     reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
-            cell!.textLabel.text = ingredient.base.name
-            cell!.detailTextLabel.text = ingredient.detailDescription
+            cell!.textLabel?.text = ingredient.base.name
+            cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
             let cellIdentifier = "similarCell"
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
                 reuseIdentifier: cellIdentifier)
             
             let similarRecipe = similarRecipes![indexPath.row]
-            cell!.textLabel.text = similarRecipe.name
-            cell!.detailTextLabel.text = similarRecipe.detailDescription
+            cell!.textLabel?.text = similarRecipe.name
+            cell!.detailTextLabel?.text = similarRecipe.detailDescription
         }
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
@@ -297,11 +297,15 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func getSelectedIngredient() -> IngredientBase {
-        return recipe!.ingredients[ingredientsTableView.indexPathForSelectedRow().row].base
+        let selectedRow = ingredientsTableView.indexPathForSelectedRow()
+        let rowIndex = selectedRow?.row
+        return recipe!.ingredients[rowIndex!].base
     }
     
     func getSelectedRecipe() -> Recipe {
-        return similarRecipes![similarDrinksTableView.indexPathForSelectedRow().row]
+        let selectedRow = ingredientsTableView.indexPathForSelectedRow()
+        let rowIndex = selectedRow?.row
+        return similarRecipes![rowIndex!]
     }
     
 }

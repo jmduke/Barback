@@ -56,14 +56,17 @@ class FullRecipeListViewController: RecipeListViewController {
     }
     
     override func getSelectedRecipe() -> Recipe {
-        return filteredRecipesByFirstCharacter[tableView.indexPathForSelectedRow().section][tableView.indexPathForSelectedRow().row]
+        let selectedRow = tableView.indexPathForSelectedRow()
+        let section = selectedRow?.section
+        let row = selectedRow?.row
+        return filteredRecipesByFirstCharacter[section!][row!]
     }
     
-    override func sectionIndexTitlesForTableView(tableView: UITableView!) -> [AnyObject]! {
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
         return firstCharactersOfRecipes
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return cellForRecipe(filteredRecipesByFirstCharacter[indexPath.section][indexPath.row], andIndexPath: indexPath)
     }
 

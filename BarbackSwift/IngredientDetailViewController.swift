@@ -23,19 +23,19 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     var ingredient: IngredientBase
     var recipes: [Recipe]
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder!) {
         self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.drinksTableView) {
             return recipes.count
         }
@@ -44,7 +44,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         var cellIdentifier: String
         var primaryText: String
@@ -71,16 +71,16 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
                 reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel.text = primaryText
-        cell!.detailTextLabel.text = detailText
+        cell!.textLabel?.text = primaryText
+        cell!.detailTextLabel?.text = detailText
         cell!.stylePrimary()
         
-        return cell
+        return cell!
     }
     
     override func viewDidLayoutSubviews()  {
         
-        if brandTableViewHeight {
+        if (brandTableViewHeight != nil) {
             let correctBrandsHeight = brandsTableView.contentSize.height
             brandTableViewHeight.constant = correctBrandsHeight
         }
@@ -163,10 +163,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func getSelectedRecipe() -> Recipe {
-        return recipes[drinksTableView.indexPathForSelectedRow().row]
+        let selectedRow = drinksTableView.indexPathForSelectedRow()
+        let rowIndex = selectedRow?.row
+        return recipes[rowIndex!]
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         if tableView == drinksTableView {
             performSegueWithIdentifier("recipeDetail", sender: nil)
         }

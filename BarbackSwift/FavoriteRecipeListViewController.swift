@@ -27,7 +27,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         return recipes.count + 1
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {

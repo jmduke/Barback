@@ -12,14 +12,14 @@ import UIKit
 extension UITableViewCell {
     
     func stylePrimary() {
-        textLabel.font = UIFont(name: UIFont.primaryFont(), size: 20)
-        detailTextLabel.font = UIFont(name: UIFont.heavyFont(), size: 14)
+        textLabel?.font = UIFont(name: UIFont.primaryFont(), size: 20)
+        detailTextLabel?.font = UIFont(name: UIFont.heavyFont(), size: 14)
         
-        textLabel.textColor = UIColor.lightColor()
-        detailTextLabel.textColor = UIColor.lighterColor()
+        textLabel?.textColor = UIColor.lightColor()
+        detailTextLabel?.textColor = UIColor.lighterColor()
         
-        if (textLabel.text == "Bartender's Choice" || textLabel.text == "Shopping List") {
-            textLabel.textColor = UIColor.tintColor()
+        if (textLabel?.text == "Bartender's Choice" || textLabel?.text == "Shopping List") {
+            textLabel?.textColor = UIColor.tintColor()
         }
     }
     

@@ -1,0 +1,13 @@
+PODS:
+  - Appirater (2.0.2)
+  - WSCoachMarksView (0.2)
+
+DEPENDENCIES:
+  - Appirater
+  - WSCoachMarksView (~> 0.2)
+
+SPEC CHECKSUMS:
+  Appirater: a5e00fb01d47a9a6acf4b2f22323b4ccf4f23fbb
+  WSCoachMarksView: 77046a7df4ec38acb81edfacc717e5275f97a363
+
+COCOAPODS: 0.33.1

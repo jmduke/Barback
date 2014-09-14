@@ -39,7 +39,7 @@ class Ingredient {
     convenience init(rawIngredient: NSDictionary) {
         var baseName = rawIngredient.objectForKey("ingredient") as? String
         var isSpecial = false
-        if !baseName {
+        if !(baseName != nil) {
             baseName = rawIngredient.objectForKey("special") as? String
             isSpecial = true
         }
@@ -53,7 +53,9 @@ class Ingredient {
     }
     
     func matchesTerm(searchTerm: String) -> Bool {
-        return base.lowercaseName.rangeOfString(searchTerm) || (label && lowercaseLabel!.rangeOfString(searchTerm))
+        return
+            (base.lowercaseName.rangeOfString(searchTerm) != nil) ||
+            ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
     func displayAmount() -> String {

@@ -113,7 +113,7 @@ override
         return find(selectedCellIndices, cellKey)
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
@@ -123,11 +123,11 @@ override
         
         let ingredientType = ingredientTypes[indexPath.section]
         let ingredientsForType = ingredients.filter({$0.type == ingredientType})
-        cell!.textLabel.text = ingredientsForType[indexPath.row].name
+        cell!.textLabel?.text = ingredientsForType[indexPath.row].name
         cell!.stylePrimary()
         
         if (selectedCellTableIndexForIndexPath(indexPath) != nil) {
-            cell!.textLabel.textColor = UIColor.lighterColor()
+            cell!.textLabel?.textColor = UIColor.lighterColor()
         }
         
         return cell!
@@ -137,10 +137,10 @@ override
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
         if let cellIndex = selectedCellTableIndexForIndexPath(indexPath) {
-            selectedCell.textLabel.textColor = UIColor.lightColor()
+            selectedCell?.textLabel?.textColor = UIColor.lightColor()
             selectedCellIndices.removeAtIndex(cellIndex)
         } else {
-            selectedCell.textLabel.textColor = UIColor.lighterColor()
+            selectedCell?.textLabel?.textColor = UIColor.lighterColor()
             selectedCellIndices.append(cellKeyForIndexPath(indexPath))
         }
         
