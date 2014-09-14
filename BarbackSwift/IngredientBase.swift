@@ -59,9 +59,9 @@ class AllIngredients {
             static let instance : Dictionary<String,IngredientBase> = Static.allIngredients()
             static func allIngredients() -> Dictionary<String,IngredientBase> {
                 let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
-                let jsonData = NSString.stringWithContentsOfFile(filepath, encoding:NSUTF8StringEncoding, error: nil)
+                let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
                 let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData, options: nil, error: nil) as [NSDictionary]
+                var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
                 
                 var ingredientDict: Dictionary<String,IngredientBase> = [:]
                 for rawIngredient in rawIngredients {

@@ -52,7 +52,7 @@ class RecipeListViewController: UITableViewController {
         return recipes.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let recipe = recipes[indexPath.row]
         
         return cellForRecipe(recipe, andIndexPath: indexPath)
@@ -62,8 +62,8 @@ class RecipeListViewController: UITableViewController {
         let cellIdentifier = "recipeCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
-        cell.textLabel.text = recipe.name
-        cell.detailTextLabel.text = recipe.detailDescription
+        cell.textLabel?.text = recipe.name
+        cell.detailTextLabel?.text = recipe.detailDescription
         cell.stylePrimary()
         
         return cell
@@ -74,7 +74,9 @@ class RecipeListViewController: UITableViewController {
     }
     
     func getSelectedRecipe() -> Recipe {
-        return recipes[tableView.indexPathForSelectedRow().row]
+        let selectedRow = tableView.indexPathForSelectedRow()
+        let rowIndex = selectedRow?.row
+        return recipes[rowIndex!]
     }
     
     
@@ -82,7 +84,7 @@ class RecipeListViewController: UITableViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
         let selectedIndex = tableView.indexPathForSelectedRow()
         
-        if selectedIndex.row >= recipes.count {
+        if selectedIndex?.row >= recipes.count {
             return false
         }
         return true
