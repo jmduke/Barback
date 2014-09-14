@@ -303,7 +303,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func getSelectedRecipe() -> Recipe {
-        let selectedRow = ingredientsTableView.indexPathForSelectedRow()
+        let selectedRow = similarDrinksTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         return similarRecipes![rowIndex!]
     }
