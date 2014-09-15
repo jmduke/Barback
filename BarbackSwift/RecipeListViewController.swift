@@ -69,7 +69,7 @@ class RecipeListViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return CGFloat(UITableViewCell().primaryCellHeight())
     }
     
@@ -81,7 +81,7 @@ class RecipeListViewController: UITableViewController {
     
     
     // We have this logic in here so we don't try and segue on Shopping List.
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         let selectedIndex = tableView.indexPathForSelectedRow()
         
         if selectedIndex?.row >= recipes.count {
