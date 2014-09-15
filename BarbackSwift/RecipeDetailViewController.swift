@@ -31,6 +31,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var similarDrinksLabel: UILabel!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
     @IBOutlet var twitterButton : UIButton!
+    
+    let externalUrl = NSURL(scheme: "http", host: "getbarback.com", path: "/")
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
@@ -113,7 +115,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let facebookController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         
         facebookController.setInitialText("Just made a \(recipe!.name) with Barback!")
-        facebookController.addURL(NSURL(fileURLWithPath: "http://getbarback.com"))
+        facebookController.addURL(externalUrl)
         
         presentViewController(facebookController, animated: true, completion: nil)
     }
@@ -122,7 +124,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let twitterController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         
         twitterController.setInitialText("Just made a \(recipe!.name) with @getbarback!")
-        twitterController.addURL(NSURL(fileURLWithPath: "http://getbarback.com"))
+        twitterController.addURL(externalUrl)
         
         presentViewController(twitterController, animated: true, completion: nil)
     }
