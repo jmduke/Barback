@@ -31,13 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         // Set font of tab bar items.
-        /*let tabBar = UITabBarItem.appearance()
-        let textAttributes = tabBar.titleTextAttributesForState(UIControlState.Normal)
-        var tabBarAttributes = NSMutableDictionary(dictionary: textAttributes)
+        var tabBarAttributes = NSMutableDictionary(dictionary: [:])
         tabBarAttributes.setValue(
             UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
-        */
         
         // Configure review-nagger.
         Appirater.setAppId("829469529")
@@ -45,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appirater.setUsesUntilPrompt(5)
         Appirater.setSignificantEventsUntilPrompt(-1)
         Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(true)
+        Appirater.setDebug(false)
         Appirater.appLaunched(true)
         
         return true
