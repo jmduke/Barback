@@ -29,7 +29,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)

@@ -69,7 +69,7 @@ class RecipeListViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return CGFloat(UITableViewCell().primaryCellHeight())
     }
     

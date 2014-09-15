@@ -73,7 +73,7 @@ override
         return ingredientsForType.count
     }
     
-    override func tableView(tableView: UITableView!, viewForHeaderInSection section: Int) -> UIView! {
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         var sectionLabel = UILabel()
         sectionLabel.frame = CGRectMake(20, 0, 320, 40)
         sectionLabel.font = UIFont(name: UIFont.heavyFont(), size: 16)
@@ -89,15 +89,15 @@ override
     }
     
     
-    override func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
 
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         return 40
     }
 
-    override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String! {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
         return ingredientTypes[section].toRaw()
     }
     
@@ -133,7 +133,7 @@ override
         return cell!
     }
 
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         
         if let cellIndex = selectedCellTableIndexForIndexPath(indexPath) {
