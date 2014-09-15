@@ -85,7 +85,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         return uniqueIngredients
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // Special logic to render the shopping list.
         if indexPath.row == recipes.count {
