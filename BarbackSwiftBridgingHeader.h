@@ -9,5 +9,7 @@
 #ifndef Barback_BarbackSwiftBridgingHeader_h
 #define Barback_BarbackSwiftBridgingHeader_h
 
+#import "Appirater.h"
+#import "WSCoachMarksView.h"
 
 #endif
