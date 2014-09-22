@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Full Recipe List View Controller-->
         <scene sceneID="uNH-Wj-m3w">
             <objects>
-                <tableViewController id="7ox-qJ-BHw" customClass="FullRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7ox-qJ-BHw" customClass="FullRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ugv-9C-Rdu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +73,7 @@
         <!--Recipe Detail View Controller-->
         <scene sceneID="IDH-u4-gvt">
             <objects>
-                <viewController storyboardIdentifier="recipeDetail" id="kG0-vg-g5x" customClass="RecipeDetailViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="recipeDetail" id="kG0-vg-g5x" customClass="RecipeDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ruK-Nr-flS"/>
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
@@ -136,20 +137,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="56" y="231" width="64" height="64"/>
                                         <state key="normal" image="favorite2.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="unfavorite.png"/>
+                                        <state key="highlighted" image="unfavorite.png"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-eS-3yg">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-eS-3yg" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="128" y="231" width="64" height="64"/>
                                         <state key="normal" image="facebook.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAV-SX-C6f">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAV-SX-C6f" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="200" y="231" width="64" height="64"/>
                                         <state key="normal" image="twitter.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,7 +263,7 @@
         <!--Ingredient Detail View Controller-->
         <scene sceneID="wDJ-dU-QRq">
             <objects>
-                <viewController id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hxt-uY-GuR"/>
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
@@ -400,7 +402,7 @@
         <!--Search Recipe List View Controller-->
         <scene sceneID="5CN-yM-Nyi">
             <objects>
-                <tableViewController id="CSS-iK-FbD" customClass="SearchRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CSS-iK-FbD" customClass="SearchRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3iu-ex-daL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,7 +454,7 @@
         <!--Favorite Recipe List View Controller-->
         <scene sceneID="MWD-dZ-zRQ">
             <objects>
-                <tableViewController id="D1i-5W-v7Y" customClass="FavoriteRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="D1i-5W-v7Y" customClass="FavoriteRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P5R-xW-b3z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
