@@ -21,13 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             // Set some random recipes to be favorites.
-            let initialNumberOfFavoritedRecipes = 3
+            let initialNumberOfFavoritedRecipes = 3 
             for _ in 1...initialNumberOfFavoritedRecipes {
                 Recipe.random().favorited = true
             }
         }
         
-        // Set status bar to white.
+        // Set status bar to active.  And white.
+        UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         // Set font of tab bar items.

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xvW-tq-Xgk">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="C8I-4N-tZP">
+            <objects>
+                <viewController id="xvW-tq-Xgk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QP6-tm-2Gt"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFD-7g-RsU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uHs-eO-3g7">
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgH-h8-gFS">
+                                <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="0oV-ZU-2Kf"/>
+                                </constraints>
+                                <items/>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedImageTintColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-KW-n19">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="66R-4U-kYr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="MFz-TR-DMH"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FFD-7g-RsU" firstAttribute="top" secondItem="lgH-h8-gFS" secondAttribute="bottom" id="doo-DL-2zc"/>
+                            <constraint firstItem="G8a-KW-n19" firstAttribute="width" secondItem="uHs-eO-3g7" secondAttribute="width" id="fmj-zp-fzO"/>
+                            <constraint firstItem="lgH-h8-gFS" firstAttribute="width" secondItem="uHs-eO-3g7" secondAttribute="width" id="kvN-QU-yRS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="KWh-Ej-0Yd"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZR-DR-2xL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2162" y="118"/>
+        </scene>
+    </scenes>
+</document>
