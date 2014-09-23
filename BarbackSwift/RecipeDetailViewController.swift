@@ -147,6 +147,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(animated: Bool) {
+        NSLog("Bang!")
         super.viewWillAppear(animated)
         ingredientsTableView.reloadData()
         similarDrinksTableView.reloadData()
