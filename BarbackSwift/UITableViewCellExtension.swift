@@ -20,6 +20,7 @@ extension UITableViewCell {
         
         if (textLabel?.text == "Bartender's Choice" || textLabel?.text == "Shopping List") {
             textLabel?.textColor = UIColor.tintColor()
+            detailTextLabel?.textColor = UIColor.tintColor()
         }
     }
     

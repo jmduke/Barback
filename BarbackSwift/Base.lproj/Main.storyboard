@@ -512,7 +512,7 @@
         <!--Random-->
         <scene sceneID="kMa-Kh-IwD">
             <objects>
-                <navigationController id="ZzP-Yc-7sj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RandomNC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZzP-Yc-7sj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Random" image="random.png" id="qD5-8V-fmE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGe-a4-ADO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -524,7 +524,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBZ-jS-W7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3205" y="2230"/>
+            <point key="canvasLocation" x="3240" y="2407"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="oIc-wd-DgV">
@@ -595,6 +595,6 @@
         <image name="unfavorite.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FxA-aX-U3X"/>
+        <segue reference="7XA-ZG-IZb"/>
     </inferredMetricsTieBreakers>
 </document>
