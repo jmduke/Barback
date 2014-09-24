@@ -155,6 +155,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         
+        favoriteButton.selected = recipe!.favorited
+
         loadCoachMarks()
     }
     
