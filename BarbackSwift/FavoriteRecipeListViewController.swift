@@ -47,8 +47,9 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     
     override func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
-        viewDidLoad()
-        tableView.reloadData()
+        
+        recipes = AllRecipes.sharedInstance.filter(filterRecipes)
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
         loadCoachMarks()
         
