@@ -110,8 +110,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func findNewRecipe() {
         recipe = Recipe.random()
-        viewDidLoad()
         viewWillAppear(true)
+        viewDidLoad()
     }
     
     func shareOnFacebook() {
