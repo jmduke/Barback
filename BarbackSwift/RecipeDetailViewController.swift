@@ -74,14 +74,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
+        favoriteButton.tag = 10
+        
         facebookButton.addTarget(self, action: "shareOnFacebook", forControlEvents: UIControlEvents.TouchDown)
         twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         scrollView.delegate = self
-        
-        favoriteButton.selected = recipe!.favorited
-        
         
         // Allow folks to swipe right to go back.
         var rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
@@ -141,9 +140,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func markRecipeAsFavorite() {
         recipe!.favorited = !recipe!.favorited
         favoriteButton.selected = !favoriteButton.selected
-        
-        // Since the button class behavior might set this to 0.5.  Yeah, this is gross.
-        favoriteButton.alpha = 1
     }
     
     override func viewWillAppear(animated: Bool) {

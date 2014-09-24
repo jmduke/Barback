@@ -13,7 +13,14 @@ class RecipeDetailActionButton: UIButton {
     
     override var selected: Bool {
         didSet {
-            alpha = selected ? 0.5 : 1
+            print(self.tag)
+            if self.tag == 10 {
+                alpha = 1
+            } else if selected {
+                alpha = 0.5
+            } else {
+                alpha = 1
+            }
         }
     }
     
