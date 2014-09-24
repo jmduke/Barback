@@ -104,10 +104,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent)  {
         if (motion == UIEventSubtype.MotionShake && isRandom != nil) {
-            recipe = Recipe.random()
-            viewDidLoad()
-            viewWillAppear(true)
+            findNewRecipe()
         }
+    }
+    
+    func findNewRecipe() {
+        recipe = Recipe.random()
+        viewDidLoad()
+        viewWillAppear(true)
     }
     
     func shareOnFacebook() {
@@ -149,6 +153,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidAppear(animated: Bool)  {
+        if (isRandom != nil) {
+            findNewRecipe()
+        }
         super.viewDidAppear(animated)
         
         favoriteButton.selected = recipe!.favorited
