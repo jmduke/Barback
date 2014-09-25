@@ -37,6 +37,7 @@ class RecipeListViewController: UITableViewController {
         
         tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         tableView.sectionIndexColor = UIColor.darkColor()
+        
     }
     
     override func didReceiveMemoryWarning() {

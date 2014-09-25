@@ -74,9 +74,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
-        facebookButton.addTarget(self, action: "shareOnFacebook", forControlEvents: UIControlEvents.TouchDown)
-        twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
-        favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
+        facebookButton.setAction(self, action: "shareOnFacebook")
+        twitterButton.setAction(self, action: "shareOnTwitter")
+        favoriteButton.setAction(self, action: "markRecipeAsFavorite")
         
         scrollView.delegate = self
         
