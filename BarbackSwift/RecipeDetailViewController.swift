@@ -74,8 +74,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
-        favoriteButton.tag = 10
-        
         facebookButton.addTarget(self, action: "shareOnFacebook", forControlEvents: UIControlEvents.TouchDown)
         twitterButton.addTarget(self, action: "shareOnTwitter", forControlEvents: UIControlEvents.TouchUpInside)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
@@ -194,9 +192,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         similarDrinksLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
         similarDrinksLabel.textAlignment = NSTextAlignment.Center
         similarDrinksLabel.textColor = UIColor.lightColor()
-        
-        // Since the button class behavior might set this to 0.5.  Yeah, this is gross.
-        favoriteButton.alpha = 1
+    
+        // Don't change the opacity of favorite button even when it's selected.
+        favoriteButton.selectedAlpha = 1
         
         view.layoutIfNeeded()
     }

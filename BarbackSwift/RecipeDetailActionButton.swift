@@ -11,12 +11,12 @@ import Foundation
 
 class RecipeDetailActionButton: UIButton {
     
+    var selectedAlpha: Float?
+    
     override var selected: Bool {
         didSet {
-            if self.tag == 10 {
-                alpha = 1
-            } else if selected {
-                alpha = 0.5
+            if selected {
+                alpha = CGFloat(selectedAlpha ?? 0.5)
             } else {
                 alpha = 1
             }
