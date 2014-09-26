@@ -98,6 +98,7 @@
                                         <rect key="frame" x="0.0" y="73" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="70u-9e-8Av"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="KgV-r4-PpH"/>
                                         </constraints>
                                         <prototypes>
@@ -169,6 +170,7 @@
                                         <rect key="frame" x="0.0" y="412" width="320" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="KY8-VW-6u2"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="Z5v-2M-Oxw"/>
                                         </constraints>
                                         <prototypes>
@@ -209,7 +211,6 @@
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Ccw-eS-3yg" secondAttribute="bottom" constant="32" id="9TD-Al-FmO"/>
                                     <constraint firstAttribute="bottom" secondItem="QAV-SX-C6f" secondAttribute="bottom" priority="500" constant="72" id="BcK-bI-joi"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
-                                    <constraint firstItem="msd-qH-YF8" firstAttribute="width" secondItem="YnV-Wv-43m" secondAttribute="width" id="LJs-vu-1Yb"/>
                                     <constraint firstAttribute="bottom" secondItem="Ccw-eS-3yg" secondAttribute="bottom" priority="500" constant="72" id="MEm-6E-kbH"/>
                                     <constraint firstItem="Ccw-eS-3yg" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="O1s-dk-TyA"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
@@ -222,7 +223,6 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstAttribute="centerX" secondItem="Ccw-eS-3yg" secondAttribute="centerX" id="baK-GZ-upg"/>
                                     <constraint firstAttribute="centerX" secondItem="Jia-FD-882" secondAttribute="centerX" id="ehS-Ji-Oiz"/>
-                                    <constraint firstItem="2QU-SY-UI0" firstAttribute="width" secondItem="YnV-Wv-43m" secondAttribute="width" id="fd8-YL-dsh"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="gu7-eq-yev"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="0Zg-K2-heU" secondAttribute="bottom" constant="32" id="hgh-st-Ycf"/>
                                     <constraint firstItem="QAV-SX-C6f" firstAttribute="leading" secondItem="Ccw-eS-3yg" secondAttribute="trailing" constant="8" id="jRS-Q9-Xgy"/>
