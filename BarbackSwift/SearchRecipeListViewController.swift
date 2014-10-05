@@ -41,12 +41,16 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
         loadCoachMarks()
     }
     
     func loadCoachMarks() {
         let searchBarPosition = searchBar.bounds
+        
+        print("sbbounds:" + NSStringFromCGRect(searchBarPosition))
         let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
         
         let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
