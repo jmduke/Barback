@@ -10,12 +10,12 @@ import UIKit
 
 class ShoppingListViewController: RecipeListViewController {
 
-    var ingredients: [IngredientBase] = [IngredientBase]() {
+    var ingredients: [CIngredientBase] = [CIngredientBase]() {
     willSet(newIngredients) {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
             return (
-                newIngredients.filter({ $0.type == type }).count > 0
+                newIngredients.filter({ IngredientType.fromRaw($0.type) == type }).count > 0
             )
         })
     }
@@ -38,7 +38,7 @@ override
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    func setIngredients(ingredients: [IngredientBase]) {
+    func setIngredients(ingredients: [CIngredientBase]) {
         self.ingredients = ingredients
     }
  
@@ -69,7 +69,7 @@ override
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         let ingredientType = ingredientTypes[section]
-        let ingredientsForType = ingredients.filter({$0.type == ingredientType})
+        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
         return ingredientsForType.count
     }
     
@@ -122,7 +122,7 @@ override
         }
         
         let ingredientType = ingredientTypes[indexPath.section]
-        let ingredientsForType = ingredients.filter({$0.type == ingredientType})
+        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
         cell!.textLabel?.text = ingredientsForType[indexPath.row].name
         cell!.stylePrimary()
         

@@ -11,13 +11,13 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
-    var recipe: Recipe? {
+    var recipe: CRecipe? {
     willSet {
         similarRecipes = newValue!.similarRecipes(2)
     }
     }
     var isRandom: Bool?
-    var similarRecipes: [Recipe]?
+    var similarRecipes: [CRecipe]?
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
@@ -51,7 +51,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         if !(recipe != nil) {
-            recipe = Recipe.random()
+            recipe = CRecipe.random()
             isRandom = true
         }
         
@@ -107,7 +107,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func findNewRecipe() {
-        recipe = Recipe.random()
+        recipe = CRecipe.random()
         viewWillAppear(true)
         viewDidLoad()
     }
@@ -140,7 +140,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func markRecipeAsFavorite() {
-        recipe!.favorited = !recipe!.favorited
+        recipe!.isFavorited = !recipe!.isFavorited
         favoriteButton.selected = !favoriteButton.selected
     }
     
@@ -156,7 +156,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         super.viewDidAppear(animated)
         
-        favoriteButton.selected = recipe!.favorited
+        favoriteButton.selected = recipe!.isFavorited
 
         loadCoachMarks()
     }
@@ -258,7 +258,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
-            let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
+            let ingredient: CIngredient = recipe!.ingredients.allObjects[indexPath.row] as CIngredient
             cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
@@ -292,7 +292,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     */
     
-    func setRecipe(recipe: Recipe) {
+    func setRecipe(recipe: CRecipe) {
         self.recipe = recipe
         
         // Disallow shake gestures.
@@ -316,13 +316,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    func getSelectedIngredient() -> IngredientBase {
+    func getSelectedIngredient() -> CIngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
-        return recipe!.ingredients[rowIndex!].base
+        return CIngredientBase.forName(recipe!.ingredients.allObjects[rowIndex!].base.name)!
     }
     
-    func getSelectedRecipe() -> Recipe {
+    func getSelectedRecipe() -> CRecipe {
         let selectedRow = similarDrinksTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         return similarRecipes![rowIndex!]

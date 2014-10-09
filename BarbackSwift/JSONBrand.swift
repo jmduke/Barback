@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Brand {
+class JSONBrand {
     var name: String
     var price: Int // ranges from 1 to 5
     

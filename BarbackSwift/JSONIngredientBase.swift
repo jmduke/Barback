@@ -8,10 +8,10 @@
 
 import Foundation
 
-class IngredientBase {
+class JSONIngredientBase {
     var name: String
     var lowercaseName: String // Making this an actual variable for performance reasons.
-    var brands: [Brand]
+    var brands: [JSONBrand]
     var type: IngredientType
     var description: String
     
@@ -19,7 +19,7 @@ class IngredientBase {
         self.init(name: "")
     }
     
-    init(name: String, brands: [Brand], description: String, type: IngredientType) {
+    init(name: String, brands: [JSONBrand], description: String, type: IngredientType) {
         self.name = name
         self.lowercaseName = name.lowercaseString
         self.brands = brands
@@ -28,7 +28,7 @@ class IngredientBase {
     }
     
     convenience init(name: String) {
-        self.init(name: name, brands: [Brand](), description: "", type: IngredientType.Other)
+        self.init(name: name, brands: [JSONBrand](), description: "", type: IngredientType.Other)
     }
 
     convenience init(rawIngredient: NSDictionary) {
@@ -36,36 +36,37 @@ class IngredientBase {
         let description = rawIngredient.objectForKey("description") as String
         let type = IngredientType.fromRaw(rawIngredient.objectForKey("type") as String)!
         
+        
         let rawBrands = rawIngredient.objectForKey("brands") as [NSDictionary]
         let brands = rawBrands.map({
-            (rawBrand: NSDictionary) -> Brand in
-            return Brand(rawBrand: rawBrand)
+            (rawBrand: NSDictionary) -> JSONBrand in
+            return JSONBrand(rawBrand: rawBrand)
             })
         self.init(name: name, brands: brands, description: description, type: type)
     }
     
-    class func getIngredientBase(fromName: String) -> IngredientBase {
+    class func getIngredientBase(fromName: String) -> JSONIngredientBase {
         if let possibleMatch = AllIngredients.sharedInstance[fromName] {
             return possibleMatch
         }
-        return IngredientBase(name: fromName)
+        return JSONIngredientBase(name: fromName)
     }
 }
 
 class AllIngredients {
-    class var sharedInstance : Dictionary<String,IngredientBase> {
+    class var sharedInstance : Dictionary<String,JSONIngredientBase> {
         struct Static {
         
-            static let instance : Dictionary<String,IngredientBase> = Static.allIngredients()
-            static func allIngredients() -> Dictionary<String,IngredientBase> {
+            static let instance : Dictionary<String,JSONIngredientBase> = Static.allIngredients()
+            static func allIngredients() -> Dictionary<String,JSONIngredientBase> {
                 let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
                 let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
                 let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
                 var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
                 
-                var ingredientDict: Dictionary<String,IngredientBase> = [:]
+                var ingredientDict: Dictionary<String,JSONIngredientBase> = [:]
                 for rawIngredient in rawIngredients {
-                    let ingredientBase = IngredientBase(rawIngredient: rawIngredient)
+                    let ingredientBase = JSONIngredientBase(rawIngredient: rawIngredient)
                     ingredientDict[ingredientBase.name] = ingredientBase
                 }
                 
