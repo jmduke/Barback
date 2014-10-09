@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Ingredient {
-    var base: IngredientBase
+class JSONIngredient {
+    var base: JSONIngredientBase
     var amount: Float?
     var label: String?
     var lowercaseLabel: String?
@@ -29,7 +29,7 @@ class Ingredient {
     }
     
     init(base: String, amount: Float?, label: String?, isSpecial: Bool) {
-        self.base = IngredientBase.getIngredientBase(base)
+        self.base = JSONIngredientBase.getIngredientBase(base)
         self.amount = amount
         self.label = label
         self.lowercaseLabel = label?.lowercaseString

@@ -50,7 +50,6 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     func loadCoachMarks() {
         let searchBarPosition = searchBar.bounds
         
-        print("sbbounds:" + NSStringFromCGRect(searchBarPosition))
         let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
         
         let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
@@ -61,7 +60,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         searchBar.resignFirstResponder()
     }
     
-    override func filterRecipes(recipe: Recipe) -> Bool {
+    override func filterRecipes(recipe: CRecipe) -> Bool {
         return recipe.matchesTerms(searchTerms)
     }
     
@@ -70,11 +69,11 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         // Grab search bar text and the recipes that match it.
         let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as [NSString]
         searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-        recipes = AllRecipes.sharedInstance.filter(filterRecipes)
+        recipes = CRecipe.all().filter(filterRecipes)
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(Recipe(name: "Bartender's Choice", directions: "", glassware: "", ingredients: [Ingredient]()))
+            recipes.append(CRecipe.forName("Bartender's Choice")!)
         }
         
         tableView.reloadData()

@@ -20,18 +20,25 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
     
-    var ingredient: IngredientBase
-    var recipes: [Recipe]
+    var ingredient: CIngredientBase
+    var recipes: [CRecipe]
+    
+    var brands: [CBrand] {
+        get {
+            let brands = CIngredientBase.forName(ingredient.name)!.brands
+            return brands.allObjects as [CBrand]
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        self.ingredient = IngredientBase()
-        self.recipes = [Recipe]()
+        self.ingredient = CIngredientBase.forName("Gin")!
+        self.recipes = [CRecipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.ingredient = IngredientBase()
-        self.recipes = [Recipe]()
+        self.ingredient = CIngredientBase.forName("Gin")!
+        self.recipes = [CRecipe]()
         super.init(coder: aDecoder)
     }
     
@@ -40,7 +47,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             return recipes.count
         }
         else {
-            return ingredient.brands.count
+            return brands.count
         }
     }
     
@@ -63,7 +70,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         else {
             cellIdentifier = "brandCell"
             
-            let brand = ingredient.brands[indexPath.row]
+            let brand = brands[indexPath.row]
             primaryText = brand.name
             detailText = String(brand.detailDescription)
             
@@ -105,7 +112,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
 
         ingredientNameLabel.text = ingredient.name
-        ingredientDescriptionLabel.text = ingredient.description
+        ingredientDescriptionLabel.text = ingredient.information
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
@@ -116,7 +123,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             view.layoutIfNeeded()
         }
         
-        if ingredient.brands.count == 0 {
+        if brands.count == 0 {
             brandTableLabel.removeFromSuperview()
             brandsTableView.removeFromSuperview()
             view.layoutIfNeeded()
@@ -149,9 +156,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func setIngredient(ingredient: IngredientBase) {
+    func setIngredient(ingredient: CIngredientBase) {
         self.ingredient = ingredient
-        recipes = AllRecipes.sharedInstance.filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
+        recipes = CRecipe.all().filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
@@ -162,7 +169,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         destination.setRecipe(recipe)
     }
     
-    func getSelectedRecipe() -> Recipe {
+    func getSelectedRecipe() -> CRecipe {
         let selectedRow = drinksTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         return recipes[rowIndex!]
