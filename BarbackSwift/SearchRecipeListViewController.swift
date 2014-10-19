@@ -61,7 +61,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     override func filterRecipes(recipe: CRecipe) -> Bool {
-        return recipe.matchesTerms(searchTerms)
+        return recipe.matchesTerms(searchTerms) && recipe.isReal
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {

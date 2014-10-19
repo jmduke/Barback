@@ -22,6 +22,10 @@ public class CRecipe: NSManagedObject {
         return name.lowercaseString
     }
     
+    var isReal: Bool {
+        return glassware != "" && directions != ""
+    }
+    
     var detailDescription: String {
         get {
             let ingredients = (self.ingredients.allObjects as [CIngredient]).filter({ingredient in !ingredient.isSpecial}).map({

@@ -32,13 +32,6 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {
             let shoppingListRecipe = CRecipe.forName("Shopping List")
-            
-            // This has to be defined or else the cell has no detailTextLabel.
-            // Which means it reverts to default styling.
-            // Which means when it gets re-used by another recipe, the ingredients disappear.
-            // I hate everything.  (And no, base can't be whitespace.)
-            shoppingListRecipe!.ingredients = NSSet(object: CIngredient.forName("Spirits and Such")!)
-            
             var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
             return cell
         }
