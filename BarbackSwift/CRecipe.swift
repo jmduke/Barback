@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CRecipe: NSManagedObject {
+public class CRecipe: NSManagedObject {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
@@ -97,6 +97,7 @@ class CRecipe: NSManagedObject {
     class func all() -> [CRecipe] {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         let request = NSFetchRequest(entityName: "Recipe")
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
         return result as [CRecipe]
     }
