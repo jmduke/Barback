@@ -12,7 +12,7 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    var recipes: [CRecipe] = [CRecipe]()
+    var recipes: [CRecipe] = CRecipe.all()
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -76,6 +76,7 @@ class RecipeListViewController: UITableViewController {
     
     func getSelectedRecipe() -> CRecipe {
         let selectedRow = tableView.indexPathForSelectedRow()
+
         let rowIndex = selectedRow?.row
         return recipes[rowIndex!]
     }
@@ -92,10 +93,10 @@ class RecipeListViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        
         let destination = segue!.destinationViewController as RecipeDetailViewController
         
         var recipe = getSelectedRecipe()
+        
         if (recipe.name == "Bartender's Choice") {
             let randomIndex = Int(arc4random_uniform(UInt32(recipes.count))) % (recipes.count - 1)
             recipe = recipes[randomIndex]
@@ -103,9 +104,9 @@ class RecipeListViewController: UITableViewController {
         destination.setRecipe(recipe)
     }
     
-    // Should be overwritten by subclasses to filter all recipes.
+    // Should be overwritten or super-called by subclasses to filter all recipes.
     func filterRecipes(recipe: CRecipe) -> Bool {
-        return true
+        return recipe.isReal
     }
     
 }

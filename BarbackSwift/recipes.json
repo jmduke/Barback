@@ -1764,7 +1764,27 @@
       ],
     "name" : "Ti' Punch",
     "preparation" : "Add both ingredients and stir.  Can be served up or down, and with or without ice."
-  },
+ },
+ { "category" : "",
+ "garnish" : "",
+ "glass" : "",
+ "ingredients" : [ { "cl" : 6,
+                  "ingredient" : "Spirits and Such"
+                  }
+                  ],
+ "name" : "Shopping List",
+ "preparation" : "Add both ingredients and stir.  Can be served up or down, and with or without ice."
+ },
+ { "category" : "",
+ "garnish" : "",
+ "glass" : "",
+ "ingredients" : [ { "cl" : 6,
+                  "ingredient" : "Spirits and Such"
+                  }
+                  ],
+ "name" : "Bartender's Choice",
+ "preparation" : "Add both ingredients and stir.  Can be served up or down, and with or without ice."
+ },
   { "category" : "All Day Cocktail",
     "garnish" : "Lemon twist and cucumber slice",
     "glass" : "collins",
