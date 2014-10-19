@@ -41,8 +41,8 @@ install_resource()
       ;;
   esac
 }
-install_resource "${BUILT_PRODUCTS_DIR}/Appirater.bundle"
-
+          install_resource "${BUILT_PRODUCTS_DIR}/Appirater.bundle"
+          
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
   rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
@@ -51,7 +51,7 @@ rm -f "$RESOURCES_TO_COPY"
 
 if [[ -n "${WRAPPER_EXTENSION}" ]] && [ `xcrun --find actool` ] && [ `find . -name '*.xcassets' | wc -l` -ne 0 ]
 then
-  case "${TARGETED_DEVICE_FAMILY}" in 
+  case "${TARGETED_DEVICE_FAMILY}" in
     1,2)
       TARGET_DEVICE_ARGS="--target-device ipad --target-device iphone"
       ;;
@@ -63,7 +63,7 @@ then
       ;;
     *)
       TARGET_DEVICE_ARGS="--target-device mac"
-      ;;  
-  esac 
+      ;;
+  esac
   find "${PWD}" -name "*.xcassets" -print0 | xargs -0 actool --output-format human-readable-text --notices --warnings --platform "${PLATFORM_NAME}" --minimum-deployment-target "${IPHONEOS_DEPLOYMENT_TARGET}" ${TARGET_DEVICE_ARGS} --compress-pngs --compile "${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 fi
