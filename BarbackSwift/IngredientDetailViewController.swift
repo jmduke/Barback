@@ -26,7 +26,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     var brands: [CBrand] {
         get {
             let brands = CIngredientBase.forName(ingredient.name)!.brands
-            return brands.allObjects as [CBrand]
+            let brandObjects = brands.allObjects as [CBrand]
+            return brandObjects.sorted({$0.price.intValue < $1.price.intValue})
         }
     }
     
@@ -95,6 +96,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         let correctDrinksHeight = drinksTableView.contentSize.height
         drinkTableViewHeight.constant = correctDrinksHeight
         
+        
         view.layoutIfNeeded()
     }
     
@@ -102,7 +104,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         title = ingredient.name
-        
         brandsTableView.delegate = self
         brandsTableView.dataSource = self
         brandsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "brandCell")
@@ -110,7 +111,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         drinksTableView.delegate = self
         drinksTableView.dataSource = self
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
-
+        
         ingredientNameLabel.text = ingredient.name
         ingredientDescriptionLabel.text = ingredient.information
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
@@ -118,7 +119,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         viewDidLayoutSubviews()
         
-        if ingredient.description == "" {
+        if ingredient.information == "" {
             self.ingredientDescriptionLabel.removeFromSuperview()
             view.layoutIfNeeded()
         }
