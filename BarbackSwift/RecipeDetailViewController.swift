@@ -48,13 +48,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidLoad() {
+        print("vdL")
         super.viewDidLoad()
         
-        if !(recipe != nil) {
+        if (recipe == nil) {
             recipe = CRecipe.random()
             isRandom = true
         }
-        
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
@@ -145,6 +145,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(animated: Bool) {
+        print("vwA")
         super.viewWillAppear(animated)
         ingredientsTableView.reloadData()
         similarDrinksTableView.reloadData()
@@ -258,7 +259,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
-            let ingredient: CIngredient = recipe!.ingredients.allObjects[indexPath.row] as CIngredient
+            let ingredients = recipe!.ingredients.allObjects as [CIngredient]
+            let ingredient: CIngredient = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})[indexPath.row] as CIngredient
             cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
