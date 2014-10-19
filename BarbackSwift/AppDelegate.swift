@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") || true {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey:"HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
             
@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let newRecipe: CRecipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as CRecipe
                 newRecipe.name = recipe.name
                 newRecipe.directions = recipe.directions
+                newRecipe.glassware = recipe.glassware
                 newRecipe.isFavorited = false
                 let newIngredients = newRecipe.mutableSetValueForKey("ingredients")
                 for ingredient in recipe.ingredients {
@@ -64,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if ingredientBase == nil {
                         ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as CIngredientBase)
                         ingredientBase!.name = ingredient.base.name
+                        ingredientBase!.information = ""
                     }
                     
                     let ingredientBaseUses = ingredientBase!.mutableSetValueForKey("uses")
