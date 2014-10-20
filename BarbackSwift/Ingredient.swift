@@ -74,11 +74,31 @@ class Ingredient: NSManagedObject {
                 ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
-    class func forJSONObject(ingredient: JSONIngredient, context: NSManagedObjectContext) -> Ingredient {
+    class func fromDict(rawIngredient: NSDictionary, context: NSManagedObjectContext) -> Ingredient {
+        var baseName = rawIngredient.objectForKey("ingredient") as? String
+        var isSpecial = false
+        if !(baseName != nil) {
+            baseName = rawIngredient.objectForKey("special") as? String
+            isSpecial = true
+        }
+        let label = rawIngredient.objectForKey("label") as? String
+        let amount = rawIngredient.objectForKey("cl") as? Float
+        return fromAttributes(baseName, amount: amount, label: label, isSpecial: isSpecial, context: context)
+    }
+    
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, context: NSManagedObjectContext) -> Ingredient {
         let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as Ingredient
-        newIngredient.amount = ingredient.amount
-        newIngredient.label = ingredient.label
-        newIngredient.isSpecial = ingredient.isSpecial
+        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
+        if ingredientBase == nil {
+            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase)
+            ingredientBase!.name = baseName!
+            ingredientBase!.information = ""
+        }
+        newIngredient.base = ingredientBase!
+        
+        newIngredient.amount = amount
+        newIngredient.label = label
+        newIngredient.isSpecial = isSpecial!
         return newIngredient
     }
     

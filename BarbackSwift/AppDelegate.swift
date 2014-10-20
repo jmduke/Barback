@@ -34,40 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
-            for ingredientBase: JSONIngredientBase in JSONIngredientBase.fromJSONFile() {
-                let newBase = IngredientBase.forJSONObject(ingredientBase, context: context)
-                let newBrands = newBase.mutableSetValueForKey("brands")
-                for brand in ingredientBase.brands {
-                    let newBrand: Brand = Brand.forJSONObject(brand, context: context)
-                    newBrands.addObject(newBrand)
-                }
-            }
+            let ingredientBases = IngredientBase.fromJSONFile(context)
+            let recipes = Recipe.fromJSONFile(context)
             self.coreDataHelper.saveContext(context)
-            
-            for recipe in JSONRecipe.fromJSONFile() {
-                let newRecipe = Recipe.forJSONObject(recipe, context: context)
-                let newIngredients = newRecipe.mutableSetValueForKey("ingredients")
-                for ingredient in recipe.ingredients {
-                    
-                    var ingredientBase: IngredientBase? = IngredientBase.forName(ingredient.base)
-                    if ingredientBase == nil {
-                        ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase)
-                        ingredientBase!.name = ingredient.base
-                        ingredientBase!.information = ""
-                    }
-                    let ingredientBaseUses = ingredientBase!.mutableSetValueForKey("uses")
-                    
-                    let newIngredient = Ingredient.forJSONObject(ingredient, context: context)
-                    newIngredient.base = ingredientBase!
-                    newIngredient.recipe = newRecipe
-                    
-                    newIngredients.addObject(newIngredient)
-                    ingredientBaseUses.addObject(newIngredient)
-                    self.coreDataHelper.saveContext(context)
-                }
-            }
-            
-            self.coreDataHelper.saveContext(context)
+
             
             // Set some random recipes to be favorites.
             let initialNumberOfFavoritedRecipes = 3

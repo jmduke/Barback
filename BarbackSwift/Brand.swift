@@ -25,11 +25,17 @@ class Brand: NSManagedObject {
         }
     }
     
-    class func forJSONObject(brand: JSONBrand, context: NSManagedObjectContext) -> Brand {
+    class func fromAttributes(name: String, price: Int, context: NSManagedObjectContext) -> Brand {
         let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as Brand
-        newBrand.name = brand.name
-        newBrand.price = brand.price
+        newBrand.name = name
+        newBrand.price = price
         return newBrand
+    }
+    
+    class func fromDict(rawBrand: NSDictionary, context: NSManagedObjectContext) -> Brand {
+        let name = rawBrand.objectForKey("name") as String
+        let price = rawBrand.objectForKey("price") as Int
+        return fromAttributes(name, price: price, context: context)
     }
     
     class func forName(name: String) -> Brand? {
@@ -41,4 +47,5 @@ class Brand: NSManagedObject {
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
         return result?.first as? Brand
     }
+    
 }
