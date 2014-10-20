@@ -9,6 +9,11 @@
 import CoreData
 import UIKit
 
+func managedContext() -> NSManagedObjectContext {
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+    return delegate.coreDataHelper.managedObjectContext!
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -34,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
-            let ingredientBases = IngredientBase.fromJSONFile(context)
-            let recipes = Recipe.fromJSONFile(context)
+            let ingredientBases = IngredientBase.fromJSONFile("ingredients")
+            let recipes = Recipe.fromJSONFile("recipes")
             self.coreDataHelper.saveContext(context)
 
             

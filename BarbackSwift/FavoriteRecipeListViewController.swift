@@ -31,8 +31,8 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {
-            let shoppingListRecipe = Recipe.forName("Shopping List")
-            var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
+            let shoppingListRecipe = Recipe.forName("Shopping List") as Recipe
+            var cell = cellForRecipe(shoppingListRecipe, andIndexPath: indexPath)
             return cell
         }
         return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
@@ -71,7 +71,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             (recipe: Recipe) -> [IngredientBase] in
             return (recipe.ingredients.allObjects as [Ingredient]).map({
                 (ingredient: Ingredient) -> IngredientBase in
-                    return IngredientBase.forName(ingredient.base.name)!
+                    return IngredientBase.forName(ingredient.base.name) as IngredientBase
                 })
             })
         
