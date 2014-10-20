@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") || true {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey:"HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
             let context = self.coreDataHelper.managedObjectContext!
