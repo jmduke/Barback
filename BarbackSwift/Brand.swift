@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Brand: NSManagedObject {
+class Brand: BarbackModel {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
@@ -25,27 +25,21 @@ class Brand: NSManagedObject {
         }
     }
     
-    class func fromAttributes(name: String, price: Int, context: NSManagedObjectContext) -> Brand {
-        let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as Brand
+    class func fromAttributes(name: String, price: Int) -> Brand {
+        let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
         newBrand.name = name
         newBrand.price = price
         return newBrand
     }
     
-    class func fromDict(rawBrand: NSDictionary, context: NSManagedObjectContext) -> Brand {
+    class func fromDict(rawBrand: NSDictionary) -> Brand {
         let name = rawBrand.objectForKey("name") as String
         let price = rawBrand.objectForKey("price") as Int
-        return fromAttributes(name, price: price, context: context)
+        return fromAttributes(name, price: price)
     }
     
-    class func forName(name: String) -> Brand? {
-        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let request = NSFetchRequest(entityName: "Brand")
-        request.predicate = NSPredicate(format: "name == \"\(name)\"")
-        
-        let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? Brand
+    override class func entityName() -> String {
+        return "Brand"
     }
     
 }

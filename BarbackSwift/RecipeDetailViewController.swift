@@ -325,7 +325,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let rowIndex = selectedRow?.row
         
         let ingredient = sortedIngredients![rowIndex!]
-        return IngredientBase.forName(ingredient.base.name)!
+        return IngredientBase.forName(ingredient.base.name) as IngredientBase
     }
     
     func getSelectedRecipe() -> Recipe {

@@ -73,7 +73,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(Recipe.forName("Bartender's Choice")!)
+            recipes.append(Recipe.forName("Bartender's Choice") as Recipe)
         }
         
         tableView.reloadData()

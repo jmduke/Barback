@@ -25,20 +25,20 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     var brands: [Brand] {
         get {
-            let brands = IngredientBase.forName(ingredient.name)!.brands
+            let brands = (IngredientBase.forName(ingredient.name) as IngredientBase).brands
             let brandObjects = brands.allObjects as [Brand]
             return brandObjects.sorted({$0.price.intValue < $1.price.intValue})
         }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        self.ingredient = IngredientBase.forName("Gin")!
+        self.ingredient = IngredientBase.forName("Gin") as IngredientBase
         self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.ingredient = IngredientBase.forName("Gin")!
+        self.ingredient = IngredientBase.forName("Gin") as IngredientBase
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }

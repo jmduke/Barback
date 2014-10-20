@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class Recipe: NSManagedObject {
+public class Recipe: BarbackModel {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
@@ -88,18 +88,12 @@ public class Recipe: NSManagedObject {
         return true
     }
 
-    class func forName(name: String) -> Recipe? {
-        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let request = NSFetchRequest(entityName: "Recipe")
-        request.predicate = NSPredicate(format: "name == \"\(name)\"")
-        
-        let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? Recipe
+    override class func entityName() -> String {
+        return "Recipe"
     }
     
-    class func fromAttributes(name: String, directions: String, glassware: String, context: NSManagedObjectContext) -> Recipe {
-        let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as Recipe
+    class func fromAttributes(name: String, directions: String, glassware: String) -> Recipe {
+        let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
         newRecipe.name = name
         newRecipe.directions = directions
         newRecipe.glassware = glassware
@@ -107,16 +101,16 @@ public class Recipe: NSManagedObject {
         return newRecipe
     }
     
-    class func fromDict(rawRecipe: NSDictionary, context: NSManagedObjectContext) -> Recipe {
+    class func fromDict(rawRecipe: NSDictionary) -> Recipe {
         let name = rawRecipe.objectForKey("name") as String
         let directions = rawRecipe.objectForKey("preparation") as String
         let glassware = rawRecipe.objectForKey("glass") as String
-        let recipe = fromAttributes(name, directions: directions, glassware: glassware, context: context)
+        let recipe = fromAttributes(name, directions: directions, glassware: glassware)
         
         let rawIngredients = rawRecipe.objectForKey("ingredients") as [NSDictionary]
         let ingredients = rawIngredients.map({
             (rawIngredient: NSDictionary) -> Ingredient in
-            let ingredient = Ingredient.fromDict(rawIngredient, context: context)
+            let ingredient = Ingredient.fromDict(rawIngredient)
             ingredient.recipe = recipe
             return ingredient
         })
@@ -126,25 +120,24 @@ public class Recipe: NSManagedObject {
         return recipe
     }
     
-    class func fromJSONFile(context: NSManagedObjectContext) -> [Recipe] {
-        let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
+    class func fromJSONFile(filename: String) -> [Recipe] {
+        let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
         let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
         let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
         var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
-            return self.fromDict(rawRecipe, context: context)
+            return self.fromDict(rawRecipe)
         })
         allRecipes = allRecipes.sorted({ $0.name < $1.name })
         return allRecipes
     }
 
     class func all() -> [Recipe] {
-        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         let request = NSFetchRequest(entityName: "Recipe")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
+        let result = managedContext().executeFetchRequest(request, error: nil)
         return result as [Recipe]
     }
     

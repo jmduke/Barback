@@ -74,7 +74,7 @@ class Ingredient: NSManagedObject {
                 ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
-    class func fromDict(rawIngredient: NSDictionary, context: NSManagedObjectContext) -> Ingredient {
+    class func fromDict(rawIngredient: NSDictionary) -> Ingredient {
         var baseName = rawIngredient.objectForKey("ingredient") as? String
         var isSpecial = false
         if !(baseName != nil) {
@@ -83,14 +83,14 @@ class Ingredient: NSManagedObject {
         }
         let label = rawIngredient.objectForKey("label") as? String
         let amount = rawIngredient.objectForKey("cl") as? Float
-        return fromAttributes(baseName, amount: amount, label: label, isSpecial: isSpecial, context: context)
+        return fromAttributes(baseName, amount: amount, label: label, isSpecial: isSpecial)
     }
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, context: NSManagedObjectContext) -> Ingredient {
-        let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as Ingredient
-        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?) -> Ingredient {
+        let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!) as? IngredientBase
         if ingredientBase == nil {
-            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase)
+            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
             ingredientBase!.name = baseName!
             ingredientBase!.information = ""
         }
@@ -102,13 +102,5 @@ class Ingredient: NSManagedObject {
         return newIngredient
     }
     
-    class func forName(name: String) -> Ingredient? {
-        let delegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let request = NSFetchRequest(entityName: "Ingredient")
-        request.predicate = NSPredicate(format: "name == \"\(name)\"")
-        
-        let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? Ingredient
-    }
+
 }
