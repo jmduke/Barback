@@ -98,6 +98,15 @@ public class Recipe: NSManagedObject {
         return result?.first as? Recipe
     }
     
+    class func forJSONObject(recipe: JSONRecipe, context: NSManagedObjectContext) -> Recipe {
+        let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as Recipe
+        newRecipe.name = recipe.name
+        newRecipe.directions = recipe.directions
+        newRecipe.glassware = recipe.glassware
+        newRecipe.isFavorited = false
+        return newRecipe
+    }
+    
     class func all() -> [Recipe] {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         let request = NSFetchRequest(entityName: "Recipe")

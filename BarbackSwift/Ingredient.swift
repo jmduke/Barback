@@ -74,6 +74,14 @@ class Ingredient: NSManagedObject {
                 ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
+    class func forJSONObject(ingredient: JSONIngredient, context: NSManagedObjectContext) -> Ingredient {
+        let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as Ingredient
+        newIngredient.amount = ingredient.amount
+        newIngredient.label = ingredient.label
+        newIngredient.isSpecial = ingredient.isSpecial
+        return newIngredient
+    }
+    
     class func forName(name: String) -> Ingredient? {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         

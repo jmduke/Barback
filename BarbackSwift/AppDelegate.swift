@@ -35,29 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Load up Core Data with all of our goodies.
             for ingredientBase: JSONIngredientBase in AllIngredients.sharedInstance.values {
-                let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase
-                newBase.name = ingredientBase.name
-                newBase.information = ingredientBase.description
-                newBase.type = ingredientBase.type.toRaw()
+                let newBase = IngredientBase.forJSONObject(ingredientBase, context: context)
                 let newBrands = newBase.mutableSetValueForKey("brands")
                 for brand in ingredientBase.brands {
-                    let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as Brand
-                    newBrand.name = brand.name
-                    newBrand.price = brand.price
+                    let newBrand: Brand = Brand.forJSONObject(brand, context: context)
                     newBrands.addObject(newBrand)
                 }
             }
             self.coreDataHelper.saveContext(context)
             
             for recipe in AllRecipes.sharedInstance {
-                let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as Recipe
-                newRecipe.name = recipe.name
-                newRecipe.directions = recipe.directions
-                newRecipe.glassware = recipe.glassware
-                newRecipe.isFavorited = false
+                let newRecipe = Recipe.forJSONObject(recipe, context: context)
                 let newIngredients = newRecipe.mutableSetValueForKey("ingredients")
                 for ingredient in recipe.ingredients {
-                    let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as Ingredient
                     
                     var ingredientBase: IngredientBase? = IngredientBase.forName(ingredient.base.name)
                     if ingredientBase == nil {
@@ -65,13 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         ingredientBase!.name = ingredient.base.name
                         ingredientBase!.information = ""
                     }
-                    
                     let ingredientBaseUses = ingredientBase!.mutableSetValueForKey("uses")
                     
+                    let newIngredient = Ingredient.forJSONObject(ingredient, context: context)
                     newIngredient.base = ingredientBase!
-                    newIngredient.amount = ingredient.amount
-                    newIngredient.label = ingredient.label
-                    newIngredient.isSpecial = ingredient.isSpecial
                     newIngredient.recipe = newRecipe
                     
                     newIngredients.addObject(newIngredient)

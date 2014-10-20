@@ -25,6 +25,13 @@ class Brand: NSManagedObject {
         }
     }
     
+    class func forJSONObject(brand: JSONBrand, context: NSManagedObjectContext) -> Brand {
+        let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as Brand
+        newBrand.name = brand.name
+        newBrand.price = brand.price
+        return newBrand
+    }
+    
     class func forName(name: String) -> Brand? {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
