@@ -28,42 +28,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") || true {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey:"HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
             for ingredientBase: JSONIngredientBase in AllIngredients.sharedInstance.values {
-                let newBase: CIngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as CIngredientBase
+                let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase
                 newBase.name = ingredientBase.name
                 newBase.information = ingredientBase.description
                 newBase.type = ingredientBase.type.toRaw()
                 let newBrands = newBase.mutableSetValueForKey("brands")
                 for brand in ingredientBase.brands {
-                    let newBrand: CBrand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as CBrand
+                    let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: context) as Brand
                     newBrand.name = brand.name
                     newBrand.price = brand.price
                     newBrands.addObject(newBrand)
                 }
             }
-            
             self.coreDataHelper.saveContext(context)
             
             for recipe in AllRecipes.sharedInstance {
-                let newRecipe: CRecipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as CRecipe
+                let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: context) as Recipe
                 newRecipe.name = recipe.name
                 newRecipe.directions = recipe.directions
                 newRecipe.glassware = recipe.glassware
                 newRecipe.isFavorited = false
                 let newIngredients = newRecipe.mutableSetValueForKey("ingredients")
                 for ingredient in recipe.ingredients {
-                    let newIngredient: CIngredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as CIngredient
+                    let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: context) as Ingredient
                     
-                    var ingredientBase: CIngredientBase? = CIngredientBase.forName(ingredient.base.name)
+                    var ingredientBase: IngredientBase? = IngredientBase.forName(ingredient.base.name)
                     if ingredientBase == nil {
-                        ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as CIngredientBase)
+                        ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase)
                         ingredientBase!.name = ingredient.base.name
                         ingredientBase!.information = ""
                     }
@@ -87,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Set some random recipes to be favorites.
             let initialNumberOfFavoritedRecipes = 3
             for _ in 1...initialNumberOfFavoritedRecipes {
-                CRecipe.random().isFavorited = true
+                Recipe.random().isFavorited = true
             }
         }
         
@@ -110,23 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appirater.setDebug(false)
         Appirater.appLaunched(true)
         
-        
-        
-        /*
-        let newItem: CBrand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: self.coreDataHelper.backgroundContext!) as CBrand
-        newItem.name = "Beefeater London Dry"
-        newItem.price = 2
-        
-        self.coreDataHelper.saveContext(self.coreDataHelper.backgroundContext!)
-        
-        let request = NSFetchRequest(entityName: "Brand")
-        request.predicate = NSPredicate(format: "name CONTAINS 'B'")
-        
-        let result = coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        for resultItem in result! {
-            let item = resultItem as CBrand
-            print("\(item.name) \(item.price)")
-        }*/
         return true
     }
 

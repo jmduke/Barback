@@ -60,7 +60,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         searchBar.resignFirstResponder()
     }
     
-    override func filterRecipes(recipe: CRecipe) -> Bool {
+    override func filterRecipes(recipe: Recipe) -> Bool {
         return recipe.matchesTerms(searchTerms) && recipe.isReal
     }
     
@@ -69,11 +69,11 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         // Grab search bar text and the recipes that match it.
         let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as [NSString]
         searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-        recipes = CRecipe.all().filter(filterRecipes)
+        recipes = Recipe.all().filter(filterRecipes)
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(CRecipe.forName("Bartender's Choice")!)
+            recipes.append(Recipe.forName("Bartender's Choice")!)
         }
         
         tableView.reloadData()

@@ -10,7 +10,7 @@ import UIKit
 
 class ShoppingListViewController: RecipeListViewController {
 
-    var ingredients: [CIngredientBase] = [CIngredientBase]() {
+    var ingredients: [IngredientBase] = [IngredientBase]() {
     willSet(newIngredients) {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
@@ -38,7 +38,7 @@ override
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    func setIngredients(ingredients: [CIngredientBase]) {
+    func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
     }
  

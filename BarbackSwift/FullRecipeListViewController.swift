@@ -12,7 +12,7 @@ import UIKit
 class FullRecipeListViewController: RecipeListViewController {
     
     var firstCharactersOfRecipes: [String]?
-    var filteredRecipesByFirstCharacter: [[CRecipe]] = [[CRecipe]]()
+    var filteredRecipesByFirstCharacter: [[Recipe]] = [[Recipe]]()
     
     override var viewTitle: String {
         get {
@@ -29,14 +29,14 @@ class FullRecipeListViewController: RecipeListViewController {
     // Map recipes to their first characters to allow searching with the UITableViewIndex.
     func mapRecipesToCharacters() {
         let firstCharacters = recipes.map({
-            (recipe: CRecipe) -> String in
+            (recipe: Recipe) -> String in
             return String(Array(recipe.name)[0])
             })
         firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? [String]
         
         for firstCharacter in firstCharactersOfRecipes! {
             let firstCharacters = recipes.filter({
-                (recipe: CRecipe) -> Bool in
+                (recipe: Recipe) -> Bool in
                 return recipe.name.hasPrefix(firstCharacter)
                 })
             filteredRecipesByFirstCharacter.append(firstCharacters)
@@ -50,12 +50,12 @@ class FullRecipeListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         let firstCharacter = firstCharactersOfRecipes![section]
         return recipes.filter({
-            (recipe: CRecipe) -> Bool in
+            (recipe: Recipe) -> Bool in
             return recipe.name.hasPrefix(firstCharacter)
             }).count
     }
     
-    override func getSelectedRecipe() -> CRecipe {
+    override func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow()
         let section = selectedRow?.section
         let row = selectedRow?.row

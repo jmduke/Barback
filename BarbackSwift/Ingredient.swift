@@ -1,5 +1,5 @@
 //
-//  CIngredient.swift
+//  Ingredient.swift
 //  
 //
 //  Created by Justin Duke on 10/6/14.
@@ -9,14 +9,14 @@
 import Foundation
 import CoreData
 
-class CIngredient: NSManagedObject {
+class Ingredient: NSManagedObject {
 
     @NSManaged var amount: NSNumber?
     @NSManaged var label: String?
     @NSManaged var isSpecial: NSNumber
     
-    @NSManaged var base: CIngredientBase
-    @NSManaged var recipe: CRecipe
+    @NSManaged var base: IngredientBase
+    @NSManaged var recipe: Recipe
 
     var lowercaseLabel: String? {
         return label?.lowercaseString
@@ -74,13 +74,13 @@ class CIngredient: NSManagedObject {
                 ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
-    class func forName(name: String) -> CIngredient? {
+    class func forName(name: String) -> Ingredient? {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         let request = NSFetchRequest(entityName: "Ingredient")
         request.predicate = NSPredicate(format: "name == \"\(name)\"")
         
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? CIngredient
+        return result?.first as? Ingredient
     }
 }

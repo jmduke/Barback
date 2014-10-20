@@ -11,13 +11,13 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
 
-    var recipe: CRecipe? {
+    var recipe: Recipe? {
     willSet {
         similarRecipes = newValue!.similarRecipes(2)
     }
     }
     var isRandom: Bool?
-    var similarRecipes: [CRecipe]?
+    var similarRecipes: [Recipe]?
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
@@ -48,11 +48,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidLoad() {
-        print("vdL")
         super.viewDidLoad()
         
         if (recipe == nil) {
-            recipe = CRecipe.random()
+            recipe = Recipe.random()
             isRandom = true
         }
         ingredientsTableView.delegate = self
@@ -107,7 +106,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func findNewRecipe() {
-        recipe = CRecipe.random()
+        recipe = Recipe.random()
         viewWillAppear(true)
         viewDidLoad()
     }
@@ -145,7 +144,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("vwA")
         super.viewWillAppear(animated)
         ingredientsTableView.reloadData()
         similarDrinksTableView.reloadData()
@@ -259,8 +257,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
-            let ingredients = recipe!.ingredients.allObjects as [CIngredient]
-            let ingredient: CIngredient = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})[indexPath.row] as CIngredient
+            let ingredients = recipe!.ingredients.allObjects as [Ingredient]
+            let ingredient: Ingredient = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})[indexPath.row] as Ingredient
             cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
@@ -294,7 +292,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     */
     
-    func setRecipe(recipe: CRecipe) {
+    func setRecipe(recipe: Recipe) {
         self.recipe = recipe
         
         // Disallow shake gestures.
@@ -318,13 +316,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    func getSelectedIngredient() -> CIngredientBase {
+    func getSelectedIngredient() -> IngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
-        return CIngredientBase.forName(recipe!.ingredients.allObjects[rowIndex!].base.name)!
+        return IngredientBase.forName(recipe!.ingredients.allObjects[rowIndex!].base.name)!
     }
     
-    func getSelectedRecipe() -> CRecipe {
+    func getSelectedRecipe() -> Recipe {
         let selectedRow = similarDrinksTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         return similarRecipes![rowIndex!]

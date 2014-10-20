@@ -20,26 +20,26 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
     
-    var ingredient: CIngredientBase
-    var recipes: [CRecipe]
+    var ingredient: IngredientBase
+    var recipes: [Recipe]
     
-    var brands: [CBrand] {
+    var brands: [Brand] {
         get {
-            let brands = CIngredientBase.forName(ingredient.name)!.brands
-            let brandObjects = brands.allObjects as [CBrand]
+            let brands = IngredientBase.forName(ingredient.name)!.brands
+            let brandObjects = brands.allObjects as [Brand]
             return brandObjects.sorted({$0.price.intValue < $1.price.intValue})
         }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        self.ingredient = CIngredientBase.forName("Gin")!
-        self.recipes = [CRecipe]()
+        self.ingredient = IngredientBase.forName("Gin")!
+        self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.ingredient = CIngredientBase.forName("Gin")!
-        self.recipes = [CRecipe]()
+        self.ingredient = IngredientBase.forName("Gin")!
+        self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
     
@@ -157,9 +157,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func setIngredient(ingredient: CIngredientBase) {
+    func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        recipes = CRecipe.all().filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
+        recipes = Recipe.all().filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
@@ -170,7 +170,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         destination.setRecipe(recipe)
     }
     
-    func getSelectedRecipe() -> CRecipe {
+    func getSelectedRecipe() -> Recipe {
         let selectedRow = drinksTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         return recipes[rowIndex!]
