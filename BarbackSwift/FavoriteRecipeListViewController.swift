@@ -17,7 +17,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     }
     }
     
-    override func filterRecipes(recipe: CRecipe) -> Bool {
+    override func filterRecipes(recipe: Recipe) -> Bool {
         return recipe.isFavorited
     }
     
@@ -31,7 +31,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {
-            let shoppingListRecipe = CRecipe.forName("Shopping List")
+            let shoppingListRecipe = Recipe.forName("Shopping List")
             var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
             return cell
         }
@@ -41,7 +41,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     override func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
         
-        recipes = CRecipe.all().filter(filterRecipes)
+        recipes = Recipe.all().filter(filterRecipes)
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
         loadCoachMarks()
@@ -64,19 +64,19 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         runCoachMarks(coachMarks)
     }
     
-    func ingredientsNeeded() -> [CIngredientBase] {
+    func ingredientsNeeded() -> [IngredientBase] {
         
         // Grab all the ingredient names.
         let allIngredients = recipes.map({
-            (recipe: CRecipe) -> [CIngredientBase] in
-            return (recipe.ingredients.allObjects as [CIngredient]).map({
-                (ingredient: CIngredient) -> CIngredientBase in
-                    return CIngredientBase.forName(ingredient.base.name)!
+            (recipe: Recipe) -> [IngredientBase] in
+            return (recipe.ingredients.allObjects as [Ingredient]).map({
+                (ingredient: Ingredient) -> IngredientBase in
+                    return IngredientBase.forName(ingredient.base.name)!
                 })
             })
         
         // Flatten it into a list.
-        var flattenedIngredients = [CIngredientBase]()
+        var flattenedIngredients = [IngredientBase]()
         for ingredientList in allIngredients {
             for ingredient in ingredientList {
                 flattenedIngredients.append(ingredient)
@@ -84,7 +84,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         }
         
         // Remove duplicates.
-        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as [CIngredientBase]
+        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as [IngredientBase]
         uniqueIngredients.sort({$0.name < $1.name})
         return uniqueIngredients
     }

@@ -11,8 +11,8 @@ import CoreData
 
 class CoreDataStore: NSObject{
     
-    let storeName = "CDBrand"
-    let storeFilename = "CDBrand.sqlite"
+    let storeName = "Models"
+    let storeFilename = "Models.sqlite"
     
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "me.iascchen.xxx" in the application's documents Application Support directory.

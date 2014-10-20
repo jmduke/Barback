@@ -1,5 +1,5 @@
 //
-//  CRecipe.swift
+//  Recipe.swift
 //  
 //
 //  Created by Justin Duke on 10/6/14.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class CRecipe: NSManagedObject {
+public class Recipe: NSManagedObject {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
@@ -28,20 +28,20 @@ public class CRecipe: NSManagedObject {
     
     var detailDescription: String {
         get {
-            let ingredients = (self.ingredients.allObjects as [CIngredient]).filter({ingredient in !ingredient.isSpecial}).map({
-                (ingredient: CIngredient) -> String in
+            let ingredients = (self.ingredients.allObjects as [Ingredient]).filter({ingredient in !ingredient.isSpecial}).map({
+                (ingredient: Ingredient) -> String in
                 return ingredient.base.name
             })
             return join(", ", ingredients)
         }
     }
     
-    func similarRecipes(recipeCount: Int) -> [CRecipe] {
-        let ingredientBases = ingredients.allObjects.map({($0 as CIngredient).base.name})
+    func similarRecipes(recipeCount: Int) -> [Recipe] {
+        let ingredientBases = ingredients.allObjects.map({($0 as Ingredient).base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
         
-        var similarRecipes = CRecipe.all().filter({
-            (recipe: CRecipe) -> Bool in
+        var similarRecipes = Recipe.all().filter({
+            (recipe: Recipe) -> Bool in
             let comparisonBases = recipe.ingredients.allObjects.map({$0.base.name})
             let matchedIngredients = ingredientBases.filter({ contains(comparisonBases, $0) })
             return matchedIngredients.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
@@ -51,7 +51,7 @@ public class CRecipe: NSManagedObject {
             return similarRecipes
         }
         
-        var chosenRecipes: [CRecipe] = [CRecipe]()
+        var chosenRecipes: [Recipe] = [Recipe]()
         while chosenRecipes.count < recipeCount {
             let randomIndex = Int(arc4random_uniform(UInt32(similarRecipes.count)))
             chosenRecipes.append(similarRecipes[randomIndex])
@@ -74,8 +74,8 @@ public class CRecipe: NSManagedObject {
             }
             
             // Or at least one ingredient in it.
-            let matchedIngredients = (ingredients.allObjects as [CIngredient]).filter({
-                (ingredient: CIngredient) -> Bool in
+            let matchedIngredients = (ingredients.allObjects as [Ingredient]).filter({
+                (ingredient: Ingredient) -> Bool in
                 return ingredient.matchesTerm(term)
             })
             if matchedIngredients.count > 0 {
@@ -88,26 +88,26 @@ public class CRecipe: NSManagedObject {
         return true
     }
 
-    class func forName(name: String) -> CRecipe? {
+    class func forName(name: String) -> Recipe? {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         let request = NSFetchRequest(entityName: "Recipe")
         request.predicate = NSPredicate(format: "name == \"\(name)\"")
         
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? CRecipe
+        return result?.first as? Recipe
     }
     
-    class func all() -> [CRecipe] {
+    class func all() -> [Recipe] {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         let request = NSFetchRequest(entityName: "Recipe")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result as [CRecipe]
+        return result as [Recipe]
     }
     
-    class func random() -> CRecipe {
-        let allRec = CRecipe.all()
+    class func random() -> Recipe {
+        let allRec = Recipe.all()
         return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
     }
 }

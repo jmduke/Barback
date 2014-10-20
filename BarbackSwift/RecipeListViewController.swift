@@ -12,7 +12,7 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    var recipes: [CRecipe] = CRecipe.all()
+    var recipes: [Recipe] = Recipe.all()
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -22,7 +22,7 @@ class RecipeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleController()
-        recipes = CRecipe.all().filter(filterRecipes)
+        recipes = Recipe.all().filter(filterRecipes)
     }
     
     override func styleController() {
@@ -59,7 +59,7 @@ class RecipeListViewController: UITableViewController {
         return cellForRecipe(recipe, andIndexPath: indexPath)
     }
     
-    func cellForRecipe(recipe: CRecipe, andIndexPath: NSIndexPath) -> UITableViewCell! {
+    func cellForRecipe(recipe: Recipe, andIndexPath: NSIndexPath) -> UITableViewCell! {
         let cellIdentifier = "recipeCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
@@ -74,7 +74,7 @@ class RecipeListViewController: UITableViewController {
         return CGFloat(UITableViewCell().primaryCellHeight())
     }
     
-    func getSelectedRecipe() -> CRecipe {
+    func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow()
 
         let rowIndex = selectedRow?.row
@@ -105,7 +105,7 @@ class RecipeListViewController: UITableViewController {
     }
     
     // Should be overwritten or super-called by subclasses to filter all recipes.
-    func filterRecipes(recipe: CRecipe) -> Bool {
+    func filterRecipes(recipe: Recipe) -> Bool {
         return recipe.isReal
     }
     

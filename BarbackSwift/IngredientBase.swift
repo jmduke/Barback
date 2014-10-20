@@ -1,5 +1,5 @@
 //
-//  CIngredientBase.swift
+//  IngredientBase.swift
 //  
 //
 //  Created by Justin Duke on 10/6/14.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CIngredientBase: NSManagedObject {
+class IngredientBase: NSManagedObject {
 
     @NSManaged var information: String
     @NSManaged var name: String
@@ -21,13 +21,13 @@ class CIngredientBase: NSManagedObject {
         return name.lowercaseString
     }
 
-    class func forName(name: String) -> CIngredientBase? {
+    class func forName(name: String) -> IngredientBase? {
         let delegate = UIApplication.sharedApplication().delegate as AppDelegate
         
         let request = NSFetchRequest(entityName: "IngredientBase")
         request.predicate = NSPredicate(format: "name == \"\(name)\"")
         
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
-        return result?.first as? CIngredientBase
+        return result?.first as? IngredientBase
     }
 }

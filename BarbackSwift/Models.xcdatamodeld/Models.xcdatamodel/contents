@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A361c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Brand" representedClassName="Barback.CBrand" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A379a" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Brand" representedClassName="Barback.Brand" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="ingredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientBase" inverseName="brands" inverseEntity="IngredientBase" syncable="YES"/>
     </entity>
-    <entity name="Ingredient" representedClassName="Barback.CIngredient" syncable="YES">
+    <entity name="Ingredient" representedClassName="Barback.Ingredient" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="isSpecial" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientBase" inverseName="uses" inverseEntity="IngredientBase" syncable="YES"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="IngredientBase" representedClassName="Barback.CIngredientBase" syncable="YES">
+    <entity name="IngredientBase" representedClassName="Barback.IngredientBase" syncable="YES">
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="brands" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Brand" inverseName="ingredient" inverseEntity="Brand" syncable="YES"/>
         <relationship name="uses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="base" inverseEntity="Ingredient" syncable="YES"/>
     </entity>
-    <entity name="Recipe" representedClassName="Barback.CRecipe" syncable="YES">
+    <entity name="Recipe" representedClassName="Barback.Recipe" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="glassware" optional="YES" attributeType="String" syncable="YES"/>
