@@ -44,7 +44,7 @@ class JSONRecipe: Equatable {
         get {
         let ingredients = self.ingredients.filter({ingredient in !ingredient.isSpecial}).map({
             (ingredient: JSONIngredient) -> String in
-            return ingredient.base.name
+            return ingredient.base
             })
         return join(", ", ingredients)
         }
@@ -76,89 +76,23 @@ class JSONRecipe: Equatable {
         
         self.init(name: name, directions: directions, glassware: glassware, ingredients: ingredients)
     }
-    
-    class func random() -> JSONRecipe {
-        let allRec = AllRecipes.sharedInstance
-        return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
-    }
-    
-    func similarRecipes(recipeCount: Int) -> [JSONRecipe] {
-        let ingredientBases = ingredients.map({$0.base.name})
-        let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
-        
-        var similarRecipes = AllRecipes.sharedInstance.filter({
-            (recipe: JSONRecipe) -> Bool in
-            let comparisonBases = recipe.ingredients.map({$0.base.name})
-            let matchedIngredients = ingredientBases.filter({ contains(comparisonBases, $0) })
-            return matchedIngredients.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
-        })
-        
-        if similarRecipes.count <= recipeCount {
-            return similarRecipes
-        }
-        
-        var chosenRecipes: [JSONRecipe] = [JSONRecipe]()
-        while chosenRecipes.count < recipeCount {
-            let randomIndex = Int(arc4random_uniform(UInt32(similarRecipes.count)))
-            chosenRecipes.append(similarRecipes[randomIndex])
-            similarRecipes.removeAtIndex(randomIndex)
-        }
-        return chosenRecipes
-    }
 
-    func matchesTerms(searchTerms: [NSString]) -> Bool {
-        for term: NSString in searchTerms {
-            
-            // If the term is nil (e.g. the second item in "orange,", match errything.
-            if term == "" {
-                continue
-            }
-            
-            // If the term matches the name of the recipe..
-            if (lowercaseName.rangeOfString(term) != nil) {
-                continue
-            }
-            
-            // Or at least one ingredient in it.
-            let matchedIngredients = ingredients.filter({
-                (ingredient: JSONIngredient) -> Bool in
-                return ingredient.matchesTerm(term)
-            })
-            if matchedIngredients.count > 0 {
-                continue
-            }
-            
-            // Otherwise, no luck.
-            return false
-        }
-        return true
+    class func fromJSONFile() -> [JSONRecipe] {
+        let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
+        let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
+        let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
+        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
+        
+        var allRecipes: [JSONRecipe] = rawRecipes.map({
+            (rawRecipe: NSDictionary) -> JSONRecipe in
+            return JSONRecipe(rawRecipe: rawRecipe)
+        })
+        allRecipes = allRecipes.sorted({ $0.name < $1.name })
+        return allRecipes
     }
 }
 
 
 func == (lhs: JSONRecipe, rhs: JSONRecipe) -> Bool {
     return lhs.name == rhs.name
-}
-
-
-class AllRecipes {
-    class var sharedInstance : [JSONRecipe] {
-        struct Static {
-            static let instance : [JSONRecipe] = Static.allRecipes()
-            static func allRecipes() -> [JSONRecipe] {
-                let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
-                let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
-                let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
-                
-                var allRecipes: [JSONRecipe] = rawRecipes.map({
-                    (rawRecipe: NSDictionary) -> JSONRecipe in
-                    return JSONRecipe(rawRecipe: rawRecipe)
-                    })
-                allRecipes = allRecipes.sorted({ $0.name < $1.name })
-                return allRecipes
-            }
-        }
-        return Static.instance
-    }
 }

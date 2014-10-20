@@ -9,7 +9,7 @@
 import Foundation
 
 class JSONIngredient {
-    var base: JSONIngredientBase
+    var base: String
     var amount: Float?
     var label: String?
     var lowercaseLabel: String?
@@ -29,7 +29,7 @@ class JSONIngredient {
     }
     
     init(base: String, amount: Float?, label: String?, isSpecial: Bool) {
-        self.base = JSONIngredientBase.getIngredientBase(base)
+        self.base = base
         self.amount = amount
         self.label = label
         self.lowercaseLabel = label?.lowercaseString
@@ -46,16 +46,6 @@ class JSONIngredient {
         let label = rawIngredient.objectForKey("label") as? String
         let amount = rawIngredient.objectForKey("cl") as? Float
         self.init(base: baseName!, amount: amount, label: label, isSpecial: isSpecial)
-    }
-    
-    func description() -> String {
-        return base.name
-    }
-    
-    func matchesTerm(searchTerm: String) -> Bool {
-        return
-            (base.lowercaseName.rangeOfString(searchTerm) != nil) ||
-            ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
     }
     
     func displayAmount() -> String {
