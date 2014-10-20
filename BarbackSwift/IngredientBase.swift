@@ -30,4 +30,12 @@ class IngredientBase: NSManagedObject {
         let result = delegate.coreDataHelper.managedObjectContext!.executeFetchRequest(request, error: nil)
         return result?.first as? IngredientBase
     }
+    
+    class func forJSONObject(ingredientBase: JSONIngredientBase, context: NSManagedObjectContext) -> IngredientBase {
+        let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase
+        newBase.name = ingredientBase.name
+        newBase.information = ingredientBase.description
+        newBase.type = ingredientBase.type.toRaw()
+        return newBase
+    }
 }
