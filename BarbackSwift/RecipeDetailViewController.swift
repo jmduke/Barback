@@ -14,10 +14,15 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var recipe: Recipe? {
     willSet {
         similarRecipes = newValue!.similarRecipes(2)
+        
+        let ingredients = newValue!.ingredients.allObjects as [Ingredient]
+        sortedIngredients = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})
     }
     }
+    
     var isRandom: Bool?
     var similarRecipes: [Recipe]?
+    var sortedIngredients: [Ingredient]?
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
@@ -257,8 +262,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell = UITableViewCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
-            let ingredients = recipe!.ingredients.allObjects as [Ingredient]
-            let ingredient: Ingredient = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})[indexPath.row] as Ingredient
+            let ingredient: Ingredient = sortedIngredients![indexPath.row]
             cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
@@ -319,7 +323,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func getSelectedIngredient() -> IngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
-        return IngredientBase.forName(recipe!.ingredients.allObjects[rowIndex!].base.name)!
+        
+        let ingredient = sortedIngredients![rowIndex!]
+        return IngredientBase.forName(ingredient.base.name)!
     }
     
     func getSelectedRecipe() -> Recipe {
