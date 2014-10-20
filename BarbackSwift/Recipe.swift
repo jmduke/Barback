@@ -28,7 +28,7 @@ public class Recipe: NSManagedObject {
     
     var detailDescription: String {
         get {
-            let ingredients = (self.ingredients.allObjects as [Ingredient]).filter({ingredient in !ingredient.isSpecial}).map({
+            let ingredients = (self.ingredients.allObjects as [Ingredient]).sorted({$0.amount?.intValue > $1.amount?.intValue}).filter({ingredient in !ingredient.isSpecial}).map({
                 (ingredient: Ingredient) -> String in
                 return ingredient.base.name
             })
