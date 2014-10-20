@@ -45,35 +45,12 @@ class JSONIngredientBase {
         self.init(name: name, brands: brands, description: description, type: type)
     }
     
-    class func getIngredientBase(fromName: String) -> JSONIngredientBase {
-        if let possibleMatch = AllIngredients.sharedInstance[fromName] {
-            return possibleMatch
-        }
-        return JSONIngredientBase(name: fromName)
-    }
-}
-
-class AllIngredients {
-    class var sharedInstance : Dictionary<String,JSONIngredientBase> {
-        struct Static {
+    class func fromJSONFile() -> [JSONIngredientBase] {
+        let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
+        let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
+        let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
+        var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
         
-            static let instance : Dictionary<String,JSONIngredientBase> = Static.allIngredients()
-            static func allIngredients() -> Dictionary<String,JSONIngredientBase> {
-                let filepath = NSBundle.mainBundle().pathForResource("ingredients", ofType: "json")
-                let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
-                let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-                var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
-                
-                var ingredientDict: Dictionary<String,JSONIngredientBase> = [:]
-                for rawIngredient in rawIngredients {
-                    let ingredientBase = JSONIngredientBase(rawIngredient: rawIngredient)
-                    ingredientDict[ingredientBase.name] = ingredientBase
-                }
-                
-                
-                return ingredientDict
-            }
-        }
-        return Static.instance
+        return rawIngredients.map({JSONIngredientBase(rawIngredient: $0)})
     }
 }

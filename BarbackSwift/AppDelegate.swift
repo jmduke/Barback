@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
-            for ingredientBase: JSONIngredientBase in AllIngredients.sharedInstance.values {
+            for ingredientBase: JSONIngredientBase in JSONIngredientBase.fromJSONFile() {
                 let newBase = IngredientBase.forJSONObject(ingredientBase, context: context)
                 let newBrands = newBase.mutableSetValueForKey("brands")
                 for brand in ingredientBase.brands {
@@ -44,15 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             self.coreDataHelper.saveContext(context)
             
-            for recipe in AllRecipes.sharedInstance {
+            for recipe in JSONRecipe.fromJSONFile() {
                 let newRecipe = Recipe.forJSONObject(recipe, context: context)
                 let newIngredients = newRecipe.mutableSetValueForKey("ingredients")
                 for ingredient in recipe.ingredients {
                     
-                    var ingredientBase: IngredientBase? = IngredientBase.forName(ingredient.base.name)
+                    var ingredientBase: IngredientBase? = IngredientBase.forName(ingredient.base)
                     if ingredientBase == nil {
                         ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: context) as IngredientBase)
-                        ingredientBase!.name = ingredient.base.name
+                        ingredientBase!.name = ingredient.base
                         ingredientBase!.information = ""
                     }
                     let ingredientBaseUses = ingredientBase!.mutableSetValueForKey("uses")
