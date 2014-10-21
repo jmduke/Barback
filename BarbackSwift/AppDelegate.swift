@@ -14,6 +14,11 @@ func managedContext() -> NSManagedObjectContext {
     return delegate.coreDataHelper.managedObjectContext!
 }
 
+func saveContext() {
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
+    delegate.coreDataHelper.saveContext(managedContext())
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
