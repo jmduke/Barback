@@ -38,15 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce") {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey:"HasLaunchedOnce")
-            NSUserDefaults.standardUserDefaults().synchronize()
+        if !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce") {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
             let ingredientBases = IngredientBase.fromJSONFile("ingredients")
             let recipes = Recipe.fromJSONFile("recipes")
             self.coreDataHelper.saveContext(context)
+            print("Boop \(recipes.count)")
 
             
             // Set some random recipes to be favorites.
@@ -54,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for _ in 1...initialNumberOfFavoritedRecipes {
                 Recipe.random().isFavorited = true
             }
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         
         // Set status bar to active.  And white.
