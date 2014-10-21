@@ -44,9 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Load up Core Data with all of our goodies.
             let ingredientBases = IngredientBase.fromJSONFile("ingredients")
             let recipes = Recipe.fromJSONFile("recipes")
+            let brands = Brand.fromJSONFile("brands")
             self.coreDataHelper.saveContext(context)
-            print("Boop \(recipes.count)")
-
             
             // Set some random recipes to be favorites.
             let initialNumberOfFavoritedRecipes = 3
