@@ -1,0 +1,122 @@
+[
+    {
+    "name":"Kübler",
+    "base":"Absinthe",
+    "price":4
+    },
+    {
+    "name":"Gordon's Dry London",
+    "base":"Gin",
+    "price":1
+    },
+    {
+    "name":"Beefeater London Dry",
+    "base":"Gin",
+    "price":2
+    },
+    {
+    "name":"Plymouth",
+    "base":"Gin",
+    "price":3
+    },
+    {
+    "name":"Remy Martin VSOP",
+    "base":"Brandy",
+    "price":2
+    },
+    {
+    "name":"XO Cognac",
+    "base":"Brandy",
+    "price":5
+    },
+    {
+    "name":"Powers Gold Label",
+    "base":"Whiskey",
+    "price":1
+    },
+    {
+    "name":"Green Spot",
+    "base":"Whiskey",
+    "price":2
+    },
+    {
+    "name":"Tito's",
+    "base":"Vodka",
+    "price":1
+    },
+    {
+    "name":"Sobieski",
+    "base":"Vodka",
+    "price":2
+    },
+    {
+    "name":"Belvedere",
+    "base":"Vodka",
+    "price":4
+    },
+    {
+    "name":"Matusalem",
+    "base":"White rum",
+    "price":2
+    },
+    {
+    "name":"10 Cane",
+    "base":"White rum",
+    "price":3
+    },
+    {
+    "name":"Los Generales",
+    "base":"Tequila",
+    "price":2
+    },
+    {
+    "name":"El Espólon Blanco",
+    "base":"Tequila",
+    "price":3
+    },
+    {
+    "name":"Don Julio",
+    "base":"Tequila",
+    "price":4
+    },
+    {
+    "name":"Martini & Rossi",
+    "base":"Vermouth",
+    "price":1
+    },
+    {
+    "name":"Dolin",
+    "base":"Vermouth",
+    "price":2
+    },
+    {
+    "name":"Carpano Antica",
+    "base":"Vermouth",
+    "price":5
+    },
+    {
+    "name":"Rittenhouse",
+    "base":"Rye",
+    "price":2
+    },
+    {
+    "name":"Pusser's",
+    "base":"Dark rum",
+    "price":3
+    },
+    {
+    "name":"Gran Torres",
+    "base":"Triple Sec",
+    "price":2
+    },
+    {
+    "name":"Grand Marnier",
+    "base":"Triple Sec",
+    "price":2
+    },
+    {
+    "name":"Cointreau",
+    "base":"Triple Sec",
+    "price":3
+    }
+]

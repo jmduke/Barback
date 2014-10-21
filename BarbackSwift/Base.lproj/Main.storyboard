@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Full Recipe List View Controller-->
@@ -321,13 +320,13 @@
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RpF-Vc-ZOY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-66-Hw0">
-                                <rect key="frame" x="-4" y="0.0" width="320" height="480"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-66-Hw0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
                                         <rect key="frame" x="0.0" y="20" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="mbo-Hl-N4w"/>
@@ -342,7 +341,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-DK-JAx">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="bo6-DK-JAx">
                                         <rect key="frame" x="30" y="61" width="260" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="cZE-1q-ANl"/>
@@ -351,7 +350,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ofi-CB-1bM" userLabel="recommendedBrands">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ofi-CB-1bM" userLabel="recommendedBrands">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" id="f2D-z2-cbQ"/>
@@ -371,7 +370,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-wd-9l9" userLabel="relevantDrinks">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-wd-9l9" userLabel="relevantDrinks">
                                         <rect key="frame" x="0.0" y="184" width="320" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -409,7 +408,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB">
                                         <rect key="frame" x="0.0" y="102" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="9Za-SI-MB5"/>
@@ -424,7 +423,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-d5-hzv">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-d5-hzv">
                                         <rect key="frame" x="0.0" y="153" width="320" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -441,11 +440,13 @@
                                     <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" constant="20" id="Kjp-iG-iPb"/>
                                     <constraint firstItem="aer-O9-w0l" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="top" constant="20" id="N47-Wh-btj"/>
                                     <constraint firstItem="khG-Ic-avB" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="37" id="OSB-lS-CVz"/>
+                                    <constraint firstAttribute="centerX" secondItem="RRo-wd-9l9" secondAttribute="centerX" id="Obn-JD-F5i"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="Ofi-CB-1bM" secondAttribute="bottom" constant="20" id="P9o-Jz-M9m"/>
                                     <constraint firstAttribute="centerX" secondItem="khG-Ic-avB" secondAttribute="centerX" id="S7a-MF-7qq"/>
                                     <constraint firstAttribute="centerX" secondItem="aer-O9-w0l" secondAttribute="centerX" id="SlQ-ld-2YV"/>
                                     <constraint firstItem="RRo-wd-9l9" firstAttribute="top" secondItem="jRn-d5-hzv" secondAttribute="bottom" constant="10" id="TOy-pR-KXd"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="width" secondItem="ct9-66-Hw0" secondAttribute="width" id="UB4-7y-SAh"/>
+                                    <constraint firstAttribute="centerX" secondItem="bo6-DK-JAx" secondAttribute="centerX" id="Xgh-Z8-LRR"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" id="Y65-8U-9M5"/>
                                     <constraint firstAttribute="trailing" secondItem="jRn-d5-hzv" secondAttribute="trailing" id="bTk-MY-UqG"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" priority="500" constant="20" id="bfX-K8-Haf"/>
@@ -454,13 +455,20 @@
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" id="hYB-1i-7Wt"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" constant="30" id="i5S-Dl-sSp"/>
                                     <constraint firstAttribute="centerX" secondItem="bo6-DK-JAx" secondAttribute="centerX" id="pz0-0d-Bwu"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ofi-CB-1bM" secondAttribute="centerX" id="vWq-6G-pEk"/>
                                     <constraint firstAttribute="width" secondItem="jRn-d5-hzv" secondAttribute="width" id="vlS-74-ErG"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="ySL-pG-Gi5"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="20" id="zPC-Xn-bGE"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Y65-8U-9M5"/>
+                                        <exclude reference="HGb-7h-dN6"/>
+                                        <exclude reference="i5S-Dl-sSp"/>
                                         <exclude reference="pz0-0d-Bwu"/>
+                                        <exclude reference="bTk-MY-UqG"/>
+                                        <exclude reference="hYB-1i-7Wt"/>
+                                        <exclude reference="4it-1z-afj"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -468,9 +476,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ct9-66-Hw0" firstAttribute="width" secondItem="RpF-Vc-ZOY" secondAttribute="width" id="7Pz-rd-pdQ"/>
-                            <constraint firstItem="ct9-66-Hw0" firstAttribute="leading" secondItem="RpF-Vc-ZOY" secondAttribute="leadingMargin" constant="-20" id="8Uw-EC-2b5"/>
                             <constraint firstAttribute="height" secondItem="ct9-66-Hw0" secondAttribute="height" id="Wcc-eP-i7s"/>
-                            <constraint firstItem="Q29-Ke-qiu" firstAttribute="top" secondItem="ct9-66-Hw0" secondAttribute="bottom" id="gbg-vj-sZE"/>
+                            <constraint firstAttribute="centerX" secondItem="ct9-66-Hw0" secondAttribute="centerX" id="k36-9q-uK9"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
