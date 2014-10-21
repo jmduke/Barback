@@ -15,11 +15,11 @@ public class BarbackModel: NSManagedObject {
         return ""
     }
     
-    class func forName(name: String) -> BarbackModel {
+    class func forName(name: String) -> BarbackModel? {
         let request = NSFetchRequest(entityName: entityName())
         request.predicate = NSPredicate(format: "name == \"\(name)\"")
         
         let result = managedContext().executeFetchRequest(request, error: nil)
-        return result?.first as BarbackModel
+        return result?.first as? BarbackModel
     }
 }
