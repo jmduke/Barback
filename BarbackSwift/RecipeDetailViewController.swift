@@ -146,6 +146,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func markRecipeAsFavorite() {
         recipe!.isFavorited = !recipe!.isFavorited
         favoriteButton.selected = !favoriteButton.selected
+        saveContext()
     }
     
     override func viewWillAppear(animated: Bool) {

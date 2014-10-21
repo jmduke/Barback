@@ -23,8 +23,12 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         
-        // Return an extra row to account for Shopping List.
-        return recipes.count + 1
+        if recipes.count > 0 {
+            // Return an extra row to account for Shopping List.
+            return recipes.count + 1
+        } else {
+            return recipes.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,10 +45,23 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     override func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
         
+        
         recipes = Recipe.all().filter(filterRecipes)
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
         loadCoachMarks()
+        
+        if recipes.count == 0 {
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            emptyStateLabel.text = "When you mark a recipe as a favorite, it'll show up here."
+            emptyStateLabel.textAlignment = NSTextAlignment.Center
+            emptyStateLabel.textColor = UIColor.lighterColor()
+            emptyStateLabel.numberOfLines = 3
+            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
+            tableView.backgroundView = emptyStateLabel
+        } else {
+            tableView.backgroundView = nil
+        }
         
         super.viewDidAppear(animated)
     }
