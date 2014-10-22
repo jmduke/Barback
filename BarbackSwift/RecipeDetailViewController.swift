@@ -58,7 +58,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         if (recipe == nil) {
             recipe = Recipe.random()
             isRandom = true
+            
+            let randomButton = UIBarButtonItem(title: "New Recipe", style: UIBarButtonItemStyle.Plain, target: self, action: "findNewRecipe")
+            self.navigationItem.rightBarButtonItem = randomButton
         }
+        
+        
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
@@ -159,9 +164,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func viewDidAppear(animated: Bool)  {
-        if (isRandom != nil) {
-            findNewRecipe()
-        }
         super.viewDidAppear(animated)
         
 
@@ -212,7 +214,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         if (isRandom != nil) {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
-            let shakeCaption = "Don't like this one?  Shake the phone for a new recipe."
+            let shakeCaption = "Don't like this one?  Shake the phone or press the \"New Recipe\" button for a new recipe."
             
             let coachMark = ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]
             coachMarks.append(coachMark)
