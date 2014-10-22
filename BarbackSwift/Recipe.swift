@@ -138,7 +138,7 @@ public class Recipe: BarbackModel {
         let request = NSFetchRequest(entityName: "Recipe")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let result = managedContext().executeFetchRequest(request, error: nil)
-        return result as [Recipe]
+        return (result as [Recipe]).filter({$0.isReal})
     }
     
     class func random() -> Recipe {

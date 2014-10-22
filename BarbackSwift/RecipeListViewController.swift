@@ -106,7 +106,7 @@ class RecipeListViewController: UITableViewController {
     
     // Should be overwritten or super-called by subclasses to filter all recipes.
     func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.isReal
+        return true
     }
     
 }
