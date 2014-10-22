@@ -74,6 +74,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             navigationController?.tabBarItem.title = "Random"
         }
         
+        favoriteButton.selectedAlpha = 1.0
+        favoriteButton.selected = recipe!.isFavorited
+        
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
@@ -161,7 +164,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         super.viewDidAppear(animated)
         
-        favoriteButton.selected = recipe!.isFavorited
 
         loadCoachMarks()
     }
