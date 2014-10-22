@@ -51,9 +51,12 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         
         loadCoachMarks()
         
-        if recipes.count == 0 {
+        // Load empty state view if necessary.
+        if tableView(tableView, numberOfRowsInSection: 1) == 0 {
             let emptyStateLabel = UILabel(frame: tableView.frame)
             emptyStateLabel.text = "When you mark a recipe as a favorite, it'll show up here."
+            
+            // Style it up here.
             emptyStateLabel.textAlignment = NSTextAlignment.Center
             emptyStateLabel.textColor = UIColor.lighterColor()
             emptyStateLabel.numberOfLines = 3
