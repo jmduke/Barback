@@ -56,7 +56,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         if (recipe == nil) {
-            recipe = Recipe.random()
+            recipe = getRandomRecipe()
             isRandom = true
             
             let randomButton = UIBarButtonItem(title: "New Recipe", style: UIBarButtonItemStyle.Plain, target: self, action: "findNewRecipe")
@@ -119,9 +119,17 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func findNewRecipe() {
-        recipe = Recipe.random()
+        recipe = getRandomRecipe()
         viewWillAppear(true)
         viewDidLoad()
+    }
+    
+    func getRandomRecipe() -> Recipe {
+        var randomRecipe = managedContext().randomObject(Recipe.self)!
+        while (!randomRecipe.isReal) {
+            randomRecipe = managedContext().randomObject(Recipe.self)!
+        }
+        return randomRecipe
     }
     
     func shareOnFacebook() {
@@ -330,7 +338,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let rowIndex = selectedRow?.row
         
         let ingredient = sortedIngredients![rowIndex!]
-        return IngredientBase.forName(ingredient.base.name) as IngredientBase
+        return managedContext().objectForName(IngredientBase.self, name: ingredient.base.name)!
     }
     
     func getSelectedRecipe() -> Recipe {

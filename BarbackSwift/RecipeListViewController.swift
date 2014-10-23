@@ -12,7 +12,7 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     let viewTitle: String = ""
-    var recipes: [Recipe] = Recipe.all()
+    var recipes: [Recipe] = managedContext().objects(Recipe.self)!
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -22,7 +22,7 @@ class RecipeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleController()
-        recipes = Recipe.all().filter(filterRecipes)
+        recipes = managedContext().objects(Recipe.self)!.filter(filterRecipes)
     }
     
     override func styleController() {
@@ -106,7 +106,7 @@ class RecipeListViewController: UITableViewController {
     
     // Should be overwritten or super-called by subclasses to filter all recipes.
     func filterRecipes(recipe: Recipe) -> Bool {
-        return true
+        return recipe.isReal
     }
     
 }

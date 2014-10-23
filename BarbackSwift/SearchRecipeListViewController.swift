@@ -61,7 +61,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.matchesTerms(searchTerms)
+        return recipe.matchesTerms(searchTerms) && recipe.isReal
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
@@ -69,11 +69,27 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         // Grab search bar text and the recipes that match it.
         let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as [NSString]
         searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-        recipes = Recipe.all().filter(filterRecipes)
+        
+        if searchTerms.isEmpty || searchTerms[0].isEmpty {
+            recipes = []
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            let randomRecipe = managedContext().randomObject(IngredientBase.self)
+            emptyStateLabel.text = "Try searching for \(randomRecipe!.name)."
+            
+            // Style it up here.
+            emptyStateLabel.textAlignment = NSTextAlignment.Center
+            emptyStateLabel.textColor = UIColor.lighterColor()
+            emptyStateLabel.numberOfLines = 3
+            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
+            tableView.backgroundView = emptyStateLabel
+        } else {
+            recipes = managedContext().objects(Recipe.self)!.filter(filterRecipes)
+            tableView.backgroundView = nil
+        }
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(Recipe.forName("Bartender's Choice") as Recipe)
+            recipes.append(managedContext().objectForName(Recipe.self, name: "Bartender's Choice")!)
         }
         
         tableView.reloadData()

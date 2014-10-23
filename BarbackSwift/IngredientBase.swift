@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class IngredientBase: BarbackModel {
+class IngredientBase: NSManagedObject {
 
     @NSManaged var information: String
     @NSManaged var name: String
@@ -19,10 +19,6 @@ class IngredientBase: BarbackModel {
     
     var lowercaseName: String {
         return name.lowercaseString
-    }
-
-    override class func entityName() -> String {
-        return "IngredientBase"
     }
     
     class func fromAttributes(name: String, information: String, type: IngredientType) -> IngredientBase {

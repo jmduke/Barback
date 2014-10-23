@@ -35,8 +35,8 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {
-            let shoppingListRecipe = Recipe.forName("Shopping List") as Recipe
-            var cell = cellForRecipe(shoppingListRecipe, andIndexPath: indexPath)
+            let shoppingListRecipe = managedContext().objectForName(Recipe.self, name: "Shopping List")
+            var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
             return cell
         }
         return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
@@ -46,7 +46,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // We manually reload each appearance to account for favorites in other tabs.
         
         
-        recipes = Recipe.all().filter(filterRecipes)
+        recipes = managedContext().objects(Recipe.self)!.filter(filterRecipes)
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
         loadCoachMarks()
@@ -91,7 +91,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             (recipe: Recipe) -> [IngredientBase] in
             return (recipe.ingredients.allObjects as [Ingredient]).map({
                 (ingredient: Ingredient) -> IngredientBase in
-                    return IngredientBase.forName(ingredient.base.name) as IngredientBase
+                return managedContext().objectForName(IngredientBase.self, name: ingredient.base.name)!
                 })
             })
         
