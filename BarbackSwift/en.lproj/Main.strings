@@ -1,0 +1,72 @@
+
+/* Class = "IBUITabBarItem"; title = "Favorites"; ObjectID = "6Ew-PS-gwR"; */
+"6Ew-PS-gwR.title" = "Favorites";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "857-Jv-YYs"; */
+"857-Jv-YYs.text" = "Subtitle";
+
+/* Class = "IBUITabBarItem"; title = "Search"; ObjectID = "8OG-5b-kr7"; */
+"8OG-5b-kr7.title" = "Search";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "8xt-1a-uCk"; */
+"8xt-1a-uCk.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "recipe.glassware"; ObjectID = "DK2-3l-Le6"; */
+"DK2-3l-Le6.text" = "recipe.glassware";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "FIO-d5-f7U"; */
+"FIO-d5-f7U.text" = "Title";
+
+/* Class = "IBUILabel"; text = "recipe.directions"; ObjectID = "Jia-FD-882"; */
+"Jia-FD-882.text" = "recipe.directions";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "Jx8-lm-2lT"; */
+"Jx8-lm-2lT.text" = "Title";
+
+/* Class = "IBUILabel"; text = "You might also be interested in:"; ObjectID = "S12-BL-WRE"; */
+"S12-BL-WRE.text" = "You might also be interested in:";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "a93-TI-cat"; */
+"a93-TI-cat.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "aDT-PN-Wvg"; */
+"aDT-PN-Wvg.text" = "Title";
+
+/* Class = "IBUILabel"; text = "ingredient.name"; ObjectID = "aer-O9-w0l"; */
+"aer-O9-w0l.text" = "ingredient.name";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "bTp-Ye-2Dx"; */
+"bTp-Ye-2Dx.text" = "Title";
+
+/* Class = "IBUILabel"; text = "ingredient.description"; ObjectID = "bo6-DK-JAx"; */
+"bo6-DK-JAx.text" = "ingredient.description";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "dTT-c3-2E7"; */
+"dTT-c3-2E7.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Detail"; ObjectID = "dqL-5r-AZ2"; */
+"dqL-5r-AZ2.text" = "Detail";
+
+/* Class = "IBUILabel"; text = "recipe.name"; ObjectID = "gmf-0i-cR3"; */
+"gmf-0i-cR3.text" = "recipe.name";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "isz-sG-y5w"; */
+"isz-sG-y5w.text" = "Title";
+
+/* Class = "IBUILabel"; text = "ingredient.drinks"; ObjectID = "jRn-d5-hzv"; */
+"jRn-d5-hzv.text" = "ingredient.drinks";
+
+/* Class = "IBUILabel"; text = "Brands"; ObjectID = "khG-Ic-avB"; */
+"khG-Ic-avB.text" = "Brands";
+
+/* Class = "IBUITabBarItem"; title = "Recipes"; ObjectID = "lKr-fE-JbQ"; */
+"lKr-fE-JbQ.title" = "Recipes";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "pcj-tN-Bot"; */
+"pcj-tN-Bot.text" = "Subtitle";
+
+/* Class = "IBUITabBarItem"; title = "Random"; ObjectID = "qD5-8V-fmE"; */
+"qD5-8V-fmE.title" = "Random";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "qlf-Lb-QrB"; */
+"qlf-Lb-QrB.text" = "Subtitle";

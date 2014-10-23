@@ -50,8 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Set some random recipes to be favorites.
             let initialNumberOfFavoritedRecipes = 3
             for _ in 1...initialNumberOfFavoritedRecipes {
-                Recipe.random().isFavorited = true
+                var randomRecipe = managedContext().randomObject(Recipe.self)!
+                while (!randomRecipe.isReal) {
+                    randomRecipe = managedContext().randomObject(Recipe.self)!
+                }
+                randomRecipe.isFavorited = true
             }
+            self.coreDataHelper.saveContext(context)
+
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()

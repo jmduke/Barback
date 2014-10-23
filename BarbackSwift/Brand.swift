@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Brand: BarbackModel {
+class Brand: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
@@ -38,7 +38,7 @@ class Brand: BarbackModel {
         let price = rawBrand.objectForKey("price") as Int
         let baseName = rawBrand.objectForKey("base") as String
         
-        let base = IngredientBase.forName(baseName) as IngredientBase
+        let base = managedContext().objectForName(IngredientBase.self, name: baseName)!
         
         return fromAttributes(name, price: price, base: base)
     }

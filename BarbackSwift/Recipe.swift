@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class Recipe: BarbackModel {
+public class Recipe: NSManagedObject {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
@@ -40,7 +40,7 @@ public class Recipe: BarbackModel {
         let ingredientBases = ingredients.allObjects.map({($0 as Ingredient).base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
         
-        var similarRecipes = Recipe.all().filter({
+        var similarRecipes = managedContext().objects(Recipe.self)!.filter({
             (recipe: Recipe) -> Bool in
             let comparisonBases = recipe.ingredients.allObjects.map({$0.base.name})
             let matchedIngredients = ingredientBases.filter({ contains(comparisonBases, $0) })
@@ -88,10 +88,6 @@ public class Recipe: BarbackModel {
         return true
     }
 
-    override class func entityName() -> String {
-        return "Recipe"
-    }
-    
     class func fromAttributes(name: String, directions: String, glassware: String) -> Recipe {
         let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
         newRecipe.name = name
@@ -132,17 +128,5 @@ public class Recipe: BarbackModel {
         })
         allRecipes = allRecipes.sorted({ $0.name < $1.name })
         return allRecipes
-    }
-
-    class func all() -> [Recipe] {
-        let request = NSFetchRequest(entityName: "Recipe")
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        let result = managedContext().executeFetchRequest(request, error: nil)
-        return (result as [Recipe]).filter({$0.isReal})
-    }
-    
-    class func random() -> Recipe {
-        let allRec = Recipe.all()
-        return allRec[Int(arc4random_uniform(UInt32(allRec.count)))]
     }
 }
