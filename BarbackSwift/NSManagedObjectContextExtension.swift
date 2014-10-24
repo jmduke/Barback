@@ -25,7 +25,7 @@ extension NSManagedObjectContext {
     }
     
     func objectForName<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, name: String) -> T? {
-        let predicate = NSPredicate(format: "name == \"\(name)\"")
+        let predicate = NSPredicate(format: "name LIKE[cd] \"\(name)\"")
         return objects(entity, predicate: predicate)?.first
     }
     
