@@ -187,7 +187,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             let labelPrefix = join("", activeIngredients.map({ $0.name + ", " }))
             cell.textLabel?.text = "\(labelPrefix)\(ingredient.name)"
-            cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) recipes"
+            
+            let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
+            cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
             cell.stylePrimary()
             
             return cell
