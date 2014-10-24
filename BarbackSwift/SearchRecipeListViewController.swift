@@ -13,15 +13,30 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     @IBOutlet var searchBar: UISearchBar!
     
+    let allRecipes = managedContext().objects(Recipe.self)!
+    
     var possibleIngredients: [IngredientBase] = [IngredientBase]()
         {
         didSet {
-            let allRecipes = managedContext().objects(Recipe.self)!.filter(filterRecipes)
-            recipesForPossibleIngredients = []
-            for ingredient in possibleIngredients {
-                recipesForPossibleIngredients.append(allRecipes.filter({self.recipeHasAllIngredients($0, ingredients: [ingredient])}).count)
+            let currentRecipes = allRecipes.filter(filterRecipes)
+            recipesForPossibleIngredients = Array(count: possibleIngredients.count, repeatedValue: 0)
+            for recipe in currentRecipes {
+                for ingredient in recipe.ingredients.allObjects as [Ingredient] {
+                    let base = ingredient.base
+                    if contains(possibleIngredients, base) {
+                        recipesForPossibleIngredients[find(possibleIngredients, base)!] += 1
+                    }
+                }
             }
-            possibleIngredients = possibleIngredients.sorted({self.recipesForPossibleIngredients[find(self.possibleIngredients, $0)!] > self.recipesForPossibleIngredients[find(self.possibleIngredients, $1)!]})
+            /*
+            for ingredient in possibleIngredients {
+                recipesForPossibleIngredients.append(currentRecipes.filter({self.recipeHasAllIngredients($0, ingredients: [ingredient])}).count)
+            }*/
+            var positionsInArray: [IngredientBase: Int] = [:]
+            for pos in 0..<possibleIngredients.count {
+                positionsInArray[possibleIngredients[pos]] = pos
+            }
+            possibleIngredients = possibleIngredients.sorted({self.recipesForPossibleIngredients[positionsInArray[$0]!] > self.recipesForPossibleIngredients[positionsInArray[$1]!]})
             recipesForPossibleIngredients = recipesForPossibleIngredients.sorted({$0 > $1})
             possibleIngredients = possibleIngredients.filter({self.recipesForPossibleIngredients[find(self.possibleIngredients, $0)!] > 0})
         }
@@ -56,7 +71,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.searchBar(searchBar, textDidChange: searchBar.text)
+        if searchBar.text != "" {
+            self.searchBar(searchBar, textDidChange: searchBar.text)
+        }
     }
     
     override func styleController() {
@@ -146,7 +163,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             }
             possibleIngredients = possibleIngredients.filter({!contains(self.activeIngredients, $0)})
         } else {
-            recipes = managedContext().objects(Recipe.self)!.filter(filterRecipes)
+            recipes = allRecipes.filter(filterRecipes)
             tableView.backgroundView = nil
         }
         
