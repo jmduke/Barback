@@ -37,8 +37,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             // Fun fact: this is by far the slowest part of this entire codebase.
             possibleIngredients = possibleIngredients.filter({self.recipesForPossibleIngredients[positionsInArray[$0]!] > 0})
-            possibleIngredients = possibleIngredients.sorted({self.recipesForPossibleIngredients[positionsInArray[$0]!] > self.recipesForPossibleIngredients[positionsInArray[$1]!]})
-            recipesForPossibleIngredients = recipesForPossibleIngredients.sorted({$0 > $1})
+            possibleIngredients.sort({self.recipesForPossibleIngredients[positionsInArray[$0]!] > self.recipesForPossibleIngredients[positionsInArray[$1]!]})
+            recipesForPossibleIngredients.sort({$0 > $1})
         }
     }
     var recipesForPossibleIngredients: [Int] = []
