@@ -28,17 +28,17 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
                     }
                 }
             }
-            /*
-            for ingredient in possibleIngredients {
-                recipesForPossibleIngredients.append(currentRecipes.filter({self.recipeHasAllIngredients($0, ingredients: [ingredient])}).count)
-            }*/
+            
+            // Sorting is very slow, which is why we do this like this.  Yes, it is very ugly.
             var positionsInArray: [IngredientBase: Int] = [:]
             for pos in 0..<possibleIngredients.count {
                 positionsInArray[possibleIngredients[pos]] = pos
             }
+            
+            // Fun fact: this is by far the slowest part of this entire codebase.
+            possibleIngredients = possibleIngredients.filter({self.recipesForPossibleIngredients[positionsInArray[$0]!] > 0})
             possibleIngredients = possibleIngredients.sorted({self.recipesForPossibleIngredients[positionsInArray[$0]!] > self.recipesForPossibleIngredients[positionsInArray[$1]!]})
             recipesForPossibleIngredients = recipesForPossibleIngredients.sorted({$0 > $1})
-            possibleIngredients = possibleIngredients.filter({self.recipesForPossibleIngredients[find(self.possibleIngredients, $0)!] > 0})
         }
     }
     var recipesForPossibleIngredients: [Int] = []
@@ -81,6 +81,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         searchBar.translucent = false
         searchBar.barTintColor = UIColor.darkColor()
+        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
+        UITextField.appearance().textColor = UIColor.darkColor()
     }
     
     override func viewDidLoad() {
@@ -88,28 +90,14 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         // Allow us to actually pick up search bar input.
         searchBar.delegate = self
-        
-        // Initialize the filter function.
-        searchBar(searchBar, textDidChange: searchBar.text)
-        
-        // Empty state.
-        
-        recipes = []
-        let emptyStateLabel = UILabel(frame: tableView.frame)
-        let randomRecipe = managedContext().randomObject(IngredientBase.self)
-        emptyStateLabel.text = "Try searching for \(randomRecipe!.name)."
-        
-        // Style it up here.
-        emptyStateLabel.textAlignment = NSTextAlignment.Center
-        emptyStateLabel.textColor = UIColor.lighterColor()
-        emptyStateLabel.numberOfLines = 3
-        emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
-        tableView.backgroundView = emptyStateLabel
-        
+
         // So we hide the keyboard when we tap away from it.
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tapRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(tapRecognizer)
+        
+        // Initialize the filter function.
+        searchBar(searchBar, textDidChange: searchBar.text)
     }
     
     override func viewDidLayoutSubviews() {
@@ -139,8 +127,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        if (!searchBar.text.hasSuffix(",") && !searchBar.text.isEmpty) {
-            searchBar.text.append("," as Character)
+        if (!searchBar.text.hasSuffix(" + ") && !searchBar.text.isEmpty) {
+            searchBar.text = searchBar.text + " + "
         }
         
         self.searchBar(self.searchBar, textDidChange: searchBar.text)
@@ -148,22 +136,48 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
-        tableView.backgroundView = nil
 
         // Grab search bar text and the recipes that match it.
-        let rawSearchTerms = searchBar.text.componentsSeparatedByString(",") as [NSString]
+        let rawSearchTerms = searchBar.text.componentsSeparatedByString(" + ") as [NSString]
         searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
         if (currentlyTypingIngredient()) {
             let newestIngredient = rawSearchTerms.last!
+            
+            var allPossibleIngredients: [IngredientBase]
             if newestIngredient == "" {
-                possibleIngredients = managedContext().objects(IngredientBase.self)!
+                allPossibleIngredients = managedContext().objects(IngredientBase.self)!
             } else {
                 let predicate = NSPredicate(format: "name CONTAINS[cd] \"\(newestIngredient)\"")
-                possibleIngredients = managedContext().objects(IngredientBase.self, predicate: predicate)!
+                allPossibleIngredients = managedContext().objects(IngredientBase.self, predicate: predicate)!
             }
-            possibleIngredients = possibleIngredients.filter({!contains(self.activeIngredients, $0)})
+            if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
+                possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
+            }
         } else {
             recipes = allRecipes.filter(filterRecipes)
+        }
+        
+        if (currentlyTypingIngredient() && possibleIngredients.isEmpty) {
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            emptyStateLabel.text = "Sorry -- we don't know what \(searchTerms.last!) is!"
+            
+            // Style it up here.
+            emptyStateLabel.textAlignment = NSTextAlignment.Center
+            emptyStateLabel.textColor = UIColor.lighterColor()
+            emptyStateLabel.numberOfLines = 3
+            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
+            tableView.backgroundView = emptyStateLabel
+        } else if (recipes.isEmpty) {
+            let emptyStateLabel = UILabel(frame: tableView.frame)
+            emptyStateLabel.text = "Sorry -- no recipes with these ingredients."
+            
+            // Style it up here.
+            emptyStateLabel.textAlignment = NSTextAlignment.Center
+            emptyStateLabel.textColor = UIColor.lighterColor()
+            emptyStateLabel.numberOfLines = 3
+            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
+            tableView.backgroundView = emptyStateLabel
+        } else {
             tableView.backgroundView = nil
         }
         
@@ -185,7 +199,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             let cellIdentifier = "recipeCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
             
-            let labelPrefix = join("", activeIngredients.map({ $0.name + ", " }))
+            let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
             cell.textLabel?.text = "\(labelPrefix)\(ingredient.name)"
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
@@ -211,7 +225,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         let selectedRow = tableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         let ingredient =  possibleIngredients[rowIndex!]
-        let labelPrefix = join("", activeIngredients.map({ $0.name + "," }))
+        let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
         searchBar.text = "\(labelPrefix)\(ingredient.name)"
         searchBar(searchBar, textDidChange: searchBar.text)
     }
