@@ -1790,4 +1790,93 @@
     "preparation" : "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into glass.",
     "description": "This delightful drink was originally concoted by the infamous Charles Baker for the Aster House Hotel."
   },
+  { "garnish" : "Maraschino cherry or lemon twist",
+    "glass" : "martini",
+    "ingredients" : [ { "cl" : 4.5,
+          "ingredient" : "Scotch whiskey"
+        },
+        { "cl" : 2.5,
+          "ingredient" : "Vermouth",
+          "label": "Sweet"
+        },
+        { "label" : "One dash",
+          "special" : "Angostura bitters"
+        }
+      ],
+    "name" : "Rob Roy",
+    "preparation" : "Stir in mixing glass with ice cubes. Strain into chilled glass.",
+    "description": "If you think this sounds like a Manhattan except with scotch -- that's because it is.  (Except usually sweeter.)."
+  },
+  { "garnish" : "Lemon peel",
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 4.5,
+          "ingredient" : "Scotch whiskey"
+        },
+        { "cl" : 4.5,
+          "ingredient" : "Vermouth",
+          "label": "Italian"
+        },
+        { "label" : "Three dashes",
+          "special" : "Benedictine"
+        }
+      ],
+    "name" : "Bobby Burns",
+    "preparation" : "Stir in mixing glass with ice cubes. Strain into chilled glass.",
+    "description": "The Bobby Burns cocktail is named after the Scottish poet Robert Burns, who is known as the national poet of Scotland and beat out William Wallace for the title of “The Greatest Scot” on Scottish TV. (He wrote Auld Lang Syne!)"
+  },
+  { "garnish" : "Lime wedge",
+    "glass" : "collins",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Scotch whiskey"
+        },
+        { "cl" : 1,
+          "ingredient" : "Lime juice",
+        },
+        {
+          "ingredient" : "Ginger ale",
+        }
+      ],
+    "name" : "Mamie Taylor",
+    "preparation" : "Pour scotch and lime juice into ice-filled collins glass and lightly stir.  Top it off with ginger ale.",
+    "description": "Adapted from Albert Stevens Crockett's 1935 'The Old Wardorf-Astoria Bar Book'. The drink first appeared in the New York Herald some thirty years prior to Crockett writing his book. Who Ms Taylor was and why this drink was dedicated to her is unknown."
+  },
+  { "garnish" : "Candied ginger",
+    "glass" : "old fashioned",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Scotch whiskey"
+        },
+        { "cl" : 1,
+          "ingredient" : "Laphroaig",
+          "label": "Or try another Islay"
+        },
+        { "cl" : 2,
+          "ingredient" : "Lemon juice",
+        },
+        { "cl" : 2,
+          "ingredient" : "Honey syrup",
+        },
+      ],
+    "name" : "Penicillin",
+    "preparation" : "Combine all ingredients in a shaker with ice. Stir gently and strain into a rocks glass with a large ice cube.",
+    "description": "There’s a special rung in Hell reserved for people who waste good Scotch. ~ Inglorious Basterds"
+  },
+  { 
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 4.5,
+          "ingredient" : "Scotch whiskey"
+        },
+        { "cl" : 2,
+          "ingredient" : "Lemon juice",
+        },
+        { "cl" : 3,
+          "ingredient" : "Simple syrup",
+        },
+        { "label" : "Two dashes",
+          "special" : "Angostura bitters"
+        }
+      ],
+    "name" : "Mark Twain",
+    "preparation" : "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into chilled cocktail glass.",
+    "description": ""
+  }
 ]
