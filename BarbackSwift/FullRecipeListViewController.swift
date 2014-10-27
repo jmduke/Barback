@@ -38,7 +38,7 @@ class FullRecipeListViewController: RecipeListViewController {
             let firstCharacters = recipes.filter({
                 (recipe: Recipe) -> Bool in
                 return recipe.name.hasPrefix(firstCharacter)
-                })
+            }).sorted({ $0.name < $1.name })
             filteredRecipesByFirstCharacter.append(firstCharacters)
         }
     }
