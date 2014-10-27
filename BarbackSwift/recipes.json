@@ -1689,7 +1689,7 @@
  "name" : "Bartender's Choice",
  "preparation" : "Add both ingredients and stir.  Can be served up or down, and with or without ice."
  },
-  {     "garnish" : "Lemon twist and cucumber slice",
+  { "garnish" : "Lemon twist and cucumber slice",
     "glass" : "collins",
     "ingredients" : [ { "cl" : 6,
           "ingredient" : "Pimm's No. 1"
@@ -1700,5 +1700,94 @@
       ],
     "name" : "Pimm's Cup",
     "preparation" : "Pour the Pimm's into a collins glass with ice cubes.  Add the lemonade and (if desired) a splash of club soda or lemon-lime soda."
-  }
+  },
+  { "garnish" : "",
+    "glass" : "martini",
+    "ingredients" : [ { "cl" : 3,
+          "ingredient" : "Sloe Gin"
+        },
+        { "cl" : 3,
+          "ingredient" : "Applejack",
+          "label": "Can substitute Calvados"
+        }
+      ],
+    "name" : "Savoy Tango",
+    "preparation" : "Shake well and strain into cocktail glass.",
+    "description": "This cocktail is beloved at it's namesake: the Savoy Hotel in London, where it was invented."
+  },
+  { "garnish" : "lemon peel",
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Cognac"
+        },
+        { "cl" : 1.5,
+          "ingredient" : "Orgeat"
+        },
+        {
+          "special": "Angostura bitters",
+          "label": "Two dashes"
+        }
+      ],
+    "name" : "Japanese",
+    "preparation" : "Stir on ice, serve on the rocks.",
+    "description": "Described by the Minneapolis Tribune in 1886 as 'liquid attack of spinal meningitis. It is loaded with knock-kneed mental ceramics, and is apt to make a man throw stones at his grandfather'."
+  },
+  { "garnish" : "",
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 4.5,
+          "ingredient" : "Angostura bitters"
+        },
+        { "cl" : 2,
+          "ingredient" : "Lime juice"
+        },
+        { "cl" : 3,
+          "ingredient" : "Simple syrup"
+        },
+        {
+          "special": "One egg",
+          "label": "Egg white"
+        }
+      ],
+    "name" : "Angostura Sour",
+    "preparation" : "Dry shake the egg white and the lime juice. Add the remaining ingredients, ice and shake hard. Strain into chilled cocktail glass.",
+    "description": "This cocktail was created by Kirk Estopinal and published in the book Rogue Beta Cocktails, a variation on the Angostura Fizz, which itself was published in Charles Baker's Gentlemen's Companion in the 1930s, using half an ounce of bitters and additional rum."
+  },
+  { "garnish" : "",
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Bourbon"
+        },
+        { "cl" : 3,
+          "ingredient" : "Grapefruit juice"
+        },
+        { "cl" : 1.5,
+          "ingredient" : "Honey syrup"
+        }
+      ],
+    "name" : "De Rigueur",
+    "preparation" : "Shake well with ice and strain into a cocktail glass.",
+    "description": "This cocktail was created by Kirk Estopinal and published in the book Rogue Beta Cocktails, a variation on the Angostura Fizz, which itself was published in Charles Baker's Gentlemen's Companion in the 1930s, using half an ounce of bitters and additional rum."
+  },
+  { "garnish" : "Chilled soda",
+    "glass" : "goblet",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Cognac"
+        },
+        { "cl" : 2,
+          "ingredient" : "Lemon juice",
+        },
+        { "cl" : 2,
+          "ingredient" : "Maraschino",
+        },
+        { "label" : "Rinse",
+          "special" : "Absinthe"
+        },
+        { "label" : "One egg",
+          "special" : "Egg white"
+        }
+      ],
+    "name" : "Astor Hotel Special",
+    "preparation" : "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into glass.",
+    "description": "This delightful drink was originally concoted by the infamous Charles Baker for the Aster House Hotel."
+  },
 ]

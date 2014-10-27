@@ -32,12 +32,12 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             // Sorting is very slow, which is why we do this like this.  Yes, it is very ugly.
             var positionsInArray: [IngredientBase: Int] = [:]
             for pos in 0..<possibleIngredients.count {
-                positionsInArray[possibleIngredients[pos]] = pos
+                positionsInArray[possibleIngredients[pos]] = self.recipesForPossibleIngredients[pos]
             }
             
             // Fun fact: this is by far the slowest part of this entire codebase.
-            possibleIngredients = possibleIngredients.filter({self.recipesForPossibleIngredients[positionsInArray[$0]!] > 0})
-            possibleIngredients.sort({self.recipesForPossibleIngredients[positionsInArray[$0]!] > self.recipesForPossibleIngredients[positionsInArray[$1]!]})
+            possibleIngredients = possibleIngredients.filter({positionsInArray[$0]! > 0})
+            possibleIngredients.sort({positionsInArray[$0]! > positionsInArray[$1]!})
             recipesForPossibleIngredients.sort({$0 > $1})
         }
     }
@@ -150,6 +150,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
                 let predicate = NSPredicate(format: "name CONTAINS[cd] \"\(newestIngredient)\"")
                 allPossibleIngredients = managedContext().objects(IngredientBase.self, predicate: predicate)!
             }
+            print(allPossibleIngredients)
             if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
                 possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
             }

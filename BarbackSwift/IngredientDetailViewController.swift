@@ -179,7 +179,13 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         if tableView == drinksTableView {
             performSegueWithIdentifier("recipeDetail", sender: nil)
+        } else if tableView == brandsTableView {
+            let selectedBrand = brands[indexPath.row]
+            let imageView = UIImageView(image: UIImage(data: NSData(contentsOfURL: NSURL(string: selectedBrand.imageUrl))))
+            let modal = RNBlurModalView(viewController: self, view: imageView)
+            modal.show()
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }
