@@ -13,6 +13,7 @@ class Brand: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
+    @NSManaged var imageUrl: String
     @NSManaged var ingredient: IngredientBase
 
     var detailDescription: String {
@@ -25,10 +26,11 @@ class Brand: NSManagedObject {
         }
     }
     
-    class func fromAttributes(name: String, price: Int, base: IngredientBase) -> Brand {
+    class func fromAttributes(name: String, price: Int, base: IngredientBase, url: String) -> Brand {
         let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
         newBrand.name = name
         newBrand.price = price
+        newBrand.imageUrl = url
         newBrand.ingredient = base
         return newBrand
     }
@@ -36,11 +38,12 @@ class Brand: NSManagedObject {
     class func fromDict(rawBrand: NSDictionary) -> Brand {
         let name = rawBrand.objectForKey("name") as String
         let price = rawBrand.objectForKey("price") as Int
+        let url = rawBrand.objectForKey("image") as String
         let baseName = rawBrand.objectForKey("base") as String
         
         let base = managedContext().objectForName(IngredientBase.self, name: baseName)!
         
-        return fromAttributes(name, price: price, base: base)
+        return fromAttributes(name, price: price, base: base, url: url)
     }
     
     override class func entityName() -> String {
