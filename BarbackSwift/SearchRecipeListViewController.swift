@@ -150,7 +150,6 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
                 let predicate = NSPredicate(format: "name CONTAINS[cd] \"\(newestIngredient)\"")
                 allPossibleIngredients = managedContext().objects(IngredientBase.self, predicate: predicate)!
             }
-            print(allPossibleIngredients)
             if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
                 possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
             }
