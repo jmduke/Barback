@@ -13,7 +13,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     @IBOutlet var searchBar: UISearchBar!
     
-    let allRecipes = managedContext().objects(Recipe.self)!
+    var allRecipes: [Recipe] = [Recipe]()
     
     var possibleIngredients: [IngredientBase] = [IngredientBase]()
         {
@@ -87,6 +87,10 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Run this in viewDidLoad instead of making it a `let` so it gets loaded
+        // after core data initialization.
+        allRecipes = managedContext().objects(Recipe.self)!
         
         // Allow us to actually pick up search bar input.
         searchBar.delegate = self
