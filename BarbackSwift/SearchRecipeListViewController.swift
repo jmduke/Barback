@@ -158,7 +158,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
                 possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
             }
         } else {
-            recipes = allRecipes.filter(filterRecipes)
+            recipes = allRecipes.filter(filterRecipes).sorted({ $0.name < $1.name })
         }
         
         if (currentlyTypingIngredient() && possibleIngredients.isEmpty) {
