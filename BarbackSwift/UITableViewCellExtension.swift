@@ -22,6 +22,8 @@ extension UITableViewCell {
             textLabel?.textColor = UIColor.tintColor()
             detailTextLabel?.textColor = UIColor.tintColor()
         }
+
+        accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     }
     
     func primaryCellHeight() -> Float {
