@@ -217,6 +217,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
+            cell.detailTextLabel?.textColor = UIColor.lighterColor()
             
             return cell
         }
