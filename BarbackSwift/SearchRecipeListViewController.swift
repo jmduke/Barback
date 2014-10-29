@@ -90,7 +90,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         // Run this in viewDidLoad instead of making it a `let` so it gets loaded
         // after core data initialization.
-        allRecipes = managedContext().objects(Recipe.self)!
+        allRecipes = managedContext().objects(Recipe.self)!.filter({$0.isReal})
         
         // Allow us to actually pick up search bar input.
         searchBar.delegate = self
@@ -204,11 +204,19 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
             
             let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
-            cell.textLabel?.text = "\(labelPrefix)\(ingredient.name)"
+            
+            cell.stylePrimary()
+            
+            let rangeOfFoundText = (ingredient.name.lowercaseString as NSString).rangeOfString(searchTerms.last!)
+            
+            let attributes = [NSForegroundColorAttributeName: rangeOfFoundText.length == 0 ? UIColor.lightColor() : UIColor.lighterColor()]
+            let boldAttributes = [NSForegroundColorAttributeName: UIColor.lightColor()]
+            let attributedText = NSMutableAttributedString(string: "\(labelPrefix)\(ingredient.name)", attributes: attributes)
+            attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
+            cell.textLabel?.attributedText = attributedText
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
-            cell.stylePrimary()
             
             return cell
         }

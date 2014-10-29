@@ -179,21 +179,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         if tableView == drinksTableView {
             performSegueWithIdentifier("recipeDetail", sender: nil)
-        } else if tableView == brandsTableView {
+        } else if tableView == brandsTableView {            
             let selectedBrand = brands[indexPath.row]
-            var image = UIImage(data: NSData(contentsOfURL: NSURL(string: selectedBrand.imageUrl)))
-            if (image.size.width > view.frame.width) {
-                let scaleFactor = image.size.width / image.size.height
-                let scaledSize = CGSize(width: view.frame.width * 0.5, height: view.frame.width / (2 * scaleFactor))
-                UIGraphicsBeginImageContextWithOptions(scaledSize, false, 0.0)
-                let scaledRect = CGRect(x: 0.0, y: 0.0, width: scaledSize.width, height: scaledSize.height)
-                image.drawInRect(scaledRect)
-                image = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-            }
-            let imageView = UIImageView(image: image)
-            
-            
+            let image = UIImage(url: selectedBrand.imageUrl)
+            let resizedImage = image.scaleDownToWidth(view.frame.width * 0.5)
+            let imageView = UIImageView(image: resizedImage)
+
             let modal = RNBlurModalView(viewController: self, view: imageView)
             modal.show()
         }
