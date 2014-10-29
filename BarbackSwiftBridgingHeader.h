@@ -10,6 +10,7 @@
 #define Barback_BarbackSwiftBridgingHeader_h
 
 #import "Appirater.h"
+#import "RNBlurModalView.h"
 #import "WSCoachMarksView.h"
 
 #endif
