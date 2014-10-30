@@ -21,7 +21,6 @@ class ShoppingListViewController: RecipeListViewController {
     }
     }
     var ingredientTypes: [IngredientType] = [IngredientType]()
-    var selectedCellIndices = [Int]()
     
     override var viewTitle: String {
         get {
@@ -33,8 +32,8 @@ class ShoppingListViewController: RecipeListViewController {
         super.init(style: style)
         // Custom initialization
     }
-override     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -101,18 +100,6 @@ override
         return ingredientTypes[section].toRaw()
     }
     
-    
-    // Used in conjunction with selectedCellIndices to keep track of selected cells
-    func cellKeyForIndexPath(indexPath: NSIndexPath!) -> Int {
-        return indexPath.section * 100 + indexPath.row
-    }
-    
-    // Used in conjunction with selectedCellIndices to keep track of selected cells
-    func selectedCellTableIndexForIndexPath(indexPath: NSIndexPath!) -> Int? {
-        let cellKey = cellKeyForIndexPath(indexPath)
-        return find(selectedCellIndices, cellKey)
-    }
-    
     func ingredientForIndexPath(indexPath: NSIndexPath) -> IngredientBase {
         let ingredientType = ingredientTypes[indexPath.section]
         let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
@@ -130,23 +117,10 @@ override
         cell!.textLabel?.text = ingredientForIndexPath(indexPath).name
         cell!.stylePrimary()
         
-        if (selectedCellTableIndexForIndexPath(indexPath) != nil) {
-            cell!.textLabel?.textColor = UIColor.lighterColor()
-        }
-        
         return cell!
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if let cellIndex = selectedCellTableIndexForIndexPath(indexPath) {
-            selectedCell?.textLabel?.textColor = UIColor.lightColor()
-            selectedCellIndices.removeAtIndex(cellIndex)
-        } else {
-            selectedCell?.textLabel?.textColor = UIColor.lighterColor()
-            selectedCellIndices.append(cellKeyForIndexPath(indexPath))
-        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as IngredientDetailViewController
