@@ -75,6 +75,27 @@
     "name" : "Blood and Sand",
     "preparation" : "Shake and strain into glass."
   },
+  {     "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 6,
+          "ingredient" : "Cognac"
+        },
+        {
+          "special" : "One teaspoon",
+          "label" : "Orange curaçao"
+        },
+                {
+          "special" : "Half teaspoon",
+          "label" : "Lemon juice"
+        },
+                {
+          "special" : "One dash",
+          "label" : "Angostura bitters"
+        },
+      ],
+      "garnish": "Lemon curl",
+    "name" : "Brandy Crusta",
+    "preparation" : "Prepare glass by moistening the rim with lemon and dipping it in sugar, then carefully curling the lemon peel around the inside of the glass. Combine all ingredients in a shaker, shake and strain into glass and add 1 small cube of ice.",
+  },
   {     "garnish" : "Lime wheel",
     "glass" : "old fashioned",
     "ingredients" : [ { "cl" : 4.5,
@@ -1877,6 +1898,66 @@
       ],
     "name" : "Mark Twain",
     "preparation" : "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into chilled cocktail glass.",
+    "description": ""
+  },
+  { 
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 3,
+          "ingredient" : "Gin"
+        },
+        { "cl" : 2,
+          "ingredient" : "Applejack",
+        },
+        { "cl" : 2,
+          "ingredient" : "Lime juice",
+        },
+        { "cl" : 2,
+          "ingredient" : "Grenadine",
+        },
+      ],
+    "name" : "Royal Smile",
+    "preparation" : "Add all ingredients to shaker, fill completely with ice and shake vigorously.",
+    "description": "Autumn in a cocktail glass."
+  },
+  { 
+    "glass" : "cocktail",
+    "ingredients" : [ { "cl" : 4.5,
+          "ingredient" : "Applejack"
+        },
+        { "cl" : 2,
+          "ingredient" : "Grenadine",
+        },
+        { "cl" : 1.5,
+          "ingredient" : "Lemon juice",
+        },
+        { "cl" : 1.5,
+          "ingredient" : "Pineapple juice",
+        },
+        { "label" : "One dash",
+          "special" : "Angostura bitters"
+        }
+      ],
+    "name" : "Jake Barnes",
+    "preparation" : "Add all ingredients to shaker, fill completely with ice and shake vigorously.",
+    "description": "Autumn in a cocktail glass.",
+    "garnish": "Pineapple wedge"
+  },
+  { 
+    "garnish": "Orange twist",
+    "glass" : "martini",
+    "ingredients" : [
+        { "cl" : 6,
+          "ingredient" : "Gin",
+        },
+        { "cl" : 3,
+          "ingredient" : "Black Sambuca",
+        },
+        { "label" : "Two teaspoons",
+          "special" : "Sweet vermouth"
+        }
+      ],
+    "name" : "Black Martini #1",
+    "preparation" : "Shake all the ingredients with ice.",
     "description": ""
   }
 ]
