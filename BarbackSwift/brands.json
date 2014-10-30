@@ -139,19 +139,19 @@
     },
     {
     "name":"Glenfiddich 12",
-    "base":"Scotch whiskey",
+    "base":"Scotch",
     "price":3,
     "image":"http://www.bevmo.com/Media/Images/ProductImagesFull/2213.jpg"
     },
     {
     "name":"Pig's Nose",
-    "base":"Scotch whiskey",
+    "base":"Scotch",
     "price":2,
     "image":"http://cdn4.masterofmalt.com/whiskies/p-2830/pigs-nose-whisky.jpg"
     },
     {
     "name":"Talisker 10",
-    "base":"Scotch whiskey",
+    "base":"Scotch",
     "price":4,
     "image":"http://www.bevmo.com/Media/Images/ProductImagesFull/3553.jpg"
     },

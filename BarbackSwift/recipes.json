@@ -62,7 +62,7 @@
           "ingredient" : "Orange juice"
         },
         { "cl" : 2,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 2,
           "ingredient" : "Cherry brandy"
@@ -1793,7 +1793,7 @@
   { "garnish" : "Maraschino cherry or lemon twist",
     "glass" : "martini",
     "ingredients" : [ { "cl" : 4.5,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 2.5,
           "ingredient" : "Vermouth",
@@ -1810,7 +1810,7 @@
   { "garnish" : "Lemon peel",
     "glass" : "cocktail",
     "ingredients" : [ { "cl" : 4.5,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 4.5,
           "ingredient" : "Vermouth",
@@ -1827,7 +1827,7 @@
   { "garnish" : "Lime wedge",
     "glass" : "collins",
     "ingredients" : [ { "cl" : 6,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 1,
           "ingredient" : "Lime juice",
@@ -1843,7 +1843,7 @@
   { "garnish" : "Candied ginger",
     "glass" : "old fashioned",
     "ingredients" : [ { "cl" : 6,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 1,
           "ingredient" : "Laphroaig",
@@ -1863,7 +1863,7 @@
   { 
     "glass" : "cocktail",
     "ingredients" : [ { "cl" : 4.5,
-          "ingredient" : "Scotch whiskey"
+          "ingredient" : "Scotch"
         },
         { "cl" : 2,
           "ingredient" : "Lemon juice",
