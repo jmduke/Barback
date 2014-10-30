@@ -113,6 +113,12 @@ override
         return find(selectedCellIndices, cellKey)
     }
     
+    func ingredientForIndexPath(indexPath: NSIndexPath) -> IngredientBase {
+        let ingredientType = ingredientTypes[indexPath.section]
+        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
+        return ingredientsForType[indexPath.row]
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "shoppingCell"
@@ -121,9 +127,7 @@ override
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
         }
         
-        let ingredientType = ingredientTypes[indexPath.section]
-        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
-        cell!.textLabel?.text = ingredientsForType[indexPath.row].name
+        cell!.textLabel?.text = ingredientForIndexPath(indexPath).name
         cell!.stylePrimary()
         
         if (selectedCellTableIndexForIndexPath(indexPath) != nil) {
@@ -143,6 +147,11 @@ override
             selectedCell?.textLabel?.textColor = UIColor.lighterColor()
             selectedCellIndices.append(cellKeyForIndexPath(indexPath))
         }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as IngredientDetailViewController
+        controller.setIngredient(ingredientForIndexPath(indexPath))
+        navigationController?.pushViewController(controller, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

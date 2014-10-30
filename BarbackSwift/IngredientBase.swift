@@ -33,18 +33,8 @@ class IngredientBase: NSManagedObject {
         let name = (rawIngredient.objectForKey("name") as String)
         let description = rawIngredient.objectForKey("description") as String
         let type = IngredientType.fromRaw(rawIngredient.objectForKey("type") as String)!
-        //let rawBrands = rawIngredient.objectForKey("brands") as [NSDictionary]
-        
         let base = fromAttributes(name, information: description, type: type)
-        
-        /*let newBrands = base.mutableSetValueForKey("brands")
-        
-        let brands = rawBrands.map({
-            (rawBrand: NSDictionary) -> Brand in
-            let brand = Brand.fromDict(rawBrand)
-            newBrands.addObject(brand)
-            return brand
-        })*/
+    
         return base
     }
     
