@@ -115,11 +115,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         if indexPath.row == recipes.count {
             var shoppingListController = ShoppingListViewController(style: UITableViewStyle.Grouped)
             shoppingListController.setIngredients(ingredientsNeeded())
-            
-            var navController = UINavigationController(rootViewController: shoppingListController)
-            navController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            
-            presentViewController(navController, animated: true, completion: nil)
+            navigationController?.pushViewController(shoppingListController, animated: true)
         }
     }
 
