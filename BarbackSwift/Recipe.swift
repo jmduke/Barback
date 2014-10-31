@@ -32,6 +32,11 @@ public class Recipe: NSManagedObject {
         }
     }
     
+    func usesIngredient(ingredient: IngredientBase) -> Bool {
+        let bases: [IngredientBase] = (ingredients.allObjects as [Ingredient]).map({$0.base})
+        return contains(bases, ingredient)
+    }
+    
     func similarRecipes(recipeCount: Int) -> [Recipe] {
         let ingredientBases = ingredients.allObjects.map({($0 as Ingredient).base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
