@@ -120,14 +120,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     func dismissKeyboard() {
         searchBar.resignFirstResponder()
     }
-    
-    func recipeHasAllIngredients(recipe: Recipe, ingredients: [IngredientBase]) -> Bool {
-        let bases: [IngredientBase] = (recipe.ingredients.allObjects as [Ingredient]).map({$0.base})
-        return ingredients.count == ingredients.filter({contains(bases, $0)}).count
-    }
 
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipeHasAllIngredients(recipe, ingredients: activeIngredients)
+        return activeIngredients.filter({ recipe.usesIngredient($0) }).count == activeIngredients.count
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
