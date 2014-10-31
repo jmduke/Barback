@@ -1745,8 +1745,8 @@
           "ingredient" : "Simple syrup"
         },
         {
-          "special": "One egg",
-          "label": "Egg white"
+          "special": "Egg white",
+          "label": "One egg"
         }
       ],
     "name" : "Angostura Sour",
