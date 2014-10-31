@@ -141,8 +141,7 @@
           "ingredient" : "Lime juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Grenadine"
+          "ingredient" : "Grenadine",
         }
       ],
     "name" : "Bacardi",
@@ -262,12 +261,10 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Grenadine"
+          "ingredient" : "Grenadine",
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "label" : "Three to four dashes",
           "special" : "Angostura bitters"
@@ -299,8 +296,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 2,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "special" : "Egg white" }
       ],
@@ -328,8 +324,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 3,
-          "ingredient" : "Syrup",
-          "label" : "Gomme syrup"
+          "ingredient" : "Gomme syrup"
         },
         { "special" : "Dash of cola" }
       ],
@@ -341,8 +336,7 @@
           "ingredient" : "Gin"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Raspberry syrup"
+          "ingredient" : "Raspberry syrup"
         },
         { "cl" : 1.5,
           "ingredient" : "Lemon juice"
@@ -390,8 +384,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         }
       ],
     "name" : "Whiskey Sour",
@@ -464,8 +457,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "cl" : 8,
           "ingredient" : "Soda water"
@@ -605,8 +597,7 @@
           "ingredient" : "Orange juice"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Grenadine"
+          "ingredient" : "Grenadine"
         }
       ],
     "name" : "Tequila Sunrise",
@@ -620,8 +611,7 @@
           "ingredient" : "Lime juice"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Simple syrup"
+          "ingredient" : "Simple syrup"
         }
       ],
     "name" : "Daiquiri",
@@ -721,8 +711,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "cl" : 1.5,
           "ingredient" : "Blackberry liqueur"
@@ -821,8 +810,7 @@
           "label" : "Orange Curaçao"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Orgeat syrup"
+          "ingredient" : "Orgeat syrup"
         },
         { "cl" : 1,
           "ingredient" : "Lime juice"
@@ -986,8 +974,7 @@
           "ingredient" : "Lime juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Grenadine"
+          "ingredient" : "Grenadine"
         },
         { "label" : "One dash",
           "special" : "Angostura bitters"
@@ -1031,8 +1018,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 1.5,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "cl" : 6,
           "ingredient" : "Soda water"
@@ -1145,8 +1131,7 @@
           "ingredient" : "Pineapple juice"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Grenadine"
+          "ingredient" : "Grenadine"
         }
       ],
     "name" : "Mary Pickford",
@@ -1193,8 +1178,7 @@
           "ingredient" : "Lemon juice"
         },
         { "cl" : 3,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         },
         { "cl" : 6,
           "ingredient" : "Cream"
@@ -1223,8 +1207,7 @@
           "label" : "Créme de Cassis"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Sugar syrup"
+          "ingredient" : "Simple syrup"
         }
       ],
     "name" : "Russian Spring Punch",
@@ -1578,7 +1561,7 @@
           "ingredient" : "Lemon juice"
         },
         { "label" : "Two dashes",
-          "special" : "Simple cane syrup"
+          "special" : "Simple syrup"
         },
         { "special" : "Half egg white" },
         { "label" : "One dash",
@@ -1685,8 +1668,7 @@
           "ingredient" : "Rhum Agricole"
         },
         { "cl" : 1,
-          "ingredient" : "Syrup",
-          "label" : "Cane or sugar"
+          "ingredient" : "Simple syrup"
         }
       ],
     "name" : "Ti' Punch",
