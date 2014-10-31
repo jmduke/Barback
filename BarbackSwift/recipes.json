@@ -620,8 +620,7 @@
   {     "garnish" : "Lemon twist",
     "glass" : "old fashioned",
     "ingredients" : [ { "cl" : 4.5,
-          "ingredient" : "Whiskey",
-          "label" : "Scotch whisky"
+          "ingredient" : "Scotch",
         },
         { "cl" : 2.5,
           "ingredient" : "Drambuie"
@@ -1215,8 +1214,7 @@
   },
   { "glass" : "old fashioned",
     "ingredients" : [ { "cl" : 3.5,
-          "ingredient" : "Whiskey",
-          "label" : "Scotch whisky"
+          "ingredient" : "Scotch"
         },
         { "cl" : 3.5,
           "ingredient" : "Disaronno"
