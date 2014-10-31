@@ -18,10 +18,6 @@ public class Recipe: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var ingredients: NSSet
     
-    var lowercaseName: String {
-        return name.lowercaseString
-    }
-    
     var isReal: Bool {
         return glassware != "" && directions != ""
     }
@@ -58,34 +54,6 @@ public class Recipe: NSManagedObject {
             similarRecipes.removeAtIndex(randomIndex)
         }
         return chosenRecipes
-    }
-    
-    func matchesTerms(searchTerms: [NSString]) -> Bool {
-        for term: NSString in searchTerms {
-            
-            // If the term is nil (e.g. the second item in "orange,", match errything.
-            if term == "" {
-                continue
-            }
-            
-            // If the term matches the name of the recipe..
-            if (lowercaseName.rangeOfString(term) != nil) {
-                continue
-            }
-            
-            // Or at least one ingredient in it.
-            let matchedIngredients = (ingredients.allObjects as [Ingredient]).filter({
-                (ingredient: Ingredient) -> Bool in
-                return ingredient.matchesTerm(term)
-            })
-            if matchedIngredients.count > 0 {
-                continue
-            }
-            
-            // Otherwise, no luck.
-            return false
-        }
-        return true
     }
 
     class func fromAttributes(name: String, directions: String, glassware: String) -> Recipe {

@@ -68,12 +68,6 @@ class Ingredient: NSManagedObject {
         }
     }
     
-    func matchesTerm(searchTerm: String) -> Bool {
-        return
-            (base.lowercaseName.rangeOfString(searchTerm) != nil) ||
-                ((label != nil) && (lowercaseLabel!.rangeOfString(searchTerm) != nil))
-    }
-    
     class func fromDict(rawIngredient: NSDictionary) -> Ingredient {
         var baseName = rawIngredient.objectForKey("ingredient") as? String
         var isSpecial = false

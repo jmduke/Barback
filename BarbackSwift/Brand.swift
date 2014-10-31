@@ -18,11 +18,7 @@ class Brand: NSManagedObject {
 
     var detailDescription: String {
         get {
-            var priceRepresentation = ""
-            for _ in 0..<Int(price) {
-                priceRepresentation += "$"
-            }
-            return priceRepresentation
+            return String(count: price, repeatedValue: Character("$"))
         }
     }
     
@@ -44,10 +40,6 @@ class Brand: NSManagedObject {
         let base = managedContext().objectForName(IngredientBase.self, name: baseName)!
         
         return fromAttributes(name, price: price, base: base, url: url)
-    }
-    
-    override class func entityName() -> String {
-        return "Brand"
     }
     
     class func fromJSONFile(filename: String) -> [Brand] {
