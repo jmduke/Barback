@@ -126,7 +126,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func getRandomRecipe() -> Recipe {
         var randomRecipe = managedContext().randomObject(Recipe.self)!
-        while (!randomRecipe.isReal) {
+        while (!randomRecipe.isReal || randomRecipe == recipe!) {
             randomRecipe = managedContext().randomObject(Recipe.self)!
         }
         return randomRecipe
