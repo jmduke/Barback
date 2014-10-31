@@ -44,11 +44,6 @@ class ShoppingListViewController: RecipeListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create ourselves a back button.
-        let backButton = UIBarButtonItem(title: "Back", style:UIBarButtonItemStyle.Bordered, target: self, action: "goBack")
-        backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)], forState: UIControlState.Normal)
-        navigationItem.leftBarButtonItem = backButton
-        
         // Preserve selection of table elements.
         clearsSelectionOnViewWillAppear = false
     }

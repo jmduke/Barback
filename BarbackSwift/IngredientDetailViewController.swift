@@ -159,7 +159,11 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        recipes = managedContext().objects(Recipe.self)!.filter({ $0.matchesTerms([ingredient.name.lowercaseString as NSString]) })
+        recipes = managedContext().objects(Recipe.self)!.filter({
+            (recipe: Recipe) -> Bool in 
+            let bases: [IngredientBase] = (recipe.ingredients.allObjects as [Ingredient]).map({$0.base})
+            return contains(bases, ingredient)
+        }).sorted({ $0.name < $1.name })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
