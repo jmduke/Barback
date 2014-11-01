@@ -37,9 +37,8 @@ class Brand: NSManagedObject {
         let url = rawBrand.objectForKey("image") as String
         let baseName = rawBrand.objectForKey("base") as String
         
-        let base = managedContext().objectForName(IngredientBase.self, name: baseName)!
-        
-        return fromAttributes(name, price: price, base: base, url: url)
+        let base = IngredientBase.forName(baseName)
+        return fromAttributes(name, price: price, base: base!, url: url)
     }
     
     class func fromJSONFile(filename: String) -> [Brand] {

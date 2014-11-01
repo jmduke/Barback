@@ -82,7 +82,7 @@ class Ingredient: NSManagedObject {
     
     class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?) -> Ingredient {
         let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
-        var ingredientBase: IngredientBase? = managedContext().objectForName(IngredientBase.self, name: baseName!)
+        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
         if ingredientBase == nil {
             ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
             ingredientBase!.name = baseName!

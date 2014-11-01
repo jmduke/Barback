@@ -125,9 +125,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func getRandomRecipe() -> Recipe {
-        var randomRecipe = managedContext().randomObject(Recipe.self)!
-        while (!randomRecipe.isReal || randomRecipe == recipe!) {
-            randomRecipe = managedContext().randomObject(Recipe.self)!
+        var randomRecipe = Recipe.random()
+        while (!randomRecipe.isReal || (recipe != nil && randomRecipe == recipe!)) {
+            randomRecipe = Recipe.random()
         }
         return randomRecipe
     }
@@ -327,7 +327,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let rowIndex = selectedRow?.row
         
         let ingredient = sortedIngredients![rowIndex!]
-        return managedContext().objectForName(IngredientBase.self, name: ingredient.base.name)!
+        return IngredientBase.forName(ingredient.base.name)!
     }
     
     func getSelectedRecipe() -> Recipe {
