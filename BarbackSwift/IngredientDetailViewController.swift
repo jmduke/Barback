@@ -25,20 +25,20 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     var brands: [Brand] {
         get {
-            let brands = managedContext().objectForName(IngredientBase.self, name: ingredient.name)!.brands
+            let brands = IngredientBase.forName(ingredient.name)!.brands
             let brandObjects = brands.allObjects as [Brand]
             return brandObjects.sorted({$0.price.intValue < $1.price.intValue})
         }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        self.ingredient = managedContext().objectForName(IngredientBase.self, name: "Gin")!
+        self.ingredient = IngredientBase.forName("Gin")!
         self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.ingredient = managedContext().objectForName(IngredientBase.self, name: "Gin")!
+        self.ingredient = IngredientBase.forName("Gin")!
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
@@ -159,7 +159,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredient(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        recipes = managedContext().objects(Recipe.self)!.filter({ $0.usesIngredient(ingredient) }).sorted({ $0.name < $1.name })
+        recipes = Recipe.all().filter({ $0.usesIngredient(ingredient) }).sorted({ $0.name < $1.name })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {

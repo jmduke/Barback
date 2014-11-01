@@ -41,7 +41,7 @@ public class Recipe: NSManagedObject {
         let ingredientBases = ingredients.allObjects.map({($0 as Ingredient).base.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
         
-        var similarRecipes = managedContext().objects(Recipe.self)!.filter({
+        var similarRecipes = Recipe.all().filter({
             (recipe: Recipe) -> Bool in
             let comparisonBases = recipe.ingredients.allObjects.map({$0.base.name})
             let matchedIngredients = ingredientBases.filter({ contains(comparisonBases, $0) })
@@ -89,6 +89,7 @@ public class Recipe: NSManagedObject {
         return recipe
     }
     
+    
     class func fromJSONFile(filename: String) -> [Recipe] {
         let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
         let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
@@ -101,5 +102,17 @@ public class Recipe: NSManagedObject {
         })
         allRecipes = allRecipes.sorted({ $0.name < $1.name })
         return allRecipes
+    }
+    
+    class func all() -> [Recipe] {
+        return managedContext().objects(Recipe.self)!.filter({ $0.isReal })
+    }
+    
+    class func random() -> Recipe {
+        return managedContext().randomObject(Recipe.self)!
+    }
+    
+    class func forName(name: String) -> Recipe? {
+        return managedContext().objectForName(Recipe.self, name: name)
     }
 }

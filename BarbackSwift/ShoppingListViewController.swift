@@ -41,7 +41,7 @@ class ShoppingListViewController: RecipeListViewController {
     
     func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
-        favoritedRecipes = managedContext().objects(Recipe.self)!.filter({ $0.isFavorited })
+        favoritedRecipes = Recipe.all().filter({ $0.isFavorited })
     }
  
     override func viewDidLoad() {
@@ -84,7 +84,6 @@ class ShoppingListViewController: RecipeListViewController {
         
         return headerView
     }
-    
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40

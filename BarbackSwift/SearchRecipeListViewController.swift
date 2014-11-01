@@ -51,7 +51,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         didSet {
         activeIngredients = []
         for term in searchTerms {
-            let ingredient = managedContext().objectForName(IngredientBase.self, name: term)
+            let ingredient = IngredientBase.forName(term)
             if ingredient != nil {
                 activeIngredients.append(ingredient!)
             }
@@ -60,7 +60,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
 
     func currentlyTypingIngredient() -> Bool {
-        return managedContext().objectForName(IngredientBase.self, name: searchTerms.last ?? "N/A") == nil
+        return IngredientBase.forName(searchTerms.last ?? "N/A") == nil
     }
     
     override var viewTitle: String {
@@ -90,7 +90,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         // Run this in viewDidLoad instead of making it a `let` so it gets loaded
         // after core data initialization.
-        allRecipes = managedContext().objects(Recipe.self)!.filter({$0.isReal})
+        allRecipes = Recipe.all()
         
         // Allow us to actually pick up search bar input.
         searchBar.delegate = self
@@ -144,10 +144,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             var allPossibleIngredients: [IngredientBase]
             if newestIngredient == "" {
-                allPossibleIngredients = managedContext().objects(IngredientBase.self)!
+                allPossibleIngredients = IngredientBase.all()
             } else {
-                let predicate = NSPredicate(format: "name CONTAINS[cd] \"\(newestIngredient)\"")
-                allPossibleIngredients = managedContext().objects(IngredientBase.self, predicate: predicate)!
+                allPossibleIngredients = IngredientBase.nameContainsString(newestIngredient)
             }
             if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
                 possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
@@ -182,7 +181,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         
         // Allow a random choice!
         if (recipes.count > 1) {
-            recipes.append(managedContext().objectForName(Recipe.self, name: "Bartender's Choice")!)
+            recipes.append(Recipe.forName("Bartender's Choice")!)
         }
     
         tableView.reloadData()

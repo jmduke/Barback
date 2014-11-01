@@ -42,4 +42,17 @@ class IngredientBase: NSManagedObject {
         
         return rawIngredients.map({IngredientBase.fromDict($0)})
     }
+    
+    class func all() -> [IngredientBase] {
+        return managedContext().objects(IngredientBase.self)!
+    }
+    
+    class func nameContainsString(string: String) -> [IngredientBase] {
+        let predicate = NSPredicate(format: "name CONTAINS[cd] \"\(string)\"")
+        return managedContext().objects(IngredientBase.self, predicate: predicate)!
+    }
+    
+    class func forName(name: String) -> IngredientBase? {
+        return managedContext().objectForName(IngredientBase.self, name: name)
+    }
 }
