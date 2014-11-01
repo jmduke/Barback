@@ -20,7 +20,9 @@ class ShoppingListViewController: RecipeListViewController {
         })
     }
     }
+    
     var ingredientTypes: [IngredientType] = [IngredientType]()
+    var favoritedRecipes: [Recipe] = []
     
     override var viewTitle: String {
         get {
@@ -39,6 +41,7 @@ class ShoppingListViewController: RecipeListViewController {
     
     func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
+        favoritedRecipes = managedContext().objects(Recipe.self)!.filter({ $0.isFavorited })
     }
  
     override func viewDidLoad() {
@@ -87,10 +90,6 @@ class ShoppingListViewController: RecipeListViewController {
         return 40
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 40
-    }
-
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
         return ingredientTypes[section].toRaw()
     }
@@ -106,10 +105,15 @@ class ShoppingListViewController: RecipeListViewController {
         let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
         if !(cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel?.text = ingredientForIndexPath(indexPath).name
+        let ingredient = ingredientForIndexPath(indexPath)
+        cell!.textLabel?.text = ingredient.name
+        
+        let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
+        let designator = recipeCount > 1 ? "recipes" : "recipe"
+        cell!.detailTextLabel?.text = "Used in \(recipeCount) \(designator)"
         cell!.stylePrimary()
         
         return cell!
