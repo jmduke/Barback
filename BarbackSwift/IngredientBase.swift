@@ -21,7 +21,7 @@ class IngredientBase: NSManagedObject {
         let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
         newBase.information = information
-        newBase.type = type.toRaw()
+        newBase.type = type.toRaw() ?? "other"
         return newBase
     }
     

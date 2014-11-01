@@ -15,7 +15,7 @@ class ShoppingListViewController: RecipeListViewController {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
             return (
-                newIngredients.filter({ IngredientType.fromRaw($0.type) == type }).count > 0
+                !newIngredients.filter({ IngredientType.fromRaw($0.type) == type }).isEmpty
             )
         })
     }
