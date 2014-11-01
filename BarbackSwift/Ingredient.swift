@@ -87,6 +87,7 @@ class Ingredient: NSManagedObject {
             ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
             ingredientBase!.name = baseName!
             ingredientBase!.information = ""
+            ingredientBase!.type = "other"
         }
         newIngredient.base = ingredientBase!
         
