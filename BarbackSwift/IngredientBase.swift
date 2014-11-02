@@ -21,14 +21,14 @@ class IngredientBase: NSManagedObject {
         let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
         newBase.information = information
-        newBase.type = type.toRaw() ?? "other"
+        newBase.type = type.rawValue ?? "other"
         return newBase
     }
     
     class func fromDict(rawIngredient: NSDictionary) -> IngredientBase {
         let name = (rawIngredient.objectForKey("name") as String)
         let description = rawIngredient.objectForKey("description") as String
-        let type = IngredientType.fromRaw(rawIngredient.objectForKey("type") as String)!
+        let type = IngredientType(rawValue: rawIngredient.objectForKey("type") as String)!
         let base = fromAttributes(name, information: description, type: type)
     
         return base
@@ -36,7 +36,7 @@ class IngredientBase: NSManagedObject {
     
     class func fromJSONFile(filename: String) -> [IngredientBase] {
         let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
+        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
         let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
         var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
         

@@ -18,6 +18,8 @@ class FullRecipeListViewController: RecipeListViewController {
         get {
             return "Recipes"
         }
+        set {
+        }
     }
     
     override func viewDidLoad() {

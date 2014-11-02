@@ -15,7 +15,7 @@ class ShoppingListViewController: RecipeListViewController {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
             return (
-                !newIngredients.filter({ IngredientType.fromRaw($0.type) == type }).isEmpty
+                !newIngredients.filter({ IngredientType(rawValue: $0.type) == type }).isEmpty
             )
         })
     }
@@ -27,6 +27,9 @@ class ShoppingListViewController: RecipeListViewController {
     override var viewTitle: String {
         get {
             return "Shopping List"
+        }
+        set {
+            
         }
     }
     
@@ -41,7 +44,7 @@ class ShoppingListViewController: RecipeListViewController {
     
     func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
-        favoritedRecipes = Recipe.all().filter({ $0.isFavorited })
+        favoritedRecipes = Recipe.all().filter({ $0.isFavorited as Bool })
     }
  
     override func viewDidLoad() {
@@ -66,7 +69,7 @@ class ShoppingListViewController: RecipeListViewController {
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         let ingredientType = ingredientTypes[section]
-        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
+        let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
         return ingredientsForType.count
     }
     
@@ -90,12 +93,12 @@ class ShoppingListViewController: RecipeListViewController {
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
-        return ingredientTypes[section].toRaw()
+        return ingredientTypes[section].rawValue
     }
     
     func ingredientForIndexPath(indexPath: NSIndexPath) -> IngredientBase {
         let ingredientType = ingredientTypes[indexPath.section]
-        let ingredientsForType = ingredients.filter({IngredientType.fromRaw($0.type) == ingredientType})
+        let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
         return ingredientsForType[indexPath.row]
     }
     
@@ -108,7 +111,7 @@ class ShoppingListViewController: RecipeListViewController {
         }
         
         let ingredient = ingredientForIndexPath(indexPath)
-        cell!.textLabel?.text = ingredient.name
+        cell!.textLabel.text = ingredient.name
         
         let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"

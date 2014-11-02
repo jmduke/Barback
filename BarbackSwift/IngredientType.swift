@@ -14,9 +14,9 @@ enum IngredientType: String {
     func pluralize() -> String {
         switch self {
         case .Garnish:
-            return toRaw() + "es"
+            return rawValue + "es"
         default:
-            return toRaw() + "s"
+            return rawValue + "s"
         }
     }
     

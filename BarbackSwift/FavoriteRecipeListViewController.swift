@@ -15,10 +15,11 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     get {
         return "Favorites"
     }
+        set { }
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.isFavorited
+        return recipe.isFavorited as Bool
     }
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
