@@ -31,11 +31,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : RecipeDetailActionButton!
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
-    @IBOutlet var facebookButton : RecipeDetailActionButton!
     @IBOutlet var similarDrinksTableView: UITableView!
     @IBOutlet var similarDrinksLabel: UILabel!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
-    @IBOutlet var twitterButton : RecipeDetailActionButton!
     
     let externalUrl = NSURL(scheme: "http", host: "getbarback.com", path: "/")
 
@@ -53,7 +51,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func shareRecipe() {
-        let activities = ["", NSURL(string: "http://getbarback.com")!]
+        let activities = ["Just made a \(recipe!.name) with @getbarback!", externalUrl!]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
     }
@@ -96,8 +94,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
-        facebookButton.setAction(self, action: "shareOnFacebook")
-        twitterButton.setAction(self, action: "shareOnTwitter")
         favoriteButton.setAction(self, action: "markRecipeAsFavorite")
         
         scrollView.delegate = self
@@ -140,33 +136,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             randomRecipe = Recipe.random()
         }
         return randomRecipe
-    }
-    
-    func shareOnFacebook() {
-        facebookButton.selected = true
-        
-        let facebookController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        
-        facebookController.setInitialText("Just made a \(recipe!.name) with Barback!")
-        facebookController.addURL(externalUrl)
-        facebookController.completionHandler = {(SLComposeViewControllerResult result) -> Void in
-            self.facebookButton.selected = false
-        }
-        
-        presentViewController(facebookController, animated: true, completion: nil)
-    }
-    
-    func shareOnTwitter() {
-        twitterButton.selected = true
-        let twitterController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        
-        twitterController.setInitialText("Just made a \(recipe!.name) with @getbarback!")
-        twitterController.addURL(externalUrl)
-        twitterController.completionHandler = {(SLComposeViewControllerResult result) -> Void in
-            self.twitterButton.selected = false
-        }
-        
-        presentViewController(twitterController, animated: true, completion: nil)
     }
     
     func markRecipeAsFavorite() {

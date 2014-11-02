@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Full Recipe List View Controller-->
@@ -78,10 +78,10 @@
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3">
@@ -161,26 +161,6 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccw-eS-3yg" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="128" y="287" width="64" height="64"/>
-                                        <state key="normal" image="facebook.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="56" y="287" width="64" height="64"/>
-                                        <state key="normal" image="favorite2.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="unfavorite.png"/>
-                                        <state key="highlighted" image="unfavorite.png"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAV-SX-C6f" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="200" y="287" width="64" height="64"/>
-                                        <state key="normal" image="twitter.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE">
                                         <rect key="frame" x="40" y="383" width="241" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -225,51 +205,50 @@
                                             </mask>
                                         </variation>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="128" y="287" width="64" height="64"/>
+                                        <state key="normal" image="favorite2.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="unfavorite.png"/>
+                                        <state key="highlighted" image="unfavorite.png"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="32" id="0GJ-jC-Mm7"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="Ccw-eS-3yg" secondAttribute="bottom" constant="-64" id="3NJ-K6-4da"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="4me-C6-ji8"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Ccw-eS-3yg" secondAttribute="bottom" constant="32" id="9TD-Al-FmO"/>
-                                    <constraint firstAttribute="bottom" secondItem="QAV-SX-C6f" secondAttribute="bottom" priority="500" constant="72" id="BcK-bI-joi"/>
                                     <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
                                     <constraint firstAttribute="width" constant="320" id="IEU-th-2rf"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ccw-eS-3yg" secondAttribute="bottom" priority="500" constant="72" id="MEm-6E-kbH"/>
-                                    <constraint firstItem="Ccw-eS-3yg" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="O1s-dk-TyA"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
-                                    <constraint firstItem="Ccw-eS-3yg" firstAttribute="leading" secondItem="0Zg-K2-heU" secondAttribute="trailing" constant="8" id="SNc-RU-76q"/>
-                                    <constraint firstItem="QAV-SX-C6f" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="YpK-NA-8Tj"/>
+                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" constant="72" id="SoS-61-Iae"/>
+                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" id="T9v-5F-WgS"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
                                     <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="750" id="Zcq-Oz-53V"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="8" id="aCB-5K-Tjc"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
-                                    <constraint firstAttribute="centerX" secondItem="Ccw-eS-3yg" secondAttribute="centerX" id="baK-GZ-upg"/>
-                                    <constraint firstItem="Ccw-eS-3yg" firstAttribute="top" secondItem="QAV-SX-C6f" secondAttribute="bottom" constant="-64" id="c0g-8s-s8w"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
                                     <constraint firstAttribute="centerX" secondItem="Jia-FD-882" secondAttribute="centerX" id="ehS-Ji-Oiz"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="gu7-eq-yev"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="0Zg-K2-heU" secondAttribute="bottom" constant="32" id="hgh-st-Ycf"/>
-                                    <constraint firstItem="QAV-SX-C6f" firstAttribute="leading" secondItem="Ccw-eS-3yg" secondAttribute="trailing" constant="8" id="jRS-Q9-Xgy"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
                                     <constraint firstAttribute="trailing" secondItem="2QU-SY-UI0" secondAttribute="trailing" id="oQD-MA-uve"/>
                                     <constraint firstAttribute="bottom" secondItem="0Zg-K2-heU" secondAttribute="bottom" priority="500" constant="72" id="oh0-ig-Rsw"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="QAV-SX-C6f" secondAttribute="bottom" constant="32" id="vgK-FW-Q6N"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="QAV-SX-C6f" secondAttribute="bottom" constant="-64" id="yYq-xj-0iq"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="IEU-th-2rf"/>
                                         <exclude reference="ehS-Ji-Oiz"/>
+                                        <exclude reference="SoS-61-Iae"/>
                                         <exclude reference="4me-C6-ji8"/>
                                         <exclude reference="oQD-MA-uve"/>
                                     </mask>
@@ -294,7 +273,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="directionsLabel" destination="Jia-FD-882" id="uiM-8q-PCv"/>
-                        <outlet property="facebookButton" destination="Ccw-eS-3yg" id="Drd-VK-8EB"/>
                         <outlet property="favoriteButton" destination="0Zg-K2-heU" id="CwN-Qg-yz6"/>
                         <outlet property="glasswareLabel" destination="DK2-3l-Le6" id="dJU-q5-2B0"/>
                         <outlet property="ingredientsTableView" destination="msd-qH-YF8" id="DKf-2Y-NYv"/>
@@ -304,7 +282,6 @@
                         <outlet property="similarDrinksLabel" destination="S12-BL-WRE" id="oHv-uq-UCS"/>
                         <outlet property="similarDrinksTableView" destination="2QU-SY-UI0" id="dnT-7d-Vnt"/>
                         <outlet property="similarDrinksTableViewHeight" destination="Z5v-2M-Oxw" id="DOU-LW-FHF"/>
-                        <outlet property="twitterButton" destination="QAV-SX-C6f" id="lhD-kY-FKS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPf-tb-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,11 +297,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RpF-Vc-ZOY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-66-Hw0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
                                         <rect key="frame" x="0.0" y="20" width="320" height="21"/>
@@ -669,16 +646,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook.png" width="64" height="64"/>
         <image name="favorite.png" width="30" height="30"/>
         <image name="favorite2.png" width="64" height="64"/>
         <image name="glass-alt.png" width="30" height="30"/>
         <image name="random.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
-        <image name="twitter.png" width="64" height="64"/>
         <image name="unfavorite.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oEh-Er-fqj"/>
+        <segue reference="7XA-ZG-IZb"/>
     </inferredMetricsTieBreakers>
 </document>

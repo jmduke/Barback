@@ -54,7 +54,7 @@ class Ingredient: NSManagedObject {
         }
         return ""
     }
-    
+
     var detailDescription: String {
         get {
             var extraInformation = self.displayAmount

@@ -17,6 +17,10 @@ class IngredientBase: NSManagedObject {
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
     
+    override var description: String {
+        return "ARGH"
+    }
+    
     class func fromAttributes(name: String, information: String, type: IngredientType) -> IngredientBase {
         let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
