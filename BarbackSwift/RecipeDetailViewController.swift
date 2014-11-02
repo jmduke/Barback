@@ -90,7 +90,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         favoriteButton.selectedAlpha = 1.0
-        favoriteButton.selected = recipe!.isFavorited as Bool
+        favoriteButton.selected = recipe!.favorite
         
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
@@ -170,7 +170,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func markRecipeAsFavorite() {
-        recipe!.isFavorited = !(recipe!.isFavorited as Bool)
+        recipe!.isFavorited = !recipe!.favorite
         favoriteButton.selected = !favoriteButton.selected
         saveContext()
     }
@@ -232,7 +232,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         if (isRandom != nil) {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
-            let shakeCaption = "Don't like this one?  Shake the phone or press the \"New Recipe\" button for a new recipe."
+            let shakeCaption = "Don't like this one?  Shake the phone or press the button in the top left corner for a new recipe."
             
             let coachMark = ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]
             coachMarks.append(coachMark)

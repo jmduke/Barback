@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 while (!randomRecipe.isReal) {
                     randomRecipe = managedContext().randomObject(Recipe.self)!
                 }
-                randomRecipe.isFavorited = true
+                randomRecipe.favorite = true
             }
             self.coreDataHelper.saveContext(context)
 

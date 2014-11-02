@@ -19,7 +19,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.isFavorited as Bool
+        return recipe.favorite
     }
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {

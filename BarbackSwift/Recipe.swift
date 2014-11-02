@@ -14,9 +14,18 @@ public class Recipe: NSManagedObject {
     @NSManaged var detail: String
     @NSManaged var directions: String
     @NSManaged var glassware: String
-    @NSManaged var isFavorited: NSNumber
     @NSManaged var name: String
     @NSManaged var ingredients: NSSet
+    
+    @NSManaged var isFavorited: NSNumber
+    // Core Data won't let us store a bool so we use this (and isFavorited as a backend.)
+    var favorite: Bool {
+        get {
+            return isFavorited as Bool
+        } set {
+            isFavorited = NSNumber(bool: newValue)
+        }
+    }
     
     var isReal: Bool {
         return glassware != "" && directions != ""
