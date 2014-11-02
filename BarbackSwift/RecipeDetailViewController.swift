@@ -52,15 +52,25 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         return true
     }
     
+    func shareRecipe() {
+        let activities = ["", NSURL(string: "http://getbarback.com")!]
+        let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
+        navigationController?.presentViewController(controller, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
+        self.navigationItem.rightBarButtonItem = randomButton
         
         if (recipe == nil) {
             recipe = getRandomRecipe()
             isRandom = true
             
             let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
-            self.navigationItem.rightBarButtonItem = randomButton
+            self.navigationItem.leftBarButtonItem = randomButton
         }
         
         
@@ -80,7 +90,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         favoriteButton.selectedAlpha = 1.0
-        favoriteButton.selected = recipe!.isFavorited
+        favoriteButton.selected = recipe!.isFavorited as Bool
         
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
@@ -160,7 +170,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func markRecipeAsFavorite() {
-        recipe!.isFavorited = !recipe!.isFavorited
+        recipe!.isFavorited = !(recipe!.isFavorited as Bool)
         favoriteButton.selected = !favoriteButton.selected
         saveContext()
     }
@@ -276,7 +286,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                     reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = sortedIngredients![indexPath.row]
-            cell!.textLabel?.text = ingredient.base.name
+            cell!.textLabel.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
             let cellIdentifier = "similarCell"
@@ -284,7 +294,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                 reuseIdentifier: cellIdentifier)
             
             let similarRecipe = similarRecipes![indexPath.row]
-            cell!.textLabel?.text = similarRecipe.name
+            cell!.textLabel.text = similarRecipe.name
             cell!.detailTextLabel?.text = similarRecipe.detailDescription
         }
         return cell!

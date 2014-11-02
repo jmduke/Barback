@@ -67,6 +67,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         get {
             return "Search"
         }
+        set {
+            
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -207,7 +210,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             let boldAttributes = [NSForegroundColorAttributeName: UIColor.lightColor()]
             let attributedText = NSMutableAttributedString(string: "\(labelPrefix)\(ingredient.name)", attributes: attributes)
             attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
-            cell.textLabel?.attributedText = attributedText
+            cell.textLabel.attributedText = attributedText
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
@@ -236,7 +239,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         searchBar.text = "\(labelPrefix)\(ingredient.name)"
         searchBar(searchBar, textDidChange: searchBar.text)
     }
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         return !currentlyTypingIngredient()
     }
 }

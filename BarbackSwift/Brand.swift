@@ -18,7 +18,7 @@ class Brand: NSManagedObject {
 
     var detailDescription: String {
         get {
-            return String(count: price, repeatedValue: Character("$"))
+            return String(count: price.integerValue, repeatedValue: Character("$"))
         }
     }
     
@@ -43,7 +43,7 @@ class Brand: NSManagedObject {
     
     class func fromJSONFile(filename: String) -> [Brand] {
         let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
+        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
         let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
         var rawBrands = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
         

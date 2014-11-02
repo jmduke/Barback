@@ -10,8 +10,8 @@ import Foundation
 
 extension UIImage {
     
-    convenience init(url: NSString) {
-        self.init(data: NSData(contentsOfURL: NSURL(string: url)))
+    convenience init?(url: NSString) {
+        self.init(data: NSData(contentsOfURL: NSURL(string: url)!)!)
     }
     
     func scaleDownToWidth(maxWidth: CGFloat) -> UIImage {

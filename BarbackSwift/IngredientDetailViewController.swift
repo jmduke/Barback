@@ -79,7 +79,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
                 reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel?.text = primaryText
+        cell!.textLabel.text = primaryText
         cell!.detailTextLabel?.text = detailText
         cell!.stylePrimary()
         
@@ -182,7 +182,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         } else if tableView == brandsTableView {            
             let selectedBrand = brands[indexPath.row]
             let image = UIImage(url: selectedBrand.imageUrl)
-            let resizedImage = image.scaleDownToWidth(view.frame.width * 0.5)
+            let resizedImage = image!.scaleDownToWidth(view.frame.width * 0.5)
             let imageView = UIImageView(image: resizedImage)
 
             let modal = RNBlurModalView(viewController: self, view: imageView)

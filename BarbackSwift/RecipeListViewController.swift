@@ -11,7 +11,7 @@ import UIKit
 
 class RecipeListViewController: UITableViewController {
     
-    let viewTitle: String = ""
+    var viewTitle: String = ""
     var recipes: [Recipe] = Recipe.all()
     
     override func viewDidAppear(animated: Bool)  {
@@ -63,7 +63,7 @@ class RecipeListViewController: UITableViewController {
         let cellIdentifier = "recipeCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
 
-        cell.textLabel?.text = recipe.name
+        cell.textLabel.text = recipe.name
         cell.detailTextLabel?.text = recipe.detailDescription
         cell.stylePrimary()
         
@@ -83,7 +83,7 @@ class RecipeListViewController: UITableViewController {
     
     
     // We have this logic in here so we don't try and segue on Shopping List.
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         let selectedIndex = tableView.indexPathForSelectedRow()
         
         if selectedIndex?.row >= recipes.count {

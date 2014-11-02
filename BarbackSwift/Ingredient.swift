@@ -28,12 +28,12 @@ class Ingredient: NSManagedObject {
             if !useImperialUnits {
                 return metricAmount.description + " cl"
             } else {
-                var rawAmount = Int(floorf(metricAmount / 3))
+                var rawAmount = Int(floorf(metricAmount.floatValue / 3.0))
                 var ounceString = ""
                 if rawAmount > 0 {
                     ounceString = rawAmount.description
                 }
-                let imperialRemainder = metricAmount % 3
+                let imperialRemainder = metricAmount.floatValue % 3
                 var remainderString: String = ""
                 switch imperialRemainder {
                 case 0.5:

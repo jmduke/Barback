@@ -24,11 +24,13 @@ public class Recipe: NSManagedObject {
     
     var detailDescription: String {
         get {
-            let ingredients = (self.ingredients.allObjects as [Ingredient]).sorted({$0.amount?.intValue > $1.amount?.intValue}).filter({ingredient in !ingredient.isSpecial}).map({
+            let ingredientObjects = self.ingredients.allObjects as [Ingredient]
+            let ingredients = ingredientObjects.sorted({($0 as Ingredient).amount?.intValue > ($1 as Ingredient).amount?.intValue})
+            let relevantIngredients = ingredients.filter({ingredient in !((ingredient as Ingredient).isSpecial as Bool)}).map({
                 (ingredient: Ingredient) -> String in
                 return ingredient.base.name
             })
-            return join(", ", ingredients)
+            return join(", ", relevantIngredients)
         }
     }
     
@@ -92,7 +94,7 @@ public class Recipe: NSManagedObject {
     
     class func fromJSONFile(filename: String) -> [Recipe] {
         let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString.stringWithContentsOfFile(filepath!, encoding:NSUTF8StringEncoding, error: nil)
+        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
         let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
         var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
         
