@@ -59,7 +59,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             recipe = getRandomRecipe()
             isRandom = true
             
-            let randomButton = UIBarButtonItem(title: "New Recipe", style: UIBarButtonItemStyle.Plain, target: self, action: "findNewRecipe")
+            let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
             self.navigationItem.rightBarButtonItem = randomButton
         }
         
