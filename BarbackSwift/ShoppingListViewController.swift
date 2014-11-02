@@ -44,7 +44,7 @@ class ShoppingListViewController: RecipeListViewController {
     
     func setIngredients(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
-        favoritedRecipes = Recipe.all().filter({ $0.isFavorited as Bool })
+        favoritedRecipes = Recipe.all().filter({ $0.favorite })
     }
  
     override func viewDidLoad() {
