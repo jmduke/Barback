@@ -37,6 +37,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarController: UITabBarController?
     var window: UIWindow?
 
+    func isFirstTimeAppLaunched() -> Bool {
+        return !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce")
+    }
+    
+    func dataNeedsSyncing() -> Bool {
+        let mostRecentSyncString = NSUserDefaults.standardUserDefaults().stringForKey("syncDate")
+        
+        if let mostRecentSyncString = mostRecentSyncString {
+            
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let mostRecentSyncDate = formatter.dateFromString(mostRecentSyncString)
+            
+            for syncableClass: AnyClass in [Recipe.self, Ingredient.self, IngredientBase.self, Brand.self] {
+                let className = NSStringFromClass(syncableClass).componentsSeparatedByString(".").last!
+                let query = PFQuery(className: className)
+                query.whereKey("updatedAt", greaterThan: mostRecentSyncDate!)
+                if query.countObjects() > 0 {
+                    return true
+                }
+            }
+            
+        } else {
+            return true
+        }
+        
+        return false
+    }
+    
+    func syncNewData() {
+        let ingredientBases = IngredientBase.syncWithParse()
+        saveContext()
+        let recipes = Recipe.syncWithParse()
+        saveContext()
+        let ingredients = Ingredient.syncWithParse()
+        saveContext()
+        let brands = Brand.syncWithParse()
+        saveContext()
+        
+        let dateString = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+        NSUserDefaults.standardUserDefaults().setObject(dateString, forKey:"syncDate")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func markAppAsLaunched() {
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
         // Initialize Parse.
@@ -46,15 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(applicationId, clientKey: clientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce") {
-            let context = self.coreDataHelper.managedObjectContext!
-            
-            // Load up Core Data with all of our goodies.
-            let ingredientBases = IngredientBase.fromParse()
-            let recipes = Recipe.fromParse()
-            let ingredients = Ingredient.fromParse()
-            let brands = Brand.fromParse()
-            self.coreDataHelper.saveContext(context)
+        if dataNeedsSyncing() {
+            syncNewData()
+        }
+        
+        if isFirstTimeAppLaunched() {
             
             // Set some random recipes to be favorites.
             let initialNumberOfFavoritedRecipes = 3
@@ -65,11 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 randomRecipe.favorite = true
             }
-            self.coreDataHelper.saveContext(context)
+            saveContext()
 
-            
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            markAppAsLaunched()
         }
         
         // Set status bar to active.  And white.

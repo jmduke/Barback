@@ -32,7 +32,7 @@ class Brand: NSManagedObject {
         return newBrand
     }
     
-    class func fromParse() -> [Brand] {
+    class func syncWithParse() -> [Brand] {
         let brands = PFQuery.allObjects("Brand")
         return brands.map({
             (object: PFObject) -> Brand in

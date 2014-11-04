@@ -82,7 +82,7 @@ public class Recipe: NSManagedObject {
         return newRecipe
     }
     
-    class func fromParse() -> [Recipe] {
+    class func syncWithParse() -> [Recipe] {
         let recipes = PFQuery.allObjects("Recipe")
         return recipes.map({
             (object: PFObject) -> Recipe in
