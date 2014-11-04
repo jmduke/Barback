@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 class IngredientBase: NSManagedObject {
 
@@ -28,23 +29,17 @@ class IngredientBase: NSManagedObject {
         newBase.type = type.rawValue ?? "other"
         return newBase
     }
-    
-    class func fromDict(rawIngredient: NSDictionary) -> IngredientBase {
-        let name = (rawIngredient.objectForKey("name") as String)
-        let description = rawIngredient.objectForKey("description") as String
-        let type = IngredientType(rawValue: rawIngredient.objectForKey("type") as String)!
-        let base = fromAttributes(name, information: description, type: type)
-    
-        return base
-    }
-    
-    class func fromJSONFile(filename: String) -> [IngredientBase] {
-        let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
-        let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawIngredients = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
-        
-        return rawIngredients.map({IngredientBase.fromDict($0)})
+
+    class func fromParse() -> [IngredientBase] {
+        var baseQuery = PFQuery(className: "IngredientBase")
+        let bases = baseQuery.findObjects() as [PFObject]
+        return bases.map({
+            (object: PFObject) -> IngredientBase in
+            let name = object["name"]! as String
+            let information = object["description"]! as String
+            let type = IngredientType(rawValue: object["type"]! as String)!
+            return IngredientBase.fromAttributes(name, information: information, type: type)
+        }) as [IngredientBase]
     }
     
     class func all() -> [IngredientBase] {
