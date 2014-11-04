@@ -83,9 +83,7 @@ public class Recipe: NSManagedObject {
     }
     
     class func fromParse() -> [Recipe] {
-        var recipeQuery = PFQuery(className: "Recipe")
-        recipeQuery.limit = 1000
-        let recipes = recipeQuery.findObjects() as [PFObject]
+        let recipes = PFQuery.allObjects("Recipe")
         return recipes.map({
             (object: PFObject) -> Recipe in
             let name = object["name"]! as String

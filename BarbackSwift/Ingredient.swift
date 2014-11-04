@@ -71,9 +71,7 @@ class Ingredient: NSManagedObject {
     
   
     class func fromParse() -> [Ingredient] {
-        var ingredientQuery = PFQuery(className: "Ingredient")
-        ingredientQuery.limit = 1000
-        let ingredients = ingredientQuery.findObjects() as [PFObject]
+        let ingredients = PFQuery.allObjects("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
             var base = object["base"] as? String
