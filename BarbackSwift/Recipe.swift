@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 public class Recipe: NSManagedObject {
 
@@ -81,38 +82,19 @@ public class Recipe: NSManagedObject {
         return newRecipe
     }
     
-    class func fromDict(rawRecipe: NSDictionary) -> Recipe {
-        let name = rawRecipe.objectForKey("name") as String
-        let directions = rawRecipe.objectForKey("preparation") as String
-        let glassware = rawRecipe.objectForKey("glass") as String
-        let recipe = fromAttributes(name, directions: directions, glassware: glassware)
-        
-        let rawIngredients = rawRecipe.objectForKey("ingredients") as [NSDictionary]
-        let ingredients = rawIngredients.map({
-            (rawIngredient: NSDictionary) -> Ingredient in
-            let ingredient = Ingredient.fromDict(rawIngredient)
-            ingredient.recipe = recipe
-            return ingredient
-        })
-        
-        recipe.ingredients = NSSet(array: ingredients)
-        
-        return recipe
-    }
-    
-    
-    class func fromJSONFile(filename: String) -> [Recipe] {
-        let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
-        let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
-        
-        var allRecipes: [Recipe] = rawRecipes.map({
-            (rawRecipe: NSDictionary) -> Recipe in
-            return self.fromDict(rawRecipe)
-        })
-        allRecipes = allRecipes.sorted({ $0.name < $1.name })
-        return allRecipes
+    class func fromParse() -> [Recipe] {
+        var recipeQuery = PFQuery(className: "Recipe")
+        recipeQuery.limit = 1000
+        let recipes = recipeQuery.findObjects() as [PFObject]
+        return recipes.map({
+            (object: PFObject) -> Recipe in
+            let name = object["name"]! as String
+            let description = object["description"] as? String
+            let garnish = object["garnish"] as? String
+            let glass = object["glass"]! as String
+            let directions = object["preparation"]! as String
+            return Recipe.fromAttributes(name, directions: directions, glassware: glass)
+        }) as [Recipe]
     }
     
     class func all() -> [Recipe] {
