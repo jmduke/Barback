@@ -16,4 +16,22 @@ extension PFQuery {
         query.limit = 1000
         return query.findObjects() as [PFObject]
     }
+    
+    class func allObjectsSinceSync(className: String) -> [PFObject] {
+        var query = PFQuery(className: className)
+        query.limit = 1000
+        
+        let mostRecentSyncString = NSUserDefaults.standardUserDefaults().stringForKey("syncDate")
+        
+        if let mostRecentSyncString = mostRecentSyncString {
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let mostRecentSyncDate = formatter.dateFromString(mostRecentSyncString)
+            
+            query.whereKey("createdAt", greaterThan: mostRecentSyncDate!)
+        }
+        
+        return query.findObjects() as [PFObject]
+    }
 }

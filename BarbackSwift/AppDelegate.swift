@@ -42,26 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func dataNeedsSyncing() -> Bool {
-        let mostRecentSyncString = NSUserDefaults.standardUserDefaults().stringForKey("syncDate")
-        
-        if let mostRecentSyncString = mostRecentSyncString {
-            
-            let formatter = NSDateFormatter()
-            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            let mostRecentSyncDate = formatter.dateFromString(mostRecentSyncString)
-            
-            for syncableClass: AnyClass in [Recipe.self, Ingredient.self, IngredientBase.self, Brand.self] {
-                let className = NSStringFromClass(syncableClass).componentsSeparatedByString(".").last!
-                let query = PFQuery(className: className)
-                query.whereKey("updatedAt", greaterThan: mostRecentSyncDate!)
-                if query.countObjects() > 0 {
-                    return true
-                }
+        for syncableClass: AnyClass in [Recipe.self, Ingredient.self, IngredientBase.self, Brand.self] {
+            let className = NSStringFromClass(syncableClass).componentsSeparatedByString(".").last!
+            if !PFQuery.allObjectsSinceSync(className).isEmpty {
+                return true
             }
-            
-        } else {
-            return true
         }
         
         return false
@@ -69,13 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func syncNewData() {
         let ingredientBases = IngredientBase.syncWithParse()
-        saveContext()
         let recipes = Recipe.syncWithParse()
-        saveContext()
         let ingredients = Ingredient.syncWithParse()
-        saveContext()
         let brands = Brand.syncWithParse()
-        saveContext()
         
         let dateString = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
         NSUserDefaults.standardUserDefaults().setObject(dateString, forKey:"syncDate")
@@ -98,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if dataNeedsSyncing() {
             syncNewData()
+            saveContext()
         }
         
         if isFirstTimeAppLaunched() {

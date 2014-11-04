@@ -33,7 +33,7 @@ class Brand: NSManagedObject {
     }
     
     class func syncWithParse() -> [Brand] {
-        let brands = PFQuery.allObjects("Brand")
+        let brands = PFQuery.allObjectsSinceSync("Brand")
         return brands.map({
             (object: PFObject) -> Brand in
             let name = object["name"]! as String
