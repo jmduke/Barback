@@ -70,7 +70,7 @@ class Ingredient: NSManagedObject {
     }
     
   
-    class func fromParse() -> [Ingredient] {
+    class func syncWithParse() -> [Ingredient] {
         let ingredients = PFQuery.allObjects("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
@@ -90,24 +90,28 @@ class Ingredient: NSManagedObject {
     
     class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String) -> Ingredient {
         let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+        
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
+        let recipe = Recipe.forName(recipeName)!
+        
         if ingredientBase == nil {
             ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
             ingredientBase!.name = baseName!
             ingredientBase!.information = ""
             ingredientBase!.type = "other"
         }
+
         newIngredient.base = ingredientBase!
-        
+        newIngredient.recipe = recipe
         newIngredient.amount = amount
         newIngredient.label = label
         newIngredient.isSpecial = isSpecial!
         
-        let recipe = Recipe.forName(recipeName)!
-        print(recipe.name + "\n")
+        /*
         var ingredients = recipe.ingredients as NSMutableSet
         ingredients.addObject(newIngredient)
         recipe.ingredients = ingredients
+        */
         
         return newIngredient
     }
