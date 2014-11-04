@@ -33,8 +33,7 @@ class Brand: NSManagedObject {
     }
     
     class func fromParse() -> [Brand] {
-        var brandQuery = PFQuery(className: "Brand")
-        let brands = brandQuery.findObjects() as [PFObject]
+        let brands = PFQuery.allObjects("Brand")
         return brands.map({
             (object: PFObject) -> Brand in
             let name = object["name"]! as String

@@ -31,8 +31,7 @@ class IngredientBase: NSManagedObject {
     }
 
     class func fromParse() -> [IngredientBase] {
-        var baseQuery = PFQuery(className: "IngredientBase")
-        let bases = baseQuery.findObjects() as [PFObject]
+        let bases = PFQuery.allObjects("IngredientBase")
         return bases.map({
             (object: PFObject) -> IngredientBase in
             let name = object["name"]! as String
