@@ -31,7 +31,7 @@ class IngredientBase: NSManagedObject {
     }
 
     class func syncWithParse() -> [IngredientBase] {
-        let bases = PFQuery.allObjects("IngredientBase")
+        let bases = PFQuery.allObjectsSinceSync("IngredientBase")
         return bases.map({
             (object: PFObject) -> IngredientBase in
             let name = object["name"]! as String

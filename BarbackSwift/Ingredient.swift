@@ -71,7 +71,7 @@ class Ingredient: NSManagedObject {
     
   
     class func syncWithParse() -> [Ingredient] {
-        let ingredients = PFQuery.allObjects("Ingredient")
+        let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
             var base = object["base"] as? String
@@ -106,12 +106,6 @@ class Ingredient: NSManagedObject {
         newIngredient.amount = amount
         newIngredient.label = label
         newIngredient.isSpecial = isSpecial!
-        
-        /*
-        var ingredients = recipe.ingredients as NSMutableSet
-        ingredients.addObject(newIngredient)
-        recipe.ingredients = ingredients
-        */
         
         return newIngredient
     }
