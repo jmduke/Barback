@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 class Brand: NSManagedObject {
 
@@ -31,22 +32,16 @@ class Brand: NSManagedObject {
         return newBrand
     }
     
-    class func fromDict(rawBrand: NSDictionary) -> Brand {
-        let name = rawBrand.objectForKey("name") as String
-        let price = rawBrand.objectForKey("price") as Int
-        let url = rawBrand.objectForKey("image") as String
-        let baseName = rawBrand.objectForKey("base") as String
-        
-        let base = IngredientBase.forName(baseName)
-        return fromAttributes(name, price: price, base: base!, url: url)
-    }
-    
-    class func fromJSONFile(filename: String) -> [Brand] {
-        let filepath = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
-        let ingredientData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawBrands = NSJSONSerialization.JSONObjectWithData(ingredientData!, options: nil, error: nil) as [NSDictionary]
-        
-        return rawBrands.map({Brand.fromDict($0)})
+    class func fromParse() -> [Brand] {
+        var brandQuery = PFQuery(className: "Brand")
+        let brands = brandQuery.findObjects() as [PFObject]
+        return brands.map({
+            (object: PFObject) -> Brand in
+            let name = object["name"]! as String
+            let price = object["price"]! as Int
+            let base = IngredientBase.forName(object["base"]! as String)!
+            let url = object["image"]! as String
+            return Brand.fromAttributes(name, price: price, base: base, url: url)
+        }) as [Brand]
     }
 }

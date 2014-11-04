@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
+import Parse
 import CoreData
 import UIKit
 
@@ -38,13 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
+        // Initialize Parse.
+        let keys = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)!
+        let applicationId = keys["parseApplicationId"]! as String
+        let clientKey = keys["parseClientKey"]! as String
+        Parse.setApplicationId(applicationId, clientKey: clientKey)
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        
         if !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce") {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
             let ingredientBases = IngredientBase.fromJSONFile("ingredients")
             let recipes = Recipe.fromJSONFile("recipes")
-            let brands = Brand.fromJSONFile("brands")
+            let brands = Brand.fromParse()
             self.coreDataHelper.saveContext(context)
             
             // Set some random recipes to be favorites.
