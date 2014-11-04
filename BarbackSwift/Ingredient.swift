@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Parse
 
 class Ingredient: NSManagedObject {
 
@@ -68,19 +69,28 @@ class Ingredient: NSManagedObject {
         }
     }
     
-    class func fromDict(rawIngredient: NSDictionary) -> Ingredient {
-        var baseName = rawIngredient.objectForKey("ingredient") as? String
-        var isSpecial = false
-        if !(baseName != nil) {
-            baseName = rawIngredient.objectForKey("special") as? String
-            isSpecial = true
-        }
-        let label = rawIngredient.objectForKey("label") as? String
-        let amount = rawIngredient.objectForKey("cl") as? Float
-        return fromAttributes(baseName, amount: amount, label: label, isSpecial: isSpecial)
+  
+    class func fromParse() -> [Ingredient] {
+        var ingredientQuery = PFQuery(className: "Ingredient")
+        ingredientQuery.limit = 1000
+        let ingredients = ingredientQuery.findObjects() as [PFObject]
+        return ingredients.map({
+            (object: PFObject) -> Ingredient in
+            var base = object["base"] as? String
+            let amount = object["cl"] as? Float
+            let label = object["label"] as? String
+            let recipe = object["recipe"]! as String
+            var isSpecial = false
+            if base == nil {
+                isSpecial = true
+                base = object["special"]! as String
+            }
+            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe)
+        }) as [Ingredient]
     }
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?) -> Ingredient {
+    
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String) -> Ingredient {
         let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
         if ingredientBase == nil {
@@ -94,6 +104,13 @@ class Ingredient: NSManagedObject {
         newIngredient.amount = amount
         newIngredient.label = label
         newIngredient.isSpecial = isSpecial!
+        
+        let recipe = Recipe.forName(recipeName)!
+        print(recipe.name + "\n")
+        var ingredients = recipe.ingredients as NSMutableSet
+        ingredients.addObject(newIngredient)
+        recipe.ingredients = ingredients
+        
         return newIngredient
     }
     
