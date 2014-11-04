@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = self.coreDataHelper.managedObjectContext!
             
             // Load up Core Data with all of our goodies.
-            let ingredientBases = IngredientBase.fromJSONFile("ingredients")
+            let ingredientBases = IngredientBase.fromParse()
             let recipes = Recipe.fromJSONFile("recipes")
             let brands = Brand.fromParse()
             self.coreDataHelper.saveContext(context)
