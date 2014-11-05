@@ -13,6 +13,7 @@ import Parse
 class Ingredient: NSManagedObject {
 
     @NSManaged var amount: NSNumber?
+    @NSManaged var objectId: String
     @NSManaged var label: String?
     @NSManaged var isSpecial: NSNumber
     
@@ -68,6 +69,10 @@ class Ingredient: NSManagedObject {
             return extraInformation
         }
     }
+
+    class func forObjectId(objectId: String) -> Ingredient? {
+        return managedContext().objectForObjectId(Ingredient.self, objectId: objectId)
+    }
     
   
     class func syncWithParse() -> [Ingredient] {
@@ -78,18 +83,19 @@ class Ingredient: NSManagedObject {
             let amount = object["cl"] as? Float
             let label = object["label"] as? String
             let recipe = object["recipe"]! as String
+            let objectId = object.objectId as String
             var isSpecial = false
             if base == nil {
                 isSpecial = true
                 base = object["special"]! as String
             }
-            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe)
+            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe, objectId: objectId)
         }) as [Ingredient]
     }
     
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String) -> Ingredient {
-        let newIngredient: Ingredient = NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String, objectId: String) -> Ingredient {
+        let newIngredient: Ingredient = Ingredient.forObjectId(objectId) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
         let recipe = Recipe.forName(recipeName)!
@@ -103,6 +109,7 @@ class Ingredient: NSManagedObject {
 
         newIngredient.base = ingredientBase!
         newIngredient.recipe = recipe
+        newIngredient.objectId = objectId
         newIngredient.amount = amount
         newIngredient.label = label
         newIngredient.isSpecial = isSpecial!
