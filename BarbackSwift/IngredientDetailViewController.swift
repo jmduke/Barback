@@ -181,12 +181,20 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             performSegueWithIdentifier("recipeDetail", sender: nil)
         } else if tableView == brandsTableView {            
             let selectedBrand = brands[indexPath.row]
-            let image = UIImage(url: selectedBrand.imageUrl)
-            let resizedImage = image!.scaleDownToWidth(view.frame.width * 0.5)
-            let imageView = UIImageView(image: resizedImage)
+            
+            let image = UIImage(urlString: selectedBrand.imageUrl)!
+            
+            if image.hasImage() {
+                let resizedImage = image.scaleDownToWidth(view.frame.width * 0.5)
+                let imageView = UIImageView(image: resizedImage)
 
-            let modal = RNBlurModalView(viewController: self, view: imageView)
-            modal.show()
+                let modal = RNBlurModalView(viewController: self, view: imageView)
+                modal.show()
+            } else {
+                let modal = RNBlurModalView(viewController: self, title: "Image not found", message: "Sorry, we don't have a picture for \(selectedBrand.name) :(.")
+                modal.show()
+            }
+            
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
