@@ -10,8 +10,18 @@ import Foundation
 
 extension UIImage {
     
-    convenience init?(url: NSString) {
-        self.init(data: NSData(contentsOfURL: NSURL(string: url)!)!)
+    convenience init?(urlString: NSString) {
+        let url = NSURL(string: urlString)
+        let data = NSData(contentsOfURL: url!)
+        if let data = data {
+            self.init(data: data)
+        } else {
+            self.init()
+        }
+    }
+
+    func hasImage() -> Bool {
+        return CIImage != nil || CGImage != nil
     }
     
     func scaleDownToWidth(maxWidth: CGFloat) -> UIImage {
