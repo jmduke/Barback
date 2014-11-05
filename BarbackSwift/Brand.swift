@@ -22,14 +22,18 @@ class Brand: NSManagedObject {
             return String(count: price.integerValue, repeatedValue: Character("$"))
         }
     }
+
+    class func forName(name: String) -> Brand? {
+        return managedContext().objectForName(Brand.self, name: name)
+    }
     
     class func fromAttributes(name: String, price: Int, base: IngredientBase, url: String) -> Brand {
-        let newBrand: Brand = NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
-        newBrand.name = name
-        newBrand.price = price
-        newBrand.imageUrl = url
-        newBrand.ingredient = base
-        return newBrand
+        let brand: Brand = Brand.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
+        brand.name = name
+        brand.price = price
+        brand.imageUrl = url
+        brand.ingredient = base
+        return brand
     }
     
     class func syncWithParse() -> [Brand] {

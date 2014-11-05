@@ -23,7 +23,7 @@ class IngredientBase: NSManagedObject {
     }
     
     class func fromAttributes(name: String, information: String, type: IngredientType) -> IngredientBase {
-        let newBase: IngredientBase = NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
+        let newBase: IngredientBase = IngredientBase.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
         newBase.information = information
         newBase.type = type.rawValue ?? "other"

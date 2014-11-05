@@ -74,7 +74,7 @@ public class Recipe: NSManagedObject {
     }
 
     class func fromAttributes(name: String, directions: String, glassware: String) -> Recipe {
-        let newRecipe: Recipe = NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
+        let newRecipe: Recipe = Recipe.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
         newRecipe.name = name
         newRecipe.directions = directions
         newRecipe.glassware = glassware

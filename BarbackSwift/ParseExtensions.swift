@@ -29,7 +29,7 @@ extension PFQuery {
             formatter.timeStyle = NSDateFormatterStyle.ShortStyle
             let mostRecentSyncDate = formatter.dateFromString(mostRecentSyncString)
             
-            query.whereKey("createdAt", greaterThan: mostRecentSyncDate!)
+            query.whereKey("updatedAt", greaterThan: mostRecentSyncDate!)
         }
         
         return query.findObjects() as [PFObject]
