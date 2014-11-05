@@ -29,6 +29,11 @@ extension NSManagedObjectContext {
         return objects(entity, predicate: predicate)?.first
     }
     
+    func objectForObjectId<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, objectId: String) -> T? {
+        let predicate = NSPredicate(format: "objectId LIKE[cd] \"\(objectId)\"")
+        return objects(entity, predicate: predicate)?.first
+    }
+    
     func randomObject<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type) -> T? {
         let allObjects = objects(entity)?
         return allObjects?[Int(arc4random_uniform(UInt32(allObjects!.count)))]
