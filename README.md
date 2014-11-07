@@ -1,7 +1,7 @@
 Barback
 =======
 
-An app for drinking cocktails, ported to Swift.
+An app for drinking cocktails, ported to Swift.  Currently on v2.2, as of Nov. 6th.
 
 It looks like this (for now):
 
