@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class Brand: NSManagedObject {
+class Brand: StoredObject {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
@@ -27,12 +27,13 @@ class Brand: NSManagedObject {
         return managedContext().objectForName(Brand.self, name: name)
     }
     
-    class func fromAttributes(name: String, price: Int, base: IngredientBase, url: String) -> Brand {
+    class func fromAttributes(name: String, price: Int, base: IngredientBase, url: String, isDead: Bool) -> Brand {
         let brand: Brand = Brand.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
         brand.name = name
         brand.price = price
         brand.imageUrl = url
         brand.ingredient = base
+        brand.isDead = isDead
         return brand
     }
     
@@ -44,7 +45,8 @@ class Brand: NSManagedObject {
             let price = object["price"]! as Int
             let base = IngredientBase.forName(object["base"]! as String)!
             let url = object["image"]! as String
-            return Brand.fromAttributes(name, price: price, base: base, url: url)
+            let isDead = object["isDeleted"] as? Bool ?? false
+            return Brand.fromAttributes(name, price: price, base: base, url: url, isDead: isDead)
         }) as [Brand]
     }
 }

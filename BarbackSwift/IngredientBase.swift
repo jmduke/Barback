@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class IngredientBase: NSManagedObject {
+class IngredientBase: StoredObject {
 
     @NSManaged var information: String
     @NSManaged var name: String
@@ -22,11 +22,12 @@ class IngredientBase: NSManagedObject {
         return "ARGH"
     }
     
-    class func fromAttributes(name: String, information: String, type: IngredientType) -> IngredientBase {
+    class func fromAttributes(name: String, information: String, type: IngredientType, isDead: Bool) -> IngredientBase {
         let newBase: IngredientBase = IngredientBase.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
         newBase.information = information
         newBase.type = type.rawValue ?? "other"
+        newBase.isDead = isDead
         return newBase
     }
 
@@ -37,12 +38,13 @@ class IngredientBase: NSManagedObject {
             let name = object["name"]! as String
             let information = object["description"]! as String
             let type = IngredientType(rawValue: object["type"]! as String)!
-            return IngredientBase.fromAttributes(name, information: information, type: type)
+            let isDead = object["isDeleted"] as? Bool ?? false
+            return IngredientBase.fromAttributes(name, information: information, type: type, isDead: isDead)
         }) as [IngredientBase]
     }
     
     class func all() -> [IngredientBase] {
-        return managedContext().objects(IngredientBase.self)!
+        return managedContext().objects(IngredientBase.self)!.filter({$0.isDead == false})
     }
     
     class func nameContainsString(string: String) -> [IngredientBase] {

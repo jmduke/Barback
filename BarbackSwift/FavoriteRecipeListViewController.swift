@@ -90,7 +90,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // Grab all the ingredient names.
         let allIngredients = recipes.map({
             (recipe: Recipe) -> [IngredientBase] in
-            return (recipe.ingredients.allObjects as [Ingredient]).map({
+            return recipe.ingredients.map({
                 (ingredient: Ingredient) -> IngredientBase in
                 return IngredientBase.forName(ingredient.base.name)!
                 })

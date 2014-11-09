@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class Ingredient: NSManagedObject {
+class Ingredient: StoredObject {
 
     @NSManaged var amount: NSNumber?
     @NSManaged var objectId: String
@@ -82,19 +82,20 @@ class Ingredient: NSManagedObject {
             var base = object["base"] as? String
             let amount = object["cl"] as? Float
             let label = object["label"] as? String
+            let isDeleted = object["isDeleted"] as? Bool ?? false
             let recipe = object["recipe"]! as String
             let objectId = object.objectId as String
             var isSpecial = false
             if base == nil {
                 isSpecial = true
-                base = object["special"]! as String
+                base = object["special"]! as? String
             }
-            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe, objectId: objectId)
+            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe, objectId: objectId, isDeleted: isDeleted)
         }) as [Ingredient]
     }
     
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String, objectId: String) -> Ingredient {
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String, objectId: String, isDeleted: Bool?) -> Ingredient {
         let newIngredient: Ingredient = Ingredient.forObjectId(objectId) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
@@ -113,6 +114,7 @@ class Ingredient: NSManagedObject {
         newIngredient.amount = amount
         newIngredient.label = label
         newIngredient.isSpecial = isSpecial!
+        newIngredient.isDead = isDeleted!
         
         return newIngredient
     }
