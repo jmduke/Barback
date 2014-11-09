@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
-import Parse
+import AdSupport
 import CoreData
+import MobileAppTracker
+import Parse
 import UIKit
 
 func managedContext() -> NSManagedObjectContext {
@@ -67,15 +69,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        // Initialize Parse.
         let keys = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)!
-        let applicationId = keys["parseApplicationId"]! as String
-        let clientKey = keys["parseClientKey"]! as String
-        Parse.setApplicationId(applicationId, clientKey: clientKey)
+        
+        // Initialize Parse.
+        let parseApplicationId = keys["parseApplicationId"]! as String
+        let parseClientKey = keys["parseClientKey"]! as String
+        Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        
+        // Initialize MobileAppTracking.
+        let matAdvertiserID = keys["matAdvertiserId"]! as String
+        let matConversionKey = keys["matConversionKey"]! as String
+        MobileAppTracker.initializeWithMATAdvertiserId(matAdvertiserID, MATConversionKey: matConversionKey)
+        MobileAppTracker.setAppleAdvertisingIdentifier(ASIdentifierManager.sharedManager().advertisingIdentifier, advertisingTrackingEnabled: ASIdentifierManager.sharedManager().advertisingTrackingEnabled)
+        if !isFirstTimeAppLaunched() {
+            MobileAppTracker.setExistingUser(true)
+        }
+        
         
         if dataNeedsSyncing() {
             syncNewData()
@@ -141,6 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        MobileAppTracker.measureSession()
 
     }
 
