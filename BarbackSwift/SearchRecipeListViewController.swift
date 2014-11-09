@@ -21,7 +21,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             let currentRecipes = allRecipes.filter(filterRecipes)
             recipesForPossibleIngredients = Array(count: possibleIngredients.count, repeatedValue: 0)
             for recipe in currentRecipes {
-                for ingredient in recipe.ingredients.allObjects as [Ingredient] {
+                for ingredient in recipe.ingredients {
                     let base = ingredient.base
                     if contains(possibleIngredients, base) {
                         recipesForPossibleIngredients[find(possibleIngredients, base)!] += 1
