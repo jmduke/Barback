@@ -72,7 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        let keys = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)!
+        let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
+        let keys = NSDictionary(contentsOfFile: keychain!)!
         
         // Initialize Parse.
         let parseApplicationId = keys["parseApplicationId"]! as String
@@ -121,6 +122,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
+        let tabBarController = self.window?.rootViewController as UITabBarController
+        let tabBar = tabBarController.tabBar
+        let items = tabBar.items as [UITabBarItem]
+        items[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        items[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        items[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        items[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+                
         // Configure review-nagger.
         Appirater.setAppId("829469529")
         Appirater.setDaysUntilPrompt(7)

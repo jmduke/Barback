@@ -227,9 +227,7 @@
                                 <constraints>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="32" id="0GJ-jC-Mm7"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
-                                    <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="4me-C6-ji8"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="DAy-TK-FzH"/>
                                     <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
@@ -242,28 +240,14 @@
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="-25" id="ee9-dk-CKY"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="7" id="fFH-NG-o3B"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
-                                    <constraint firstAttribute="trailing" secondItem="2QU-SY-UI0" secondAttribute="trailing" id="oQD-MA-uve"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="-103" id="wpv-BO-COL"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="-103" id="y7H-7q-v4l"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="DAy-TK-FzH"/>
-                                        <exclude reference="ee9-dk-CKY"/>
-                                        <exclude reference="wpv-BO-COL"/>
-                                        <exclude reference="y7H-7q-v4l"/>
-                                        <exclude reference="4me-C6-ji8"/>
-                                        <exclude reference="oQD-MA-uve"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -585,7 +569,7 @@
         <scene sceneID="kMa-Kh-IwD">
             <objects>
                 <navigationController storyboardIdentifier="RandomNC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZzP-Yc-7sj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Random" image="random.png" id="qD5-8V-fmE"/>
+                    <tabBarItem key="tabBarItem" title="Random" id="qD5-8V-fmE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nGe-a4-ADO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -602,7 +586,7 @@
         <scene sceneID="oIc-wd-DgV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bNT-E2-FKr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" image="glass-alt.png" id="lKr-fE-JbQ"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" id="lKr-fE-JbQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uPo-cx-gwB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -621,7 +605,7 @@
         <scene sceneID="bmu-sE-xaE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fj4-Gc-cqN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="search.png" id="8OG-5b-kr7"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="8OG-5b-kr7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OE6-xC-9Yc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -640,7 +624,7 @@
         <scene sceneID="4MZ-Sl-LZH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j4b-oe-2MC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite.png" id="6Ew-PS-gwR"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="6Ew-PS-gwR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kk9-Qf-sLr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -658,9 +642,6 @@
     </scenes>
     <resources>
         <image name="favorite.png" width="30" height="30"/>
-        <image name="glass-alt.png" width="30" height="30"/>
-        <image name="random.png" width="30" height="30"/>
-        <image name="search.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oEh-Er-fqj"/>
