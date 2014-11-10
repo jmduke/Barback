@@ -29,7 +29,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var glasswareLabel : UILabel!
     @IBOutlet var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
-    @IBOutlet var favoriteButton : RecipeDetailActionButton!
+    @IBOutlet var favoriteButton : UIButton!
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
     @IBOutlet var similarDrinksTableView: UITableView!
     @IBOutlet var similarDrinksLabel: UILabel!
@@ -87,14 +87,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             navigationController?.tabBarItem.title = "Random"
         }
         
-        favoriteButton.selectedAlpha = 1.0
         favoriteButton.selected = recipe!.favorite
         
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
-        favoriteButton.setAction(self, action: "markRecipeAsFavorite")
+        favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         scrollView.delegate = self
         
@@ -188,9 +187,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         similarDrinksLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
         similarDrinksLabel.textAlignment = NSTextAlignment.Center
         similarDrinksLabel.textColor = UIColor.lightColor()
-    
-        // Don't change the opacity of favorite button even when it's selected.
-        favoriteButton.selectedAlpha = 1
         
         view.layoutIfNeeded()
     }

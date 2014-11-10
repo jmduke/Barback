@@ -7,7 +7,7 @@
         <!--Full Recipe List View Controller-->
         <scene sceneID="uNH-Wj-m3w">
             <objects>
-                <tableViewController id="7ox-qJ-BHw" customClass="FullRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7ox-qJ-BHw" customClass="FullRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ugv-9C-Rdu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,20 +72,20 @@
         <!--Recipe Detail View Controller-->
         <scene sceneID="IDH-u4-gvt">
             <objects>
-                <viewController storyboardIdentifier="recipeDetail" id="kG0-vg-g5x" customClass="RecipeDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="recipeDetail" id="kG0-vg-g5x" customClass="RecipeDetailViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ruK-Nr-flS"/>
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3">
+                                        <rect key="frame" x="110" y="20" width="100" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="FHG-CR-Et5"/>
                                             <constraint firstAttribute="width" constant="320" id="fBv-pS-tCE"/>
@@ -93,6 +93,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="fBv-pS-tCE"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="msd-qH-YF8" userLabel="ingredientList">
                                         <rect key="frame" x="0.0" y="73" width="320" height="100"/>
@@ -162,12 +167,12 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE">
-                                        <rect key="frame" x="40" y="383" width="241" height="21"/>
+                                        <rect key="frame" x="40" y="295" width="241" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
                                         <rect key="frame" x="0.0" y="412" width="320" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -205,13 +210,18 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="RecipeDetailActionButton" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="128" y="287" width="64" height="64"/>
-                                        <state key="normal" image="favorite2.png">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="BezierButton" customModule="BarbackSwift" customModuleProvider="target">
+                                        <rect key="frame" x="218" y="17" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="FdQ-T9-Pod"/>
+                                        </constraints>
+                                        <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected" image="unfavorite.png"/>
-                                        <state key="highlighted" image="unfavorite.png"/>
+                                        <state key="selected">
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted" image="favorite.png"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -219,36 +229,37 @@
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="4me-C6-ji8"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="DAy-TK-FzH"/>
                                     <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
-                                    <constraint firstAttribute="width" constant="320" id="IEU-th-2rf"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
-                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" constant="72" id="SoS-61-Iae"/>
-                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" id="T9v-5F-WgS"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="40" id="VD2-fC-tN6"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="bottom" secondItem="gmf-0i-cR3" secondAttribute="bottom" id="VK9-HV-dNw"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
                                     <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="750" id="Zcq-Oz-53V"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="8" id="aCB-5K-Tjc"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
-                                    <constraint firstAttribute="centerX" secondItem="Jia-FD-882" secondAttribute="centerX" id="ehS-Ji-Oiz"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="32" id="gu7-eq-yev"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="0Zg-K2-heU" secondAttribute="bottom" constant="32" id="hgh-st-Ycf"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="-25" id="ee9-dk-CKY"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="7" id="fFH-NG-o3B"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
                                     <constraint firstAttribute="trailing" secondItem="2QU-SY-UI0" secondAttribute="trailing" id="oQD-MA-uve"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Zg-K2-heU" secondAttribute="bottom" priority="500" constant="72" id="oh0-ig-Rsw"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="-103" id="wpv-BO-COL"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="-103" id="y7H-7q-v4l"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="IEU-th-2rf"/>
-                                        <exclude reference="ehS-Ji-Oiz"/>
-                                        <exclude reference="SoS-61-Iae"/>
+                                        <exclude reference="DAy-TK-FzH"/>
+                                        <exclude reference="ee9-dk-CKY"/>
+                                        <exclude reference="wpv-BO-COL"/>
+                                        <exclude reference="y7H-7q-v4l"/>
                                         <exclude reference="4me-C6-ji8"/>
                                         <exclude reference="oQD-MA-uve"/>
                                     </mask>
@@ -291,17 +302,17 @@
         <!--Ingredient Detail View Controller-->
         <scene sceneID="wDJ-dU-QRq">
             <objects>
-                <viewController storyboardIdentifier="IngredientDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IngredientDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hxt-uY-GuR"/>
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RpF-Vc-ZOY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct9-66-Hw0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="aer-O9-w0l">
                                         <rect key="frame" x="0.0" y="20" width="320" height="21"/>
@@ -477,7 +488,7 @@
         <!--Search Recipe List View Controller-->
         <scene sceneID="5CN-yM-Nyi">
             <objects>
-                <tableViewController id="CSS-iK-FbD" customClass="SearchRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CSS-iK-FbD" customClass="SearchRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3iu-ex-daL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -529,7 +540,7 @@
         <!--Favorite Recipe List View Controller-->
         <scene sceneID="MWD-dZ-zRQ">
             <objects>
-                <tableViewController id="D1i-5W-v7Y" customClass="FavoriteRecipeListViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="D1i-5W-v7Y" customClass="FavoriteRecipeListViewController" customModule="BarbackSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P5R-xW-b3z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -647,13 +658,11 @@
     </scenes>
     <resources>
         <image name="favorite.png" width="30" height="30"/>
-        <image name="favorite2.png" width="64" height="64"/>
         <image name="glass-alt.png" width="30" height="30"/>
         <image name="random.png" width="30" height="30"/>
         <image name="search.png" width="30" height="30"/>
-        <image name="unfavorite.png" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7XA-ZG-IZb"/>
+        <segue reference="oEh-Er-fqj"/>
     </inferredMetricsTieBreakers>
 </document>
