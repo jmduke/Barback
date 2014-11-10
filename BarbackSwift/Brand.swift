@@ -19,7 +19,7 @@ class Brand: StoredObject {
 
     var detailDescription: String {
         get {
-            return String(count: price.integerValue, repeatedValue: Character("$"))
+            return "$\(price)"
         }
     }
 
