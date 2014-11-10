@@ -23,7 +23,6 @@
 		26747A311A102B1E00313F04 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A251A102B1E00313F04 /* CoreDataExtensions.swift */; };
 		26747A321A102B1E00313F04 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A261A102B1E00313F04 /* CoreDataHelper.swift */; };
 		26747A331A102B1E00313F04 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A271A102B1E00313F04 /* CoreDataStore.swift */; };
-		26747A341A102B1E00313F04 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26747A281A102B1E00313F04 /* Keys.plist */; };
 		26747A351A102B1E00313F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26747A291A102B1E00313F04 /* LaunchScreen.storyboard */; };
 		26747A361A102B1E00313F04 /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26747A2A1A102B1E00313F04 /* Models.xcdatamodeld */; };
 		26747A371A102B1E00313F04 /* ParseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A2C1A102B1E00313F04 /* ParseExtensions.swift */; };
@@ -36,17 +35,14 @@
 		26747A441A102C6A00313F04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A431A102C6A00313F04 /* SystemConfiguration.framework */; };
 		26747A471A105EF800313F04 /* BezierButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A461A105EF800313F04 /* BezierButton.swift */; };
 		26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */; };
+		2680A95F1A1070F0009C21FE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2631DB7D194BFF500025DCF5 /* Info.plist */; };
 		26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB725194D11DC00AF126B /* UIColorExtension.swift */; };
 		26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB727194D1C5E00AF126B /* UIFontExtension.swift */; };
-		26AAB72F194D558E00AF126B /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB72A194D558E00AF126B /* book.png */; };
-		26AAB730194D558E00AF126B /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB72B194D558E00AF126B /* favorite.png */; };
-		26AAB731194D558E00AF126B /* glass-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB72C194D558E00AF126B /* glass-alt.png */; };
-		26AAB732194D558E00AF126B /* random.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB72D194D558E00AF126B /* random.png */; };
-		26AAB733194D558E00AF126B /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB72E194D558E00AF126B /* search.png */; };
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
 		26AAB740195010AC00AF126B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73F195010AC00AF126B /* Images.xcassets */; };
 		26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */; };
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
+		26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F415341A10744300D1F19A /* PrivateKeys.plist */; };
 		5CBBF554812745BF8EE30851 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637761BCE5174C65922C617F /* libPods.a */; };
 		655B44CB19C1434500A1351F /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655B44CA19C1434500A1351F /* RecipeListViewController.swift */; };
 		65B129C119C146C500F5B8C4 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129BE19C146C500F5B8C4 /* Brand.swift */; };
@@ -89,7 +85,6 @@
 		26747A251A102B1E00313F04 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		26747A261A102B1E00313F04 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		26747A271A102B1E00313F04 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
-		26747A281A102B1E00313F04 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		26747A291A102B1E00313F04 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26747A2B1A102B1E00313F04 /* Models.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Models.xcdatamodel; sourceTree = "<group>"; };
 		26747A2C1A102B1E00313F04 /* ParseExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseExtensions.swift; sourceTree = "<group>"; };
@@ -105,15 +100,11 @@
 		26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		26AAB727194D1C5E00AF126B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		26AAB72A194D558E00AF126B /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
-		26AAB72B194D558E00AF126B /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
-		26AAB72C194D558E00AF126B /* glass-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glass-alt.png"; sourceTree = "<group>"; };
-		26AAB72D194D558E00AF126B /* random.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = random.png; sourceTree = "<group>"; };
-		26AAB72E194D558E00AF126B /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26AAB73F195010AC00AF126B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		26F415341A10744300D1F19A /* PrivateKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateKeys.plist; sourceTree = "<group>"; };
 		637761BCE5174C65922C617F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655B44CA19C1434500A1351F /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		65B129BE19C146C500F5B8C4 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -184,7 +175,6 @@
 			children = (
 				26747A491A1065F600313F04 /* Storyboards */,
 				26747A481A1065E500313F04 /* Views */,
-				26747A281A102B1E00313F04 /* Keys.plist */,
 				26747A261A102B1E00313F04 /* CoreDataHelper.swift */,
 				26747A271A102B1E00313F04 /* CoreDataStore.swift */,
 				26AAB724194D11C500AF126B /* Extensions */,
@@ -193,6 +183,7 @@
 				2631DB7E194BFF500025DCF5 /* AppDelegate.swift */,
 				26AAB73F195010AC00AF126B /* Images.xcassets */,
 				2631DB7C194BFF500025DCF5 /* Supporting Files */,
+				26F415341A10744300D1F19A /* PrivateKeys.plist */,
 			);
 			path = BarbackSwift;
 			sourceTree = "<group>";
@@ -200,9 +191,8 @@
 		2631DB7C194BFF500025DCF5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				26AAB734194E4E5200AF126B /* Recipe Detail Icons */,
-				26AAB729194D3E6700AF126B /* Tab Bar Icons */,
 				2631DB7D194BFF500025DCF5 /* Info.plist */,
+				26AAB734194E4E5200AF126B /* Recipe Detail Icons */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,18 +273,6 @@
 				26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		26AAB729194D3E6700AF126B /* Tab Bar Icons */ = {
-			isa = PBXGroup;
-			children = (
-				26AAB72A194D558E00AF126B /* book.png */,
-				26AAB72B194D558E00AF126B /* favorite.png */,
-				26AAB72C194D558E00AF126B /* glass-alt.png */,
-				26AAB72D194D558E00AF126B /* random.png */,
-				26AAB72E194D558E00AF126B /* search.png */,
-			);
-			name = "Tab Bar Icons";
 			sourceTree = "<group>";
 		};
 		26AAB734194E4E5200AF126B /* Recipe Detail Icons */ = {
@@ -414,17 +392,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				26AAB740195010AC00AF126B /* Images.xcassets in Resources */,
+				26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */,
 				2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */,
-				26AAB730194D558E00AF126B /* favorite.png in Resources */,
 				26747A351A102B1E00313F04 /* LaunchScreen.storyboard in Resources */,
 				26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */,
-				26747A341A102B1E00313F04 /* Keys.plist in Resources */,
-				26AAB731194D558E00AF126B /* glass-alt.png in Resources */,
-				26AAB733194D558E00AF126B /* search.png in Resources */,
 				26747A301A102B1E00313F04 /* automation.js in Resources */,
-				26AAB732194D558E00AF126B /* random.png in Resources */,
-				26AAB72F194D558E00AF126B /* book.png in Resources */,
 				26747A381A102B1E00313F04 /* recipe_scraper.py in Resources */,
+				2680A95F1A1070F0009C21FE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
