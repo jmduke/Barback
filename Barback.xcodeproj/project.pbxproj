@@ -95,7 +95,6 @@
 		26747A3F1A102C5D00313F04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		26747A411A102C6400313F04 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		26747A431A102C6A00313F04 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		26747A451A105DCA00313F04 /* R.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = R.playground; path = ../../../R.playground; sourceTree = "<group>"; };
 		26747A461A105EF800313F04 /* BezierButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BezierButton.swift; path = ../BezierButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -268,7 +267,6 @@
 				65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */,
 				26747A2F1A102B1E00313F04 /* UIImageExtension.swift */,
 				26AAB725194D11DC00AF126B /* UIColorExtension.swift */,
-				26747A451A105DCA00313F04 /* R.playground */,
 				26AAB727194D1C5E00AF126B /* UIFontExtension.swift */,
 				26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */,
 			);
