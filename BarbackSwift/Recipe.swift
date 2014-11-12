@@ -50,6 +50,15 @@ public class Recipe: StoredObject {
         }
     }
     
+    var abv: Float {
+        get {
+            let amounts = ingredients.map({ Int($0.amount?.intValue ?? 0) }) as [Int]
+            let denominator = amounts.reduce(0, combine: +) as Int
+            let numerator = (ingredients.map({ ($0.base.abv as Int) * Int($0.amount?.intValue ?? 0) }) as [Int]).reduce(0, combine: +)
+            return Float(numerator) / Float(denominator)
+        }
+    }
+    
     func usesIngredient(ingredient: IngredientBase) -> Bool {
         let bases: [IngredientBase] = ingredients.map({$0.base})
         return contains(bases, ingredient)

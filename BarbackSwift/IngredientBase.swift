@@ -15,6 +15,7 @@ class IngredientBase: StoredObject {
     @NSManaged var information: String
     @NSManaged var name: String
     @NSManaged var type: String
+    @NSManaged var abv: NSNumber
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
     
@@ -22,11 +23,12 @@ class IngredientBase: StoredObject {
         return "ARGH"
     }
     
-    class func fromAttributes(name: String, information: String, type: IngredientType, isDead: Bool) -> IngredientBase {
+    class func fromAttributes(name: String, information: String, type: IngredientType, abv: Int, isDead: Bool) -> IngredientBase {
         let newBase: IngredientBase = IngredientBase.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.name = name
         newBase.information = information
         newBase.type = type.rawValue ?? "other"
+        newBase.abv = abv
         newBase.isDead = isDead
         return newBase
     }
@@ -39,7 +41,8 @@ class IngredientBase: StoredObject {
             let information = object["description"]! as String
             let type = IngredientType(rawValue: object["type"]! as String)!
             let isDead = object["isDeleted"] as? Bool ?? false
-            return IngredientBase.fromAttributes(name, information: information, type: type, isDead: isDead)
+            let abv = object["ABV"] as? Int ?? 0
+            return IngredientBase.fromAttributes(name, information: information, type: type, abv: abv, isDead: isDead)
         }) as [IngredientBase]
     }
     
