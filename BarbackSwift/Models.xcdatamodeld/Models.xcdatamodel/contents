@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A388a" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B23" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Brand" representedClassName="BarbackSwift.Brand" syncable="YES">
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -17,6 +17,7 @@
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredientSet" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="IngredientBase" representedClassName="BarbackSwift.IngredientBase" syncable="YES">
+        <attribute name="abv" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,7 +37,7 @@
     <elements>
         <element name="Brand" positionX="-99" positionY="-52" width="128" height="120"/>
         <element name="Ingredient" positionX="331" positionY="140" width="128" height="148"/>
-        <element name="IngredientBase" positionX="313" positionY="-72" width="128" height="135"/>
+        <element name="IngredientBase" positionX="313" positionY="-72" width="128" height="150"/>
         <element name="Recipe" positionX="-56" positionY="108" width="128" height="150"/>
     </elements>
 </model>

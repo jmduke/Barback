@@ -90,6 +90,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MobileAppTracker.setExistingUser(true)
         }
         
+        if (application.respondsToSelector("registerUserNotificationSettings")) {
+            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        } else {
+            let userNotificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound
+            application.registerForRemoteNotificationTypes(userNotificationTypes)
+        }
+        
         
         if dataNeedsSyncing() {
             syncNewData()
