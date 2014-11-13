@@ -16,6 +16,7 @@ public class Recipe: StoredObject {
     @NSManaged var directions: String
     @NSManaged var glassware: String
     @NSManaged var name: String
+    @NSManaged var information: String?
     
     @NSManaged var ingredientSet: NSSet
     var ingredients: [Ingredient] {
@@ -88,12 +89,13 @@ public class Recipe: StoredObject {
         return chosenRecipes
     }
 
-    class func fromAttributes(name: String, directions: String, glassware: String, isDead: Bool) -> Recipe {
+    class func fromAttributes(name: String, directions: String, glassware: String, information: String?, isDead: Bool) -> Recipe {
         let newRecipe: Recipe = Recipe.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
         newRecipe.name = name
         newRecipe.directions = directions
         newRecipe.glassware = glassware
         newRecipe.isFavorited = false
+        newRecipe.information = information
         newRecipe.isDead = isDead
         return newRecipe
     }
@@ -107,8 +109,9 @@ public class Recipe: StoredObject {
             let garnish = object["garnish"] as? String
             let glass = object["glass"]! as String
             let directions = object["preparation"]! as String
+            let information = object["description"] as String
             let isDead = object["isDeleted"] as? Bool ?? false
-            return Recipe.fromAttributes(name, directions: directions, glassware: glass, isDead: isDead)
+            return Recipe.fromAttributes(name, directions: directions, glassware: glass, information: information, isDead: isDead)
         }) as [Recipe]
     }
     
