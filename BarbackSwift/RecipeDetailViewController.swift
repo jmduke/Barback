@@ -27,7 +27,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
-    @IBOutlet var glasswareLabel : UILabel!
+    @IBOutlet var informationLabel : UILabel!
     @IBOutlet var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
@@ -93,7 +93,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
-        glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
+        informationLabel.text = recipe!.information ?? ""
         
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -186,9 +186,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.textAlignment = NSTextAlignment.Center
         directionsLabel.textColor = UIColor.darkColor()
         
-        glasswareLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
-        glasswareLabel.textAlignment = NSTextAlignment.Center
-        glasswareLabel.textColor = UIColor.lightColor()
+        informationLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
+        informationLabel.textAlignment = NSTextAlignment.Center
+        informationLabel.textColor = UIColor.lightColor()
         
         similarDrinksLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
         similarDrinksLabel.textAlignment = NSTextAlignment.Center
