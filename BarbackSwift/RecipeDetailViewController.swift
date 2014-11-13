@@ -25,6 +25,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var sortedIngredients: [Ingredient]?
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
     @IBOutlet var glasswareLabel : UILabel!
     @IBOutlet var ingredientsTableView : UITableView!
@@ -91,6 +92,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
+        subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         glasswareLabel.text = "Serve in \(recipe!.glassware) glass."
         
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
@@ -175,6 +177,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         nameLabel.textColor = UIColor.darkColor()
         nameLabel.font = UIFont(name: UIFont.heavyFont(), size: 32)
         nameLabel.textAlignment = NSTextAlignment.Center
+        
+        subheadLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
+        subheadLabel.textAlignment = NSTextAlignment.Center
+        subheadLabel.textColor = UIColor.lightColor()
         
         directionsLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
         directionsLabel.textAlignment = NSTextAlignment.Center
