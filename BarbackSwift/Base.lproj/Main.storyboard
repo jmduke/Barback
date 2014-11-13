@@ -152,7 +152,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="recipe.glassware" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DK2-3l-Le6">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="recipe.glassware" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DK2-3l-Le6">
                                         <rect key="frame" x="20" y="234" width="280" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="DUN-jx-ShB"/>
@@ -276,7 +276,7 @@
                     <connections>
                         <outlet property="directionsLabel" destination="Jia-FD-882" id="uiM-8q-PCv"/>
                         <outlet property="favoriteButton" destination="0Zg-K2-heU" id="CwN-Qg-yz6"/>
-                        <outlet property="glasswareLabel" destination="DK2-3l-Le6" id="dJU-q5-2B0"/>
+                        <outlet property="informationLabel" destination="DK2-3l-Le6" id="dJU-q5-2B0"/>
                         <outlet property="ingredientsTableView" destination="msd-qH-YF8" id="DKf-2Y-NYv"/>
                         <outlet property="ingredientsTableViewHeight" destination="KgV-r4-PpH" id="RbZ-9c-sXy"/>
                         <outlet property="nameLabel" destination="gmf-0i-cR3" id="jgN-ns-KiQ"/>
