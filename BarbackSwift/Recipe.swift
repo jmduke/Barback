@@ -109,7 +109,7 @@ public class Recipe: StoredObject {
             let garnish = object["garnish"] as? String
             let glass = object["glass"]! as String
             let directions = object["preparation"]! as String
-            let information = object["description"] as String
+            let information = object["description"] as? String
             let isDead = object["isDeleted"] as? Bool ?? false
             return Recipe.fromAttributes(name, directions: directions, glassware: glass, information: information, isDead: isDead)
         }) as [Recipe]
