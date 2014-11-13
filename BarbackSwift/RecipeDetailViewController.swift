@@ -89,13 +89,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         favoriteButton.selected = recipe!.favorite
+        favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         informationLabel.text = recipe!.information ?? ""
         
-        favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         scrollView.delegate = self
         
@@ -140,6 +140,17 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func markRecipeAsFavorite() {
+        
+        // Make the recipe's heart grow three sizes.
+        UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
+            self.favoriteButton.transform = CGAffineTransformMakeScale(1.2, 1.2)
+            }, completion: {
+                (success: Bool) in
+                UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.favoriteButton.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                }, completion: nil)
+        })
+        
         recipe!.isFavorited = !recipe!.favorite
         favoriteButton.selected = !favoriteButton.selected
         saveContext()
