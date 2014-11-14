@@ -14,7 +14,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     @IBOutlet var searchBar: UISearchBar!
     
     var allRecipes: [Recipe] = [Recipe]()
-    
+    var searchBarFocused: Bool = false
+
     var possibleIngredients: [IngredientBase] = [IngredientBase]()
         {
         didSet {
@@ -52,7 +53,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         activeIngredients = []
         for term in searchTerms {
             let ingredient = IngredientBase.forName(term)
-            if ingredient != nil {
+            if ingredient != nil && !(term == searchTerms.last! && currentlyTypingIngredient()) {
                 activeIngredients.append(ingredient!)
             }
         }
@@ -60,7 +61,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
 
     func currentlyTypingIngredient() -> Bool {
-        return IngredientBase.forName(searchTerms.last ?? "N/A") == nil
+        let typingIncompleteIngredient = IngredientBase.forName(searchTerms.last ?? "N/A") == nil
+        return typingIncompleteIngredient || searchBarFocused
     }
     
     override var viewTitle: String {
@@ -129,6 +131,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBarFocused = true
         if (!searchBar.text.hasSuffix(" + ") && !searchBar.text.isEmpty) {
             searchBar.text = searchBar.text + " + "
         }
@@ -237,6 +240,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         let ingredient =  possibleIngredients[rowIndex!]
         let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
         searchBar.text = "\(labelPrefix)\(ingredient.name)"
+        searchBarFocused = false
         searchBar(searchBar, textDidChange: searchBar.text)
     }
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
