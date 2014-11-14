@@ -28,7 +28,7 @@ class Ingredient: StoredObject {
         let useImperialUnits = NSUserDefaults.standardUserDefaults().boolForKey("useImperialUnits")
         if let metricAmount = amount {
             if !useImperialUnits {
-                return metricAmount.description + " cl"
+                return "\(metricAmount.floatValue) cl"
             } else {
                 var rawAmount = Int(floorf(metricAmount.floatValue / 3.0))
                 var ounceString = ""
@@ -80,12 +80,13 @@ class Ingredient: StoredObject {
         return ingredients.map({
             (object: PFObject) -> Ingredient in
             var base = object["base"] as? String
-            let amount = object["cl"] as? Float
+            let amount = object.objectForKey("cl") as? Float
             let label = object["label"] as? String
             let isDeleted = object["isDeleted"] as? Bool ?? false
             let recipe = object["recipe"]! as String
             let objectId = object.objectId as String
             var isSpecial = false
+            
             if base == nil {
                 isSpecial = true
                 base = object["special"]! as? String
