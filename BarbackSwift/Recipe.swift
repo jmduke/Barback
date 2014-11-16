@@ -43,7 +43,8 @@ public class Recipe: StoredObject {
     var detailDescription: String {
         get {
             let sortedIngredients = ingredients.sorted({($0 as Ingredient).amount?.intValue > ($1 as Ingredient).amount?.intValue})
-            let relevantIngredients = sortedIngredients.filter({ingredient in !((ingredient as Ingredient).isSpecial as Bool)}).map({
+            let ingredientCountInDescription = 3
+            let relevantIngredients = sortedIngredients[0...min(sortedIngredients.count - 1, ingredientCountInDescription)].map({
                 (ingredient: Ingredient) -> String in
                 return ingredient.base.name
             })
