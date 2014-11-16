@@ -106,11 +106,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         view.addGestureRecognizer(rightSwipeRecognizer)
         
         // If there aren't any similar recipes, we can just hide the relevant elements.
-        if similarRecipes!.count == 0 {
-            similarDrinksLabel.removeFromSuperview()
-            similarDrinksTableView.removeFromSuperview()
-            view.layoutIfNeeded()
-        }
+        let similarRecipesExist = similarRecipes!.count > 0
+        similarDrinksLabel.hidden = !similarRecipesExist
+        similarDrinksTableView.hidden = !similarRecipesExist
+        view.layoutIfNeeded()
         
         styleController()
     }
