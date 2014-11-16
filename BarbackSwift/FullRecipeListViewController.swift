@@ -33,8 +33,8 @@ class FullRecipeListViewController: RecipeListViewController {
         let firstCharacters = recipes.map({
             (recipe: Recipe) -> String in
             return String(Array(recipe.name)[0])
-            })
-        firstCharactersOfRecipes = NSSet(array: firstCharacters).allObjects as? [String]
+        })
+        firstCharactersOfRecipes = (NSSet(array: firstCharacters).allObjects as? [String])!.sorted({$0 < $1})
         
         for firstCharacter in firstCharactersOfRecipes! {
             let firstCharacters = recipes.filter({
