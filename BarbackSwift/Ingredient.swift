@@ -15,7 +15,6 @@ class Ingredient: StoredObject {
     @NSManaged var amount: NSNumber?
     @NSManaged var objectId: String
     @NSManaged var label: String?
-    @NSManaged var isSpecial: NSNumber
     
     @NSManaged var base: IngredientBase
     @NSManaged var recipe: Recipe
@@ -79,24 +78,19 @@ class Ingredient: StoredObject {
         let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
-            var base = object["base"] as? String
+            var base = object["base"] as String
             let amount = object.objectForKey("cl") as? Float
             let label = object["label"] as? String
             let isDeleted = object["isDeleted"] as? Bool ?? false
             let recipe = object["recipe"]! as String
             let objectId = object.objectId as String
-            var isSpecial = false
             
-            if base == nil {
-                isSpecial = true
-                base = object["special"]! as? String
-            }
-            return Ingredient.fromAttributes(base!, amount: amount, label: label, isSpecial: isSpecial, recipeName: recipe, objectId: objectId, isDeleted: isDeleted)
+            return Ingredient.fromAttributes(base, amount: amount, label: label, recipeName: recipe, objectId: objectId, isDeleted: isDeleted)
         }) as [Ingredient]
     }
     
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, isSpecial: Bool?, recipeName: String, objectId: String, isDeleted: Bool?) -> Ingredient {
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, recipeName: String, objectId: String, isDeleted: Bool?) -> Ingredient {
         let newIngredient: Ingredient = Ingredient.forObjectId(objectId) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
@@ -114,7 +108,6 @@ class Ingredient: StoredObject {
         newIngredient.objectId = objectId
         newIngredient.amount = amount
         newIngredient.label = label
-        newIngredient.isSpecial = isSpecial!
         newIngredient.isDead = isDeleted!
         
         return newIngredient
