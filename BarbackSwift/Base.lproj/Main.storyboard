@@ -215,9 +215,13 @@
                                 <constraints>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Zg-K2-heU" secondAttribute="trailing" constant="24" id="7OA-OR-fgl"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gmf-0i-cR3" secondAttribute="trailing" priority="800" id="CJv-lk-Lil"/>
                                     <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
                                     <constraint firstAttribute="bottom" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="205" id="Fec-IO-Tsr"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" constant="5" id="LKx-bY-dkG"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" constant="5" id="NoV-Kc-ozc"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
                                     <constraint firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="UlQ-3c-VPB"/>
@@ -229,13 +233,18 @@
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="7" id="fFH-NG-o3B"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="fFH-NG-o3B"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="YnV-Wv-43m" secondAttribute="leading" priority="800" id="gxK-Ob-RtV"/>
+                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" priority="800" id="hDc-Zc-aTa"/>
+                                    <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="800" id="hWi-4g-2rF"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="kWC-w4-NKU"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="32" id="nAB-Vx-TtZ"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
+                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="she-fr-Nl7"/>
                                     <constraint firstItem="OA9-do-xpB" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="5" id="tEx-db-w2e"/>
+                                    <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" id="tKz-ez-MRh"/>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
                                     <constraint firstAttribute="bottom" secondItem="DK2-3l-Le6" secondAttribute="bottom" priority="500" constant="40" id="wtd-sa-zOG"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
@@ -243,6 +252,15 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="CJv-lk-Lil"/>
+                                        <exclude reference="Zcq-Oz-53V"/>
+                                        <exclude reference="hWi-4g-2rF"/>
+                                        <exclude reference="7OA-OR-fgl"/>
+                                        <exclude reference="LKx-bY-dkG"/>
+                                        <exclude reference="VK9-HV-dNw"/>
+                                        <exclude reference="fFH-NG-o3B"/>
+                                        <exclude reference="gxK-Ob-RtV"/>
+                                        <exclude reference="hDc-Zc-aTa"/>
                                         <exclude reference="Fec-IO-Tsr"/>
                                     </mask>
                                 </variation>

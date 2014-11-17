@@ -41,6 +41,7 @@
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
 		26AAB740195010AC00AF126B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73F195010AC00AF126B /* Images.xcassets */; };
 		26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */; };
+		26BC5DA81A19741300D538AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BC5DA71A19741300D538AB /* CoreGraphics.framework */; };
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
 		26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F415341A10744300D1F19A /* PrivateKeys.plist */; };
 		5CBBF554812745BF8EE30851 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637761BCE5174C65922C617F /* libPods.a */; };
@@ -53,16 +54,6 @@
 		65B129CB19C1470B00F5B8C4 /* IngredientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */; };
 		7AE88F2B725354AAA1F94ABC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637761BCE5174C65922C617F /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2631DB8E194BFF500025DCF5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2631DB71194BFF500025DCF5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2631DB78194BFF500025DCF5;
-			remoteInfo = BarbackSwift;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2631DB79194BFF500025DCF5 /* BarbackSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarbackSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,11 +88,13 @@
 		26747A431A102C6A00313F04 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		26747A461A105EF800313F04 /* BezierButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = BezierButton.swift; path = ../BezierButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		2684097B1A1975EB005BCF9B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		26AAB727194D1C5E00AF126B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26AAB73F195010AC00AF126B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		26BC5DA71A19741300D538AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecipeDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26F415341A10744300D1F19A /* PrivateKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateKeys.plist; sourceTree = "<group>"; };
 		637761BCE5174C65922C617F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +105,7 @@
 		65B129C419C146CE00F5B8C4 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 		65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientDetailViewController.swift; sourceTree = "<group>"; };
-		65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BarbackSwift-Bridging-Header.h"; path = "BarbackSwift/BarbackSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BarbackSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		A177E1BDFE7A898EF2E4F461 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F98FE41691F06335A9D65405 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BC5DA81A19741300D538AB /* CoreGraphics.framework in Frameworks */,
 				26747A441A102C6A00313F04 /* SystemConfiguration.framework in Frameworks */,
 				26747A421A102C6400313F04 /* MobileCoreServices.framework in Frameworks */,
 				26747A401A102C5D00313F04 /* iAd.framework in Frameworks */,
@@ -150,7 +144,6 @@
 			children = (
 				26747A241A102B1E00313F04 /* automation.js */,
 				26747A2D1A102B1E00313F04 /* recipe_scraper.py */,
-				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
 				26AAB73D194ED3A400AF126B /* Settings.bundle */,
 				2631DB7B194BFF500025DCF5 /* BarbackSwift */,
 				2631DB90194BFF500025DCF5 /* BarbackSwiftTests */,
@@ -172,6 +165,7 @@
 		2631DB7B194BFF500025DCF5 /* BarbackSwift */ = {
 			isa = PBXGroup;
 			children = (
+				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
 				26747A491A1065F600313F04 /* Storyboards */,
 				26747A481A1065E500313F04 /* Views */,
 				26747A261A102B1E00313F04 /* CoreDataHelper.swift */,
@@ -191,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				2631DB7D194BFF500025DCF5 /* Info.plist */,
-				26AAB734194E4E5200AF126B /* Recipe Detail Icons */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -273,16 +266,11 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		26AAB734194E4E5200AF126B /* Recipe Detail Icons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recipe Detail Icons";
-			sourceTree = "<group>";
-		};
 		737783D2D7DB48B6BA5AADF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2684097B1A1975EB005BCF9B /* libPods-MBProgressHUD.a */,
+				26BC5DA71A19741300D538AB /* CoreGraphics.framework */,
 				26747A431A102C6A00313F04 /* SystemConfiguration.framework */,
 				26747A411A102C6400313F04 /* MobileCoreServices.framework */,
 				26747A3F1A102C5D00313F04 /* iAd.framework */,
@@ -313,10 +301,10 @@
 			buildConfigurationList = 2631DB97194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackSwift" */;
 			buildPhases = (
 				B093440F9F5A4CD092969EDD /* Check Pods Manifest.lock */,
+				836C5D98FAB14DA78CA66C4D /* Copy Pods Resources */,
 				2631DB75194BFF500025DCF5 /* Sources */,
 				2631DB76194BFF500025DCF5 /* Frameworks */,
 				2631DB77194BFF500025DCF5 /* Resources */,
-				836C5D98FAB14DA78CA66C4D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -340,7 +328,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2631DB8F194BFF500025DCF5 /* PBXTargetDependency */,
 			);
 			name = BarbackSwiftTests;
 			productName = BarbackSwiftTests;
@@ -358,6 +345,7 @@
 				TargetAttributes = {
 					2631DB78194BFF500025DCF5 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 427H7S4STR;
 					};
 					2631DB8C194BFF500025DCF5 = {
 						CreatedOnToolsVersion = 6.0;
@@ -516,14 +504,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2631DB8F194BFF500025DCF5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2631DB78194BFF500025DCF5 /* BarbackSwift */;
-			targetProxy = 2631DB8E194BFF500025DCF5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		2631DB84194BFF500025DCF5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -570,11 +550,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "BarbackSwift-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "BarbackSwift/BarbackSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -607,9 +587,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "BarbackSwift/BarbackSwift-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -619,14 +600,28 @@
 			baseConfigurationReference = F98FE41691F06335A9D65405 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/jmduke/Downloads/parse-library-1.4.2",
 					"/Users/jmduke/Downloads/MobileAppTracking-ios",
 				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Appirater\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RNBlurModalView\"",
+					"\"${PODS_ROOT}/Headers/Public/WSCoachMarksView\"",
+				);
 				INFOPLIST_FILE = BarbackSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -635,14 +630,29 @@
 			baseConfigurationReference = A177E1BDFE7A898EF2E4F461 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/jmduke/Downloads/parse-library-1.4.2",
 					"/Users/jmduke/Downloads/MobileAppTracking-ios",
 				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Appirater\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RNBlurModalView\"",
+					"\"${PODS_ROOT}/Headers/Public/WSCoachMarksView\"",
+				);
 				INFOPLIST_FILE = BarbackSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BarbackSwift/BarbackSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};
