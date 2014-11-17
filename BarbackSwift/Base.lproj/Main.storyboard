@@ -225,13 +225,14 @@
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="bottom" secondItem="gmf-0i-cR3" secondAttribute="bottom" id="VK9-HV-dNw"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
                                     <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="750" id="Zcq-Oz-53V"/>
-                                    <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="8" id="aCB-5K-Tjc"/>
+                                    <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="16" id="aCB-5K-Tjc"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="7" id="fFH-NG-o3B"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="kWC-w4-NKU"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="32" id="nAB-Vx-TtZ"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="OA9-do-xpB" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="5" id="tEx-db-w2e"/>
@@ -267,6 +268,7 @@
                         <outlet property="directionsLabel" destination="Jia-FD-882" id="uiM-8q-PCv"/>
                         <outlet property="favoriteButton" destination="0Zg-K2-heU" id="CwN-Qg-yz6"/>
                         <outlet property="informationLabel" destination="DK2-3l-Le6" id="dJU-q5-2B0"/>
+                        <outlet property="informationLabelHeight" destination="yB0-nn-NZX" id="qxm-HP-bPU"/>
                         <outlet property="ingredientsTableView" destination="msd-qH-YF8" id="DKf-2Y-NYv"/>
                         <outlet property="ingredientsTableViewHeight" destination="KgV-r4-PpH" id="RbZ-9c-sXy"/>
                         <outlet property="nameLabel" destination="gmf-0i-cR3" id="jgN-ns-KiQ"/>
