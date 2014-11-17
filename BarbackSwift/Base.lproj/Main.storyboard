@@ -215,28 +215,18 @@
                                 <constraints>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Zg-K2-heU" secondAttribute="trailing" constant="24" id="7OA-OR-fgl"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gmf-0i-cR3" secondAttribute="trailing" priority="800" id="CJv-lk-Lil"/>
                                     <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
-                                    <constraint firstAttribute="bottom" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="205" id="Fec-IO-Tsr"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" constant="5" id="LKx-bY-dkG"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" constant="5" id="NoV-Kc-ozc"/>
                                     <constraint firstAttribute="centerX" secondItem="DK2-3l-Le6" secondAttribute="centerX" id="PZu-cj-Ccx"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
                                     <constraint firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="UlQ-3c-VPB"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="DK2-3l-Le6" secondAttribute="bottom" constant="40" id="VD2-fC-tN6"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="bottom" secondItem="gmf-0i-cR3" secondAttribute="bottom" id="VK9-HV-dNw"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
-                                    <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="750" id="Zcq-Oz-53V"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="16" id="aCB-5K-Tjc"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstItem="DK2-3l-Le6" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="cFR-AZ-xEl"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="fFH-NG-o3B"/>
-                                    <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" relation="lessThanOrEqual" secondItem="YnV-Wv-43m" secondAttribute="leading" priority="800" id="gxK-Ob-RtV"/>
-                                    <constraint firstAttribute="centerX" secondItem="0Zg-K2-heU" secondAttribute="centerX" priority="800" id="hDc-Zc-aTa"/>
-                                    <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" priority="800" id="hWi-4g-2rF"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="kWC-w4-NKU"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="32" id="nAB-Vx-TtZ"/>
@@ -250,20 +240,6 @@
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="CJv-lk-Lil"/>
-                                        <exclude reference="Zcq-Oz-53V"/>
-                                        <exclude reference="hWi-4g-2rF"/>
-                                        <exclude reference="7OA-OR-fgl"/>
-                                        <exclude reference="LKx-bY-dkG"/>
-                                        <exclude reference="VK9-HV-dNw"/>
-                                        <exclude reference="fFH-NG-o3B"/>
-                                        <exclude reference="gxK-Ob-RtV"/>
-                                        <exclude reference="hDc-Zc-aTa"/>
-                                        <exclude reference="Fec-IO-Tsr"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
