@@ -26,31 +26,24 @@ class Ingredient: StoredObject {
     var displayAmount: String {
         let useImperialUnits = NSUserDefaults.standardUserDefaults().boolForKey("useImperialUnits")
         if let metricAmount = amount {
-            if !useImperialUnits {
+            if !useImperialUnits && false {
                 return "\(metricAmount.floatValue) cl"
             } else {
-                var rawAmount = Int(floorf(metricAmount.floatValue / 3.0))
-                var ounceString = ""
-                if rawAmount > 0 {
-                    ounceString = rawAmount.description
-                }
-                let imperialRemainder = metricAmount.floatValue % 3
+                let rawOunceCount = metricAmount.floatValue / 2
+                let ounceString = rawOunceCount < 1 ? "" : "\(Int(rawOunceCount)) "
+                let remainder = rawOunceCount % 1
                 var remainderString: String = ""
-                switch imperialRemainder {
-                case 0.5:
-                    remainderString = " ⅙"
-                case 0.75:
-                    remainderString = " ¼"
-                case 1:
-                    remainderString = " ⅓"
-                case 1.5:
-                    remainderString = " ½"
-                case 2:
-                    remainderString = " ⅔"
-                default:
-                    remainderString = ""
+                switch remainder {
+                    case 0.25:
+                        remainderString = "¼ "
+                    case 0.5:
+                        remainderString = "½ "
+                    case 0.75:
+                        remainderString = "¾ "
+                    default:
+                        remainderString = ""
                 }
-                return "\(ounceString)\(remainderString) oz"
+                return "\(ounceString)\(remainderString)oz"
             }
         }
         return ""
