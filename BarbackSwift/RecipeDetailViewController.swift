@@ -273,7 +273,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                     reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = sortedIngredients![indexPath.row]
-            cell!.textLabel.text = ingredient.base.name
+            cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
             let cellIdentifier = "similarCell"
@@ -281,7 +281,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                 reuseIdentifier: cellIdentifier)
             
             let similarRecipe = similarRecipes![indexPath.row]
-            cell!.textLabel.text = similarRecipe.name
+            cell!.textLabel?.text = similarRecipe.name
             cell!.detailTextLabel?.text = similarRecipe.detailDescription
         }
         return cell!

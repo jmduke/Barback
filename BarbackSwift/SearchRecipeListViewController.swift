@@ -213,7 +213,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             let boldAttributes = [NSForegroundColorAttributeName: UIColor.lightColor()]
             let attributedText = NSMutableAttributedString(string: "\(labelPrefix)\(ingredient.name)", attributes: attributes)
             attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
-            cell.textLabel.attributedText = attributedText
+            cell.textLabel?.attributedText = attributedText
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
