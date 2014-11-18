@@ -79,7 +79,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
                 reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel.text = primaryText
+        cell!.textLabel?.text = primaryText
         cell!.detailTextLabel?.text = detailText
         cell!.stylePrimary()
         
