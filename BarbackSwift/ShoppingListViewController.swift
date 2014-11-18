@@ -111,7 +111,7 @@ class ShoppingListViewController: RecipeListViewController {
         }
         
         let ingredient = ingredientForIndexPath(indexPath)
-        cell!.textLabel.text = ingredient.name
+        cell!.textLabel?.text = ingredient.name
         
         let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"
