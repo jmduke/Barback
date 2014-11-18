@@ -116,6 +116,8 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             var shoppingListController = ShoppingListViewController(style: UITableViewStyle.Grouped)
             shoppingListController.setIngredients(ingredientsNeeded())
             navigationController?.pushViewController(shoppingListController, animated: true)
+        } else {
+            super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         }
     }
 

@@ -61,17 +61,13 @@ class RecipeListViewController: UITableViewController {
     
     func cellForRecipe(recipe: Recipe, andIndexPath: NSIndexPath) -> UITableViewCell! {
         let cellIdentifier = "recipeCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: andIndexPath) as UITableViewCell
-
-        cell.textLabel?.text = recipe.name
-        cell.detailTextLabel?.text = recipe.detailDescription
-        cell.stylePrimary()
+        let cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         
         return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return CGFloat(UITableViewCell().primaryCellHeight())
+        return CGFloat(StyledCell.cellHeight)
     }
     
     func getSelectedRecipe() -> Recipe {
@@ -103,6 +99,11 @@ class RecipeListViewController: UITableViewController {
         }
         destination.setRecipe(recipe)
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        performSegueWithIdentifier("recipeDetail", sender: nil)
+    }
+    
     
     // Should be overwritten or super-called by subclasses to filter all recipes.
     func filterRecipes(recipe: Recipe) -> Bool {

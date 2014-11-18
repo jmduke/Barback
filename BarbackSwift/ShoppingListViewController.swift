@@ -107,7 +107,7 @@ class ShoppingListViewController: RecipeListViewController {
         let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
         if !(cell != nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
         
         let ingredient = ingredientForIndexPath(indexPath)
@@ -116,7 +116,6 @@ class ShoppingListViewController: RecipeListViewController {
         let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"
         cell!.detailTextLabel?.text = "Used in \(recipeCount) \(designator)"
-        cell!.stylePrimary()
         
         return cell!
     }
