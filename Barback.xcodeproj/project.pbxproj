@@ -35,7 +35,6 @@
 		26747A441A102C6A00313F04 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A431A102C6A00313F04 /* SystemConfiguration.framework */; };
 		26747A471A105EF800313F04 /* BezierButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A461A105EF800313F04 /* BezierButton.swift */; };
 		26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */; };
-		2680A95F1A1070F0009C21FE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2631DB7D194BFF500025DCF5 /* Info.plist */; };
 		26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB725194D11DC00AF126B /* UIColorExtension.swift */; };
 		26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB727194D1C5E00AF126B /* UIFontExtension.swift */; };
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
@@ -340,7 +339,7 @@
 		2631DB71194BFF500025DCF5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Justin Duke";
 				TargetAttributes = {
 					2631DB78194BFF500025DCF5 = {
@@ -384,7 +383,6 @@
 				26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */,
 				26747A301A102B1E00313F04 /* automation.js in Resources */,
 				26747A381A102B1E00313F04 /* recipe_scraper.py in Resources */,
-				2680A95F1A1070F0009C21FE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
