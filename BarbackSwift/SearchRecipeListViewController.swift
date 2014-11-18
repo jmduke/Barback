@@ -201,11 +201,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
 
             let ingredient = possibleIngredients[indexPath.row]
             let cellIdentifier = "recipeCell"
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
+            let cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
             
             let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
-            
-            cell.stylePrimary()
             
             let rangeOfFoundText = (ingredient.name.lowercaseString as NSString).rangeOfString(searchTerms.last!)
             
@@ -233,6 +231,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if !currentlyTypingIngredient() {
+            super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
             return
         }
         let selectedRow = tableView.indexPathForSelectedRow()
@@ -242,6 +241,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         searchBar.text = "\(labelPrefix)\(ingredient.name)"
         searchBarFocused = false
         searchBar(searchBar, textDidChange: searchBar.text)
+        
     }
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         return !currentlyTypingIngredient()

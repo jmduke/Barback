@@ -65,7 +65,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             primaryText = recipe.name
             detailText = recipe.detailDescription
             
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
+            cell = StyledCell(style: UITableViewCellStyle.Subtitle,
                 reuseIdentifier: cellIdentifier)
         }
         else {
@@ -75,13 +75,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             primaryText = brand.name
             detailText = String(brand.detailDescription)
             
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1,
+            cell = StyledCell(style: UITableViewCellStyle.Value1,
                 reuseIdentifier: cellIdentifier)
         }
         
         cell!.textLabel?.text = primaryText
         cell!.detailTextLabel?.text = detailText
-        cell!.stylePrimary()
         
         return cell!
     }
