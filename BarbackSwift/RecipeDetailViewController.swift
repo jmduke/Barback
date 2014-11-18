@@ -269,7 +269,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         var cell: UITableViewCell?
         if (tableView == ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1,
+            cell = StyledCell(style: UITableViewCellStyle.Value1,
                     reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = sortedIngredients![indexPath.row]
@@ -277,12 +277,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
             let cellIdentifier = "similarCell"
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
-                reuseIdentifier: cellIdentifier)
-            
-            let similarRecipe = similarRecipes![indexPath.row]
-            cell!.textLabel?.text = similarRecipe.name
-            cell!.detailTextLabel?.text = similarRecipe.detailDescription
+            let recipe = similarRecipes![indexPath.row]
+            cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         }
         return cell!
     }
@@ -313,11 +309,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             destination.setRecipe(recipe)
         }
     }
-    
-    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
-        cell.stylePrimary()
-    }
-    
     
     func getSelectedIngredient() -> IngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow()
