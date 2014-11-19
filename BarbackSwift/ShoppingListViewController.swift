@@ -74,11 +74,8 @@ class ShoppingListViewController: RecipeListViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
-        var sectionLabel = UILabel()
+        var sectionLabel = TableHeaderLabel()
         sectionLabel.frame = CGRectMake(20, 0, 320, 40)
-        sectionLabel.font = UIFont(name: UIFont.heavyFont(), size: 16)
-        sectionLabel.textAlignment = NSTextAlignment.Left
-        sectionLabel.textColor = UIColor.lightColor()
         
         sectionLabel.text = ingredientTypes[section].pluralize().capitalizedString
         

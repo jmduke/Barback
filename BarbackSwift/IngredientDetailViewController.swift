@@ -143,12 +143,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         ingredientDescriptionLabel.textColor = UIColor.darkColor()
         ingredientDescriptionLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
-        
-        for label in [self.brandTableLabel, self.drinksTableLabel] {
-            label.font = UIFont(name: UIFont.heavyFont(), size: 15)
-            label.textAlignment = NSTextAlignment.Center
-            label.textColor = UIColor.lightColor()
-        }
     }
 
     override func didReceiveMemoryWarning() {
