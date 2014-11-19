@@ -162,24 +162,12 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         }
         
         if (currentlyTypingIngredient() && possibleIngredients.isEmpty) {
-            let emptyStateLabel = UILabel(frame: tableView.frame)
+            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
             emptyStateLabel.text = "Sorry -- we don't know what \(searchTerms.last!) is!"
-            
-            // Style it up here.
-            emptyStateLabel.textAlignment = NSTextAlignment.Center
-            emptyStateLabel.textColor = UIColor.lighterColor()
-            emptyStateLabel.numberOfLines = 3
-            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
             tableView.backgroundView = emptyStateLabel
         } else if (recipes.isEmpty) {
-            let emptyStateLabel = UILabel(frame: tableView.frame)
+            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
             emptyStateLabel.text = "Sorry -- no recipes with these ingredients."
-            
-            // Style it up here.
-            emptyStateLabel.textAlignment = NSTextAlignment.Center
-            emptyStateLabel.textColor = UIColor.lighterColor()
-            emptyStateLabel.numberOfLines = 3
-            emptyStateLabel.font = UIFont(name: UIFont.primaryFont(), size: 24)
             tableView.backgroundView = emptyStateLabel
         } else {
             tableView.backgroundView = nil
@@ -215,7 +203,6 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
-            cell.detailTextLabel?.textColor = UIColor.lighterColor()
             
             return cell
         }

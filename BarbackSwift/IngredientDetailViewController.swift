@@ -136,9 +136,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.styleController()
         
         scrollView.backgroundColor = UIColor.backgroundColor()
-        
-        ingredientDescriptionLabel.textColor = UIColor.darkColor()
-        ingredientDescriptionLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
     }
 
     override func didReceiveMemoryWarning() {

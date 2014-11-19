@@ -1,5 +1,5 @@
 //
-//  TableHeaderLabel.swift
+//  HeaderLabel.swift
 //  Barback
 //
 //  Created by Justin Duke on 11/18/14.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TableHeaderLabel : UILabel {
+class HeaderLabel : UILabel {
     
     override init() {
         super.init()
@@ -31,8 +31,8 @@ class TableHeaderLabel : UILabel {
     }
     
     func styleLabel() {
-        font = UIFont(name: UIFont.heavyFont(), size: 15)
+        textColor = UIColor.darkColor()
+        font = UIFont(name: UIFont.heavyFont(), size: 32)
         textAlignment = NSTextAlignment.Center
-        textColor = UIColor.lightColor()
     }
 }
