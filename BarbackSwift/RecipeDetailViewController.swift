@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
+import Parse
 import Social
 import UIKit
 
@@ -159,6 +160,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         recipe!.isFavorited = !recipe!.favorite
         favoriteButton.selected = !favoriteButton.selected
         saveContext()
+        
+        PFAnalytics.trackEventInBackground("recipeFavorited", dimensions: ["recipe": recipe!.name
+            ], block: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
