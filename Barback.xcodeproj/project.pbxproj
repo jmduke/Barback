@@ -16,6 +16,7 @@
 		2631DBAC194C02460025DCF5 /* FavoriteRecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBAB194C02460025DCF5 /* FavoriteRecipeListViewController.swift */; };
 		2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBAD194C0EB80025DCF5 /* Ingredient.swift */; };
 		2641EF2E1A1C500F0055291E /* TableHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2D1A1C500F0055291E /* TableHeaderLabel.swift */; };
+		2641EF301A1C52F00055291E /* ViewHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2F1A1C52F00055291E /* ViewHeaderLabel.swift */; };
 		265313471A1B274700B2A686 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313461A1B274700B2A686 /* RecipeCell.swift */; };
 		265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313481A1B2A4300B2A686 /* StyledCell.swift */; };
 		26747A1E1A102A5B00313F04 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A1C1A102A5B00313F04 /* Bolts.framework */; };
@@ -70,6 +71,7 @@
 		2631DBAB194C02460025DCF5 /* FavoriteRecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeListViewController.swift; sourceTree = "<group>"; };
 		2631DBAD194C0EB80025DCF5 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		2641EF2D1A1C500F0055291E /* TableHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderLabel.swift; sourceTree = "<group>"; };
+		2641EF2F1A1C52F00055291E /* ViewHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHeaderLabel.swift; sourceTree = "<group>"; };
 		265313461A1B274700B2A686 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		265313481A1B2A4300B2A686 /* StyledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledCell.swift; sourceTree = "<group>"; };
 		26747A1C1A102A5B00313F04 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				265313461A1B274700B2A686 /* RecipeCell.swift */,
 				265313481A1B2A4300B2A686 /* StyledCell.swift */,
 				2641EF2D1A1C500F0055291E /* TableHeaderLabel.swift */,
+				2641EF2F1A1C52F00055291E /* ViewHeaderLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			files = (
 				26747A331A102B1E00313F04 /* CoreDataStore.swift in Sources */,
 				26747A361A102B1E00313F04 /* Models.xcdatamodeld in Sources */,
+				2641EF301A1C52F00055291E /* ViewHeaderLabel.swift in Sources */,
 				26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */,
 				65B129C119C146C500F5B8C4 /* Brand.swift in Sources */,
 				265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */,
