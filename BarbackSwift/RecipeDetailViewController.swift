@@ -206,10 +206,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         informationLabel.textAlignment = NSTextAlignment.Center
         informationLabel.textColor = UIColor.lightColor()
         
-        similarDrinksLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
-        similarDrinksLabel.textAlignment = NSTextAlignment.Center
-        similarDrinksLabel.textColor = UIColor.lightColor()
-        
         view.layoutIfNeeded()
     }
     
