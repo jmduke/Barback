@@ -35,7 +35,6 @@ class ShoppingListViewController: RecipeListViewController {
     
     override init(style: UITableViewStyle) {
         super.init(style: style)
-        // Custom initialization
     }
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
@@ -49,9 +48,6 @@ class ShoppingListViewController: RecipeListViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Preserve selection of table elements.
-        clearsSelectionOnViewWillAppear = false
     }
     
     func goBack() {
