@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 import UIKit
 
 class RecipeListViewController: UITableViewController {
@@ -17,6 +18,8 @@ class RecipeListViewController: UITableViewController {
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         title = viewTitle
+        
+        PFAnalytics.trackEventInBackground("viewControllerOpened", dimensions: ["title": viewTitle], block: nil)
     }
     
     override func viewDidLoad() {
