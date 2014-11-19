@@ -1,5 +1,5 @@
 //
-//  ViewHeaderLabel.swift
+//  DescriptionLabel.swift
 //  Barback
 //
 //  Created by Justin Duke on 11/18/14.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ViewHeaderLabel : UILabel {
+class DescriptionLabel : UILabel {
     
     override init() {
         super.init()
@@ -31,8 +31,8 @@ class ViewHeaderLabel : UILabel {
     }
     
     func styleLabel() {
-        textColor = UIColor.darkColor()
-        font = UIFont(name: UIFont.heavyFont(), size: 32)
+        font = UIFont(name: UIFont.heavyFont(), size: 15)
         textAlignment = NSTextAlignment.Center
+        textColor = UIColor.lightColor()
     }
 }

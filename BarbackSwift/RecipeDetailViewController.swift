@@ -189,18 +189,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         super.styleController()
         
         scrollView.backgroundColor = UIColor.backgroundColor()
-        
-        subheadLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
-        subheadLabel.textAlignment = NSTextAlignment.Center
-        subheadLabel.textColor = UIColor.lightColor()
-        
-        directionsLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
-        directionsLabel.textAlignment = NSTextAlignment.Center
         directionsLabel.textColor = UIColor.darkColor()
-        
-        informationLabel.font = UIFont(name: UIFont.heavyFont(), size: 15)
-        informationLabel.textAlignment = NSTextAlignment.Center
-        informationLabel.textColor = UIColor.lightColor()
         
         view.layoutIfNeeded()
     }
