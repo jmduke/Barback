@@ -133,6 +133,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func findNewRecipe() {
         recipe = getRandomRecipe()
+        
+        PFAnalytics.trackEventInBackground("randomRecipeOpened", block: nil)
+        
         viewWillAppear(true)
         viewDidLoad()
     }
@@ -174,7 +177,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         
-
+        // Note that this will not grab random recipes.
+        PFAnalytics.trackEventInBackground("recipeOpened", dimensions: ["recipe": recipe!.name], block: nil)
+        
         loadCoachMarks()
     }
     
