@@ -137,10 +137,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
         scrollView.backgroundColor = UIColor.backgroundColor()
         
-        ingredientNameLabel.textColor = UIColor.darkColor()
-        ingredientNameLabel.font = UIFont(name: UIFont.heavyFont(), size: 32)
-        ingredientNameLabel.textAlignment = NSTextAlignment.Center
-        
         ingredientDescriptionLabel.textColor = UIColor.darkColor()
         ingredientDescriptionLabel.font = UIFont(name: UIFont.primaryFont(), size: 15)
     }
