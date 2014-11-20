@@ -197,7 +197,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func styleController() {
         super.styleController()
         
-        scrollView.backgroundColor = UIColor.backgroundColor()
         directionsLabel.textColor = UIColor.darkColor()
         
         view.layoutIfNeeded()
