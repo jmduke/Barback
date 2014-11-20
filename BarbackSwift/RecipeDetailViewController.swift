@@ -10,7 +10,7 @@ import Parse
 import Social
 import UIKit
 
-class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
+class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var recipe: Recipe? {
     willSet {
@@ -152,7 +152,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         // Make the recipe's heart grow three sizes.
         UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
-            self.favoriteButton.transform = CGAffineTransformMakeScale(1.2, 1.2)
+            self.favoriteButton.transform = CGAffineTransformMakeScale(1.5, 1.5)
             }, completion: {
                 (success: Bool) in
                 UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
@@ -222,23 +222,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let ingredientsCaption = "Tap an ingredient to learn more about it."
         coachMarks.append(["rect": NSValue(CGRect: ingredientsPosition), "caption": ingredientsCaption])
         
-        runCoachMarks(coachMarks)
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView!) {
-        let scrollViewHeight = scrollView.frame.size.height;
-        let scrollContentSizeHeight = scrollView.contentSize.height;
-        let scrollOffset = scrollView.contentOffset.y;
+        var favoritePosition = favoriteButton.frame
+        let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
+        coachMarks.append(["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption])
         
-        if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
-            
-            var favoritePosition = favoriteButton.frame
-            favoritePosition.offset(dx: 0, dy: -scrollOffset)
-            let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
-            let scrolledCoachMarks = [["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption]]
-            runCoachMarks(scrolledCoachMarks)
-            
-        }
+        runCoachMarks(coachMarks)
     }
 
     override func didReceiveMemoryWarning() {
