@@ -1,5 +1,5 @@
 PODS:
-  - Appirater (2.0.2)
+  - Appirater (2.0.4)
   - MBProgressHUD (0.9)
   - RNBlurModalView (0.1.0)
   - WSCoachMarksView (0.2)
@@ -11,9 +11,9 @@ DEPENDENCIES:
   - WSCoachMarksView (~> 0.2)
 
 SPEC CHECKSUMS:
-  Appirater: a5e00fb01d47a9a6acf4b2f22323b4ccf4f23fbb
+  Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   RNBlurModalView: 38380c10dcaf7804f7ba5e3516abcaf8bc8eddb3
   WSCoachMarksView: 77046a7df4ec38acb81edfacc717e5275f97a363
 
-COCOAPODS: 0.35.0.rc2
+COCOAPODS: 0.35.0
