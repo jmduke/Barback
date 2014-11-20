@@ -13,6 +13,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var ingredientNameLabel : UILabel!
     @IBOutlet var ingredientDescriptionLabel : UILabel!
     @IBOutlet var brandTableLabel : UILabel!
+    @IBOutlet var ingredientAbvLabel: DescriptionLabel!
     @IBOutlet var drinksTableLabel : UILabel!
     @IBOutlet var brandsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
@@ -112,6 +113,13 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
         
         ingredientNameLabel.text = ingredient.name
+        
+        if Int(ingredient.abv) > 0 {
+            ingredientAbvLabel.text = Int(ingredient.abv) > 0 ? "\(ingredient.abv)% ABV" : "(non-alcoholic)"
+        } else {
+            ingredientAbvLabel.removeFromSuperview()
+        }
+        
         ingredientDescriptionLabel.text = ingredient.information
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"

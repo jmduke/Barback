@@ -336,7 +336,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-wd-9l9" userLabel="relevantDrinks">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-wd-9l9" userLabel="relevantDrinks">
                                         <rect key="frame" x="0.0" y="184" width="320" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -374,7 +374,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB" customClass="DescriptionLabel" customModule="BarbackSwift" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="khG-Ic-avB" customClass="DescriptionLabel" customModule="BarbackSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="102" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="9Za-SI-MB5"/>
@@ -389,8 +389,14 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-d5-hzv" customClass="DescriptionLabel" customModule="BarbackSwift" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-d5-hzv" customClass="DescriptionLabel" customModule="BarbackSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="153" width="320" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.abv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldq-hI-NTS" customClass="DescriptionLabel" customModule="BarbackSwift" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="41" width="109" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -400,6 +406,7 @@
                                     <constraint firstAttribute="centerX" secondItem="jRn-d5-hzv" secondAttribute="centerX" id="0Cs-XH-TIA"/>
                                     <constraint firstAttribute="width" secondItem="khG-Ic-avB" secondAttribute="width" id="0XZ-98-r2o"/>
                                     <constraint firstAttribute="bottom" secondItem="RRo-wd-9l9" secondAttribute="bottom" constant="112" id="0eT-JS-IoX"/>
+                                    <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="ldq-hI-NTS" secondAttribute="bottom" constant="20" id="3O9-hL-cdP"/>
                                     <constraint firstItem="RRo-wd-9l9" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" id="4it-1z-afj"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="16" id="F2r-ww-ceS"/>
                                     <constraint firstAttribute="trailing" secondItem="bo6-DK-JAx" secondAttribute="trailing" constant="30" id="HGb-7h-dN6"/>
@@ -415,14 +422,17 @@
                                     <constraint firstAttribute="centerX" secondItem="bo6-DK-JAx" secondAttribute="centerX" id="Xgh-Z8-LRR"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" id="Y65-8U-9M5"/>
                                     <constraint firstAttribute="trailing" secondItem="jRn-d5-hzv" secondAttribute="trailing" id="bTk-MY-UqG"/>
+                                    <constraint firstAttribute="centerX" secondItem="ldq-hI-NTS" secondAttribute="centerX" id="bY8-xn-BTw"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="top" secondItem="bo6-DK-JAx" secondAttribute="bottom" priority="500" constant="20" id="bfX-K8-Haf"/>
                                     <constraint firstAttribute="width" secondItem="RRo-wd-9l9" secondAttribute="width" id="f0W-dy-hCa"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bo6-DK-JAx" secondAttribute="bottom" priority="500" constant="30" id="h4U-7D-JMd"/>
                                     <constraint firstItem="jRn-d5-hzv" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" id="hYB-1i-7Wt"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="leading" secondItem="ct9-66-Hw0" secondAttribute="leading" constant="30" id="i5S-Dl-sSp"/>
+                                    <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" priority="500" constant="20" id="lvD-8m-MFL"/>
                                     <constraint firstAttribute="centerX" secondItem="bo6-DK-JAx" secondAttribute="centerX" id="pz0-0d-Bwu"/>
                                     <constraint firstAttribute="centerX" secondItem="Ofi-CB-1bM" secondAttribute="centerX" id="vWq-6G-pEk"/>
                                     <constraint firstAttribute="width" secondItem="jRn-d5-hzv" secondAttribute="width" id="vlS-74-ErG"/>
+                                    <constraint firstItem="ldq-hI-NTS" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="5" id="xVm-Ws-Fxh"/>
                                     <constraint firstItem="Ofi-CB-1bM" firstAttribute="top" secondItem="khG-Ic-avB" secondAttribute="bottom" constant="10" id="ySL-pG-Gi5"/>
                                     <constraint firstItem="bo6-DK-JAx" firstAttribute="top" secondItem="aer-O9-w0l" secondAttribute="bottom" constant="20" id="zPC-Xn-bGE"/>
                                 </constraints>
@@ -432,6 +442,7 @@
                                         <exclude reference="HGb-7h-dN6"/>
                                         <exclude reference="i5S-Dl-sSp"/>
                                         <exclude reference="pz0-0d-Bwu"/>
+                                        <exclude reference="zPC-Xn-bGE"/>
                                         <exclude reference="bTk-MY-UqG"/>
                                         <exclude reference="hYB-1i-7Wt"/>
                                         <exclude reference="4it-1z-afj"/>
@@ -454,6 +465,7 @@
                         <outlet property="drinkTableViewHeight" destination="THi-Fv-EzK" id="x1J-1i-7cQ"/>
                         <outlet property="drinksTableLabel" destination="jRn-d5-hzv" id="9Ru-2w-tzz"/>
                         <outlet property="drinksTableView" destination="RRo-wd-9l9" id="cBN-5U-0mP"/>
+                        <outlet property="ingredientAbvLabel" destination="ldq-hI-NTS" id="2e9-h7-pJX"/>
                         <outlet property="ingredientDescriptionLabel" destination="bo6-DK-JAx" id="TfB-kb-d2u"/>
                         <outlet property="ingredientNameLabel" destination="aer-O9-w0l" id="l4c-m8-Uk6"/>
                         <outlet property="scrollView" destination="ct9-66-Hw0" id="EeG-MB-IzH"/>
