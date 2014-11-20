@@ -70,10 +70,10 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             return
         }
         
-        let favoritePosition = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0)).frame.rectByUnion(tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)).frame).rectByUnion(tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0)).frame)
+        let favoritePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0))).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)))
         let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"
         
-        let shakePosition = tableView(tableView, cellForRowAtIndexPath: NSIndexPath(forRow: recipes.count, inSection: 0)).frame
+        let shakePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: recipes.count, inSection: 0))
         let shakeCaption = "We can make you a shopping list with all the ingredients you need to make them, too."
         
         let coachMarks = [["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption], ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]]
