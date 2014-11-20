@@ -143,7 +143,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     override func styleController() {
         super.styleController()
         
-        scrollView.backgroundColor = UIColor.backgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
