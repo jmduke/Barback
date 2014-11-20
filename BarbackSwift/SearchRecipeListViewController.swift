@@ -116,7 +116,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     func loadCoachMarks() {
         let searchBarPosition = searchBar.bounds
         
-        let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange,vodka\"), recipe names (\"punch\")."
+        let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange + vodka\")."
         
         let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
         runCoachMarks(coachMarks)
