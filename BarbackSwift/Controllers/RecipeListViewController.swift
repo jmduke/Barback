@@ -103,7 +103,7 @@ class RecipeListViewController: UITableViewController {
         destination.setRecipe(recipe)
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("recipeDetail", sender: nil)
     }
     
