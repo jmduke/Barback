@@ -10,6 +10,7 @@ import AdSupport
 import CoreData
 import MobileAppTracker
 import Parse
+import SystemConfiguration
 import UIKit
 
 func managedContext() -> NSManagedObjectContext {
@@ -20,6 +21,13 @@ func managedContext() -> NSManagedObjectContext {
 func saveContext() {
     let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     delegate.coreDataHelper.saveContext(managedContext())
+}
+
+func isConnectedToInternet() -> Bool {
+    let reachability = Reachability.reachabilityForInternetConnection()
+    let networkStatus = reachability.currentReachabilityStatus()
+    let notReachableStatus = 0
+    return networkStatus.rawValue != notReachableStatus
 }
 
 @UIApplicationMain
@@ -38,6 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var tabBarController: UITabBarController?
     var window: UIWindow?
+    
+    func finalizeAppSetup() {
+        
+        // Set some random recipes to be favorites.
+        let initialNumberOfFavoritedRecipes = 3
+        for _ in 1...initialNumberOfFavoritedRecipes {
+            var randomRecipe = managedContext().randomObject(Recipe.self)!
+            while (!randomRecipe.isReal) {
+                randomRecipe = managedContext().randomObject(Recipe.self)!
+            }
+            randomRecipe.favorite = true
+        }
+        saveContext()
+        
+        markAppAsLaunched()
+    }
 
     func isFirstTimeAppLaunched() -> Bool {
         return !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce")
@@ -67,6 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func markAppAsLaunched() {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey:"syncedThisLaunch")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
@@ -116,28 +142,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(userNotificationTypes)
         }
         
-        
-        if dataNeedsSyncing() {
-            syncNewData()
-            saveContext()
-        }
-        
-        if isFirstTimeAppLaunched() {
-            
-            // Set some random recipes to be favorites.
-            let initialNumberOfFavoritedRecipes = 3
-            for _ in 1...initialNumberOfFavoritedRecipes {
-                var randomRecipe = managedContext().randomObject(Recipe.self)!
-                while (!randomRecipe.isReal) {
-                    randomRecipe = managedContext().randomObject(Recipe.self)!
-                }
-                randomRecipe.favorite = true
-            }
-            saveContext()
-
-            markAppAsLaunched()
-        }
-        
         // Set status bar to active.  And white.
         UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
@@ -155,7 +159,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         items[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
         items[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
         items[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        
+        let reachability = Reachability.reachabilityForInternetConnection()
+        reachability.reachableBlock = {
+            (r: Reachability!) -> Void in
+            let _ = Async.main {
+                if self.isFirstTimeAppLaunched() {
+                    self.syncNewData()
+                    saveContext()
+                    self.finalizeAppSetup()
+                    
+                    items[1].enabled = true
+                    items[2].enabled = true
+                    items[3].enabled = true
+                }
+            }
+        }
+        reachability.startNotifier()
+        
+        if isFirstTimeAppLaunched() {
+            
+            if isConnectedToInternet() {
+            
+                finalizeAppSetup()
                 
+            } else {
+                // Disable everything since you can't do anything.
+                items[1].enabled = false
+                items[2].enabled = false
+                items[3].enabled = false
+            }
+        }
+        
         // Configure review-nagger.
         Appirater.setAppId("829469529")
         Appirater.setDaysUntilPrompt(7)

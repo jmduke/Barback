@@ -26,6 +26,30 @@ class FullRecipeListViewController: RecipeListViewController {
         super.viewDidLoad()
         
         mapRecipesToCharacters()
+        
+        let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
+        emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
+        tableView.backgroundView = emptyStateLabel
+        
+        let reachability = Reachability.reachabilityForInternetConnection()
+        reachability.reachableBlock = {
+            (r: Reachability!) -> Void in
+            let _ = Async.main {
+                let hud = MBProgressHUD(view: self.view)
+                self.view.addSubview(hud)
+                hud.labelText = "Fetching you some great recipes."
+                hud.show(true)
+            }.background {
+                while (!NSUserDefaults.standardUserDefaults().boolForKey("syncedThisLaunch")) {
+                    continue
+                }}.main {
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    self.recipes = Recipe.all()
+                    self.mapRecipesToCharacters()
+                    self.tableView.reloadData()
+                }
+        }
+        reachability.startNotifier()
     }
     
     // Map recipes to their first characters to allow searching with the UITableViewIndex.

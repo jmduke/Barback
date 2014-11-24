@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262E75C41A22E420008487C0 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E75C31A22E420008487C0 /* Async.swift */; };
+		262E75C61A22E844008487C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E75C51A22E844008487C0 /* CoreData.framework */; };
+		262E75CE1A22F01D008487C0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E75CD1A22F01D008487C0 /* Reachability.m */; };
 		2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB7E194BFF500025DCF5 /* AppDelegate.swift */; };
 		2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2631DB84194BFF500025DCF5 /* Main.storyboard */; };
 		2631DB94194BFF500025DCF5 /* BarbackSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB93194BFF500025DCF5 /* BarbackSwiftTests.swift */; };
@@ -63,6 +66,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262E75C31A22E420008487C0 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		262E75C51A22E844008487C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		262E75CC1A22F01D008487C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.h"; sourceTree = "<group>"; };
+		262E75CD1A22F01D008487C0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.m"; sourceTree = "<group>"; };
 		2631DB79194BFF500025DCF5 /* BarbackSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarbackSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631DB7D194BFF500025DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2631DB7E194BFF500025DCF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +120,7 @@
 		26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26FBA46E1A1DB1240082FBEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		26FBA4701A1DB12A0082FBEC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		462EABFFF7B869594000A479 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		35791C1F003304182FF87C4B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		637761BCE5174C65922C617F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655B44CA19C1434500A1351F /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		65B129BE19C146C500F5B8C4 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -129,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262E75C61A22E844008487C0 /* CoreData.framework in Frameworks */,
 				26FBA4711A1DB12A0082FBEC /* Accelerate.framework in Frameworks */,
 				26FBA46F1A1DB1240082FBEC /* QuartzCore.framework in Frameworks */,
 				26FBA46D1A1DB0D30082FBEC /* StoreKit.framework in Frameworks */,
@@ -182,6 +190,8 @@
 		2631DB7B194BFF500025DCF5 /* BarbackSwift */ = {
 			isa = PBXGroup;
 			children = (
+				262E75CC1A22F01D008487C0 /* Reachability.h */,
+				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
 				26747A491A1065F600313F04 /* Storyboards */,
 				26747A481A1065E500313F04 /* Views */,
@@ -300,6 +310,7 @@
 				26AAB725194D11DC00AF126B /* UIColorExtension.swift */,
 				26AAB727194D1C5E00AF126B /* UIFontExtension.swift */,
 				26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */,
+				262E75C31A22E420008487C0 /* Async.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +318,7 @@
 		737783D2D7DB48B6BA5AADF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				262E75C51A22E844008487C0 /* CoreData.framework */,
 				26FBA4701A1DB12A0082FBEC /* Accelerate.framework */,
 				26FBA46E1A1DB1240082FBEC /* QuartzCore.framework */,
 				26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */,
@@ -330,7 +342,7 @@
 		B3110AE61D9F1F0CF12FC12F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				462EABFFF7B869594000A479 /* Pods.release.xcconfig */,
+				35791C1F003304182FF87C4B /* Pods.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -508,6 +520,7 @@
 				26747A361A102B1E00313F04 /* Models.xcdatamodeld in Sources */,
 				2641EF301A1C52F00055291E /* HeaderLabel.swift in Sources */,
 				26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */,
+				262E75C41A22E420008487C0 /* Async.swift in Sources */,
 				65B129C119C146C500F5B8C4 /* Brand.swift in Sources */,
 				265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */,
 				26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */,
@@ -528,6 +541,7 @@
 				26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */,
 				65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */,
 				26747A3A1A102B1E00313F04 /* UIImageExtension.swift in Sources */,
+				262E75CE1A22F01D008487C0 /* Reachability.m in Sources */,
 				65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */,
 				267D02091A1DA63500E7786C /* ScrollView.swift in Sources */,
 				2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */,
@@ -661,6 +675,7 @@
 				INFOPLIST_FILE = "BarbackSwift/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -689,6 +704,7 @@
 				INFOPLIST_FILE = "BarbackSwift/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -718,7 +734,7 @@
 		};
 		2631DB9C194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 462EABFFF7B869594000A479 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 35791C1F003304182FF87C4B /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BarbackSwift.app/BarbackSwift";
 				FRAMEWORK_SEARCH_PATHS = (
