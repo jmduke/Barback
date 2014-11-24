@@ -47,7 +47,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tabBarController: UITabBarController?
     var window: UIWindow?
     
+    func updateIfNecessary() {
+        if self.isFirstTimeAppLaunched() {
+            finalizeAppSetup()
+        } else if self.dataNeedsSyncing() {
+            self.syncNewData()
+            saveContext()
+            
+        }
+        
+        markAppAsLaunched()
+    }
+    
     func finalizeAppSetup() {
+        self.syncNewData()
+        saveContext()
         
         // Set some random recipes to be favorites.
         let initialNumberOfFavoritedRecipes = 3
@@ -60,7 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         saveContext()
         
-        markAppAsLaunched()
+        let tabBarController = self.window?.rootViewController as UITabBarController
+        let tabBar = tabBarController.tabBar
+        let items = tabBar.items as [UITabBarItem]
+        
+        items[1].enabled = true
+        items[2].enabled = true
+        items[3].enabled = true
     }
 
     func isFirstTimeAppLaunched() -> Bool {
@@ -68,14 +88,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func dataNeedsSyncing() -> Bool {
-        for syncableClass: AnyClass in [Recipe.self, Ingredient.self, IngredientBase.self, Brand.self] {
-            let className = NSStringFromClass(syncableClass).componentsSeparatedByString(".").last!
-            if !PFQuery.allObjectsSinceSync(className).isEmpty {
-                return true
-            }
-        }
-        
-        return false
+        let config = PFConfig.getConfig()
+        let dataVersion = config.objectForKey("dataVersion") as Int
+        let latestDataVersion = NSUserDefaults.standardUserDefaults().integerForKey("dataVersion")
+        return dataVersion > latestDataVersion
     }
     
     func syncNewData() {
@@ -91,9 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func markAppAsLaunched() {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
-        NSUserDefaults.standardUserDefaults().synchronize()
         NSUserDefaults.standardUserDefaults().setBool(true, forKey:"syncedThisLaunch")
+        NSUserDefaults.standardUserDefaults().setInteger(PFConfig.getConfig().objectForKey("dataVersion") as Int, forKey: "dataVersion")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
@@ -164,32 +181,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reachability.reachableBlock = {
             (r: Reachability!) -> Void in
             let _ = Async.main {
-                if self.isFirstTimeAppLaunched() {
-                    self.syncNewData()
-                    saveContext()
-                    self.finalizeAppSetup()
-                    
-                    items[1].enabled = true
-                    items[2].enabled = true
-                    items[3].enabled = true
-                }
+                self.updateIfNecessary()
             }
         }
         reachability.startNotifier()
         
-        if isFirstTimeAppLaunched() {
-            
             if isConnectedToInternet() {
             
-                finalizeAppSetup()
+                    updateIfNecessary()
                 
-            } else {
+            } else if isFirstTimeAppLaunched() {
                 // Disable everything since you can't do anything.
                 items[1].enabled = false
                 items[2].enabled = false
                 items[3].enabled = false
             }
-        }
         
         // Configure review-nagger.
         Appirater.setAppId("829469529")
