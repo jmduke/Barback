@@ -8,5 +8,6 @@
 
 #import "Appirater.h"
 #import "MBProgressHUD.h"
+#import "Reachability.h"
 #import "RNBlurModalView.h"
 #import "WSCoachMarksView.h"
