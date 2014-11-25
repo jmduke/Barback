@@ -33,6 +33,19 @@ func isConnectedToInternet() -> Bool {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var tabBarItems: [UITabBarItem] {
+        get {
+            let tabBarController = self.window?.rootViewController as UITabBarController
+            let tabBar = tabBarController.tabBar
+            let items = tabBar.items as [UITabBarItem]
+            return items
+        }
+    }
+    
+    var privateKeys: NSDictionary = {
+        let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
+        return NSDictionary(contentsOfFile: keychain!)!
+    }()
     
     lazy var coreDataHelper: CoreDataHelper = {
         let cdh = CoreDataHelper()
@@ -44,14 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return cds
         }()
     
-    var tabBarController: UITabBarController?
+    // Needed to access UITabBarIcons.
     var window: UIWindow?
     
+    
     func updateIfNecessary() {
-        if self.isFirstTimeAppLaunched() {
+        if isFirstTimeAppLaunched() {
             finalizeAppSetup()
-        } else if self.dataNeedsSyncing() {
-            self.syncNewData()
+        } else if dataNeedsSyncing() {
+            syncNewData()
             saveContext()
             
         }
@@ -60,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func finalizeAppSetup() {
-        self.syncNewData()
+        syncNewData()
         saveContext()
         
         // Set some random recipes to be favorites.
@@ -74,43 +88,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         saveContext()
         
-        let tabBarController = self.window?.rootViewController as UITabBarController
-        let tabBar = tabBarController.tabBar
-        let items = tabBar.items as [UITabBarItem]
-        
-        items[1].enabled = true
-        items[2].enabled = true
-        items[3].enabled = true
-    }
-
-    func isFirstTimeAppLaunched() -> Bool {
-        return !NSUserDefaults.standardUserDefaults().boolForKey("launchedOnce")
-    }
-    
-    func dataNeedsSyncing() -> Bool {
-        let config = PFConfig.getConfig()
-        let dataVersion = config.objectForKey("dataVersion") as Int
-        let latestDataVersion = NSUserDefaults.standardUserDefaults().integerForKey("dataVersion")
-        return dataVersion > latestDataVersion
-    }
-    
-    func syncNewData() {
-        let ingredientBases = IngredientBase.syncWithParse()
-        let recipes = Recipe.syncWithParse()
-        let ingredients = Ingredient.syncWithParse()
-        let brands = Brand.syncWithParse()
-        
-        let dateString = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-        NSUserDefaults.standardUserDefaults().setObject(dateString, forKey:"syncDate")
-        NSUserDefaults.standardUserDefaults().synchronize()
-    }
-    
-    func markAppAsLaunched() {
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey:"launchedOnce")
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey:"syncedThisLaunch")
-        NSUserDefaults.standardUserDefaults().setInteger(PFConfig.getConfig().objectForKey("dataVersion") as Int, forKey: "dataVersion")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
+        tabBarItems[1].enabled = true
+        tabBarItems[2].enabled = true
+        tabBarItems[3].enabled = true
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
@@ -131,34 +111,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         
-        let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
-        let keys = NSDictionary(contentsOfFile: keychain!)!
+        initializeDependencies(launchOptions)
         
-        // Initialize Parse.
-        let parseApplicationId = keys["parseApplicationId"]! as String
-        let parseClientKey = keys["parseClientKey"]! as String
-        Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
-        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-        
-        // Initialize MobileAppTracking.
-        let matAdvertiserID = keys["matAdvertiserId"]! as String
-        let matConversionKey = keys["matConversionKey"]! as String
-        MobileAppTracker.initializeWithMATAdvertiserId(matAdvertiserID, MATConversionKey: matConversionKey)
-        MobileAppTracker.setAppleAdvertisingIdentifier(ASIdentifierManager.sharedManager().advertisingIdentifier, advertisingTrackingEnabled: ASIdentifierManager.sharedManager().advertisingTrackingEnabled)
-        if !isFirstTimeAppLaunched() {
-            MobileAppTracker.setExistingUser(true)
-        }
-        
+        // Register for push notifications.
         if (application.respondsToSelector("registerUserNotificationSettings")) {
             let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
             let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
-        } else {
-            let userNotificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound
-            application.registerForRemoteNotificationTypes(userNotificationTypes)
         }
         
+        // Handle launching the application with a bad connection.
+        let reachability = Reachability.reachabilityForInternetConnection()
+        reachability.reachableBlock = {
+            (r: Reachability!) -> Void in
+            let _ = Async.main {
+                self.updateIfNecessary()
+            }
+        }
+        reachability.startNotifier()
+        if isConnectedToInternet() {
+            updateIfNecessary()
+        } else if isFirstTimeAppLaunched() {
+            tabBarItems[1].enabled = false
+            tabBarItems[2].enabled = false
+            tabBarItems[3].enabled = false
+        }
+        
+        styleApp()
+        
+        return true
+    }
+
+    func applicationWillResignActive(application: UIApplication) {
+    }
+
+    func applicationDidEnterBackground(application: UIApplication) {
+        coreDataHelper.saveContext()
+    }
+
+    func applicationWillEnterForeground(application: UIApplication) {
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        MobileAppTracker.measureSession()
+
+    }
+
+    func applicationWillTerminate(application: UIApplication) {
+        coreDataHelper.saveContext()
+    }
+    
+    func styleApp() {
         // Set status bar to active.  And white.
         UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
@@ -169,35 +173,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
-        let tabBarController = self.window?.rootViewController as UITabBarController
-        let tabBar = tabBarController.tabBar
-        let items = tabBar.items as [UITabBarItem]
-        items[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        items[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        items[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        items[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+    }
+
+    func initializeDependencies(launchOptions: NSDictionary?) {
+        // Initialize Parse.
+        let parseApplicationId = privateKeys["parseApplicationId"]! as String
+        let parseClientKey = privateKeys["parseClientKey"]! as String
+        Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
-        let reachability = Reachability.reachabilityForInternetConnection()
-        reachability.reachableBlock = {
-            (r: Reachability!) -> Void in
-            let _ = Async.main {
-                self.updateIfNecessary()
-            }
+        // Initialize MobileAppTracking.
+        let matAdvertiserID = privateKeys["matAdvertiserId"]! as String
+        let matConversionKey = privateKeys["matConversionKey"]! as String
+        MobileAppTracker.initializeWithMATAdvertiserId(matAdvertiserID, MATConversionKey: matConversionKey)
+        MobileAppTracker.setAppleAdvertisingIdentifier(ASIdentifierManager.sharedManager().advertisingIdentifier, advertisingTrackingEnabled: ASIdentifierManager.sharedManager().advertisingTrackingEnabled)
+        if !isFirstTimeAppLaunched() {
+            MobileAppTracker.setExistingUser(true)
         }
-        reachability.startNotifier()
         
-            if isConnectedToInternet() {
-            
-                    updateIfNecessary()
-                
-            } else if isFirstTimeAppLaunched() {
-                // Disable everything since you can't do anything.
-                items[1].enabled = false
-                items[2].enabled = false
-                items[3].enabled = false
-            }
-        
-        // Configure review-nagger.
+        // Initialize Appirater.
         Appirater.setAppId("829469529")
         Appirater.setDaysUntilPrompt(7)
         Appirater.setUsesUntilPrompt(5)
@@ -205,41 +203,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Appirater.setTimeBeforeReminding(2)
         Appirater.setDebug(false)
         Appirater.appLaunched(true)
-        
-        return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        
-
-        
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
-        coreDataHelper.saveContext()
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        MobileAppTracker.measureSession()
-
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-        coreDataHelper.saveContext()
-    }
-
 
 }
 

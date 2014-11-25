@@ -24,9 +24,8 @@ class Ingredient: StoredObject {
     }
     
     var displayAmount: String {
-        let useImperialUnits = NSUserDefaults.standardUserDefaults().boolForKey("useImperialUnits")
         if let metricAmount = amount {
-            if !useImperialUnits {
+            if !userWantsImperialUnits() {
                 return "\(metricAmount.floatValue) cl"
             } else {
                 let rawOunceCount = metricAmount.floatValue / 2

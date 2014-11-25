@@ -40,7 +40,7 @@ class FullRecipeListViewController: RecipeListViewController {
                 hud.labelText = "Fetching you some great recipes."
                 hud.show(true)
             }.background {
-                while (!NSUserDefaults.standardUserDefaults().boolForKey("syncedThisLaunch")) {
+                while (!isAppSyncedThisLaunch()) {
                     continue
                 }}.main {
                     MBProgressHUD.hideHUDForView(self.view, animated: true)
