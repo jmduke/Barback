@@ -42,14 +42,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
 
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        
-        if (!userDefaults.boolForKey("useImperialUnits")) {
-            let appDefaults = ["useImperialUnits": true]
-            userDefaults.registerDefaults(appDefaults)
-            userDefaults.synchronize()
-        }
-        
+        registerSettingsDefaults()
         return true
     }
     
