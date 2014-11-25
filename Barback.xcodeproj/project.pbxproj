@@ -42,6 +42,8 @@
 		26747A471A105EF800313F04 /* BezierButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A461A105EF800313F04 /* BezierButton.swift */; };
 		26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */; };
 		267D02091A1DA63500E7786C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D02081A1DA63500E7786C /* ScrollView.swift */; };
+		268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1811A244A91005CBD10 /* SyncUtilities.swift */; };
+		268BA1851A244B75005CBD10 /* PreferencesUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */; };
 		26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB725194D11DC00AF126B /* UIColorExtension.swift */; };
 		26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB727194D1C5E00AF126B /* UIFontExtension.swift */; };
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
@@ -107,6 +109,8 @@
 		26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 		267D02081A1DA63500E7786C /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		2684097B1A1975EB005BCF9B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		268BA1811A244A91005CBD10 /* SyncUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyncUtilities.swift; path = Extensions/SyncUtilities.swift; sourceTree = "<group>"; };
+		268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesUtilities.swift; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		26AAB727194D1C5E00AF126B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 		2631DB7B194BFF500025DCF5 /* BarbackSwift */ = {
 			isa = PBXGroup;
 			children = (
+				268BA1831A244A9C005CBD10 /* Utilities */,
 				262E75CC1A22F01D008487C0 /* Reachability.h */,
 				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
@@ -298,6 +303,15 @@
 				26747A291A102B1E00313F04 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		268BA1831A244A9C005CBD10 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				268BA1811A244A91005CBD10 /* SyncUtilities.swift */,
+				268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		26AAB724194D11C500AF126B /* Extensions */ = {
@@ -530,6 +544,7 @@
 				2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */,
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				26747A231A102AF400313F04 /* StoredObject.swift in Sources */,
+				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
 				26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */,
 				265313471A1B274700B2A686 /* RecipeCell.swift in Sources */,
@@ -538,6 +553,7 @@
 				2641EF341A1C57450055291E /* EmptyStateLabel.swift in Sources */,
 				65B129CB19C1470B00F5B8C4 /* IngredientDetailViewController.swift in Sources */,
 				2631DBA6194C01C40025DCF5 /* Recipe.swift in Sources */,
+				268BA1851A244B75005CBD10 /* PreferencesUtilities.swift in Sources */,
 				26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */,
 				65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */,
 				26747A3A1A102B1E00313F04 /* UIImageExtension.swift in Sources */,

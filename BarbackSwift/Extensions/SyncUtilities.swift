@@ -1,0 +1,72 @@
+//
+//  NSUserDefaultUtilities.swift
+//  Barback
+//
+//  Created by Justin Duke on 11/25/14.
+//  Copyright (c) 2014 Justin Duke. All rights reserved.
+//
+
+import Foundation
+import Parse
+
+// NSUserDefault keys.
+let firstTimeAppLaunchedKey = "launchedOnce"
+let syncedThisLaunchKey = "syncedThisLaunch"
+let dataVersionKey = "dataVersion"
+let syncDateKey = "syncDate"
+
+func isFirstTimeAppLaunched() -> Bool {
+    return !NSUserDefaults.standardUserDefaults().boolForKey(firstTimeAppLaunchedKey)
+}
+
+func isAppSyncedThisLaunch() -> Bool {
+    return !NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
+}
+
+func getLatestDataVersion() -> Int {
+    return NSUserDefaults.standardUserDefaults().integerForKey(dataVersionKey)
+}
+
+func setFirstTimeAppLaunched() {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: firstTimeAppLaunchedKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
+}
+
+func setAppSyncedThisLaunch() {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey:syncedThisLaunchKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
+}
+
+func setLatestDataVersion(dataVersion: Int) {
+    NSUserDefaults.standardUserDefaults().setInteger(dataVersion, forKey: dataVersionKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
+}
+
+func setLatestSyncDate(date: NSDate) {
+    let dateString = NSDateFormatter.localizedStringFromDate(date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+    NSUserDefaults.standardUserDefaults().setObject(dateString, forKey:syncDateKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
+    
+}
+
+func dataNeedsSyncing() -> Bool {
+    let config = PFConfig.getConfig()
+    let dataVersion = config.objectForKey(dataVersionKey) as Int
+    return dataVersion > getLatestDataVersion()
+}
+
+func syncNewData() {
+    let ingredientBases = IngredientBase.syncWithParse()
+    let recipes = Recipe.syncWithParse()
+    let ingredients = Ingredient.syncWithParse()
+    let brands = Brand.syncWithParse()
+    
+    let latestDataVersion = PFConfig.getConfig().objectForKey(dataVersionKey) as Int
+    setLatestDataVersion(latestDataVersion)
+    setLatestSyncDate(NSDate())
+}
+
+func markAppAsLaunched() {
+    setFirstTimeAppLaunched()
+    setAppSyncedThisLaunch()
+}
