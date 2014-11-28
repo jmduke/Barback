@@ -32,13 +32,13 @@ extension UIViewController {
         navigationController?.navigationBar.translucent = false
         
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.barTintColor = UIColor.darkColor()
+        navigationController?.navigationBar.barTintColor = Color.Dark.toUIColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20 as CGFloat)!]
         
         if (tabBarController != nil) {
             tabBarController?.tabBar.translucent = false
-            tabBarController?.tabBar.barTintColor = UIColor.darkColor()
-            tabBarController?.tabBar.tintColor = UIColor.tintColor()
+            tabBarController?.tabBar.barTintColor = Color.Dark.toUIColor()
+            tabBarController?.tabBar.tintColor = Color.Tint.toUIColor()
         }
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)!], forState: UIControlState.Normal)

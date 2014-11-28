@@ -173,10 +173,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
-        tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
-        tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(UIColor.lightColor(), fillColor: nil)
+        let imageColor = Color.Light.toUIColor()
+        tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+        tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+        tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+        tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(imageColor, fillColor: nil)
     }
 
     func initializeDependencies(launchOptions: NSDictionary?) {
