@@ -29,7 +29,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
-    @IBOutlet var informationLabel : UILabel!
+    @IBOutlet var informationLabel : DescriptionLabel!
     @IBOutlet var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
@@ -90,18 +90,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsLabel.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         
-        var markdownEngine = Markdown()
-        let informationMarkdown = recipe!.information ?? ""
-        let informationHTML = "<style type='text/css'>"
-            + "p { text-align: center;"
-            + "    font-family: Futura-Medium;"
-            + "    font-size: 15px;"
-            + "    color: 3F5765; }"
-            + "</style>"
-            + markdownEngine.transform(informationMarkdown)
-        let informationData = informationHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let informationString = NSAttributedString(data: informationData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
-        informationLabel.attributedText = informationString
+        informationLabel.markdownText = recipe!.information ?? ""
         
         scrollView.delegate = self
         
@@ -201,7 +190,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func styleController() {
         super.styleController()
         
-        directionsLabel.textColor = UIColor.darkColor()
+        directionsLabel.textColor = Color.Dark.toUIColor()
         
         view.layoutIfNeeded()
     }

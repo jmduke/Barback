@@ -31,7 +31,7 @@ class HeaderLabel : UILabel {
     }
     
     func styleLabel() {
-        textColor = UIColor.darkColor()
+        textColor = Color.Dark.toUIColor()
         font = UIFont(name: UIFont.heavyFont(), size: 32)
         textAlignment = NSTextAlignment.Center
     }

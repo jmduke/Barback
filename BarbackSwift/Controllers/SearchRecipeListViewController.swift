@@ -85,9 +85,9 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         super.styleController()
         
         searchBar.translucent = false
-        searchBar.barTintColor = UIColor.darkColor()
+        searchBar.barTintColor = Color.Dark.toUIColor()
         UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
-        UITextField.appearance().textColor = UIColor.darkColor()
+        UITextField.appearance().textColor = Color.Dark.toUIColor()
     }
     
     override func viewDidLoad() {
@@ -195,8 +195,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             let rangeOfFoundText = (ingredient.name.lowercaseString as NSString).rangeOfString(searchTerms.last!)
             
-            let attributes = [NSForegroundColorAttributeName: rangeOfFoundText.length == 0 ? UIColor.lightColor() : UIColor.lighterColor()]
-            let boldAttributes = [NSForegroundColorAttributeName: UIColor.lightColor()]
+            let attributes = [NSForegroundColorAttributeName: rangeOfFoundText.length == 0 ? Color.Light.toUIColor() : Color.Lighter.toUIColor()]
+            let boldAttributes = [NSForegroundColorAttributeName: Color.Light.toUIColor()]
             let attributedText = NSMutableAttributedString(string: "\(labelPrefix)\(ingredient.name)", attributes: attributes)
             attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
             cell.textLabel?.attributedText = attributedText
