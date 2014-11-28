@@ -12,7 +12,7 @@ class ScrollView : UIScrollView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.backgroundColor()
+        backgroundColor = Color.Background.toUIColor()
     }
     
 }

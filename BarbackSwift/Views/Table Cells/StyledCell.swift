@@ -22,12 +22,12 @@ class StyledCell : UITableViewCell {
         textLabel?.font = UIFont(name: UIFont.primaryFont(), size: 20)
         detailTextLabel?.font = UIFont(name: UIFont.heavyFont(), size: 14)
         
-        textLabel?.textColor = UIColor.lightColor()
-        detailTextLabel?.textColor = UIColor.lighterColor()
+        textLabel?.textColor = Color.Light.toUIColor()
+        detailTextLabel?.textColor = Color.Lighter.toUIColor()
         
         if (textLabel?.text == "Bartender's Choice" || textLabel?.text == "Shopping List") {
-            textLabel?.textColor = UIColor.tintColor()
-            detailTextLabel?.textColor = UIColor.tintColor()
+            textLabel?.textColor = Color.Tint.toUIColor()
+            detailTextLabel?.textColor = Color.Tint.toUIColor()
         }
     }
     

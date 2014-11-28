@@ -14,7 +14,7 @@ class EmptyStateLabel: UILabel {
         super.init(frame: frame)
         
         textAlignment = NSTextAlignment.Center
-        textColor = UIColor.lighterColor()
+        textColor = Color.Lighter.toUIColor()
         numberOfLines = 3
         font = UIFont(name: UIFont.primaryFont(), size: 24)
     }

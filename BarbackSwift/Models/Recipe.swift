@@ -58,6 +58,7 @@ public class Recipe: StoredObject {
             let denominator = amounts.reduce(0, combine: +) as Int
             let numerator = (ingredients.map({
                 (ingredient: Ingredient) -> Int in
+                print("\(ingredient) \(ingredient.base) ")
                 let abv = ingredient.base.abv as Int
                 let proportion = Int(ingredient.amount?.intValue ?? 0)
                 return abv * proportion
