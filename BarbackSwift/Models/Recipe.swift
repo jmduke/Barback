@@ -56,7 +56,12 @@ public class Recipe: StoredObject {
         get {
             let amounts = ingredients.map({ Int($0.amount?.intValue ?? 0) }) as [Int]
             let denominator = amounts.reduce(0, combine: +) as Int
-            let numerator = (ingredients.map({ ($0.base.abv as Int) * Int($0.amount?.intValue ?? 0) }) as [Int]).reduce(0, combine: +)
+            let numerator = (ingredients.map({
+                (ingredient: Ingredient) -> Int in
+                let abv = ingredient.base.abv as Int
+                let proportion = Int(ingredient.amount?.intValue ?? 0)
+                return abv * proportion
+            }) as [Int]).reduce(0, combine: +)
             return Float(numerator) / Float(denominator)
         }
     }

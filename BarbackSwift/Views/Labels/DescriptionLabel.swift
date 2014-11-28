@@ -11,6 +11,13 @@ import UIKit
 
 class DescriptionLabel : UILabel {
     
+    // Setting attributedText overrides the styling information, so we restyle it.
+    override var attributedText: NSAttributedString! {
+        didSet {
+            // styleLabel()
+        }
+    }
+    
     override init() {
         super.init()
         styleLabel()
