@@ -29,7 +29,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
-    @IBOutlet var informationLabel : DescriptionLabel!
+    @IBOutlet weak var informationLabel: DescriptionTextView!
     @IBOutlet var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
@@ -102,8 +102,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         // Most recipes don't have descriptions at this point.
         let labelShouldBeHidden = informationLabel.text == ""
-        informationLabel.hidden = labelShouldBeHidden
-        informationLabelHeight.constant = labelShouldBeHidden ? 0 : 21
+        // informationLabel.hidden = labelShouldBeHidden
+        // informationLabelHeight.constant = labelShouldBeHidden ? 0 : 21
         
         // If there aren't any similar recipes, we can just hide the relevant elements.
         let similarRecipesExist = similarRecipes!.count > 0
