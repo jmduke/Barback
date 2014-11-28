@@ -16,9 +16,9 @@ class BezierButton: UIButton {
 
         
         if (self.state == UIControlState.Normal) {
-            UIColor.lighterColor().setFill()
+            Color.Light.toUIColor().setFill()
         } else {
-            UIColor.tintColor().setFill()
+            Color.Tint.toUIColor().setFill()
         }
         bezierPath.fill()
 

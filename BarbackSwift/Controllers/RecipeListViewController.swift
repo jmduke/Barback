@@ -33,13 +33,13 @@ class RecipeListViewController: UITableViewController {
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.backgroundView = nil
-        tableView.backgroundColor = UIColor.backgroundColor()
+        tableView.backgroundColor = Color.Background.toUIColor()
         
-        tableView.sectionIndexBackgroundColor = UIColor.backgroundColor();
-        tableView.sectionIndexColor = UIColor.darkColor()
+        tableView.sectionIndexBackgroundColor = Color.Background.toUIColor()
+        tableView.sectionIndexColor = Color.Dark.toUIColor()
         
         tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
-        tableView.sectionIndexColor = UIColor.darkColor()
+        tableView.sectionIndexColor = Color.Dark.toUIColor()
         
     }
     

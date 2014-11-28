@@ -11,10 +11,21 @@ import UIKit
 
 class DescriptionLabel : UILabel {
     
-    // Setting attributedText overrides the styling information, so we restyle it.
-    override var attributedText: NSAttributedString! {
+    var markdownText: NSString? {
         didSet {
-            // styleLabel()
+            var markdownEngine = Markdown()
+            let hexColor = NSString(format:"%2X", Color.Light.rawValue)
+            var informationHTML = "<style type='text/css'>"
+                + "p { text-align: center;"
+                + "    font-family: \(font.familyName);"
+                + "    font-size: \(font.pointSize)px;"
+                + "    color: \(hexColor); }"
+                + "</style>"
+            informationHTML += markdownEngine.transform(markdownText!)
+            print(informationHTML)
+            let informationData = informationHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+            let informationString = NSAttributedString(data: informationData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
+            attributedText = informationString
         }
     }
     
@@ -40,6 +51,6 @@ class DescriptionLabel : UILabel {
     func styleLabel() {
         font = UIFont(name: UIFont.heavyFont(), size: 15)
         textAlignment = NSTextAlignment.Center
-        textColor = UIColor.lightColor()
+        textColor = Color.Light.toUIColor()
     }
 }
