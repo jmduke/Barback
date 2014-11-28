@@ -21,6 +21,7 @@
 		2641EF2E1A1C500F0055291E /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2D1A1C500F0055291E /* DescriptionLabel.swift */; };
 		2641EF301A1C52F00055291E /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2F1A1C52F00055291E /* HeaderLabel.swift */; };
 		2641EF341A1C57450055291E /* EmptyStateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF331A1C57450055291E /* EmptyStateLabel.swift */; };
+		264633651A2804F100BF6DDC /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264633641A2804F100BF6DDC /* Markdown.swift */; };
 		265313471A1B274700B2A686 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313461A1B274700B2A686 /* RecipeCell.swift */; };
 		265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313481A1B2A4300B2A686 /* StyledCell.swift */; };
 		26747A1E1A102A5B00313F04 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A1C1A102A5B00313F04 /* Bolts.framework */; };
@@ -87,6 +88,7 @@
 		2641EF2D1A1C500F0055291E /* DescriptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		2641EF2F1A1C52F00055291E /* HeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		2641EF331A1C57450055291E /* EmptyStateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateLabel.swift; sourceTree = "<group>"; };
+		264633641A2804F100BF6DDC /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		265313461A1B274700B2A686 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		265313481A1B2A4300B2A686 /* StyledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledCell.swift; sourceTree = "<group>"; };
 		26747A1C1A102A5B00313F04 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26FBA46E1A1DB1240082FBEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		26FBA4701A1DB12A0082FBEC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		35791C1F003304182FF87C4B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		637761BCE5174C65922C617F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655B44CA19C1434500A1351F /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		65B129BE19C146C500F5B8C4 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -195,8 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				268BA1831A244A9C005CBD10 /* Utilities */,
-				262E75CC1A22F01D008487C0 /* Reachability.h */,
-				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
 				26747A491A1065F600313F04 /* Storyboards */,
 				26747A481A1065E500313F04 /* Views */,
@@ -308,8 +308,11 @@
 		268BA1831A244A9C005CBD10 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				262E75CC1A22F01D008487C0 /* Reachability.h */,
+				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				268BA1811A244A91005CBD10 /* SyncUtilities.swift */,
 				268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */,
+				264633641A2804F100BF6DDC /* Markdown.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -356,7 +359,7 @@
 		B3110AE61D9F1F0CF12FC12F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				35791C1F003304182FF87C4B /* Pods.release.xcconfig */,
+				38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */,
 				26747A3A1A102B1E00313F04 /* UIImageExtension.swift in Sources */,
 				262E75CE1A22F01D008487C0 /* Reachability.m in Sources */,
+				264633651A2804F100BF6DDC /* Markdown.swift in Sources */,
 				65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */,
 				267D02091A1DA63500E7786C /* ScrollView.swift in Sources */,
 				2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */,
@@ -750,7 +754,7 @@
 		};
 		2631DB9C194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35791C1F003304182FF87C4B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BarbackSwift.app/BarbackSwift";
 				FRAMEWORK_SEARCH_PATHS = (

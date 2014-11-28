@@ -89,8 +89,19 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         nameLabel.text = recipe!.name
         directionsLabel.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
-        informationLabel.text = recipe!.information ?? ""
         
+        var markdownEngine = Markdown()
+        let informationMarkdown = recipe!.information ?? ""
+        let informationHTML = "<style type='text/css'>"
+            + "p { text-align: center;"
+            + "    font-family: Futura-Medium;"
+            + "    font-size: 15px;"
+            + "    color: 3F5765; }"
+            + "</style>"
+            + markdownEngine.transform(informationMarkdown)
+        let informationData = informationHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        let informationString = NSAttributedString(data: informationData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
+        informationLabel.attributedText = informationString
         
         scrollView.delegate = self
         
