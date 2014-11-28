@@ -93,6 +93,7 @@ class Ingredient: StoredObject {
             ingredientBase!.name = baseName!
             ingredientBase!.information = ""
             ingredientBase!.type = "other"
+            ingredientBase!.abv = 0
         }
 
         newIngredient.base = ingredientBase!
