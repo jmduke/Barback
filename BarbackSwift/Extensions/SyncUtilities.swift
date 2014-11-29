@@ -14,6 +14,8 @@ let firstTimeAppLaunchedKey = "launchedOnce"
 let syncedThisLaunchKey = "syncedThisLaunch"
 let dataVersionKey = "dataVersion"
 let syncDateKey = "syncDate"
+let appVersionKey = "appVersion"
+let currentAppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as String
 
 func isFirstTimeAppLaunched() -> Bool {
     return !NSUserDefaults.standardUserDefaults().boolForKey(firstTimeAppLaunchedKey)
@@ -23,8 +25,17 @@ func isAppSyncedThisLaunch() -> Bool {
     return !NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
 }
 
+func isNewVersionOfApp() -> Bool {
+    return !(NSUserDefaults.standardUserDefaults().stringForKey(appVersionKey) == currentAppVersion)
+}
+
 func getLatestDataVersion() -> Int {
     return NSUserDefaults.standardUserDefaults().integerForKey(dataVersionKey)
+}
+
+func updateVersionOfApp() {
+    NSUserDefaults.standardUserDefaults().setObject(currentAppVersion, forKey: appVersionKey)
+    NSUserDefaults.standardUserDefaults().synchronize()
 }
 
 func setFirstTimeAppLaunched() {
