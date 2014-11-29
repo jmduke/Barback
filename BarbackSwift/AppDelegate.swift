@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             saveContext()
         }
     }
-    
+ 
     func finalizeAppSetup() {
         syncNewData()
         saveContext()
