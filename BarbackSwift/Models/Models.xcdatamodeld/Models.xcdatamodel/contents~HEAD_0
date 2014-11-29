@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B23" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Brand" representedClassName="BarbackSwift.Brand" syncable="YES">
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="ingredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientBase" inverseName="brands" inverseEntity="IngredientBase" syncable="YES"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="BarbackSwift.Ingredient" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="base" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientBase" inverseName="uses" inverseEntity="IngredientBase" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredientSet" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="IngredientBase" representedClassName="BarbackSwift.IngredientBase" syncable="YES">
+        <attribute name="abv" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="brands" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Brand" inverseName="ingredient" inverseEntity="Brand" syncable="YES"/>
+        <relationship name="uses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="base" inverseEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <entity name="Recipe" representedClassName="BarbackSwift.Recipe" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="glassware" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isFavorited" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingredientSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Brand" positionX="-99" positionY="-52" width="128" height="120"/>
+        <element name="Ingredient" positionX="331" positionY="140" width="128" height="135"/>
+        <element name="IngredientBase" positionX="313" positionY="-72" width="128" height="150"/>
+        <element name="Recipe" positionX="-56" positionY="108" width="128" height="163"/>
+    </elements>
+</model>
