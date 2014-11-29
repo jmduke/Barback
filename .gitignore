@@ -1,6 +1,10 @@
 # Xcode
 #
 build/
+*/PrivateKeys.plist
+*/parse_config.py
+*.pyc
+*.yaml
 *.pbxuser
 !default.pbxuser
 *.mode1v3

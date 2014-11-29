@@ -60,22 +60,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Needed to access UITabBarIcons.
     var window: UIWindow?
     
-    
     func updateIfNecessary() {
         if isFirstTimeAppLaunched() {
+            markAppAsLaunched()
             finalizeAppSetup()
         } else if dataNeedsSyncing() {
+            markAppAsLaunched()
             syncNewData()
             saveContext()
-            
         }
-        
-        markAppAsLaunched()
     }
     
     func finalizeAppSetup() {
         syncNewData()
         saveContext()
+        updateVersionOfApp()
         
         // Set some random recipes to be favorites.
         let initialNumberOfFavoritedRecipes = 3
