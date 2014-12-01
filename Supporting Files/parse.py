@@ -83,6 +83,7 @@ def pull():
         outfile.write(yaml.safe_dump(get_recipes(), default_flow_style=False))
     with open(bases_filename, "w") as outfile:
         outfile.write(yaml.safe_dump(get_bases(), default_flow_style=False))
+    print "Pulled data."
 
 def push():
     old_recipes = get_recipes()
@@ -98,18 +99,24 @@ def push():
 
     print "Found {} new recipes.".format(len(recipes))
 
+    old_bases = get_bases()
     raw_bases = yaml.load(open(bases_filename).read())
     bases = []
     brands = []
     for base in raw_bases:
-        bases.append(IngredientBase(dictionary=base))
-        for brand in base["brands"]:
-            brand.update({"base": base})
-            brands.append(Brand(dictionary=brand))
+        if base not in old_bases:
+            bases.append(IngredientBase(dictionary=base))
+            for brand in base["brands"]:
+                brand.update({"base": base})
+                brands.append(Brand(dictionary=brand))
 
+    print "Found {} new bases.".format(len(bases))  
+
+    print "Pushing data."
     ParseBatcher().batch_save(recipes)
+    ParseBatcher().batch_save(bases)
 
 if __name__ == "__main__":
     setup()
-    # pull()
     push()
+    pull()
