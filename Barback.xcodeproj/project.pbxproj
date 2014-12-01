@@ -45,9 +45,9 @@
 		267D02091A1DA63500E7786C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D02081A1DA63500E7786C /* ScrollView.swift */; };
 		268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1811A244A91005CBD10 /* SyncUtilities.swift */; };
 		268BA1851A244B75005CBD10 /* PreferencesUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */; };
-		26A1203F1A2C3C000044F61D /* MarkdownTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A120391A2C3C000044F61D /* MarkdownTokenizer.m */; };
-		26A120401A2C3C000044F61D /* MarkdownTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203B1A2C3C000044F61D /* MarkdownTokens.m */; };
-		26A120411A2C3C000044F61D /* NSAttributedStringMarkdownParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */; };
+		26A1203F1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A120391A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m */; };
+		26A120401A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203B1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m */; };
+		26A120411A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203E1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m */; };
 		26A120451A2C3C620044F61D /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 26A120421A2C3C620044F61D /* fmemopen.c */; };
 		26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB725194D11DC00AF126B /* UIColorExtension.swift */; };
 		26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB727194D1C5E00AF126B /* UIFontExtension.swift */; };
@@ -79,8 +79,8 @@
 		2623FBA91A2941640023E862 /* v2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.2.xcdatamodel; sourceTree = "<group>"; };
 		262E75C31A22E420008487C0 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		262E75C51A22E844008487C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		262E75CC1A22F01D008487C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.h"; sourceTree = "<group>"; };
-		262E75CD1A22F01D008487C0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.m"; sourceTree = "<group>"; };
+		262E75CC1A22F01D008487C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../../Downloads/Reachability 3/Reachability/Reachability.h"; sourceTree = "<group>"; };
+		262E75CD1A22F01D008487C0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../../Downloads/Reachability 3/Reachability/Reachability.m"; sourceTree = "<group>"; };
 		2631DB79194BFF500025DCF5 /* Barback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631DB7D194BFF500025DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2631DB7E194BFF500025DCF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,17 +118,17 @@
 		26747A4A1A10666D00313F04 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 		267D02081A1DA63500E7786C /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		2684097B1A1975EB005BCF9B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
-		268BA1811A244A91005CBD10 /* SyncUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyncUtilities.swift; path = Extensions/SyncUtilities.swift; sourceTree = "<group>"; };
+		268BA1811A244A91005CBD10 /* SyncUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncUtilities.swift; sourceTree = "<group>"; };
 		268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesUtilities.swift; sourceTree = "<group>"; };
-		26A120391A2C3C000044F61D /* MarkdownTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTokenizer.m; sourceTree = "<group>"; };
-		26A1203A1A2C3C000044F61D /* MarkdownTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTokens.h; sourceTree = "<group>"; };
-		26A1203B1A2C3C000044F61D /* MarkdownTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTokens.m; sourceTree = "<group>"; };
-		26A1203C1A2C3C000044F61D /* NimbusMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusMarkdown.h; sourceTree = "<group>"; };
-		26A1203D1A2C3C000044F61D /* NSAttributedStringMarkdownParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedStringMarkdownParser.h; sourceTree = "<group>"; };
-		26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAttributedStringMarkdownParser.m; sourceTree = "<group>"; };
-		26A120421A2C3C620044F61D /* fmemopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fmemopen.c; path = "../../memorymapping-master/src/fmemopen.c"; sourceTree = "<group>"; };
-		26A120431A2C3C620044F61D /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmemopen.h; path = "../../memorymapping-master/src/fmemopen.h"; sourceTree = "<group>"; };
-		26A120441A2C3C620044F61D /* NimbusMemoryMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusMemoryMapping.h; path = "../../memorymapping-master/src/NimbusMemoryMapping.h"; sourceTree = "<group>"; };
+		26A120391A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m"; sourceTree = "<group>"; };
+		26A1203A1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "../../../../../../Downloads/markdown-master/src/MarkdownTokens.h"; sourceTree = "<group>"; };
+		26A1203B1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "../../../../../../Downloads/markdown-master/src/MarkdownTokens.m"; sourceTree = "<group>"; };
+		26A1203C1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NimbusMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "../../../../../../Downloads/markdown-master/src/NimbusMarkdown.h"; sourceTree = "<group>"; };
+		26A1203D1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.h"; sourceTree = "<group>"; };
+		26A1203E1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m"; sourceTree = "<group>"; };
+		26A120421A2C3C620044F61D /* fmemopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fmemopen.c; path = "../../../../../../Downloads/memorymapping-master/src/fmemopen.c"; sourceTree = "<group>"; };
+		26A120431A2C3C620044F61D /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmemopen.h; path = "../../../../../../Downloads/memorymapping-master/src/fmemopen.h"; sourceTree = "<group>"; };
+		26A120441A2C3C620044F61D /* NimbusMemoryMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusMemoryMapping.h; path = "../../../../../../Downloads/memorymapping-master/src/NimbusMemoryMapping.h"; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		26AAB727194D1C5E00AF126B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		65B129C019C146C500F5B8C4 /* IngredientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientType.swift; sourceTree = "<group>"; };
 		65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientDetailViewController.swift; sourceTree = "<group>"; };
-		65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BarbackSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		65B129CC19C14E1300F5B8C4 /* Barback-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Barback-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				268BA1831A244A9C005CBD10 /* Utilities */,
-				65B129CC19C14E1300F5B8C4 /* BarbackSwift-Bridging-Header.h */,
+				65B129CC19C14E1300F5B8C4 /* Barback-Bridging-Header.h */,
 				26747A491A1065F600313F04 /* Storyboards */,
 				26747A481A1065E500313F04 /* Views */,
 				26AAB724194D11C500AF126B /* Extensions */,
@@ -224,8 +224,7 @@
 				2631DB7C194BFF500025DCF5 /* Supporting Files */,
 				26F415341A10744300D1F19A /* PrivateKeys.plist */,
 			);
-			name = Barback;
-			path = BarbackSwift;
+			path = Barback;
 			sourceTree = "<group>";
 		};
 		2631DB7C194BFF500025DCF5 /* Supporting Files */ = {
@@ -332,7 +331,7 @@
 				268BA1811A244A91005CBD10 /* SyncUtilities.swift */,
 				268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */,
 			);
-			name = Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		26A120381A2C3C000044F61D /* Markdown */ = {
@@ -341,15 +340,14 @@
 				26A120421A2C3C620044F61D /* fmemopen.c */,
 				26A120431A2C3C620044F61D /* fmemopen.h */,
 				26A120441A2C3C620044F61D /* NimbusMemoryMapping.h */,
-				26A120391A2C3C000044F61D /* MarkdownTokenizer.m */,
-				26A1203A1A2C3C000044F61D /* MarkdownTokens.h */,
-				26A1203B1A2C3C000044F61D /* MarkdownTokens.m */,
-				26A1203C1A2C3C000044F61D /* NimbusMarkdown.h */,
-				26A1203D1A2C3C000044F61D /* NSAttributedStringMarkdownParser.h */,
-				26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */,
+				26A120391A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m */,
+				26A1203A1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.h */,
+				26A1203B1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m */,
+				26A1203C1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NimbusMarkdown.h */,
+				26A1203D1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.h */,
+				26A1203E1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m */,
 			);
-			name = Markdown;
-			path = "../../../../Downloads/markdown-master/src";
+			path = Markdown;
 			sourceTree = "<group>";
 		};
 		26AAB724194D11C500AF126B /* Extensions */ = {
@@ -578,18 +576,18 @@
 				265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */,
 				26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */,
 				2641EF2E1A1C500F0055291E /* DescriptionLabel.swift in Sources */,
-				26A1203F1A2C3C000044F61D /* MarkdownTokenizer.m in Sources */,
+				26A1203F1A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokenizer.m in Sources */,
 				655B44CB19C1434500A1351F /* RecipeListViewController.swift in Sources */,
 				65B129C719C146CE00F5B8C4 /* UIViewControllerExtension.swift in Sources */,
 				2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */,
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				26747A231A102AF400313F04 /* StoredObject.swift in Sources */,
 				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
-				26A120411A2C3C000044F61D /* NSAttributedStringMarkdownParser.m in Sources */,
+				26A120411A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
 				26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */,
 				265313471A1B274700B2A686 /* RecipeCell.swift in Sources */,
-				26A120401A2C3C000044F61D /* MarkdownTokens.m in Sources */,
+				26A120401A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m in Sources */,
 				26A120451A2C3C620044F61D /* fmemopen.c in Sources */,
 				26747A311A102B1E00313F04 /* CoreDataExtensions.swift in Sources */,
 				26747A321A102B1E00313F04 /* CoreDataHelper.swift in Sources */,
@@ -671,7 +669,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "BarbackSwift/BarbackSwift-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Barback/Barback-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -731,7 +729,7 @@
 					"\"${PODS_ROOT}/Headers/Public/RNBlurModalView\"",
 					"\"${PODS_ROOT}/Headers/Public/WSCoachMarksView\"",
 				);
-				INFOPLIST_FILE = "BarbackSwift/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Barback/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -760,14 +758,14 @@
 					"\"${PODS_ROOT}/Headers/Public/RNBlurModalView\"",
 					"\"${PODS_ROOT}/Headers/Public/WSCoachMarksView\"",
 				);
-				INFOPLIST_FILE = "BarbackSwift/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Barback/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "BarbackSwift/BarbackSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Barback/Barback-Bridging-Header.h";
 			};
 			name = Release;
 		};
