@@ -25,7 +25,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var similarRecipes: [Recipe]?
     var sortedIngredients: [Ingredient]?
     
-    @IBOutlet weak var informationLabelHeight: NSLayoutConstraint!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet var directionsLabel : UILabel!
@@ -102,8 +101,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         // Most recipes don't have descriptions at this point.
         let labelShouldBeHidden = informationLabel.text == ""
-        // informationLabel.hidden = labelShouldBeHidden
-        // informationLabelHeight.constant = labelShouldBeHidden ? 0 : 21
+        informationLabel.hidden = labelShouldBeHidden
         
         // If there aren't any similar recipes, we can just hide the relevant elements.
         let similarRecipesExist = similarRecipes!.count > 0
