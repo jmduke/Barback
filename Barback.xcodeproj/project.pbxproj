@@ -22,7 +22,6 @@
 		2641EF2E1A1C500F0055291E /* DescriptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2D1A1C500F0055291E /* DescriptionLabel.swift */; };
 		2641EF301A1C52F00055291E /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF2F1A1C52F00055291E /* HeaderLabel.swift */; };
 		2641EF341A1C57450055291E /* EmptyStateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641EF331A1C57450055291E /* EmptyStateLabel.swift */; };
-		264633651A2804F100BF6DDC /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264633641A2804F100BF6DDC /* Markdown.swift */; };
 		265313471A1B274700B2A686 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313461A1B274700B2A686 /* RecipeCell.swift */; };
 		265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313481A1B2A4300B2A686 /* StyledCell.swift */; };
 		26747A1E1A102A5B00313F04 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A1C1A102A5B00313F04 /* Bolts.framework */; };
@@ -46,6 +45,10 @@
 		267D02091A1DA63500E7786C /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D02081A1DA63500E7786C /* ScrollView.swift */; };
 		268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1811A244A91005CBD10 /* SyncUtilities.swift */; };
 		268BA1851A244B75005CBD10 /* PreferencesUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */; };
+		26A1203F1A2C3C000044F61D /* MarkdownTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A120391A2C3C000044F61D /* MarkdownTokenizer.m */; };
+		26A120401A2C3C000044F61D /* MarkdownTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203B1A2C3C000044F61D /* MarkdownTokens.m */; };
+		26A120411A2C3C000044F61D /* NSAttributedStringMarkdownParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */; };
+		26A120451A2C3C620044F61D /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 26A120421A2C3C620044F61D /* fmemopen.c */; };
 		26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB725194D11DC00AF126B /* UIColorExtension.swift */; };
 		26AAB728194D1C5E00AF126B /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB727194D1C5E00AF126B /* UIFontExtension.swift */; };
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
@@ -78,11 +81,11 @@
 		262E75C51A22E844008487C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		262E75CC1A22F01D008487C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.h"; sourceTree = "<group>"; };
 		262E75CD1A22F01D008487C0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../../Downloads/Reachability 3/Reachability/Reachability.m"; sourceTree = "<group>"; };
-		2631DB79194BFF500025DCF5 /* BarbackSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarbackSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2631DB79194BFF500025DCF5 /* Barback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631DB7D194BFF500025DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2631DB7E194BFF500025DCF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2631DB85194BFF500025DCF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2631DB8D194BFF500025DCF5 /* BarbackSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarbackSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2631DB8D194BFF500025DCF5 /* BarbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2631DB92194BFF500025DCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2631DB93194BFF500025DCF5 /* BarbackSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbackSwiftTests.swift; sourceTree = "<group>"; };
 		2631DBA5194C01C40025DCF5 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		2641EF2D1A1C500F0055291E /* DescriptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		2641EF2F1A1C52F00055291E /* HeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		2641EF331A1C57450055291E /* EmptyStateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateLabel.swift; sourceTree = "<group>"; };
-		264633641A2804F100BF6DDC /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		265313461A1B274700B2A686 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		265313481A1B2A4300B2A686 /* StyledCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledCell.swift; sourceTree = "<group>"; };
 		26747A1C1A102A5B00313F04 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
@@ -118,6 +120,15 @@
 		2684097B1A1975EB005BCF9B /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
 		268BA1811A244A91005CBD10 /* SyncUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyncUtilities.swift; path = Extensions/SyncUtilities.swift; sourceTree = "<group>"; };
 		268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesUtilities.swift; sourceTree = "<group>"; };
+		26A120391A2C3C000044F61D /* MarkdownTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTokenizer.m; sourceTree = "<group>"; };
+		26A1203A1A2C3C000044F61D /* MarkdownTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownTokens.h; sourceTree = "<group>"; };
+		26A1203B1A2C3C000044F61D /* MarkdownTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTokens.m; sourceTree = "<group>"; };
+		26A1203C1A2C3C000044F61D /* NimbusMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusMarkdown.h; sourceTree = "<group>"; };
+		26A1203D1A2C3C000044F61D /* NSAttributedStringMarkdownParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedStringMarkdownParser.h; sourceTree = "<group>"; };
+		26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAttributedStringMarkdownParser.m; sourceTree = "<group>"; };
+		26A120421A2C3C620044F61D /* fmemopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fmemopen.c; path = "../../memorymapping-master/src/fmemopen.c"; sourceTree = "<group>"; };
+		26A120431A2C3C620044F61D /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmemopen.h; path = "../../memorymapping-master/src/fmemopen.h"; sourceTree = "<group>"; };
+		26A120441A2C3C620044F61D /* NimbusMemoryMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusMemoryMapping.h; path = "../../memorymapping-master/src/NimbusMemoryMapping.h"; sourceTree = "<group>"; };
 		26AAB725194D11DC00AF126B /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		26AAB727194D1C5E00AF126B /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -181,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				26AAB73D194ED3A400AF126B /* Settings.bundle */,
-				2631DB7B194BFF500025DCF5 /* BarbackSwift */,
+				2631DB7B194BFF500025DCF5 /* Barback */,
 				2631DB90194BFF500025DCF5 /* BarbackSwiftTests */,
 				2631DB7A194BFF500025DCF5 /* Products */,
 				737783D2D7DB48B6BA5AADF3 /* Frameworks */,
@@ -192,13 +203,13 @@
 		2631DB7A194BFF500025DCF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2631DB79194BFF500025DCF5 /* BarbackSwift.app */,
-				2631DB8D194BFF500025DCF5 /* BarbackSwiftTests.xctest */,
+				2631DB79194BFF500025DCF5 /* Barback.app */,
+				2631DB8D194BFF500025DCF5 /* BarbackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2631DB7B194BFF500025DCF5 /* BarbackSwift */ = {
+		2631DB7B194BFF500025DCF5 /* Barback */ = {
 			isa = PBXGroup;
 			children = (
 				268BA1831A244A9C005CBD10 /* Utilities */,
@@ -213,6 +224,7 @@
 				2631DB7C194BFF500025DCF5 /* Supporting Files */,
 				26F415341A10744300D1F19A /* PrivateKeys.plist */,
 			);
+			name = Barback;
 			path = BarbackSwift;
 			sourceTree = "<group>";
 		};
@@ -312,15 +324,32 @@
 		268BA1831A244A9C005CBD10 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				26A120381A2C3C000044F61D /* Markdown */,
 				262E75CC1A22F01D008487C0 /* Reachability.h */,
 				26747A261A102B1E00313F04 /* CoreDataHelper.swift */,
 				26747A271A102B1E00313F04 /* CoreDataStore.swift */,
 				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				268BA1811A244A91005CBD10 /* SyncUtilities.swift */,
 				268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */,
-				264633641A2804F100BF6DDC /* Markdown.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		26A120381A2C3C000044F61D /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				26A120421A2C3C620044F61D /* fmemopen.c */,
+				26A120431A2C3C620044F61D /* fmemopen.h */,
+				26A120441A2C3C620044F61D /* NimbusMemoryMapping.h */,
+				26A120391A2C3C000044F61D /* MarkdownTokenizer.m */,
+				26A1203A1A2C3C000044F61D /* MarkdownTokens.h */,
+				26A1203B1A2C3C000044F61D /* MarkdownTokens.m */,
+				26A1203C1A2C3C000044F61D /* NimbusMarkdown.h */,
+				26A1203D1A2C3C000044F61D /* NSAttributedStringMarkdownParser.h */,
+				26A1203E1A2C3C000044F61D /* NSAttributedStringMarkdownParser.m */,
+			);
+			name = Markdown;
+			path = "../../../../Downloads/markdown-master/src";
 			sourceTree = "<group>";
 		};
 		26AAB724194D11C500AF126B /* Extensions */ = {
@@ -373,9 +402,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2631DB78194BFF500025DCF5 /* BarbackSwift */ = {
+		2631DB78194BFF500025DCF5 /* Barback */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2631DB97194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackSwift" */;
+			buildConfigurationList = 2631DB97194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "Barback" */;
 			buildPhases = (
 				B093440F9F5A4CD092969EDD /* Check Pods Manifest.lock */,
 				836C5D98FAB14DA78CA66C4D /* Copy Pods Resources */,
@@ -387,14 +416,14 @@
 			);
 			dependencies = (
 			);
-			name = BarbackSwift;
+			name = Barback;
 			productName = BarbackSwift;
-			productReference = 2631DB79194BFF500025DCF5 /* BarbackSwift.app */;
+			productReference = 2631DB79194BFF500025DCF5 /* Barback.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2631DB8C194BFF500025DCF5 /* BarbackSwiftTests */ = {
+		2631DB8C194BFF500025DCF5 /* BarbackTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2631DB9A194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackSwiftTests" */;
+			buildConfigurationList = 2631DB9A194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackTests" */;
 			buildPhases = (
 				C15463BBC3E8CE7A506CAE96 /* Check Pods Manifest.lock */,
 				2631DB89194BFF500025DCF5 /* Sources */,
@@ -406,9 +435,9 @@
 			);
 			dependencies = (
 			);
-			name = BarbackSwiftTests;
+			name = BarbackTests;
 			productName = BarbackSwiftTests;
-			productReference = 2631DB8D194BFF500025DCF5 /* BarbackSwiftTests.xctest */;
+			productReference = 2631DB8D194BFF500025DCF5 /* BarbackTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -443,8 +472,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2631DB78194BFF500025DCF5 /* BarbackSwift */,
-				2631DB8C194BFF500025DCF5 /* BarbackSwiftTests */,
+				2631DB78194BFF500025DCF5 /* Barback */,
+				2631DB8C194BFF500025DCF5 /* BarbackTests */,
 			);
 		};
 /* End PBXProject section */
@@ -549,15 +578,19 @@
 				265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */,
 				26AAB726194D11DC00AF126B /* UIColorExtension.swift in Sources */,
 				2641EF2E1A1C500F0055291E /* DescriptionLabel.swift in Sources */,
+				26A1203F1A2C3C000044F61D /* MarkdownTokenizer.m in Sources */,
 				655B44CB19C1434500A1351F /* RecipeListViewController.swift in Sources */,
 				65B129C719C146CE00F5B8C4 /* UIViewControllerExtension.swift in Sources */,
 				2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */,
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				26747A231A102AF400313F04 /* StoredObject.swift in Sources */,
 				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
+				26A120411A2C3C000044F61D /* NSAttributedStringMarkdownParser.m in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
 				26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */,
 				265313471A1B274700B2A686 /* RecipeCell.swift in Sources */,
+				26A120401A2C3C000044F61D /* MarkdownTokens.m in Sources */,
+				26A120451A2C3C620044F61D /* fmemopen.c in Sources */,
 				26747A311A102B1E00313F04 /* CoreDataExtensions.swift in Sources */,
 				26747A321A102B1E00313F04 /* CoreDataHelper.swift in Sources */,
 				2641EF341A1C57450055291E /* EmptyStateLabel.swift in Sources */,
@@ -568,7 +601,6 @@
 				65B129C219C146C500F5B8C4 /* IngredientBase.swift in Sources */,
 				26747A3A1A102B1E00313F04 /* UIImageExtension.swift in Sources */,
 				262E75CE1A22F01D008487C0 /* Reachability.m in Sources */,
-				264633651A2804F100BF6DDC /* Markdown.swift in Sources */,
 				65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */,
 				267D02091A1DA63500E7786C /* ScrollView.swift in Sources */,
 				2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */,
@@ -788,7 +820,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2631DB97194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackSwift" */ = {
+		2631DB97194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "Barback" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2631DB98194BFF500025DCF5 /* Debug */,
@@ -797,7 +829,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2631DB9A194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackSwiftTests" */ = {
+		2631DB9A194BFF500025DCF5 /* Build configuration list for PBXNativeTarget "BarbackTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2631DB9B194BFF500025DCF5 /* Debug */,

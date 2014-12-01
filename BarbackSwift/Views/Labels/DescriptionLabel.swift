@@ -27,7 +27,6 @@ class DescriptionLabel : UILabel {
                 + "    color: \(hexColor); }"
                 + "</style>"
             informationHTML += markdownEngine.transform(markdownText!)
-            print(informationHTML)
             let informationData = informationHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
             let informationString = NSAttributedString(data: informationData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
             attributedText = informationString

@@ -13,25 +13,12 @@ class DescriptionTextView : UITextView {
     
     var markdownText: NSString? {
         didSet {
-            if markdownText == nil || markdownText == "" {
-                attributedText = NSAttributedString(string: "")
-                return
-            }
-            
-            var markdownEngine = Markdown()
-            let normalColor = NSString(format:"%2X", Color.Light.rawValue)
-            let tintColor = NSString(format:"%2X", Color.Tint.rawValue)
-            var informationHTML = "<style type='text/css'>"
-                + "p { text-align: center;"
-                + "    font-family: \(font.familyName);"
-                + "    font-size: \(font.pointSize)px;"
-                + "    color: \(normalColor); }"
-                + "</style>"
-            informationHTML += markdownEngine.transform(markdownText!)
-            let informationData = informationHTML.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-            let informationString = NSAttributedString(data: informationData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
-            attributedText = informationString
-            
+            let parser = NSAttributedStringMarkdownParser()
+            parser.paragraphFont = font
+            parser.italicFontName = UIFont.heavyFont()
+            attributedText = parser.attributedStringFromMarkdownString(markdownText!)
+            textAlignment = NSTextAlignment.Center
+            textColor = Color.Light.toUIColor()
         }
     }
     
@@ -55,7 +42,7 @@ class DescriptionTextView : UITextView {
     }
     
     func styleLabel() {
-        font = UIFont(name: UIFont.heavyFont(), size: 15)
+        font = UIFont(name: UIFont.primaryFont(), size: 15)
         textAlignment = NSTextAlignment.Center
         textColor = Color.Light.toUIColor()
         backgroundColor = Color.Background.toUIColor()

@@ -230,8 +230,8 @@
                                     <constraint firstAttribute="bottom" secondItem="P39-gZ-b5l" secondAttribute="bottom" priority="500" constant="40" id="cB9-eT-CDH"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="kWC-w4-NKU"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="P39-gZ-b5l" secondAttribute="bottom" constant="40" id="n7p-o2-1S0"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="32" id="nAB-Vx-TtZ"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="P39-gZ-b5l" secondAttribute="bottom" constant="20" id="n7p-o2-1S0"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="20" id="nAB-Vx-TtZ"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
                                     <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="she-fr-Nl7"/>
