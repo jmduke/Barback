@@ -184,7 +184,8 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
                 let modal = RNBlurModalView(viewController: self, view: imageView)
                 modal.show()
             } else {
-                let modal = RNBlurModalView(viewController: self, title: "Image not found", message: "Sorry, we don't have a picture for \(selectedBrand.name) :(.")
+                let modalMessage = isConnectedToInternet() ? "Sorry, we don't have a picture for \(selectedBrand.name) :(." : "We can't grab the image because you don't have an internet connection :("
+                let modal = RNBlurModalView(viewController: self, title: "Image not found", message: modalMessage)
                 modal.show()
             }
             
