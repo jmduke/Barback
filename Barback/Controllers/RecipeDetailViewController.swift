@@ -49,6 +49,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let activities = ["Just made a \(recipe!.name) with @getbarback!", externalUrl!]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
+        
+        // Needed to play nice with iPad views.
+        if (controller.respondsToSelector("popoverPresentationController")) {
+            let presentationController = controller.popoverPresentationController
+            let shareButton = self.navigationItem.rightBarButtonItem
+            presentationController?.barButtonItem = shareButton
+        }
     }
     
     override func viewDidLoad() {
