@@ -157,10 +157,15 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         
-        let destination = segue!.destinationViewController as RecipeDetailViewController
+        var destinationController: RecipeDetailViewController
+        if runningOnIPad() {
+            destinationController = segue!.destinationViewController.topViewController as RecipeDetailViewController
+        } else {
+            destinationController = segue!.destinationViewController as RecipeDetailViewController
+        }
         
         var recipe = getSelectedRecipe()
-        destination.setRecipe(recipe)
+        destinationController.setRecipe(recipe)
     }
     
     func getSelectedRecipe() -> Recipe {

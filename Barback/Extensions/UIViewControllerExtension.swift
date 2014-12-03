@@ -41,6 +41,8 @@ extension UIViewController {
             tabBarController?.tabBar.tintColor = Color.Tint.toUIColor()
         }
         
+        view.backgroundColor = Color.Dark.toUIColor()
+        
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)!], forState: UIControlState.Normal)
     }
 
