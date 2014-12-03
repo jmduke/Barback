@@ -92,12 +92,7 @@ class RecipeListViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        var destinationController: RecipeDetailViewController
-        if runningOnIPad() {
-            destinationController = segue!.destinationViewController.topViewController as RecipeDetailViewController
-        } else {
-            destinationController = segue!.destinationViewController as RecipeDetailViewController
-        }
+        var destinationController = getRecipeDetailController(segue)
         
         var recipe = getSelectedRecipe()
         

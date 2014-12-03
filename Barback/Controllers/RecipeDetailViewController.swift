@@ -279,13 +279,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             var ingredient = getSelectedIngredient()
             destination.setIngredient(ingredient)
         } else {
-            var destinationController: RecipeDetailViewController
-            if runningOnIPad() {
-                destinationController = segue!.destinationViewController.topViewController as RecipeDetailViewController
-            } else {
-                destinationController = segue!.destinationViewController as RecipeDetailViewController
-            }
-            
+            var destinationController = getRecipeDetailController(segue)
             var recipe = getSelectedRecipe()
             destinationController.setRecipe(recipe)
         }
