@@ -21,3 +21,8 @@ func registerSettingsDefaults() {
         userDefaults.synchronize()
     }
 }
+
+func runningOnIPad() -> Bool {
+    return UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad
+}
+    

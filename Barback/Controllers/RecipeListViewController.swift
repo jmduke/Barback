@@ -92,7 +92,12 @@ class RecipeListViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        let destination = segue!.destinationViewController as RecipeDetailViewController
+        var destinationController: RecipeDetailViewController
+        if runningOnIPad() {
+            destinationController = segue!.destinationViewController.topViewController as RecipeDetailViewController
+        } else {
+            destinationController = segue!.destinationViewController as RecipeDetailViewController
+        }
         
         var recipe = getSelectedRecipe()
         
@@ -100,7 +105,7 @@ class RecipeListViewController: UITableViewController {
             let randomIndex = Int(arc4random_uniform(UInt32(recipes.count))) % (recipes.count - 1)
             recipe = recipes[randomIndex]
         }
-        destination.setRecipe(recipe)
+        destinationController.setRecipe(recipe)
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

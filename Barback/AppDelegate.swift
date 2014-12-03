@@ -87,9 +87,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         saveContext()
         
+        
+        if !runningOnIPad() {
         tabBarItems[1].enabled = true
         tabBarItems[2].enabled = true
         tabBarItems[3].enabled = true
+        }
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
@@ -166,17 +169,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
-        // Set font of tab bar items.
-        var tabBarAttributes = NSMutableDictionary(dictionary: [:])
-        tabBarAttributes.setValue(
-            UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
-        UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
         
-        let imageColor = Color.Light.toUIColor()
-        tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-        tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-        tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-        tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+        if !runningOnIPad() {
+            // Set font of tab bar items.
+            var tabBarAttributes = NSMutableDictionary(dictionary: [:])
+            tabBarAttributes.setValue(
+                UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
+            UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
+            
+            let imageColor = Color.Light.toUIColor()
+            
+            if tabBarItems.count > 3 {
+                tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+            }
+        }
     }
 
     func initializeDependencies(launchOptions: NSDictionary?) {
