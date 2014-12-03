@@ -11,7 +11,6 @@ import UIKit
 class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var ingredientNameLabel : UILabel!
-    @IBOutlet var ingredientDescriptionLabel : UILabel!
     @IBOutlet var brandTableLabel : UILabel!
     @IBOutlet var ingredientAbvLabel: DescriptionLabel!
     @IBOutlet var drinksTableLabel : UILabel!
@@ -20,6 +19,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var drinksTableView : UITableView!
     @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
+    @IBOutlet var ingredientDescriptionView: DescriptionTextView!
     
     var ingredient: IngredientBase
     var recipes: [Recipe]
@@ -120,16 +120,20 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             ingredientAbvLabel.removeFromSuperview()
         }
         
-        ingredientDescriptionLabel.text = ingredient.information
+        ingredientDescriptionView.text = ingredient.information
+        print(ingredientDescriptionView.text)
+        print(ingredientDescriptionView.frame.height)
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
         viewDidLayoutSubviews()
         
         if ingredient.information == "" {
-            self.ingredientDescriptionLabel.removeFromSuperview()
+            self.ingredientDescriptionView.removeFromSuperview()
             view.layoutIfNeeded()
         }
+        print(ingredientDescriptionView.text)
+        print(ingredientDescriptionView.frame.height)
         
         if brands.count == 0 {
             brandTableLabel.removeFromSuperview()
