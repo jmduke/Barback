@@ -88,11 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveContext()
         
         
-        if !runningOnIPad() {
-        tabBarItems[1].enabled = true
-        tabBarItems[2].enabled = true
-        tabBarItems[3].enabled = true
-        }
+        enableAppInteraction()
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
@@ -135,9 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isConnectedToInternet() {
             updateIfNecessary()
         } else if isFirstTimeAppLaunched() {
-            tabBarItems[1].enabled = false
-            tabBarItems[2].enabled = false
-            tabBarItems[3].enabled = false
+            disableAppInteraction()
         }
         
         styleApp()
@@ -162,6 +156,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         coreDataHelper.saveContext()
+    }
+    
+    func enableAppInteraction() {
+        if !runningOnIPad() {
+            for tabBarItem in tabBarItems {
+                tabBarItem.enabled = true
+            }
+        }
+    }
+    
+    func disableAppInteraction() {
+        if !runningOnIPad() {
+            for tabBarItem in tabBarItems {
+                tabBarItem.enabled = false
+            }
+        }
     }
     
     func styleApp() {
