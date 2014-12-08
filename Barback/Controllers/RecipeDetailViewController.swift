@@ -97,6 +97,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         
         informationLabel.markdownText = recipe!.information ?? ""
+        informationLabel.sizeToFit()
+        informationLabel.layoutIfNeeded()
         
         scrollView.delegate = self
         
