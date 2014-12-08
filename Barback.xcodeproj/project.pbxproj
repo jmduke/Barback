@@ -58,6 +58,7 @@
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
 		26DBD6071A2D6FB0006C49F9 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6061A2D6FB0006C49F9 /* iPad.storyboard */; };
 		26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F415341A10744300D1F19A /* PrivateKeys.plist */; };
+		26F679EB1A35614C0075AE5D /* CommonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F679EA1A35614C0075AE5D /* CommonUtilities.swift */; };
 		26FBA4691A1DB0910082FBEC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FBA4681A1DB0910082FBEC /* AudioToolbox.framework */; };
 		26FBA46B1A1DB0CD0082FBEC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FBA46A1A1DB0CD0082FBEC /* CFNetwork.framework */; };
 		26FBA46D1A1DB0D30082FBEC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -139,6 +140,7 @@
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecipeDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26DBD6061A2D6FB0006C49F9 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		26F415341A10744300D1F19A /* PrivateKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateKeys.plist; sourceTree = "<group>"; };
+		26F679EA1A35614C0075AE5D /* CommonUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilities.swift; sourceTree = "<group>"; };
 		26FBA4681A1DB0910082FBEC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		26FBA46A1A1DB0CD0082FBEC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -333,6 +335,7 @@
 				262E75CD1A22F01D008487C0 /* Reachability.m */,
 				268BA1811A244A91005CBD10 /* SyncUtilities.swift */,
 				268BA1841A244B75005CBD10 /* PreferencesUtilities.swift */,
+				26F679EA1A35614C0075AE5D /* CommonUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
 				26A120411A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
+				26F679EB1A35614C0075AE5D /* CommonUtilities.swift in Sources */,
 				26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */,
 				265313471A1B274700B2A686 /* RecipeCell.swift in Sources */,
 				26A120401A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/MarkdownTokens.m in Sources */,
