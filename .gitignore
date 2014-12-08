@@ -1,6 +1,7 @@
 # Xcode
 #
 build/
+*global.json
 */PrivateKeys.plist
 */parse_config.py
 *.pyc
