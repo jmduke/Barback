@@ -17,6 +17,8 @@ build/
 xcuserdata
 *.xccheckout
 *.moved-aside
+Pods/
+Podfile.lock
 DerivedData
 *.framework
 *.hmap
