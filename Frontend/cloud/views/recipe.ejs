@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <title><%= message.attributes.name %></title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/marked.js"></script>
+  </head>
+  <body>
+    <p class="header">
+      Brought to you by
+      <a href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8">Barback: Classic and Modern Cocktails</a>
+    </p>
+
+    <div class="main">
+      <h1><%= message.attributes.name %></h1>
+      <h3>Served in <%= message.attributes.glass %> glass.</h3>
+
+      <span class="label">Ingredients</span>
+      <table class="ingredients">
+      <% for(var i=0; i<message.attributes.ingredients.length; i++) {%>
+          <tr>
+             <td class="ingredient"><%= message.attributes.ingredients[i].attributes.base %>
+             <td class="details">
+              <%if (message.attributes.ingredients[i].attributes.cl) { %>
+                <%= message.attributes.ingredients[i].attributes.cl %> cl
+              <% } %>
+              <%if (message.attributes.ingredients[i].attributes.label) { %>            
+                <%if (message.attributes.ingredients[i].attributes.cl) { %>
+                  /
+                <% } %>
+                <%= message.attributes.ingredients[i].attributes.label %>
+              <% } %>
+      <% } %>
+      </table>
+
+      <span class="label">Directions</span>
+      <p><%= message.attributes.preparation %></p>
+      
+
+      <%if (message.attributes.description) { %>            
+        <span class="label">Information</span>
+        <p class="description"><%= message.attributes.description %></p>
+      <% } %>
+
+      <script>
+        $(".description")[0].innerHTML = marked($(".description")[0].innerHTML);
+      </script>
+    </div>
+
+    <p class="footer">This recipe is brought to you by <a href="http://getbarback.com">Barback</a>, a pretty cool cocktail app that you should totally buy. Barback is © 2014 Pug and Chalice, LLC • Made in rainy Seattle.</p>
+  </body>
+</html>

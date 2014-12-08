@@ -1,0 +1,91 @@
+body {
+    font-family: Futura-Medium;
+    text-align: center;
+    color: #2B3A42;
+    margin-top: 5em;
+}
+
+.main {
+    width: 90%;
+    margin-left: 5%;
+    background-color: #efefef;
+    margin-bottom: 2em;
+    border: 1px solid #2B3A42;
+    padding: 2em;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+h3 {
+    margin-top: 0;
+    font-style: italic;
+    font-size: 1em;
+    margin-bottom: 2em;
+}
+
+a {
+    color: #FF530D;
+}
+
+p {
+    margin-top: 0.25em;
+    margin-bottom: 3em;
+}
+
+.header {
+    color: #3F5765;
+    border-bottom: 1px #3F5765 solid;
+    padding-bottom: 1em;
+}
+
+.ingredients {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #2B3A42;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 3em;
+}
+
+.ingredient {
+    text-align: left;
+}
+
+.details {
+    text-align: right;
+    color: #8FA7B5;
+    font-style: italic;
+}
+
+.label {
+    font-style: italic;
+    text-decoration: underline;
+    color: #8FA7B5;
+}
+
+.footer {
+    color: #3F5765;
+    border-top: 1px #3F5765 solid;
+    padding-top: 1em;
+}
+
+.header, .footer {
+    width: 80%;
+    margin-left: 10%;
+}
+
+@media all and (min-width: 1000px)  {
+    .main {
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .header, .footer {
+        width: 40%;
+        margin-left: 30%;
+    }
+}
