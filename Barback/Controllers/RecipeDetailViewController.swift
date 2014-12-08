@@ -37,16 +37,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var similarDrinksLabel: UILabel!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
     
-    let externalUrl = NSURL(scheme: "http", host: "getbarback.com", path: "/")
-
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         registerSettingsDefaults()
         return true
     }
     
     func shareRecipe() {
-        let activities = ["Just made a \(recipe!.name) with @getbarback!", externalUrl!]
+        let activities = ["Just made a \(recipe!.name) with @getbarback!", recipe!.url]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
         

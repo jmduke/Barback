@@ -36,6 +36,10 @@ public class Recipe: StoredObject {
         }
     }
     
+    var url: NSURL {
+        return externalUrl!.URLByAppendingPathComponent("/recipe/\(name)")
+    }
+    
     var isReal: Bool {
         return glassware != "" && directions != ""
     }
