@@ -2,6 +2,7 @@ from parse_rest.connection import register, ParseBatcher
 from parse_rest.datatypes import Object
 from parse_config import application_id, client_key
 import yaml
+import json
 
 recipes_filename = "recipes.yaml"
 bases_filename = "bases.yaml"
@@ -42,7 +43,7 @@ class Ingredient(ParseObject):
 
 class IngredientBase(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "description", "type"]
-    optional_attributes = ParseObject.optional_attributes + ["abv"]
+    optional_attributes = ParseObject.optional_attributes + ["ABV"]
     
 class Brand(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "price", "image"]
@@ -79,10 +80,18 @@ def get_bases():
     return parsed_bases
 
 def pull():
+    recipes = get_recipes()
     with open(recipes_filename, "w") as outfile:
-        outfile.write(yaml.safe_dump(get_recipes(), default_flow_style=False))
+        outfile.write(yaml.safe_dump(recipes, default_flow_style=False))
+    with open(recipes_filename.replace("yaml", "json"), "w") as outfile:
+        json.dump(recipes, outfile)
+        
+    bases = get_bases()
     with open(bases_filename, "w") as outfile:
-        outfile.write(yaml.safe_dump(get_bases(), default_flow_style=False))
+        outfile.write(yaml.safe_dump(bases, default_flow_style=False))
+    with open(bases_filename.replace("yaml", "json"), "w") as outfile:
+        json.dump(bases, outfile)
+        
     print "Pulled data."
 
 def push():
@@ -118,5 +127,5 @@ def push():
 
 if __name__ == "__main__":
     setup()
-    push()
+    # push()
     pull()
