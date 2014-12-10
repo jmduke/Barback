@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  BarbackSwift
+//  Barback
 //
 //  Created by Justin Duke on 6/13/14.
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
@@ -22,7 +22,7 @@ func saveContext() {
     let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     delegate.coreDataHelper.saveContext(managedContext())
 }
-
+    
 func isConnectedToInternet() -> Bool {
     let reachability = Reachability.reachabilityForInternetConnection()
     let networkStatus = reachability.currentReachabilityStatus()
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func updateIfNecessary() {
-        if isFirstTimeAppLaunched() || true {
+        if isFirstTimeAppLaunched() {
             markAppAsLaunched()
             finalizeAppSetup()
         } else if dataNeedsSyncing() {
