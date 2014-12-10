@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 xcodeproj 'Barback'
-link_with ['BarbackSwift', 'BarbackSwiftTests']
+link_with ['Barback', 'BarbackTests']
 platform :ios, '8.1'
 pod 'Appirater'
 pod 'MagicalRecord/Shorthand', :git => 'https://github.com/magicalpanda/MagicalRecord.git'
