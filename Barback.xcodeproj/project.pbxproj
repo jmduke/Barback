@@ -57,6 +57,8 @@
 		26BC5DA81A19741300D538AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BC5DA71A19741300D538AB /* CoreGraphics.framework */; };
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
 		26DBD6071A2D6FB0006C49F9 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6061A2D6FB0006C49F9 /* iPad.storyboard */; };
+		26DECA301A37DE2400E90D0E /* bases.json in Resources */ = {isa = PBXBuildFile; fileRef = 26DECA2E1A37DE2400E90D0E /* bases.json */; };
+		26DECA311A37DE2400E90D0E /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 26DECA2F1A37DE2400E90D0E /* recipes.json */; };
 		26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26F415341A10744300D1F19A /* PrivateKeys.plist */; };
 		26F679EB1A35614C0075AE5D /* CommonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F679EA1A35614C0075AE5D /* CommonUtilities.swift */; };
 		26FBA4691A1DB0910082FBEC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FBA4681A1DB0910082FBEC /* AudioToolbox.framework */; };
@@ -139,6 +141,8 @@
 		26BC5DA71A19741300D538AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecipeDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26DBD6061A2D6FB0006C49F9 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		26DECA2E1A37DE2400E90D0E /* bases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bases.json; sourceTree = "<group>"; };
+		26DECA2F1A37DE2400E90D0E /* recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recipes.json; sourceTree = "<group>"; };
 		26F415341A10744300D1F19A /* PrivateKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrivateKeys.plist; sourceTree = "<group>"; };
 		26F679EA1A35614C0075AE5D /* CommonUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilities.swift; sourceTree = "<group>"; };
 		26FBA4681A1DB0910082FBEC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -234,6 +238,8 @@
 		2631DB7C194BFF500025DCF5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26DECA2E1A37DE2400E90D0E /* bases.json */,
+				26DECA2F1A37DE2400E90D0E /* recipes.json */,
 				2631DB7D194BFF500025DCF5 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -488,11 +494,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				26AAB740195010AC00AF126B /* Images.xcassets in Resources */,
+				26DECA301A37DE2400E90D0E /* bases.json in Resources */,
 				26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */,
 				2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */,
 				26747A351A102B1E00313F04 /* LaunchScreen.storyboard in Resources */,
 				26DBD6071A2D6FB0006C49F9 /* iPad.storyboard in Resources */,
 				26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */,
+				26DECA311A37DE2400E90D0E /* recipes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

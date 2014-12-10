@@ -62,6 +62,7 @@ public class Recipe: StoredObject {
             let denominator = amounts.reduce(0, combine: +) as Int
             let numerator = (ingredients.map({
                 (ingredient: Ingredient) -> Int in
+                NSLog((ingredient.base.abv as Int).description)
                 let abv = ingredient.base.abv as Int
                 let proportion = Int(ingredient.amount?.intValue ?? 0)
                 return abv * proportion
@@ -123,6 +124,26 @@ public class Recipe: StoredObject {
             let isDead = object["isDeleted"] as? Bool ?? false
             return Recipe.fromAttributes(name, directions: directions, glassware: glass, information: information, isDead: isDead)
         }) as [Recipe]
+    }
+    
+    class func syncWithJSON() -> [Recipe] {
+        let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
+        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
+        let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
+        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
+        
+        var allRecipes: [Recipe] = rawRecipes.map({
+            (rawRecipe: NSDictionary) -> Recipe in
+            let recipe = self.fromAttributes(rawRecipe["name"] as String, directions: rawRecipe["preparation"] as String, glassware: rawRecipe["glass"] as? String ?? "", information: rawRecipe["description"] as? String, isDead: rawRecipe["isDeleted"] as? Bool ?? false)
+            let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
+                (rawIngredient: NSDictionary) -> Ingredient in
+                let ingredient = Ingredient.fromAttributes(rawIngredient["base"] as? String, amount: rawIngredient["cl"] as? Float, label: rawIngredient["label"] as? String, recipeName: rawRecipe["name"] as String, objectId: rawIngredient["objectId"] as String, isDeleted: rawRecipe["isDead"] as? Bool)
+                return ingredient
+            })
+            return recipe
+        })
+        allRecipes = allRecipes.sorted({ $0.name < $1.name })
+        return allRecipes
     }
     
     class func all() -> [Recipe] {
