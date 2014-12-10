@@ -77,6 +77,11 @@ func syncNewData() {
     setLatestSyncDate(NSDate())
 }
 
+func syncDataFromJSON() {
+    let recipes = Recipe.syncWithJSON()
+    let ingredients = IngredientBase.syncWithJSON()
+}
+
 func markAppAsLaunched() {
     setFirstTimeAppLaunched()
     setAppSyncedThisLaunch()

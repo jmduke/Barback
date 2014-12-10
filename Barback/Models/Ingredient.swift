@@ -101,7 +101,7 @@ class Ingredient: StoredObject {
         newIngredient.objectId = objectId
         newIngredient.amount = amount
         newIngredient.label = label
-        newIngredient.isDead = isDeleted!
+        newIngredient.isDead = isDeleted ?? false
         
         return newIngredient
     }

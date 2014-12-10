@@ -46,6 +46,26 @@ class IngredientBase: StoredObject {
         }) as [IngredientBase]
     }
     
+    class func syncWithJSON() -> [IngredientBase] {
+        let filepath = NSBundle.mainBundle().pathForResource("bases", ofType: "json")
+        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
+        let baseData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
+        var rawBases = NSJSONSerialization.JSONObjectWithData(baseData!, options: nil, error: nil) as [NSDictionary]
+        
+        var allBases: [IngredientBase] = rawBases.map({
+            (rawBase: NSDictionary) -> IngredientBase in
+            let base = self.fromAttributes(rawBase["name"] as String, information: rawBase["description"] as String, type: IngredientType(rawValue: rawBase["type"] as String)!, abv: rawBase["ABV"] as? Int ?? 0, isDead: rawBase["isDead"] as? Bool ?? false)
+            let brands = (rawBase["brands"] as [NSDictionary]).map({
+                (rawBrand: NSDictionary) -> Brand in
+                let brand = Brand.fromAttributes(rawBrand["name"] as String, price: rawBrand["price"] as Int, base: base, url: rawBrand["image"] as String, isDead: rawBrand["isDead"] as? Bool ?? false)
+                return brand
+            })
+            return base
+        })
+        allBases = allBases.sorted({ $0.name < $1.name })
+        return allBases
+    }
+    
     class func all() -> [IngredientBase] {
         return managedContext().objects(IngredientBase.self)!.filter({$0.isDead == false})
     }
