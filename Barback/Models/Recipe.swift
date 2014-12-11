@@ -116,12 +116,11 @@ public class Recipe: StoredObject {
         return recipes.map({
             (object: PFObject) -> Recipe in
             let name = object["name"]! as String
-            let description = object["description"] as? String
             let garnish = object["garnish"] as? String
-            let glass = object["glass"]! as String
-            let directions = object["preparation"]! as String
-            let information = object["description"] as? String
-            let isDead = object["isDeleted"] as? Bool ?? false
+            let glass = object["glassware"]! as String
+            let directions = object["directions"]! as String
+            let information = object["information"] as? String
+            let isDead = object["isDead"] as? Bool ?? false
             return Recipe.fromAttributes(name, directions: directions, glassware: glass, information: information, isDead: isDead)
         }) as [Recipe]
     }
@@ -134,10 +133,10 @@ public class Recipe: StoredObject {
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
-            let recipe = self.fromAttributes(rawRecipe["name"] as String, directions: rawRecipe["preparation"] as String, glassware: rawRecipe["glass"] as? String ?? "", information: rawRecipe["description"] as? String, isDead: rawRecipe["isDeleted"] as? Bool ?? false)
+            let recipe = self.fromAttributes(rawRecipe["name"] as String, directions: rawRecipe["directions"] as String, glassware: rawRecipe["glassware"] as? String ?? "", information: rawRecipe["information"] as? String, isDead: rawRecipe["isDead"] as? Bool ?? false)
             let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
                 (rawIngredient: NSDictionary) -> Ingredient in
-                let ingredient = Ingredient.fromAttributes(rawIngredient["base"] as? String, amount: rawIngredient["cl"] as? Float, label: rawIngredient["label"] as? String, recipeName: rawRecipe["name"] as String, objectId: rawIngredient["objectId"] as String, isDeleted: rawRecipe["isDead"] as? Bool)
+                let ingredient = Ingredient.fromAttributes(rawIngredient["base"] as? String, amount: rawIngredient["amount"] as? Float, label: rawIngredient["label"] as? String, recipeName: rawRecipe["name"] as String, objectId: rawIngredient["objectId"] as String, isDead: rawRecipe["isDead"] as? Bool)
                 return ingredient
             })
             return recipe

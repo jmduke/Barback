@@ -44,8 +44,8 @@ class Brand: StoredObject {
             let name = object["name"]! as String
             let price = object["price"]! as Int
             let base = IngredientBase.forName(object["base"]! as String)!
-            let url = object["image"]! as String
-            let isDead = object["isDeleted"] as? Bool ?? false
+            let url = object["url"]! as String
+            let isDead = object["isDead"] as? Bool ?? false
             return Brand.fromAttributes(name, price: price, base: base, url: url, isDead: isDead)
         }) as [Brand]
     }

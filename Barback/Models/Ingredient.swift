@@ -71,18 +71,18 @@ class Ingredient: StoredObject {
         return ingredients.map({
             (object: PFObject) -> Ingredient in
             var base = object["base"] as String
-            let amount = object.objectForKey("cl") as? Float
+            let amount = object.objectForKey("amount") as? Float
             let label = object["label"] as? String
-            let isDeleted = object["isDeleted"] as? Bool ?? false
+            let isDead = object["isDead"] as? Bool ?? false
             let recipe = object["recipe"]! as String
             let objectId = object.objectId as String
             
-            return Ingredient.fromAttributes(base, amount: amount, label: label, recipeName: recipe, objectId: objectId, isDeleted: isDeleted)
+            return Ingredient.fromAttributes(base, amount: amount, label: label, recipeName: recipe, objectId: objectId, isDead: isDead)
         }) as [Ingredient]
     }
     
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, recipeName: String, objectId: String, isDeleted: Bool?) -> Ingredient {
+    class func fromAttributes(baseName: String?, amount: Float?, label: String?, recipeName: String, objectId: String, isDead: Bool?) -> Ingredient {
         let newIngredient: Ingredient = Ingredient.forObjectId(objectId) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
@@ -101,7 +101,7 @@ class Ingredient: StoredObject {
         newIngredient.objectId = objectId
         newIngredient.amount = amount
         newIngredient.label = label
-        newIngredient.isDead = isDeleted ?? false
+        newIngredient.isDead = isDead ?? false
         
         return newIngredient
     }
