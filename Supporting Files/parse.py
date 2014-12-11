@@ -7,9 +7,17 @@ import json
 recipes_filename = "recipes.yaml"
 bases_filename = "bases.yaml"
 
+force_override = True
+
+def chunks(l, n):
+    """ Yield successive n-sized chunks from l.
+    """
+    for i in xrange(0, len(l), n):
+        yield l[i:i+n]
+
 class ParseObject(Object):
     required_attributes = []
-    optional_attributes = ["isDeleted", "objectId"]
+    optional_attributes = ["isDead", "objectId"]
 
     def __init__(self, **kwargs):
         dictionary = kwargs.pop("dictionary", None)
@@ -34,19 +42,19 @@ class ParseObject(Object):
         return dictionary
 
 class Recipe(ParseObject):
-    required_attributes = ParseObject.required_attributes + ["name", "glass", "preparation"]
-    optional_attributes = ParseObject.optional_attributes + ["description", "garnish"]
+    required_attributes = ParseObject.required_attributes + ["name", "glassware", "directions"]
+    optional_attributes = ParseObject.optional_attributes + ["information", "garnish"]
 
 class Ingredient(ParseObject):
     required_attributes = ParseObject.required_attributes + ["base"]
-    optional_attributes = ParseObject.optional_attributes + ["cl", "label"]
+    optional_attributes = ParseObject.optional_attributes + ["amount", "label"]
 
 class IngredientBase(ParseObject):
-    required_attributes = ParseObject.required_attributes + ["name", "description", "type"]
-    optional_attributes = ParseObject.optional_attributes + ["ABV"]
+    required_attributes = ParseObject.required_attributes + ["name", "information", "type"]
+    optional_attributes = ParseObject.optional_attributes + ["abv"]
     
 class Brand(ParseObject):
-    required_attributes = ParseObject.required_attributes + ["name", "price", "image"]
+    required_attributes = ParseObject.required_attributes + ["name", "price", "url"]
 
 def setup():
     register(application_id, client_key)
@@ -95,7 +103,7 @@ def pull():
     print "Pulled data."
 
 def push():
-    old_recipes = get_recipes()
+    old_recipes = get_recipes() if not force_override else []
     raw_recipes = yaml.safe_load(open(recipes_filename).read())
     recipes = []
     ingredients = []
@@ -108,12 +116,12 @@ def push():
 
     print "Found {} new recipes.".format(len(recipes))
 
-    old_bases = get_bases()
+    old_bases = get_bases() if not force_override else []
     raw_bases = yaml.load(open(bases_filename).read())
     bases = []
     brands = []
     for base in raw_bases:
-        if base not in old_bases:
+        if force_override or base not in old_bases:
             bases.append(IngredientBase(dictionary=base))
             for brand in base["brands"]:
                 brand.update({"base": base})
@@ -122,10 +130,13 @@ def push():
     print "Found {} new bases.".format(len(bases))  
 
     print "Pushing data."
-    ParseBatcher().batch_save(recipes)
-    ParseBatcher().batch_save(bases)
+
+    max_batch_size = 50
+    for chunk in chunks(recipes + bases + ingredients + brands, max_batch_size):
+        ParseBatcher().batch_save(chunk)
+        print "Pushed {} objects.".format(len(chunk))
 
 if __name__ == "__main__":
     setup()
-    push()
+    # push()
     pull()
