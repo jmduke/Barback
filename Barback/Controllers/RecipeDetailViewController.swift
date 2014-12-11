@@ -25,9 +25,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var similarRecipes: [Recipe]?
     var sortedIngredients: [Ingredient]?
     
+    @IBOutlet weak var directionsTextView: DescriptionTextView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
-    @IBOutlet var directionsLabel : UILabel!
     @IBOutlet weak var informationLabel: DescriptionTextView!
     @IBOutlet var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
@@ -90,7 +90,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         nameLabel.text = recipe!.name
-        directionsLabel.text = recipe!.directions
+        directionsTextView.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         
         informationLabel.markdownText = recipe!.information ?? ""
@@ -194,7 +194,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func styleController() {
         super.styleController()
         
-        directionsLabel.textColor = Color.Dark.toUIColor()
+        directionsTextView.textColor = Color.Dark.toUIColor()
         
         view.layoutIfNeeded()
     }
@@ -211,7 +211,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             coachMarks.append(coachMark)
         }
         
-        let directionsPosition = directionsLabel.frame
+        let directionsPosition = directionsTextView.frame
         let directionsCaption = "Simple instructions on making your drinks."
         coachMarks.append(["rect": NSValue(CGRect: directionsPosition), "caption": directionsCaption])
         
