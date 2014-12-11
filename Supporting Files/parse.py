@@ -127,5 +127,5 @@ def push():
 
 if __name__ == "__main__":
     setup()
-    # push()
+    push()
     pull()
