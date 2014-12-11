@@ -84,8 +84,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="110" y="20" width="100" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="113" y="20" width="95" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="FHG-CR-Et5"/>
                                             <constraint firstAttribute="width" constant="320" id="fBv-pS-tCE"/>
@@ -99,8 +99,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="msd-qH-YF8" userLabel="ingredientList">
-                                        <rect key="frame" x="0.0" y="73" width="320" height="100"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="msd-qH-YF8" userLabel="ingredientList">
+                                        <rect key="frame" x="0.0" y="87" width="320" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="70u-9e-8Av"/>
@@ -137,23 +137,14 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="recipe.directions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Jia-FD-882" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="205" width="280" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" priority="500" constant="21" id="1jO-uS-Tts"/>
-                                        </constraints>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="812" width="241" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="295" width="241" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
-                                        <rect key="frame" x="0.0" y="412" width="320" height="120"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
+                                        <rect key="frame" x="0.0" y="841" width="320" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="Z5v-2M-Oxw"/>
@@ -184,8 +175,8 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="BezierButton" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="218" y="17" width="24" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="BezierButton" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="216" y="18" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="FdQ-T9-Pod"/>
                                             <constraint firstAttribute="height" constant="24" id="k4a-9L-9NA"/>
@@ -197,14 +188,14 @@
                                             <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="139" y="44" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="101" y="46" width="119" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="41" y="234" width="240" height="21"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="508" width="241" height="284"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ca4-cP-Vq8"/>
@@ -218,29 +209,36 @@
                                             </mask>
                                         </variation>
                                     </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-IL-5fz" userLabel="recipe.directions" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="41" y="195" width="240" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="2QU-SY-UI0" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="1bS-ZN-RTx"/>
                                     <constraint firstAttribute="centerX" secondItem="P39-gZ-b5l" secondAttribute="centerX" id="2wD-Rb-NSH"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jia-FD-882" secondAttribute="trailing" constant="20" id="Efm-HP-wzq"/>
-                                    <constraint firstItem="P39-gZ-b5l" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="41" id="Elj-cp-tud"/>
+                                    <constraint firstItem="P39-gZ-b5l" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="40" id="Elj-cp-tud"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
                                     <constraint firstAttribute="trailing" secondItem="P39-gZ-b5l" secondAttribute="trailing" constant="39" id="Lrf-Cg-a5c"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" id="NoV-Kc-ozc"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
+                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" priority="500" constant="40" id="UUP-2I-UDV"/>
+                                    <constraint firstItem="P39-gZ-b5l" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" constant="13" id="UVa-Z4-JXF"/>
                                     <constraint firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="UlQ-3c-VPB"/>
-                                    <constraint firstItem="P39-gZ-b5l" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" constant="20" id="VES-ot-Eez"/>
+                                    <constraint firstItem="aEd-IL-5fz" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="8" id="ZLQ-yC-a4s"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="134" id="apC-XM-N1v"/>
                                     <constraint firstAttribute="bottom" secondItem="P39-gZ-b5l" secondAttribute="bottom" priority="500" constant="40" id="cB9-eT-CDH"/>
+                                    <constraint firstItem="aEd-IL-5fz" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="41" id="dOF-mf-G8A"/>
+                                    <constraint firstAttribute="trailing" secondItem="aEd-IL-5fz" secondAttribute="trailing" constant="39" id="fj6-jf-6Kh"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="kWC-w4-NKU"/>
                                     <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="P39-gZ-b5l" secondAttribute="bottom" constant="20" id="n7p-o2-1S0"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="Jia-FD-882" secondAttribute="bottom" priority="400" constant="20" id="nAB-Vx-TtZ"/>
-                                    <constraint firstItem="Jia-FD-882" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="20" id="qet-Sh-MjB"/>
-                                    <constraint firstItem="Jia-FD-882" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="32" id="r4v-G2-xYr"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="she-fr-Nl7"/>
                                     <constraint firstItem="OA9-do-xpB" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="5" id="tEx-db-w2e"/>
                                     <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" id="tKz-ez-MRh"/>
@@ -267,7 +265,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="directionsLabel" destination="Jia-FD-882" id="uiM-8q-PCv"/>
+                        <outlet property="directionsTextView" destination="aEd-IL-5fz" id="vh7-db-qK6"/>
                         <outlet property="favoriteButton" destination="0Zg-K2-heU" id="CwN-Qg-yz6"/>
                         <outlet property="informationLabel" destination="P39-gZ-b5l" id="UgO-6Q-O82"/>
                         <outlet property="ingredientsTableView" destination="msd-qH-YF8" id="DKf-2Y-NYv"/>
@@ -296,11 +294,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="320" height="480"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="98" y="20" width="124" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="7LI-qV-PO3"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="VpP-1Z-4sb"/>
@@ -314,7 +312,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="gt1-Gn-CFM" userLabel="recommendedBrands">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="gt1-Gn-CFM" userLabel="recommendedBrands">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="FK3-MS-efV"/>
@@ -334,8 +332,8 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XIn-7R-mxr" userLabel="relevantDrinks">
-                                        <rect key="frame" x="0.0" y="184" width="320" height="184"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XIn-7R-mxr" userLabel="relevantDrinks">
+                                        <rect key="frame" x="0.0" y="222" width="320" height="184"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="184" id="E2Q-6f-Kus"/>
@@ -372,8 +370,8 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DJB-7f-BFV" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="320" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DJB-7f-BFV" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="320" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="IBB-O8-vYk"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qcp-ZS-VNy"/>
@@ -387,30 +385,31 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQV-tA-SZo" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="153" width="320" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQV-tA-SZo" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="191" width="320" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ingredient.abv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="41" width="109" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.abv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="46" width="109" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xG-Jb-dhA" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="62" width="240" height="21"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Words about ingredients." translatesAutoresizingMaskIntoConstraints="NO" id="4xG-Jb-dhA" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="87" width="240" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BQV-tA-SZo" secondAttribute="width" id="57q-Xt-KAj"/>
+                                    <constraint firstItem="yL0-GF-QdU" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="7Sd-ai-Qkz"/>
                                     <constraint firstItem="gt1-Gn-CFM" firstAttribute="top" secondItem="DJB-7f-BFV" secondAttribute="bottom" constant="10" id="7yc-KG-FEt"/>
                                     <constraint firstItem="DJB-7f-BFV" firstAttribute="top" secondItem="4xG-Jb-dhA" secondAttribute="bottom" constant="20" id="H5t-w1-9NY"/>
+                                    <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="HKl-XH-f54"/>
                                     <constraint firstAttribute="centerX" secondItem="DJB-7f-BFV" secondAttribute="centerX" id="Idv-hx-uMJ"/>
                                     <constraint firstAttribute="trailing" secondItem="BQV-tA-SZo" secondAttribute="trailing" id="JaW-jg-vP3"/>
                                     <constraint firstAttribute="centerX" secondItem="GDj-jO-OWw" secondAttribute="centerX" id="Jre-zF-cv9"/>
@@ -441,6 +440,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="xQj-MZ-6EN"/>
+                                        <exclude reference="7Sd-ai-Qkz"/>
+                                        <exclude reference="TSd-SS-BQo"/>
                                         <exclude reference="JaW-jg-vP3"/>
                                         <exclude reference="rcy-xl-yv7"/>
                                         <exclude reference="c0d-Gu-QlT"/>
@@ -453,6 +454,7 @@
                             <constraint firstAttribute="height" secondItem="Qmy-sZ-Btm" secondAttribute="height" id="1Ax-rg-e3k"/>
                             <constraint firstItem="Qmy-sZ-Btm" firstAttribute="width" secondItem="4ma-Qb-Zx6" secondAttribute="width" id="EpJ-0k-Pe2"/>
                             <constraint firstAttribute="centerX" secondItem="Qmy-sZ-Btm" secondAttribute="centerX" id="YiL-R6-CUs"/>
+                            <constraint firstItem="Qmy-sZ-Btm" firstAttribute="top" secondItem="hxt-uY-GuR" secondAttribute="bottom" id="sqs-c0-kfd"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
