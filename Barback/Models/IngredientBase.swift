@@ -38,10 +38,10 @@ class IngredientBase: StoredObject {
         return bases.map({
             (object: PFObject) -> IngredientBase in
             let name = object["name"]! as String
-            let information = object["description"]! as String
+            let information = object["information"]! as String
             let type = IngredientType(rawValue: object["type"]! as String)!
-            let isDead = object["isDeleted"] as? Bool ?? false
-            let abv = object["ABV"] as? Int ?? 0
+            let isDead = object["isDead"] as? Bool ?? false
+            let abv = object["abv"] as? Int ?? 0
             return IngredientBase.fromAttributes(name, information: information, type: type, abv: abv, isDead: isDead)
         }) as [IngredientBase]
     }
@@ -54,10 +54,10 @@ class IngredientBase: StoredObject {
         
         var allBases: [IngredientBase] = rawBases.map({
             (rawBase: NSDictionary) -> IngredientBase in
-            let base = self.fromAttributes(rawBase["name"] as String, information: rawBase["description"] as String, type: IngredientType(rawValue: rawBase["type"] as String)!, abv: rawBase["ABV"] as? Int ?? 0, isDead: rawBase["isDead"] as? Bool ?? false)
+            let base = self.fromAttributes(rawBase["name"] as String, information: rawBase["information"] as String, type: IngredientType(rawValue: rawBase["type"] as String)!, abv: rawBase["abv"] as? Int ?? 0, isDead: rawBase["isDead"] as? Bool ?? false)
             let brands = (rawBase["brands"] as [NSDictionary]).map({
                 (rawBrand: NSDictionary) -> Brand in
-                let brand = Brand.fromAttributes(rawBrand["name"] as String, price: rawBrand["price"] as Int, base: base, url: rawBrand["image"] as String, isDead: rawBrand["isDead"] as? Bool ?? false)
+                let brand = Brand.fromAttributes(rawBrand["name"] as String, price: rawBrand["price"] as Int, base: base, url: rawBrand["url"] as String, isDead: rawBrand["isDead"] as? Bool ?? false)
                 return brand
             })
             return base
