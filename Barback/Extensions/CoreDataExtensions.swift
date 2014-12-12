@@ -43,12 +43,23 @@ extension NSManagedObjectContext {
 
 extension NSManagedObject : NamedManagedObject {
     class func entityName() -> String {
-        return NSStringFromClass(self).componentsSeparatedByString(".")[1]
+        return NSStringFromClass(self).componentsSeparatedByString(".")[1].componentsSeparatedByString("_")[0]
     }
     
     class func attributes() -> [String] {
         let entity = NSEntityDescription.entityForName(entityName(), inManagedObjectContext: managedContext())!
         let attributes = entity.attributesByName as [String: NSAttributeDescription]
         return Array(attributes.keys)
+    }
+    
+    func updateWithDictionary(valuesForKeys: [NSObject : AnyObject]) {
+        var objectValues: [String : AnyObject] = [:]
+        for attribute: String in self.dynamicType.attributes() {
+            let value: AnyObject? = valuesForKeys[attribute]
+            if let value = value {
+                objectValues[attribute] = value
+            }
+        }
+        setValuesForKeysWithDictionary(objectValues)
     }
 }

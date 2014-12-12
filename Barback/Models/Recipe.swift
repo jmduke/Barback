@@ -102,14 +102,7 @@ public class Recipe: StoredObject {
 
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Recipe {
         let newRecipe: Recipe = Recipe.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
-        var objectValues: [String : AnyObject] = [:]
-        for attribute: String in self.attributes() {
-            let value: AnyObject? = valuesForKeys[attribute]
-            if let value = value {
-                objectValues[attribute] = value
-            }
-        }
-        newRecipe.setValuesForKeysWithDictionary(objectValues)
+        newRecipe.updateWithDictionary(valuesForKeys)
         return newRecipe
     }
     
@@ -117,11 +110,7 @@ public class Recipe: StoredObject {
         let recipes = PFQuery.allObjectsSinceSync("Recipe")
         return recipes.map({
             (object: PFObject) -> Recipe in
-            let objectValues = [:]
-            for attribute in self.attributes() {
-                objectValues.setValue(object[attribute], forKey: attribute)
-            }
-            return Recipe.fromAttributes(objectValues)
+            return Recipe.fromAttributes(object.toDictionary(self.attributes()))
         }) as [Recipe]
     }
     

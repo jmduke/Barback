@@ -25,14 +25,7 @@ class IngredientBase: StoredObject {
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> IngredientBase {
         let newBase: IngredientBase = IngredientBase.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
-        var objectValues: [String : AnyObject] = [:]
-        for attribute: String in self.attributes() {
-            let value: AnyObject? = valuesForKeys[attribute]
-            if let value = value {
-                objectValues[attribute] = value
-            }
-        }
-        newBase.setValuesForKeysWithDictionary(objectValues)
+        newBase.updateWithDictionary(valuesForKeys)
         return newBase
     }
 
@@ -40,11 +33,7 @@ class IngredientBase: StoredObject {
         let bases = PFQuery.allObjectsSinceSync("IngredientBase")
         return bases.map({
             (object: PFObject) -> IngredientBase in
-            let objectValues = [:]
-            for attribute in self.attributes() {
-                objectValues.setValue(object[attribute], forKey: attribute)
-            }
-            return IngredientBase.fromAttributes(objectValues)
+            return IngredientBase.fromAttributes(object.toDictionary(self.attributes()))
         }) as [IngredientBase]
     }
     
