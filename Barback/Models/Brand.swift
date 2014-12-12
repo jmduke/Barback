@@ -28,7 +28,7 @@ class Brand: StoredObject {
     }
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Brand {
-        let brand: Brand = Brand.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
+        let brand: Brand = isFirstTimeAppLaunched ? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand : Brand.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
         brand.updateWithDictionary(valuesForKeys)
         return brand
     }

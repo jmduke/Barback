@@ -17,9 +17,9 @@ let syncDateKey = "syncDate"
 let appVersionKey = "appVersion"
 let currentAppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as String
 
-func isFirstTimeAppLaunched() -> Bool {
+var isFirstTimeAppLaunched: Bool = {
     return !NSUserDefaults.standardUserDefaults().boolForKey(firstTimeAppLaunchedKey)
-}
+}()
 
 func isAppSyncedThisLaunch() -> Bool {
     return !NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
