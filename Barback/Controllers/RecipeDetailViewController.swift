@@ -17,7 +17,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         similarRecipes = newValue!.similarRecipes(2)
         
         let ingredients = newValue!.ingredients
-        sortedIngredients = ingredients.sorted({$0.amount?.intValue > $1.amount?.intValue})
+        sortedIngredients = ingredients.sorted({$0.amount.intValue > $1.amount.intValue})
     }
     }
     

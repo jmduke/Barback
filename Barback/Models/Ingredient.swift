@@ -12,7 +12,7 @@ import Parse
 
 class Ingredient: StoredObject {
 
-    @NSManaged var amount: NSNumber?
+    @NSManaged var amount: NSNumber
     @NSManaged var objectId: String
     @NSManaged var label: String?
     
@@ -24,7 +24,8 @@ class Ingredient: StoredObject {
     }
     
     var displayAmount: String {
-        if let metricAmount = amount {
+        if amount.intValue > 0 {
+            let metricAmount = amount
             if !userWantsImperialUnits() {
                 return "\(metricAmount.floatValue) cl"
             } else {
@@ -70,38 +71,35 @@ class Ingredient: StoredObject {
         let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
-            var base = object["base"] as String
-            let amount = object.objectForKey("amount") as? Float
-            let label = object["label"] as? String
-            let isDead = object["isDead"] as? Bool ?? false
-            let recipe = object["recipe"]! as String
-            let objectId = object.objectId as String
-            
-            return Ingredient.fromAttributes(base, amount: amount, label: label, recipeName: recipe, objectId: objectId, isDead: isDead)
+            let objectValues = [:]
+            for attribute in self.attributes() {
+                objectValues.setValue(object[attribute], forKey: attribute)
+            }
+            return Ingredient.fromAttributes(objectValues)
         }) as [Ingredient]
     }
     
     
-    class func fromAttributes(baseName: String?, amount: Float?, label: String?, recipeName: String, objectId: String, isDead: Bool?) -> Ingredient {
-        let newIngredient: Ingredient = Ingredient.forObjectId(objectId) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Ingredient {
+        let newIngredient: Ingredient = Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+        var objectValues: [String : AnyObject] = [:]
+        for attribute: String in self.attributes() {
+            let value: AnyObject? = valuesForKeys[attribute]
+            if let value = value {
+                objectValues[attribute] = value
+            }
+        }
+        newIngredient.setValuesForKeysWithDictionary(objectValues)
         
-        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName!)
-        let recipe = Recipe.forName(recipeName)!
-        
+        var ingredientBase: IngredientBase? = IngredientBase.forName(valuesForKeys["base"] as String)
         if ingredientBase == nil {
             ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
-            ingredientBase!.name = baseName!
+            ingredientBase!.name = valuesForKeys["base"] as String
             ingredientBase!.information = ""
             ingredientBase!.type = "other"
             ingredientBase!.abv = 0
         }
-
         newIngredient.base = ingredientBase!
-        newIngredient.recipe = recipe
-        newIngredient.objectId = objectId
-        newIngredient.amount = amount
-        newIngredient.label = label
-        newIngredient.isDead = isDead ?? false
         
         return newIngredient
     }

@@ -23,13 +23,16 @@ class IngredientBase: StoredObject {
         return "ARGH"
     }
     
-    class func fromAttributes(name: String, information: String, type: IngredientType, abv: Int, isDead: Bool) -> IngredientBase {
-        let newBase: IngredientBase = IngredientBase.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
-        newBase.name = name
-        newBase.information = information
-        newBase.type = type.rawValue ?? "other"
-        newBase.abv = abv
-        newBase.isDead = isDead
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> IngredientBase {
+        let newBase: IngredientBase = IngredientBase.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
+        var objectValues: [String : AnyObject] = [:]
+        for attribute: String in self.attributes() {
+            let value: AnyObject? = valuesForKeys[attribute]
+            if let value = value {
+                objectValues[attribute] = value
+            }
+        }
+        newBase.setValuesForKeysWithDictionary(objectValues)
         return newBase
     }
 
@@ -37,12 +40,11 @@ class IngredientBase: StoredObject {
         let bases = PFQuery.allObjectsSinceSync("IngredientBase")
         return bases.map({
             (object: PFObject) -> IngredientBase in
-            let name = object["name"]! as String
-            let information = object["information"]! as String
-            let type = IngredientType(rawValue: object["type"]! as String)!
-            let isDead = object["isDead"] as? Bool ?? false
-            let abv = object["abv"] as? Int ?? 0
-            return IngredientBase.fromAttributes(name, information: information, type: type, abv: abv, isDead: isDead)
+            let objectValues = [:]
+            for attribute in self.attributes() {
+                objectValues.setValue(object[attribute], forKey: attribute)
+            }
+            return IngredientBase.fromAttributes(objectValues)
         }) as [IngredientBase]
     }
     
@@ -54,12 +56,14 @@ class IngredientBase: StoredObject {
         
         var allBases: [IngredientBase] = rawBases.map({
             (rawBase: NSDictionary) -> IngredientBase in
-            let base = self.fromAttributes(rawBase["name"] as String, information: rawBase["information"] as String, type: IngredientType(rawValue: rawBase["type"] as String)!, abv: rawBase["abv"] as? Int ?? 0, isDead: rawBase["isDead"] as? Bool ?? false)
+            var base = self.fromAttributes(rawBase)
             let brands = (rawBase["brands"] as [NSDictionary]).map({
                 (rawBrand: NSDictionary) -> Brand in
-                let brand = Brand.fromAttributes(rawBrand["name"] as String, price: rawBrand["price"] as Int, base: base, url: rawBrand["url"] as String, isDead: rawBrand["isDead"] as? Bool ?? false)
+                let brand = Brand.fromAttributes(rawBrand)
                 return brand
             })
+            base.brands = NSSet(array: brands)
+            
             return base
         })
         allBases = allBases.sorted({ $0.name < $1.name })
@@ -67,7 +71,7 @@ class IngredientBase: StoredObject {
     }
     
     class func all() -> [IngredientBase] {
-        return managedContext().objects(IngredientBase.self)!.filter({$0.isDead == false})
+        return managedContext().objects(IngredientBase.self)!.filter({$0.isDead != true})
     }
     
     class func nameContainsString(string: String) -> [IngredientBase] {
