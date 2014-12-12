@@ -35,3 +35,14 @@ extension PFQuery {
         return query.findObjects() as [PFObject]
     }
 }
+
+extension PFObject {
+    
+    func toDictionary(attributes: [String]) -> [String: AnyObject] {
+        var objectValues: [String: AnyObject] = [:]
+        for attribute in attributes {
+            objectValues[attribute] = self[attribute]
+        }
+        return objectValues
+    }
+}

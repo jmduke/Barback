@@ -29,14 +29,7 @@ class Brand: StoredObject {
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Brand {
         let brand: Brand = Brand.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
-        var objectValues: [String : AnyObject] = [:]
-        for attribute: String in self.attributes() {
-            let value: AnyObject? = valuesForKeys[attribute]
-            if let value = value {
-                objectValues[attribute] = value
-            }
-        }
-        brand.setValuesForKeysWithDictionary(objectValues)
+        brand.updateWithDictionary(valuesForKeys)
         return brand
     }
     
@@ -44,11 +37,7 @@ class Brand: StoredObject {
         let brands = PFQuery.allObjectsSinceSync("Brand")
         return brands.map({
             (object: PFObject) -> Brand in
-            let objectValues = [:]
-            for attribute in self.attributes() {
-                objectValues.setValue(object[attribute], forKey: attribute)
-            }
-            return Brand.fromAttributes(objectValues)
+            return Brand.fromAttributes(object.toDictionary(self.attributes()))
         }) as [Brand]
     }
 }

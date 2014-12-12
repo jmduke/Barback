@@ -71,25 +71,14 @@ class Ingredient: StoredObject {
         let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
         return ingredients.map({
             (object: PFObject) -> Ingredient in
-            let objectValues = [:]
-            for attribute in self.attributes() {
-                objectValues.setValue(object[attribute], forKey: attribute)
-            }
-            return Ingredient.fromAttributes(objectValues)
+            return Ingredient.fromAttributes(object.toDictionary(self.attributes()))
         }) as [Ingredient]
     }
     
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Ingredient {
         let newIngredient: Ingredient = Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
-        var objectValues: [String : AnyObject] = [:]
-        for attribute: String in self.attributes() {
-            let value: AnyObject? = valuesForKeys[attribute]
-            if let value = value {
-                objectValues[attribute] = value
-            }
-        }
-        newIngredient.setValuesForKeysWithDictionary(objectValues)
+        newIngredient.updateWithDictionary(valuesForKeys)
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(valuesForKeys["base"] as String)
         if ingredientBase == nil {
