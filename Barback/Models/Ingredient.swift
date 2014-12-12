@@ -77,7 +77,7 @@ class Ingredient: StoredObject {
     
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Ingredient {
-        let newIngredient: Ingredient = Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
+        let newIngredient: Ingredient = isFirstTimeAppLaunched ? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient : Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Ingredient", inManagedObjectContext: managedContext()) as Ingredient
         newIngredient.updateWithDictionary(valuesForKeys)
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(valuesForKeys["base"] as String)

@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func updateIfNecessary() {
-        if isFirstTimeAppLaunched() || true {
+        if isFirstTimeAppLaunched || true {
             markAppAsLaunched()
             finalizeAppSetup()
         } else if dataNeedsSyncing() {
@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reachability.startNotifier()
         if isConnectedToInternet() {
             updateIfNecessary()
-        } else if isFirstTimeAppLaunched() {
+        } else if isFirstTimeAppLaunched {
             disableAppInteraction()
         }
         
@@ -210,7 +210,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let matConversionKey = privateKeys["matConversionKey"]! as String
         MobileAppTracker.initializeWithMATAdvertiserId(matAdvertiserID, MATConversionKey: matConversionKey)
         MobileAppTracker.setAppleAdvertisingIdentifier(ASIdentifierManager.sharedManager().advertisingIdentifier, advertisingTrackingEnabled: ASIdentifierManager.sharedManager().advertisingTrackingEnabled)
-        if !isFirstTimeAppLaunched() {
+        if !isFirstTimeAppLaunched {
             MobileAppTracker.setExistingUser(true)
         }
         

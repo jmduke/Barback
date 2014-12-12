@@ -19,12 +19,9 @@ class IngredientBase: StoredObject {
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
     
-    override var description: String {
-        return "ARGH"
-    }
-    
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> IngredientBase {
-        let newBase: IngredientBase = IngredientBase.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
+        let newBase: IngredientBase = isFirstTimeAppLaunched ?  NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
+            : IngredientBase.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
         newBase.updateWithDictionary(valuesForKeys)
         return newBase
     }
