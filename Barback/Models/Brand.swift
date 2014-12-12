@@ -1,4 +1,4 @@
-//
+ //
 //  Brand.swift
 //  
 //
@@ -14,7 +14,7 @@ class Brand: StoredObject {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
-    @NSManaged var imageUrl: String
+    @NSManaged var url: String
     @NSManaged var ingredient: IngredientBase
 
     var detailDescription: String {
@@ -27,13 +27,16 @@ class Brand: StoredObject {
         return managedContext().objectForName(Brand.self, name: name)
     }
     
-    class func fromAttributes(name: String, price: Int, base: IngredientBase, url: String, isDead: Bool) -> Brand {
-        let brand: Brand = Brand.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
-        brand.name = name
-        brand.price = price
-        brand.imageUrl = url
-        brand.ingredient = base
-        brand.isDead = isDead
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Brand {
+        let brand: Brand = Brand.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Brand", inManagedObjectContext: managedContext()) as Brand
+        var objectValues: [String : AnyObject] = [:]
+        for attribute: String in self.attributes() {
+            let value: AnyObject? = valuesForKeys[attribute]
+            if let value = value {
+                objectValues[attribute] = value
+            }
+        }
+        brand.setValuesForKeysWithDictionary(objectValues)
         return brand
     }
     
@@ -41,12 +44,11 @@ class Brand: StoredObject {
         let brands = PFQuery.allObjectsSinceSync("Brand")
         return brands.map({
             (object: PFObject) -> Brand in
-            let name = object["name"]! as String
-            let price = object["price"]! as Int
-            let base = IngredientBase.forName(object["base"]! as String)!
-            let url = object["url"]! as String
-            let isDead = object["isDead"] as? Bool ?? false
-            return Brand.fromAttributes(name, price: price, base: base, url: url, isDead: isDead)
+            let objectValues = [:]
+            for attribute in self.attributes() {
+                objectValues.setValue(object[attribute], forKey: attribute)
+            }
+            return Brand.fromAttributes(objectValues)
         }) as [Brand]
     }
 }

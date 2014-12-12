@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func updateIfNecessary() {
-        if isFirstTimeAppLaunched() {
+        if isFirstTimeAppLaunched() || true {
             markAppAsLaunched()
             finalizeAppSetup()
         } else if dataNeedsSyncing() {

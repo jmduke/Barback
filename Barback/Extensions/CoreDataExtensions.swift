@@ -45,4 +45,10 @@ extension NSManagedObject : NamedManagedObject {
     class func entityName() -> String {
         return NSStringFromClass(self).componentsSeparatedByString(".")[1]
     }
+    
+    class func attributes() -> [String] {
+        let entity = NSEntityDescription.entityForName(entityName(), inManagedObjectContext: managedContext())!
+        let attributes = entity.attributesByName as [String: NSAttributeDescription]
+        return Array(attributes.keys)
+    }
 }

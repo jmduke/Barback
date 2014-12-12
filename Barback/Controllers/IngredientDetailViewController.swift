@@ -26,9 +26,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     var brands: [Brand] {
         get {
-            let brands = IngredientBase.forName(ingredient.name)!.brands
+            let brands = ingredient.brands
             let brandObjects = brands.allObjects as [Brand]
-            return brandObjects.sorted({$0.price.intValue < $1.price.intValue}).filter({$0.isDead == false})
+            return brandObjects.sorted({$0.price.intValue < $1.price.intValue}).filter({$0.isDead != true})
         }
     }
     
@@ -121,8 +121,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         ingredientDescriptionView.text = ingredient.information
-        print(ingredientDescriptionView.text)
-        print(ingredientDescriptionView.frame.height)
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
@@ -132,8 +130,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             self.ingredientDescriptionView.removeFromSuperview()
             view.layoutIfNeeded()
         }
-        print(ingredientDescriptionView.text)
-        print(ingredientDescriptionView.frame.height)
         
         if brands.count == 0 {
             brandTableLabel.removeFromSuperview()
@@ -177,7 +173,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         } else if tableView == brandsTableView {            
             let selectedBrand = brands[indexPath.row]
             
-            let image = UIImage(urlString: selectedBrand.imageUrl)!
+            let image = UIImage(urlString: selectedBrand.url)!
             
             if image.hasImage() {
                 let resizedImage = image.scaleDownToWidth(view.frame.width * 0.5)

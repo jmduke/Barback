@@ -22,7 +22,7 @@ public class Recipe: StoredObject {
     var ingredients: [Ingredient] {
         get {
             let ingredientObjects = ingredientSet.allObjects as [Ingredient]
-            return ingredientObjects.filter({ $0.isDead == false })
+            return ingredientObjects.filter({ $0.isDead != true })
         }
     }
     
@@ -46,7 +46,7 @@ public class Recipe: StoredObject {
     
     var detailDescription: String {
         get {
-            let sortedIngredients = ingredients.sorted({($0 as Ingredient).amount?.intValue > ($1 as Ingredient).amount?.intValue})
+            let sortedIngredients = ingredients.sorted({($0 as Ingredient).amount.intValue > ($1 as Ingredient).amount.intValue})
             let ingredientCountInDescription = 3
             let relevantIngredients = sortedIngredients[0...min(sortedIngredients.count - 1, ingredientCountInDescription)].map({
                 (ingredient: Ingredient) -> String in
@@ -58,13 +58,13 @@ public class Recipe: StoredObject {
     
     var abv: Float {
         get {
-            let amounts = ingredients.map({ Int($0.amount?.intValue ?? 0) }) as [Int]
+            let amounts = ingredients.map({ Int($0.amount.intValue ?? 0) }) as [Int]
             let denominator = amounts.reduce(0, combine: +) as Int
             let numerator = (ingredients.map({
                 (ingredient: Ingredient) -> Int in
                 NSLog((ingredient.base.abv as Int).description)
                 let abv = ingredient.base.abv as Int
-                let proportion = Int(ingredient.amount?.intValue ?? 0)
+                let proportion = Int(ingredient.amount.intValue ?? 0)
                 return abv * proportion
             }) as [Int]).reduce(0, combine: +)
             return Float(numerator) / Float(denominator)
@@ -100,14 +100,16 @@ public class Recipe: StoredObject {
         return chosenRecipes
     }
 
-    class func fromAttributes(name: String, directions: String, glassware: String, information: String?, isDead: Bool) -> Recipe {
-        let newRecipe: Recipe = Recipe.forName(name) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
-        newRecipe.name = name
-        newRecipe.directions = directions
-        newRecipe.glassware = glassware
-        newRecipe.isFavorited = false
-        newRecipe.information = information
-        newRecipe.isDead = isDead
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Recipe {
+        let newRecipe: Recipe = Recipe.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
+        var objectValues: [String : AnyObject] = [:]
+        for attribute: String in self.attributes() {
+            let value: AnyObject? = valuesForKeys[attribute]
+            if let value = value {
+                objectValues[attribute] = value
+            }
+        }
+        newRecipe.setValuesForKeysWithDictionary(objectValues)
         return newRecipe
     }
     
@@ -115,13 +117,11 @@ public class Recipe: StoredObject {
         let recipes = PFQuery.allObjectsSinceSync("Recipe")
         return recipes.map({
             (object: PFObject) -> Recipe in
-            let name = object["name"]! as String
-            let garnish = object["garnish"] as? String
-            let glass = object["glassware"]! as String
-            let directions = object["directions"]! as String
-            let information = object["information"] as? String
-            let isDead = object["isDead"] as? Bool ?? false
-            return Recipe.fromAttributes(name, directions: directions, glassware: glass, information: information, isDead: isDead)
+            let objectValues = [:]
+            for attribute in self.attributes() {
+                objectValues.setValue(object[attribute], forKey: attribute)
+            }
+            return Recipe.fromAttributes(objectValues)
         }) as [Recipe]
     }
     
@@ -133,12 +133,13 @@ public class Recipe: StoredObject {
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
-            let recipe = self.fromAttributes(rawRecipe["name"] as String, directions: rawRecipe["directions"] as String, glassware: rawRecipe["glassware"] as? String ?? "", information: rawRecipe["information"] as? String, isDead: rawRecipe["isDead"] as? Bool ?? false)
+            var recipe = self.fromAttributes(rawRecipe)
             let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
                 (rawIngredient: NSDictionary) -> Ingredient in
-                let ingredient = Ingredient.fromAttributes(rawIngredient["base"] as? String, amount: rawIngredient["amount"] as? Float, label: rawIngredient["label"] as? String, recipeName: rawRecipe["name"] as String, objectId: rawIngredient["objectId"] as String, isDead: rawRecipe["isDead"] as? Bool)
+                var ingredient = Ingredient.fromAttributes(rawIngredient)
                 return ingredient
             })
+            recipe.ingredientSet = NSSet(array: ingredients)
             return recipe
         })
         allRecipes = allRecipes.sorted({ $0.name < $1.name })
@@ -146,7 +147,7 @@ public class Recipe: StoredObject {
     }
     
     class func all() -> [Recipe] {
-        return managedContext().objects(Recipe.self)!.filter({ $0.isReal && $0.isDead == false })
+        return managedContext().objects(Recipe.self)!.filter({ $0.isReal && $0.isDead != true })
     }
     
     class func random() -> Recipe {

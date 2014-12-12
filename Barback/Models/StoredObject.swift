@@ -13,5 +13,4 @@ import Parse
 public class StoredObject: NSManagedObject {
 
     @NSManaged var isDead: NSNumber?
-
 }

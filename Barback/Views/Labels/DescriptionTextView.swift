@@ -25,6 +25,7 @@ class DescriptionTextView : UITextView {
     override init() {
         super.init()
         styleLabel()
+        
     }
     
     // It is so stupid that I need the below constructors.
@@ -39,6 +40,10 @@ class DescriptionTextView : UITextView {
     override func awakeFromNib() {
         super.awakeFromNib()
         styleLabel()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
     func styleLabel() {
