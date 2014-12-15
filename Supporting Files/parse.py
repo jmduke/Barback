@@ -8,6 +8,7 @@ recipes_filename = "recipes.yaml"
 bases_filename = "bases.yaml"
 
 force_override = True
+add_cocktaildb_url = True
 
 def chunks(l, n):
     """ Yield successive n-sized chunks from l.
@@ -51,7 +52,7 @@ class Ingredient(ParseObject):
 
 class IngredientBase(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "information", "type"]
-    optional_attributes = ParseObject.optional_attributes + ["abv"]
+    optional_attributes = ParseObject.optional_attributes + ["abv", "cocktaildb"]
     
 class Brand(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "price", "url"]
@@ -115,6 +116,13 @@ def push():
                 ingredients.append(Ingredient(dictionary=ingredient))
 
     print "Found {} new recipes.".format(len(recipes))
+    print "Found {} new ingredients.".format(len(ingredients))
+
+    if add_cocktaildb_url:
+        filename = "cocktaildb.csv"
+        cocktaildb_data = open(filename).readlines()
+        cocktaildb_data = [line.split(",") for line in cocktaildb_data]
+        cocktaildb_data = {line[0].lower(): line[1].strip() for line in cocktaildb_data}
 
     old_bases = get_bases() if not force_override else []
     raw_bases = yaml.load(open(bases_filename).read())
@@ -122,12 +130,18 @@ def push():
     brands = []
     for base in raw_bases:
         if force_override or base not in old_bases:
-            bases.append(IngredientBase(dictionary=base))
+            print base
+            base_object = IngredientBase(dictionary=base)
+            bases.append(base_object)
             for brand in base["brands"]:
                 brand.update({"base": base})
                 brands.append(Brand(dictionary=brand))
+            if add_cocktaildb_url:
+                base_object.cocktaildb = cocktaildb_data.get(base_object.name.lower(), "")
+
 
     print "Found {} new bases.".format(len(bases))  
+    print "Found {} new brands.".format(len(brands))
 
     print "Pushing data."
 

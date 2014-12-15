@@ -10,16 +10,16 @@ import Foundation
 import Parse
 
 // NSUserDefault keys.
-let firstTimeAppLaunchedKey = "launchedOnce"
+let launchedOnceKey = "launchedOnce"
 let syncedThisLaunchKey = "syncedThisLaunch"
 let dataVersionKey = "dataVersion"
 let syncDateKey = "syncDate"
 let appVersionKey = "appVersion"
 let currentAppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as String
 
-var isFirstTimeAppLaunched: Bool = {
-    return !NSUserDefaults.standardUserDefaults().boolForKey(firstTimeAppLaunchedKey)
-}()
+var isFirstTimeAppLaunched: Bool {
+    return !NSUserDefaults.standardUserDefaults().boolForKey(launchedOnceKey)
+}
 
 func isAppSyncedThisLaunch() -> Bool {
     return !NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
@@ -39,7 +39,7 @@ func updateVersionOfApp() {
 }
 
 func setFirstTimeAppLaunched() {
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: firstTimeAppLaunchedKey)
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: launchedOnceKey)
     NSUserDefaults.standardUserDefaults().synchronize()
 }
 

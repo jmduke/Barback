@@ -101,7 +101,7 @@ public class Recipe: StoredObject {
     }
 
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Recipe {
-        let newRecipe: Recipe = isFirstTimeAppLaunched ? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe : Recipe.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("Recipe", inManagedObjectContext: managedContext()) as Recipe
+        let newRecipe: Recipe = Recipe.forName(valuesForKeys["name"] as String) ?? Recipe.newObject() as Recipe
         newRecipe.updateWithDictionary(valuesForKeys)
         return newRecipe
     }
