@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		261222F01A28C06000E857AA /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261222EF1A28C06000E857AA /* DescriptionTextView.swift */; };
+		262CB7FA1A3EA93300CDE94A /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262CB7F91A3EA93300CDE94A /* SimpleButton.swift */; };
 		262E75C41A22E420008487C0 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E75C31A22E420008487C0 /* Async.swift */; };
 		262E75C61A22E844008487C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262E75C51A22E844008487C0 /* CoreData.framework */; };
 		262E75CE1A22F01D008487C0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 262E75CD1A22F01D008487C0 /* Reachability.m */; };
@@ -81,6 +82,7 @@
 		2623FBA71A293C8B0023E862 /* v2.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.3.xcdatamodel; sourceTree = "<group>"; };
 		2623FBA81A293CA60023E862 /* v2.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.4.xcdatamodel; sourceTree = "<group>"; };
 		2623FBA91A2941640023E862 /* v2.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.2.xcdatamodel; sourceTree = "<group>"; };
+		262CB7F91A3EA93300CDE94A /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		262E75C31A22E420008487C0 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		262E75C51A22E844008487C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		262E75CC1A22F01D008487C0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../../../Downloads/Reachability 3/Reachability/Reachability.h"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				2641EF311A1C53AE0055291E /* Labels */,
 				26747A461A105EF800313F04 /* BezierButton.swift */,
 				267D02081A1DA63500E7786C /* ScrollView.swift */,
+				262CB7F91A3EA93300CDE94A /* SimpleButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				26747A231A102AF400313F04 /* StoredObject.swift in Sources */,
 				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
+				262CB7FA1A3EA93300CDE94A /* SimpleButton.swift in Sources */,
 				26A120411A2C3C000044F61D /* ../../../../../../Downloads/markdown-master/src/NSAttributedStringMarkdownParser.m in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
 				26F679EB1A35614C0075AE5D /* CommonUtilities.swift in Sources */,

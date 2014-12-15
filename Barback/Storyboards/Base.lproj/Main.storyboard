@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
     </dependencies>
@@ -78,11 +78,11 @@
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="780"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="113" y="20" width="95" height="21"/>
@@ -138,13 +138,13 @@
                                         </variation>
                                     </tableView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="812" width="241" height="21"/>
+                                        <rect key="frame" x="40" y="828" width="241" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
-                                        <rect key="frame" x="0.0" y="841" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="857" width="320" height="120"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="Z5v-2M-Oxw"/>
@@ -195,7 +195,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="508" width="241" height="284"/>
+                                        <rect key="frame" x="40" y="508" width="240" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="ca4-cP-Vq8"/>
@@ -223,7 +223,7 @@
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
                                     <constraint firstItem="P39-gZ-b5l" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="40" id="Elj-cp-tud"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
-                                    <constraint firstAttribute="trailing" secondItem="P39-gZ-b5l" secondAttribute="trailing" constant="39" id="Lrf-Cg-a5c"/>
+                                    <constraint firstAttribute="trailing" secondItem="P39-gZ-b5l" secondAttribute="trailing" constant="40" id="Lrf-Cg-a5c"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" id="NoV-Kc-ozc"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" priority="500" constant="40" id="UUP-2I-UDV"/>
@@ -246,6 +246,11 @@
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2wD-Rb-NSH"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,7 +268,8 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="UyG-FL-q4b"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="directionsTextView" destination="aEd-IL-5fz" id="vh7-db-qK6"/>
                         <outlet property="favoriteButton" destination="0Zg-K2-heU" id="CwN-Qg-yz6"/>
@@ -291,11 +297,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4ma-Qb-Zx6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="800"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="98" y="20" width="124" height="21"/>
@@ -403,22 +409,43 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-sj-66r" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="114" y="426" width="92" height="30"/>
+                                        <state key="normal" title="On Wikipedia">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlg-YV-LFg" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
+                                        <rect key="frame" x="109" y="476" width="102" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qcj-ne-XAO"/>
+                                        </constraints>
+                                        <state key="normal" title="On CocktailDB">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BQV-tA-SZo" secondAttribute="width" id="57q-Xt-KAj"/>
                                     <constraint firstItem="yL0-GF-QdU" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="7Sd-ai-Qkz"/>
+                                    <constraint firstItem="LB3-sj-66r" firstAttribute="top" secondItem="XIn-7R-mxr" secondAttribute="bottom" constant="20" id="7dy-eH-DmT"/>
                                     <constraint firstItem="gt1-Gn-CFM" firstAttribute="top" secondItem="DJB-7f-BFV" secondAttribute="bottom" constant="10" id="7yc-KG-FEt"/>
+                                    <constraint firstAttribute="centerX" secondItem="LB3-sj-66r" secondAttribute="centerX" id="BkR-6v-37M"/>
+                                    <constraint firstAttribute="centerX" secondItem="hlg-YV-LFg" secondAttribute="centerX" id="GFc-NY-T3X"/>
                                     <constraint firstItem="DJB-7f-BFV" firstAttribute="top" secondItem="4xG-Jb-dhA" secondAttribute="bottom" constant="20" id="H5t-w1-9NY"/>
                                     <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="HKl-XH-f54"/>
                                     <constraint firstAttribute="centerX" secondItem="DJB-7f-BFV" secondAttribute="centerX" id="Idv-hx-uMJ"/>
                                     <constraint firstAttribute="trailing" secondItem="BQV-tA-SZo" secondAttribute="trailing" id="JaW-jg-vP3"/>
                                     <constraint firstAttribute="centerX" secondItem="GDj-jO-OWw" secondAttribute="centerX" id="Jre-zF-cv9"/>
+                                    <constraint firstAttribute="bottom" secondItem="LB3-sj-66r" secondAttribute="bottom" priority="750" constant="100" id="Lfj-px-avi"/>
                                     <constraint firstAttribute="centerX" secondItem="4xG-Jb-dhA" secondAttribute="centerX" id="MVP-8j-TVS"/>
                                     <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="gt1-Gn-CFM" secondAttribute="bottom" constant="20" id="Mza-4X-npj"/>
                                     <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="TSd-SS-BQo"/>
                                     <constraint firstAttribute="bottom" secondItem="XIn-7R-mxr" secondAttribute="bottom" constant="112" id="UqV-or-z9P"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="yL0-GF-QdU" secondAttribute="bottom" priority="500" constant="20" id="V3A-eW-qLg"/>
                                     <constraint firstAttribute="centerX" secondItem="XIn-7R-mxr" secondAttribute="centerX" id="Vx8-1A-2OG"/>
+                                    <constraint firstAttribute="bottom" secondItem="hlg-YV-LFg" secondAttribute="bottom" constant="100" id="XtQ-ar-9KA"/>
+                                    <constraint firstItem="hlg-YV-LFg" firstAttribute="top" secondItem="LB3-sj-66r" secondAttribute="bottom" constant="20" id="YFe-qp-jne"/>
                                     <constraint firstAttribute="width" secondItem="DJB-7f-BFV" secondAttribute="width" id="YQD-iT-2du"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="GDj-jO-OWw" secondAttribute="bottom" constant="20" id="aGt-vZ-Z9X"/>
                                     <constraint firstItem="gt1-Gn-CFM" firstAttribute="width" secondItem="Qmy-sZ-Btm" secondAttribute="width" id="asT-EO-btH"/>
@@ -444,6 +471,7 @@
                                         <exclude reference="TSd-SS-BQo"/>
                                         <exclude reference="JaW-jg-vP3"/>
                                         <exclude reference="rcy-xl-yv7"/>
+                                        <exclude reference="UqV-or-z9P"/>
                                         <exclude reference="c0d-Gu-QlT"/>
                                     </mask>
                                 </variation>
@@ -462,6 +490,7 @@
                         <outlet property="brandTableLabel" destination="DJB-7f-BFV" id="YMh-yl-yCa"/>
                         <outlet property="brandTableViewHeight" destination="R01-wZ-Qns" id="qpM-47-E3y"/>
                         <outlet property="brandsTableView" destination="gt1-Gn-CFM" id="aFp-EX-5RX"/>
+                        <outlet property="cocktailDBButton" destination="hlg-YV-LFg" id="bM5-yz-h66"/>
                         <outlet property="drinkTableViewHeight" destination="E2Q-6f-Kus" id="3NG-ng-HEL"/>
                         <outlet property="drinksTableLabel" destination="BQV-tA-SZo" id="I9v-EH-tG7"/>
                         <outlet property="drinksTableView" destination="XIn-7R-mxr" id="rcU-FY-pDb"/>
@@ -469,6 +498,7 @@
                         <outlet property="ingredientDescriptionView" destination="4xG-Jb-dhA" id="Z4A-0M-L2A"/>
                         <outlet property="ingredientNameLabel" destination="yL0-GF-QdU" id="Gri-Wg-HlI"/>
                         <outlet property="scrollView" destination="Qmy-sZ-Btm" id="xKY-VU-e4J"/>
+                        <outlet property="wikipediaButton" destination="LB3-sj-66r" id="HMX-Ek-iez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKF-Tb-Mrb" userLabel="First Responder" sceneMemberID="firstResponder"/>

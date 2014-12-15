@@ -15,13 +15,13 @@ class IngredientBase: StoredObject {
     @NSManaged var information: String
     @NSManaged var name: String
     @NSManaged var type: String
+    @NSManaged var cocktaildb: String
     @NSManaged var abv: NSNumber
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> IngredientBase {
-        let newBase: IngredientBase = isFirstTimeAppLaunched ?  NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
-            : IngredientBase.forName(valuesForKeys["name"] as String) ?? NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase
+        let newBase: IngredientBase = IngredientBase.forName(valuesForKeys["name"] as String) ?? IngredientBase.newObject() as IngredientBase
         newBase.updateWithDictionary(valuesForKeys)
         return newBase
     }

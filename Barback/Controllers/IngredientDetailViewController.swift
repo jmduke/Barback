@@ -21,6 +21,10 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
     @IBOutlet var ingredientDescriptionView: DescriptionTextView!
     
+    @IBOutlet weak var wikipediaButton: SimpleButton!
+    @IBOutlet weak var cocktailDBButton: SimpleButton!
+
+    
     var ingredient: IngredientBase
     var recipes: [Recipe]
     
@@ -113,6 +117,11 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
         
         ingredientNameLabel.text = ingredient.name
+        cocktailDBButton.setTitle("\(ingredient.name) on CocktailDB", forState: UIControlState.Normal)
+        wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
+        
+        cocktailDBButton.addTarget(self, action: "openCocktailDBPage", forControlEvents: UIControlEvents.TouchUpInside)
+        wikipediaButton.addTarget(self, action: "openWikipediaPage", forControlEvents: UIControlEvents.TouchUpInside)
         
         if Int(ingredient.abv) > 0 {
             ingredientAbvLabel.text = Int(ingredient.abv) > 0 ? "\(ingredient.abv)% ABV" : "(non-alcoholic)"
@@ -138,6 +147,14 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         styleController()
+    }
+    
+    func openCocktailDBPage() {
+        UIApplication.sharedApplication().openURL(NSURL(string: ingredient.cocktaildb)!)
+    }
+    
+    func openWikipediaPage() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://en.wikipedia.org/wiki/\(ingredient.name)")!)
     }
 
     override func styleController() {

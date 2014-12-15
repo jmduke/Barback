@@ -10,7 +10,9 @@ protocol NamedManagedObject {
 
 extension NSManagedObjectContext {
     
-    func objects<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, predicate:NSPredicate? = nil, sortDescriptors:[NSSortDescriptor]? = nil) -> [T]? {
+    func objects<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, predicate:NSPredicate? = nil,
+        sortDescriptors:[NSSortDescriptor]? = nil) -> [T]? {
+            
         let request = NSFetchRequest(entityName: entity.entityName())
         
         request.predicate = predicate
@@ -61,5 +63,9 @@ extension NSManagedObject : NamedManagedObject {
             }
         }
         setValuesForKeysWithDictionary(objectValues)
+    }
+    
+    class func newObject() -> NSManagedObject {
+        return NSEntityDescription.insertNewObjectForEntityForName(entityName(), inManagedObjectContext: managedContext()) as NSManagedObject
     }
 }

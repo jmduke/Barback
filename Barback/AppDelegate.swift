@@ -62,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func updateIfNecessary() {
         if isFirstTimeAppLaunched || true {
-            markAppAsLaunched()
             finalizeAppSetup()
         } else if dataNeedsSyncing() {
             markAppAsLaunched()
@@ -74,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func finalizeAppSetup() {
         syncDataFromJSON()
         saveContext()
+        markAppAsLaunched()
         updateVersionOfApp()
         
         // Set some random recipes to be favorites.
