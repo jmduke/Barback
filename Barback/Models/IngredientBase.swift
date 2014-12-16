@@ -15,7 +15,7 @@ class IngredientBase: StoredObject {
     @NSManaged var information: String
     @NSManaged var name: String
     @NSManaged var type: String
-    @NSManaged var cocktaildb: String
+    @NSManaged var cocktaildb: String?
     @NSManaged var abv: NSNumber
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
