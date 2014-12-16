@@ -117,10 +117,16 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
         
         ingredientNameLabel.text = ingredient.name
-        cocktailDBButton.setTitle("\(ingredient.name) on CocktailDB", forState: UIControlState.Normal)
-        wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
         
-        cocktailDBButton.addTarget(self, action: "openCocktailDBPage", forControlEvents: UIControlEvents.TouchUpInside)
+        if ingredient.cocktaildb != nil && ingredient.cocktaildb != "" {
+            cocktailDBButton.setTitle("\(ingredient.name) on CocktailDB", forState: UIControlState.Normal)
+            cocktailDBButton.addTarget(self, action: "openCocktailDBPage", forControlEvents: UIControlEvents.TouchUpInside)
+        } else {
+            cocktailDBButton.removeFromSuperview()
+        }
+        
+        
+        wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
         wikipediaButton.addTarget(self, action: "openWikipediaPage", forControlEvents: UIControlEvents.TouchUpInside)
         
         if Int(ingredient.abv) > 0 {
@@ -150,7 +156,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func openCocktailDBPage() {
-        UIApplication.sharedApplication().openURL(NSURL(string: ingredient.cocktaildb)!)
+        UIApplication.sharedApplication().openURL(NSURL(string: ingredient.cocktaildb!)!)
     }
     
     func openWikipediaPage() {
