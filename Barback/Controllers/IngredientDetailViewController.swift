@@ -160,7 +160,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func openWikipediaPage() {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://en.wikipedia.org/wiki/\(ingredient.name)")!)
+        let urlString = "http://en.wikipedia.org/wiki/\(ingredient.name)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        print(urlString)
+        UIApplication.sharedApplication().openURL(NSURL(string: urlString!)!)
     }
 
     override func styleController() {
