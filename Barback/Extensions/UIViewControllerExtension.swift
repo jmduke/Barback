@@ -29,11 +29,7 @@ extension UIViewController {
     }
     
     func styleController() {
-        navigationController?.navigationBar.translucent = false
-        
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.barTintColor = Color.Dark.toUIColor()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20 as CGFloat)!]
+        navigationController?.styleController()
         
         if (tabBarController != nil) {
             tabBarController?.tabBar.translucent = false
@@ -42,8 +38,16 @@ extension UIViewController {
         }
         
         view.backgroundColor = Color.Dark.toUIColor()
-        
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)!], forState: UIControlState.Normal)
     }
 
+}
+
+extension UINavigationController {
+    override func styleController() {
+        navigationBar.translucent = false
+        navigationBar.tintColor = UIColor.whiteColor()
+        navigationBar.barTintColor = Color.Dark.toUIColor()
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20 as CGFloat)!]
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)!], forState: UIControlState.Normal)
+    }
 }

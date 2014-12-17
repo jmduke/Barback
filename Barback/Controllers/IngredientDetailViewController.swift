@@ -155,14 +155,23 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         styleController()
     }
     
+    func popWebView() {
+        print("POP")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func openCocktailDBPage() {
-        UIApplication.sharedApplication().openURL(NSURL(string: ingredient.cocktaildb!)!)
+        let url = NSURL(string: ingredient.cocktaildb!)!
+        let controller = UIWebViewController(url: url, title: "CocktailDB", cancelSelector: "popWebView", parent: self)
+        navigationController!.presentViewController(controller, animated: true, completion: nil)
+        
     }
     
     func openWikipediaPage() {
         let urlString = "http://en.wikipedia.org/wiki/\(ingredient.name)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        print(urlString)
-        UIApplication.sharedApplication().openURL(NSURL(string: urlString!)!)
+        let url = NSURL(string: urlString!)!
+        let controller = UIWebViewController(url: url, title: "Wikipedia", cancelSelector: "popWebView", parent: self)
+        navigationController!.presentViewController(controller, animated: true, completion: nil)
     }
 
     override func styleController() {
