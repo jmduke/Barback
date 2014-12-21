@@ -8,7 +8,7 @@ recipes_filename = "recipes.yaml"
 bases_filename = "bases.yaml"
 
 force_override = True
-add_cocktaildb_url = True
+add_cocktaildb_url = False
 
 def chunks(l, n):
     """ Yield successive n-sized chunks from l.
@@ -48,7 +48,7 @@ class Recipe(ParseObject):
 
 class Ingredient(ParseObject):
     required_attributes = ParseObject.required_attributes + ["base"]
-    optional_attributes = ParseObject.optional_attributes + ["amount", "label"]
+    optional_attributes = ParseObject.optional_attributes + ["amount", "label", "recipe"]
 
 class IngredientBase(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "information", "type"]
@@ -56,6 +56,7 @@ class IngredientBase(ParseObject):
     
 class Brand(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "price", "url"]
+    optional_attributes = ParseObject.optional_attributes + ["base"]
 
 def setup():
     register(application_id, client_key)
@@ -69,6 +70,8 @@ def get_recipes():
         parsed_recipe = r.to_dictionary()
         relevant_ingredients = [i for i in ingredients if i.recipe == r.name]
         parsed_recipe['ingredients'] = [i.to_dictionary() for i in relevant_ingredients]
+        for ingredient in parsed_recipe['ingredients']:
+            ingredient.pop("recipe")
 
         parsed_recipes.append(parsed_recipe)
 
@@ -83,6 +86,9 @@ def get_bases():
         parsed_base = b.to_dictionary()
         relevant_brands = [br for br in brands if br.base == b.name]
         parsed_base['brands'] = [br.to_dictionary() for br in relevant_brands]
+        for brand in parsed_base['brands']:
+            brand.pop("base")
+
 
         parsed_bases.append(parsed_base)
 
@@ -112,7 +118,7 @@ def push():
         if recipe not in old_recipes:
             recipes.append(Recipe(dictionary=recipe))
             for ingredient in recipe["ingredients"]:
-                ingredient.update({"recipe": recipe})
+                ingredient.update({"recipe": recipe['name']})
                 ingredients.append(Ingredient(dictionary=ingredient))
 
     print "Found {} new recipes.".format(len(recipes))
@@ -129,12 +135,11 @@ def push():
     bases = []
     brands = []
     for base in raw_bases:
-        if force_override or base not in old_bases:
-            print base
+        if base not in old_bases:
             base_object = IngredientBase(dictionary=base)
             bases.append(base_object)
             for brand in base["brands"]:
-                brand.update({"base": base})
+                brand.update({"base": base["name"]})
                 brands.append(Brand(dictionary=brand))
             if add_cocktaildb_url:
                 base_object.cocktaildb = cocktaildb_data.get(base_object.name.lower(), "")
