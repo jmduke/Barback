@@ -10,6 +10,7 @@ import AdSupport
 import CoreData
 import MobileAppTracker
 import Parse
+import ParseCrashReporting
 import SystemConfiguration
 import UIKit
 
@@ -118,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         }
-        
+    
         // Handle launching the application with a bad connection.
         let reachability = Reachability.reachabilityForInternetConnection()
         reachability.reachableBlock = {
@@ -202,6 +203,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         let parseApplicationId = privateKeys["parseApplicationId"]! as String
         let parseClientKey = privateKeys["parseClientKey"]! as String
+        ParseCrashReporting.enable()
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
