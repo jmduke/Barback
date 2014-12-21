@@ -10,11 +10,36 @@ import Foundation
 import CoreData
 import Parse
 
+enum GarnishBase: String {
+    case Cherry = "cherry"
+    case Cucumber = "cucumber"
+    case Lemon = "lemon"
+    case Lime = "lime"
+    case Orange = "orange"
+    case Pineapple = "pineapple"
+}
+
+enum GarnishType: String {
+    case Chunk = "chunk"
+    case Peel = "peel"
+    case Slice = "slice"
+    case Twist = "twist"
+    case Wedge = "wedge"
+    case Wheel = "wheel"
+}
+
+struct Garnish {
+    var base: GarnishBase?
+    var type: GarnishType?
+    var raw: String
+}
+
 public class Recipe: StoredObject {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
     @NSManaged var glassware: String
+    @NSManaged var garnish: String?
     @NSManaged var name: String
     @NSManaged var information: String?
     

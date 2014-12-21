@@ -28,6 +28,7 @@
     <entity name="Recipe" representedClassName="Barback.Recipe" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="directions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="garnish" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="glassware" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isDead" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -39,6 +40,6 @@
         <element name="Brand" positionX="-99" positionY="-52" width="128" height="120"/>
         <element name="Ingredient" positionX="331" positionY="140" width="128" height="135"/>
         <element name="IngredientBase" positionX="313" positionY="-72" width="128" height="165"/>
-        <element name="Recipe" positionX="-56" positionY="108" width="128" height="165"/>
+        <element name="Recipe" positionX="-56" positionY="108" width="128" height="180"/>
     </elements>
 </model>

@@ -139,6 +139,9 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
+        ingredientDescriptionView.sizeToFit()
+        ingredientDescriptionView.layoutIfNeeded()
+        
         viewDidLayoutSubviews()
         
         if ingredient.information == "" {
