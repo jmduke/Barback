@@ -189,7 +189,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="101" y="46" width="119" height="21"/>
+                                        <rect key="frame" x="100" y="46" width="120" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -222,13 +222,17 @@
                                     <constraint firstAttribute="centerX" secondItem="P39-gZ-b5l" secondAttribute="centerX" id="2wD-Rb-NSH"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" id="5ff-ou-hof"/>
                                     <constraint firstItem="P39-gZ-b5l" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="40" id="Elj-cp-tud"/>
+                                    <constraint firstItem="OA9-do-xpB" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="100" id="IKk-oP-RGY"/>
+                                    <constraint firstAttribute="trailing" secondItem="OA9-do-xpB" secondAttribute="trailing" constant="100" id="J7A-7A-vWx"/>
                                     <constraint firstItem="msd-qH-YF8" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="Kh2-Ev-cH6"/>
                                     <constraint firstAttribute="trailing" secondItem="P39-gZ-b5l" secondAttribute="trailing" constant="40" id="Lrf-Cg-a5c"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="centerY" secondItem="gmf-0i-cR3" secondAttribute="centerY" id="NoV-Kc-ozc"/>
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
+                                    <constraint firstAttribute="trailing" secondItem="OA9-do-xpB" secondAttribute="trailing" constant="100" id="R95-7e-cek"/>
                                     <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" priority="500" constant="40" id="UUP-2I-UDV"/>
                                     <constraint firstItem="P39-gZ-b5l" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" constant="13" id="UVa-Z4-JXF"/>
                                     <constraint firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="UlQ-3c-VPB"/>
+                                    <constraint firstItem="OA9-do-xpB" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="101" id="XRl-68-UkW"/>
                                     <constraint firstItem="aEd-IL-5fz" firstAttribute="top" secondItem="msd-qH-YF8" secondAttribute="bottom" constant="8" id="ZLQ-yC-a4s"/>
                                     <constraint firstItem="gmf-0i-cR3" firstAttribute="top" secondItem="YnV-Wv-43m" secondAttribute="top" constant="20" id="ZTU-sE-S7h"/>
                                     <constraint firstAttribute="width" secondItem="2QU-SY-UI0" secondAttribute="width" priority="7" id="ajF-VU-kL4"/>
@@ -248,6 +252,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="R95-7e-cek"/>
+                                        <exclude reference="UlQ-3c-VPB"/>
+                                        <exclude reference="XRl-68-UkW"/>
                                         <exclude reference="2wD-Rb-NSH"/>
                                     </mask>
                                 </variation>
@@ -397,7 +404,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.abv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.abv" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="106" y="46" width="109" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -406,8 +413,16 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Words about ingredients." translatesAutoresizingMaskIntoConstraints="NO" id="4xG-Jb-dhA" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="87" width="240" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="zTC-h2-RCm"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="zTC-h2-RCm"/>
+                                            </mask>
+                                        </variation>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-sj-66r" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="114" y="426" width="92" height="30"/>
@@ -440,6 +455,7 @@
                                     <constraint firstAttribute="bottom" secondItem="LB3-sj-66r" secondAttribute="bottom" priority="750" constant="100" id="Lfj-px-avi"/>
                                     <constraint firstAttribute="centerX" secondItem="4xG-Jb-dhA" secondAttribute="centerX" id="MVP-8j-TVS"/>
                                     <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="gt1-Gn-CFM" secondAttribute="bottom" constant="20" id="Mza-4X-npj"/>
+                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="GDj-jO-OWw" secondAttribute="bottom" priority="250" constant="20" id="Q6P-c4-VeM"/>
                                     <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="TSd-SS-BQo"/>
                                     <constraint firstAttribute="bottom" secondItem="XIn-7R-mxr" secondAttribute="bottom" constant="112" id="UqV-or-z9P"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="yL0-GF-QdU" secondAttribute="bottom" priority="500" constant="20" id="V3A-eW-qLg"/>
