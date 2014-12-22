@@ -93,7 +93,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         directionsTextView.text = recipe!.directions
         subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         
-        if (recipe!.garnish != nil) {
+        if (recipe!.garnish != nil && recipe!.garnish != "") {
             subheadLabel.text = subheadLabel.text! + " · Garnish with \(recipe!.garnish!.lowercaseString) "
         }
         
