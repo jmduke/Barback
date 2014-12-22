@@ -80,6 +80,10 @@ func syncNewData() {
 func syncDataFromJSON() {
     let ingredients = IngredientBase.syncWithJSON()
     let recipes = Recipe.syncWithJSON()
+    
+    let latestDataVersion = 0
+    setLatestDataVersion(latestDataVersion)
+    setLatestSyncDate(NSDate())
 }
 
 func markAppAsLaunched() {
