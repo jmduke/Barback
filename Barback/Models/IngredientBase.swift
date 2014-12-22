@@ -21,15 +21,7 @@ class IngredientBase: StoredObject {
     @NSManaged var uses: NSSet
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> IngredientBase {
-        let newBase: IngredientBase = {
-            if checkForObject {
-                return IngredientBase.forName(valuesForKeys["name"] as String) ?? IngredientBase.newObject() as IngredientBase
-            } else {
-                return IngredientBase.newObject() as IngredientBase
-            }
-        }()
-        newBase.updateWithDictionary(valuesForKeys)
-        return newBase
+        return managedContext().objectForDictionary(IngredientBase.self, dictionary: valuesForKeys, checkForObject: checkForObject)
     }
 
     class func syncWithParse() -> [IngredientBase] {

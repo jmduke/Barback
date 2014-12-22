@@ -28,15 +28,7 @@ class Brand: StoredObject {
     }
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Brand {
-        let brand: Brand = {
-            if checkForObject {
-                return Brand.forName(valuesForKeys["name"] as String) ?? Brand.newObject() as Brand
-            } else {
-                return Brand.newObject() as Brand
-            }
-        }()
-        brand.updateWithDictionary(valuesForKeys)
-        return brand
+        return managedContext().objectForDictionary(Brand.self, dictionary: valuesForKeys, checkForObject: checkForObject)
     }
     
     class func syncWithParse() -> [Brand] {

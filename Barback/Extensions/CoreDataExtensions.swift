@@ -36,6 +36,17 @@ extension NSManagedObjectContext {
         return objects(entity, predicate: predicate)?.first
     }
     
+    func objectForDictionary<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, dictionary: [NSObject : AnyObject], checkForObject: Bool = true) -> T {
+        var object: T
+        if checkForObject {
+            object = objectForObjectId(entity, objectId: dictionary["objectId"] as String) as T! ?? entity.newObject() as T
+        } else {
+            object = entity.newObject() as T
+        }
+        object.updateWithDictionary(dictionary)
+        return object
+    }
+    
     func randomObject<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type) -> T? {
         let allObjects = objects(entity)?
         return allObjects?[Int(arc4random_uniform(UInt32(allObjects!.count)))]

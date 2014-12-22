@@ -61,11 +61,6 @@ class Ingredient: StoredObject {
             return extraInformation
         }
     }
-
-    class func forObjectId(objectId: String) -> Ingredient? {
-        return managedContext().objectForObjectId(Ingredient.self, objectId: objectId)
-    }
-    
   
     class func syncWithParse() -> [Ingredient] {
         let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
@@ -77,14 +72,7 @@ class Ingredient: StoredObject {
     
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Ingredient {
-        let newIngredient: Ingredient = {
-            if checkForObject {
-                return Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? Ingredient.newObject() as Ingredient
-            } else {
-                return Ingredient.newObject() as Ingredient
-            }
-        }()
-        newIngredient.updateWithDictionary(valuesForKeys)
+        var newIngredient = managedContext().objectForDictionary(Ingredient.self, dictionary: valuesForKeys, checkForObject: checkForObject)
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(valuesForKeys["base"] as String)
         if ingredientBase == nil {

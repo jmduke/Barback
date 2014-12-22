@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 import Parse
 
+@objc(StoredObject)
 public class StoredObject: NSManagedObject {
 
     @NSManaged var isDead: NSNumber?
+    
 }
