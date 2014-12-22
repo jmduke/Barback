@@ -126,15 +126,7 @@ public class Recipe: StoredObject {
     }
 
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Recipe {
-        let newRecipe: Recipe = {
-            if checkForObject {
-                return Recipe.forName(valuesForKeys["name"] as String) ?? Recipe.newObject() as Recipe
-            } else {
-                return Recipe.newObject() as Recipe
-            }
-        }()
-        newRecipe.updateWithDictionary(valuesForKeys)
-        return newRecipe
+        return managedContext().objectForDictionary(Recipe.self, dictionary: valuesForKeys, checkForObject: checkForObject)
     }
     
     class func syncWithParse() -> [Recipe] {
