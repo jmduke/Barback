@@ -100,7 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.setDeviceTokenFromData(deviceToken)
-        currentInstallation.channels = ["global"]
         currentInstallation.saveInBackgroundWithBlock(nil)
     }
     
@@ -113,13 +112,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeDependencies(launchOptions)
         
         // Register for push notifications.
-        if (application.respondsToSelector("registerUserNotificationSettings")) {
-            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
-            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-            application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        }
-    
+        let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         // Handle launching the application with a bad connection.
         let reachability = Reachability.reachabilityForInternetConnection()
         reachability.reachableBlock = {
