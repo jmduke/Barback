@@ -27,8 +27,14 @@ class Brand: StoredObject {
         return managedContext().objectForName(Brand.self, name: name)
     }
     
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Brand {
-        let brand: Brand = Brand.forName(valuesForKeys["name"] as String) ?? Brand.newObject() as Brand
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Brand {
+        let brand: Brand = {
+            if checkForObject {
+                return Brand.forName(valuesForKeys["name"] as String) ?? Brand.newObject() as Brand
+            } else {
+                return Brand.newObject() as Brand
+            }
+        }()
         brand.updateWithDictionary(valuesForKeys)
         return brand
     }

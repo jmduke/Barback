@@ -12,7 +12,7 @@ extension NSManagedObjectContext {
     
     func objects<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, predicate:NSPredicate? = nil,
         sortDescriptors:[NSSortDescriptor]? = nil) -> [T]? {
-            
+
         let request = NSFetchRequest(entityName: entity.entityName())
         
         request.predicate = predicate

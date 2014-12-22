@@ -20,8 +20,14 @@ class IngredientBase: StoredObject {
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
     
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> IngredientBase {
-        let newBase: IngredientBase = IngredientBase.forName(valuesForKeys["name"] as String) ?? IngredientBase.newObject() as IngredientBase
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> IngredientBase {
+        let newBase: IngredientBase = {
+            if checkForObject {
+                return IngredientBase.forName(valuesForKeys["name"] as String) ?? IngredientBase.newObject() as IngredientBase
+            } else {
+                return IngredientBase.newObject() as IngredientBase
+            }
+        }()
         newBase.updateWithDictionary(valuesForKeys)
         return newBase
     }
@@ -42,10 +48,10 @@ class IngredientBase: StoredObject {
         
         var allBases: [IngredientBase] = rawBases.map({
             (rawBase: NSDictionary) -> IngredientBase in
-            var base = self.fromAttributes(rawBase)
+            var base = self.fromAttributes(rawBase, checkForObject: false)
             let brands = (rawBase["brands"] as [NSDictionary]).map({
                 (rawBrand: NSDictionary) -> Brand in
-                let brand = Brand.fromAttributes(rawBrand)
+                let brand = Brand.fromAttributes(rawBrand, checkForObject: false)
                 return brand
             })
             base.brands = NSSet(array: brands)
