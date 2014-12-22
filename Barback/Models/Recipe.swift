@@ -125,8 +125,14 @@ public class Recipe: StoredObject {
         return chosenRecipes
     }
 
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Recipe {
-        let newRecipe: Recipe = Recipe.forName(valuesForKeys["name"] as String) ?? Recipe.newObject() as Recipe
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Recipe {
+        let newRecipe: Recipe = {
+            if checkForObject {
+                return Recipe.forName(valuesForKeys["name"] as String) ?? Recipe.newObject() as Recipe
+            } else {
+                return Recipe.newObject() as Recipe
+            }
+        }()
         newRecipe.updateWithDictionary(valuesForKeys)
         return newRecipe
     }
@@ -147,10 +153,10 @@ public class Recipe: StoredObject {
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
-            var recipe = self.fromAttributes(rawRecipe)
+            var recipe = self.fromAttributes(rawRecipe, checkForObject: false)
             let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
                 (rawIngredient: NSDictionary) -> Ingredient in
-                var ingredient = Ingredient.fromAttributes(rawIngredient)
+                var ingredient = Ingredient.fromAttributes(rawIngredient, checkForObject: false)
                 return ingredient
             })
             recipe.ingredientSet = NSSet(array: ingredients)

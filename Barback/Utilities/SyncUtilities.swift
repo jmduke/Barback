@@ -78,8 +78,8 @@ func syncNewData() {
 }
 
 func syncDataFromJSON() {
-    let recipes = Recipe.syncWithJSON()
     let ingredients = IngredientBase.syncWithJSON()
+    let recipes = Recipe.syncWithJSON()
 }
 
 func markAppAsLaunched() {

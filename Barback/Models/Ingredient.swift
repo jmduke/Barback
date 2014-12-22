@@ -76,8 +76,14 @@ class Ingredient: StoredObject {
     }
     
     
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject]) -> Ingredient {
-        let newIngredient: Ingredient = Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? Ingredient.newObject() as Ingredient
+    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Ingredient {
+        let newIngredient: Ingredient = {
+            if checkForObject {
+                return Ingredient.forObjectId(valuesForKeys["objectId"] as String) ?? Ingredient.newObject() as Ingredient
+            } else {
+                return Ingredient.newObject() as Ingredient
+            }
+        }()
         newIngredient.updateWithDictionary(valuesForKeys)
         
         var ingredientBase: IngredientBase? = IngredientBase.forName(valuesForKeys["base"] as String)
