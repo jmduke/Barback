@@ -20,6 +20,9 @@ class RecipeListViewController: UITableViewController {
         title = viewTitle
         
         PFAnalytics.trackEventInBackground("viewControllerOpened", dimensions: ["title": viewTitle], block: nil)
+        
+        // We reload this to remove isNew identifier after seeing recipe.
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {

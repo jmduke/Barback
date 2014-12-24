@@ -58,7 +58,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
         self.navigationItem.rightBarButtonItem = randomButton
         
@@ -69,6 +68,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
             self.navigationItem.leftBarButtonItem = randomButton
         }
+        
+        
+        recipe!.isNew = false
+        saveContext()
         
         
         ingredientsTableView.delegate = self

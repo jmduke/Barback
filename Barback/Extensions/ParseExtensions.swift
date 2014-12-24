@@ -41,7 +41,7 @@ extension PFObject {
     func toDictionary(attributes: [String]) -> [String: AnyObject] {
         var objectValues: [String: AnyObject] = [:]
         for attribute in attributes {
-            objectValues[attribute] = self[attribute]
+            objectValues[attribute] = self[attribute.stringByReplacingOccurrencesOfString("Name", withString: "", options: nil, range: nil)]
         }
         return objectValues
     }

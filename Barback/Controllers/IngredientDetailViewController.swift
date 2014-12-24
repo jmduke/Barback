@@ -159,7 +159,6 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func popWebView() {
-        print("POP")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
