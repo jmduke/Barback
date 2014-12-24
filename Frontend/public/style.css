@@ -1,6 +1,7 @@
 body {
     font-family: Avenir;
     color: #2B3A42;
+    background-color: #2B3A42;
     margin-top: 5em;
     font-size: 1.2em;
 }
@@ -8,8 +9,11 @@ body {
 .main {
     width: 90%;
     margin-left: 5%;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     box-sizing: border-box;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 h1 {
@@ -30,11 +34,11 @@ a {
 }
 
 p {
-    margin-top: 0.25em;
+    margin: 0.25em;
 }
 
 .header {
-    color: #3F5765;
+    color: #ccc;
     padding-bottom: 1em;
 }
 
@@ -43,6 +47,7 @@ p {
     border: 1px #8FA7B5 solid;
     padding: 0.5em;
     margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
 .ingredient {
@@ -56,7 +61,7 @@ p {
 }
 
 .label {
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-left: 1em;
     text-transform: lowercase;
     font-variant: small-caps;
@@ -64,7 +69,7 @@ p {
 }
 
 .footer {
-    color: #3F5765;
+    color: #ccc;
     padding-top: 1em;
     margin-bottom: 2em;
 }
@@ -72,16 +77,13 @@ p {
 .header, .footer {
     width: 80%;
     margin-left: 10%;
+    text-align: center;
 }
 
 @media all and (min-width: 1000px)  {
     .main {
         width: 40%;
         margin-left: 20%;
-    }
-
-    h1, h3 {
-        text-align: left;
     }
 
     .header, .footer {
