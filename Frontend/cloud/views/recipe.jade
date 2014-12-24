@@ -1,0 +1,32 @@
+extends ./base
+
+block content
+  h1= message.attributes.name
+  h3= "Served in " + message.attributes.glassware
+  if message.attributes.garnish
+    h3= "Garnish with " + message.attributes.garnish
+  
+  hr
+
+  span(class="label") Ingredients
+  p(class="ingredients")
+    each ingredient in message.attributes.ingredients
+      a(class="ingredient", href="/ingredient/" + ingredient.attributes.base)= ingredient.attributes.base
+      &nbsp;·&nbsp;
+      if ingredient.attributes.amount && ingredient.attributes.label
+        span(class="details")= ingredient.attributes.label
+        &nbsp;·&nbsp;
+        span(class="details")= ingredient.attributes.amount + "cl"
+      else if ingredient.attributes.amount
+        span(class="details")= ingredient.attributes.amount + "cl"
+      else if ingredient.attributes.label
+        span(class="details")= ingredient.attributes.label
+      br
+
+  span(class="label") Directions
+  p(class="directions")= message.attributes.directions
+
+  if message.attributes.information
+    span(class="label") Information
+    p(class="information")= message.attributes.information
+    script $(".information")[0].innerHTML = marked($(".information")[0].innerHTML);
