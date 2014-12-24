@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="apple-touch-icon", sizes="57x57", href="/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="60x60", href="/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon", sizes="120x120", href="/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon", sizes="76x76", href="/apple-touch-icon-76x76.png")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    title= message.attributes.name
+    link(rel="stylesheet", href="/style.css")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="/marked.js")
+    script(src="https://apis.google.com/js/platform.js", async, defer)
+  
+  body
+    div(id="fb-root")
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=389867964446737&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk')); 
+
+    .header
+      span Brought to you by 
+      a(href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Barback: Classic and Modern Cocktails
+      span .
+
+    .main
+      block content
+
+      span(class="label") Share
+      .directions
+        .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
+        a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+        script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        .g-plusone(data-size="tall")
+
+    .footer
+      span This recipe is brought to you by 
+      a(href="http://getbarback.com") Barback
+      span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.

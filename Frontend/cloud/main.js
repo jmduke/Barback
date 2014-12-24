@@ -32,8 +32,18 @@ Parse.Cloud.define("ingredientForName", function(request, response) {
       query.equalTo("base", request.params.name);
       query.find({
         success: function(results2) {
-          results[0].attributes.brands = results2;
-          response.success(results[0]);
+          results[0].attributes.brands = results2;      
+          var query = new Parse.Query("Ingredient");
+          query.equalTo("base", request.params.name);
+          query.find({
+            success: function(results3) {
+              results[0].attributes.ingredients = results3;          
+              response.success(results[0]);
+            },
+            error: function() {
+              response.error("movie lookup failed");
+            }
+          });
         },
         error: function() {
           response.error("movie lookup failed");
