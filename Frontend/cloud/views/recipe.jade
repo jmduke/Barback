@@ -16,9 +16,9 @@ block content
       if ingredient.attributes.amount && ingredient.attributes.label
         span(class="details")= ingredient.attributes.label
         &nbsp;·&nbsp;
-        span(class="details")= ingredient.attributes.amount + "cl"
+        span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.amount
-        span(class="details")= ingredient.attributes.amount + "cl"
+        span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.label
         span(class="details")= ingredient.attributes.label
       br

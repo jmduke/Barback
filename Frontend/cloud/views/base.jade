@@ -27,9 +27,7 @@ html(lang="en")
       }(document, 'script', 'facebook-jssdk')); 
 
     .header
-      span Brought to you by 
       a(href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Barback: Classic and Modern Cocktails
-      span .
 
     .main
       block content
@@ -37,7 +35,9 @@ html(lang="en")
       span(class="label") Share
       .directions
         .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
+        &nbsp;&nbsp;
         a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+        &nbsp;&nbsp;
         script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
         .g-plusone(data-size="tall")
 

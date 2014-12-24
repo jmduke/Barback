@@ -16,7 +16,7 @@ block content
     .ingredients
       each brand in message.attributes.brands
         span(class="ingredient")= brand.attributes.name + " · "
-        span(class="details")= brand.attributes.price
+        span(class="details")= "$" + brand.attributes.price
         br
 
   span(class="label")= "Recipes using " + message.attributes.name
@@ -27,9 +27,9 @@ block content
       if ingredient.attributes.amount && ingredient.attributes.label
         span(class="details")= ingredient.attributes.label
         &nbsp;·&nbsp;
-        span(class="details")= ingredient.attributes.amount + "cl"
+        span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.amount
-        span(class="details")= ingredient.attributes.amount + "cl"
+        span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.label
         span(class="details")= ingredient.attributes.label
       br
