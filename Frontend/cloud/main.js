@@ -1,57 +1,35 @@
 require('cloud/app.js');
 
-Parse.Cloud.define("recipeForName", function(request, response) {
-  var query = new Parse.Query("Recipe");
-  query.equalTo("name", request.params.name);
+function objectsForVariable(className, attribute, value, callback) {
+  var query = new Parse.Query(className);
+  query.equalTo(attribute, value);
   query.find({
-    success: function(results) {
-      var query = new Parse.Query("Ingredient");
-      query.equalTo("recipe", request.params.name);
-      query.find({
-        success: function(results2) {
-          results[0].attributes.ingredients = results2;
-          response.success(results[0]);
-        },
-        error: function() {
-          response.error("movie lookup failed");
-        }
-      });
-    },
+    success: callback,
     error: function() {
-      response.error("movie lookup failed");
+      response.error(className + " lookup failed.");
     }
+  });
+}
+
+Parse.Cloud.define("recipeForName", function(request, response) {
+  objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
+    objectsForVariable("Ingredient", "recipe", request.params.name, function(ingredients) {
+      recipe = recipes[0];
+      recipe.attributes.ingredients = ingredients;
+      response.success(recipe);
+    });
   });
 });
 
 Parse.Cloud.define("ingredientForName", function(request, response) {
-  var query = new Parse.Query("IngredientBase");
-  query.equalTo("name", request.params.name);
-  query.find({
-    success: function(results) {
-      var query = new Parse.Query("Brand");
-      query.equalTo("base", request.params.name);
-      query.find({
-        success: function(results2) {
-          results[0].attributes.brands = results2;      
-          var query = new Parse.Query("Ingredient");
-          query.equalTo("base", request.params.name);
-          query.find({
-            success: function(results3) {
-              results[0].attributes.ingredients = results3;          
-              response.success(results[0]);
-            },
-            error: function() {
-              response.error("movie lookup failed");
-            }
-          });
-        },
-        error: function() {
-          response.error("movie lookup failed");
-        }
+  objectsForVariable("IngredientBase", "name", request.params.name, function(bases) {
+    base = bases[0];
+    objectsForVariable("Brand", "base", request.params.name, function(brands) {
+      base.attributes.brands = brands;
+      objectsForVariable("Ingredient", "base", request.params.name, function(ingredients) {
+        base.attributes.ingredients = ingredients;
+        response.success(base);
       });
-    },
-    error: function() {
-      response.error("movie lookup failed");
-    }
+    });
   });
 });
