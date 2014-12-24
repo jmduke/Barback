@@ -34,11 +34,14 @@
     <div class="main">
       <h1><%= message.attributes.name %></h1>
       <h3>Served in <%= message.attributes.glassware %>.</h3>
+      <h3>Garnish with <%= message.attributes.garnish %>.</h3>
+
+      <hr>
 
       <span class="label">Ingredients</span>
       <p class="ingredients">
       <% for(var i=0; i<message.attributes.ingredients.length; i++) {%>
-          <span class="ingredient"><%= message.attributes.ingredients[i].attributes.base %> --
+          <span class="ingredient"><%= message.attributes.ingredients[i].attributes.base %> ·
           </span>   
           <span class="details">
               <%if (message.attributes.ingredients[i].attributes.amount) { %>
