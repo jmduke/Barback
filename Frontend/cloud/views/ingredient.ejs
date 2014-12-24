@@ -45,17 +45,19 @@
         </script>
       <% } %>
 
-      <span class="label">Recommended Brands</span>
-      <p class="ingredients">
-      <% for(var i=0; i<message.attributes.brands.length; i++) {%>
-          <span class="ingredient"><%= message.attributes.brands[i].attributes.name %> ·
-          </span>   
-          <span class="details">
-                $<%= message.attributes.brands[i].attributes.price %>
-          </span>
-            <br />
+      <%if (message.attributes.brands.length > 0) { %>
+        <span class="label">Recommended Brands</span>
+        <p class="ingredients">
+        <% for(var i=0; i<message.attributes.brands.length; i++) {%>
+            <span class="ingredient"><%= message.attributes.brands[i].attributes.name %> ·
+            </span>   
+            <span class="details">
+                  $<%= message.attributes.brands[i].attributes.price %>
+            </span>
+              <br />
+        <% } %>
+        </p>
       <% } %>
-      </p>
 
       <span class="label">Share</span>
       <div class="directions">
