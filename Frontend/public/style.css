@@ -1,5 +1,5 @@
 body {
-    font-family: Futura-Medium;
+    font-family: Avenir;
     color: #2B3A42;
     margin-top: 5em;
     font-size: 1.2em;
@@ -20,9 +20,8 @@ h1 {
 
 h3 {
     margin-top: 0;
-    font-style: italic;
     font-size: 1em;
-    margin-bottom: 2em;
+    margin-bottom: 0em;
     text-align: center;
 }
 
@@ -97,4 +96,9 @@ p {
 
 #___plusone_0 {
     vertical-align: bottom !important;
+}
+
+hr {
+    border: none;
+    margin: 2em;
 }
