@@ -67,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if dataNeedsSyncing() {
             markAppAsLaunched()
             syncNewData()
-            saveContext()
         }
     }
  

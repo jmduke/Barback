@@ -39,7 +39,7 @@ extension NSManagedObjectContext {
     func objectForDictionary<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, dictionary: [NSObject : AnyObject], checkForObject: Bool = true) -> T {
         var object: T
         if checkForObject {
-            object = objectForObjectId(entity, objectId: dictionary["objectId"] as String) as T! ?? entity.newObject() as T
+            object = objectForObjectId(entity, objectId: dictionary["objectId"] as? String ?? "") ?? entity.newObject() as T
         } else {
             object = entity.newObject() as T
         }

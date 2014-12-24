@@ -51,6 +51,8 @@ public class Recipe: StoredObject {
         }
     }
     
+    @NSManaged var isNew: Bool
+    
     @NSManaged var isFavorited: NSNumber
     // Core Data won't let us store a bool so we use this (and isFavorited as a backend.)
     var favorite: Bool {
@@ -133,6 +135,7 @@ public class Recipe: StoredObject {
         let recipes = PFQuery.allObjectsSinceSync("Recipe")
         return recipes.map({
             (object: PFObject) -> Recipe in
+            object["isNew"] = true
             return Recipe.fromAttributes(object.toDictionary(self.attributes()))
         }) as [Recipe]
     }

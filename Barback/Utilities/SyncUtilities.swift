@@ -68,9 +68,13 @@ func dataNeedsSyncing() -> Bool {
 
 func syncNewData() {
     let ingredientBases = IngredientBase.syncWithParse()
+    saveContext()
     let recipes = Recipe.syncWithParse()
+    saveContext()
     let ingredients = Ingredient.syncWithParse()
+    saveContext()
     let brands = Brand.syncWithParse()
+    saveContext()
     
     let latestDataVersion = PFConfig.getConfig().objectForKey(dataVersionKey) as Int
     setLatestDataVersion(latestDataVersion)
