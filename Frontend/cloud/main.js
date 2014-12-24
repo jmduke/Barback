@@ -22,3 +22,26 @@ Parse.Cloud.define("recipeForName", function(request, response) {
     }
   });
 });
+
+Parse.Cloud.define("ingredientForName", function(request, response) {
+  var query = new Parse.Query("IngredientBase");
+  query.equalTo("name", request.params.name);
+  query.find({
+    success: function(results) {
+      var query = new Parse.Query("Brand");
+      query.equalTo("base", request.params.name);
+      query.find({
+        success: function(results2) {
+          results[0].attributes.brands = results2;
+          response.success(results[0]);
+        },
+        error: function() {
+          response.error("movie lookup failed");
+        }
+      });
+    },
+    error: function() {
+      response.error("movie lookup failed");
+    }
+  });
+});

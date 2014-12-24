@@ -19,4 +19,15 @@ app.get('/recipe/:name', function(req, res) {
   });
 });
 
+app.get('/ingredient/:name', function(req, res) {
+  var recipe = Parse.Cloud.run("ingredientForName", {"name": req.param("name")}, {
+    success: function(results) {
+      res.render('ingredient', { message: results });
+    },
+    error: function() {
+      res.render('ingredient', { message: "lolfail"});
+    }
+  });
+});
+
 app.listen();
