@@ -41,7 +41,11 @@
       <span class="label">Ingredients</span>
       <p class="ingredients">
       <% for(var i=0; i<message.attributes.ingredients.length; i++) {%>
-          <span class="ingredient"><%= message.attributes.ingredients[i].attributes.base %> ·
+          <span class="ingredient">
+            <a href="/ingredient/<%= message.attributes.ingredients[i].attributes.base %>">
+              <%= message.attributes.ingredients[i].attributes.base %>
+            </a>
+             ·
           </span>   
           <span class="details">
               <%if (message.attributes.ingredients[i].attributes.amount) { %>
