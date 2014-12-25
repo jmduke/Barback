@@ -2,6 +2,7 @@ extends ./base
 
 block content
   h1= message.attributes.name
+  h3= message.attributes.abv + "% ABV"
   h3= "Served in " + message.attributes.glassware
   if message.attributes.garnish
     h3= "Garnish with " + message.attributes.garnish
@@ -11,7 +12,10 @@ block content
   span(class="label") Ingredients
   p(class="ingredients")
     each ingredient in message.attributes.ingredients
-      a(class="ingredient", href="/ingredient/" + ingredient.attributes.base)= ingredient.attributes.base
+      if message.attributes.bases.indexOf(ingredient.attributes.base) >= 0
+        a(class="ingredient", href="/ingredient/" + ingredient.attributes.base)= ingredient.attributes.base
+      else
+        span(class="ingredient")= ingredient.attributes.base
       &nbsp;·&nbsp;
       if ingredient.attributes.amount && ingredient.attributes.label
         span(class="details")= ingredient.attributes.label

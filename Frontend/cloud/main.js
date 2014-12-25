@@ -11,12 +11,48 @@ function objectsForVariable(className, attribute, value, callback) {
   });
 }
 
+function objectsForVariables(className, attribute, values, callback) {
+  var query = new Parse.Query(className);
+  query.containedIn(attribute, values);
+  query.find({
+    success: callback,
+    error: function() {
+      response.error(className + " lookup failed.");
+    }
+  });
+}
+
 Parse.Cloud.define("recipeForName", function(request, response) {
   objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
+    recipe = recipes[0];
     objectsForVariable("Ingredient", "recipe", request.params.name, function(ingredients) {
-      recipe = recipes[0];
+      recipes_left = ingredients.length;
       recipe.attributes.ingredients = ingredients;
-      response.success(recipe);
+      baseNames = [];
+      for (i = 0; i < ingredients.length; i++) {
+        baseNames.push(ingredients[i].attributes.base);
+      }
+      objectsForVariables("IngredientBase", "name", baseNames, function(bases) {
+        recipe.attributes.bases = [];
+        nominator = 0.0;
+        denominator = 0.0;
+        for (j = 0; j < bases.length; j++) {
+          base = bases[j];
+          recipe.attributes.bases.push(base.attributes.name);
+          abv = base.attributes.abv;
+          amount = ingredients[baseNames.indexOf(base.attributes.name)].attributes.amount;
+          if ((abv > 0) && (amount > 0)) {
+            nominator += abv * amount;
+            denominator += amount;
+          } else if (amount > 0) {
+            denominator += amount;
+          }
+        }
+        recipe.attributes.nominator = nominator;
+        recipe.attributes.denominator = denominator;
+        recipe.attributes.abv = Math.round(nominator / denominator);
+        response.success(recipe);
+      });
     });
   });
 });
