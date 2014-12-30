@@ -16,14 +16,16 @@ block content
         a(class="ingredient", href="/ingredient/" + ingredient.attributes.base)= ingredient.attributes.base
       else
         span(class="ingredient")= ingredient.attributes.base
-      &nbsp;·&nbsp;
       if ingredient.attributes.amount && ingredient.attributes.label
+        &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.label
         &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.amount
+        &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.amount + " cl"
       else if ingredient.attributes.label
+        &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.label
       br
 

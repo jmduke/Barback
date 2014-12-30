@@ -2,6 +2,7 @@ require('cloud/app.js');
 
 function objectsForVariable(className, attribute, value, callback) {
   var query = new Parse.Query(className);
+  query.descending("amount");
   query.equalTo(attribute, value);
   query.find({
     success: callback,
