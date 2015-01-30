@@ -1,5 +1,8 @@
 extends ./base
 
+block head
+  meta(name="apple-itunes-app", content="app-id=829469529, app-argument=barback://recipe/"+message.attributes.name)
+
 block content
   h1= message.attributes.name
   h3= message.attributes.abv + "% ABV"
