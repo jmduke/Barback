@@ -168,8 +168,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         favoriteButton.selected = !favoriteButton.selected
         saveContext()
         
-        PFAnalytics.trackEventInBackground("recipeFavorited", dimensions: ["recipe": recipe!.name
-            ], block: nil)
+        PFCloud.callFunctionInBackground("incrementFavoritesForRecipe", withParameters: ["name": recipe!.name, "increment": recipe!.isFavorited], block: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
