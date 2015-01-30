@@ -23,6 +23,19 @@ function objectsForVariables(className, attribute, values, callback) {
   });
 }
 
+Parse.Cloud.define("incrementFavoritesForRecipe", function(request, response) {
+  objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
+    recipe = recipes[0];
+    if (request.params.increment) {
+      recipe.increment("favorites");
+    } else {
+      recipe.increment("favorites", -1);
+    }
+    recipe.save();
+    response.success();
+  });
+});
+
 Parse.Cloud.define("recipeForName", function(request, response) {
   objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
     recipe = recipes[0];
