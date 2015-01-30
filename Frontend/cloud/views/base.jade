@@ -9,7 +9,10 @@ html(lang="en")
     link(rel="apple-touch-icon", sizes="76x76", href="/apple-touch-icon-76x76.png")
     meta(name="viewport", content="width=device-width, initial-scale=1")
 
-    title= message.attributes.name
+    if message.attributes
+      title= message.attributes.name
+    else
+      title Barback
     link(rel="stylesheet", href="/style.css")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script(src="/marked.js")
@@ -42,6 +45,6 @@ html(lang="en")
         .g-plusone(data-size="tall")
 
     .footer
-      span This recipe is brought to you by 
+      span This page is brought to you by 
       a(href="http://getbarback.com") Barback
       span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.

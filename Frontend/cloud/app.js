@@ -14,7 +14,7 @@ app.get('/recipe/:name', function(req, res) {
       res.render('recipe', { message: results });
     },
     error: function() {
-      res.render('recipe', { message: "lolfail"});
+      res.render('error', { message: "lolfail"});
     }
   });
 });
@@ -25,7 +25,7 @@ app.get('/ingredient/:name', function(req, res) {
       res.render('ingredient', { message: results });
     },
     error: function() {
-      res.render('ingredient', { message: "lolfail"});
+      res.render('error', { message: "lolfail"});
     }
   });
 });
