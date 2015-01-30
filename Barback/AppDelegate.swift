@@ -34,6 +34,27 @@ func isConnectedToInternet() -> Bool {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        // Format of `barback://recipe/<RecipeName>`.
+        if (url.host?.lowercaseString == Recipe.entityName().lowercaseString) {
+            let recipeName = url.path?.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
+            if let recipeName = recipeName {
+                if let recipe = Recipe.forName(recipeName) {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as RecipeDetailViewController
+                    controller.setRecipe(recipe)
+
+                    let tabBarController = self.window?.rootViewController? as UITabBarController
+                    let navController = tabBarController.selectedViewController as UINavigationController
+                    navController.pushViewController(controller, animated: true)
+                }
+            }
+        }
+
+        return true
+    }
+    
     var tabBarItems: [UITabBarItem] {
         get {
             let tabBarController = self.window?.rootViewController as UITabBarController
