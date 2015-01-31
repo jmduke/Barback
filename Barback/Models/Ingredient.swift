@@ -86,7 +86,7 @@ class Ingredient: StoredObject {
         newIngredient.base = ingredientBase!
         
         if !isFirstTimeAppLaunched {
-            let recipeName = valuesForKeys["recipeName"]
+            let recipeName: AnyObject? = valuesForKeys["recipeName"]
             newIngredient.recipe = Recipe.forName(recipeName as String)!
         }
         
