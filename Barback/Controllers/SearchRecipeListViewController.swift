@@ -224,10 +224,8 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         if (!currentlyTypingIngredient()) {
-            print("BAH")
             return super.tableView(tableView, numberOfRowsInSection: section)
         } else {
-            print("SHHH")
             return possibleIngredients.count
         }
     }
