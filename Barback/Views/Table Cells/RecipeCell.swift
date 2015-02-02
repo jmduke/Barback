@@ -37,11 +37,11 @@ class RecipeCell : StyledCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let horizontalCellPadding: CGFloat = 10
+        let horizontalCellPadding: CGFloat = 16
         
         let bounds = contentView.bounds
         var frame = imageView?.frame
-        frame?.origin.x = bounds.size.width - frame!.size.width - (frame!.size.width < newRecipeIconDiameter * 2 ? horizontalCellPadding + 3 : horizontalCellPadding    )
+        frame?.origin.x = bounds.size.width - frame!.size.width - (frame!.size.width < newRecipeIconDiameter * 2 ? horizontalCellPadding + 3 : horizontalCellPadding)
         imageView?.frame = frame!
         
         textLabel?.frame.origin.x = horizontalCellPadding
