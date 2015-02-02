@@ -273,7 +273,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func setRecipe(recipe: Recipe) {
         self.recipe = recipe
-        
+
         // Disallow shake gestures.
         resignFirstResponder()
     }
