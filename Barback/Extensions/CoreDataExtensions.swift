@@ -69,7 +69,7 @@ extension NSManagedObject : NamedManagedObject {
         var objectValues: [String : AnyObject] = [:]
         for attribute: String in self.dynamicType.attributes() {
             let value: AnyObject? = valuesForKeys[attribute]
-            if let value = value {
+            if let value: AnyObject = value {
                 objectValues[attribute] = value
             }
         }
