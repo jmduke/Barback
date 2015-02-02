@@ -32,6 +32,16 @@ class StyledCell : UITableViewCell {
         }
     }
     
+    func highlightText(highlightedPortion: String) {
+        let rangeOfFoundText = (textLabel!.text!.lowercaseString as NSString).rangeOfString(highlightedPortion.lowercaseString)
+        
+        let attributes = [NSForegroundColorAttributeName: Color.Lighter.toUIColor()]
+        let boldAttributes = [NSForegroundColorAttributeName: Color.Light.toUIColor()]
+        let attributedText = NSMutableAttributedString(string: textLabel!.text!, attributes: attributes)
+        attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
+        textLabel?.attributedText = attributedText
+    }
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
