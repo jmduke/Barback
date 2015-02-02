@@ -18,7 +18,7 @@ def chunks(l, n):
 
 class ParseObject(Object):
     required_attributes = []
-    optional_attributes = ["isDead", "objectId"]
+    optional_attributes = ["isDead"]
 
     def __init__(self, **kwargs):
         dictionary = kwargs.pop("dictionary", None)
@@ -157,5 +157,5 @@ def push():
 
 if __name__ == "__main__":
     setup()
-    # push()
+    push()
     pull()

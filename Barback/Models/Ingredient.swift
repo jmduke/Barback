@@ -74,11 +74,11 @@ class Ingredient: StoredObject {
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Ingredient {
         var newIngredient = managedContext().objectForDictionary(Ingredient.self, dictionary: valuesForKeys, checkForObject: checkForObject)
         
-        let baseName = valuesForKeys["baseName"] as String
+        let baseName = valuesForKeys["base"] as String
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName)
         if ingredientBase == nil {
             ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
-            ingredientBase!.name = valuesForKeys["baseName"] as String
+            ingredientBase!.name = valuesForKeys["base"] as String
             ingredientBase!.information = ""
             ingredientBase!.type = "other"
             ingredientBase!.abv = 0
