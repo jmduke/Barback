@@ -56,6 +56,8 @@ class RecipeListViewController: UITableViewController {
         searchDisplayController?.searchBar.tintColor = Color.Background.toUIColor()
         searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
+        navigationItem.titleView?.tintColor = Color.Dark.toUIColor()
+        navigationItem.titleView?.backgroundColor = Color.Dark.toUIColor()
     }
     
     override func didReceiveMemoryWarning() {

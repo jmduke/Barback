@@ -27,6 +27,9 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
     }
     
     func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
+        if (self.tableView != self.searchDisplayController!.searchBar.superview) {
+            self.tableView.insertSubview(self.searchDisplayController!.searchBar, aboveSubview:self.tableView)
+        }
         recipes = Recipe.all()
         tableView.reloadData()
     }
