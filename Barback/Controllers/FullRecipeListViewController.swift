@@ -62,20 +62,6 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
         })
     }
-
-    override func styleController() {
-        super.styleController()
-
-        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
-        UITextField.appearance().textColor = Color.Dark.toUIColor()
-
-        searchBar.backgroundImage = UIImage()
-        searchBar.translucent = false   
-        searchBar.barTintColor = UIColor.clearColor()
-        searchBar.backgroundColor = UIColor.clearColor()
-        searchBar.tintColor = Color.Background.toUIColor()
-        searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

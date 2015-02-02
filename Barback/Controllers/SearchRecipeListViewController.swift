@@ -107,20 +107,6 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         }
     }
     
-    override func styleController() {
-        super.styleController()
-        
-        searchBar.backgroundImage = UIImage()
-        searchBar.translucent = false
-        searchBar.barTintColor = UIColor.clearColor()
-        searchBar.backgroundColor = UIColor.clearColor()
-        searchBar.tintColor = Color.Background.toUIColor()
-        searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
-        UITextField.appearance().textColor = Color.Dark.toUIColor()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
