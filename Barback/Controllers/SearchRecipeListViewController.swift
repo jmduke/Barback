@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate {
+class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
-    @IBOutlet var searchBar: UISearchBar!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+
     var allRecipes: [Recipe] = [Recipe]()
     var searchBarFocused: Bool = false
 
@@ -59,15 +59,41 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         }
     }
     }
+    
+    
+    func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.searchBar(searchBar, textDidChange: searchString)
+        return true
+    }
 
     func currentlyTypingIngredient() -> Bool {
         let typingIncompleteIngredient = IngredientBase.forName(searchTerms.last ?? "N/A") == nil
-        return typingIncompleteIngredient || searchBarFocused
+        return typingIncompleteIngredient
     }
     
     override var viewTitle: String {
         get {
-            return "Search"
+            return "Ingredients"
         }
         set {
             
@@ -84,8 +110,13 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     override func styleController() {
         super.styleController()
         
+        searchBar.backgroundImage = UIImage()
         searchBar.translucent = false
-        searchBar.barTintColor = Color.Dark.toUIColor()
+        searchBar.barTintColor = UIColor.clearColor()
+        searchBar.backgroundColor = UIColor.clearColor()
+        searchBar.tintColor = Color.Background.toUIColor()
+        searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
         UITextField.appearance().textColor = Color.Dark.toUIColor()
     }
@@ -193,13 +224,10 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             
             let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
             
-            let rangeOfFoundText = (ingredient.name.lowercaseString as NSString).rangeOfString(searchTerms.last!)
-            
-            let attributes = [NSForegroundColorAttributeName: rangeOfFoundText.length == 0 ? Color.Light.toUIColor() : Color.Lighter.toUIColor()]
-            let boldAttributes = [NSForegroundColorAttributeName: Color.Light.toUIColor()]
-            let attributedText = NSMutableAttributedString(string: "\(labelPrefix)\(ingredient.name)", attributes: attributes)
-            attributedText.setAttributes(boldAttributes, range: rangeOfFoundText)
-            cell.textLabel?.attributedText = attributedText
+            cell.textLabel?.text = "\(labelPrefix)\(ingredient.name)"
+            if (!searchTerms.last!.isEmpty) {
+                cell.highlightText(searchTerms.last!)
+            }
             
             let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
             cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
@@ -210,10 +238,23 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         if (!currentlyTypingIngredient()) {
+            print("BAH")
             return super.tableView(tableView, numberOfRowsInSection: section)
         } else {
+            print("SHHH")
             return possibleIngredients.count
         }
+    }
+    
+    override func getSelectedRecipe() -> Recipe {
+        let selectedRow = tableView.indexPathForSelectedRow()
+        var row = selectedRow?.row
+        if (searchDisplayController!.active) {
+            let controller = self.searchDisplayController
+            let view = controller?.searchResultsTableView
+            row = view?.indexPathForSelectedRow()?.row
+        }
+        return recipes[row!]
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
