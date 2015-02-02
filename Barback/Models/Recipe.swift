@@ -162,7 +162,7 @@ public class Recipe: StoredObject {
     }
     
     class func all() -> [Recipe] {
-        return managedContext().objects(Recipe.self)!.filter({ $0.isReal && $0.isDead != true })
+        return managedContext().objects(Recipe.self)!.filter({ $0.isReal && $0.isDead != true }).sorted({ $0.name < $1.name })
     }
     
     class func random() -> Recipe {

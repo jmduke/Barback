@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-class FullRecipeListViewController: RecipeListViewController {
-    
-    var firstCharactersOfRecipes: [String]?
-    var filteredRecipesByFirstCharacter: [[Recipe]] = [[Recipe]]()
-    
+class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+
+    @IBOutlet weak var searchBar: UISearchBar!
+
     override var viewTitle: String {
         get {
             return "Recipes"
@@ -22,10 +21,64 @@ class FullRecipeListViewController: RecipeListViewController {
         }
     }
     
+    func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        recipes = Recipe.all()
+        tableView.reloadData()
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        recipes = Recipe.all().filter({
+            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil ||
+            (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
+            $0.information?.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
+        })
+        recipes.sort({
+            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex >
+            $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
+        })
+    }
+
+    override func styleController() {
+        super.styleController()
+
+        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
+        UITextField.appearance().textColor = Color.Dark.toUIColor()
+
+        searchBar.backgroundImage = UIImage()
+        searchBar.translucent = false   
+        searchBar.barTintColor = UIColor.clearColor()
+        searchBar.backgroundColor = UIColor.clearColor()
+        searchBar.tintColor = Color.Background.toUIColor()
+        searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mapRecipesToCharacters()
         
         let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
         emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
@@ -45,55 +98,29 @@ class FullRecipeListViewController: RecipeListViewController {
                 }}.main {
                     MBProgressHUD.hideHUDForView(self.view, animated: true)
                     self.recipes = Recipe.all()
-                    self.mapRecipesToCharacters()
                     self.tableView.reloadData()
                 }
         }
         reachability.startNotifier()
     }
     
-    // Map recipes to their first characters to allow searching with the UITableViewIndex.
-    func mapRecipesToCharacters() {
-        let firstCharacters = recipes.map({
-            (recipe: Recipe) -> String in
-            return String(Array(recipe.name)[0])
-        })
-        firstCharactersOfRecipes = (NSSet(array: firstCharacters).allObjects as? [String])!.sorted({$0 < $1})
-        
-        for firstCharacter in firstCharactersOfRecipes! {
-            let firstCharacters = recipes.filter({
-                (recipe: Recipe) -> Bool in
-                return recipe.name.hasPrefix(firstCharacter)
-            }).sorted({ $0.name < $1.name })
-            filteredRecipesByFirstCharacter.append(firstCharacters)
-        }
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        return firstCharactersOfRecipes!.count
-    }
-    
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        let firstCharacter = firstCharactersOfRecipes![section]
-        return recipes.filter({
-            (recipe: Recipe) -> Bool in
-            return recipe.name.hasPrefix(firstCharacter)
-            }).count
-    }
-    
     override func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow()
-        let section = selectedRow?.section
-        let row = selectedRow?.row
-        return filteredRecipesByFirstCharacter[section!][row!]
-    }
-    
-    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
-        return firstCharactersOfRecipes
+        var row = selectedRow?.row
+        if (searchDisplayController!.active) {
+            let controller = self.searchDisplayController
+            let view = controller?.searchResultsTableView
+            row = view?.indexPathForSelectedRow()?.row
+        }
+        return recipes[row!]
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return cellForRecipe(filteredRecipesByFirstCharacter[indexPath.section][indexPath.row], andIndexPath: indexPath)
+        let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as RecipeCell
+        if (searchDisplayController!.active) {
+            cell.highlightText(searchBar.text)
+        }
+        return cell
     }
 
 }
