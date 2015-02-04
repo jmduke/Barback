@@ -44,15 +44,11 @@ class RecipeListViewController: UITableViewController {
         tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         tableView.sectionIndexColor = Color.Dark.toUIColor()
         
-        
-        
         UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
-        UITextField.appearance().textColor = Color.Dark.toUIColor()
+        UITextField.appearance().textColor = Color.Background.toUIColor()
         
-        searchDisplayController?.searchBar.backgroundImage = UIImage()
-        searchDisplayController?.searchBar.translucent = false
-        searchDisplayController?.searchBar.barTintColor = UIColor.clearColor()
-        searchDisplayController?.searchBar.backgroundColor = UIColor.clearColor()
+        searchDisplayController?.searchBar.searchBarStyle = UISearchBarStyle.Minimal
+        searchDisplayController?.searchBar.backgroundColor = Color.Dark.toUIColor()
         searchDisplayController?.searchBar.tintColor = Color.Background.toUIColor()
         searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         

@@ -60,6 +60,13 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     }
     
+    func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController) {
+        UIApplication.sharedApplication().statusBarHidden = true
+    }
+    
+    func searchDisplayControllerWillEndSearch(controller: UISearchDisplayController) {
+        UIApplication.sharedApplication().statusBarHidden = false
+    }
     
     func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
         recipes = Recipe.all()
@@ -104,6 +111,10 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return self.searchDisplayController!.active
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if searchBar.text != "" {
@@ -111,8 +122,20 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         }
     }
     
+    func showSearchBar() {
+        self.searchBar.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.redColor()
+        
+        self.tableView.contentOffset = CGPointMake(0,  self.searchBar.frame.size.height - self.tableView.contentOffset.y)
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: "showSearchBar")
+        self.navigationItem.rightBarButtonItem = searchButton
+        
         
         // Run this in viewDidLoad instead of making it a `let` so it gets loaded
         // after core data initialization.
@@ -152,6 +175,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+
         searchBarFocused = true
         if (!searchBar.text.hasSuffix(" + ") && !searchBar.text.isEmpty) {
             searchBar.text = searchBar.text + " + "

@@ -21,6 +21,16 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         }
     }
     
+    
+    func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController) {
+        UIApplication.sharedApplication().statusBarHidden = true
+    }
+    
+    func searchDisplayControllerWillEndSearch(controller: UISearchDisplayController) {
+        UIApplication.sharedApplication().statusBarHidden = false
+    }
+    
+    
     func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
         recipes = Recipe.all()
         tableView.reloadData()
@@ -66,8 +76,27 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         })
     }
     
+    func showSearchBar() {
+        self.searchBar.becomeFirstResponder()
+    }
+    
+    func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        var rect = CGRectMake(0, 0, size.width, size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        var image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.contentOffset = CGPointMake(0,  self.searchBar.frame.size.height - self.tableView.contentOffset.y)
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: "showSearchBar")
+        self.navigationItem.rightBarButtonItem = searchButton
         
         let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
         emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
