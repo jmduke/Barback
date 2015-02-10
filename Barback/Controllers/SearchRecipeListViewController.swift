@@ -92,7 +92,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         tableView.reloadData()
     }
     
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.searchBar(searchBar, textDidChange: searchString)
         return true
     }
@@ -185,7 +185,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
         tableView.reloadData()
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: NSString) {
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 
         // Grab search bar text and the recipes that match it.
         let rawSearchTerms = searchBar.text.componentsSeparatedByString(" + ") as [NSString]
@@ -197,7 +197,7 @@ class SearchRecipeListViewController: RecipeListViewController, UISearchBarDeleg
             if newestIngredient == "" {
                 allPossibleIngredients = IngredientBase.all()
             } else {
-                allPossibleIngredients = IngredientBase.nameContainsString(newestIngredient)
+                allPossibleIngredients = IngredientBase.nameContainsString(newestIngredient as String)
             }
             if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
                 possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})

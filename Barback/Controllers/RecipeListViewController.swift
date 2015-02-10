@@ -23,6 +23,10 @@ class RecipeListViewController: UITableViewController {
         
         // We reload this to remove isNew identifier after seeing recipe.
         tableView.reloadData()
+        
+        if searchDisplayController != nil && searchDisplayController!.active {
+            UIApplication.sharedApplication().statusBarHidden = true
+        }
     }
     
     override func viewDidLoad() {
@@ -113,7 +117,8 @@ class RecipeListViewController: UITableViewController {
             let randomIndex = Int(arc4random_uniform(UInt32(recipes.count))) % (recipes.count - 1)
             recipe = recipes[randomIndex]
         }
-        destinationController.setRecipe(recipe)
+        destinationController.setRecipeForController(recipe)
+        UIApplication.sharedApplication().statusBarHidden = false
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

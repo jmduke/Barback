@@ -16,7 +16,7 @@ class DescriptionTextView : UITextView {
             let parser = NSAttributedStringMarkdownParser()
             parser.paragraphFont = font
             parser.italicFontName = UIFont.heavyFont()
-            attributedText = parser.attributedStringFromMarkdownString(markdownText!)
+            attributedText = parser.attributedStringFromMarkdownString(markdownText! as String)
             textAlignment = NSTextAlignment.Center
             textColor = Color.Light.toUIColor()
         }

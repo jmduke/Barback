@@ -37,11 +37,7 @@ class ShoppingListViewController: RecipeListViewController {
         super.init(style: style)
     }
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    func setIngredients(ingredients: [IngredientBase]) {
+    func setIngredientsForController(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
         favoritedRecipes = Recipe.all().filter({ $0.favorite })
     }
@@ -117,7 +113,7 @@ class ShoppingListViewController: RecipeListViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as IngredientDetailViewController
-        controller.setIngredient(ingredientForIndexPath(indexPath))
+        controller.setIngredientForController(ingredientForIndexPath(indexPath))
         navigationController?.pushViewController(controller, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)

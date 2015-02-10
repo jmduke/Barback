@@ -263,7 +263,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         return cell!
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == ingredientsTableView {
             performSegueWithIdentifier("ingredientDetail", sender: nil)
         } else {
@@ -271,7 +271,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func setRecipe(recipe: Recipe) {
+    func setRecipeForController(recipe: Recipe) {
         self.recipe = recipe
 
         // Disallow shake gestures.
@@ -282,11 +282,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         if segue!.identifier == "ingredientDetail" {
             let destination = segue!.destinationViewController as IngredientDetailViewController
             var ingredient = getSelectedIngredient()
-            destination.setIngredient(ingredient)
+            destination.setIngredientForController(ingredient)
         } else {
             var destinationController = getRecipeDetailController(segue)
             var recipe = getSelectedRecipe()
-            destinationController.setRecipe(recipe)
+            destinationController.setRecipeForController(recipe)
         }
     }
     

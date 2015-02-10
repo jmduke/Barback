@@ -12,7 +12,7 @@ import UIKit
 extension UIImage {
     
     convenience init?(urlString: NSString) {
-        let url = NSURL(string: urlString)
+        let url = NSURL(string: urlString as String)
         let data = NSData(contentsOfURL: url!)
         if let data = data {
             self.init(data: data)

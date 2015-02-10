@@ -40,10 +40,10 @@ class IngredientBase: StoredObject {
         
         var allBases: [IngredientBase] = rawBases.map({
             (rawBase: NSDictionary) -> IngredientBase in
-            var base = self.fromAttributes(rawBase, checkForObject: false)
+            var base = self.fromAttributes(rawBase as [NSObject : AnyObject], checkForObject: false)
             let brands = (rawBase["brands"] as [NSDictionary]).map({
                 (rawBrand: NSDictionary) -> Brand in
-                let brand = Brand.fromAttributes(rawBrand, checkForObject: false)
+                let brand = Brand.fromAttributes(rawBrand as [NSObject : AnyObject], checkForObject: false)
                 return brand
             })
             base.brands = NSSet(array: brands)

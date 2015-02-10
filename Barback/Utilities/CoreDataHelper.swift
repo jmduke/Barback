@@ -11,7 +11,7 @@ import UIKit
 
 class CoreDataHelper: NSObject{
     
-    let store: CoreDataStore!
+    var store: CoreDataStore!
     
     override init(){
         super.init()
