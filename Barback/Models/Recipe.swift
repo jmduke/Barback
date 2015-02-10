@@ -205,10 +205,10 @@ public class Recipe: StoredObject {
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
-            var recipe = self.fromAttributes(rawRecipe, checkForObject: false)
+            var recipe = self.fromAttributes(rawRecipe as [NSObject : AnyObject], checkForObject: false)
             let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
                 (rawIngredient: NSDictionary) -> Ingredient in
-                var ingredient = Ingredient.fromAttributes(rawIngredient, checkForObject: false)
+                var ingredient = Ingredient.fromAttributes(rawIngredient as [NSObject : AnyObject], checkForObject: false)
                 return ingredient
             })
             recipe.ingredientSet = NSSet(array: ingredients)

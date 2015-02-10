@@ -110,7 +110,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         // Special logic to render the shopping list.
         if indexPath.row == recipes.count {
             var shoppingListController = ShoppingListViewController(style: UITableViewStyle.Grouped)
-            shoppingListController.setIngredients(ingredientsNeeded())
+            shoppingListController.setIngredientsForController(ingredientsNeeded())
             navigationController?.pushViewController(shoppingListController, animated: true)
         } else {
             super.tableView(tableView, didSelectRowAtIndexPath: indexPath)

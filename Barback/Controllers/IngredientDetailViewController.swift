@@ -186,7 +186,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func setIngredient(ingredient: IngredientBase) {
+    func setIngredientForController(ingredient: IngredientBase) {
         self.ingredient = ingredient
         recipes = Recipe.all().filter({ $0.usesIngredient(ingredient) }).sorted({ $0.name < $1.name })
     }
@@ -194,7 +194,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         var destinationController = getRecipeDetailController(segue)
         var recipe = getSelectedRecipe()
-        destinationController.setRecipe(recipe)
+        destinationController.setRecipeForController(recipe)
     }
     
     func getSelectedRecipe() -> Recipe {
@@ -203,7 +203,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         return recipes[rowIndex!]
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == drinksTableView {
             performSegueWithIdentifier("recipeDetail", sender: nil)
         } else if tableView == brandsTableView {            

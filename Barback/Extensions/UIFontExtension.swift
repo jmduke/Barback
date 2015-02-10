@@ -12,10 +12,10 @@ import UIKit
 extension UIFont {
     
     class func primaryFont() -> String {
-        return "Futura-Medium"
+        return "Avenir"
     }
     
     class func heavyFont() -> String {
-        return "Futura-MediumItalic"
+        return "Avenir-Heavy"
     }
 }

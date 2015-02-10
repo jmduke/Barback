@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let recipe = Recipe.forName(recipeName) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as RecipeDetailViewController
-                    controller.setRecipe(recipe)
+                    controller.setRecipeForController(recipe)
 
-                    let tabBarController = self.window?.rootViewController? as UITabBarController
+                    let tabBarController = self.window?.rootViewController as UITabBarController
                     let navController = tabBarController.selectedViewController as UINavigationController
                     navController.pushViewController(controller, animated: true)
                 }
@@ -126,8 +126,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         PFPush.handlePush(userInfo)
     }
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         initializeDependencies(launchOptions)
         
@@ -203,7 +203,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var tabBarAttributes = NSMutableDictionary(dictionary: [:])
             tabBarAttributes.setValue(
                 UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
-            UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
+            UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
             
             let imageColor = Color.Light.toUIColor()
             
@@ -222,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let parseClientKey = privateKeys["parseClientKey"]! as String
         ParseCrashReporting.enable()
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
-        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
         
         // Initialize MobileAppTracking.
         let matAdvertiserID = privateKeys["matAdvertiserId"]! as String
