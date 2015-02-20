@@ -1,0 +1,26 @@
+extends ./base
+
+block head
+  meta(name="apple-itunes-app", content="app-id=829469529")
+
+block content
+  h1= "Search Results"
+  
+  hr
+
+  if message.recipes.length == 0 && message.ingredients.length == 0
+    h3= "Sorry, no results found for '" + message.term + "' :("
+
+  if message.recipes.length > 0
+    span(class="label")= "Recipes containing '" + message.term + "'"
+    .ingredients
+      each recipe in message.recipes
+        a(class="ingredient", href="/recipe/" + recipe.attributes.name)= recipe.attributes.name
+        br
+
+  if message.ingredients.length > 0
+    span(class="label")= "Ingredients containing '" + message.term + "'"
+    .ingredients
+      each ingredient in message.ingredients
+        a(class="ingredient", href="/ingredient/" + ingredient.attributes.name)= ingredient.attributes.name
+        br

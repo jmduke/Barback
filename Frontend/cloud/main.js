@@ -36,6 +36,23 @@ Parse.Cloud.define("incrementFavoritesForRecipe", function(request, response) {
   });
 });
 
+Parse.Cloud.define("searchForTerm", function(request, response) {
+  var term = request.params.term;
+  var results = {"term": term};
+
+  var query = new Parse.Query("Recipe");
+  query.contains("name", term);
+  query.find().then(function(recipes) {
+    results["recipes"] = recipes;
+    query = new Parse.Query("IngredientBase");
+    query.contains("name", term);
+    return query.find();
+  }).then(function(ingredients) {
+    results["ingredients"] = ingredients;
+    response.success(results);
+  });
+});
+
 Parse.Cloud.define("recipeForName", function(request, response) {
   objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
     recipe = recipes[0];

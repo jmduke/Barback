@@ -39,7 +39,8 @@ html(lang="en")
       ga('send', 'pageview');
 
     .header
-      a(href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Barback: Classic and Modern Cocktails
+      form(onsubmit="window.location = '/search/' + search.value; return false;")
+        input(id="search", name="search", type="text", class="search", placeholder="Search")
 
     .main
       block content
