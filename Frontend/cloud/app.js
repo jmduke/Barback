@@ -19,6 +19,17 @@ app.get('/recipe/:name', function(req, res) {
   });
 });
 
+app.get('/search/:term', function(req, res) {
+  var recipe = Parse.Cloud.run("searchForTerm", {"term": req.param("term")}, {
+    success: function(results) {
+      res.render('search', { message: results });
+    },
+    error: function() {
+      res.render('error', { message: "lolfail"});
+    }
+  });
+});
+
 app.get('/ingredient/:name', function(req, res) {
   var recipe = Parse.Cloud.run("ingredientForName", {"name": req.param("name")}, {
     success: function(results) {
