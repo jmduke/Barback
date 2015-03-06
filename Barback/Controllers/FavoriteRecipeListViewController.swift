@@ -100,7 +100,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         }
         
         // Remove duplicates.
-        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as [IngredientBase]
+        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as! [IngredientBase]
         uniqueIngredients.sort({$0.name < $1.name})
         return uniqueIngredients
     }

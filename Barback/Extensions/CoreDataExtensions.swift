@@ -4,7 +4,7 @@ import UIKit
 
 protocol NamedManagedObject {
     
-    class func entityName() -> String
+    static func entityName() -> String
     
 }
 
@@ -39,9 +39,9 @@ extension NSManagedObjectContext {
     func objectForDictionary<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, dictionary: [NSObject : AnyObject], checkForObject: Bool = true) -> T {
         var object: T
         if checkForObject {
-            object = objectForObjectId(entity, objectId: dictionary["objectId"] as String) ?? entity.newObject() as T
+            object = objectForObjectId(entity, objectId: dictionary["objectId"] as! String) ?? entity.newObject() as! T
         } else {
-            object = entity.newObject() as T
+            object = entity.newObject() as! T
         }
         object.updateWithDictionary(dictionary)
         return object
@@ -61,7 +61,7 @@ extension NSManagedObject : NamedManagedObject {
     
     class func attributes() -> [String] {
         let entity = NSEntityDescription.entityForName(entityName(), inManagedObjectContext: managedContext())!
-        let attributes = entity.attributesByName as [String: NSAttributeDescription]
+        let attributes = entity.attributesByName as! [String: NSAttributeDescription]
         return Array(attributes.keys)
     }
     
@@ -77,6 +77,6 @@ extension NSManagedObject : NamedManagedObject {
     }
     
     class func newObject() -> NSManagedObject {
-        return NSEntityDescription.insertNewObjectForEntityForName(entityName(), inManagedObjectContext: managedContext()) as NSManagedObject
+        return NSEntityDescription.insertNewObjectForEntityForName(entityName(), inManagedObjectContext: managedContext()) as! NSManagedObject
     }
 }

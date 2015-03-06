@@ -6,9 +6,13 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
+import UIKit
 import XCTest
+import Barback
 
 class BarbackSwiftTests: XCTestCase {
+    
+    var allRecipes = Recipe.syncWithJSON()
     
     override func setUp() {
         super.setUp()
@@ -22,7 +26,7 @@ class BarbackSwiftTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        XCTAssert(allRecipes.count > 1, "Pass")
     }
     
     func testPerformanceExample() {
