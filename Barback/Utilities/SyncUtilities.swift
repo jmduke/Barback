@@ -54,7 +54,7 @@ func setLatestSyncDate(date: NSDate) {
 
 func dataNeedsSyncing() -> Bool {
     let config = PFConfig.getConfig()
-    let dataVersion = config.objectForKey(dataVersionKey) as! Int
+    let dataVersion = config?.objectForKey(dataVersionKey) as! Int
     return dataVersion > getLatestDataVersion()
     return false
 }
@@ -69,7 +69,7 @@ func syncNewData() {
     let brands = Brand.syncWithParse()
     saveContext()
     
-    let latestDataVersion = PFConfig.getConfig().objectForKey(dataVersionKey) as! Int
+    let latestDataVersion = PFConfig.getConfig()!.objectForKey(dataVersionKey) as! Int
     setLatestDataVersion(latestDataVersion)
     setLatestSyncDate(NSDate())
 }

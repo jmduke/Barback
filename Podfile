@@ -7,3 +7,4 @@ pod 'MagicalRecord/Shorthand', :git => 'https://github.com/magicalpanda/MagicalR
 pod 'MBProgressHUD', '~> 0.8'
 pod 'RNBlurModalView', '~> 0.1.0'
 pod 'WSCoachMarksView', '~> 0.2'
+pod 'Bolts'

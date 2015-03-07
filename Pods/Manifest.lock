@@ -1,5 +1,6 @@
 PODS:
   - Appirater (2.0.4)
+  - Bolts (1.1.4)
   - MagicalRecord/Shorthand (2.3.0-beta.5)
   - MBProgressHUD (0.9)
   - RNBlurModalView (0.1.0)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Appirater
+  - Bolts
   - MagicalRecord/Shorthand (from `https://github.com/magicalpanda/MagicalRecord.git`)
   - MBProgressHUD (~> 0.8)
   - RNBlurModalView (~> 0.1.0)
@@ -23,6 +25,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
+  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   MagicalRecord: edcc27277d4c15874cc565fb5d91576c146cb2f1
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   RNBlurModalView: 38380c10dcaf7804f7ba5e3516abcaf8bc8eddb3

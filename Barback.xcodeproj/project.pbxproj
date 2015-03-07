@@ -47,7 +47,6 @@
 		265313471A1B274700B2A686 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313461A1B274700B2A686 /* RecipeCell.swift */; };
 		265313491A1B2A4300B2A686 /* StyledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265313481A1B2A4300B2A686 /* StyledCell.swift */; };
 		26747A1E1A102A5B00313F04 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A1C1A102A5B00313F04 /* Bolts.framework */; };
-		26747A211A102A6F00313F04 /* MobileAppTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26747A201A102A6F00313F04 /* MobileAppTracker.framework */; };
 		26747A231A102AF400313F04 /* StoredObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A221A102AF400313F04 /* StoredObject.swift */; };
 		26747A311A102B1E00313F04 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A251A102B1E00313F04 /* CoreDataExtensions.swift */; };
 		26747A321A102B1E00313F04 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26747A261A102B1E00313F04 /* CoreDataHelper.swift */; };
@@ -66,8 +65,6 @@
 		2675193A1A7572DE0058E776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267519381A7572DE0058E776 /* Info.plist */; };
 		2675193D1A7574770058E776 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2675193B1A7574770058E776 /* Reachability.m */; };
 		2675193E1A7574950058E776 /* BarbackSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267519361A7572DE0058E776 /* BarbackSwiftTests.swift */; };
-		267519411A7575BD0058E776 /* jmBarbackP2.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 2675193F1A7575BD0058E776 /* jmBarbackP2.p12 */; };
-		267519421A7575BD0058E776 /* Certificates.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 267519401A7575BD0058E776 /* Certificates.p12 */; };
 		267519431A7578A60058E776 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DBA5194C01C40025DCF5 /* Recipe.swift */; };
 		2675194A1A7579AC0058E776 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267519491A75799A0058E776 /* ParseUI.framework */; };
 		2675194B1A7579AC0058E776 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267519481A75799A0058E776 /* ParseFacebookUtils.framework */; };
@@ -124,6 +121,7 @@
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
 		26AAB740195010AC00AF126B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73F195010AC00AF126B /* Images.xcassets */; };
 		26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */; };
+		26B5AE581AAAA302009C3DA7 /* libPods-Appirater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B5AE571AAAA302009C3DA7 /* libPods-Appirater.a */; };
 		26BC5DA81A19741300D538AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BC5DA71A19741300D538AB /* CoreGraphics.framework */; };
 		26C53FC31A758EBA002ED08D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2631DB7E194BFF500025DCF5 /* AppDelegate.swift */; };
 		26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07362194C300900AD1492 /* RecipeDetailViewController.swift */; };
@@ -158,6 +156,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F37CDB8425F7BD4967790CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2601EE5B1A412F4C004A110D /* fmemopen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fmemopen.c; sourceTree = "<group>"; };
 		2601EE5C1A412F4C004A110D /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmemopen.h; sourceTree = "<group>"; };
 		2601EE5D1A412F4C004A110D /* MarkdownTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownTokenizer.m; sourceTree = "<group>"; };
@@ -216,8 +215,6 @@
 		267519381A7572DE0058E776 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2675193B1A7574770058E776 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		2675193C1A7574770058E776 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		2675193F1A7575BD0058E776 /* jmBarbackP2.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = jmBarbackP2.p12; path = ../../Documents/jmBarbackP2.p12; sourceTree = "<group>"; };
-		267519401A7575BD0058E776 /* Certificates.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Certificates.p12; path = ../../Documents/Certificates.p12; sourceTree = "<group>"; };
 		267519451A75799A0058E776 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		267519461A75799A0058E776 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		267519471A75799A0058E776 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -232,6 +229,7 @@
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26AAB73F195010AC00AF126B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		26B5AE571AAAA302009C3DA7 /* libPods-Appirater.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Appirater.a"; path = "Pods/build/Debug-iphoneos/libPods-Appirater.a"; sourceTree = "<group>"; };
 		26BC5DA71A19741300D538AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		26D07362194C300900AD1492 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RecipeDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26DBD6061A2D6FB0006C49F9 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 		26FBA46C1A1DB0D30082FBEC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26FBA46E1A1DB1240082FBEC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		26FBA4701A1DB12A0082FBEC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		637761BCE5174C65922C617F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655B44CA19C1434500A1351F /* RecipeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		65B129BE19C146C500F5B8C4 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -279,7 +276,6 @@
 				26747A3C1A102C5200313F04 /* AdSupport.framework in Frameworks */,
 				5CBBF554812745BF8EE30851 /* libPods.a in Frameworks */,
 				26747A1E1A102A5B00313F04 /* Bolts.framework in Frameworks */,
-				26747A211A102A6F00313F04 /* MobileAppTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B5AE581AAAA302009C3DA7 /* libPods-Appirater.a in Frameworks */,
 				260F0D8C1A7581B80023F2F4 /* AdSupport.framework in Frameworks */,
 				260F0D8B1A7581B20023F2F4 /* iAd.framework in Frameworks */,
 				260F0D8A1A7581A70023F2F4 /* MobileCoreServices.framework in Frameworks */,
@@ -317,8 +314,6 @@
 		2631DB70194BFF500025DCF5 = {
 			isa = PBXGroup;
 			children = (
-				2675193F1A7575BD0058E776 /* jmBarbackP2.p12 */,
-				267519401A7575BD0058E776 /* Certificates.p12 */,
 				267519351A7572DE0058E776 /* BarbackTests */,
 				26AAB73D194ED3A400AF126B /* Settings.bundle */,
 				2631DB7B194BFF500025DCF5 /* Barback */,
@@ -515,6 +510,7 @@
 		737783D2D7DB48B6BA5AADF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26B5AE571AAAA302009C3DA7 /* libPods-Appirater.a */,
 				267519441A75799A0058E776 /* parse-library-1.6.1 */,
 				2650A08E1A463A8400DF8A2D /* libz.dylib */,
 				2650A08C1A463A7E00DF8A2D /* libsqlite3.dylib */,
@@ -544,7 +540,7 @@
 		B3110AE61D9F1F0CF12FC12F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */,
+				0F37CDB8425F7BD4967790CA /* Pods.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -637,8 +633,6 @@
 				26AAB740195010AC00AF126B /* Images.xcassets in Resources */,
 				26DECA301A37DE2400E90D0E /* bases.json in Resources */,
 				26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */,
-				267519421A7575BD0058E776 /* Certificates.p12 in Resources */,
-				267519411A7575BD0058E776 /* jmBarbackP2.p12 in Resources */,
 				2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */,
 				26747A351A102B1E00313F04 /* LaunchScreen.storyboard in Resources */,
 				2675193A1A7572DE0058E776 /* Info.plist in Resources */,
@@ -932,7 +926,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jmduke/Downloads/parse-library-1.4.2",
+					"/Users/jmduke/Downloads/parse-library-1.6.4",
 					"/Users/jmduke/Downloads/MobileAppTracking-ios",
 					"$(PROJECT_DIR)",
 					"/Users/Downloads/parse-library-1.4.2",
@@ -966,7 +960,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jmduke/Downloads/parse-library-1.4.2",
+					"/Users/jmduke/Downloads/parse-library-1.6.4",
 					"/Users/jmduke/Downloads/MobileAppTracking-ios",
 					"$(PROJECT_DIR)",
 					"/Users/Downloads/parse-library-1.4.2",
@@ -1017,6 +1011,10 @@
 				);
 				INFOPLIST_FILE = "BarbackTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1026,7 +1024,7 @@
 		};
 		2631DB9C194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A963B7FE36A9DE68E92B48 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0F37CDB8425F7BD4967790CA /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barback.app/Barback";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1046,6 +1044,10 @@
 				);
 				INFOPLIST_FILE = "BarbackTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
