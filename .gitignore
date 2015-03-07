@@ -18,6 +18,7 @@ build/
 xcuserdata
 *.xccheckout
 *.moved-aside
+Pods
 Pods/*
 Podfile.lock
 DerivedData
