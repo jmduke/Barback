@@ -3,12 +3,10 @@ body {
     color: #2B3A42;
     background-color: #2B3A42;
     margin-top: 5em;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 .main {
-    width: 90%;
-    margin-left: 5%;
     margin-bottom: 1em;
     box-sizing: border-box;
     padding: 1em;
@@ -19,12 +17,12 @@ body {
 
 h1 {
     font-style: italic;
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
     text-align: center;
 }
 
 h3 {
-    margin-top: 0;
+    margin-top: 0.25em;
     font-size: 1em;
     margin-bottom: 0em;
     text-align: center;
@@ -62,7 +60,7 @@ p {
 }
 
 .label {
-    font-size: 0.9em;
+    font-size: 1em;
     margin-left: 1em;
     text-transform: lowercase;
     font-variant: small-caps;
@@ -73,24 +71,6 @@ p {
     color: #ccc;
     padding-top: 1em;
     margin-bottom: 2em;
-}
-
-.header, .footer {
-    width: 80%;
-    margin-left: 10%;
-    text-align: center;
-}
-
-@media all and (min-width: 1000px)  {
-    .main {
-        width: 40%;
-        margin-left: 20%;
-    }
-
-    .header, .footer {
-        width: 40%;
-        margin-left: 20%;
-    }
 }
 
 .twitter-count-vertical {
@@ -108,7 +88,6 @@ hr {
 
 .search {
     display: block;
-    width: 30%;
     margin-bottom: 1em;
     float: right;
     padding: 0.5em;
