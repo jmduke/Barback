@@ -14,8 +14,10 @@ html(lang="en")
       title= message.attributes.name
     else
       title Barback
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
     link(rel="stylesheet", href="/style.css")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
     script(src="/marked.js")
     script(src="https://apis.google.com/js/platform.js", async, defer)
   
@@ -38,23 +40,29 @@ html(lang="en")
       ga('create', 'UA-59222618-1', 'auto');
       ga('send', 'pageview');
 
-    .header
-      form(onsubmit="window.location = '/search/' + search.value; return false;")
-        input(id="search", name="search", type="text", class="search", placeholder="Search")
+    .container
+      .col-xs-10.col-lg-4.col-lg-offset-2.col-md-6.col-lg-offset-1
+        .header
+          form(onsubmit="window.location = '/search/' + search.value; return false;")
+            .input-group
+              input(id="search", name="search", type="text", class="form-control", placeholder="Search for...")
+              .input-group-btn
+                btn(class="btn btn-default", type="btn")
+                  span Go!
 
-    .main
-      block content
+        .main
+          block content
 
-      span(class="label") Share
-      .directions
-        .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
-        &nbsp;&nbsp;
-        a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
-        &nbsp;&nbsp;
-        script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        .g-plusone(data-size="tall")
+          span(class="label") Share
+          .directions
+            .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
+            &nbsp;&nbsp;
+            a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+            &nbsp;&nbsp;
+            script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            .g-plusone(data-size="tall")
 
-    .footer
-      span This page is brought to you by 
-      a(href="http://getbarback.com") Barback
-      span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.
+        .footer.text-center
+          span This page is brought to you by 
+          a(href="http://getbarback.com") Barback
+          span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.
