@@ -8,6 +8,8 @@
 
 import AdSupport
 import CoreData
+import Crashlytics
+import Fabric
 import Parse
 import ParseCrashReporting
 import SystemConfiguration
@@ -128,6 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
+        Fabric.with([Crashlytics()])
         initializeDependencies(launchOptions)
         
         // Register for push notifications.
@@ -141,12 +144,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reachability.reachableBlock = {
             (r: Reachability!) -> Void in
             let _ = Async.main {
-                self.updateIfNecessary()
+                // self.updateIfNecessary()
             }
         }
         reachability.startNotifier()
         if isConnectedToInternet() {
-            updateIfNecessary()
+            // updateIfNecessary()
         } else if isFirstTimeAppLaunched() {
             disableAppInteraction()
         }
