@@ -1,24 +1,31 @@
 doctype html
 html(lang="en")
   head
-    link(rel="apple-touch-icon", sizes="57x57", href="/apple-touch-icon-57x57.png")
-    link(rel="apple-touch-icon", sizes="114x114", href="/apple-touch-icon-114x114.png")
-    link(rel="apple-touch-icon", sizes="72x72", href="/apple-touch-icon-72x72.png")
-    link(rel="apple-touch-icon", sizes="60x60", href="/apple-touch-icon-60x60.png")
-    link(rel="apple-touch-icon", sizes="120x120", href="/apple-touch-icon-120x120.png")
-    link(rel="apple-touch-icon", sizes="76x76", href="/apple-touch-icon-76x76.png")
+    link(rel="icon", type="image/png", sizes="32x32", href="/static/img/favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="/static/img/favicon-16x16.png")
+    link(rel="icon", type="image/png", sizes="96x96", href="/static/img/favicon-96x96.png")
+    link(rel="apple-touch-icon", sizes="57x57", href="/static/img/apple-touch-icon-57x57.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="/static/img/apple-touch-icon-114x114.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="/static/img/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="60x60", href="/static/img/apple-touch-icon-60x60.png")
+    link(rel="apple-touch-icon", sizes="120x120", href="/static/img/apple-touch-icon-120x120.png")
+    link(rel="apple-touch-icon", sizes="76x76", href="/static/img/apple-touch-icon-76x76.png")
     meta(name="viewport", content="width=device-width, initial-scale=1")
+    script(src="/static/js/svg.js")
+    script(src="/static/js/recipe_svg.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.js")
     block head
+
 
     if message.attributes
       title= message.attributes.name
     else
       title Barback
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
-    link(rel="stylesheet", href="/style.css")
+    link(rel="stylesheet", href="/static/css/main.css")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
-    script(src="/marked.js")
+    script(src="/static/js/marked.js")
     script(src="https://apis.google.com/js/platform.js", async, defer)
   
   body
@@ -41,28 +48,44 @@ html(lang="en")
       ga('send', 'pageview');
 
     .container
-      .col-xs-10.col-lg-4.col-lg-offset-2.col-md-6.col-lg-offset-1
-        .header
-          form(onsubmit="window.location = '/search/' + search.value; return false;")
+      .visible-xs.text-center
+        h1(style='margin-top: 1em; margin-bottom: 1em') Barback
+      nav(class="navbar").hidden-xs
+        .navbar-header
+          .navbar-brand= "Barback"
+          button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#navbar1")
+            span(class="sr-only")= "Toggle navigation"
+            span(class="icon-bar")
+            span(class="icon-bar")
+            span(class="icon-bar")
+        .collapse.navbar-collapse#navbar1
+          form(onsubmit="window.location = '/search/' + search.value; return false;", class="navbar-form navbar-right")
             .input-group
               input(id="search", name="search", type="text", class="form-control", placeholder="Search for...")
               .input-group-btn
                 btn(class="btn btn-default", type="btn")
                   span Go!
+          ul(class="nav navbar-nav navbar-right")
+            li
+              a(href="/")= "Browse"
+            li
+              a(href="http://notes.getbarback.com/")= "Notes"
+            li
+              a(href="/app")= "App"
 
-        .main
-          block content
+      block content
 
-          span(class="label") Share
-          .directions
-            .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
-            &nbsp;&nbsp;
-            a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
-            &nbsp;&nbsp;
-            script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-            .g-plusone(data-size="tall")
+      .col-xs-12
+        .row
+          .col-xs-12.col-lg-6.col-lg-offset-3.footer.text-center
+            span This page is brought to you by 
+              a(href="http://getbarback.com") Barback
+              span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.
+            hr
+            .social
+              a(href="http://twitter.com/getbarback")= "Twitter"
+              a(href="http://getbarback.tumblr.com")= "Tumblr"
+              a(href="mailto:hello@getbarback.com")= "Contact"
 
-        .footer.text-center
-          span This page is brought to you by 
-          a(href="http://getbarback.com") Barback
-          span , a pretty cool cocktail app that you should totally buy. Barback is made with love by Justin Duke in  rainy Seattle.
+  block script
+

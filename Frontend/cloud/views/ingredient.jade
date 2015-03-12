@@ -1,14 +1,15 @@
-extends ./base
+extends ./detail_base
 
-block content
-  h1= message.attributes.name
-  if message.attributes.abv > 0
-    h3= "A " + message.attributes.type + " with " + message.attributes.abv + "% alcohol by volume."
-  else
-    h3= "A non-alcoholic " + message.attributes.type + "."
+block column_one
+  .row.text-center
+    h1= message.attributes.name
+    if message.attributes.abv > 0
+      h3= "A " + message.attributes.type + " with " + message.attributes.abv + "% alcohol by volume."
+    else
+      h3= "A non-alcoholic " + message.attributes.type + "."
+    div(style="width: 200px; border-radius: 50%; height: 200px; background-color: \##{message.attributes.color}; margin: auto; margin-top: 2em")
 
-  hr
-
+block column_two
   if message.attributes.information
     span(class="label") Information
     .information= message.attributes.information

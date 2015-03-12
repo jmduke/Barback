@@ -1,17 +1,19 @@
-extends ./base
+extends ./detail_base
 
 block head
   meta(name="apple-itunes-app", content="app-id=829469529, app-argument=barback://recipe/"+message.attributes.name)
 
-block content
-  h1= message.attributes.name
-  h3= message.attributes.abv + "% ABV"
-  h3= "Served in " + message.attributes.glassware
-  if message.attributes.garnish
-    h3= "Garnish with " + message.attributes.garnish
-  
-  hr
+block column_one
+  .row.text-center
+    h1= message.attributes.name
+    h3= message.attributes.abv + "% ABV"
+    h3= "Served in " + message.attributes.glassware
+    if message.attributes.garnish
+      h3= "Garnish with " + message.attributes.garnish
 
+  #drawing.text-center
+
+block column_two
   span(class="label") Ingredients
   p(class="ingredients")
     each ingredient in message.attributes.ingredients
@@ -39,3 +41,6 @@ block content
     span(class="label") Information
     p(class="information")= message.attributes.information
     script $(".information")[0].innerHTML = marked($(".information")[0].innerHTML);
+
+  script.
+    drawRecipe("#{message.attributes.glassware}", !{JSON.stringify(message.attributes.visualData)}, "drawing")

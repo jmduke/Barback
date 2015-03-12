@@ -1,0 +1,34 @@
+extends ./base
+
+block content
+  .col-xs-12.col-sm-5.col-sm-offset-1
+    .iphone.pull-left
+      #screenshots(style="position: relative;")
+        img(src="./static/img/ss1.png", srcset="./static/img/ss1.png 2x", width="320", height="480", style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;")
+        img(src="./static/img/ss2.png", srcset="./static/img/ss2.png 2x", width="320", height="480", style="position: absolute; top: 0px; z-index: 1; opacity: 1; display: block;")
+        img(src="./static/img/ss3.png", srcset="./static/img/ss3.png 2x", width="320", height="480", style="position: absolute; top: 0px; z-index: 1; opacity: 1; display: block;")
+        img(src="./static/img/ss4.png", srcset="./static/img/ss4.png 2x", width="320", height="480", style="position: absolute; top: 0px; z-index: 1; opacity: 1; display: block;")
+        img(src="./static/img/ss5.png", srcset="./static/img/ss5.png 2x", width="320", height="480", style="position: absolute; top: 0px; z-index: 1; opacity: 1; display: block;")
+  .col-xs-12.col-sm-5
+    .app-description
+      h3= "★★★★★"
+      em= "App Store Rating"
+      hr
+      p.
+        barback (n.) — a bartender's assistant; they are there to simplify a bartender's job; bussing tables and dishwashing are common duties. In some establishments, barbacks may also be responsible for the safety of the bartender.
+      p.
+        Browse from a great selection of over one hundred cocktails, featuring recipes new and old.  Search by ingredients or by name; save your favorites and even generate a shopping list so you never go dry.
+      p.
+        New recipes added weekly -- and, like any good bartender, we're hard at work to make your next drink the best one.  (Not that anything will beat a Manhattan.)
+      p.
+        For connoisseurs and novices alike, filled to the brim with modern and classic cocktails — Barback.
+      p.
+        Happy bartending!
+      p(class="app-store")
+        a(href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?ls=1&mt=8", class="app-store")
+          img(src="/static/img/app-store.svg")
+
+
+  script(src="/static/js/srcset.min.js")
+  script(src="/static/js/analytics.js")
+  script(src="/static/js/home.js")
