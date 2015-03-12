@@ -1,0 +1,34 @@
+extends ./base
+
+block content
+    .jumbotron
+      h2= "Barback is the best way to discover new cocktails (and remember old ones.)"
+      p
+        em barback (n) — a bartender's assistant; 
+        they they are there to simplify a bartender's job; bussing tables and dishwashing are common duties. In some establishments, barbacks may also be responsible for the safety of the bartender.
+      p.
+        For connoisseurs and novices alike, filled to the brim with modern and classic cocktails.
+      p.
+        Happy bartending!
+      p
+        a(class="btn btn-primary btn-lg", href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Check out our iPhone app
+
+    - function slugify(text) { return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, ''); }
+    .row
+      .recipes
+        each recipe in message.recipes
+          .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2
+            a(href="/recipe/" + recipe.attributes.name, style="display: block")
+              .recipe-container
+                .row
+                  span(class="ingredient pull-right")= recipe.attributes.name
+                div(id="#{slugify(recipe.attributes.name)}")
+                script.
+                  drawRecipe("#{recipe.attributes.glassware}", !{JSON.stringify(message.visualData[recipe.attributes.name])}, "#{slugify(recipe.attributes.name)}")
+
+block script
+  script.
+    var container = document.querySelector('.recipes');
+    var msnry = new Masonry( container, {
+      itemSelector: '.recipe'
+    });

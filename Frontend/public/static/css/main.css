@@ -1,0 +1,204 @@
+body {
+    font-family: Avenir;
+    color: #2B3A42;
+    background-color: #eee;
+    font-size: 1.4em;
+    margin-top: 1em;
+}
+
+.main {
+    margin-bottom: 1em;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 10px;
+    float: left;
+}
+
+.navbar h1 {
+    margin-left: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-style: italic;
+    margin-top: 0;
+}
+
+h3 {
+    margin-top: 0.25em;
+    font-size: 1em;
+    margin-bottom: 0em;
+}
+
+a {
+    color: #FF530D;
+}
+
+.header {
+    color: #ccc;
+    padding-bottom: 1em;
+}
+
+.header form {
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.header form:hover {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.ingredients, .directions, .information {
+    background-color: #fff;
+    border: 1px #8FA7B5 solid;
+    padding: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.ingredient {
+    text-align: left;
+}
+
+.details {
+    text-align: right;
+    color: #8FA7B5;
+    font-style: italic;
+}
+
+.label {
+    font-size: 1em;
+    margin-left: 1em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    color: #8FA7B5;
+}
+
+.footer {
+    padding-top: 3em;
+    padding-bottom: 2em;
+}
+
+.twitter-count-vertical {
+    margin-bottom: -6px;
+}
+
+#___plusone_0 {
+    vertical-align: bottom !important;
+}
+
+hr {
+    border: none;
+    margin: 2em;
+}
+
+.search {
+    display: block;
+    margin-bottom: 1em;
+    float: right;
+    padding: 0.5em;
+    font-family: Avenir;
+    font-size: 16px;
+    background-color: #8FA7B5;
+    border: 0;
+    padding-right: 1em;
+    text-align: right;
+}
+
+::-webkit-input-placeholder {
+   color: #2B3A42;
+}
+
+#drawing {
+    margin: 2em;
+}
+
+.recipe-container {
+    background-color: #fff;
+    padding: 0;
+    border-radius: 10px;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+}
+
+.recipe .ingredient {
+  background: #ff530d;
+  color: #fff;
+  font-size: 1.2em;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 5em;
+  margin-bottom: 1em;
+  margin-right: 15px;
+  border-top-right-radius: 10px;
+}
+
+.recipe .ingredient:after {
+    content: " → ";
+    font-size: 0px;
+    transition: all 0.5s;
+}
+
+.recipe:hover .ingredient:after {
+    transition: all 0.5s;
+    font-size: 14px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-style: italic;
+    padding-left: 0;
+}
+
+.jumbotron {
+    background-color: #2B3A42;
+    color: #fff;
+}
+
+.btn-primary, .btn-primary:hover {
+    background-color: #FF530D;
+    border-color: #FF530D;
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.social a {
+    margin: 1em;
+}
+
+/* APP STUFF */
+@media all and (max-width: 660px) {
+  footer.grater > div {
+    margin-bottom: 0.5em; } }
+div.iphone {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url('/static/img/iphone.svg') no-repeat;
+  background-size: 387px 804px;
+  width: 387px;
+  height: 804px;
+  padding: 121px 0 0 36px; }
+  div.iphone div, div.iphone img {
+    background: #000;
+    width: 320px;
+    height: 568px;
+    overflow: hidden; }
+  @media all and (max-width: 660px) {
+    div.iphone {
+      display: none; } }
+
+.app-description {
+  padding-top: 5em;
+  font-size: 1.2em;
+}
+
+.app-store {
+  margin-top: 2em;
+}
