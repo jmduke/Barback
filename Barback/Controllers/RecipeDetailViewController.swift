@@ -43,7 +43,16 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func shareRecipe() {
-        let activities = ["Just made a \(recipe!.name) with @getbarback!", recipe!.url]
+        
+        let printInfo = UIPrintInfo(dictionary: nil)
+        printInfo.jobName = "BarbackRecipe"
+        printInfo.outputType = UIPrintInfoOutputType.General
+        
+        let formatter = UIMarkupTextPrintFormatter(markupText: recipe!.htmlString)
+        formatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72) // 1" margins
+
+        
+        let activities = [printInfo, formatter, "Just made a \(recipe!.name) with @getbarback!", recipe!.url]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
         
