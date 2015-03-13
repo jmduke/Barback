@@ -20,15 +20,21 @@ block content
       p
         a(class="btn btn-primary btn-lg", href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Check out our iPhone app
 
-    h4= "Sort by"
-      a(id="name", href="#") Name
-      a(id="abv", href="#") ABV
+    .row
+      h4.col-xs-12.col-md-4= "Sort by:"
+        a(id="name", href="#") Name
+        a(id="abv", href="#") ABV
+        a(id="complexity", href="#") Complexity
+      .col-xs-12.col-md-6
+        h4.pull-left= "Search for:"
+        .form-inline
+          input(id="search_filter", name="search", type="text", class="form-control", placeholder="Search for...", style="margin-top: 2px; margin-left: 1em")
     hr
     - function slugify(text) { return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, ''); }
     .row
       .recipes
         each recipe in message.recipes
-          .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2(abv="#{message.abv[recipe.attributes.name]}")
+          .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2(data-abv="#{message.abv[recipe.attributes.name]}", data-name="#{recipe.attributes.name}", data-ingredients="#{message.bases[recipe.attributes.name]}")
             a(href="/recipe/" + recipe.attributes.name, style="display: block")
               .recipe-container
                 .row
@@ -44,20 +50,31 @@ block script
     container.isotope({
       itemSelector: '.recipe',
       layoutMode: 'masonry',
-      sortBy: 'abv',
       getSortData: {
-        abv: '[abv] parseInt',
-        name: '.ingredient.pull-right'
+        abv: '[data-abv] parseInt',
+        name: '[data-name]',
+        complexity: function (element) {
+          return $(element).attr("data-ingredients").split(",").length;
+        }
       },
       sortAscending: {
         abv: false,
         name: true
       }
-    })
+    });
     $("h4 a").click(function(event) {
       event.preventDefault();
       var container = $('.recipes');
       var sortBy = $(this).attr("id");
       container.isotope({ sortBy: sortBy });
-    })
+    });
+    $("#search_filter").on("keypress paste focus textInput input", function() {
+      value = $(this).val();
+      var container = $('.recipes');
+      container.isotope({ filter: function() {
+        var name = $(this).attr("data-name");
+        var ingredients = $(this).attr("data-ingredients");
+        return name.toUpperCase().indexOf(value.toUpperCase()) > -1 || ingredients.toUpperCase().indexOf(value.toUpperCase()) > -1 ;
+      }});
+    });
 
