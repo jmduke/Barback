@@ -31,51 +31,7 @@ def dump_data_to_json(new_recipes, new_bases):
     with open(base_json_filename, "w") as outfile:
         json.dump(new_bases, outfile)
 
-def get_bases_from_parse():
-    bases = IngredientBase.Query.all().limit(1000)
-    brands = list(Brand.Query.all().limit(1000))
-
-    parsed_bases = []
-    for b in bases:
-        parsed_base = b.to_dictionary()
-
-        relevant_brands = [br for br in brands if br.base == b.name]
-        for brand in relevant_brands:
-            brands.remove(brand)
-
-        parsed_base['brands'] = [br.to_dictionary() for br in relevant_brands]
-        for brand in parsed_base['brands']:
-            brand.pop("base")
-
-
-        parsed_bases.append(parsed_base)
-
-    return parsed_bases
-
-def get_recipes_from_parse():
-    recipes = Recipe.Query.all().limit(1000)
-    ingredients = list(Ingredient.Query.all().limit(1000))
-
-    parsed_recipes = []
-    for r in recipes:
-        parsed_recipe = r.to_dictionary()
-
-        relevant_ingredients = [i for i in ingredients if i.recipe == r.name]
-        for ingredient in relevant_ingredients:
-            ingredients.remove(ingredient)
-
-        parsed_recipe['ingredients'] = [i.to_dictionary() for i in relevant_ingredients]
-        for ingredient in parsed_recipe['ingredients']:
-            ingredient.pop("recipe")
-
-        parsed_recipes.append(parsed_recipe)
-
-    return parsed_recipes
-
 def sync_data_with_parse(new_recipes, new_bases):
-    old_recipes = get_recipes_from_parse()
-    old_bases = get_bases_from_parse()
-
     recipes = []
     ingredients = []
     for recipe in new_recipes:
@@ -94,7 +50,7 @@ def sync_data_with_parse(new_recipes, new_bases):
     for base in new_bases:
         base_object = IngredientBase(dictionary=base)
         bases.append(base_object)
-        for brand in base["brands"]:
+        for brand in base.get("brands", []):
             brand.update({"base": base["name"]})
             brands.append(Brand(dictionary=brand))
 
