@@ -79,11 +79,10 @@ def sync_data_with_parse(new_recipes, new_bases):
     recipes = []
     ingredients = []
     for recipe in new_recipes:
-        if recipe not in old_recipes:
-            recipes.append(Recipe(dictionary=recipe))
-            for ingredient in recipe["ingredients"]:
-                ingredient.update({"recipe": recipe['name']})
-                ingredients.append(Ingredient(dictionary=ingredient))
+        recipes.append(Recipe(dictionary=recipe))
+        for ingredient in recipe["ingredients"]:
+            ingredient.update({"recipe": recipe['name']})
+            ingredients.append(Ingredient(dictionary=ingredient))
 
     if recipes:
         print "Found {} new recipes.".format(len(recipes))
@@ -93,12 +92,11 @@ def sync_data_with_parse(new_recipes, new_bases):
     bases = []
     brands = []
     for base in new_bases:
-        if base not in old_bases:
-            base_object = IngredientBase(dictionary=base)
-            bases.append(base_object)
-            for brand in base["brands"]:
-                brand.update({"base": base["name"]})
-                brands.append(Brand(dictionary=brand))
+        base_object = IngredientBase(dictionary=base)
+        bases.append(base_object)
+        for brand in base["brands"]:
+            brand.update({"base": base["name"]})
+            brands.append(Brand(dictionary=brand))
 
     if bases:
         print "Found {} new bases.".format(len(bases))  
@@ -109,8 +107,17 @@ def sync_data_with_parse(new_recipes, new_bases):
         print "Pushing data."
     else:
         print "No data to push."
+        return
 
     max_batch_size = 50
+    print "Deleting all jank first."
+    for chunk in chunks(list(Recipe.Query.all().limit(1000)) + 
+                        list(Ingredient.Query.all().limit(1000)) + 
+                        list(IngredientBase.Query.all().limit(1000)) + 
+                        list(Brand.Query.all().limit(1000)), max_batch_size):
+        ParseBatcher().batch_delete(chunk)
+
+
     for chunk in chunks(recipes + bases + ingredients + brands, max_batch_size):
         ParseBatcher().batch_save(chunk)
         print "Pushed {} objects.".format(len(chunk))
