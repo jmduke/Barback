@@ -36,7 +36,7 @@ class Ingredient(ParseObject):
 
 class IngredientBase(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "information", "type"]
-    optional_attributes = ParseObject.optional_attributes + ["abv", "cocktaildb"]
+    optional_attributes = ParseObject.optional_attributes + ["abv", "cocktaildb", "color"]
     
 class Brand(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "price", "url"]
