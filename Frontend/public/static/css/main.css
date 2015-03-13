@@ -23,7 +23,6 @@ body {
 
 h1 {
     font-style: italic;
-    margin-top: 0;
 }
 
 h3 {
@@ -137,13 +136,74 @@ hr {
   border-top-right-radius: 10px;
 }
 
-.recipe .ingredient:after {
+@-webkit-keyframes rotate_svg {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(8deg);
+  }
+
+  40% {
+    transform: rotate(-6deg);
+  }
+
+  60% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate_svg {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(8deg);
+  }
+
+  40% {
+    transform: rotate(-6deg);
+  }
+
+  60% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.recipe-container:hover svg {
+  -webkit-animation-name: rotate_svg;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+  animation-name: rotate_svg;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+}
+
+.recipe-container .ingredient:after {
     content: " → ";
     font-size: 0px;
     transition: all 0.5s;
 }
 
-.recipe:hover .ingredient:after {
+.recipe-container:hover .ingredient:after {
     transition: all 0.5s;
     font-size: 14px;
 }
@@ -201,4 +261,32 @@ div.iphone {
 
 .app-store {
   margin-top: 2em;
+}
+
+.detail-col {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3em;
+}
+
+.detail-col h2 {
+  font-size: 1.2em;
+}
+
+#col-one {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#col-two {
+  border-top-left-radius: 0
+}
+
+.row.detail {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+h4 a {
+  margin-left: 2em;
 }

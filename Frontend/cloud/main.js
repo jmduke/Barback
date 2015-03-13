@@ -8,15 +8,28 @@ function visualDataForRecipe(ingredients, bases) {
   });
   return _.sortBy(_.map(ingredients, function(ingredient) {
     baseIndex = baseNames.indexOf(ingredient.attributes.base);
-    if (baseIndex < 0) {
-      color = "ccc";
-    } else {
-      color = bases[baseIndex].attributes.color;
-    }
+    color = baseIndex < 0 ? "ccc" : bases[baseIndex].attributes.color;
     return [color, ingredient.attributes.amount];
   }), function(visualTuple) {
     return visualTuple[1]
   });
+}
+
+function abvForRecipe(ingredients, bases) {
+  nominator = 0;
+  denominator = 0;  
+  baseNames = _.map(bases, function(base) {
+    return base.attributes.name;
+  });
+  _.each(ingredients, function(ingredient) {
+    baseIndex = baseNames.indexOf(ingredient.attributes.base);
+    abv = baseIndex < 0 ? 0 : bases[baseIndex].attributes.abv;
+    amount = ingredient.attributes.amount;
+    amount = amount == null ? 0 : amount;
+    nominator += abv * amount;
+    denominator += amount;
+  });
+  return Math.round(nominator / denominator);
 }
 
 function objectsForVariable(className, attribute, value, callback) {
@@ -95,6 +108,12 @@ Parse.Cloud.define("allRecipes", function(request, response) {
       });
       return [recipe.attributes.name, visualDataForRecipe(recipeIngredients, bases)];
     }));
+    results["abv"] =  _.object(_.map(retrieved_recipes, function(recipe) {
+      recipeIngredients = _.filter(retrieved_ingredients, function(ingredient) {
+        return ingredient.attributes.recipe == recipe.attributes.name
+      });
+      return [recipe.attributes.name, abvForRecipe(recipeIngredients, bases)];
+    }));
     results["recipes"] = _.sortBy(_.filter(retrieved_recipes, function(recipe) {
       return results["visualData"][recipe.attributes.name].length > 1
     }), function(recipe) {
@@ -113,22 +132,13 @@ Parse.Cloud.define("recipeForName", function(request, response) {
       baseNames = _.map(ingredients, function(ingredient) {
         return ingredient.attributes.base;
       });
-      objectsForVariables("IngredientBase", "name", baseNames, function(bases) {
-        recipe.attributes.bases = [];
-        recipe.attributes.visualData = []; 
-        recipe.attributes.nominator = 0.0;
-        recipe.attributes.denominator = 0.0;
-        _.each(bases, function(base) {
-          recipe.attributes.bases.push(base.attributes.name);
-          abv = base.attributes.abv;
-          amount = ingredients[baseNames.indexOf(base.attributes.name)].attributes.amount;
-          amount = amount == null ? 0 : amount;
-          recipe.attributes.nominator += abv * amount;
-          recipe.attributes.denominator += amount;
-        });
 
+      objectsForVariables("IngredientBase", "name", baseNames, function(bases) {
+        recipe.attributes.bases = _.map(bases, function(base) {
+          return base.attributes.name;
+        })
         recipe.attributes.visualData = visualDataForRecipe(ingredients, bases);
-        recipe.attributes.abv = Math.round(recipe.attributes.nominator / recipe.attributes.denominator);
+        recipe.attributes.abv = abvForRecipe(ingredients, bases);
         response.success(recipe);
       });
     });

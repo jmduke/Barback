@@ -14,8 +14,8 @@ block column_one
   #drawing.text-center
 
 block column_two
-  span(class="label") Ingredients
-  p(class="ingredients")
+  h2 Ingredients
+  p
     each ingredient in message.attributes.ingredients
       if message.attributes.bases.indexOf(ingredient.attributes.base) >= 0
         a(class="ingredient", href="/ingredient/" + ingredient.attributes.base)= ingredient.attributes.base
@@ -34,13 +34,13 @@ block column_two
         span(class="details")= ingredient.attributes.label
       br
 
-  span(class="label") Directions
-  p(class="directions")= message.attributes.directions
+  h2 Directions
+  p= message.attributes.directions
 
   if message.attributes.information
-    span(class="label") Information
-    p(class="information")= message.attributes.information
-    script $(".information")[0].innerHTML = marked($(".information")[0].innerHTML);
+    h2 Information
+    p#info= message.attributes.information
+    script $("#info")[0].innerHTML = marked($("#info")[0].innerHTML);
 
   script.
     drawRecipe("#{message.attributes.glassware}", !{JSON.stringify(message.attributes.visualData)}, "drawing")
