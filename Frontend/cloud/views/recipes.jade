@@ -10,14 +10,25 @@ block content
         For connoisseurs and novices alike, filled to the brim with modern and classic cocktails.
       p.
         Happy bartending!
+
+      p
+        form(class="form-inline", method="post", target="popupwindow", onsubmit="window.open('https://tinyletter.com/Barback', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true", action="https://tinyletter.com/Barback")
+          .input-group
+            input(type="text", name="email", class="form-control input-lg", id="tlemail", placeholder="Email")
+            .input-group-btn
+              input(type="submit", class="btn btn-primary btn-lg", value="Email me about updates")
       p
         a(class="btn btn-primary btn-lg", href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Check out our iPhone app
 
+    h4= "Sort by"
+      a(id="name", href="#") Name
+      a(id="abv", href="#") ABV
+    hr
     - function slugify(text) { return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, ''); }
     .row
       .recipes
         each recipe in message.recipes
-          .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2
+          .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2(abv="#{message.abv[recipe.attributes.name]}")
             a(href="/recipe/" + recipe.attributes.name, style="display: block")
               .recipe-container
                 .row
@@ -27,8 +38,26 @@ block content
                   drawRecipe("#{recipe.attributes.glassware}", !{JSON.stringify(message.visualData[recipe.attributes.name])}, "#{slugify(recipe.attributes.name)}")
 
 block script
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.1.1/isotope.pkgd.min.js")
   script.
-    var container = document.querySelector('.recipes');
-    var msnry = new Masonry( container, {
-      itemSelector: '.recipe'
-    });
+    var container = $('.recipes');
+    container.isotope({
+      itemSelector: '.recipe',
+      layoutMode: 'masonry',
+      sortBy: 'abv',
+      getSortData: {
+        abv: '[abv] parseInt',
+        name: '.ingredient.pull-right'
+      },
+      sortAscending: {
+        abv: false,
+        name: true
+      }
+    })
+    $("h4 a").click(function(event) {
+      event.preventDefault();
+      var container = $('.recipes');
+      var sortBy = $(this).attr("id");
+      container.isotope({ sortBy: sortBy });
+    })
+

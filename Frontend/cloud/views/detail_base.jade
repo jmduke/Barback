@@ -1,16 +1,17 @@
 extends ./base
 
 block content
-  .col-xs-12.col-md-4.col-md-offset-2
-    block column_one
+  .row.detail
+    .col-xs-12.col-md-4.col-md-offset-2.detail-col#col-one
+      block column_one
 
-  .col-xs-12.col-md-4.col-md-offset-0
-    block column_two
-    span(class="label") Share
-    .directions.text-left
-      .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
-      &nbsp;&nbsp;
-      a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
-      &nbsp;&nbsp;
-      script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      .g-plusone(data-size="tall")
+    .col-xs-12.col-md-4.col-md-offset-0.detail-col#col-two
+      block column_two
+      h2 Share
+      .text-left
+        .fb-share-button(data-href="http://www.getbarback.com/recipe/message.attributes.name", data-layout="box_count")
+        &nbsp;&nbsp;
+        a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+        &nbsp;&nbsp;
+        script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        .g-plusone(data-size="tall")
