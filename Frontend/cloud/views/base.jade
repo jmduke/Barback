@@ -58,17 +58,11 @@ html(lang="en")
             span(class="icon-bar")
             span(class="icon-bar")
         .collapse.navbar-collapse#navbar1
-          form(onsubmit="window.location = '/search/' + search.value; return false;", class="navbar-form navbar-right")
-            .input-group
-              input(id="search", name="search", type="text", class="form-control", placeholder="Search for...")
-              .input-group-btn
-                btn(class="btn btn-default", type="btn")
-                  span Go!
           ul(class="nav navbar-nav navbar-right")
             li
-              a(href="/")= "Browse"
+              a(href="/")= "Recipes"
             li
-              a(href="http://notes.getbarback.com/")= "Notes"
+              a(href="http://notes.getbarback.com/")= "Blog"
             li
               a(href="/app")= "App"
 

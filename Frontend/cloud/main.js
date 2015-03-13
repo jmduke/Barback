@@ -114,6 +114,15 @@ Parse.Cloud.define("allRecipes", function(request, response) {
       });
       return [recipe.attributes.name, abvForRecipe(recipeIngredients, bases)];
     }));
+    results["bases"] = _.object(_.map(retrieved_recipes, function(recipe) {
+      recipeIngredients = _.filter(retrieved_ingredients, function(ingredient) {
+        return ingredient.attributes.recipe == recipe.attributes.name
+      });
+      var ingredient_string = _.map(recipeIngredients, function(ingredient) {
+        return ingredient.attributes.base
+      }).join();
+      return [recipe.attributes.name, ingredient_string];
+    }));
     results["recipes"] = _.sortBy(_.filter(retrieved_recipes, function(recipe) {
       return results["visualData"][recipe.attributes.name].length > 1
     }), function(recipe) {
