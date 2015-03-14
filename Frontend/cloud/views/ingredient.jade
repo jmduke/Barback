@@ -7,7 +7,7 @@ block column_one
       h3= "A " + message.attributes.type + " with " + message.attributes.abv + "% alcohol by volume."
     else
       h3= "A non-alcoholic " + message.attributes.type + "."
-    div(style="width: 200px; border-radius: 50%; height: 200px; background-color: \##{message.attributes.color}; margin: auto; margin-top: 2em")
+    .ingredient_drawing(style="background-color: \##{message.attributes.color};")
 
 block column_two
   if message.attributes.information

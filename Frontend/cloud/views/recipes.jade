@@ -28,14 +28,14 @@ block content
       .col-xs-12.col-md-6
         h4.pull-left= "Search for:"
         .form-inline
-          input(id="search_filter", name="search", type="text", class="form-control", placeholder="Search for...", style="margin-top: 2px; margin-left: 1em")
+          input(id="search_filter", name="search", type="text", class="form-control", placeholder="Search for...")
     hr
     - function slugify(text) { return text.toString().toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, ''); }
     .row
       .recipes
         each recipe in message.recipes
           .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2(data-abv="#{message.abv[recipe.attributes.name]}", data-name="#{recipe.attributes.name}", data-ingredients="#{message.bases[recipe.attributes.name]}")
-            a(href="/recipe/" + recipe.id, style="display: block")
+            a(href="/recipe/" + recipe.id)
               .recipe-container
                 .row
                   span(class="ingredient pull-right")= recipe.attributes.name
