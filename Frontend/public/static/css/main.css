@@ -259,6 +259,10 @@ div.iphone {
   font-size: 1.2em;
 }
 
+#screenshots {
+  position: relative;
+}
+
 .app-store {
   margin-top: 2em;
 }
@@ -287,6 +291,34 @@ div.iphone {
   border-radius: 10px;
 }
 
+.recipe a {
+  display: block;
+}
+
 h4 a {
   margin-left: 2em;
+}
+
+#search_filter {
+  margin-left: 0 !important;
+}
+
+@media (min-width: 768px) {
+  #search_filter {
+    margin-left: 1em;
+    margin-top: 2px;
+  }
+}
+
+#nav-h1 {
+  margin-top: 1em;
+  margin-bottom: 1em
+}
+
+.ingredient_drawing {
+  width: 200px;
+  border-radius: 50%;
+  height: 200px;
+  margin: auto;
+  margin-top: 2em"
 }
