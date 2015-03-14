@@ -34,12 +34,13 @@ function abvForRecipe(ingredients, bases) {
 
 function objectsForVariable(className, attribute, value, callback) {
   var query = new Parse.Query(className);
+  query.limit(1000);
   query.descending("amount");
   query.equalTo(attribute, value);
   query.find({
     success: callback,
     error: function() {
-      response.error(className + " lookup failed.");
+      Parse.Error(className + " lookup failed.");
     }
   });
 }
@@ -134,18 +135,18 @@ Parse.Cloud.define("allRecipes", function(request, response) {
 
 
 Parse.Cloud.define("recipeForName", function(request, response) {
-  objectsForVariable("Recipe", "name", request.params.name, function(recipes) {
+  objectsForVariable("Recipe", "objectId", request.params.name, function(recipes) {
     recipe = recipes[0];
-    objectsForVariable("Ingredient", "recipe", request.params.name, function(ingredients) {
+    objectsForVariable("Ingredient", "recipe", recipe.attributes.name, function(ingredients) {
       recipe.attributes.ingredients = ingredients;
-      baseNames = _.map(ingredients, function(ingredient) {
+      recipe.attributes.baseNames = _.map(ingredients, function(ingredient) {
         return ingredient.attributes.base;
       });
 
-      objectsForVariables("IngredientBase", "name", baseNames, function(bases) {
-        recipe.attributes.bases = _.map(bases, function(base) {
-          return base.attributes.name;
-        })
+      objectsForVariables("IngredientBase", "name", recipe.attributes.baseNames, function(bases) {
+        recipe.attributes.bases = _.object(_.map(bases, function(base) {
+          return [base.attributes.name, base.id];
+        }));
         recipe.attributes.visualData = visualDataForRecipe(ingredients, bases);
         recipe.attributes.abv = abvForRecipe(ingredients, bases);
         response.success(recipe);
@@ -155,13 +156,23 @@ Parse.Cloud.define("recipeForName", function(request, response) {
 });
 
 Parse.Cloud.define("ingredientForName", function(request, response) {
-  objectsForVariable("IngredientBase", "name", request.params.name, function(bases) {
+  objectsForVariable("IngredientBase", "objectId", request.params.name, function(bases) {
     base = bases[0];
     objectsForVariable("Brand", "base", request.params.name, function(brands) {
       base.attributes.brands = brands;
-      objectsForVariable("Ingredient", "base", request.params.name, function(ingredients) {
+      objectsForVariable("Ingredient", "base", base.attributes.name, function(ingredients) {
         base.attributes.ingredients = ingredients;
-        response.success(base);
+        recipeNames = _.map(ingredients, function(ingredient) {
+          return ingredient.attributes.recipe;
+        });
+        console.log(recipeNames);
+        objectsForVariables("Recipe", "name", recipeNames, function(recipes) {
+          console.log(recipes);
+          base.attributes.recipes = _.object(_.map(recipes, function(recipe) {
+            return [recipe.attributes.name, recipe.id]
+          }));
+          response.success(base);
+        });
       });
     });
   });
