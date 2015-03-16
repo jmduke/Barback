@@ -2,6 +2,7 @@ from parse_rest.connection import register, ParseBatcher
 from models import Recipe, Ingredient, IngredientBase, Brand
 from config import application_id, client_key
 from utils import chunks, convert_ingredient_to_dict
+from slugify import slugify
 import yaml
 import json
 
@@ -35,7 +36,9 @@ def sync_data_with_parse(new_recipes, new_bases):
     recipes = []
     ingredients = []
     for recipe in new_recipes:
-        recipes.append(Recipe(dictionary=recipe))
+        recipe_object = Recipe(dictionary=recipe)
+        recipe_object.slug = slugify(recipe_object.name)
+        recipes.append(recipe_object)
         for ingredient in recipe["ingredients"]:
             ingredient.update({"recipe": recipe['name']})
             ingredients.append(Ingredient(dictionary=ingredient))
@@ -49,6 +52,7 @@ def sync_data_with_parse(new_recipes, new_bases):
     brands = []
     for base in new_bases:
         base_object = IngredientBase(dictionary=base)
+        base_object.slug = slugify(base_object.name)
         bases.append(base_object)
         for brand in base.get("brands", []):
             brand.update({"base": base["name"]})
