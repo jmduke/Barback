@@ -21,7 +21,7 @@ block content
         a(class="btn btn-primary btn-lg", href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8") Check out our iPhone app
 
     .row
-      h4.col-xs-12.col-md-4= "Sort by:"
+      h4.col-xs-12.col-md-6= "Sort by:"
         a(id="name", href="#") Name
         a(id="abv", href="#") ABV
         a(id="complexity", href="#") Complexity
@@ -35,7 +35,7 @@ block content
       .recipes
         each recipe in message.recipes
           .recipe.text-center.col-xs-12.col-sm-6.col-md-4.col-lg-3.col-xl-2(data-abv="#{message.abv[recipe.attributes.name]}", data-name="#{recipe.attributes.name}", data-ingredients="#{message.bases[recipe.attributes.name]}")
-            a(href="/recipe/" + recipe.id)
+            a(href="/recipe/" + recipe.attributes.slug)
               .recipe-container
                 .row
                   span(class="ingredient pull-right")= recipe.attributes.name
@@ -45,36 +45,5 @@ block content
 
 block script
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.1.1/isotope.pkgd.min.js")
-  script.
-    var container = $('.recipes');
-    container.isotope({
-      itemSelector: '.recipe',
-      layoutMode: 'masonry',
-      getSortData: {
-        abv: '[data-abv] parseInt',
-        name: '[data-name]',
-        complexity: function (element) {
-          return $(element).attr("data-ingredients").split(",").length;
-        }
-      },
-      sortAscending: {
-        abv: false,
-        name: true
-      }
-    });
-    $("h4 a").click(function(event) {
-      event.preventDefault();
-      var container = $('.recipes');
-      var sortBy = $(this).attr("id");
-      container.isotope({ sortBy: sortBy });
-    });
-    $("#search_filter").on("keypress paste focus textInput input", function() {
-      value = $(this).val();
-      var container = $('.recipes');
-      container.isotope({ filter: function() {
-        var name = $(this).attr("data-name");
-        var ingredients = $(this).attr("data-ingredients");
-        return name.toUpperCase().indexOf(value.toUpperCase()) > -1 || ingredients.toUpperCase().indexOf(value.toUpperCase()) > -1 ;
-      }});
-    });
+  script(src="/static/js/main.js")
 

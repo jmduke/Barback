@@ -28,7 +28,7 @@ class ParseObject(Object):
 
 class Recipe(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "glassware", "directions"]
-    optional_attributes = ParseObject.optional_attributes + ["information", "garnish"]
+    optional_attributes = ParseObject.optional_attributes + ["information", "garnish", "slug"]
 
 class Ingredient(ParseObject):
     required_attributes = ParseObject.required_attributes + ["base"]
@@ -36,7 +36,7 @@ class Ingredient(ParseObject):
 
 class IngredientBase(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "information", "type"]
-    optional_attributes = ParseObject.optional_attributes + ["abv", "cocktaildb", "color"]
+    optional_attributes = ParseObject.optional_attributes + ["abv", "cocktaildb", "color", "slug"]
     
 class Brand(ParseObject):
     required_attributes = ParseObject.required_attributes + ["name", "price", "url"]

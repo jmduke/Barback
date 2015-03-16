@@ -300,7 +300,7 @@ h4 a {
 }
 
 #search_filter {
-  margin-left: 0 !important;
+  margin-left: 0;
 }
 
 @media (min-width: 768px) {
@@ -320,5 +320,5 @@ h4 a {
   border-radius: 50%;
   height: 200px;
   margin: auto;
-  margin-top: 2em"
+  margin-top: 2em;
 }
