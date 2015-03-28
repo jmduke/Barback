@@ -109,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func onOldVersion() -> Bool {
-        print("OLD")
         let oldRecipes = Recipe.all().filter({ ($0 as Recipe).slug == nil }).count
         let totalRecipes = Recipe.all().count
         return (oldRecipes == totalRecipes)

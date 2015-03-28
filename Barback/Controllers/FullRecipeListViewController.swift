@@ -9,6 +9,59 @@
 import Foundation
 import UIKit
 
+enum SortingMethod: Int {
+    case ABVDescending = 0
+    case ABVAscending
+    case ComplexityDescending
+    case ComplexityAscending
+    case NameDescending
+    case NameAscending
+    
+    static func maximum() -> Int {
+        // from http://stackoverflow.com/questions/26261011/swift-chose-a-random-enumeration-value
+        var maxValue: Int = 0
+        while let _ = self(rawValue: ++maxValue as Int) {}
+        return maxValue
+    }
+    
+    func title() -> String {
+        return ["ABV", "Complexity", "Name"][rawValue / 2] + ["↓", "↑"][rawValue % 2]
+    }
+    
+    func sortFunction() -> ((Recipe, Recipe) -> Bool) {
+        func sortByABV(isDescending: Bool) -> ((one: Recipe, two: Recipe) -> Bool) {
+            func ascending(one: Recipe, two: Recipe) -> Bool { return one.abv < two.abv }
+            func descending(one: Recipe, two: Recipe) -> Bool { return one.abv > two.abv }
+            return (isDescending ? descending : ascending)
+        }
+        func sortByComplexity(isDescending: Bool) -> ((one: Recipe, two: Recipe) -> Bool) {
+            func ascending(one: Recipe, two: Recipe) -> Bool { return one.ingredients.count < two.ingredients.count }
+            func descending(one: Recipe, two: Recipe) -> Bool { return one.ingredients.count > two.ingredients.count }
+            return (isDescending ? descending : ascending)
+        }
+        func sortByName(isDescending: Bool) -> ((one: Recipe, two: Recipe) -> Bool) {
+            func ascending(one: Recipe, two: Recipe) -> Bool { return one.name.lowercaseString > two.name.lowercaseString }
+            func descending(one: Recipe, two: Recipe) -> Bool { return one.name.lowercaseString < two.name.lowercaseString }
+            return (isDescending ? descending : ascending)
+        }
+        
+        switch self {
+        case .ABVDescending:
+            return sortByABV(true)
+        case .ABVAscending:
+            return sortByABV(false)
+        case .ComplexityDescending:
+            return sortByComplexity(true)
+        case .ComplexityAscending:
+            return sortByComplexity(false)
+        case .NameDescending:
+            return sortByName(true)
+        case .NameAscending:
+            return sortByName(false)
+        }
+    }
+}
+
 class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -21,6 +74,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         }
     }
     
+    var sortingMethod: SortingMethod = SortingMethod.NameAscending
     
     func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController) {
         UIApplication.sharedApplication().statusBarHidden = true
@@ -70,10 +124,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
             $0.information?.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
         })
-        recipes.sort({
-            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex >
-            $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
-        })
+        recipes = sorted(recipes, sortingMethod.sortFunction())
     }
     
     func showSearchBar() {
@@ -89,6 +140,14 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         UIGraphicsEndImageContext()
         return image
     }
+    
+    func toggleSortingMethod() {
+        let nextSortingMethodRawValue = (sortingMethod.rawValue + 1) % SortingMethod.maximum()
+        sortingMethod = SortingMethod(rawValue: nextSortingMethodRawValue)!
+        recipes = sorted(recipes, sortingMethod.sortFunction())
+        self.tableView.reloadData()
+        self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +156,10 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         
         let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: "showSearchBar")
         self.navigationItem.rightBarButtonItem = searchButton
+        
+        // TODO: better icon.
+        let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Bordered, target: self, action: "toggleSortingMethod")
+        self.navigationItem.leftBarButtonItem = sortButton
         
         let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
         emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
