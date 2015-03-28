@@ -32,6 +32,10 @@ class ShoppingListViewController: RecipeListViewController {
             
         }
     }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
     
     override init(style: UITableViewStyle) {
         super.init(style: style)
@@ -112,7 +116,7 @@ class ShoppingListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as! IngredientDetailViewController
+        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as IngredientDetailViewController
         controller.setIngredientForController(ingredientForIndexPath(indexPath))
         navigationController?.pushViewController(controller, animated: true)
         

@@ -7,7 +7,7 @@ let syncedThisLaunchKey = "syncedThisLaunch"
 let dataVersionKey = "dataVersion"
 let syncDateKey = "syncDate"
 let appVersionKey = "appVersion"
-let currentAppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
+let currentAppVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as String
 
 func isFirstTimeAppLaunched() -> Bool {
     return !NSUserDefaults.standardUserDefaults().boolForKey(launchedOnceKey)
@@ -54,8 +54,7 @@ func setLatestSyncDate(date: NSDate) {
 
 func dataNeedsSyncing() -> Bool {
     let config = PFConfig.getConfig()
-    let dataVersion = config?.objectForKey(dataVersionKey) as! Int
-    return dataVersion > getLatestDataVersion()
+    let dataVersion = config?.objectForKey(dataVersionKey) as Int
     return false
 }
 
@@ -69,7 +68,7 @@ func syncNewData() {
     let brands = Brand.syncWithParse()
     saveContext()
     
-    let latestDataVersion = PFConfig.getConfig()!.objectForKey(dataVersionKey) as! Int
+    let latestDataVersion = PFConfig.getConfig()!.objectForKey(dataVersionKey) as Int
     setLatestDataVersion(latestDataVersion)
     setLatestSyncDate(NSDate())
 }

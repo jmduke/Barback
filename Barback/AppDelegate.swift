@@ -16,12 +16,12 @@ import SystemConfiguration
 import UIKit
 
 func managedContext() -> NSManagedObjectContext {
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     return delegate.coreDataHelper.managedObjectContext!
 }
 
 func saveContext() {
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let delegate = UIApplication.sharedApplication().delegate as AppDelegate
     delegate.coreDataHelper.saveContext(managedContext())
 }
     
@@ -43,11 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let recipeName = recipeName {
                 if let recipe = Recipe.forName(recipeName) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
+                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as RecipeDetailViewController
                     controller.setRecipeForController(recipe)
 
-                    let tabBarController = self.window?.rootViewController as! UITabBarController
-                    let navController = tabBarController.selectedViewController as! UINavigationController
+                    let tabBarController = self.window?.rootViewController as UITabBarController
+                    let navController = tabBarController.selectedViewController as UINavigationController
                     navController.pushViewController(controller, animated: true)
                 }
             }
@@ -58,9 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var tabBarItems: [UITabBarItem] {
         get {
-            let tabBarController = self.window?.rootViewController as! UITabBarController
+            let tabBarController = self.window?.rootViewController as UITabBarController
             let tabBar = tabBarController.tabBar
-            let items = tabBar.items as! [UITabBarItem]
+            let items = tabBar.items as [UITabBarItem]
             return items
         }
     }
@@ -86,10 +86,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func updateIfNecessary() {
         if isFirstTimeAppLaunched() {
             finalizeAppSetup()
-        } /*else if dataNeedsSyncing() {
-            markAppAsLaunched()
-            syncNewData()
-        }*/
+        } else if onOldVersion() {
+            deleteEverything()
+            syncDataFromJSON()
+        }
+    }
+    
+    func deleteEverything() {
+        Recipe.all().map({
+            managedContext().deleteObject($0)
+        })
+        Ingredient.all().map({
+            managedContext().deleteObject($0)
+        })
+        IngredientBase.all().map({
+            managedContext().deleteObject($0)
+        })
+        Brand.all().map({
+            managedContext().deleteObject($0)
+        })
+        saveContext()
+    }
+    
+    func onOldVersion() -> Bool {
+        print("OLD")
+        let oldRecipes = Recipe.all().filter({ ($0 as Recipe).slug == nil }).count
+        let totalRecipes = Recipe.all().count
+        return (oldRecipes == totalRecipes)
     }
  
     func finalizeAppSetup() {
@@ -221,8 +244,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func initializeDependencies(launchOptions: NSDictionary?) {
         // Initialize Parse.
-        let parseApplicationId = privateKeys["parseApplicationId"]! as! String
-        let parseClientKey = privateKeys["parseClientKey"]! as! String
+        let parseApplicationId = privateKeys["parseApplicationId"]! as String
+        let parseClientKey = privateKeys["parseClientKey"]! as String
         ParseCrashReporting.enable()
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
