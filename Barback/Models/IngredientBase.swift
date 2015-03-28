@@ -14,6 +14,7 @@ class IngredientBase: StoredObject {
 
     @NSManaged var information: String
     @NSManaged var name: String
+    @NSManaged var slug: String
     @NSManaged var type: String
     @NSManaged var cocktaildb: String?
     @NSManaged var abv: NSNumber
@@ -36,17 +37,19 @@ class IngredientBase: StoredObject {
         let filepath = NSBundle.mainBundle().pathForResource("bases", ofType: "json")
         let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
         let baseData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawBases = NSJSONSerialization.JSONObjectWithData(baseData!, options: nil, error: nil) as! [NSDictionary]
+        var rawBases = NSJSONSerialization.JSONObjectWithData(baseData!, options: nil, error: nil) as [NSDictionary]
         
         var allBases: [IngredientBase] = rawBases.map({
             (rawBase: NSDictionary) -> IngredientBase in
             var base = self.fromAttributes(rawBase as [NSObject : AnyObject], checkForObject: false)
-            let brands = (rawBase["brands"] as! [NSDictionary]).map({
-                (rawBrand: NSDictionary) -> Brand in
-                let brand = Brand.fromAttributes(rawBrand as [NSObject : AnyObject], checkForObject: false)
-                return brand
-            })
-            base.brands = NSSet(array: brands)
+            if (rawBase["brands"] != nil && rawBase["brands"]!.count > 0) {
+                let brands = (rawBase["brands"] as [NSDictionary]).map({
+                    (rawBrand: NSDictionary) -> Brand in
+                    let brand = Brand.fromAttributes(rawBrand as [NSObject : AnyObject], checkForObject: false)
+                    return brand
+                })
+                base.brands = NSSet(array: brands)
+            }
             
             return base
         })

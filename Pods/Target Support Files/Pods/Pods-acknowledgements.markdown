@@ -33,7 +33,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## MBProgressHUD
 
-Copyright (c) 2013 Matej Bukovinski
+Copyright (c) 2009-2015 Matej Bukovinski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -55,7 +55,7 @@ THE SOFTWARE.
 
 ## MagicalRecord
 
- Copyright (c) 2010, Magical Panda Software, LLC
+ Copyright (c) 2010-2015, Magical Panda Software, LLC
 
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
@@ -65,10 +65,14 @@ THE SOFTWARE.
  copies of the Software, and to permit persons to whom the
  Software is furnished to do so, subject to the following
  conditions:
+ 
+ * Link to the MagicalRecord Repository at http:/github.com/magicalpanda/magicalrecord in the credits section of your application
 
  The above copyright notice and this permission notice shall be
  included in all copies or substantial portions of the Software.
 
+ This software license is in accordance with the standard MIT License.
+ 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND

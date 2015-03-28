@@ -27,6 +27,10 @@ class Brand: StoredObject {
         return managedContext().objectForName(Brand.self, name: name)
     }
     
+    class func all() -> [Brand] {
+        return managedContext().objects(Brand.self)!
+    }
+    
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Brand {
         return managedContext().objectForDictionary(Brand.self, dictionary: valuesForKeys, checkForObject: checkForObject)
     }

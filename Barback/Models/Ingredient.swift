@@ -71,24 +71,23 @@ class Ingredient: StoredObject {
     }
     
     
+    class func all() -> [Ingredient] {
+        return managedContext().objects(Ingredient.self)!
+    }
+    
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Ingredient {
         var newIngredient = managedContext().objectForDictionary(Ingredient.self, dictionary: valuesForKeys, checkForObject: checkForObject)
         
-        let baseName = valuesForKeys["base"] as! String
+        let baseName = valuesForKeys["base"] as String
         var ingredientBase: IngredientBase? = IngredientBase.forName(baseName)
         if ingredientBase == nil {
-            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as! IngredientBase)
-            ingredientBase!.name = valuesForKeys["base"] as! String
+            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as IngredientBase)
+            ingredientBase!.name = valuesForKeys["base"] as String
             ingredientBase!.information = ""
             ingredientBase!.type = "other"
             ingredientBase!.abv = 0
         }
         newIngredient.base = ingredientBase!
-        
-        if !isFirstTimeAppLaunched() {
-            let recipeName: AnyObject? = valuesForKeys["recipeName"]
-            newIngredient.recipe = Recipe.forName(recipeName as! String)!
-        }
         
         return newIngredient
     }

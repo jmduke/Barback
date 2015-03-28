@@ -37,7 +37,6 @@ def sync_data_with_parse(new_recipes, new_bases):
     ingredients = []
     for recipe in new_recipes:
         recipe_object = Recipe(dictionary=recipe)
-        recipe_object.slug = slugify(recipe_object.name)
         recipes.append(recipe_object)
         for ingredient in recipe["ingredients"]:
             ingredient.update({"recipe": recipe['name']})
@@ -52,7 +51,6 @@ def sync_data_with_parse(new_recipes, new_bases):
     brands = []
     for base in new_bases:
         base_object = IngredientBase(dictionary=base)
-        base_object.slug = slugify(base_object.name)
         bases.append(base_object)
         for brand in base.get("brands", []):
             brand.update({"base": base["name"]})
@@ -67,7 +65,7 @@ def sync_data_with_parse(new_recipes, new_bases):
         print "Pushing data."
     else:
         print "No data to push."
-        return
+        return new
 
     max_batch_size = 50
     print "Deleting all jank first."
@@ -87,6 +85,11 @@ if __name__ == "__main__":
 
     new_recipes = load_recipes_from_yaml()
     new_bases = load_bases_from_yaml()
+
+    for recipe in new_recipes:
+        recipe['slug'] = slugify(recipe['name'])
+    for base in new_bases:
+        base['slug'] = slugify(base['name'])
 
     dump_data_to_json(new_recipes, new_bases)
     sync_data_with_parse(new_recipes, new_bases)

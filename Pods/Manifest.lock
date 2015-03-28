@@ -2,7 +2,7 @@ PODS:
   - Appirater (2.0.4)
   - Bolts (1.1.4)
   - MagicalRecord/Shorthand (2.3.0-beta.5)
-  - MBProgressHUD (0.9)
+  - MBProgressHUD (0.9.1)
   - RNBlurModalView (0.1.0)
   - WSCoachMarksView (0.2)
 
@@ -20,14 +20,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MagicalRecord:
-    :commit: 0c35d9f81d518edd17d79a7f7a3eb5573477ea9d
+    :commit: 11e1dcdeb78261ae6b02304707d5220dc0cf95e8
     :git: https://github.com/magicalpanda/MagicalRecord.git
 
 SPEC CHECKSUMS:
   Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
   Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
-  MagicalRecord: edcc27277d4c15874cc565fb5d91576c146cb2f1
-  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  MagicalRecord: 6017a9417d767e75eb8132b8cb2c399fc4c0c80f
+  MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
   RNBlurModalView: 38380c10dcaf7804f7ba5e3516abcaf8bc8eddb3
   WSCoachMarksView: 77046a7df4ec38acb81edfacc717e5275f97a363
 

@@ -92,12 +92,13 @@ public class Recipe: StoredObject {
     @NSManaged var glassware: String
     @NSManaged var garnish: String?
     @NSManaged var name: String
+    @NSManaged var slug: String?
     @NSManaged var information: String?
     
     @NSManaged var ingredientSet: NSSet
     var ingredients: [Ingredient] {
         get {
-            let ingredientObjects = ingredientSet.allObjects as! [Ingredient]
+            let ingredientObjects = ingredientSet.allObjects as [Ingredient]
             return ingredientObjects.filter({ $0.isDead != true })
         }
     }
@@ -114,14 +115,14 @@ public class Recipe: StoredObject {
     // Core Data won't let us store a bool so we use this (and isFavorited as a backend.)
     var favorite: Bool {
         get {
-            return isFavorited as! Bool
+            return isFavorited as Bool
         } set {
             isFavorited = NSNumber(bool: newValue)
         }
     }
     
     var url: NSURL {
-        return externalUrl!.URLByAppendingPathComponent("/recipe/\(name)")
+        return externalUrl!.URLByAppendingPathComponent("recipe/\(slug!)")
     }
     
     var isReal: Bool {
@@ -239,12 +240,12 @@ public class Recipe: StoredObject {
         let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
         let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
         let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as! [NSDictionary]
+        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as [NSDictionary]
         
         var allRecipes: [Recipe] = rawRecipes.map({
             (rawRecipe: NSDictionary) -> Recipe in
             var recipe = self.fromAttributes(rawRecipe as [NSObject : AnyObject], checkForObject: false)
-            let ingredients = (rawRecipe["ingredients"] as! [NSDictionary]).map({
+            let ingredients = (rawRecipe["ingredients"] as [NSDictionary]).map({
                 (rawIngredient: NSDictionary) -> Ingredient in
                 var ingredient = Ingredient.fromAttributes(rawIngredient as [NSObject : AnyObject], checkForObject: false)
                 return ingredient
