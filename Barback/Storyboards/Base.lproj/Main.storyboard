@@ -234,9 +234,9 @@
                                         <rect key="frame" x="110" y="86" width="100" height="100"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Us5-IU-ajs"/>
+                                            <constraint firstAttribute="height" constant="206" id="Us5-IU-ajs"/>
                                             <constraint firstAttribute="height" priority="500" constant="500" id="ZyP-LZ-anA"/>
-                                            <constraint firstAttribute="width" constant="200" id="aJE-aM-1kO"/>
+                                            <constraint firstAttribute="width" constant="206" id="aJE-aM-1kO"/>
                                             <constraint firstAttribute="width" priority="500" constant="50" id="fOa-4m-Hzl"/>
                                         </constraints>
                                         <variation key="default">
