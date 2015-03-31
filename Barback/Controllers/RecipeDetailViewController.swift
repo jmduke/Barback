@@ -25,6 +25,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var similarRecipes: [Recipe]?
     var sortedIngredients: [Ingredient]?
     
+    @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
     @IBOutlet weak var directionsTextView: DescriptionTextView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var subheadLabel: UILabel!
@@ -92,6 +93,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
         
         title = recipe!.name
+        recipeDiagramView?.recipe = recipe!
+        recipeDiagramView?.drawRect(recipeDiagramView!.frame)
         
         // Switch tab bar item title back to the title if necessary.
         if (isRandom != nil) {
@@ -129,6 +132,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         let similarRecipesExist = similarRecipes!.count > 0
         similarDrinksLabel.hidden = !similarRecipesExist
         similarDrinksTableView.hidden = !similarRecipesExist
+        recipeDiagramView.setNeedsDisplay()
+        recipeDiagramView.layoutIfNeeded()
         view.layoutIfNeeded()
         
         styleController()

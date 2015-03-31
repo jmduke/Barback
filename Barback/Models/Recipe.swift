@@ -153,7 +153,8 @@ public class Recipe: StoredObject {
             let denominator = amounts.reduce(0, combine: +) as Int
             let numerator = (ingredients.map({
                 (ingredient: Ingredient) -> Int in
-                // NSLog((ingredient.base.abv as Int).description)
+                print(ingredient.base)
+                (ingredient.base.abv as Int).description
                 let abv = ingredient.base.abv as Int
                 let proportion = Int(ingredient.amount.intValue ?? 0)
                 return abv * proportion
