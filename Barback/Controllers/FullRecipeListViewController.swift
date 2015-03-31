@@ -87,7 +87,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
     
     func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
         recipes = Recipe.all()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
@@ -95,17 +95,17 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             self.tableView.insertSubview(self.searchDisplayController!.searchBar, aboveSubview:self.tableView)
         }
         recipes = Recipe.all()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView) {
         recipes = Recipe.all()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         recipes = Recipe.all()
-        tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
@@ -145,7 +145,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         let nextSortingMethodRawValue = (sortingMethod.rawValue + 1) % SortingMethod.maximum()
         sortingMethod = SortingMethod(rawValue: nextSortingMethodRawValue)!
         recipes = sorted(recipes, sortingMethod.sortFunction())
-        self.tableView.reloadData()
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
     }
 
@@ -161,9 +161,11 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Bordered, target: self, action: "toggleSortingMethod")
         self.navigationItem.leftBarButtonItem = sortButton
         
-        let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
-        emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
-        tableView.backgroundView = emptyStateLabel
+        if recipes.count == 0 {
+            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
+            emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
+            tableView.backgroundView = emptyStateLabel
+        }
         
         let reachability = Reachability.reachabilityForInternetConnection()
         reachability.reachableBlock = {
