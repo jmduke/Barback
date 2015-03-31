@@ -20,6 +20,16 @@ class IngredientBase: StoredObject {
     @NSManaged var abv: NSNumber
     @NSManaged var brands: NSSet
     @NSManaged var uses: NSSet
+    @NSManaged var color: String?
+    
+    var uiColor: UIColor {
+        get {
+            if color == nil {
+                return UIColor.redColor()
+            }
+            return UIColor.fromHex(color!)
+        }
+    }
     
     class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> IngredientBase {
         return managedContext().objectForDictionary(IngredientBase.self, dictionary: valuesForKeys, checkForObject: checkForObject)
