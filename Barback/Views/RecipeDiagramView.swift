@@ -79,7 +79,7 @@ enum Glassware {
 }
 
 class RecipeDiagramView: UIView {
-    
+
     let canvasWidth = 200.0
     let canvasHeight = 200.0
     
@@ -132,8 +132,8 @@ class RecipeDiagramView: UIView {
         }
         ratios.append(1.0, UIColor.whiteColor())
         
-        Color.Dark.toUIColor().setStroke()
-        
+        UIColor.whiteColor().setStroke()
+
         for ratioIndex in 0...(ratios.count - 1) {
             let ratio = ratios[ratioIndex].0
             let previousRatio = ratioIndex > 0 ? ratios[ratioIndex - 1].0 : ratio
@@ -147,6 +147,7 @@ class RecipeDiagramView: UIView {
             let topLeft = CGPointMake(CGFloat(widthOffset + inset * (1 - ratio)), CGFloat(heightOffset + height * ( 1 - ratio)))
             
             let subCanvas = UIBezierPath()
+            subCanvas.lineWidth = 3
             subCanvas.moveToPoint(bottomLeft)
             subCanvas.addLineToPoint(bottomRight)
             subCanvas.addLineToPoint(topRight)
@@ -156,6 +157,22 @@ class RecipeDiagramView: UIView {
             subCanvas.fill()
             subCanvas.stroke()
         }
+
+        let bottomLeft = CGPointMake(CGFloat(widthOffset + inset - 3), CGFloat(heightOffset + height + 3))
+        let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + 3), CGFloat(heightOffset + height + 3))
+        let topRight = CGPointMake(CGFloat(widthOffset + topWidth + 3), CGFloat(heightOffset - 3))
+        let topLeft = CGPointMake(CGFloat(widthOffset - 3), CGFloat(heightOffset - 3))
+            
+        Color.Dark.toUIColor().setStroke()
+        let subCanvas = UIBezierPath()
+        subCanvas.lineWidth = 3
+        subCanvas.moveToPoint(bottomLeft)
+        subCanvas.addLineToPoint(bottomRight)
+        subCanvas.addLineToPoint(topRight)
+        subCanvas.addLineToPoint(topLeft)
+        subCanvas.addLineToPoint(bottomLeft)
+        subCanvas.closePath()
+        subCanvas.stroke()
     }
 }
 
