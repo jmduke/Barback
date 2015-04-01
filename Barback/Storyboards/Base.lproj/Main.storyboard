@@ -235,16 +235,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="206" id="Us5-IU-ajs"/>
-                                            <constraint firstAttribute="height" priority="500" constant="500" id="ZyP-LZ-anA"/>
                                             <constraint firstAttribute="width" constant="206" id="aJE-aM-1kO"/>
-                                            <constraint firstAttribute="width" priority="500" constant="50" id="fOa-4m-Hzl"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="ZyP-LZ-anA"/>
-                                                <exclude reference="fOa-4m-Hzl"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-IL-5fz" userLabel="recipe.directions" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="41" y="302" width="240" height="300"/>
@@ -325,7 +317,9 @@
                         <outlet property="ingredientsTableView" destination="msd-qH-YF8" id="DKf-2Y-NYv"/>
                         <outlet property="ingredientsTableViewHeight" destination="KgV-r4-PpH" id="RbZ-9c-sXy"/>
                         <outlet property="nameLabel" destination="gmf-0i-cR3" id="jgN-ns-KiQ"/>
+                        <outlet property="recipeDiagramHeightConstraint" destination="Us5-IU-ajs" id="LU1-PV-8mu"/>
                         <outlet property="recipeDiagramView" destination="Mpt-SD-chn" id="qud-6S-azA"/>
+                        <outlet property="recipeDiagramWidthConstraint" destination="aJE-aM-1kO" id="dSW-Pn-TIE"/>
                         <outlet property="scrollView" destination="YnV-Wv-43m" id="cRF-FC-oko"/>
                         <outlet property="similarDrinksLabel" destination="S12-BL-WRE" id="oHv-uq-UCS"/>
                         <outlet property="similarDrinksTableView" destination="2QU-SY-UI0" id="dnT-7d-Vnt"/>
