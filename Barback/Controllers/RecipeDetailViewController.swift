@@ -21,6 +21,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     }
     
+    @IBOutlet weak var recipeDiagramWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var recipeDiagramHeightConstraint: NSLayoutConstraint!
     var isRandom: Bool?
     var similarRecipes: [Recipe]?
     var sortedIngredients: [Ingredient]?
@@ -95,6 +97,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         title = recipe!.name
         recipeDiagramView?.recipe = recipe!
         recipeDiagramView?.drawRect(recipeDiagramView!.frame)
+        recipeDiagramHeightConstraint.constant = recipeDiagramView!.idealHeight()
+        recipeDiagramWidthConstraint.constant = recipeDiagramView!.idealWidth()
         
         // Switch tab bar item title back to the title if necessary.
         if (isRandom != nil) {

@@ -103,6 +103,13 @@ class RecipeDiagramView: UIView {
     }
     
     
+    func idealHeight() -> CGFloat {
+        return glassware.rect().height + 6.0
+    }
+    
+    func idealWidth() -> CGFloat {
+        return glassware.rect().width + 6.0
+    }
     
     override func drawRect(rect: CGRect) {
         Color.Background.toUIColor().setFill()  // changes are here
@@ -118,8 +125,10 @@ class RecipeDiagramView: UIView {
         let bottomWidth = glassware.dimensions().1
         let topWidth = glassware.dimensions().2
         
-        let heightOffset = (canvasHeight - height) / 2.0
-        let widthOffset = (canvasWidth - topWidth) / 2.0
+        //let heightOffset = (canvasHeight - height) / 2.0
+        //let widthOffset = (canvasWidth - topWidth) / 2.0
+        let heightOffset = 3.0
+        let widthOffset = 3.0
         
         let inset = (topWidth - bottomWidth) / 2
         
@@ -173,6 +182,16 @@ class RecipeDiagramView: UIView {
         subCanvas.addLineToPoint(bottomLeft)
         subCanvas.closePath()
         subCanvas.stroke()
+        
+        sizeToFit()
+    }
+    
+    override func sizeThatFits(size: CGSize) -> CGSize {
+        if recipe != nil && false {
+            let glassware = Glassware.fromString(self.recipe!.glassware)
+            return CGSize(width: glassware.dimensions().2, height: glassware.dimensions().0)
+        }
+        return super.sizeThatFits(size)
     }
 }
 

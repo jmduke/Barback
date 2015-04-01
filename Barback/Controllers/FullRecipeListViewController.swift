@@ -124,7 +124,10 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
             $0.information?.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
         })
-        recipes = sorted(recipes, sortingMethod.sortFunction())
+        recipes.sort({
+            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex >
+                $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
+        })
     }
     
     func showSearchBar() {
