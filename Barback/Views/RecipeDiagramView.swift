@@ -28,7 +28,7 @@ enum Glassware {
         case .Collins, .Highball:
             return (100.0, 40.0, 40.0)
         case .Goblet:
-            return (100.0, 0.0, 100.0)
+            return (100.0, 30.0, 90.0)
         case .Hurricane:
             return (100.0, 50.0, 80.0)
         case .Mug, .OldFashioned, .Rocks:
@@ -39,7 +39,7 @@ enum Glassware {
             return (50.0, 10.0, 90.0)
         }
         }()
-        return (base.0 * 2.0, base.1 * 2.0, base.2 * 2.0)
+        return base
     }
     
     func rect() -> CGRect {
@@ -79,9 +79,6 @@ enum Glassware {
 }
 
 class RecipeDiagramView: UIView {
-
-    let canvasWidth = 200.0
-    let canvasHeight = 200.0
     
     var recipe: Recipe? 
     var glassware: Glassware  {
@@ -89,6 +86,12 @@ class RecipeDiagramView: UIView {
             return Glassware.fromString(self.recipe!.glassware)
         }
     }
+    
+    var strokeWidth: Double = 3.0
+    var diagramScale: Double = 2.0
+    var bgColor: UIColor = Color.Background.toUIColor()
+    var heightOffset: Double = 6.0
+    var widthOffset: Double = 6.0
     
     let EMPTY_SPACE_PROPORTION = 0.2
     
@@ -104,31 +107,24 @@ class RecipeDiagramView: UIView {
     
     
     func idealHeight() -> CGFloat {
-        return glassware.rect().height + 6.0
+        return glassware.rect().height * CGFloat(diagramScale) + CGFloat(strokeWidth * 4.0)
     }
     
     func idealWidth() -> CGFloat {
-        return glassware.rect().width + 6.0
+        return glassware.rect().width * CGFloat(diagramScale) + CGFloat(strokeWidth * 4.0)
     }
     
     override func drawRect(rect: CGRect) {
-        Color.Background.toUIColor().setFill()  // changes are here
-        UIRectFill(rect);               // and here
+        bgColor.setFill()
+        UIRectFill(rect)
         drawRecipe(self.recipe!)
     }
     
     func drawRecipe(newRecipe: Recipe) {
         
-        let glassware = Glassware.fromString(newRecipe.glassware)
-        
-        let height = glassware.dimensions().0
-        let bottomWidth = glassware.dimensions().1
-        let topWidth = glassware.dimensions().2
-        
-        //let heightOffset = (canvasHeight - height) / 2.0
-        //let widthOffset = (canvasWidth - topWidth) / 2.0
-        let heightOffset = 3.0
-        let widthOffset = 3.0
+        let height = glassware.dimensions().0 * diagramScale
+        let bottomWidth = glassware.dimensions().1 * diagramScale
+        let topWidth = glassware.dimensions().2 * diagramScale
         
         let inset = (topWidth - bottomWidth) / 2
         
@@ -136,8 +132,8 @@ class RecipeDiagramView: UIView {
         
         var ratios: [(Double, UIColor)] = [(0.0, UIColor.redColor())]
         for ingredient in newRecipe.ingredients {
-        let ratioFraction = (1.0 - EMPTY_SPACE_PROPORTION) * Double(ingredient.amount) / totalCount
-        ratios.append(ratioFraction + ratios[ratios.count - 1].0, ingredient.base.uiColor)
+            let ratioFraction = (1.0 - EMPTY_SPACE_PROPORTION) * Double(ingredient.amount) / totalCount
+            ratios.append(ratioFraction + ratios[ratios.count - 1].0, ingredient.base.uiColor)
         }
         ratios.append(1.0, UIColor.whiteColor())
         
@@ -156,7 +152,7 @@ class RecipeDiagramView: UIView {
             let topLeft = CGPointMake(CGFloat(widthOffset + inset * (1 - ratio)), CGFloat(heightOffset + height * ( 1 - ratio)))
             
             let subCanvas = UIBezierPath()
-            subCanvas.lineWidth = 3
+            subCanvas.lineWidth = CGFloat(strokeWidth)
             subCanvas.moveToPoint(bottomLeft)
             subCanvas.addLineToPoint(bottomRight)
             subCanvas.addLineToPoint(topRight)
@@ -171,10 +167,10 @@ class RecipeDiagramView: UIView {
         let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + 3), CGFloat(heightOffset + height + 3))
         let topRight = CGPointMake(CGFloat(widthOffset + topWidth + 3), CGFloat(heightOffset - 3))
         let topLeft = CGPointMake(CGFloat(widthOffset - 3), CGFloat(heightOffset - 3))
-            
+        
         Color.Dark.toUIColor().setStroke()
         let subCanvas = UIBezierPath()
-        subCanvas.lineWidth = 3
+        subCanvas.lineWidth = CGFloat(strokeWidth)
         subCanvas.moveToPoint(bottomLeft)
         subCanvas.addLineToPoint(bottomRight)
         subCanvas.addLineToPoint(topRight)
@@ -184,14 +180,6 @@ class RecipeDiagramView: UIView {
         subCanvas.stroke()
         
         sizeToFit()
-    }
-    
-    override func sizeThatFits(size: CGSize) -> CGSize {
-        if recipe != nil && false {
-            let glassware = Glassware.fromString(self.recipe!.glassware)
-            return CGSize(width: glassware.dimensions().2, height: glassware.dimensions().0)
-        }
-        return super.sizeThatFits(size)
     }
 }
 
