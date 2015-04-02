@@ -28,6 +28,15 @@ class RecipeCell : StyledCell {
             path = UIBezierPath(ovalInRect: CGRectMake(0, 0, CGFloat(newRecipeIconDiameter), CGFloat(newRecipeIconDiameter)))
         }
         imageView?.image = path?.toImageWithStrokeColor(Color.Lighter.toUIColor(), fillColor: Color.Lighter.toUIColor())
+        
+        let diagram = RecipeDiagramView(recipe: recipe)
+        diagram.strokeWidth = 1
+        diagram.diagramScale = 0.4
+        diagram.bgColor = UIColor.whiteColor()
+        diagram.heightOffset = (60.0 - diagram.glassware.dimensions().0 * diagram.diagramScale) / 2.0
+        diagram.widthOffset = (40.0 - diagram.glassware.dimensions().2 * diagram.diagramScale) / 2.0
+        diagram.frame = CGRect(x: 10.0, y: 0.0, width: 40.0, height: 60.0)
+        contentView.addSubview(diagram)
     }
     
     required init(coder: NSCoder) {
@@ -37,15 +46,17 @@ class RecipeCell : StyledCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let horizontalCellPadding: CGFloat = 16
+        let leftPadding: CGFloat = 60
+        let rightPadding: CGFloat = 16
         
         let bounds = contentView.bounds
         var frame = imageView?.frame
-        frame?.origin.x = bounds.size.width - frame!.size.width - (frame!.size.width < newRecipeIconDiameter * 2 ? horizontalCellPadding + 3 : horizontalCellPadding)
+        frame?.origin.x = bounds.size.width - frame!.size.width - (frame!.size.width < newRecipeIconDiameter * 2 ? rightPadding + 3 : rightPadding)
         imageView?.frame = frame!
         
-        textLabel?.frame.origin.x = horizontalCellPadding
-        detailTextLabel?.frame.origin.x = horizontalCellPadding
+        textLabel?.frame.origin.x = leftPadding
+        detailTextLabel?.frame.origin.x = leftPadding
+        detailTextLabel?.frame.size.width = min(detailTextLabel!.frame.size.width, bounds.width - (rightPadding + leftPadding))
     }
 
 }
