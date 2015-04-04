@@ -267,10 +267,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         var cell: UITableViewCell?
         if (tableView == ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
-            cell = StyledCell(style: UITableViewCellStyle.Value1,
-                    reuseIdentifier: cellIdentifier)
             
             let ingredient: Ingredient = sortedIngredients![indexPath.row]
+            cell = IngredientCell(ingredient: ingredient, reuseIdentifier: cellIdentifier)
             cell!.textLabel?.text = ingredient.base.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
