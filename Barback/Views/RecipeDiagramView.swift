@@ -92,6 +92,8 @@ class RecipeDiagramView: UIView {
     var bgColor: UIColor = Color.Background.toUIColor()
     var heightOffset: Double = 6.0
     var widthOffset: Double = 6.0
+    var outlineColor: UIColor = Color.Dark.toUIColor()
+    var outlineWidth: Double = 3.0
     
     let EMPTY_SPACE_PROPORTION = 0.2
     
@@ -107,11 +109,11 @@ class RecipeDiagramView: UIView {
     
     
     func idealHeight() -> CGFloat {
-        return glassware.rect().height * CGFloat(diagramScale) + CGFloat(strokeWidth * 4.0)
+        return glassware.rect().height * CGFloat(diagramScale) + CGFloat(outlineWidth * 4.0)
     }
     
     func idealWidth() -> CGFloat {
-        return glassware.rect().width * CGFloat(diagramScale) + CGFloat(strokeWidth * 4.0)
+        return glassware.rect().width * CGFloat(diagramScale) + CGFloat(outlineWidth * 4.0)
     }
     
     override func drawRect(rect: CGRect) {
@@ -131,7 +133,8 @@ class RecipeDiagramView: UIView {
         let totalCount = newRecipe.ingredients.map({ Double($0.amount) }).reduce(0.0, combine: +)
         
         var ratios: [(Double, UIColor)] = [(0.0, UIColor.redColor())]
-        for ingredient in newRecipe.ingredients {
+        let sortedIngredients = newRecipe.ingredients.sorted({ $0.amount.intValue > $1.amount.intValue })
+        for ingredient in sortedIngredients {
             let ratioFraction = (1.0 - EMPTY_SPACE_PROPORTION) * Double(ingredient.amount) / totalCount
             ratios.append(ratioFraction + ratios[ratios.count - 1].0, ingredient.base.uiColor)
         }
@@ -163,14 +166,14 @@ class RecipeDiagramView: UIView {
             subCanvas.stroke()
         }
 
-        let bottomLeft = CGPointMake(CGFloat(widthOffset + inset - 3), CGFloat(heightOffset + height + 3))
-        let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + 3), CGFloat(heightOffset + height + 3))
-        let topRight = CGPointMake(CGFloat(widthOffset + topWidth + 3), CGFloat(heightOffset - 3))
-        let topLeft = CGPointMake(CGFloat(widthOffset - 3), CGFloat(heightOffset - 3))
+        let bottomLeft = CGPointMake(CGFloat(widthOffset + inset - strokeWidth), CGFloat(heightOffset + height + strokeWidth))
+        let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + strokeWidth), CGFloat(heightOffset + height + strokeWidth))
+        let topRight = CGPointMake(CGFloat(widthOffset + topWidth + strokeWidth), CGFloat(heightOffset - strokeWidth))
+        let topLeft = CGPointMake(CGFloat(widthOffset - strokeWidth), CGFloat(heightOffset - strokeWidth))
         
-        Color.Dark.toUIColor().setStroke()
+        outlineColor.setStroke()
         let subCanvas = UIBezierPath()
-        subCanvas.lineWidth = CGFloat(strokeWidth)
+        subCanvas.lineWidth = CGFloat(1)
         subCanvas.moveToPoint(bottomLeft)
         subCanvas.addLineToPoint(bottomRight)
         subCanvas.addLineToPoint(topRight)
