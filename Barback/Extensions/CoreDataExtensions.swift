@@ -27,7 +27,10 @@ extension NSManagedObjectContext {
     }
     
     func objectForName<T:NSManagedObject where T:NamedManagedObject>(entity:T.Type, name: String) -> T? {
-        let predicate = NSPredicate(format: "name LIKE[cd] \"\(name)\"")
+        let strippedName = name.stringByReplacingOccurrencesOfString("\"", withString: "")
+        let unencodedName = NSString(UTF8String: strippedName)!
+        let predicateString = "name LIKE[cd] \"\(unencodedName)\""
+        let predicate = NSPredicate(format: predicateString)
         return objects(entity, predicate: predicate)?.first
     }
     

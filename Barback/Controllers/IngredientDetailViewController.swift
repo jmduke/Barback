@@ -70,8 +70,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             primaryText = recipe.name
             detailText = recipe.detailDescription
             
-            cell = StyledCell(style: UITableViewCellStyle.Subtitle,
-                reuseIdentifier: cellIdentifier)
+            cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         }
         else {
             cellIdentifier = "brandCell"
