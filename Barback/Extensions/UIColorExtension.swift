@@ -34,7 +34,6 @@ extension UIColor {
     }
     
     class func fromHex(hex:String) -> UIColor {
-        print("ASD\(hex)")
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
         
         if (cString.hasPrefix("#")) {

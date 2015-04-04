@@ -161,23 +161,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         
-        // Handle launching the application with a bad connection.
-        /*
-        let reachability = Reachability.reachabilityForInternetConnection()
-        reachability.reachableBlock = {
-            (r: Reachability!) -> Void in
-            let _ = Async.main {
-                self.updateIfNecessary()
-            }
-        }
-        reachability.startNotifier()
-        if isConnectedToInternet() {
-            // updateIfNecessary()
-        } else if isFirstTimeAppLaunched() {
-            disableAppInteraction()
-        }
-        */
-        
         updateIfNecessary()
         styleApp()
         
