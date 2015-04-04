@@ -10,6 +10,7 @@ import UIKit
 
 class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var ingredientDiagramView: UIView!
     @IBOutlet var ingredientNameLabel : UILabel!
     @IBOutlet var brandTableLabel : UILabel!
     @IBOutlet var ingredientAbvLabel: DescriptionLabel!
@@ -105,6 +106,15 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ingredientDiagramView.backgroundColor = Color.Background.toUIColor()
+        let diagram = UIBezierPath(ovalInRect: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+        if let color = ingredient.color {
+            let fillColor = UIColor.fromHex(color)
+            let image = diagram.toImageWithStrokeColor(Color.Dark.toUIColor(), fillColor: fillColor)
+            let imageView = UIImageView(image: image)
+            ingredientDiagramView.addSubview(imageView)
+        }
         
         title = ingredient.name
         brandsTableView.delegate = self
