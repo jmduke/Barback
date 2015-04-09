@@ -89,7 +89,6 @@ class RecipeDiagramView: UIView {
     
     var strokeWidth: Double = 3.0
     var diagramScale: Double = 2.0
-    var bgColor: UIColor = Color.Background.toUIColor()
     var heightOffset: Double = 6.0
     var widthOffset: Double = 6.0
     var outlineColor: UIColor = Color.Dark.toUIColor()
@@ -100,11 +99,13 @@ class RecipeDiagramView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.recipe = Recipe.all()[0]
+        backgroundColor = UIColor.clearColor()
     }
     
     init(recipe: Recipe) {
         super.init(frame: Glassware.fromString(recipe.glassware).rect())
         self.recipe = recipe
+        backgroundColor = UIColor.clearColor()
     }
     
     
@@ -117,8 +118,6 @@ class RecipeDiagramView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        bgColor.setFill()
-        UIRectFill(rect)
         drawRecipe(self.recipe!)
     }
     

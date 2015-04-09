@@ -19,13 +19,9 @@ class IngredientCell : StyledCell {
         textLabel?.text = ingredient.base.name
         detailTextLabel?.text = ingredient.label
         
-        let diagram = UIBezierPath(ovalInRect: CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0))
         if let color = ingredient.base.color {
-            let fillColor = UIColor.fromHex(color)
-            let image = diagram.toImageWithStrokeColor(fillColor, fillColor: fillColor)
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 15.0, y: 15.0, width: 30.0, height: 30.0)
-            addSubview(imageView)
+            let diagramView = IngredientDiagramView(frame: CGRect(x: 15.0, y: 15.0, width: 30.0, height: 30.0), ingredient: ingredient.base)
+            addSubview(diagramView)
         }
         self.ingredient = ingredient
     }
