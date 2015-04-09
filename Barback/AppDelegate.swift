@@ -109,9 +109,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func onOldVersion() -> Bool {
-        let oldRecipes = Recipe.all().filter({ ($0 as Recipe).slug == nil }).count
-        let totalRecipes = Recipe.all().count
-        return (oldRecipes == totalRecipes)
+        let oldRecipes = IngredientBase.all().filter({ ($0 as IngredientBase).color == nil }).count
+        return (oldRecipes == 0)
     }
  
     func finalizeAppSetup() {
