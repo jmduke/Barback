@@ -22,7 +22,6 @@ class RecipeCell : StyledCell {
         let diagram = RecipeDiagramView(recipe: recipe)
         diagram.strokeWidth = 1
         diagram.diagramScale = 0.4
-        diagram.bgColor = UIColor.whiteColor()
         if recipe.favorite {
             diagram.outlineColor = Color.Tint.toUIColor()
             diagram.outlineWidth = 4
