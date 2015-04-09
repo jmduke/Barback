@@ -29,7 +29,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
     @IBOutlet weak var directionsTextView: DescriptionTextView!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var nameLabel: HeaderLabel!
     @IBOutlet weak var subheadLabel: UILabel!
     @IBOutlet weak var informationLabel: DescriptionTextView!
     @IBOutlet var ingredientsTableView : UITableView!
@@ -141,6 +141,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         view.layoutIfNeeded()
         
         styleController()
+        nameLabel.styleLabel()
     }
     
     func goToPreviousView(sender: AnyObject) {

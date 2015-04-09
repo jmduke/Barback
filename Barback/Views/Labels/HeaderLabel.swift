@@ -33,6 +33,15 @@ class HeaderLabel : UILabel {
     func styleLabel() {
         textColor = Color.Dark.toUIColor()
         font = UIFont(name: UIFont.heavyFont(), size: 32)
-        textAlignment = NSTextAlignment.Center
+        
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.5
+        paragraphStyle.minimumLineHeight = 36.0
+        paragraphStyle.alignment = NSTextAlignment.Center
+        
+        var attrString = NSMutableAttributedString(string: text!)
+        attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        attributedText = attrString
+
     }
 }
