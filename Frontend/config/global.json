@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Barback": {
+            "applicationId": "kLex39SyOKNG0pxpxWCjSRcUs0Vh8F0FY9zsu6N9", 
+            "masterKey": "1N7qZsaIiJxNRnhhGZwbV0IbBJ2xoKykB00Z6xKL"
+        }, 
+        "_default": {
+            "link": "Barback"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.2"
+    }
+}

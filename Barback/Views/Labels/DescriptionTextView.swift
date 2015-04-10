@@ -22,17 +22,6 @@ class DescriptionTextView : UITextView {
         }
     }
     
-    override init() {
-        super.init()
-        styleLabel()
-        
-    }
-    
-    // It is so stupid that I need the below constructors.
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }

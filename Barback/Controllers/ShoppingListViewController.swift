@@ -40,6 +40,10 @@ class ShoppingListViewController: RecipeListViewController {
     override init(style: UITableViewStyle) {
         super.init(style: style)
     }
+
+    required init!(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
     
     func setIngredientsForController(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
@@ -116,7 +120,7 @@ class ShoppingListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as IngredientDetailViewController
+        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as! IngredientDetailViewController
         controller.setIngredientForController(ingredientForIndexPath(indexPath))
         navigationController?.pushViewController(controller, animated: true)
         

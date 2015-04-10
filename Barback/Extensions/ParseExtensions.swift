@@ -14,7 +14,7 @@ extension PFQuery {
     class func allObjects(className: String) -> [PFObject] {
         var query = PFQuery(className: className)
         query.limit = 1000
-        return query.findObjects() as [PFObject]
+        return query.findObjects() as! [PFObject]
     }
     
     class func allObjectsSinceSync(className: String) -> [PFObject] {
@@ -32,7 +32,7 @@ extension PFQuery {
             query.whereKey("updatedAt", greaterThan: mostRecentSyncDate!)
         }
         
-        return query.findObjects() as [PFObject]
+        return query.findObjects() as! [PFObject]
     }
 }
 
@@ -41,7 +41,7 @@ extension PFObject {
     func toDictionary(attributes: [String]) -> [String: AnyObject] {
         var objectValues: [String: AnyObject] = [:]
         for attribute in attributes {
-            let dictionedValue = self.valueForKey(attribute.stringByReplacingOccurrencesOfString("Name", withString: "", options: nil, range: nil))
+            let dictionedValue: AnyObject? = self.valueForKey(attribute.stringByReplacingOccurrencesOfString("Name", withString: "", options: nil, range: nil))
             objectValues[attribute] = dictionedValue
         }
         return objectValues

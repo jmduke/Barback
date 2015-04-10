@@ -11,11 +11,6 @@ import UIKit
 
 class HeaderLabel : UILabel {
     
-    override init() {
-        super.init()
-        styleLabel()
-    }
-    
     // It is so stupid that I need the below constructors.
     override init(frame: CGRect) {
         super.init(frame: frame)
