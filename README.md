@@ -23,6 +23,6 @@ Which make you feel like this:
 
 ![Swanson.](http://steeshes.files.wordpress.com/2011/12/tumblr_ll4crzw09g1qz82xho1_400.gif)
 
-More details can be found [here](http://getbarback.com), and you can buy it on the [App Store](https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8).  There's also a [frontend portion](www.getbarback.com/recipe/Draughtsman) which is under active development.
+More details can be found [here](http://getbarback.com), and you can buy it on the [App Store](https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8).  There's also a [frontend portion](http://www.getbarback.com/recipe/Draughtsman) which is under active development.
 
 Feel free to browse, criticize, offer input, post gifs, etc.  Especially if you know of a cocktail I'm missing :).
