@@ -1,12 +1,14 @@
 # Xcode
-#
-build/
-*.json
-*global.json
+
+# Private things.
 */PrivateKeys.plist
 */parse_config.py
+*/global.json
+
+# Boring things.
+build/
+Distribution/
 *.pyc
-*.yaml
 *.pbxuser
 !default.pbxuser
 *.mode1v3

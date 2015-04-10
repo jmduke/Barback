@@ -13,7 +13,7 @@ extension UIViewController {
     
     func runCoachMarks(coachMarks: [AnyObject]) {
         
-        let caption = (coachMarks[0] as NSDictionary)["caption"] as NSString
+        let caption = (coachMarks[0] as! NSDictionary)["caption"] as! NSString
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)

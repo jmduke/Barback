@@ -202,7 +202,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as RecipeCell
+        let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as! RecipeCell
         if (searchDisplayController!.active) {
             cell.highlightText(searchBar.text)
         }

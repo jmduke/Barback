@@ -32,7 +32,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     var brands: [Brand] {
         get {
             let brands = ingredient.brands
-            let brandObjects = brands.allObjects as [Brand]
+            let brandObjects = brands.allObjects as! [Brand]
             return brandObjects.sorted({$0.price.intValue < $1.price.intValue}).filter({$0.isDead != true})
         }
     }
