@@ -1297,22 +1297,6 @@
   - amount: 1
     base: Simple syrup
   name: Ti' Punch
-- directions: Add both ingredients and stir.  Can be served up or down, and with or
-    without ice.
-  garnish: ''
-  glassware: ''
-  ingredients:
-  - amount: 6
-    base: Spirits and Such
-  name: Shopping List
-- directions: Add both ingredients and stir.  Can be served up or down, and with or
-    without ice.
-  garnish: ''
-  glassware: ''
-  ingredients:
-  - amount: 6
-    base: Spirits and Such
-  name: Bartender's Choice
 - directions: Pour the Pimm's into a collins glass with ice cubes.  Add the lemonade
     and (if desired) a splash of club soda or lemon-lime soda.
   garnish: Lemon twist, cucumber slice

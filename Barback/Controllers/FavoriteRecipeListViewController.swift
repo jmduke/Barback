@@ -22,22 +22,13 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         return recipe.favorite
     }
     
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        
-        if recipes.count > 0 {
-            // Return an extra row to account for Shopping List.
-            return recipes.count + 1
-        } else {
-            return recipes.count
-        }
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // If it's the last row, return the Shopping List row.
         if indexPath.row == recipes.count {
             let shoppingListRecipe = Recipe.forName("Shopping List")
             var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
+            cell.detailTextLabel?.text = ""
             return cell
         }
         return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
@@ -61,6 +52,15 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         } else {
             tableView.backgroundView = nil
         }
+        
+        
+        var shoppingListView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
+        var shoppingListButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
+        shoppingListButton.setTitle("Shopping List", forState: UIControlState.Normal)
+        shoppingListButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+        shoppingListButton.addTarget(self, action: "showShoppingList", forControlEvents: UIControlEvents.TouchUpInside)
+        shoppingListView.addSubview(shoppingListButton)
+        tableView.tableFooterView = shoppingListView
         
         super.viewDidAppear(animated)
     }
@@ -100,21 +100,15 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         }
         
         // Remove duplicates.
-        var uniqueIngredients = NSSet(array: flattenedIngredients).allObjects as! [IngredientBase]
+        var uniqueIngredients = Array(Set(flattenedIngredients))
         uniqueIngredients.sort({$0.name < $1.name})
         return uniqueIngredients
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        // Special logic to render the shopping list.
-        if indexPath.row == recipes.count {
-            var shoppingListController = ShoppingListViewController(style: UITableViewStyle.Grouped)
-            shoppingListController.setIngredientsForController(ingredientsNeeded())
-            navigationController?.pushViewController(shoppingListController, animated: true)
-        } else {
-            super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
-        }
+    func showShoppingList() {
+        var shoppingListController = ShoppingListViewController(style: UITableViewStyle.Grouped)
+        shoppingListController.setIngredientsForController(ingredientsNeeded())
+        navigationController?.pushViewController(shoppingListController, animated: true)
     }
 
 }

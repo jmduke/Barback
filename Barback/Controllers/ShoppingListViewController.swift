@@ -49,19 +49,6 @@ class ShoppingListViewController: RecipeListViewController {
         self.ingredients = ingredients
         favoritedRecipes = Recipe.all().filter({ $0.favorite })
     }
- 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    func goBack() {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return ingredientTypes.count
@@ -75,9 +62,10 @@ class ShoppingListViewController: RecipeListViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         var sectionLabel = DescriptionLabel()
-        sectionLabel.frame = CGRectMake(20, 0, 320, 40)
+        sectionLabel.frame = CGRectMake(0, 0, tableView.frame.width, 40)
         
         sectionLabel.text = ingredientTypes[section].pluralize().capitalizedString
+        sectionLabel.styleLabel()
         
         var headerView = UIView()
         headerView.addSubview(sectionLabel)
@@ -103,7 +91,7 @@ class ShoppingListViewController: RecipeListViewController {
         
         let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-        if !(cell != nil) {
+        if cell == nil {
             cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
         

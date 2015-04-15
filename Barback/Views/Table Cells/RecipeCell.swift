@@ -26,9 +26,13 @@ class RecipeCell : StyledCell {
             diagram.outlineColor = Color.Tint.toUIColor()
             diagram.outlineWidth = 4
         }
-        diagram.heightOffset = (60.0 - diagram.glassware.dimensions().0 * diagram.diagramScale) / 2.0
-        diagram.widthOffset = (40.0 - diagram.glassware.dimensions().2 * diagram.diagramScale) / 2.0
-        diagram.frame = CGRect(x: 10.0, y: 0.0, width: 40.0, height: 60.0)
+        
+        let diagramHeight = 60.0
+        let diagramWidth = 40.0
+        diagram.heightOffset = (diagramHeight - diagram.glassware.dimensions().0 * diagram.diagramScale) / 2.0
+        diagram.widthOffset = (diagramWidth - diagram.glassware.dimensions().2 * diagram.diagramScale) / 2.0
+        diagram.frame = CGRect(x: 10.0, y: 0.0, width: diagramWidth, height: diagramHeight)
+        
         contentView.addSubview(diagram)
         self.diagram = diagram
     }

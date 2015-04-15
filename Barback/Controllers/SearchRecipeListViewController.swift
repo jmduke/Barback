@@ -9,281 +9,134 @@
 import Foundation
 import UIKit
 
-class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate, UISearchDisplayDelegate {
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+func flatten<T>(array: [[T]]) -> [T] {
+    var result = [T]()
+    for subarray in array {
+        result.extend(subarray)
+    }
+    return result
+}
 
-    var allRecipes: [Recipe] = [Recipe]()
-    var searchBarFocused: Bool = false
+class SearchRecipeListViewController: RecipeListViewController {
 
-    var possibleIngredients: [IngredientBase] = [IngredientBase]()
-        {
-        didSet {
-            let currentRecipes = allRecipes.filter(filterRecipes)
-            recipesForPossibleIngredients = Array(count: possibleIngredients.count, repeatedValue: 0)
-            for recipe in currentRecipes {
-                for ingredient in recipe.ingredients {
-                    let base = ingredient.base
-                    if contains(possibleIngredients, base) {
-                        recipesForPossibleIngredients[find(possibleIngredients, base)!] += 1
-                    }
-                }
-            }
-            
-            // Sorting is very slow, which is why we do this like this.  Yes, it is very ugly.
-            var positionsInArray: [IngredientBase: Int] = [:]
-            for pos in 0..<possibleIngredients.count {
-                positionsInArray[possibleIngredients[pos]] = self.recipesForPossibleIngredients[pos]
-            }
-            
-            // Fun fact: this is by far the slowest part of this entire codebase.
-            possibleIngredients = possibleIngredients.filter({positionsInArray[$0]! > 0})
-            possibleIngredients.sort({positionsInArray[$0]! > positionsInArray[$1]!})
-            recipesForPossibleIngredients.sort({$0 > $1})
+    var rawBases: [IngredientBase] {
+        let ingredients: [[Ingredient]] = self.recipes.map({
+            $0.ingredients
+        })
+        var bases = [IngredientBase]()
+        for ingredientList in ingredients {
+            bases.extend(ingredientList.map({ $0.base }))
         }
+        return bases
     }
-    var recipesForPossibleIngredients: [Int] = []
     
-    
-    var activeIngredients: [IngredientBase] = []
-
-
-    var searchTerms: [String] = [String]() {
-        didSet {
-        activeIngredients = []
-        for term in searchTerms {
-            let ingredient = IngredientBase.forName(term)
-            if ingredient != nil && !(term == searchTerms.last! && currentlyTypingIngredient()) {
-                activeIngredients.append(ingredient!)
-            }
+    var activeIngredients: [IngredientBase] = [IngredientBase]()
+    var possibleIngredients: [IngredientBase] {
+        return Array(Set(self.rawBases.filter({ !contains(self.activeIngredients, $0) }))).sorted({ $0.name < $1.name })
+    }
+    var recipeCountsForPossibleIngredients: [Int] {
+        var countsForIngredients = [IngredientBase:Int]()
+        for base in self.rawBases.filter({ !contains(self.activeIngredients, $0) }) {
+            countsForIngredients[base] = countsForIngredients[base] == nil ? 1 : countsForIngredients[base]! + 1
         }
-    }
-    }
-    
-    func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController) {
-        UIApplication.sharedApplication().statusBarHidden = true
-    }
-    
-    func searchDisplayControllerWillEndSearch(controller: UISearchDisplayController) {
-        UIApplication.sharedApplication().statusBarHidden = false
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
-        recipes = Recipe.all()
-        tableView.reloadData()
-    }
-    
-    func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
-        if (self.tableView != self.searchDisplayController!.searchBar.superview) {
-            self.tableView.insertSubview(self.searchDisplayController!.searchBar, aboveSubview:self.tableView)
+        var counts = [Int]()
+        for base in Array(countsForIngredients.keys).sorted({ $0.name < $1.name }) {
+            counts.append(countsForIngredients[base]!)
         }
-        recipes = Recipe.all()
-        tableView.reloadData()
+        return counts
     }
     
-    
-    func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView) {
-        recipes = Recipe.all()
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        recipes = Recipe.all()
-        tableView.reloadData()
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.searchBar(searchBar, textDidChange: searchString)
-        return true
-    }
-
-    func currentlyTypingIngredient() -> Bool {
-        let typingIncompleteIngredient = IngredientBase.forName(searchTerms.last ?? "N/A") == nil
-        return typingIncompleteIngredient
-    }
+    var viewingRecipes: Bool = false
     
     override var viewTitle: String {
         get {
-            return "Ingredients"
+            if activeIngredients.isEmpty {
+                return "Ingredients"
+            }
+            return join(", ", activeIngredients.map({ $0.name }))
         }
         set {
             
         }
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return self.searchDisplayController!.active
+    func showRecipes() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination: SearchRecipeListViewController = storyboard.instantiateViewControllerWithIdentifier("SearchRecipeListViewController") as! SearchRecipeListViewController
+        destination.activeIngredients = activeIngredients
+        destination.recipes = Recipe.all().filter(filterRecipes)
+        destination.viewingRecipes = true
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if searchBar.text != "" {
-            self.searchBar(searchBar, textDidChange: searchBar.text)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if possibleIngredients.isEmpty || recipes.count == 1 {
+            viewingRecipes = true
+        }
+        
+        if !activeIngredients.isEmpty && !viewingRecipes {
+            var browseRecipesView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 120))
+            var browseRecipesButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 0, self.tableView.frame.size.width / 2, 120))
+            browseRecipesButton.titleLabel!.numberOfLines = 0
+            browseRecipesButton.titleLabel!.textAlignment = NSTextAlignment.Center
+            let recipeList = join(", ", activeIngredients.map({ $0.name }))
+            let title = "See \(recipes.count) recipes with \(recipeList)"
+            browseRecipesButton.setTitle(title, forState: UIControlState.Normal)
+            browseRecipesButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            browseRecipesButton.addTarget(self, action: "showRecipes", forControlEvents: UIControlEvents.TouchUpInside)
+            browseRecipesView.addSubview(browseRecipesButton)
+            tableView.tableHeaderView = browseRecipesView
         }
     }
     
-    func showSearchBar() {
-        self.searchBar.becomeFirstResponder()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        UINavigationBar.appearance().backgroundColor = UIColor.redColor()
-        
-        self.tableView.contentOffset = CGPointMake(0,  self.searchBar.frame.size.height - self.tableView.contentOffset.y)
-        
-        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: "showSearchBar")
-        self.navigationItem.rightBarButtonItem = searchButton
-        
-        
-        // Run this in viewDidLoad instead of making it a `let` so it gets loaded
-        // after core data initialization.
-        allRecipes = Recipe.all()
-        
-        // Allow us to actually pick up search bar input.
-        searchBar.delegate = self
-
-        // So we hide the keyboard when we tap away from it.
-        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        tapRecognizer.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapRecognizer)
-        
-        // Initialize the filter function.
-        searchBar(searchBar, textDidChange: searchBar.text)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        loadCoachMarks()
-    }
-    
-    func loadCoachMarks() {
-        let searchBarPosition = searchBar.bounds
-        
-        let searchBarCaption = "Type stuff in here to search for ingredients (\"vermouth\", \"orange + vodka\")."
-        
-        let coachMarks = [["rect": NSValue(CGRect: searchBarPosition), "caption": searchBarCaption]]
-        runCoachMarks(coachMarks)
-    }
-    
-    func dismissKeyboard() {
-        searchBar.resignFirstResponder()
-    }
-
     override func filterRecipes(recipe: Recipe) -> Bool {
         return activeIngredients.filter({ recipe.usesIngredient($0) }).count == activeIngredients.count
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-
-        searchBarFocused = true
-        if (!searchBar.text.hasSuffix(" + ") && !searchBar.text.isEmpty) {
-            searchBar.text = searchBar.text + " + "
-        }
-        
-        self.searchBar(self.searchBar, textDidChange: searchBar.text)
-        tableView.reloadData()
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-
-        // Grab search bar text and the recipes that match it.
-        let rawSearchTerms = searchBar.text.componentsSeparatedByString(" + ") as [NSString]
-        searchTerms = rawSearchTerms.map({searchTerm in searchTerm.lowercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())})
-        if (currentlyTypingIngredient()) {
-            let newestIngredient = rawSearchTerms.last!
-            
-            var allPossibleIngredients: [IngredientBase]
-            if newestIngredient == "" {
-                allPossibleIngredients = IngredientBase.all()
-            } else {
-                allPossibleIngredients = IngredientBase.nameContainsString(newestIngredient as String)
-            }
-            if allPossibleIngredients.filter({!contains(self.activeIngredients, $0)}).count != possibleIngredients.count {
-                possibleIngredients = allPossibleIngredients.filter({!contains(self.activeIngredients, $0)})
-            }
-        } else {
-            recipes = allRecipes.filter(filterRecipes).sorted({ $0.name < $1.name })
-        }
-        
-        if (currentlyTypingIngredient() && possibleIngredients.isEmpty) {
-            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
-            emptyStateLabel.text = "Sorry -- we don't know what \(searchTerms.last!) is!"
-            tableView.backgroundView = emptyStateLabel
-        } else if (recipes.isEmpty) {
-            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
-            emptyStateLabel.text = "Sorry -- no recipes with these ingredients."
-            tableView.backgroundView = emptyStateLabel
-        } else {
-            tableView.backgroundView = nil
-        }
-        
-        // Allow a random choice!
-        if (recipes.count > 1) {
-            recipes.append(Recipe.forName("Bartender's Choice")!)
-        }
-    
-        tableView.reloadData()
-    }
-
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (!currentlyTypingIngredient()) {
-            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-        } else {
-
-            let ingredient = possibleIngredients[indexPath.row]
-            let cellIdentifier = "recipeCell"
-            let cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
-            
-            let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
-            
-            cell.textLabel?.text = "\(labelPrefix)\(ingredient.name)"
-            if (!searchTerms.last!.isEmpty) {
-                cell.highlightText(searchTerms.last!)
-            }
-            
-            let designator = recipesForPossibleIngredients[indexPath.row] > 1 ? "recipes" : "recipe"
-            cell.detailTextLabel?.text = "\(recipesForPossibleIngredients[indexPath.row]) \(designator)"
-            
-            return cell
-        }
-    }
-    
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        if (!currentlyTypingIngredient()) {
+        if (viewingRecipes) {
             return super.tableView(tableView, numberOfRowsInSection: section)
-        } else {
-            return possibleIngredients.count
         }
-    }
-    
-    override func getSelectedRecipe() -> Recipe {
-        let selectedRow = tableView.indexPathForSelectedRow()
-        var row = selectedRow?.row
-        if (searchDisplayController!.active) {
-            let controller = self.searchDisplayController
-            let view = controller?.searchResultsTableView
-            row = view?.indexPathForSelectedRow()?.row
-        }
-        return recipes[row!]
+        
+        return possibleIngredients.count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if !currentlyTypingIngredient() {
+        if (viewingRecipes) {
             super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
             return
         }
+        
         let selectedRow = tableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
         let ingredient =  possibleIngredients[rowIndex!]
-        let labelPrefix = join("", activeIngredients.map({ $0.name + " + " }))
-        searchBar.text = "\(labelPrefix)\(ingredient.name)"
-        searchBarFocused = false
-        searchBar(searchBar, textDidChange: searchBar.text)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination: SearchRecipeListViewController = storyboard.instantiateViewControllerWithIdentifier("SearchRecipeListViewController") as! SearchRecipeListViewController
+        destination.activeIngredients = activeIngredients
+        destination.activeIngredients.append(ingredient)
+        destination.recipes = Recipe.all().filter(filterRecipes)
+        self.navigationController?.pushViewController(destination, animated: true)
         
     }
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        return !currentlyTypingIngredient()
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if (viewingRecipes) {
+            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        }
+            
+        let ingredient = possibleIngredients[indexPath.row]
+        let cellIdentifier = "recipeCell"
+        let cell = BaseCell(base: ingredient, reuseIdentifier: cellIdentifier)
+        
+        cell.textLabel?.text = activeIngredients.isEmpty ? ingredient.name : "and \(ingredient.name)"
+        
+        let recipeCount = recipeCountsForPossibleIngredients[indexPath.row]
+        let designator = recipeCount > 1 ? "recipes" : "recipe"
+        cell.detailTextLabel?.text = "\(recipeCount) \(designator)"
+        
+        return cell
     }
 }

@@ -62,9 +62,18 @@ enum SortingMethod: Int {
     }
 }
 
-class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
+    var searchController: UISearchController?
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if (!searchController.searchBar.text.isEmpty) {
+            self.filterContentForSearchText(searchController.searchBar.text)
+        } else {
+            recipes = Recipe.all()
+        }
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+    }
 
     override var viewTitle: String {
         get {
@@ -74,48 +83,19 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+        if (searchController != nil && searchController!.active) {
+            // searchController?.
+        }
+        super.prepareForSegue(segue, sender: sender)
+    }
+    
     var sortingMethod: SortingMethod = SortingMethod.NameAscending
     
-    func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController) {
-        UIApplication.sharedApplication().statusBarHidden = true
-    }
-    
-    func searchDisplayControllerWillEndSearch(controller: UISearchDisplayController) {
-        UIApplication.sharedApplication().statusBarHidden = false
-    }
-    
-    
-    func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView) {
-        recipes = Recipe.all()
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-    }
-    
-    func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController) {
-        if (self.tableView != self.searchDisplayController!.searchBar.superview) {
-            self.tableView.insertSubview(self.searchDisplayController!.searchBar, aboveSubview:self.tableView)
-        }
-        recipes = Recipe.all()
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView) {
-        recipes = Recipe.all()
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-    }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         recipes = Recipe.all()
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString)
-        return true
-    }
-
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-        return true
     }
     
     func filterContentForSearchText(searchText: String) {
@@ -128,10 +108,6 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex >
                 $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
         })
-    }
-    
-    func showSearchBar() {
-        self.searchBar.becomeFirstResponder()
     }
     
     func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
@@ -151,17 +127,26 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.definesPresentationContext = true
 
-        self.tableView.contentOffset = CGPointMake(0,  self.searchBar.frame.size.height - self.tableView.contentOffset.y)
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController!.searchResultsUpdater = self
+        self.searchController!.searchBar.scopeButtonTitles = []
+        self.searchController!.dimsBackgroundDuringPresentation = false
+        self.searchController!.hidesNavigationBarDuringPresentation = false
         
-        let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: self, action: "showSearchBar")
-        self.navigationItem.rightBarButtonItem = searchButton
+        self.searchController!.searchBar.styleSearchBar()
         
-        // TODO: better icon.
-        let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Bordered, target: self, action: "toggleSortingMethod")
+        self.tableView.tableHeaderView = UIView(frame: self.searchController!.searchBar.frame)
+        self.tableView.tableHeaderView!.addSubview(self.searchController!.searchBar)
+        self.searchController!.searchBar.sizeToFit()
+        
+
+        let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleSortingMethod")
         self.navigationItem.leftBarButtonItem = sortButton
         
         if recipes.count == 0 {
@@ -169,42 +154,18 @@ class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegat
             emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
             tableView.backgroundView = emptyStateLabel
         }
-        
-        let reachability = Reachability.reachabilityForInternetConnection()
-        reachability.reachableBlock = {
-            (r: Reachability!) -> Void in
-            let _ = Async.main {
-                let hud = MBProgressHUD(view: self.view)
-                self.view.addSubview(hud)
-                hud.labelText = "Fetching you some great recipes."
-                hud.show(true)
-            }.background {
-                while (!isAppSyncedThisLaunch()) {
-                    continue
-                }}.main {
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    self.recipes = Recipe.all()
-                    self.tableView.reloadData()
-                }
-        }
-        reachability.startNotifier()
     }
     
     override func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow()
         var row = selectedRow?.row
-        if (searchDisplayController!.active) {
-            let controller = self.searchDisplayController
-            let view = controller?.searchResultsTableView
-            row = view?.indexPathForSelectedRow()?.row
-        }
         return recipes[row!]
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as! RecipeCell
-        if (searchDisplayController!.active) {
-            cell.highlightText(searchBar.text)
+        if (searchController!.active) {
+            cell.highlightText(searchController!.searchBar.text)
         }
         return cell
     }

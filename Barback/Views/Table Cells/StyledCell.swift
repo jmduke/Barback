@@ -25,11 +25,6 @@ class StyledCell : UITableViewCell {
         
         textLabel?.textColor = Color.Light.toUIColor()
         detailTextLabel?.textColor = Color.Lighter.toUIColor()
-        
-        if (textLabel?.text == "Bartender's Choice" || textLabel?.text == "Shopping List") {
-            textLabel?.textColor = Color.Tint.toUIColor()
-            detailTextLabel?.textColor = Color.Tint.toUIColor()
-        }
     }
     
     func highlightText(highlightedPortion: String) {

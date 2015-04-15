@@ -17,8 +17,11 @@ class IngredientDiagramView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
+        let fallbackColor = "eeeeee"
+        
         let diagram = UIBezierPath(ovalInRect: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: rect.size))
-        let fillColor = UIColor.fromHex(ingredient!.color ?? "eeeeee")
+        let fillColor = UIColor.fromHex(ingredient!.color ?? fallbackColor)
+        
         fillColor.setFill()
         diagram.fill()
         

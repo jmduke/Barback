@@ -10,81 +10,6 @@ import Foundation
 import CoreData
 import Parse
 
-enum GarnishBase: String, Printable {
-    case Cherry = "cherry"
-    case Cucumber = "cucumber"
-    case Lemon = "lemon"
-    case Lime = "lime"
-    case Orange = "orange"
-    case Pineapple = "pineapple"
-    case Mint = "mint"
-    case Basil = "basil"
-    case Blackberry = "blackberry"
-    case Celery = "celery"
-    case Olive = "olive"
-    
-    var description : String {
-        get {
-            return self.rawValue
-        }
-    }
-}
-
-enum GarnishType: String, Printable {
-    case Chunk = "chunk"
-    case Peel = "peel"
-    case Slice = "slice"
-    case Twist = "twist"
-    case Wedge = "wedge"
-    case Wheel = "wheel"
-    case Leaves = "leaves"
-    case Spear = "spear"
-    case Sprig = "sprig"
-    
-    var description : String {
-        get {
-            return self.rawValue
-        }
-    }
-}
-
-struct Garnish: Printable {
-    var base: GarnishBase?
-    var type: GarnishType?
-    var amount: Double
-    var raw: String
-    
-    init(rawGarnish: String) {
-        self.raw = rawGarnish
-        let components = rawGarnish.componentsSeparatedByString(" ").map({
-            $0.lowercaseString
-        })
-        
-        switch components.count {
-        // Descriptive case: `2 orange slice`
-        case 3:
-            amount = (components[0] as NSString).doubleValue
-            base = GarnishBase(rawValue: components[1])
-            type = GarnishType(rawValue: components[2])
-        // Non-count case: `Lemon twist`
-        case 2:
-            amount = 1
-            base = GarnishBase(rawValue: components[0])
-            type = GarnishType(rawValue: components[1])
-        // Basic case: `Cherry`
-        case 1:
-            amount = 1
-            base = GarnishBase(rawValue: components[0])
-        default:
-            amount = 0
-        }
-    }
-    
-    var description: String {
-        return "\(amount) \(base) \(type) (\(raw))"
-    }
-}
-
 public class Recipe: StoredObject {
 
     @NSManaged var detail: String
@@ -125,10 +50,6 @@ public class Recipe: StoredObject {
         return externalUrl!.URLByAppendingPathComponent("recipe/\(slug!)")
     }
     
-    var isReal: Bool {
-        return glassware != "" && directions != ""
-    }
-    
     var detailDescription: String {
         get {
             let sortedIngredients = ingredients.sorted({($0 as Ingredient).amount.intValue > ($1 as Ingredient).amount.intValue})
@@ -153,7 +74,6 @@ public class Recipe: StoredObject {
             let denominator = amounts.reduce(0, combine: +) as Int
             let numerator = (ingredients.map({
                 (ingredient: Ingredient) -> Int in
-                print(ingredient.base)
                 (ingredient.base.abv as Int).description
                 let abv = ingredient.base.abv as Int
                 let proportion = Int(ingredient.amount.intValue ?? 0)
@@ -265,7 +185,7 @@ public class Recipe: StoredObject {
     }
     
     class func all() -> [Recipe] {
-        return managedContext().objects(Recipe.self)!.filter({ $0.isReal && $0.isDead != true }).sorted({ $0.name < $1.name })
+        return managedContext().objects(Recipe.self)!.filter({ $0.isDead != true }).sorted({ $0.name < $1.name })
     }
     
     class func random() -> Recipe {

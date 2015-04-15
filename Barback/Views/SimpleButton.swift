@@ -11,10 +11,23 @@ import UIKit
 
 class SimpleButton : UIButton {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        styleButton()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        styleButton()
+    }
+    
+    func styleButton() {
         tintColor = Color.Tint.toUIColor()
-        titleLabel!.font = UIFont(name: UIFont.primaryFont(), size: 16)
+        titleLabel!.font = UIFont(name: UIFont.heavyFont(), size: 20)
         userInteractionEnabled = true
     }
     

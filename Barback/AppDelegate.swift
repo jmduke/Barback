@@ -123,9 +123,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let initialNumberOfFavoritedRecipes = 3
         for _ in 1...initialNumberOfFavoritedRecipes {
             var randomRecipe = managedContext().randomObject(Recipe.self)!
-            while (!randomRecipe.isReal) {
-                randomRecipe = managedContext().randomObject(Recipe.self)!
-            }
             randomRecipe.favorite = true
         }
         saveContext()
@@ -204,7 +201,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
-        
         if !runningOnIPad() {
             // Set font of tab bar items.
             var tabBarAttributes = NSMutableDictionary(dictionary: [:])
@@ -215,10 +211,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let imageColor = Color.Light.toUIColor()
             
             if tabBarItems.count > 3 {
-                tabBarItems[0].image = UIBezierPath.glassButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-                tabBarItems[1].image = UIBezierPath.searchButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-                tabBarItems[2].image = UIBezierPath.favoritedButton().toImageWithStrokeColor(imageColor, fillColor: nil)
-                tabBarItems[3].image = UIBezierPath.randomButton().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[0].image = BezierImage.Glass.path().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[1].image = BezierImage.Search.path().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[2].image = BezierImage.Favorited.path().toImageWithStrokeColor(imageColor, fillColor: nil)
+                tabBarItems[3].image = BezierImage.Random.path().toImageWithStrokeColor(imageColor, fillColor: nil)
             }
         }
     }
