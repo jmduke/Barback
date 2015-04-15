@@ -32,13 +32,11 @@ extension UIViewController {
     
     func styleController() {
         navigationController?.styleController()
-        
-        if (tabBarController != nil) {
-            tabBarController?.tabBar.translucent = false
-            tabBarController?.tabBar.barTintColor = Color.Dark.toUIColor()
-            tabBarController?.tabBar.tintColor = Color.Tint.toUIColor()
-        }
-        
+    
+        tabBarController?.tabBar.translucent = false
+        tabBarController?.tabBar.barTintColor = Color.Dark.toUIColor()
+        tabBarController?.tabBar.tintColor = Color.Tint.toUIColor()
+    
         view.backgroundColor = Color.Dark.toUIColor()
     }
 

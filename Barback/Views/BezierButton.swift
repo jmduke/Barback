@@ -12,7 +12,7 @@ import UIKit
 class BezierButton: UIButton {
     
     override func drawRect(rect: CGRect) {
-        var bezierPath = UIBezierPath.favoriteButton()
+        var bezierPath = BezierImage.Favorite.path()
 
         
         if (self.state == UIControlState.Normal) {

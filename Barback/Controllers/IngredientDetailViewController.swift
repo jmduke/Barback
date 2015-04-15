@@ -138,11 +138,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
         wikipediaButton.addTarget(self, action: "openWikipediaPage", forControlEvents: UIControlEvents.TouchUpInside)
         
-        if Int(ingredient.abv) > 0 {
-            ingredientAbvLabel.text = Int(ingredient.abv) > 0 ? "\(ingredient.abv)% ABV" : "(non-alcoholic)"
-        } else {
-            ingredientAbvLabel.removeFromSuperview()
-        }
+        ingredientAbvLabel.text = Int(ingredient.abv) > 0 ? "\(ingredient.abv)% ABV" : "(non-alcoholic)"
         
         ingredientDescriptionView.text = ingredient.information
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
@@ -158,7 +154,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
             view.layoutIfNeeded()
         }
         
-        if brands.count == 0 {
+        if brands.isEmpty {
             brandTableLabel.removeFromSuperview()
             brandsTableView.removeFromSuperview()
             view.layoutIfNeeded()

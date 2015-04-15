@@ -14,10 +14,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
 
     var recipe: Recipe? {
     willSet {
-        similarRecipes = newValue!.similarRecipes(2)
+        similarRecipes = newValue?.similarRecipes(2)
         
-        let ingredients = newValue!.ingredients
-        sortedIngredients = ingredients.sorted({$0.amount.intValue > $1.amount.intValue})
+        let ingredients = newValue?.ingredients
+        sortedIngredients = ingredients?.sorted({$0.amount.intValue > $1.amount.intValue})
     }
     }
     
@@ -47,14 +47,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func shareRecipe() {
         
+        // Handle the printing setup.
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "BarbackRecipe"
         printInfo.outputType = UIPrintInfoOutputType.General
-        
         let formatter = UIMarkupTextPrintFormatter(markupText: recipe!.htmlString)
         formatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72) // 1" margins
 
-        
         let activities = [printInfo, formatter, "Just made a \(recipe!.name) with @getbarback!", recipe!.url]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
@@ -70,21 +69,19 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
-        self.navigationItem.rightBarButtonItem = randomButton
+        let shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
+        self.navigationItem.rightBarButtonItem = shareButton
         
         if (recipe == nil) {
-            recipe = getRandomRecipe()
+            recipe = Recipe.random()
             isRandom = true
             
             let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
             self.navigationItem.leftBarButtonItem = randomButton
         }
         
-        
         recipe!.isNew = false
         saveContext()
-        
         
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
@@ -155,20 +152,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func findNewRecipe() {
-        recipe = getRandomRecipe()
-        
-        PFAnalytics.trackEventInBackground("randomRecipeOpened", block: nil)
-        
-        viewWillAppear(true)
-        viewDidLoad()
-    }
-    
-    func getRandomRecipe() -> Recipe {
-        var randomRecipe = Recipe.random()
-        while (!randomRecipe.isReal || (recipe != nil && randomRecipe == recipe!)) {
-            randomRecipe = Recipe.random()
-        }
-        return randomRecipe
+        recipe = Recipe.random()
+        performSegueWithIdentifier("similarRecipe", sender: nil)
     }
     
     func markRecipeAsFavorite() {
@@ -289,7 +274,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func setRecipeForController(recipe: Recipe) {
+    func setRecipeForController(recipe: Recipe?) {
         self.recipe = recipe
 
         // Disallow shake gestures.
@@ -316,10 +301,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         return IngredientBase.forName(ingredient.base.name)!
     }
     
-    func getSelectedRecipe() -> Recipe {
+    func getSelectedRecipe() -> Recipe? {
         let selectedRow = similarDrinksTableView.indexPathForSelectedRow()
-        let rowIndex = selectedRow?.row
-        return similarRecipes![rowIndex!]
+        if selectedRow != nil {
+            let rowIndex = selectedRow?.row
+            return similarRecipes![rowIndex!]
+        } else {
+            return nil
+        }
     }
     
 }

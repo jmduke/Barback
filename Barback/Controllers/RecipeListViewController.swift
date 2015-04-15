@@ -23,10 +23,6 @@ class RecipeListViewController: UITableViewController {
         
         // We reload this to remove isNew identifier after seeing recipe.
         tableView.reloadData()
-        
-        if searchDisplayController != nil && searchDisplayController!.active {
-            UIApplication.sharedApplication().statusBarHidden = true
-        }
     }
     
     override func viewDidLoad() {
@@ -50,11 +46,6 @@ class RecipeListViewController: UITableViewController {
         
         UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
         UITextField.appearance().textColor = Color.Background.toUIColor()
-        
-        searchDisplayController?.searchBar.searchBarStyle = UISearchBarStyle.Minimal
-        searchDisplayController?.searchBar.backgroundColor = Color.Dark.toUIColor()
-        searchDisplayController?.searchBar.tintColor = Color.Background.toUIColor()
-        searchDisplayController?.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         navigationItem.titleView?.tintColor = Color.Dark.toUIColor()
         navigationItem.titleView?.backgroundColor = Color.Dark.toUIColor()
@@ -113,10 +104,6 @@ class RecipeListViewController: UITableViewController {
         
         var recipe = getSelectedRecipe()
         
-        if (recipe.name == "Bartender's Choice") {
-            let randomIndex = Int(arc4random_uniform(UInt32(recipes.count))) % (recipes.count - 1)
-            recipe = recipes[randomIndex]
-        }
         destinationController.setRecipeForController(recipe)
         UIApplication.sharedApplication().statusBarHidden = false
     }
