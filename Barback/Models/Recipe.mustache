@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <title>{{ recipe.name }}</title>
+        <style>body { font-family: 'Avenir' }</style>
+    </head>
+
+    <body>
+        <h1>{{ recipe.name }}</h1>
+        <h3>{{ parsedABV }}% ABV</h3>
+        <h3>Served in {{ recipe.glassware }}</h3>
+
+        {{#hasGarnish}}
+            <h3>Garnish with {{ recipe.garnish }}</h3>
+        {{/hasGarnish}}
+
+        {{#hasInformation}}
+            <p>{{{ renderedInformation }}}</p>
+        {{/hasInformation}}
+
+        <h2>Ingredients</h2>
+        <ul>
+            {{#recipe.ingredients}}
+                <li>
+                    {{displayAmount}} {{base.name}}
+                    {{#label}}
+                        ({{label}})
+                    {{/label}}
+                </li>
+            {{/recipe.ingredients}}
+        </ul>
+
+        <h2>Directions</h2>
+        {{recipe.directions}}
+
+    </body>
+</html>
