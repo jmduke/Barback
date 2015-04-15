@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Mustache
 import CoreData
 import Parse
 
@@ -85,39 +86,25 @@ public class Recipe: StoredObject {
     
     var htmlString: String {
         get {
-            var html = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Title</title><style>body { font-family: 'Avenir' }</style></head><body>"
-            
-            html += "<h1>\(name)</h1>"
-            html += "<h3>\(abv)% ABV</h3>"
-            html += "<h3>Served in \(glassware)</h3>"
-            
-            if garnish != nil && !garnish!.isEmpty {
-                html += "<h3>Garnish with \(garnish!)</h3>"
-            }
-            
-            if information != nil {
+            let hasGarnish = (garnish != nil && !garnish!.isEmpty)
+            let hasInformation = (information != nil)
+            var convertedMarkdown: String = ""
+            if hasInformation {
                 var markdownConverter = Markdown()
-                let convertedMarkdown = markdownConverter.transform(information!)
-                html += "<p>\(convertedMarkdown)</p>"
+                convertedMarkdown = markdownConverter.transform(information!)
             }
             
-            html += "<h2>Ingredients</h2>"
-            html += "<ul>"
-            for ingredient in ingredients {
-                html += "<li>\(ingredient.displayAmount) \(ingredient.base.name)"
-                if (ingredient.label != nil) {
-                    html += " (\(ingredient.label!))"
-                }
-                html += "</li>"
-            }
-            html += "</ul>"
-            
-            html += "<h2>Directions</h2>" +
-                    "<p>\(directions)</p>"
-            
-            html += "</body></html>"
-            
-            return html
+            // Render using Mustache.
+            let template = Template(named: "Recipe")!
+            let data = [
+                "parsedABV": round(abv),
+                "recipe": self,
+                "hasGarnish": hasGarnish,
+                "hasInformation": hasInformation,
+                "renderedInformation": convertedMarkdown
+            ]
+            let rendering = template.render(Box(data))!
+            return rendering
         }
     }
     
