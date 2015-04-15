@@ -89,6 +89,22 @@ class SearchRecipeListViewController: RecipeListViewController {
             browseRecipesView.addSubview(browseRecipesButton)
             tableView.tableHeaderView = browseRecipesView
         }
+        
+        if viewingRecipes {
+            var bartendersChoiceView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
+            var bartendersChoiceButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
+            bartendersChoiceButton.setTitle("Pick random recipe", forState: UIControlState.Normal)
+            bartendersChoiceButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            bartendersChoiceButton.addTarget(self, action: "pickRandomRecipe", forControlEvents: UIControlEvents.TouchUpInside)
+            bartendersChoiceView.addSubview(bartendersChoiceButton)
+            tableView.tableFooterView = bartendersChoiceView
+        }
+    }
+    
+    func pickRandomRecipe() {
+        let randomIndex = Int(arc4random_uniform(UInt32(self.recipes.count))) % self.recipes.count
+        self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: randomIndex, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView(self.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: randomIndex, inSection: 0))
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
