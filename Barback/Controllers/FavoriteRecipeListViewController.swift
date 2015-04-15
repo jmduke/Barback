@@ -22,18 +22,6 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         return recipe.favorite
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // If it's the last row, return the Shopping List row.
-        if indexPath.row == recipes.count {
-            let shoppingListRecipe = Recipe.forName("Shopping List")
-            var cell = cellForRecipe(shoppingListRecipe!, andIndexPath: indexPath)
-            cell.detailTextLabel?.text = ""
-            return cell
-        }
-        return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-    }
-    
     override func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
 
@@ -87,7 +75,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             (recipe: Recipe) -> [IngredientBase] in
             return recipe.ingredients.map({
                 (ingredient: Ingredient) -> IngredientBase in
-                return IngredientBase.forName(ingredient.base.name)!
+                return ingredient.base
                 })
             })
         

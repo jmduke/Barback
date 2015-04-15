@@ -15,16 +15,6 @@ import ParseCrashReporting
 import SystemConfiguration
 import UIKit
 
-func managedContext() -> NSManagedObjectContext {
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    return delegate.coreDataHelper.managedObjectContext!
-}
-
-func saveContext() {
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    delegate.coreDataHelper.saveContext(managedContext())
-}
-    
 func isConnectedToInternet() -> Bool {
     let reachability = Reachability.reachabilityForInternetConnection()
     let networkStatus = reachability.currentReachabilityStatus()
@@ -38,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
         // Format of `barback://recipe/<RecipeName>`.
-        if (url.host?.lowercaseString == Recipe.entityName().lowercaseString) {
+        if (url.host?.lowercaseString == Recipe.parseClassName().lowercaseString) {
             let recipeName = url.path?.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
             if let recipeName = recipeName {
-                if let recipe = Recipe.forName(recipeName) {
+                    let recipe = Recipe.forName(recipeName)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
                     controller.setRecipeForController(recipe)
@@ -49,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let tabBarController = self.window?.rootViewController as! UITabBarController
                     let navController = tabBarController.selectedViewController as! UINavigationController
                     navController.pushViewController(controller, animated: true)
-                }
             }
         }
 
@@ -70,42 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return NSDictionary(contentsOfFile: keychain!)!
     }()
     
-    lazy var coreDataHelper: CoreDataHelper = {
-        let cdh = CoreDataHelper()
-        return cdh
-        }()
-    
-    lazy var coreDataStore: CoreDataStore = {
-        let cds = CoreDataStore()
-        return cds
-        }()
-    
     // Needed to access UITabBarIcons.
     var window: UIWindow?
     
     func updateIfNecessary() {
         if isFirstTimeAppLaunched() {
             finalizeAppSetup()
-        } else if onOldVersion() {
-            deleteEverything()
-            syncDataFromJSON()
         }
-    }
-    
-    func deleteEverything() {
-        Recipe.all().map({
-            managedContext().deleteObject($0)
-        })
-        Ingredient.all().map({
-            managedContext().deleteObject($0)
-        })
-        IngredientBase.all().map({
-            managedContext().deleteObject($0)
-        })
-        Brand.all().map({
-            managedContext().deleteObject($0)
-        })
-        saveContext()
     }
     
     func onOldVersion() -> Bool {
@@ -114,18 +74,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
  
     func finalizeAppSetup() {
-        syncDataFromJSON()
-        saveContext()
         markAppAsLaunched()
         updateVersionOfApp()
         
         // Set some random recipes to be favorites.
         let initialNumberOfFavoritedRecipes = 3
         for _ in 1...initialNumberOfFavoritedRecipes {
-            var randomRecipe = managedContext().randomObject(Recipe.self)!
+            var randomRecipe = Recipe.random()
             randomRecipe.favorite = true
         }
-        saveContext()
         
         
         enableAppInteraction()
@@ -161,23 +118,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         styleApp()
         
         return true
-    }
-
-    func applicationWillResignActive(application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        coreDataHelper.saveContext()
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        coreDataHelper.saveContext()
     }
     
     func enableAppInteraction() {
@@ -224,8 +164,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let parseApplicationId = privateKeys["parseApplicationId"]! as! String
         let parseClientKey = privateKeys["parseClientKey"]! as! String
         ParseCrashReporting.enable()
+        Recipe.registerSubclass()
+        Ingredient.registerSubclass()
+        IngredientBase.registerSubclass()
+        Brand.registerSubclass()
+        Parse.enableLocalDatastore()
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
+        
+        
+        PFObject.unpinAll(Recipe.all(true))
+        PFObject.unpinAll(Ingredient.all(true))
+        PFObject.unpinAll(IngredientBase.all(true))
+        PFObject.unpinAll(Brand.all(true))
+        PFObject.pinAll(Recipe.all(false))
+        PFObject.pinAll(Ingredient.all(false))
+        PFObject.pinAll(IngredientBase.all(false))
+        PFObject.pinAll(Brand.all(false))
         
         // Initialize Appirater.
         Appirater.setAppId("829469529")

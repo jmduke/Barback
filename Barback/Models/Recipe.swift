@@ -11,7 +11,7 @@ import Mustache
 import CoreData
 import Parse
 
-public class Recipe: StoredObject {
+public class Recipe: PFObject, PFSubclassing {
 
     @NSManaged var detail: String
     @NSManaged var directions: String
@@ -21,13 +21,13 @@ public class Recipe: StoredObject {
     @NSManaged var slug: String?
     @NSManaged var information: String?
     
-    @NSManaged var ingredientSet: NSSet
-    var ingredients: [Ingredient] {
-        get {
-            let ingredientObjects = ingredientSet.allObjects as! [Ingredient]
-            return ingredientObjects.filter({ $0.isDead != true })
-        }
+    public class func parseClassName() -> String! {
+        return "Recipe"
     }
+    
+    lazy var ingredients: [Ingredient] = {
+        return (Ingredient.query().fromLocalDatastore().includeKey("base").whereKey("recipe", equalTo: self).findObjects() ?? Ingredient.query().includeKey("base").whereKey("recipe", equalTo: self).findObjects()) as! [Ingredient]
+    }()
     
     var parsedGarnishes: [Garnish] {
         let rawGarnishes: [String] = garnish?.componentsSeparatedByString(",") ?? []
@@ -69,20 +69,18 @@ public class Recipe: StoredObject {
         }
     }
     
-    var abv: Float {
-        get {
-            let amounts = ingredients.map({ Int($0.amount.intValue ?? 0) }) as [Int]
-            let denominator = amounts.reduce(0, combine: +) as Int
-            let numerator = (ingredients.map({
-                (ingredient: Ingredient) -> Int in
-                (ingredient.base.abv as Int).description
-                let abv = ingredient.base.abv as Int
-                let proportion = Int(ingredient.amount.intValue ?? 0)
-                return abv * proportion
-            }) as [Int]).reduce(0, combine: +)
-            return Float(numerator) / Float(denominator)
-        }
-    }
+    lazy var abv: Float = {
+        let amounts = self.ingredients.map({ Int($0.amount.intValue ?? 0) }) as [Int]
+        let denominator = amounts.reduce(0, combine: +) as Int
+        let numerator = (self.ingredients.map({
+            (ingredient: Ingredient) -> Int in
+            (ingredient.base.abv ?? 0 as Int).description
+            let abv = ingredient.base.abv as Int
+            let proportion = Int(ingredient.amount.intValue ?? 0)
+            return abv * proportion
+        }) as [Int]).reduce(0, combine: +)
+        return Float(numerator) / Float(denominator)
+    }()
     
     var htmlString: String {
         get {
@@ -136,50 +134,29 @@ public class Recipe: StoredObject {
         }
         return chosenRecipes
     }
-
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Recipe {
-        return managedContext().objectForDictionary(Recipe.self, dictionary: valuesForKeys, checkForObject: checkForObject)
-    }
-    
-    class func syncWithParse() -> [Recipe] {
-        let recipes = PFQuery.allObjectsSinceSync("Recipe")
-        return recipes.map({
-            (object: PFObject) -> Recipe in
-            object.setValue(true, forKey: "isNew")
-            return Recipe.fromAttributes(object.toDictionary(self.attributes()))
-        }) as [Recipe]
-    }
-    
-    class func syncWithJSON() -> [Recipe] {
-        let filepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")
-        let jsonData = NSString(contentsOfFile: filepath!, encoding:NSUTF8StringEncoding, error: nil)!
-        let recipeData = jsonData.dataUsingEncoding(NSUTF8StringEncoding)
-        var rawRecipes = NSJSONSerialization.JSONObjectWithData(recipeData!, options: nil, error: nil) as! [NSDictionary]
-        
-        var allRecipes: [Recipe] = rawRecipes.map({
-            (rawRecipe: NSDictionary) -> Recipe in
-            var recipe = self.fromAttributes(rawRecipe as [NSObject : AnyObject], checkForObject: false)
-            let ingredients = (rawRecipe["ingredients"] as! [NSDictionary]).map({
-                (rawIngredient: NSDictionary) -> Ingredient in
-                var ingredient = Ingredient.fromAttributes(rawIngredient as [NSObject : AnyObject], checkForObject: false)
-                return ingredient
-            })
-            recipe.ingredientSet = NSSet(array: ingredients)
-            return recipe
-        })
-        allRecipes = allRecipes.sorted({ $0.name < $1.name })
-        return allRecipes
-    }
     
     class func all() -> [Recipe] {
-        return managedContext().objects(Recipe.self)!.filter({ $0.isDead != true }).sorted({ $0.name < $1.name })
+        return all(true)
+    }
+    
+    class func all(useLocal: Bool) -> [Recipe] {
+        var allQuery = query()
+        allQuery.limit = 1000
+        if (useLocal) {
+            allQuery.fromLocalDatastore()
+        }
+        return allQuery.findObjects() as! [Recipe]
     }
     
     class func random() -> Recipe {
-        return managedContext().randomObject(Recipe.self)!
+        let recipes =  all()
+        let randomIndex = Int(arc4random_uniform(UInt32(recipes.count)))
+        return recipes[randomIndex]
     }
     
-    class func forName(name: String) -> Recipe? {
-        return managedContext().objectForName(Recipe.self, name: name)
+    class func forName(name: String) -> Recipe {
+        var nameQuery = query()
+        nameQuery.whereKey("name", equalTo: name)
+        return nameQuery.findObjects()![0] as! Recipe
     }
 }

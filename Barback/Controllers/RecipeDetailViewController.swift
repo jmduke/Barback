@@ -81,7 +81,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         recipe!.isNew = false
-        saveContext()
         
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
@@ -170,7 +169,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         recipe!.isFavorited = !recipe!.favorite
         favoriteButton.selected = !favoriteButton.selected
-        saveContext()
         
         PFCloud.callFunctionInBackground("incrementFavoritesForRecipe", withParameters: ["name": recipe!.name, "increment": recipe!.isFavorited], block: nil)
     }
@@ -296,9 +294,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func getSelectedIngredient() -> IngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow()
         let rowIndex = selectedRow?.row
-        
-        let ingredient = sortedIngredients![rowIndex!]
-        return IngredientBase.forName(ingredient.base.name)!
+        return sortedIngredients![rowIndex!].base
     }
     
     func getSelectedRecipe() -> Recipe? {

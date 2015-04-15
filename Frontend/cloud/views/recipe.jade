@@ -17,10 +17,7 @@ block column_two
   h2 Ingredients
   p
     each ingredient in message.attributes.ingredients
-      if message.attributes.baseNames.indexOf(ingredient.attributes.base) >= 0
-        a(class="ingredient", href="/ingredient/#{message.attributes.bases[ingredient.attributes.base]}")= ingredient.attributes.base
-      else
-        span(class="ingredient")= ingredient.attributes.base
+      a(class="ingredient", href="/ingredient/#{ingredient.attributes.base.attributes.slug}")= ingredient.attributes.base.attributes.name
       if ingredient.attributes.amount && ingredient.attributes.label
         &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.label

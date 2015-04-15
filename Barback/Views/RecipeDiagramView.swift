@@ -23,7 +23,7 @@ class RecipeDiagramView: UIView {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.recipe = Recipe.all()[0]
+        self.recipe = Recipe()
         backgroundColor = UIColor.clearColor()
     }
     

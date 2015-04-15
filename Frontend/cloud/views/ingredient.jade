@@ -26,7 +26,7 @@ block column_two
   h2= "Recipes using " + message.attributes.name
   p
     each ingredient in message.attributes.ingredients
-      a(class="ingredient", href="/recipe/#{message.attributes.recipes[ingredient.attributes.recipe]}")= ingredient.attributes.recipe
+      a(class="ingredient", href="/recipe/#{ingredient.attributes.recipe.attributes.slug}")= ingredient.attributes.recipe.attributes.name
       if ingredient.attributes.amount && ingredient.attributes.label
         &nbsp;·&nbsp;
         span(class="details")= ingredient.attributes.label

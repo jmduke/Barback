@@ -3,27 +3,19 @@ var _ = require('underscore');
 
 // Returns list of tuples (hex, amount)
 function visualDataForRecipe(ingredients, bases) {
-  baseNames = _.map(bases, function(base) {
-    return base.attributes.name;
-  });
   return _.sortBy(_.map(ingredients, function(ingredient) {
-    baseIndex = baseNames.indexOf(ingredient.attributes.base);
-    color = baseIndex < 0 ? "ccc" : bases[baseIndex].attributes.color;
+    color = ingredient.attributes.base.attributes.color;
     return [color, ingredient.attributes.amount];
   }), function(visualTuple) {
     return visualTuple[1]
   });
 }
 
-function abvForRecipe(ingredients, bases) {
+function abvForRecipe(ingredients) {
   nominator = 0;
   denominator = 0;  
-  baseNames = _.map(bases, function(base) {
-    return base.attributes.name;
-  });
   _.each(ingredients, function(ingredient) {
-    baseIndex = baseNames.indexOf(ingredient.attributes.base);
-    abv = baseIndex < 0 ? 0 : bases[baseIndex].attributes.abv;
+    abv = ingredient.attributes.base.attributes.abv;
     amount = ingredient.attributes.amount;
     amount = amount == null ? 0 : amount;
     nominator += abv * amount;
@@ -37,6 +29,10 @@ function objectsForVariable(className, attribute, value, callback) {
   query.limit(1000);
   query.descending("amount");
   query.equalTo(attribute, value);
+  if (className == "Ingredient") {
+    query.include("base");
+    query.include("recipe");
+  }
   query.find({
     success: callback,
     error: function() {
@@ -48,6 +44,10 @@ function objectsForVariable(className, attribute, value, callback) {
 function objectsForVariables(className, attribute, values, callback) {
   var query = new Parse.Query(className);
   query.containedIn(attribute, values);
+  if (className == "Ingredient") {
+    query.include("base");
+    query.include("recipe");
+  }
   query.find({
     success: callback,
     error: function() {
@@ -69,23 +69,6 @@ Parse.Cloud.define("incrementFavoritesForRecipe", function(request, response) {
   });
 });
 
-Parse.Cloud.define("searchForTerm", function(request, response) {
-  var term = request.params.term;
-  var results = {"term": term};
-
-  var query = new Parse.Query("Recipe");
-  query.contains("name", term);
-  query.find().then(function(recipes) {
-    results["recipes"] = recipes;
-    query = new Parse.Query("IngredientBase");
-    query.contains("name", term);
-    return query.find();
-  }).then(function(ingredients) {
-    results["ingredients"] = ingredients;
-    response.success(results);
-  });
-});
-
 Parse.Cloud.define("allRecipes", function(request, response) {
   var results = {};
 
@@ -96,6 +79,8 @@ Parse.Cloud.define("allRecipes", function(request, response) {
   query.find().then(function(recipes) {
     retrieved_recipes = recipes;
     query = new Parse.Query("Ingredient");
+    query.include("base");
+    query.include("recipe");
     query.limit(1000);
     return query.find();
   }).then(function(ingredients) {
@@ -106,19 +91,19 @@ Parse.Cloud.define("allRecipes", function(request, response) {
   }).then(function(bases) {
     results["visualData"] = _.object(_.map(retrieved_recipes, function(recipe) {
       recipeIngredients = _.filter(retrieved_ingredients, function(ingredient) {
-        return ingredient.attributes.recipe == recipe.attributes.name
+        return ingredient.attributes.recipe.attributes.name == recipe.attributes.name
       });
       return [recipe.attributes.name, visualDataForRecipe(recipeIngredients, bases)];
     }));
     results["abv"] =  _.object(_.map(retrieved_recipes, function(recipe) {
       recipeIngredients = _.filter(retrieved_ingredients, function(ingredient) {
-        return ingredient.attributes.recipe == recipe.attributes.name
+        return ingredient.attributes.recipe == recipe
       });
       return [recipe.attributes.name, abvForRecipe(recipeIngredients, bases)];
     }));
     results["bases"] = _.object(_.map(retrieved_recipes, function(recipe) {
       recipeIngredients = _.filter(retrieved_ingredients, function(ingredient) {
-        return ingredient.attributes.recipe == recipe.attributes.name
+        return ingredient.attributes.recipe == recipe
       });
       var ingredient_string = _.map(recipeIngredients, function(ingredient) {
         return ingredient.attributes.base
@@ -138,9 +123,9 @@ Parse.Cloud.define("allRecipes", function(request, response) {
 Parse.Cloud.define("recipeForName", function(request, response) {
   objectsForVariable("Recipe", "slug", request.params.name, function(recipes) {
     recipe = recipes[0];
-    objectsForVariable("Ingredient", "recipe", recipe.attributes.name, function(ingredients) {
+    objectsForVariable("Ingredient", "recipe", recipe, function(ingredients) {
       recipe.attributes.ingredients = ingredients;
-      recipe.attributes.baseNames = _.map(ingredients, function(ingredient) {
+      recipe.attributes.bases = _.map(ingredients, function(ingredient) {
         return ingredient.attributes.base;
       });
 
@@ -159,19 +144,14 @@ Parse.Cloud.define("recipeForName", function(request, response) {
 Parse.Cloud.define("ingredientForName", function(request, response) {
   objectsForVariable("IngredientBase", "slug", request.params.name, function(bases) {
     base = bases[0];
-    objectsForVariable("Brand", "base", request.params.name, function(brands) {
+    objectsForVariable("Brand", "base", base, function(brands) {
       base.attributes.brands = brands;
-      objectsForVariable("Ingredient", "base", base.attributes.name, function(ingredients) {
+      objectsForVariable("Ingredient", "base", base, function(ingredients) {
         base.attributes.ingredients = ingredients;
         recipeNames = _.map(ingredients, function(ingredient) {
           return ingredient.attributes.recipe;
         });
-        objectsForVariables("Recipe", "name", recipeNames, function(recipes) {
-          base.attributes.recipes = _.object(_.map(recipes, function(recipe) {
-            return [recipe.attributes.name, recipe.attributes.slug]
-          }));
-          response.success(base);
-        });
+        response.success(base);
       });
     });
   });

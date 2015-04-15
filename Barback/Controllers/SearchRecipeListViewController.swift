@@ -90,7 +90,7 @@ class SearchRecipeListViewController: RecipeListViewController {
             tableView.tableHeaderView = browseRecipesView
         }
         
-        if viewingRecipes {
+        if viewingRecipes && recipes.count > 1 {
             var bartendersChoiceView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
             var bartendersChoiceButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
             bartendersChoiceButton.setTitle("Pick random recipe", forState: UIControlState.Normal)
