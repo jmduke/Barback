@@ -4,10 +4,10 @@ from config import application_id, client_key
 from utils import chunks, convert_ingredient_to_dict
 from slugify import slugify
 import yaml
-import json
 
 def load_configurations():
     register(application_id, client_key)
+
 
 def load_recipes_from_yaml():
     recipes_filename = "data/recipes.yaml"
@@ -17,56 +17,14 @@ def load_recipes_from_yaml():
             raw_recipes[r]["ingredients"][i] = convert_ingredient_to_dict(ingredient)
     return raw_recipes
 
+
 def load_bases_from_yaml():
     bases_filename = "data/bases.yaml"
     raw_bases = yaml.safe_load(open(bases_filename).read())
     return raw_bases
 
-def dump_data_to_json(new_recipes, new_bases):
-    recipe_json_filename = "output/recipes.json"
-    base_json_filename = "output/bases.json"
-
-    with open(recipe_json_filename, "w") as outfile:
-        json.dump(new_recipes, outfile)  
-
-    with open(base_json_filename, "w") as outfile:
-        json.dump(new_bases, outfile)
 
 def sync_data_with_parse(new_recipes, new_bases):
-    recipes = []
-    ingredients = []
-    for recipe in new_recipes:
-        recipe_object = Recipe(dictionary=recipe)
-        recipes.append(recipe_object)
-        for ingredient in recipe["ingredients"]:
-            ingredient.update({"recipe": recipe['name']})
-            ingredients.append(Ingredient(dictionary=ingredient))
-
-    if recipes:
-        print "Found {} new recipes.".format(len(recipes))
-    if ingredients:
-        print "Found {} new ingredients.".format(len(ingredients))
-
-    bases = []
-    brands = []
-    for base in new_bases:
-        base_object = IngredientBase(dictionary=base)
-        bases.append(base_object)
-        for brand in base.get("brands", []):
-            brand.update({"base": base["name"]})
-            brands.append(Brand(dictionary=brand))
-
-    if bases:
-        print "Found {} new bases.".format(len(bases))  
-    if brands:
-        print "Found {} new brands.".format(len(brands))
-
-    if len(recipes + bases + ingredients + brands):
-        print "Pushing data."
-    else:
-        print "No data to push."
-        return new
-
     max_batch_size = 50
     print "Deleting all jank first."
     for chunk in chunks(list(Recipe.Query.all().limit(1000)) + 
@@ -75,10 +33,70 @@ def sync_data_with_parse(new_recipes, new_bases):
                         list(Brand.Query.all().limit(1000)), max_batch_size):
         ParseBatcher().batch_delete(chunk)
 
+    # Push recipes.
+    recipes = []
+    for recipe in new_recipes:
+        recipe_object = Recipe(dictionary=recipe)
+        recipes.append(recipe_object)
+    if recipes:
+        print "Found {} new recipes.".format(len(recipes))
+        for chunk in chunks(recipes, max_batch_size):
+            ParseBatcher().batch_save(chunk)
+            print "Pushed {} recipes.".format(len(chunk))
 
-    for chunk in chunks(recipes + bases + ingredients + brands, max_batch_size):
-        ParseBatcher().batch_save(chunk)
-        print "Pushed {} objects.".format(len(chunk))
+    # Push bases.
+    bases = []
+    for base in new_bases:
+        base_object = IngredientBase(dictionary=base)
+        bases.append(base_object)
+    if bases:
+        print "Found {} new bases.".format(len(bases))
+        for chunk in chunks(bases, max_batch_size):
+            ParseBatcher().batch_save(chunk)
+            print "Pushed {} bases.".format(len(chunk))
+
+    # Reshape bases as dictionary so stuff can be found quickly.
+    namesForBases = {base.name: base for base in bases}
+
+    # Push ingredients.
+    ingredients = []
+    for i, recipe in enumerate(new_recipes):
+        for ingredient in recipe["ingredients"]:
+            ingredient.update({"recipe": recipes[i]})
+
+            # Some bases might not actually exist.
+            if ingredient["base"] not in namesForBases:
+                base = IngredientBase(dictionary={
+                    "name": ingredient["base"],
+                    "information": "",
+                    "type": "other",
+                    "abv": 0
+                    })
+                print("Adding unknown IngredientBase: {}".format(ingredient["base"].encode('utf-8')))
+                base.save()
+                namesForBases[ingredient["base"]] = base
+                ingredient.update({"base": base})
+            else:
+                ingredient.update({"base": namesForBases[ingredient["base"]]})
+            ingredients.append(Ingredient(dictionary=ingredient))
+    if ingredients:
+        print "Found {} new ingredients.".format(len(ingredients))
+        for chunk in chunks(ingredients, max_batch_size):
+            ParseBatcher().batch_save(chunk)
+            print "Pushed {} ingredients.".format(len(chunk))
+
+    # Push brands.
+    brands = []
+    for base in new_bases:
+        for brand in base.get("brands", []):
+            brand.update({"base": namesForBases[base["name"]]})
+            brands.append(Brand(dictionary=brand))
+    if brands:
+        print "Found {} new brands.".format(len(brands))
+        for chunk in chunks(brands, max_batch_size):
+            ParseBatcher().batch_save(chunk)
+            print "Pushed {} brands.".format(len(chunk))
+
 
 if __name__ == "__main__":
     load_configurations()
@@ -91,5 +109,4 @@ if __name__ == "__main__":
     for base in new_bases:
         base['slug'] = slugify(base['name'])
 
-    dump_data_to_json(new_recipes, new_bases)
     sync_data_with_parse(new_recipes, new_bases)

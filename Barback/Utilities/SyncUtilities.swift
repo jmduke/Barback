@@ -59,25 +59,12 @@ func dataNeedsSyncing() -> Bool {
 }
 
 func syncNewData() {
-    let ingredientBases = IngredientBase.syncWithParse()
-    saveContext()
-    let recipes = Recipe.syncWithParse()
-    saveContext()
-    let ingredients = Ingredient.syncWithParse()
-    saveContext()
-    let brands = Brand.syncWithParse()
-    saveContext()
+    //let ingredientBases = IngredientBase.syncWithParse()
+    //let recipes = Recipe.syncWithParse()
+    //let ingredients = Ingredient.syncWithParse()
+    //let brands = Brand.syncWithParse()
     
     let latestDataVersion = PFConfig.getConfig()!.objectForKey(dataVersionKey) as! Int
-    setLatestDataVersion(latestDataVersion)
-    setLatestSyncDate(NSDate())
-}
-
-func syncDataFromJSON() {
-    let ingredients = IngredientBase.syncWithJSON()
-    let recipes = Recipe.syncWithJSON()
-    
-    let latestDataVersion = 0
     setLatestDataVersion(latestDataVersion)
     setLatestSyncDate(NSDate())
 }

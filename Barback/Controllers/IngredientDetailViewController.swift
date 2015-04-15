@@ -32,19 +32,18 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     var brands: [Brand] {
         get {
             let brands = ingredient.brands
-            let brandObjects = brands.allObjects as! [Brand]
-            return brandObjects.sorted({$0.price.intValue < $1.price.intValue}).filter({$0.isDead != true})
+            return brands.sorted({$0.price.intValue < $1.price.intValue})
         }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        self.ingredient = IngredientBase.forName("Gin")!
+        self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.ingredient = IngredientBase.forName("Gin")!
+        self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
@@ -194,7 +193,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     func setIngredientForController(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        recipes = Recipe.all().filter({ $0.usesIngredient(ingredient) }).sorted({ $0.name < $1.name })
+        recipes = Ingredient.all().filter({ $0.base == ingredient }).map({ $0.recipe }).sorted({ $0.name < $1.name })
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {

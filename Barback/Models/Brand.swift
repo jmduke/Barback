@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class Brand: StoredObject {
+class Brand: PFObject, PFSubclassing {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
@@ -22,24 +22,27 @@ class Brand: StoredObject {
             return "$\(price)"
         }
     }
-
-    class func forName(name: String) -> Brand? {
-        return managedContext().objectForName(Brand.self, name: name)
-    }
     
     class func all() -> [Brand] {
-        return managedContext().objects(Brand.self)!
+        return all(true)
     }
     
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Brand {
-        return managedContext().objectForDictionary(Brand.self, dictionary: valuesForKeys, checkForObject: checkForObject)
+    class func all(useLocal: Bool) -> [Brand] {
+        var allQuery = query()
+        allQuery.limit = 1000
+        if (useLocal) {
+            allQuery.fromLocalDatastore()
+        }
+        return allQuery.findObjects() as! [Brand]
     }
     
-    class func syncWithParse() -> [Brand] {
-        let brands = PFQuery.allObjectsSinceSync("Brand")
-        return brands.map({
-            (object: PFObject) -> Brand in
-            return Brand.fromAttributes(object.toDictionary(self.attributes()))
-        }) as [Brand]
+    class func parseClassName() -> String! {
+        return "Brand"
+    }
+
+    class func forName(name: String) -> Brand {
+        var nameQuery = query()
+        nameQuery.whereKey("name", equalTo: name)
+        return nameQuery.findObjects()![0] as! Brand
     }
 }

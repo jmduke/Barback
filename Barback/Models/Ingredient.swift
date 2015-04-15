@@ -10,19 +10,23 @@ import Foundation
 import CoreData
 import Parse
 
-class Ingredient: StoredObject {
+class Ingredient: PFObject, PFSubclassing {
 
     @NSManaged var amount: NSNumber
-    @NSManaged var objectId: String
     @NSManaged var label: String?
     
     @NSManaged var base: IngredientBase
+    
     @NSManaged var recipe: Recipe
 
     var lowercaseLabel: String? {
         return label?.lowercaseString
     }
     
+    class func parseClassName() -> String! {
+        return "Ingredient"
+    }
+
     var displayAmount: String {
         if amount.intValue > 0 {
             let metricAmount = amount
@@ -61,36 +65,18 @@ class Ingredient: StoredObject {
             return extraInformation
         }
     }
-  
-    class func syncWithParse() -> [Ingredient] {
-        let ingredients = PFQuery.allObjectsSinceSync("Ingredient")
-        return ingredients.map({
-            (object: PFObject) -> Ingredient in
-            return Ingredient.fromAttributes(object.toDictionary(self.attributes()))
-        }) as [Ingredient]
-    }
-    
     
     class func all() -> [Ingredient] {
-        return managedContext().objects(Ingredient.self)!
+        return all(true)
     }
     
-    class func fromAttributes(valuesForKeys: [NSObject : AnyObject], checkForObject: Bool = true) -> Ingredient {
-        var newIngredient = managedContext().objectForDictionary(Ingredient.self, dictionary: valuesForKeys, checkForObject: checkForObject)
-        
-        let baseName = valuesForKeys["base"] as! String
-        var ingredientBase: IngredientBase? = IngredientBase.forName(baseName)
-        if ingredientBase == nil {
-            ingredientBase = (NSEntityDescription.insertNewObjectForEntityForName("IngredientBase", inManagedObjectContext: managedContext()) as! IngredientBase)
-            ingredientBase!.name = valuesForKeys["base"] as! String
-            ingredientBase!.information = ""
-            ingredientBase!.type = "other"
-            ingredientBase!.abv = 0
+    class func all(useLocal: Bool) -> [Ingredient] {
+        var allQuery = query()
+        allQuery.limit = 1000
+        if (useLocal) {
+            allQuery.fromLocalDatastore()
         }
-        newIngredient.base = ingredientBase!
-        
-        return newIngredient
+        return allQuery.findObjects() as! [Ingredient]
     }
-    
 
 }
