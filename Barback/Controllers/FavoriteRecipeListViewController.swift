@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 class FavoriteRecipeListViewController: RecipeListViewController {
     
@@ -19,13 +20,13 @@ class FavoriteRecipeListViewController: RecipeListViewController {
     }
     
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return recipe.favorite
+        return contains(favoritedRecipes, recipe)
     }
     
     override func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
 
-        recipes = Recipe.all().filter(filterRecipes)
+        recipes = Recipe.all().filter(filterRecipes).sorted({ $0.name < $1.name })
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
         loadCoachMarks()
@@ -41,16 +42,24 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             tableView.backgroundView = nil
         }
         
-        
-        var shoppingListView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
-        var shoppingListButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
-        shoppingListButton.setTitle("Shopping List", forState: UIControlState.Normal)
-        shoppingListButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
-        shoppingListButton.addTarget(self, action: "showShoppingList", forControlEvents: UIControlEvents.TouchUpInside)
-        shoppingListView.addSubview(shoppingListButton)
-        tableView.tableFooterView = shoppingListView
+        if (!recipes.isEmpty) {
+            var shoppingListView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
+            var shoppingListButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
+            shoppingListButton.setTitle("Shopping List", forState: UIControlState.Normal)
+            shoppingListButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            shoppingListButton.addTarget(self, action: "showShoppingList", forControlEvents: UIControlEvents.TouchUpInside)
+            shoppingListView.addSubview(shoppingListButton)
+            tableView.tableFooterView = shoppingListView
+        }
         
         super.viewDidAppear(animated)
+        
+        if PFUser.currentUser() == nil {
+            print("no!!!")
+            let controller: AppLoginViewController = storyboard?.instantiateViewControllerWithIdentifier("loginViewController")! as! AppLoginViewController
+            navigationController?.pushViewController(controller, animated: true)
+            
+        }
     }
     
     func loadCoachMarks() {

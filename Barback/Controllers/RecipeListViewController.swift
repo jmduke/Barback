@@ -13,7 +13,7 @@ import UIKit
 class RecipeListViewController: UITableViewController {
     
     var viewTitle: String = ""
-    lazy var recipes: [Recipe] = Recipe.all().sorted({ $0.name < $1.name })
+    var recipes: [Recipe] = []
     
     override func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -28,7 +28,6 @@ class RecipeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleController()
-        recipes = Recipe.all().filter(filterRecipes)
     }
     
     override func styleController() {

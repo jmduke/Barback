@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Full Recipe List View Controller-->
@@ -614,6 +615,59 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3892" y="908"/>
+        </scene>
+        <!--App Login View Controller-->
+        <scene sceneID="OL8-jE-WOM">
+            <objects>
+                <viewController storyboardIdentifier="loginViewController" id="BRH-jo-ffM" customClass="AppLoginViewController" customModule="Barback" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Msm-0f-R8Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="qey-KX-lqT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zIM-2h-eHp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWS-RY-05s" userLabel="loginExplanationLabel" customClass="EmptyStateLabel" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="279" y="71" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Nc-0NB" userLabel="twitterLoginButton" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="277" y="165" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-qD-hnh" userLabel="facebookLoginButton" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="277" y="198" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="PNp-qD-hnh" secondAttribute="centerX" id="6nD-L3-YwJ"/>
+                            <constraint firstItem="c9p-Nc-0NB" firstAttribute="top" secondItem="vWS-RY-05s" secondAttribute="bottom" constant="40" id="9Hh-Qv-Tf6"/>
+                            <constraint firstAttribute="centerX" secondItem="vWS-RY-05s" secondAttribute="centerX" id="BJD-3s-rVM"/>
+                            <constraint firstItem="vWS-RY-05s" firstAttribute="leading" secondItem="zIM-2h-eHp" secondAttribute="leadingMargin" constant="20" id="EC0-rh-KUz"/>
+                            <constraint firstItem="vWS-RY-05s" firstAttribute="top" secondItem="Msm-0f-R8Z" secondAttribute="bottom" constant="100" id="J6d-gA-PeO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vWS-RY-05s" secondAttribute="trailing" constant="20" id="LGf-hE-c0T"/>
+                            <constraint firstItem="PNp-qD-hnh" firstAttribute="top" secondItem="c9p-Nc-0NB" secondAttribute="bottom" constant="20" id="LO1-ey-QI5"/>
+                            <constraint firstAttribute="centerX" secondItem="c9p-Nc-0NB" secondAttribute="centerX" id="cdA-oy-rAd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="facebookLoginButton" destination="PNp-qD-hnh" id="LNJ-US-Wfu"/>
+                        <outlet property="loginExplanationLabel" destination="vWS-RY-05s" id="Gjn-57-uQq"/>
+                        <outlet property="twitterLoginButton" destination="c9p-Nc-0NB" id="mDt-hO-X9S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYy-zz-Y8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4535" y="1021"/>
         </scene>
         <!--Favorite Recipe List View Controller-->
         <scene sceneID="MWD-dZ-zRQ">

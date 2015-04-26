@@ -72,6 +72,8 @@ class SearchRecipeListViewController: RecipeListViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        recipes = Recipe.all().filter(filterRecipes)
+        
         if possibleIngredients.isEmpty || recipes.count == 1 {
             viewingRecipes = true
         }
@@ -133,7 +135,6 @@ class SearchRecipeListViewController: RecipeListViewController {
         let destination: SearchRecipeListViewController = storyboard.instantiateViewControllerWithIdentifier("SearchRecipeListViewController") as! SearchRecipeListViewController
         destination.activeIngredients = activeIngredients
         destination.activeIngredients.append(ingredient)
-        destination.recipes = Recipe.all().filter(filterRecipes)
         self.navigationController?.pushViewController(destination, animated: true)
         
     }

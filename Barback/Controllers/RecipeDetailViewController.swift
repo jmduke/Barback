@@ -101,7 +101,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
             navigationController?.tabBarItem.title = "Random"
         }
         
-        favoriteButton.selected = recipe!.favorite
+        favoriteButton.selected = contains(favoritedRecipes, recipe!)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         nameLabel.text = recipe!.name
@@ -155,7 +155,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         performSegueWithIdentifier("similarRecipe", sender: nil)
     }
     
-    func markRecipeAsFavorite() {
+    func actuallyFavoriteRecipe() {
+        var favorite = Favorite()
+        favorite.user = PFUser.currentUser()!
+        favorite.recipe = recipe!
+        favorite.saveInBackground()
+        favoritedRecipes.append(recipe!)
         
         // Make the recipe's heart grow three sizes.
         UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
@@ -164,13 +169,28 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
                 (success: Bool) in
                 UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.favoriteButton.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                }, completion: nil)
+                    }, completion: nil)
         })
         
-        recipe!.isFavorited = !recipe!.favorite
         favoriteButton.selected = !favoriteButton.selected
+    }
+    
+    func markRecipeAsFavorite() {
         
-        PFCloud.callFunctionInBackground("incrementFavoritesForRecipe", withParameters: ["name": recipe!.name, "increment": recipe!.isFavorited], block: nil)
+        if PFUser.currentUser() == nil {
+            PFTwitterUtils.logInWithBlock({
+                (user, error) in
+                    if let user = user {
+                        self.actuallyFavoriteRecipe()
+                    }
+                })
+        } else if !favoriteButton.selected {
+            actuallyFavoriteRecipe()
+        } else {
+            favoriteButton.selected = !favoriteButton.selected
+            favoritedRecipes.removeAtIndex(find(favoritedRecipes, recipe!)!)
+            Favorite.deleteSilently(PFUser.currentUser()!, recipe: recipe!)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

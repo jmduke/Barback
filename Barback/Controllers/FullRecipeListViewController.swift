@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 enum SortingMethod: Int {
     case ABVDescending = 0
@@ -151,8 +152,32 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         
         if recipes.count == 0 {
             let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
-            emptyStateLabel.text = "Sorry, we can't get you recipes until you connect to the internet!"
+            emptyStateLabel.text = "Connect to the internet to grab recipes!"
             tableView.backgroundView = emptyStateLabel
+        }
+        
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+        
+        Async.background {
+            PFObject.unpinAll(Recipe.all(true))
+            PFObject.unpinAll(Ingredient.all(true))
+            PFObject.unpinAll(IngredientBase.all(true))
+            PFObject.unpinAll(Brand.all(true))
+            PFObject.unpinAll(Favorite.all(true))
+            PFObject.pinAll(Recipe.all(false))
+            PFObject.pinAll(Ingredient.all(false))
+            PFObject.pinAll(IngredientBase.all(false))
+            PFObject.pinAll(Brand.all(false))
+            PFObject.pinAll(Favorite.all(false))
+            Recipe.all().map({ $0.ingredients })
+            }.main {
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                self.recipes = Recipe.all().sorted({ $0.name < $1.name })
+                self.tableView.reloadData()
         }
     }
     

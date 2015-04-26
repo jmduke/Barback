@@ -1,11 +1,59 @@
+- name: Porch Swing
+  ingredients:
+  - 4.5cl Gin (Hendricks)
+  - 4.5cl Pimm's No. 1
+  - 12cl Lemonade
+  - 7-Up
+  - Cucumber (half-moon slices)
+  directions: "Pour gin, Pimm’s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices."
+  glassware: highball
+  information: "Straight-up (well, not literally) summertime.  This recipe comes to us from [smittenkitchen](http://smittenkitchen.com/blog/2010/07/porch-swing/), who credits [Porch Swing](http://www.bluesmoke.com/) with the original conception."
+- name: The Getaway
+  ingredients:
+  - 4.5cl Blackstrap rum
+  - 1.5cl Cynar
+  - 4.5cl Simple syrup
+  - 3cl Lemon juice
+  directions: Mix all ingredients in an old fashioned glass over ice; stir.
+  glassware: old fashioned
+  information: 'Comes from **Columbia Room** in Washington, D.C.'
+- name: The Second Year
+  ingredients:
+  - 6cl Rye
+  - 3cl Punt e Mes
+  - 1.5cl Cynar
+  - 3cl Honey syrup
+  garnish: Orange peel
+  glassware: old fashioned
+  directions: "Stir to combine, strain and serve over one big ice cube."
+  information: "Comes from **Gwynnett St.** in Brooklyn."
+- name: Obituary
+  glassware: martini
+  directions: Combine ingredients with ice and stir until well-chilled. Strain into a chilled cocktail glass.
+  information: 'The Obituary is an intriguing spin on a gin martini, probably getting its morbid name from the inclusion of absinthe (though a pastis like Pernod can be substituted). The result is a completely new drink; the introduction of an anise-y flavor highlights the aromatics already present in both gin and vermouth.'
+  ingredients:
+  - 6cl Gin
+  - 1cl Dry vermouth
+  - 1cl Absinthe
+- name: Intro to Aperol
+  garnish: Orange twist
+  glassware: cocktail
+  directions: 'Fill a cocktail shaker with 2 cups ice. Add Aperol. gin, lemon juice, Simple Syrup and Angostura bitters ; cover and shake until chilled. Strain.'
+  information: Audrey Saunders of Pegu Club in New York created this fruity and bittersweet drink to introduce customers to the flavor of Aperol.
+  ingredients:
+  - 6cl Aperol
+  - 3cl Gin (London dry)
+  - 2cl Lemon juice
+  - 1cl Simple syrup
+  - Angostura bitters (One dash)
 - name: Rye Smash
   garnish: Mint sprig
   glassware: old fashioned
   directions: 'In a shaker, muddle the mint, lemon, simple syrup and water. Add the rye and fill with ice.  Shake and strain into a rocks-filled glass.'
   ingredients:
-  - 1.5oz Rye
-  - 1oz Water
-  - .75oz Simple syrup
+  - 4.5cl Rye
+  - 3cl Water
+  - 2cl Simple syrup
   - Lemon wedges (Two)
   - Mint leaves (Two)
   information: 'Smashes are known for their refreshing quality -- generally heavy on fruit and ice compared to other classes of cocktail, giving them a certain flexibility: you can dress one up for a summer afternoon or an autumn night equally well.  *Imbibe* has a [great piece](http://imbibemagazine.com/history-of-the-smash/) on the history of the smash; for this Rye Smash, we recommend tinkering with the potency of the beverage to find your ideal level.'
@@ -14,27 +62,27 @@
   glassware: cocktail
   directions: 'Mix the Pisco, pineapple simple syrup, lime juice, and orange juice in a shaker. Add ice and shake for 30 seconds to chill. Serve strained in a glass with cracked ice and garnish with as much fruit as possible.'
   ingredients:
-  - 2oz Pisco
-  - 1oz Pineapple syrup
-  - 0.5oz Lime juice
-  - 0.5oz Orange juice
+  - 6cl Pisco
+  - 3cl Pineapple syrup
+  - 1.5cl Lime juice
+  - 1.5cl Orange juice
   information: "The Pisco Punch is considered a classic cocktail, crucial to the history of San Francisco. It was invented by Duncan Nicol at a bar named Bank Exchange at the end of the 19th century, in SF; the original recipe was so potent that one writer of the day wrote *it tastes like lemonade but comes back with the kick of a roped steer.*  The drink gained notoriety thanks to pieces written by travelers including Mark Twain and Harold Ross. In Rudyard Kipling's 1889 epic *From Sea to Sea*, he immortalized Pisco Punch as being *compounded of the shavings of cherub's wings, the glory of a tropical dawn, the red clouds of sunset and the fragments of lost epics by dead masters*."
 - name: Pisco Morado
   garnish: Orange peel
   glassware: cocktail
   directions: "Mix the Pisco, chicha morada base, juice of 1/2 a lime, and simple syrup in a shaker. Add ice and shake for 30 seconds to chill. Serve strained."
   ingredients:
-  - 2oz Pisco
-  - 1oz Chicha Morada base
+  - 6cl Pisco
+  - 3cl Chicha Morada base
   - Lime (half)
-  - 1oz Simple syrup
+  - 3cl Simple syrup
   information: "A cocktail with a distinctive taste and hue, due in no small part to the unique chicha base. Credit due to the fantastic [Pisco Trail](http://www.piscotrail.com/2012/10/31/cocktails/pisco-morado-purple-corn-pisco/), a great resource for the intersection of craft cocktails and Peruvian culture."
 - name: Chrysanthemum
   garnish: Orange peel
   glassware: cocktail
   directions: Shake well and strain into cocktail glass. Squeeze orange peel on top.
   ingredients:
-  - 3oz Vermouth (French)
+  - 3cl Vermouth (French)
   - amount: 1.5
     base: "B\xE9n\xE9dictine"
   - Absinthe (Three dashes)
@@ -44,9 +92,9 @@
   glassware: cocktail
   directions: "Shake the rye whiskey, lemon juice, orange juice, and grenadine with ice; then strain into a chilled cocktail glass."
   ingredients:
-  - 2oz Rye
-  - 0.5oz Lemon juice
-  - 0.5oz Orange juice
+  - 3cl Rye
+  - 1.5cl Lemon juice
+  - 1.5cl Orange juice
   - Grenadine (One teaspoon)
   information: "In 1898 Democratic political czar Martin M. Lomasney hoped to capture a seat in the state's legislature, the General Court of Massachusetts. Lomasney held considerable power in the city for nearly 50 years. The story goes that the drink was created to honor his election, and the city's Ward 8 which historically delivered him a winning margin.  (You're supposed to garnish it with a miniature Massachusetts flag, too -- but those are kinda hard to chase down.)"
 - name: Chilcano
@@ -55,10 +103,10 @@
   directions: "Mix the Pisco and juice of 1/2 a lime in a tall glass, add simple syrup if desired. Add 4 or more cubes of ice, and top off with ginger ale. Add 2 drops Angostura bitter, stir, and garnish."
   information: 'January 11-17 is officially Chilcano week in Peru; the drinks are generally enjoyed socially, in a similar context as lemonade (or, more aptly, G&Ts.)'
   ingredients:
-  - 2.5oz Pisco
+  - 7.5cl Pisco
   - Lime (half)
-  - 0.5oz Simple syrup
-  - 4oz Ginger ale
+  - 1.5cl Simple syrup
+  - 12cl Ginger ale
   - Angostura bitters (Two drops)
 - directions: Shake well and strain into cocktail glass.
   garnish: ''
@@ -66,8 +114,8 @@
   information: 'This cocktail is beloved at it''s namesake: the [Savoy Hotel](http://en.wikipedia.org/wiki/Savoy_Hotel)
     in London, where it was invented.'
   ingredients:
-  - 3oz Applejack (Can substitute Calvados)
-  - 3oz Sloe Gin
+  - 9cl Applejack (Can substitute Calvados)
+  - 9cl Sloe Gin
   name: Savoy Tango
 - directions: Add all ingredients to a shaker and shake without ice, add ice and shake
     vigorously, strain into glass.  Top with chilled soda.
@@ -76,9 +124,9 @@
   information: This delightful drink was originally concoted by the infamous Charles
     Baker for the Astor House Hotel.  (You may have deduced this from the name.)
   ingredients:
-  - 6oz Cognac
-  - 2oz Lemon juice
-  - 2oz Maraschino
+  - 6cl Cognac
+  - 2cl Lemon juice
+  - 2cl Maraschino
   - Egg white (One egg)
   - Absinthe (Rinse)
   name: Astor Hotel Special
@@ -94,8 +142,8 @@
     Gimlet is just as well known as our Martini here.* ~ Charles H. Baker, [The Gentlemen''''s
     Companion](http://www.amazon.com/gp/product/1614273960?ie=UTF8&camp=1789&creativeASIN=1614273960&linkCode=xm2&tag=barback-20)'
   ingredients:
-  - 6oz Gin
-  - 1.5oz Lime juice
+  - 6cl Gin
+  - 1.5cl Lime juice
   name: Gimlet
 - directions: 'Make a large lemon twist, rub it on the glass rim, drop it into the
     glass. Stir first two ingredients with ice. Strain into a glass. Top with beer
@@ -107,10 +155,10 @@
     at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies
     are considered warm-weather drinks.
   ingredients:
-  - 9oz Beer (Barrel aged IPA)
-  - 6oz Sparkling wine
-  - 1.5oz Simple syrup
-  - 4.5oz Dark rum (Gold)
+  - 9cl Beer (Barrel aged IPA)
+  - 6cl Sparkling wine
+  - 1.5cl Simple syrup
+  - 4.5cl Dark rum (Gold)
   name: Field & Cellar
 - directions: Stir first 3 ingredients with ice. Strain into a glass. Top with beer.
   glassware: highball
@@ -119,9 +167,9 @@
     are considered warm-weather drinks.
   ingredients:
   - Angostura bitters (One dash)
-  - 3oz Vodka
-  - 0.5oz Simple syrup (Saffron)
-  - 9oz Beer (Barrel aged IPA)
+  - 3cl Vodka
+  - 0.5cl Simple syrup (Saffron)
+  - 9cl Beer (Barrel aged IPA)
   name: Samsara
 - directions: Shake first 3 ingredients with ice. Strain into a glass. Top with beer.
     Garnish with a lime wheel.
@@ -131,10 +179,10 @@
     at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies
     are considered warm-weather drinks.
   ingredients:
-  - 2.5oz Lime juice
-  - 1oz Simple syrup
-  - 3oz Rye
-  - 9oz Beer (Barrel aged IPA)
+  - 2.5cl Lime juice
+  - 1cl Simple syrup
+  - 3cl Rye
+  - 9cl Beer (Barrel aged IPA)
   name: Draughtsman
 - directions: Stir long and well with ice in a mixing glass and strain into a cocktail
     glass.
@@ -144,15 +192,15 @@
     this drink is a darker cousin of the Negroni -- having subtituted bourbon for
     gin.
   ingredients:
-  - 2oz Sweet vermouth
-  - 2oz Campari
-  - 3oz Bourbon
+  - 2cl Sweet vermouth
+  - 2cl Campari
+  - 3cl Bourbon
   name: Boulevardier
 - directions: Mix all ingredients in an old fashioned glass over ice; stir.
   glassware: old fashioned
   ingredients:
-  - 3oz Rye
-  - 3oz Cognac
+  - 3cl Rye
+  - 3cl Cognac
   - amount: 3
     base: Vermouth
     label: Sweet

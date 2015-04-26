@@ -22,7 +22,6 @@ class ShoppingListViewController: RecipeListViewController {
     }
     
     var ingredientTypes: [IngredientType] = [IngredientType]()
-    var favoritedRecipes: [Recipe] = []
     
     override var viewTitle: String {
         get {
@@ -47,7 +46,7 @@ class ShoppingListViewController: RecipeListViewController {
     
     func setIngredientsForController(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
-        favoritedRecipes = Recipe.all().filter({ $0.favorite })
+        recipes = Recipe.favorites()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
