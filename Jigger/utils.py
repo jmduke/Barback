@@ -11,7 +11,7 @@ def convert_ingredient_to_dict(ingredient):
 
     parsed_ingredient = {}
 
-    splits = ingredient.split("oz")
+    splits = ingredient.split("cl")
     if len(splits) > 1:
         parsed_ingredient["amount"] = float(splits[0])
         splits = splits[1:]

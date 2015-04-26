@@ -75,16 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
     func finalizeAppSetup() {
         markAppAsLaunched()
-        updateVersionOfApp()
-        
-        // Set some random recipes to be favorites.
-        let initialNumberOfFavoritedRecipes = 3
-        for _ in 1...initialNumberOfFavoritedRecipes {
-            var randomRecipe = Recipe.random()
-            randomRecipe.favorite = true
-        }
-        
-        
+        updateVersionOfApp()        
         enableAppInteraction()
     }
     
@@ -168,19 +159,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Ingredient.registerSubclass()
         IngredientBase.registerSubclass()
         Brand.registerSubclass()
+        Favorite.registerSubclass()
         Parse.enableLocalDatastore()
         Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
         
+        // Allow Twitter login.
+        let twitterConsumerKey = privateKeys["twitterConsumerKey"]! as! String
+        let twitterConsumerSecret = privateKeys["twitterConsumerSecret"]! as! String
+        PFTwitterUtils.initializeWithConsumerKey(twitterConsumerKey,
+            consumerSecret:twitterConsumerSecret)
         
-        PFObject.unpinAll(Recipe.all(true))
-        PFObject.unpinAll(Ingredient.all(true))
-        PFObject.unpinAll(IngredientBase.all(true))
-        PFObject.unpinAll(Brand.all(true))
-        PFObject.pinAll(Recipe.all(false))
-        PFObject.pinAll(Ingredient.all(false))
-        PFObject.pinAll(IngredientBase.all(false))
-        PFObject.pinAll(Brand.all(false))
         
         // Initialize Appirater.
         Appirater.setAppId("829469529")

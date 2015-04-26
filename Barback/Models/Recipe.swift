@@ -26,7 +26,7 @@ public class Recipe: PFObject, PFSubclassing {
     }
     
     lazy var ingredients: [Ingredient] = {
-        return (Ingredient.query().fromLocalDatastore().includeKey("base").whereKey("recipe", equalTo: self).findObjects() ?? Ingredient.query().includeKey("base").whereKey("recipe", equalTo: self).findObjects()) as! [Ingredient]
+        ingredientsForRecipes[self]!
     }()
     
     var parsedGarnishes: [Garnish] {
@@ -36,16 +36,6 @@ public class Recipe: PFObject, PFSubclassing {
     }
     
     @NSManaged var isNew: Bool
-    
-    @NSManaged var isFavorited: NSNumber
-    // Core Data won't let us store a bool so we use this (and isFavorited as a backend.)
-    var favorite: Bool {
-        get {
-            return isFavorited as! Bool
-        } set {
-            isFavorited = NSNumber(bool: newValue)
-        }
-    }
     
     var url: NSURL {
         return externalUrl!.URLByAppendingPathComponent("recipe/\(slug!)")
@@ -158,5 +148,15 @@ public class Recipe: PFObject, PFSubclassing {
         var nameQuery = query()
         nameQuery.whereKey("name", equalTo: name)
         return nameQuery.findObjects()![0] as! Recipe
+    }
+    
+    class func favorites() -> [Recipe] {
+        if let user = PFUser.currentUser() {
+            var favoriteQuery = Favorite.query().fromLocalDatastore()
+            favoriteQuery.whereKey("user", equalTo: user)
+            let favorites = favoriteQuery.findObjects() as! [Favorite]
+            return favorites.map({ $0.recipe })
+        }
+        return []
     }
 }

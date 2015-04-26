@@ -12,14 +12,18 @@ class EmptyStateLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        styleLabel()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        styleLabel()
+    }
+    
+    func styleLabel() {
         textAlignment = NSTextAlignment.Center
         textColor = Color.Lighter.toUIColor()
         numberOfLines = 3
         font = UIFont(name: UIFont.primaryFont(), size: 24)
-    }
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }
