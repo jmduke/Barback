@@ -228,28 +228,28 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func loadCoachMarks() {
-        var coachMarks = [NSDictionary]()
+        var coachMarks = [CoachMark]()
         
         if (isRandom != nil) {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
             let shakeCaption = "Don't like this one?  Shake the phone or press the button in the top left corner for a new recipe."
             
-            let coachMark = ["rect": NSValue(CGRect: shakePosition), "caption": shakeCaption]
+            let coachMark = CoachMark(rect: shakePosition, caption: shakeCaption)
             coachMarks.append(coachMark)
         }
         
         let directionsPosition = directionsTextView.frame
         let directionsCaption = "Simple instructions on making your drinks."
-        coachMarks.append(["rect": NSValue(CGRect: directionsPosition), "caption": directionsCaption])
+        coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
         
         let ingredientsPosition = ingredientsTableView.frame
         let ingredientsCaption = "Tap an ingredient to learn more about it."
-        coachMarks.append(["rect": NSValue(CGRect: ingredientsPosition), "caption": ingredientsCaption])
+        coachMarks.append(CoachMark(rect: ingredientsPosition, caption: ingredientsCaption))
         
         var favoritePosition = favoriteButton.frame
         let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
-        coachMarks.append(["rect": NSValue(CGRect: favoritePosition), "caption": favoriteCaption])
+        coachMarks.append(CoachMark(rect: favoritePosition, caption: favoriteCaption))
         
         runCoachMarks(coachMarks)
     }
