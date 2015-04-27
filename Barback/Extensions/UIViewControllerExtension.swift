@@ -11,16 +11,18 @@ import UIKit
 
 extension UIViewController {
     
-    func runCoachMarks(coachMarks: [AnyObject]) {
+    func runCoachMarks(coachMarks: [CoachMark]) {
         
-        let caption = (coachMarks[0] as! NSDictionary)["caption"] as! NSString
+        let caption = coachMarks[0].caption
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
         
         if (!haveCoachMarksBeenShown) {
-            
-            let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: coachMarks)
+            var parsedCoachMarks: [Dictionary] = coachMarks.map {
+                ["rect": NSValue(CGRect: $0.rect), "caption": $0.caption]
+            }
+            let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: parsedCoachMarks)
             coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: 20)
             view.addSubview(coachMarksView)
             coachMarksView.start()
