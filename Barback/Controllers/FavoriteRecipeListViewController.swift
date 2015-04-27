@@ -29,8 +29,6 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         recipes = Recipe.all().filter(filterRecipes).sorted({ $0.name < $1.name })
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
         
-        loadCoachMarks()
-        
         // Load empty state view if necessary.
         if tableView(tableView, numberOfRowsInSection: 1) == 0 {
             
@@ -52,6 +50,8 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             tableView.tableFooterView = shoppingListView
         }
         
+        loadCoachMarks()
+        
         super.viewDidAppear(animated)
         
         if PFUser.currentUser() == nil {
@@ -70,7 +70,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         let favoritePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0))).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)))
         let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"
         
-        let shoppingListPosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: recipes.count, inSection: 0))
+        let shoppingListPosition = tableView.tableFooterView!.frame
         let shoppingListCaption = "We can make you a shopping list with all the ingredients you need to make them, too."
         
         let coachMarks = [CoachMark(rect: favoritePosition, caption: favoriteCaption), CoachMark(rect: shoppingListPosition, caption: shoppingListCaption)]
