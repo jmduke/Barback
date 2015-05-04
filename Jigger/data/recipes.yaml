@@ -1,3 +1,52 @@
+- name: Hanky Panky
+  ingredients:
+  - 4.5cl Gin
+  - 4.5cl Sweet vermouth
+  - Fernet-Branca (two dashes)
+  garnish: Orange peel
+  directions: "Combine ingredients in a mixing glass and fill with ice. Stir well for 20 seconds and strain into chilled cocktail glass."
+  glassware: cocktail
+  information: "The Hanky Panky originated at the American Bar at the Savoy Hotel in London in the early 20th century. Developed by head bartender Ada Coleman, the Hanky Panky matches Fernet-Branca's distinctive character with the botanicals found in gin and sweet vermouth to create a rich blend of flavors--a blend that lets the pushy liqueur remind you of its better side."
+- name: Decolletage
+  ingredients:
+  - 4.5cl Tequila (Reposado)
+  - 3cl Dubonnet Rouge
+  - 1.5cl Aperol
+  - 1cl Fernet-Branca
+  garnish: Orange twist
+  directions: Stir over ice and strain into an ice-filled glass.
+  glassware: old fashioned
+  information: "This recipe from Chris Hannah of French 75 Bar in New Orleans was chosen as one of the 101 Best New Cocktails to be included in Gaz Regan's 2011 Annual Manual for Bartenders. It's fragrant and slightly mentholated, with hints of sweet orange and cinnamony spice. Not for the timid, but seductive all the same."
+- name: Toronto
+  ingredients:
+  - 6cl Rye
+  - 1cl Fernet-Branca
+  - 1cl Simple syrup
+  - Angostura bitters (Two dashes)
+  garnish: Orange peel
+  glassware: cocktail
+  directions: "Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice. Stir for 20 seconds and strain into chilled cocktail glass."
+  information: "Here's a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening."
+- name: Eeyore's Requiem
+  glassware: coupe
+  directions: "Fill a mixing glass with ice, add Campari, Tanqueray, Cynar, Fernet, vermouth, and bitters. Stir until well chilled and strain into serving glass."
+  information: "If you sat around naming all the bitter ingredients in your liquor cabinet, you might come close to the formula for this Anti-Valentine's Day tipple. Eeyore's Requiem, invented by Toby Maloney of Chicago's Violet Hour, starts with Campari, then adds a dose of Fernet-Branca, which is made with gentian, chamomile, bitter orange, myhrr, and saffron, among other things. Not bitter enough for your cynical heart? Maloney takes your Fernet and your Campari and raises you a quarter ounce of artichoke-and-herb based Cynar."
+  ingredients:
+  - 4.5cl Campari
+  - 1.5cl Gin
+  - .5cl Cynar
+  - .5cl Fernet-Branca
+  - 3cl Vermouth (Blanc)
+  - "Orange bitters (Fifteen drops.  Yes, fifteen.)"
+  garnish: Orange twist
+- name: Fanciulli
+  glassware: cocktail
+  directions: 'Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice. Stir until outside of mixing glass is very cold to touch, about 15 seconds.'
+  information: "The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn't. It's a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for 'our boys'."
+  ingredients:
+  - 4.5cl Bourbon (or Rye)
+  - 2cl Sweet vermouth
+  - 1cl Fernet-Branca
 - name: Porch Swing
   ingredients:
   - 4.5cl Gin (Hendricks)
