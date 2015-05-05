@@ -334,3 +334,12 @@ h4 a {
 .closebutton {
   cursor: pointer;
 }
+
+.quietlink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.quietlink:hover {
+  border: none;
+}
