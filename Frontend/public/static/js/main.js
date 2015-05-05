@@ -10,6 +10,19 @@ container.isotope({
     }
   }
 });
+
+/* Hide jumbotron and keep track of it via cookie. */
+var jumbotronCookieName = "jumbotronCookie";
+if (Cookies.get(jumbotronCookieName)) {
+  $('.closebutton').parent().hide();
+} else {
+  $('.closebutton').parent().slideDown();
+}
+$('.closebutton').click(function(el) {
+  $(this).parent().slideUp();
+  Cookies.set(jumbotronCookieName, true);
+});
+
 $("h4 a").click(function(event) {
   event.preventDefault();
   var container = $('.recipes');
