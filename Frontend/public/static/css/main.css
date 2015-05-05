@@ -217,6 +217,8 @@ hr {
 .jumbotron {
     background-color: #2B3A42;
     color: #fff;
+    position: relative;
+    display: none; 
 }
 
 .btn-primary, .btn-primary:hover {
@@ -321,4 +323,14 @@ h4 a {
   height: 200px;
   margin: auto;
   margin-top: 2em;
+}
+
+.topright {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.closebutton {
+  cursor: pointer;
 }
