@@ -14,15 +14,7 @@ func isFirstTimeAppLaunched() -> Bool {
 }
 
 func isAppSyncedThisLaunch() -> Bool {
-    return !NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
-}
-
-func isNewVersionOfApp() -> Bool {
-    return !(NSUserDefaults.standardUserDefaults().stringForKey(appVersionKey) == currentAppVersion)
-}
-
-func getLatestDataVersion() -> Int {
-    return NSUserDefaults.standardUserDefaults().integerForKey(dataVersionKey)
+    return NSUserDefaults.standardUserDefaults().boolForKey(syncedThisLaunchKey)
 }
 
 func updateVersionOfApp() {
@@ -40,33 +32,10 @@ func setAppSyncedThisLaunch() {
     NSUserDefaults.standardUserDefaults().synchronize()
 }
 
-func setLatestDataVersion(dataVersion: Int) {
-    NSUserDefaults.standardUserDefaults().setInteger(dataVersion, forKey: dataVersionKey)
-    NSUserDefaults.standardUserDefaults().synchronize()
-}
-
-func setLatestSyncDate(date: NSDate) {
-    let dateString = NSDateFormatter.localizedStringFromDate(date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-    NSUserDefaults.standardUserDefaults().setObject(dateString, forKey:syncDateKey)
-    NSUserDefaults.standardUserDefaults().synchronize()
-    
-}
-
 func dataNeedsSyncing() -> Bool {
     let config = PFConfig.getConfig()
     let dataVersion = config?.objectForKey(dataVersionKey) as! Int
     return false
-}
-
-func syncNewData() {
-    //let ingredientBases = IngredientBase.syncWithParse()
-    //let recipes = Recipe.syncWithParse()
-    //let ingredients = Ingredient.syncWithParse()
-    //let brands = Brand.syncWithParse()
-    
-    let latestDataVersion = PFConfig.getConfig()!.objectForKey(dataVersionKey) as! Int
-    setLatestDataVersion(latestDataVersion)
-    setLatestSyncDate(NSDate())
 }
 
 func markAppAsLaunched() {

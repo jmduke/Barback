@@ -22,6 +22,41 @@ func isConnectedToInternet() -> Bool {
     return networkStatus.rawValue != notReachableStatus
 }
 
+var privateKeys: NSDictionary = {
+    let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
+    return NSDictionary(contentsOfFile: keychain!)!
+    }()
+
+func initializeDependencies(launchOptions: NSDictionary?) {
+    // Initialize Parse.
+    let parseApplicationId = privateKeys["parseApplicationId"]! as! String
+    let parseClientKey = privateKeys["parseClientKey"]! as! String
+    ParseCrashReporting.enable()
+    Ingredient.registerSubclass()
+    IngredientBase.registerSubclass()
+    Brand.registerSubclass()
+    Favorite.registerSubclass()
+    Parse.enableLocalDatastore()
+    Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
+    PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
+    
+    // Allow Twitter login.
+    let twitterConsumerKey = privateKeys["twitterConsumerKey"]! as! String
+    let twitterConsumerSecret = privateKeys["twitterConsumerSecret"]! as! String
+    PFTwitterUtils.initializeWithConsumerKey(twitterConsumerKey,
+        consumerSecret:twitterConsumerSecret)
+    
+    
+    // Initialize Appirater.
+    Appirater.setAppId("829469529")
+    Appirater.setDaysUntilPrompt(7)
+    Appirater.setUsesUntilPrompt(5)
+    Appirater.setSignificantEventsUntilPrompt(-1)
+    Appirater.setTimeBeforeReminding(2)
+    Appirater.setDebug(false)
+    Appirater.appLaunched(true)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -53,11 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return items
         }
     }
-    
-    var privateKeys: NSDictionary = {
-        let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
-        return NSDictionary(contentsOfFile: keychain!)!
-    }()
     
     // Needed to access UITabBarIcons.
     var window: UIWindow?
@@ -148,37 +178,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 tabBarItems[3].image = BezierImage.Random.path().toImageWithStrokeColor(imageColor, fillColor: nil)
             }
         }
-    }
-
-    func initializeDependencies(launchOptions: NSDictionary?) {
-        // Initialize Parse.
-        let parseApplicationId = privateKeys["parseApplicationId"]! as! String
-        let parseClientKey = privateKeys["parseClientKey"]! as! String
-        ParseCrashReporting.enable()
-        Recipe.registerSubclass()
-        Ingredient.registerSubclass()
-        IngredientBase.registerSubclass()
-        Brand.registerSubclass()
-        Favorite.registerSubclass()
-        Parse.enableLocalDatastore()
-        Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
-        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
-        
-        // Allow Twitter login.
-        let twitterConsumerKey = privateKeys["twitterConsumerKey"]! as! String
-        let twitterConsumerSecret = privateKeys["twitterConsumerSecret"]! as! String
-        PFTwitterUtils.initializeWithConsumerKey(twitterConsumerKey,
-            consumerSecret:twitterConsumerSecret)
-        
-        
-        // Initialize Appirater.
-        Appirater.setAppId("829469529")
-        Appirater.setDaysUntilPrompt(7)
-        Appirater.setUsesUntilPrompt(5)
-        Appirater.setSignificantEventsUntilPrompt(-1)
-        Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(false)
-        Appirater.appLaunched(true)
     }
 
 }

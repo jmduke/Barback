@@ -17,12 +17,16 @@ public class Recipe: PFObject, PFSubclassing {
     @NSManaged var directions: String
     @NSManaged var glassware: String
     @NSManaged var garnish: String?
-    @NSManaged var name: String
+    @NSManaged public var name: String
     @NSManaged var slug: String?
     @NSManaged var information: String?
     
     public class func parseClassName() -> String! {
         return "Recipe"
+    }
+    
+    override public class func initialize() {
+        registerSubclass()
     }
     
     lazy var ingredients: [Ingredient] = {
@@ -125,11 +129,11 @@ public class Recipe: PFObject, PFSubclassing {
         return chosenRecipes
     }
     
-    class func all() -> [Recipe] {
+    class public func all() -> [Recipe] {
         return all(true)
     }
     
-    class func all(useLocal: Bool) -> [Recipe] {
+    class public func all(useLocal: Bool) -> [Recipe] {
         var allQuery = query()
         allQuery.limit = 1000
         if (useLocal) {

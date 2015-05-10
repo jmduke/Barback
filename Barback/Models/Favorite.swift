@@ -18,11 +18,15 @@ public class Favorite: PFObject, PFSubclassing {
         return "Favorite"
     }
     
-    class func all() -> [Favorite] {
+    override public class func initialize() {
+        registerSubclass()
+    }
+    
+    public class func all() -> [Favorite] {
         return all(true)
     }
     
-    class func all(useLocal: Bool) -> [Favorite] {
+    public class func all(useLocal: Bool) -> [Favorite] {
         var allQuery = query()
         allQuery.limit = 1000
         if (useLocal) {

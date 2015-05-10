@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class Brand: PFObject, PFSubclassing {
+public class Brand: PFObject, PFSubclassing {
 
     @NSManaged var name: String
     @NSManaged var price: NSNumber
@@ -23,11 +23,15 @@ class Brand: PFObject, PFSubclassing {
         }
     }
     
-    class func all() -> [Brand] {
+    override public class func initialize() {
+        registerSubclass()
+    }
+    
+    public class func all() -> [Brand] {
         return all(true)
     }
     
-    class func all(useLocal: Bool) -> [Brand] {
+    public class func all(useLocal: Bool) -> [Brand] {
         var allQuery = query()
         allQuery.limit = 1000
         if (useLocal) {
@@ -36,7 +40,7 @@ class Brand: PFObject, PFSubclassing {
         return allQuery.findObjects() as! [Brand]
     }
     
-    class func parseClassName() -> String! {
+    public class func parseClassName() -> String! {
         return "Brand"
     }
 
