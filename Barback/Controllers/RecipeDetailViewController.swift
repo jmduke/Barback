@@ -10,7 +10,7 @@ import Parse
 import Social
 import UIKit
 
-class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var recipe: Recipe? {
     willSet {
@@ -28,11 +28,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     var sortedIngredients: [Ingredient]?
     
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
-    @IBOutlet weak var directionsTextView: DescriptionTextView!
-    @IBOutlet var nameLabel: HeaderLabel!
-    @IBOutlet weak var subheadLabel: UILabel!
-    @IBOutlet weak var informationLabel: DescriptionTextView!
-    @IBOutlet var ingredientsTableView : UITableView!
+    @IBOutlet public weak var directionsTextView: DescriptionTextView!
+    @IBOutlet public var nameLabel: HeaderLabel!
+    @IBOutlet public weak var subheadLabel: UILabel!
+    @IBOutlet public weak var informationLabel: DescriptionTextView!
+    @IBOutlet public var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
@@ -66,7 +66,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         let shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
@@ -144,7 +144,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent)  {
+    override public func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent)  {
         if (motion == UIEventSubtype.MotionShake && isRandom != nil) {
             findNewRecipe()
         }
@@ -193,13 +193,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         ingredientsTableView.reloadData()
         similarDrinksTableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool)  {
+    override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         
         // Note that this will not grab random recipes.
@@ -208,7 +208,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         loadCoachMarks()
     }
     
-    override func viewDidLayoutSubviews()  {
+    override public func viewDidLayoutSubviews()  {
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
         
@@ -254,12 +254,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         runCoachMarks(coachMarks)
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == ingredientsTableView) {
             return recipe!.ingredients.count
         } else {
@@ -267,7 +267,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         if (tableView == ingredientsTableView) {
             let cellIdentifier = "ingredientCell"
@@ -283,8 +283,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         return cell!
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == ingredientsTableView {
             performSegueWithIdentifier("ingredientDetail", sender: nil)
         } else {
@@ -292,14 +292,15 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func setRecipeForController(recipe: Recipe?) {
+    // Named kinda clumsily because of an ObjC conflict.
+    public func setRecipeAs(recipe: Recipe?) {
         self.recipe = recipe
 
         // Disallow shake gestures.
         resignFirstResponder()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if segue!.identifier == "ingredientDetail" {
             let destination = segue!.destinationViewController as! IngredientDetailViewController
             var ingredient = getSelectedIngredient()
@@ -307,7 +308,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             var destinationController = getRecipeDetailController(segue)
             var recipe = getSelectedRecipe()
-            destinationController.setRecipeForController(recipe)
+            destinationController.setRecipeAs(recipe)
         }
     }
     

@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let recipe = Recipe.forName(recipeName)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
-                    controller.setRecipeForController(recipe)
+                    controller.setRecipeAs(recipe)
 
                     let tabBarController = self.window?.rootViewController as! UITabBarController
                     let navController = tabBarController.selectedViewController as! UINavigationController

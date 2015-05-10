@@ -103,7 +103,7 @@ public class RecipeListViewController: UITableViewController {
         
         var recipe = getSelectedRecipe()
         
-        destinationController.setRecipeForController(recipe)
+        destinationController.setRecipeAs(recipe)
         UIApplication.sharedApplication().statusBarHidden = false
     }
     
