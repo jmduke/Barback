@@ -13,13 +13,12 @@ import Parse
 
 public class Recipe: PFObject, PFSubclassing {
 
-    @NSManaged var detail: String
-    @NSManaged var directions: String
-    @NSManaged var glassware: String
-    @NSManaged var garnish: String?
+    @NSManaged public var directions: String
+    @NSManaged public var glassware: String
+    @NSManaged public var garnish: String?
     @NSManaged public var name: String
     @NSManaged var slug: String?
-    @NSManaged var information: String?
+    @NSManaged public var information: String?
     
     public class func parseClassName() -> String! {
         return "Recipe"
@@ -29,7 +28,7 @@ public class Recipe: PFObject, PFSubclassing {
         registerSubclass()
     }
     
-    lazy var ingredients: [Ingredient] = {
+    lazy public var ingredients: [Ingredient] = {
         ingredientsForRecipes[self]!
     }()
     
@@ -63,7 +62,7 @@ public class Recipe: PFObject, PFSubclassing {
         }
     }
     
-    lazy var abv: Float = {
+    lazy public var abv: Float = {
         let amounts = self.ingredients.map({ Int($0.amount.intValue ?? 0) }) as [Int]
         let denominator = amounts.reduce(0, combine: +) as Int
         let numerator = (self.ingredients.map({

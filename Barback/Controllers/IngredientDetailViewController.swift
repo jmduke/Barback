@@ -8,19 +8,19 @@
 
 import UIKit
 
-class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var ingredientDiagramView: IngredientDiagramView!
-    @IBOutlet var ingredientNameLabel : HeaderLabel!
+    @IBOutlet public var ingredientNameLabel : HeaderLabel!
     @IBOutlet var brandTableLabel : UILabel!
-    @IBOutlet var ingredientAbvLabel: DescriptionLabel!
+    @IBOutlet public var ingredientAbvLabel: DescriptionLabel!
     @IBOutlet var drinksTableLabel : UILabel!
-    @IBOutlet var brandsTableView : UITableView!
+    @IBOutlet public var brandsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
-    @IBOutlet var drinksTableView : UITableView!
+    @IBOutlet public var drinksTableView : UITableView!
     @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
-    @IBOutlet var ingredientDescriptionView: DescriptionTextView!
+    @IBOutlet public var ingredientDescriptionView: DescriptionTextView!
     
     @IBOutlet weak var wikipediaButton: SimpleButton!
     @IBOutlet weak var cocktailDBButton: SimpleButton!
@@ -42,12 +42,12 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         self.ingredient = IngredientBase()
         self.recipes = [Recipe]()
         super.init(coder: aDecoder)
     }
-    
+  public   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.drinksTableView) {
             return recipes.count
@@ -57,7 +57,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         var cellIdentifier: String
         var primaryText: String
@@ -89,7 +89,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         return cell!
     }
     
-    override func viewDidLayoutSubviews()  {
+    override public func viewDidLayoutSubviews()  {
         
         if (brandTableViewHeight != nil) {
             let correctBrandsHeight = brandsTableView.contentSize.height
@@ -103,7 +103,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         view.layoutIfNeeded()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         if let color = ingredient.color {
@@ -186,20 +186,20 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func setIngredientForController(ingredient: IngredientBase) {
+    public func setIngredientForController(ingredient: IngredientBase) {
         self.ingredient = ingredient
-        recipes = Ingredient.all().filter({ $0.base == ingredient }).map({ $0.recipe }).sorted({ $0.name < $1.name })
+        recipes = ingredient.uses.map({ $0.recipe })
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         var destinationController = getRecipeDetailController(segue)
         var recipe = getSelectedRecipe()
-        destinationController.setRecipeForController(recipe)
+        destinationController.setRecipeAs(recipe)
     }
     
     func getSelectedRecipe() -> Recipe {
@@ -208,7 +208,7 @@ class IngredientDetailViewController: UIViewController, UITableViewDelegate, UIT
         return recipes[rowIndex!]
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == drinksTableView {
             performSegueWithIdentifier("recipeDetail", sender: nil)
         } else if tableView == brandsTableView {            

@@ -12,12 +12,12 @@ import Parse
 
 public class Ingredient: PFObject, PFSubclassing {
 
-    @NSManaged var amount: NSNumber
-    @NSManaged var label: String?
+    @NSManaged public var amount: NSNumber
+    @NSManaged public var label: String?
     
-    @NSManaged var base: IngredientBase
-    
-    @NSManaged var recipe: Recipe
+    // Technically foreign keys.
+    @NSManaged public var base: IngredientBase
+    @NSManaged public var recipe: Recipe
 
     var lowercaseLabel: String? {
         return label?.lowercaseString

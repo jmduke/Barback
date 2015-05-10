@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class HeaderLabel : UILabel {
+public class HeaderLabel : UILabel {
     
     // It is so stupid that I need the below constructors.
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         styleLabel()
     }

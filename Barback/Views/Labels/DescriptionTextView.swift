@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DescriptionTextView : UITextView {
+public class DescriptionTextView : UITextView {
     
     var markdownText: NSString? {
         didSet {
@@ -22,16 +22,16 @@ class DescriptionTextView : UITextView {
         }
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         styleLabel()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
     }
     

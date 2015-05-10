@@ -12,14 +12,17 @@ import Parse
 
 public class IngredientBase: PFObject, PFSubclassing {
 
-    @NSManaged var information: String
-    @NSManaged var name: String
+    @NSManaged public var information: String
+    @NSManaged public var name: String
     @NSManaged var slug: String
     @NSManaged var type: String
     @NSManaged var cocktaildb: String?
-    @NSManaged var abv: NSNumber
-    @NSManaged var uses: NSSet
+    @NSManaged public var abv: NSNumber
     @NSManaged var color: String?
+    
+    public var uses: [Ingredient] {
+        return Ingredient.all().filter({ $0.base == self })
+    }
     
     var uiColor: UIColor {
         get {
