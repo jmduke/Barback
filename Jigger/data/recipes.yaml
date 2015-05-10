@@ -1,3 +1,32 @@
+- name: Kentucky River
+  ingredients: 
+  - "0.5cl Cr\xE9me liqueur"
+  - 6cl Bourbon
+  - Peach bitters (Three dashes)
+  garnish: Orange twist
+  directions: Build in glass with a large ice cube and then lightly stir to desired temperature.
+  glassware: old fashioned
+  information: "Found in [Just Cocktails](http://www.amazon.com/Just-Cocktails-Bartenders-Illustrated-Engage/dp/1927970016&tag=barback-20), a mainstay cocktail book from the 30's.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors."
+- name: 20th Century
+  ingredients:
+  - 4.5cl Gin
+  - 2cl Lillet
+  - 2cl Cr\xE9me liqueur
+  - 2cl Lemon juice
+  garnish: "Lemon twist"
+  directions: "Shake in an iced cocktail shaker, and strain into a cocktail glass. Garnish with a lemon twist."
+  glassware: cocktail
+  information: "Created in 1937 by a British bartender named C.A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Café Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Café Royal."
+- name: Coney Island
+  ingredients: 
+  - 6cl Rye
+  - 1.5cl Punt e Mes
+  - 1.5cl Cr\xE9me liqueur
+  - Angostura bitters (One dash)
+  garnish: Maraschino cherry
+  directions: "Stir with ice and strain into a cocktail glass. Garnish with a Maraschino cherry."
+  glassware: cocktail
+  information: "This sweet, robust drink comes to us from [cocktail virgin/slut](http://cocktailvirgin.blogspot.com/2011/10/coney-island.html)."
 - name: Hanky Panky
   ingredients:
   - 4.5cl Gin
@@ -1707,7 +1736,7 @@
   - amount: 1.5
     base: Vodka
   - amount: 0.75
-    base: Lillet Blonde
+    base: Lillet
   name: Vesper
 - directions: Shake with ice cubes. Strain into glass.
   glassware: martini
