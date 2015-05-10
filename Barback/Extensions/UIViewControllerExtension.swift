@@ -16,7 +16,7 @@ extension UIViewController {
         let caption = coachMarks[0].caption
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
-        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
+        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey) && false
         
         if (!haveCoachMarksBeenShown) {
             var parsedCoachMarks: [Dictionary] = coachMarks.map {

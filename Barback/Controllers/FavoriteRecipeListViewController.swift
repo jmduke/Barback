@@ -55,7 +55,6 @@ class FavoriteRecipeListViewController: RecipeListViewController {
         super.viewDidAppear(animated)
         
         if PFUser.currentUser() == nil {
-            print("no!!!")
             let controller: AppLoginViewController = storyboard?.instantiateViewControllerWithIdentifier("loginViewController")! as! AppLoginViewController
             navigationController?.pushViewController(controller, animated: true)
             

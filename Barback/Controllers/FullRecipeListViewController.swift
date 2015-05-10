@@ -63,11 +63,17 @@ enum SortingMethod: Int {
     }
 }
 
-class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpdating, UISearchBarDelegate {
+public class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     var searchController: UISearchController?
+    
+    override public var recipes : [Recipe] {
+        didSet {
+            super.recipes = sorted(recipes, sortingMethod.sortFunction())
+        }
+    }
 
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    public func updateSearchResultsForSearchController(searchController: UISearchController) {
         if (!searchController.searchBar.text.isEmpty) {
             self.filterContentForSearchText(searchController.searchBar.text)
         } else {
@@ -84,17 +90,17 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if (searchController != nil && searchController!.active) {
             // searchController?.
         }
         super.prepareForSegue(segue, sender: sender)
     }
     
-    var sortingMethod: SortingMethod = SortingMethod.NameAscending
+    var sortingMethod: SortingMethod = SortingMethod.NameDescending
     
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         recipes = Recipe.all()
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
@@ -121,7 +127,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         return image
     }
     
-    func toggleSortingMethod() {
+    public func toggleSortingMethod() {
         let nextSortingMethodRawValue = (sortingMethod.rawValue + 1) % SortingMethod.maximum()
         sortingMethod = SortingMethod(rawValue: nextSortingMethodRawValue)!
         recipes = sorted(recipes, sortingMethod.sortFunction())
@@ -129,7 +135,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.definesPresentationContext = true
@@ -161,12 +167,8 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         loadingNotification.mode = MBProgressHUDMode.Indeterminate
         loadingNotification.labelText = "Loading"
         
+        if (false) {
         Async.background {
-            PFObject.unpinAll(Recipe.all(true))
-            PFObject.unpinAll(Ingredient.all(true))
-            PFObject.unpinAll(IngredientBase.all(true))
-            PFObject.unpinAll(Brand.all(true))
-            PFObject.unpinAll(Favorite.all(true))
             PFObject.pinAll(Recipe.all(false))
             PFObject.pinAll(Ingredient.all(false))
             PFObject.pinAll(IngredientBase.all(false))
@@ -179,6 +181,8 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
                 self.recipes = Recipe.all().sorted({ $0.name < $1.name })
                 self.tableView.reloadData()
         }
+        }
+
     }
     
     override func getSelectedRecipe() -> Recipe {
@@ -187,7 +191,7 @@ class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpd
         return recipes[row!]
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as! RecipeCell
         if (searchController!.active) {
             cell.highlightText(searchController!.searchBar.text)

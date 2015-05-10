@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import Parse
 
-class IngredientBase: PFObject, PFSubclassing {
+public class IngredientBase: PFObject, PFSubclassing {
 
     @NSManaged var information: String
     @NSManaged var name: String
@@ -30,21 +30,25 @@ class IngredientBase: PFObject, PFSubclassing {
         }
     }
     
+    override public class func initialize() {
+        registerSubclass()
+    }
+    
     var brands: [Brand] {
         get {
             return Brand.query().fromLocalDatastore().whereKey("base", equalTo: self).findObjects() as! [Brand]
         }
     }
     
-    class func parseClassName() -> String! {
+    public class func parseClassName() -> String! {
         return "IngredientBase"
     }
     
-    class func all() -> [IngredientBase] {
+    public class func all() -> [IngredientBase] {
         return all(true)
     }
     
-    class func all(useLocal: Bool) -> [IngredientBase] {
+    public class func all(useLocal: Bool) -> [IngredientBase] {
         var allQuery = query()
         allQuery.limit = 1000
         if (useLocal) {

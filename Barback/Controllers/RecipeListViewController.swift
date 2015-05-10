@@ -10,12 +10,12 @@ import Foundation
 import Parse
 import UIKit
 
-class RecipeListViewController: UITableViewController {
+public class RecipeListViewController: UITableViewController {
     
     var viewTitle: String = ""
-    var recipes: [Recipe] = []
+    public var recipes: [Recipe] = []
     
-    override func viewDidAppear(animated: Bool)  {
+    override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         title = viewTitle
         
@@ -25,7 +25,7 @@ class RecipeListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         styleController()
     }
@@ -50,20 +50,20 @@ class RecipeListViewController: UITableViewController {
         navigationItem.titleView?.backgroundColor = Color.Dark.toUIColor()
     }
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         return recipes.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let recipe = recipes[indexPath.row]
         
         return cellForRecipe(recipe, andIndexPath: indexPath)
@@ -76,7 +76,7 @@ class RecipeListViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return CGFloat(StyledCell.cellHeight)
     }
     
@@ -89,7 +89,7 @@ class RecipeListViewController: UITableViewController {
     
     
     // We have this logic in here so we don't try and segue on Shopping List.
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override public func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         let selectedIndex = tableView.indexPathForSelectedRow()
         
         if selectedIndex?.row >= recipes.count {
@@ -98,7 +98,7 @@ class RecipeListViewController: UITableViewController {
         return true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         var destinationController = getRecipeDetailController(segue)
         
         var recipe = getSelectedRecipe()
@@ -107,7 +107,7 @@ class RecipeListViewController: UITableViewController {
         UIApplication.sharedApplication().statusBarHidden = false
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("recipeDetail", sender: nil)
     }
     
