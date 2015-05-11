@@ -152,16 +152,6 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         favorite.saveInBackground()
         favoritedRecipes.append(recipe!)
         
-        // Make the recipe's heart grow three sizes.
-        UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
-            self.favoriteButton.transform = CGAffineTransformMakeScale(1.5, 1.5)
-            }, completion: {
-                (success: Bool) in
-                UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
-                    self.favoriteButton.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    }, completion: nil)
-        })
-        
         favoriteButton.selected = !favoriteButton.selected
     }
     
