@@ -60,12 +60,9 @@ class ShoppingListViewController: RecipeListViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
-        var sectionLabel = DescriptionLabel()
+        var sectionLabel = IngredientTypeSectionLabel()
+        sectionLabel.ingredientType = ingredientTypes[section]
         sectionLabel.frame = CGRectMake(0, 0, tableView.frame.width, 40)
-        
-        sectionLabel.text = ingredientTypes[section].pluralize().capitalizedString
-        sectionLabel.styleLabel()
-        
         var headerView = UIView()
         headerView.addSubview(sectionLabel)
         

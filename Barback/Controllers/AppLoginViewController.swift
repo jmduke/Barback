@@ -30,17 +30,9 @@ class AppLoginViewController: UIViewController {
         PFTwitterUtils.logInWithBlock({
             (user, error) in
             if let user = user {
-                // Set some random recipes to be favorites.
-                let initialNumberOfFavoritedRecipes = 3
-                for _ in 1...initialNumberOfFavoritedRecipes {
-                    var favorite = PFObject() as! Favorite
-                    favorite.user = PFUser.currentUser()!
-                    favorite.recipe = Recipe.random()
-                    favorite.saveInBackground()
-                    favoritedRecipes.append(favorite.recipe)
-                }
-                
+                self.navigationController!.popViewControllerAnimated(true)
             }
+            print(error)
         })
     }
 }
