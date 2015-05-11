@@ -25,7 +25,7 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
     
     @IBOutlet weak var wikipediaButton: SimpleButton!
-    @IBOutlet weak var cocktailDBButton: SimpleButton!
+    @IBOutlet weak var cocktailDBButton: IngredientCocktailDBButton!
 
     
     var ingredient: IngredientBase
@@ -98,16 +98,15 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        if let color = ingredient.color {
-            diagramView.backgroundColor = Color.Background.toUIColor()
-            diagramView.strokeColor = Color.Dark.toUIColor()
-            diagramView.ingredient = ingredient
-            diagramView.drawRect(diagramView!.frame)
-        } else {
-            diagramView.removeFromSuperview()
-        }
+        headerLabel.ingredient = ingredient
+        subheaderLabel.ingredient = ingredient
+        descriptionView.ingredient = ingredient
+        diagramView.ingredient = ingredient
+        cocktailDBButton.ingredient = ingredient
+        
         
         title = ingredient.name
+        
         brandsTableView.delegate = self
         brandsTableView.dataSource = self
         brandsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "brandCell")
@@ -116,19 +115,9 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
         drinksTableView.dataSource = self
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
         
-        headerLabel.ingredient = ingredient
-        subheaderLabel.ingredient = ingredient
-        descriptionView.ingredient = ingredient
-        
-        if ingredient.cocktaildb != nil && ingredient.cocktaildb != "" {
-            cocktailDBButton.setTitle("\(ingredient.name) on CocktailDB", forState: UIControlState.Normal)
-            cocktailDBButton.addTarget(self, action: "openCocktailDBPage", forControlEvents: UIControlEvents.TouchUpInside)
-        } else {
-            cocktailDBButton.removeFromSuperview()
-        }
-        
-        
         wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
+        
+        cocktailDBButton.addTarget(self, action: "openCocktailDBPage", forControlEvents: UIControlEvents.TouchUpInside)
         wikipediaButton.addTarget(self, action: "openWikipediaPage", forControlEvents: UIControlEvents.TouchUpInside)
         
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
