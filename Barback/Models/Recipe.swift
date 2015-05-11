@@ -29,7 +29,8 @@ public class Recipe: PFObject, PFSubclassing {
     }
     
     lazy public var ingredients: [Ingredient] = {
-        ingredientsForRecipes[self]!
+        print(self)
+        return ingredientsForRecipes[self]!
     }()
     
     var parsedGarnishes: [Garnish] {

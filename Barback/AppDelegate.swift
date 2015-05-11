@@ -124,6 +124,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFPush.handlePush(userInfo)
     }
     
+    func syncReally() {
+        let window = UIApplication.sharedApplication().delegate!.window
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(window!, animated: true)
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+        Async.background {
+            PFObject.unpinAll(Recipe.all(true))
+            PFObject.unpinAll(Ingredient.all(true))
+            PFObject.unpinAll(IngredientBase.all(true))
+            PFObject.unpinAll(Brand.all(true))
+            PFObject.unpinAll(Favorite.all(true))
+            PFObject.pinAll(Recipe.all(false))
+            PFObject.pinAll(Ingredient.all(false))
+            PFObject.pinAll(IngredientBase.all(false))
+            PFObject.pinAll(Brand.all(false))
+            PFObject.pinAll(Favorite.all(false))
+            Recipe.all().map({ $0.ingredients })
+            }.main {
+                MBProgressHUD.hideAllHUDsForView(window!, animated: true)
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         Fabric.with([Crashlytics()])
@@ -137,6 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         updateIfNecessary()
         styleApp()
+        syncReally()
         
         return true
     }
