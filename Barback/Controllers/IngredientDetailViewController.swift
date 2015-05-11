@@ -62,15 +62,11 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         var cellIdentifier: String
-        var primaryText: String
-        var detailText: String
         
         if (tableView == drinksTableView) {
             cellIdentifier = "drinkCell"
             
             let recipe = recipes[indexPath.row]
-            primaryText = recipe.name
-            detailText = recipe.detailDescription
             
             cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         }
@@ -78,15 +74,9 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
             cellIdentifier = "brandCell"
             
             let brand = brands[indexPath.row]
-            primaryText = brand.name
-            detailText = String(brand.detailDescription)
-            
-            cell = StyledCell(style: UITableViewCellStyle.Value1,
+            cell = BrandCell(brand: brand,
                 reuseIdentifier: cellIdentifier)
         }
-        
-        cell!.textLabel?.text = primaryText
-        cell!.detailTextLabel?.text = detailText
         
         return cell!
     }

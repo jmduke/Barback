@@ -17,15 +17,16 @@ class FullRecipeListViewControllerSpec: QuickSpec {
     
     override func spec() {
         
+        PFObject.pinAll(Recipe.all(false))
+        PFObject.pinAll(Ingredient.all(false))
+        PFObject.pinAll(IngredientBase.all(false))
+        PFObject.pinAll(Brand.all(false))
+        PFObject.pinAll(Favorite.all(false))
+        
         describe("a full recipe list controller") {
             
             var controller: FullRecipeListViewController!
             beforeEach {
-                PFObject.pinAll(Recipe.all(false))
-                PFObject.pinAll(Ingredient.all(false))
-                PFObject.pinAll(IngredientBase.all(false))
-                PFObject.pinAll(Brand.all(false))
-                PFObject.pinAll(Favorite.all(false))
                 controller = FullRecipeListViewController()
                 controller.recipes = Recipe.all()
             }
