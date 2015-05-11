@@ -2,7 +2,17 @@ import Foundation
 
 class IngredientDiagramView: UIView {
     
-    var ingredient: IngredientBase?
+    var ingredient: IngredientBase? {
+        didSet {
+            if let color = ingredient!.color {
+                backgroundColor = Color.Background.toUIColor()
+                strokeColor = Color.Dark.toUIColor()
+                drawRect(frame)
+            } else {
+                removeFromSuperview()
+            }
+        }
+    }
     var strokeColor: UIColor?
     
     required init(coder aDecoder: NSCoder) {
