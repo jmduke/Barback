@@ -10,17 +10,19 @@ import UIKit
 
 public class IngredientDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var ingredientDiagramView: IngredientDiagramView!
-    @IBOutlet public var ingredientNameLabel : HeaderLabel!
+    @IBOutlet public var headerLabel : IngredientHeaderLabel!
+    @IBOutlet public var subheaderLabel: IngredientSubheadLabel!
+    @IBOutlet weak var diagramView: IngredientDiagramView!
+    @IBOutlet public var descriptionView: IngredientDescriptionTextView!
+    
     @IBOutlet var brandTableLabel : UILabel!
-    @IBOutlet public var ingredientAbvLabel: DescriptionLabel!
     @IBOutlet var drinksTableLabel : UILabel!
+    
     @IBOutlet public var brandsTableView : UITableView!
-    @IBOutlet var scrollView : UIScrollView!
     @IBOutlet public var drinksTableView : UITableView!
+    @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var drinkTableViewHeight : NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight : NSLayoutConstraint!
-    @IBOutlet public var ingredientDescriptionView: DescriptionTextView!
     
     @IBOutlet weak var wikipediaButton: SimpleButton!
     @IBOutlet weak var cocktailDBButton: SimpleButton!
@@ -107,12 +109,12 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
         super.viewDidLoad()
         
         if let color = ingredient.color {
-            ingredientDiagramView.backgroundColor = Color.Background.toUIColor()
-            ingredientDiagramView.strokeColor = Color.Dark.toUIColor()
-            ingredientDiagramView.ingredient = ingredient
-            ingredientDiagramView.drawRect(ingredientDiagramView!.frame)
+            diagramView.backgroundColor = Color.Background.toUIColor()
+            diagramView.strokeColor = Color.Dark.toUIColor()
+            diagramView.ingredient = ingredient
+            diagramView.drawRect(diagramView!.frame)
         } else {
-            ingredientDiagramView.removeFromSuperview()
+            diagramView.removeFromSuperview()
         }
         
         title = ingredient.name
@@ -124,7 +126,9 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
         drinksTableView.dataSource = self
         drinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "drinkCell")
         
-        ingredientNameLabel.text = ingredient.name
+        headerLabel.ingredient = ingredient
+        subheaderLabel.ingredient = ingredient
+        descriptionView.ingredient = ingredient
         
         if ingredient.cocktaildb != nil && ingredient.cocktaildb != "" {
             cocktailDBButton.setTitle("\(ingredient.name) on CocktailDB", forState: UIControlState.Normal)
@@ -137,21 +141,10 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
         wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)
         wikipediaButton.addTarget(self, action: "openWikipediaPage", forControlEvents: UIControlEvents.TouchUpInside)
         
-        ingredientAbvLabel.text = Int(ingredient.abv) > 0 ? "\(ingredient.abv)% ABV" : "(non-alcoholic)"
-        
-        ingredientDescriptionView.text = ingredient.information
         brandTableLabel.text = "Recommended \(ingredient.name) brands"
         drinksTableLabel.text = "Drinks containing \(ingredient.name)"
         
-        ingredientDescriptionView.sizeToFit()
-        ingredientDescriptionView.layoutIfNeeded()
-        
         viewDidLayoutSubviews()
-        
-        if ingredient.information == "" {
-            self.ingredientDescriptionView.removeFromSuperview()
-            view.layoutIfNeeded()
-        }
         
         if brands.isEmpty {
             brandTableLabel.removeFromSuperview()
@@ -159,8 +152,8 @@ public class IngredientDetailViewController: UIViewController, UITableViewDelega
             view.layoutIfNeeded()
         }
         
+        view.layoutIfNeeded()
         styleController()
-        ingredientNameLabel.styleLabel()
     }
     
     func popWebView() {

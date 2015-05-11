@@ -162,13 +162,17 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
             tableView.backgroundView = emptyStateLabel
         }
         
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-        loadingNotification.mode = MBProgressHUDMode.Indeterminate
-        loadingNotification.labelText = "Loading"
-        
-        if (false) {
+    
+            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            loadingNotification.labelText = "Loading"
         Async.background {
+            PFObject.unpinAll(Recipe.all(true))
+             PFObject.unpinAll(Ingredient.all(true))
+                PFObject.unpinAll(IngredientBase.all(true))
+                PFObject.unpinAll(Brand.all(true))
+             PFObject.unpinAll(Favorite.all(true))
             PFObject.pinAll(Recipe.all(false))
             PFObject.pinAll(Ingredient.all(false))
             PFObject.pinAll(IngredientBase.all(false))
@@ -178,13 +182,13 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
             }.main {
                 MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
                 self.recipes = Recipe.all().sorted({ $0.name < $1.name })
                 self.tableView.reloadData()
-        }
-        }
+    }
 
     }
-    
+
     override func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow()
         var row = selectedRow?.row

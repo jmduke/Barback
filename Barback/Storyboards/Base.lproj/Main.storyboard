@@ -86,7 +86,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="780"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="RecipeHeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="113" y="20" width="94" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="FHG-CR-Et5"/>
@@ -190,13 +190,13 @@
                                             <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="RecipeSubheadLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="100" y="46" width="120" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="RecipeInformationTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="615" width="240" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -328,13 +328,13 @@
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4ma-Qb-Zx6">
-                        <rect key="frame" x="0.0" y="44" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="800"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="IngredientHeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="98" y="20" width="123" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="7LI-qV-PO3"/>
@@ -428,13 +428,13 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ingredient.abv" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ingredient.abv" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="IngredientSubheadLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="106" y="44" width="109" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Words about ingredients." translatesAutoresizingMaskIntoConstraints="NO" id="4xG-Jb-dhA" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Words about ingredients." translatesAutoresizingMaskIntoConstraints="NO" id="4xG-Jb-dhA" userLabel="ingredient.description" customClass="IngredientDescriptionTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="187" width="240" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -545,14 +545,14 @@
                         <outlet property="brandTableViewHeight" destination="R01-wZ-Qns" id="qpM-47-E3y"/>
                         <outlet property="brandsTableView" destination="gt1-Gn-CFM" id="aFp-EX-5RX"/>
                         <outlet property="cocktailDBButton" destination="hlg-YV-LFg" id="bM5-yz-h66"/>
+                        <outlet property="descriptionView" destination="4xG-Jb-dhA" id="wjU-OB-MzG"/>
+                        <outlet property="diagramView" destination="HRw-hB-69l" id="J5b-wt-CKM"/>
                         <outlet property="drinkTableViewHeight" destination="E2Q-6f-Kus" id="3NG-ng-HEL"/>
                         <outlet property="drinksTableLabel" destination="BQV-tA-SZo" id="I9v-EH-tG7"/>
                         <outlet property="drinksTableView" destination="XIn-7R-mxr" id="rcU-FY-pDb"/>
-                        <outlet property="ingredientAbvLabel" destination="GDj-jO-OWw" id="tv8-xc-Ght"/>
-                        <outlet property="ingredientDescriptionView" destination="4xG-Jb-dhA" id="Z4A-0M-L2A"/>
-                        <outlet property="ingredientDiagramView" destination="HRw-hB-69l" id="few-pq-AYj"/>
-                        <outlet property="ingredientNameLabel" destination="yL0-GF-QdU" id="Gri-Wg-HlI"/>
+                        <outlet property="headerLabel" destination="yL0-GF-QdU" id="r6R-Kj-m9V"/>
                         <outlet property="scrollView" destination="Qmy-sZ-Btm" id="xKY-VU-e4J"/>
+                        <outlet property="subheaderLabel" destination="GDj-jO-OWw" id="INx-YG-rGb"/>
                         <outlet property="wikipediaButton" destination="LB3-sj-66r" id="HMX-Ek-iez"/>
                     </connections>
                 </viewController>

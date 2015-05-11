@@ -29,9 +29,9 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
     @IBOutlet public weak var directionsTextView: DescriptionTextView!
-    @IBOutlet public var nameLabel: HeaderLabel!
-    @IBOutlet public weak var subheadLabel: UILabel!
-    @IBOutlet public weak var informationLabel: DescriptionTextView!
+    @IBOutlet public var nameLabel: RecipeHeaderLabel!
+    @IBOutlet public weak var subheadLabel: RecipeSubheadLabel!
+    @IBOutlet public weak var informationLabel: RecipeInformationTextView!
     @IBOutlet public var ingredientsTableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
@@ -104,17 +104,12 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         favoriteButton.selected = contains(favoritedRecipes, recipe!)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
-        nameLabel.text = recipe!.name
+        nameLabel.recipe = recipe!
+        subheadLabel.recipe = recipe!
+        informationLabel.recipe = recipe!
+        
         directionsTextView.text = recipe!.directions
-        subheadLabel.text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
         
-        if (recipe!.garnish != nil && recipe!.garnish != "") {
-            subheadLabel.text = subheadLabel.text! + " · Garnish with \(recipe!.garnish!.lowercaseString) "
-        }
-        
-        informationLabel.markdownText = recipe!.information ?? ""
-        informationLabel.sizeToFit()
-        informationLabel.layoutIfNeeded()
         
         scrollView.delegate = self
         
@@ -123,10 +118,6 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         rightSwipeRecognizer.numberOfTouchesRequired = 1
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(rightSwipeRecognizer)
-        
-        // Most recipes don't have descriptions at this point.
-        let labelShouldBeHidden = informationLabel.text == ""
-        informationLabel.hidden = labelShouldBeHidden
         
         // If there aren't any similar recipes, we can just hide the relevant elements.
         let similarRecipesExist = similarRecipes!.count > 0
@@ -137,7 +128,6 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         view.layoutIfNeeded()
         
         styleController()
-        nameLabel.styleLabel()
     }
     
     func goToPreviousView(sender: AnyObject) {
