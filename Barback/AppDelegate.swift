@@ -15,19 +15,11 @@ import ParseCrashReporting
 import SystemConfiguration
 import UIKit
 
-func isConnectedToInternet() -> Bool {
-    let reachability = Reachability.reachabilityForInternetConnection()
-    let networkStatus = reachability.currentReachabilityStatus()
-    let notReachableStatus = 0
-    return networkStatus.rawValue != notReachableStatus
-}
-
-var privateKeys: NSDictionary = {
-    let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
-    return NSDictionary(contentsOfFile: keychain!)!
-    }()
 
 func initializeDependencies(launchOptions: NSDictionary?) {
+    
+    Fabric.with([Crashlytics()])
+    
     // Initialize Parse.
     let parseApplicationId = privateKeys["parseApplicationId"]! as! String
     let parseClientKey = privateKeys["parseClientKey"]! as! String
@@ -92,23 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Needed to access UITabBarIcons.
     var window: UIWindow?
     
-    func updateIfNecessary() {
-        if isFirstTimeAppLaunched() {
-            finalizeAppSetup()
-        }
-    }
-    
-    func onOldVersion() -> Bool {
-        let oldRecipes = IngredientBase.all().filter({ ($0 as IngredientBase).color == nil }).count
-        return (oldRecipes == 0)
-    }
- 
-    func finalizeAppSetup() {
-        markAppAsLaunched()
-        updateVersionOfApp()        
-        enableAppInteraction()
-    }
-    
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         application.registerUserNotificationSettings(notificationSettings)
     }
@@ -124,13 +99,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFPush.handlePush(userInfo)
     }
     
-    func syncReally() {
+    func syncData() {
         let window = UIApplication.sharedApplication().delegate!.window
-        let loadingNotification = MBProgressHUD.showHUDAddedTo(window!, animated: true)
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-        loadingNotification.mode = MBProgressHUDMode.Indeterminate
-        loadingNotification.labelText = "Loading"
-        Async.background {
+        Async.main {
+            let loadingNotification = MBProgressHUD.showHUDAddedTo(window!, animated: true)
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            loadingNotification.labelText = "Loading"
+        }.background {
             PFObject.unpinAll(Recipe.all(true))
             PFObject.unpinAll(Ingredient.all(true))
             PFObject.unpinAll(IngredientBase.all(true))
@@ -145,24 +121,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }.main {
                 MBProgressHUD.hideAllHUDsForView(window!, animated: true)
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                let tabBarController = window!!.rootViewController as! UITabBarController
+                let navController = tabBarController.childViewControllers[0] as! UINavigationController
+                let controller = navController.viewControllers[0] as! FullRecipeListViewController
+                controller.recipes = Recipe.all()
+                controller.tableView.reloadData()
             }
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        
-        Fabric.with([Crashlytics()])
-        initializeDependencies(launchOptions)
-        
+    func registerPushNotifications(application: UIApplication) {
         // Register for push notifications.
         let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
         let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
-        updateIfNecessary()
+        initializeDependencies(launchOptions)
+        registerPushNotifications(application)
         styleApp()
-        syncReally()
-        
+        if (isConnectedToInternet()) {
+            syncData()
+        }
         return true
     }
     

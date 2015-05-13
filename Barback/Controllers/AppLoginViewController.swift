@@ -32,7 +32,6 @@ class AppLoginViewController: UIViewController {
             if let user = user {
                 self.navigationController!.popViewControllerAnimated(true)
             }
-            print(error)
         })
     }
 }

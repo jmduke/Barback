@@ -138,8 +138,6 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        recipes = Recipe.all()
-        
         self.definesPresentationContext = true
 
         self.searchController = UISearchController(searchResultsController: nil)
