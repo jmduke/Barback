@@ -23,3 +23,15 @@ var ingredientsForRecipes: [Recipe:[Ingredient]] = {
 var favoritedRecipes: [Recipe] = {
     Recipe.favorites()
     }()
+
+var privateKeys: NSDictionary = {
+    let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
+    return NSDictionary(contentsOfFile: keychain!)!
+    }()
+
+func isConnectedToInternet() -> Bool {
+    let reachability = Reachability.reachabilityForInternetConnection()
+    let networkStatus = reachability.currentReachabilityStatus()
+    let notReachableStatus = 0
+    return networkStatus.rawValue != notReachableStatus
+}
