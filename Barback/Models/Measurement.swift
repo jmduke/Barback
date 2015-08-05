@@ -11,12 +11,12 @@ import Foundation
 public enum Measurement {
     case Imperial
     case Metric
-    
+
     func stringFromMetric(metricAmount: NSNumber) -> String {
         if metricAmount.intValue == 0 {
             return ""
         }
-        
+
         switch self {
             case .Metric:
                 return "\(metricAmount.floatValue) cl"

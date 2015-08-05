@@ -20,9 +20,9 @@ class ShoppingListViewController: RecipeListViewController {
         })
     }
     }
-    
+
     var ingredientTypes: [IngredientType] = [IngredientType]()
-    
+
     override var viewTitle: String {
         get {
             return "Shopping List"
@@ -35,20 +35,20 @@ class ShoppingListViewController: RecipeListViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     override init(style: UITableViewStyle) {
         super.init(style: style)
     }
 
-    required init!(coder aDecoder: NSCoder!) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     func setIngredientsForController(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
         recipes = Recipe.favorites()
     }
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return ingredientTypes.count
     }
@@ -58,17 +58,17 @@ class ShoppingListViewController: RecipeListViewController {
         let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
         return ingredientsForType.count
     }
-    
+
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
-        var sectionLabel = IngredientTypeSectionLabel()
+        let sectionLabel = IngredientTypeSectionLabel()
         sectionLabel.ingredientType = ingredientTypes[section]
         sectionLabel.frame = CGRectMake(0, 0, tableView.frame.width, 40)
-        var headerView = UIView()
+        let headerView = UIView()
         headerView.addSubview(sectionLabel)
-        
+
         return headerView
     }
-    
+
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
@@ -76,38 +76,38 @@ class ShoppingListViewController: RecipeListViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
         return ingredientTypes[section].rawValue
     }
-    
+
     func ingredientForIndexPath(indexPath: NSIndexPath) -> IngredientBase {
         let ingredientType = ingredientTypes[indexPath.section]
         let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
         return ingredientsForType[indexPath.row]
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         let cellIdentifier = "shoppingCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         if cell == nil {
             cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
         }
-        
+
         let ingredient = ingredientForIndexPath(indexPath)
         cell!.textLabel?.text = ingredient.name
-        
+
         let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"
         cell!.detailTextLabel?.text = "Used in \(recipeCount) \(designator)"
-        
+
         return cell!
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let storyboard = R.storyboard.main.instance
         let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as! IngredientDetailViewController
         controller.setIngredientForController(ingredientForIndexPath(indexPath))
         navigationController?.pushViewController(controller, animated: true)
-        
+
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 

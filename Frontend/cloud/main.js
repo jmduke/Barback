@@ -2,7 +2,7 @@ require('cloud/app.js');
 var _ = require('underscore');
 
 // Returns list of tuples (hex, amount)
-function visualDataForRecipe(ingredients, bases) {
+function visualDataForRecipe(ingredients) {
   return _.sortBy(_.map(ingredients, function(ingredient) {
     color = ingredient.attributes.base.attributes.color;
     return [color, ingredient.attributes.amount];
@@ -134,7 +134,11 @@ Parse.Cloud.define("recipeForName", function(request, response) {
           return [base.attributes.name, base.attributes.slug];
         }));
         recipe.attributes.visualData = visualDataForRecipe(ingredients, bases);
-        recipe.attributes.abv = abvForRecipe(ingredients, bases);
+        recipe.attributes.abv = abvForRecipe(ingredients);
+        recipe.attributes._ingredients = JSON.stringify(ingredients);
+        recipe.attributes._bases = JSON.stringify(_.map(ingredients, function(ingredient) {
+          return ingredient.attributes.base
+        }));
         response.success(recipe);
       });
     });
@@ -145,12 +149,12 @@ Parse.Cloud.define("ingredientForName", function(request, response) {
   objectsForVariable("IngredientBase", "slug", request.params.name, function(bases) {
     base = bases[0];
     objectsForVariable("Brand", "base", base, function(brands) {
-      base.attributes.brands = brands;
+      base.attributes.brands = JSON.stringify(brands);
       objectsForVariable("Ingredient", "base", base, function(ingredients) {
-        base.attributes.ingredients = ingredients;
-        recipeNames = _.map(ingredients, function(ingredient) {
+        base.attributes.ingredients = JSON.stringify(ingredients);
+        base.attributes.recipes = JSON.stringify(_.map(ingredients, function(ingredient) {
           return ingredient.attributes.recipe;
-        });
+        }));
         response.success(base);
       });
     });

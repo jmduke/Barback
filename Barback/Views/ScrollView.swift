@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class ScrollView : UIScrollView {
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = Color.Background.toUIColor()
     }
-    
+
 }

@@ -4,6 +4,8 @@ body {
     background-color: #eee;
     font-size: 1.4em;
     margin-top: 1em;
+    position: relative;
+    margin: 0;
 }
 
 .main {
@@ -26,9 +28,10 @@ h1 {
 }
 
 h3 {
-    margin-top: 0.25em;
     font-size: 1em;
-    margin-bottom: 0em;
+    margin: 0.5em;
+    padding: 0.5em;
+    padding-bottom: 1em;
 }
 
 a {
@@ -59,11 +62,11 @@ a {
 }
 
 .ingredient {
-    text-align: left;
+    float: left;
 }
 
 .details {
-    text-align: right;
+    float: right;
     color: #8FA7B5;
     font-style: italic;
 }
@@ -79,6 +82,7 @@ a {
 .footer {
     padding-top: 3em;
     padding-bottom: 2em;
+    z-index: 1;
 }
 
 .twitter-count-vertical {
@@ -275,7 +279,7 @@ div.iphone {
   padding: 3em;
 }
 
-.detail-col h2 {
+h2 {
   font-size: 1.2em;
 }
 
@@ -317,12 +321,13 @@ h4 a {
   margin-bottom: 1em
 }
 
-.ingredient_drawing {
+#data-ingredient-diagram {
   width: 200px;
   border-radius: 50%;
   height: 200px;
   margin: auto;
   margin-top: 2em;
+  border: 1px #666 solid;
 }
 
 .topright {
@@ -342,4 +347,66 @@ h4 a {
 
 .quietlink:hover {
   border: none;
+}
+
+#overlay, #ingredient-overlay, .greylay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.greylay {
+  background-color: #000;
+  opacity: 0.5;
+}
+
+#overlay, #ingredient-overlay {
+  background-color: #fff;
+  height: 100%;
+  margin-right: 0;
+  padding: 0;
+  padding-bottom: 5em;
+}
+
+#ingredient-overlay {
+  z-index: 20;
+}
+
+#ingredient-overlay ul, #ingredient-overlay li, #overlay ul, #overlay li {
+  padding-left: 0;
+  padding-bottom: 0.25em;
+  float: left;
+  width: 100%;
+}
+
+#overlay h1, #ingredient-overlay h1 {
+  background: #ff530d;
+  color: #fff;
+  margin-top: 0;
+  padding: 1em;
+  margin-bottom: 0;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+}
+
+.overflow-y { overflow-y: auto; }
+
+.diagram {
+  background-color: #eee;
+  padding: 1em;
+}
+
+.deets {
+  color: #eee;
+}
+
+.deets h3:not(:last-child) {
+  border-bottom: 1px dotted #aaa;
 }

@@ -45,6 +45,74 @@ block content
                 script.
                   drawRecipe("#{recipe.attributes.glassware}", !{JSON.stringify(message.visualData[recipe.attributes.name])}, "#{slugify(recipe.attributes.name)}")
 
+      .greylay.col-xs-12.collapse
+
+      #overlay.col-xs-5.col-xs-offset-7.text-center.collapse.overflow-y
+        h1#data-recipe-name
+
+        .align
+          .col-xs-6.diagram
+            #data-recipe-diagram
+          .col-xs-6.deets
+            h3#data-recipe-abv    
+            h3#data-recipe-glassware
+            h3#data-recipe-garnish
+
+        .col-xs-6
+          h2 Ingredients
+          ul#data-recipe-ingredients
+
+        .col-xs-6
+          h2#data-recipe-directions-label Directions
+          #data-recipe-directions
+
+        .col-xs-12
+          h2#data-recipe-information-label Information
+          #data-recipe-information
+
+        .col-xs-12
+          h2 Share
+          .text-center
+            .fb-share-button(data-href="http://www.getbarback.com/", data-layout="box_count")
+            &nbsp;&nbsp;
+            a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+            &nbsp;&nbsp;
+            script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            .g-plusone(data-size="tall")
+
+      #ingredient-overlay.col-xs-5.col-xs-offset-7.text-center.collapse.overflow-y
+        h1#data-ingredient-name
+
+        .align
+          .col-xs-6.diagram
+            #data-ingredient-diagram
+          .col-xs-6.deets
+            h3#data-ingredient-type    
+            h3#data-ingredient-abv
+
+        .col-xs-6
+          h2 Recipes which use this:
+          ul#data-ingredient-uses
+
+        .col-xs-6
+          h2#data-ingredient-brands-label Recommended brands:
+          #data-ingredient-brands
+
+        .col-xs-12
+          h2#data-ingredient-information-label Information
+          #data-ingredient-information
+
+        .col-xs-12
+          h2 Share
+          .text-center
+            .fb-share-button(data-href="http://www.getbarback.com/", data-layout="box_count")
+            &nbsp;&nbsp;
+            a(href="https://twitter.com/share", class="twitter-share-button", data-via="getbarback", data-size="small", data-count="vertical") Tweet
+            &nbsp;&nbsp;
+            script !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            .g-plusone(data-size="tall")
+
+
 block script
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.1.1/isotope.pkgd.min.js")
   script(src="/static/js/vendor/cookie.js")

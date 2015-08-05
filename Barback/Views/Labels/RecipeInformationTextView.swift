@@ -11,7 +11,13 @@ import Foundation
 public class RecipeInformationTextView: DescriptionTextView {
     var recipe: Recipe? {
         didSet {
-            markdownText = recipe!.information ?? ""
+            var informationText = recipe!.information ?? ""
+            
+            if (recipe!.parsedSource != nil) {
+                informationText += "\n\n The \(recipe!.name) \(recipe!.parsedSource!.prose())."
+            }
+            markdownText = informationText
+            
             sizeToFit()
             layoutIfNeeded()
             

@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class IngredientCocktailDBButton: SimpleButton {
     var ingredient: IngredientBase? {
         didSet {
-            if ingredient!.cocktaildb != nil && ingredient!.cocktaildb != "" {
+            if ingredient!.cocktaildb != "" {
                 setTitle("\(ingredient!.name) on CocktailDB", forState: UIControlState.Normal)
             } else {
                 removeFromSuperview()

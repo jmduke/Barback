@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zu2-Cu-JtZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zu2-Cu-JtZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -11,13 +12,18 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nh2-Ls-JeR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fKS-r9-5K1">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fKS-r9-5K1" id="ALk-np-UBl">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </tableViewCellContentView>
+                                <animations/>
                                 <connections>
                                     <segue destination="HjY-B0-k84" kind="showDetail" identifier="recipeDetail" id="aiB-if-B6u"/>
                                 </connections>
@@ -41,6 +47,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SuG-70-sKV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="W55-n4-shY" kind="relationship" relationship="rootViewController" id="MNG-Vv-AU2"/>
@@ -73,7 +80,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7if-xE-z2Q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lOR-Hh-K6a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-gi-s9w" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
@@ -81,6 +88,7 @@
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="J1v-AC-2db" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="113" y="20" width="95" height="21"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="Zyl-sq-aDI"/>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="cQ3-Kd-1bm"/>
@@ -94,8 +102,9 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="scl-xU-Igq" userLabel="recipe.ingredients">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="scl-xU-Igq" userLabel="recipe.ingredients">
                                         <rect key="frame" x="0.0" y="87" width="320" height="100"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Nq7-ez-cWM"/>
@@ -103,24 +112,32 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" textLabel="SIW-I2-EoH" detailTextLabel="MNO-y5-kDY" style="IBUITableViewCellStyleValue1" id="Pf1-oy-qai">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pf1-oy-qai" id="pMq-cT-yek">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SIW-I2-EoH">
+                                                            <rect key="frame" x="15" y="21" width="31.5" height="19.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MNO-y5-kDY">
+                                                            <rect key="frame" x="263.5" y="21" width="41.5" height="19.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <animations/>
                                                 </tableViewCellContentView>
+                                                <animations/>
                                                 <connections>
                                                     <segue destination="Ywh-rG-pXJ" kind="show" identifier="ingredientDetail" id="rbc-5j-6eP"/>
                                                 </connections>
@@ -132,8 +149,9 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.directions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="3Jo-gN-sdy" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="recipe.directions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="3Jo-gN-sdy" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="20" y="219" width="280" height="21"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="500" constant="21" id="hNE-dy-29B"/>
                                         </constraints>
@@ -141,38 +159,48 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fl-jK-BJm" userLabel="recipe.similarLabel" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fl-jK-BJm" userLabel="recipe.similarLabel" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="313" width="241" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kcm-xC-Okx" userLabel="recipe.similarRecipes">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kcm-xC-Okx" userLabel="recipe.similarRecipes">
                                         <rect key="frame" x="0.0" y="342" width="320" height="120"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="ABL-Bn-gZD"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="similarCell" textLabel="9p6-1x-50V" detailTextLabel="KcA-qM-UDm" style="IBUITableViewCellStyleSubtitle" id="G4t-jg-toL">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4t-jg-toL" id="8Bl-rP-drI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9p6-1x-50V">
+                                                            <rect key="frame" x="15" y="14" width="31.5" height="19.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KcA-qM-UDm">
+                                                            <rect key="frame" x="15" y="33.5" width="40.5" height="13.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <animations/>
                                                 </tableViewCellContentView>
+                                                <animations/>
                                                 <connections>
                                                     <segue destination="HjY-B0-k84" kind="show" identifier="similarRecipe" id="Nm5-R8-BKC"/>
                                                 </connections>
@@ -181,6 +209,7 @@
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUy-I8-TdT" userLabel="recipe.favorite" customClass="BezierButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="216" y="19" width="24" height="24"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="5MW-Zf-YUi"/>
                                             <constraint firstAttribute="width" constant="24" id="iGh-bZ-f6B"/>
@@ -194,12 +223,14 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recipe.subhead" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzW-KW-1Rm" userLabel="recipe.subhead" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="101" y="46" width="119" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Information about your recipe" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-c1-IcC" userLabel="recipe.information" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Information about your recipe" translatesAutoresizingMaskIntoConstraints="NO" id="Pi6-c1-IcC" userLabel="recipe.information" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="260" width="240" height="33"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="dYX-ig-g7b"/>
@@ -213,6 +244,7 @@
                                         </variation>
                                     </textView>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstItem="WUy-I8-TdT" firstAttribute="centerY" secondItem="J1v-AC-2db" secondAttribute="centerY" id="04h-20-ls9"/>
                                     <constraint firstItem="Pi6-c1-IcC" firstAttribute="leading" secondItem="vYB-gi-s9w" secondAttribute="leading" constant="40" id="2Lz-sK-4Pe"/>
@@ -244,6 +276,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="vYB-gi-s9w" secondAttribute="width" id="Now-OZ-kLt"/>
@@ -287,7 +320,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YXd-xB-Nf8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pis-on-zc9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-Kp-XTq" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
@@ -295,6 +328,7 @@
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="BvI-2O-UhB" customClass="HeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="98" y="20" width="124" height="21"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="NX6-kc-PyI"/>
                                             <constraint firstAttribute="width" constant="320" id="ZlE-47-CdS"/>
@@ -309,6 +343,8 @@
                                         </variation>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-Js-Bof" userLabel="recommendedBrands">
+                                        <rect key="frame" x="0.0" y="171" width="320" height="0.0"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="OtZ-wf-86s"/>
@@ -316,10 +352,14 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="brandCell" id="tXj-WS-IMc">
+                                                <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXj-WS-IMc" id="eky-4P-z2c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <animations/>
                                                 </tableViewCellContentView>
+                                                <animations/>
                                             </tableViewCell>
                                         </prototypes>
                                         <variation key="default">
@@ -328,8 +368,9 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KXL-I9-kFn" userLabel="relevantDrinks">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KXL-I9-kFn" userLabel="relevantDrinks">
                                         <rect key="frame" x="0.0" y="222" width="320" height="184"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="qQz-gg-WmP"/>
@@ -337,24 +378,32 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="drinkCell" textLabel="3fc-3k-T82" detailTextLabel="Yrg-yh-HpE" style="IBUITableViewCellStyleSubtitle" id="tXL-aU-oBB">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXL-aU-oBB" id="tvY-vU-imF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3fc-3k-T82">
+                                                            <rect key="frame" x="15" y="14" width="31.5" height="19.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yrg-yh-HpE">
+                                                            <rect key="frame" x="15" y="33.5" width="40.5" height="13.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <animations/>
                                                 </tableViewCellContentView>
+                                                <animations/>
                                                 <connections>
                                                     <segue destination="HjY-B0-k84" kind="show" identifier="recipeDetail" id="AWb-dk-xG6"/>
                                                 </connections>
@@ -366,8 +415,9 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-JR-wbx" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-JR-wbx" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="320" height="21"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Cc6-9s-lt6"/>
                                             <constraint firstAttribute="width" constant="320" id="YUb-wf-Kfo"/>
@@ -381,25 +431,29 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4l-RD-qia" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4l-RD-qia" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="191" width="320" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.abv" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QM-fD-8IV" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="106" y="46" width="109" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Words about the ingredient" translatesAutoresizingMaskIntoConstraints="NO" id="OMn-yi-GwI" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Words about the ingredient" translatesAutoresizingMaskIntoConstraints="NO" id="OMn-yi-GwI" userLabel="ingredient.description" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="40" y="87" width="240" height="33"/>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KXL-I9-kFn" secondAttribute="width" id="1eu-Ne-6sN"/>
                                     <constraint firstAttribute="trailing" secondItem="c4l-RD-qia" secondAttribute="trailing" id="2XP-7E-0Q1"/>
@@ -441,6 +495,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WB6-Kp-XTq" firstAttribute="width" secondItem="Pis-on-zc9" secondAttribute="width" id="2Ff-C0-Kpa"/>
@@ -475,6 +530,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ggZ-Eb-cen">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

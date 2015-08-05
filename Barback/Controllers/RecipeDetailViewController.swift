@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
-import Parse
+
 import Social
 import UIKit
 
@@ -15,18 +15,18 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
     var recipe: Recipe? {
     willSet {
         similarRecipes = newValue?.similarRecipes(2)
-        
+
         let ingredients = newValue?.ingredients
-        sortedIngredients = ingredients?.sorted({$0.amount.intValue > $1.amount.intValue})
+        sortedIngredients = ingredients?.sort({$0.amount > $1.amount})
     }
     }
-    
+
     @IBOutlet weak var recipeDiagramWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramHeightConstraint: NSLayoutConstraint!
     var isRandom: Bool?
     var similarRecipes: [Recipe]?
     var sortedIngredients: [Ingredient]?
-    
+
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
     @IBOutlet public weak var directionsTextView: DescriptionTextView!
     @IBOutlet public var nameLabel: RecipeHeaderLabel!
@@ -39,14 +39,14 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet var similarDrinksTableView: UITableView!
     @IBOutlet var similarDrinksLabel: UILabel!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         registerSettingsDefaults()
         return true
     }
-    
+
     func shareRecipe() {
-        
+
         // Handle the printing setup.
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "BarbackRecipe"
@@ -57,7 +57,7 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         let activities = [printInfo, formatter, "Just made a \(recipe!.name) with @getbarback!", recipe!.url]
         let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         navigationController?.presentViewController(controller, animated: true, completion: nil)
-        
+
         // Needed to play nice with iPad views.
         if (controller.respondsToSelector("popoverPresentationController")) {
             let presentationController = controller.popoverPresentationController
@@ -65,13 +65,13 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             presentationController?.barButtonItem = shareButton
         }
     }
-    
+
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
         self.navigationItem.rightBarButtonItem = shareButton
-        
+
         if (recipe == nil) {
             recipe = Recipe.random()
             isRandom = true
@@ -79,46 +79,47 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
             self.navigationItem.leftBarButtonItem = randomButton
         }
-        
+
         recipe!.isNew = false
-        
+
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
         ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
-        
+        ingredientsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
         similarDrinksTableView.delegate = self
         similarDrinksTableView.dataSource = self
         similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
-        
+        similarDrinksTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
         title = recipe!.name
         recipeDiagramView?.recipe = recipe!
-        recipeDiagramView?.drawRect(recipeDiagramView!.frame)
         recipeDiagramHeightConstraint.constant = recipeDiagramView!.idealHeight()
         recipeDiagramWidthConstraint.constant = recipeDiagramView!.idealWidth()
-        
+
         // Switch tab bar item title back to the title if necessary.
         if (isRandom != nil) {
             navigationController?.tabBarItem.title = "Random"
         }
-        
-        favoriteButton.selected = contains(favoritedRecipes, recipe!)
+
+        favoriteButton.selected = favoritedRecipes.contains(recipe!)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
-        
+
         nameLabel.recipe = recipe!
         subheadLabel.recipe = recipe!
         informationLabel.recipe = recipe!
-        
+
         directionsTextView.text = recipe!.directions
-        
+
         
         scrollView.delegate = self
-        
+
         // Allow folks to swipe right to go back.
-        var rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
+        let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
         rightSwipeRecognizer.numberOfTouchesRequired = 1
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(rightSwipeRecognizer)
-        
+
         // If there aren't any similar recipes, we can just hide the relevant elements.
         let similarRecipesExist = similarRecipes!.count > 0
         similarDrinksLabel.hidden = !similarRecipesExist
@@ -126,90 +127,76 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         recipeDiagramView.setNeedsDisplay()
         recipeDiagramView.layoutIfNeeded()
         view.layoutIfNeeded()
-        
+
         styleController()
     }
-    
+
     func goToPreviousView(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    override public func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent)  {
+
+    override public func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)  {
         if (motion == UIEventSubtype.MotionShake && isRandom != nil) {
             findNewRecipe()
         }
     }
-    
+
     func findNewRecipe() {
         recipe = Recipe.random()
-        performSegueWithIdentifier("similarRecipe", sender: nil)
+        performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
     }
-    
+
     func actuallyFavoriteRecipe() {
-        var favorite = Favorite()
-        favorite.user = PFUser.currentUser()!
+        let favorite = Favorite()
         favorite.recipe = recipe!
-        favorite.saveInBackground()
         favoritedRecipes.append(recipe!)
-        
+
         favoriteButton.selected = !favoriteButton.selected
     }
-    
+
     func markRecipeAsFavorite() {
-        
-        if PFUser.currentUser() == nil {
-            PFTwitterUtils.logInWithBlock({
-                (user, error) in
-                    if let user = user {
-                        self.actuallyFavoriteRecipe()
-                    }
-                })
-        } else if !favoriteButton.selected {
+        if !favoriteButton.selected {
             actuallyFavoriteRecipe()
         } else {
             favoriteButton.selected = !favoriteButton.selected
-            favoritedRecipes.removeAtIndex(find(favoritedRecipes, recipe!)!)
-            Favorite.deleteSilently(PFUser.currentUser()!, recipe: recipe!)
+            favoritedRecipes.removeAtIndex(favoritedRecipes.indexOf(recipe!)!)
         }
     }
-    
+
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         ingredientsTableView.reloadData()
         similarDrinksTableView.reloadData()
     }
-    
+
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
-        
-        // Note that this will not grab random recipes.
-        PFAnalytics.trackEventInBackground("recipeOpened", dimensions: ["recipe": recipe!.name], block: nil)
-        
+
         loadCoachMarks()
     }
-    
+
     override public func viewDidLayoutSubviews()  {
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
-        
+
         if ((similarDrinksTableView) != nil) {
             let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
             similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
             view.layoutIfNeeded()
         }
     }
-    
+
     override func styleController() {
         super.styleController()
-        
+
         directionsTextView.textColor = Color.Dark.toUIColor()
-        
+
         view.layoutIfNeeded()
     }
-    
+
     func loadCoachMarks() {
         var coachMarks = [CoachMark]()
-        
+
         if (isRandom != nil) {
             // We want the entire thing to hide, so define a 0,0 rect.
             let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -218,19 +205,19 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             let coachMark = CoachMark(rect: shakePosition, caption: shakeCaption)
             coachMarks.append(coachMark)
         }
-        
+
         let directionsPosition = directionsTextView.frame
         let directionsCaption = "Simple instructions on making your drinks."
         coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
-        
+
         let ingredientsPosition = ingredientsTableView.frame
         let ingredientsCaption = "Tap an ingredient to learn more about it."
         coachMarks.append(CoachMark(rect: ingredientsPosition, caption: ingredientsCaption))
-        
-        var favoritePosition = favoriteButton.frame
+
+        let favoritePosition = favoriteButton.frame
         let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
         coachMarks.append(CoachMark(rect: favoritePosition, caption: favoriteCaption))
-        
+
         runCoachMarks(coachMarks)
     }
 
@@ -238,7 +225,7 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == ingredientsTableView) {
             return recipe!.ingredients.count
@@ -246,7 +233,7 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             return similarRecipes!.count
         }
     }
-    
+
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         if (tableView == ingredientsTableView) {
@@ -254,7 +241,7 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             
             let ingredient: Ingredient = sortedIngredients![indexPath.row]
             cell = IngredientCell(ingredient: ingredient, reuseIdentifier: cellIdentifier)
-            cell!.textLabel?.text = ingredient.base.name
+            cell!.textLabel?.text = ingredient.base!.name
             cell!.detailTextLabel?.text = ingredient.detailDescription
         } else {
             let cellIdentifier = "similarCell"
@@ -266,12 +253,12 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
   
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == ingredientsTableView {
-            performSegueWithIdentifier("ingredientDetail", sender: nil)
+            performSegueWithIdentifier(R.segue.ingredientDetail, sender: nil)
         } else {
-            performSegueWithIdentifier("similarRecipe", sender: nil)
+            performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
         }
     }
-    
+
     // Named kinda clumsily because of an ObjC conflict.
     public func setRecipeAs(recipe: Recipe?) {
         self.recipe = recipe
@@ -279,27 +266,27 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         // Disallow shake gestures.
         resignFirstResponder()
     }
-    
+
     override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         if segue!.identifier == "ingredientDetail" {
             let destination = segue!.destinationViewController as! IngredientDetailViewController
-            var ingredient = getSelectedIngredient()
+            let ingredient = getSelectedIngredient()
             destination.setIngredientForController(ingredient)
         } else {
-            var destinationController = getRecipeDetailController(segue)
-            var recipe = getSelectedRecipe()
+            let destinationController = getRecipeDetailController(segue)
+            let recipe = getSelectedRecipe()
             destinationController.setRecipeAs(recipe)
         }
     }
-    
+
     func getSelectedIngredient() -> IngredientBase {
-        let selectedRow = ingredientsTableView.indexPathForSelectedRow()
+        let selectedRow = ingredientsTableView.indexPathForSelectedRow
         let rowIndex = selectedRow?.row
-        return sortedIngredients![rowIndex!].base
+        return sortedIngredients![rowIndex!].base!
     }
-    
+
     func getSelectedRecipe() -> Recipe? {
-        let selectedRow = similarDrinksTableView.indexPathForSelectedRow()
+        let selectedRow = similarDrinksTableView.indexPathForSelectedRow
         if selectedRow != nil {
             let rowIndex = selectedRow?.row
             return similarRecipes![rowIndex!]
@@ -307,5 +294,5 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
             return nil
         }
     }
-    
+
 }

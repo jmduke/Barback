@@ -124,7 +124,7 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
     // Finish off the previous dash and start a new one.
     NSInteger lastBulletStart = [[_bulletStarts lastObject] intValue];
     [_bulletStarts removeLastObject];
-    
+
     [_accum addAttributes:[self paragraphStyle]
                         range:NSMakeRange(lastBulletStart, _accum.length - lastBulletStart)];
   }
@@ -134,7 +134,7 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
 #elif __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
   const BOOL shouldAddLinks = (NSLinkAttributeName != nil);
 #endif
-    
+
   if (shouldAddLinks) {
     [self addLinksToAttributedString];
   }
@@ -321,11 +321,11 @@ int markdownConsume(char* text, int token, yyscan_t scanner);
       
       if (_bulletStarts.count > 0) {
         // Treat nested bullet points as flat ones...
-        
+
         // Finish off the previous dash and start a new one.
         NSInteger lastBulletStart = [[_bulletStarts lastObject] intValue];
         [_bulletStarts removeLastObject];
-        
+
         [_accum addAttributes:[self paragraphStyle]
                             range:NSMakeRange(lastBulletStart, _accum.length - lastBulletStart)];
       }

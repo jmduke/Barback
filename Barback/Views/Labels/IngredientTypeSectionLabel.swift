@@ -9,7 +9,7 @@
 import Foundation
 
 class IngredientTypeSectionLabel: DescriptionLabel {
-    
+
     var ingredientType: IngredientType? {
         didSet {
             text = ingredientType!.pluralize().capitalizedString

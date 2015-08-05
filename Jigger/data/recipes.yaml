@@ -1,3 +1,96 @@
+- name: Chinook
+  source: ""
+  ingredients: 
+  - 6cl Bourbon
+  - 1.5cl Allspice Dram
+  - .75cl B\xE9n\xE9dictine
+  - .75cl Lemon juice
+  - Bitters (two dashes)
+  garnish: Lemon twist
+  directions: "Combine all the ingredients into the shaker tin, and fill with ice. Shake vigorously until cold (approximately 10-12 seconds), and strain."
+  glassware: coupe
+  information: "Home-made allspice dram is a lot of effort, but makes this recipe shine.  [Chasing Delicious](http://chasingdelicious.com/allspice-dram-and-the-chinook/) has a great recipe for it."
+- name: Pom and Bourbon
+  source: Serious Eats
+  ingredients:
+  - .75cl Pomegranate molasses
+  - 1.5cl Pomegranate juice
+  - 1.5cl Orange juice
+  - 6cl Bourbon
+  - Angostura bitters (Two dashes)
+  garnish: Orange twist
+  directions: "Fill a cocktail shaker with ice and add pomegranate molasses, pomegranate juice, orange juice, whiskey and bitters. Shake vigorously for 10 seconds. Strain into a cocktail glass. Gently squeeze together the orange peel to release the oils, then place into cocktail and serve."
+  glassware: coupe
+  information: Delicious, warm, and a sweet choice for a quiet autumn evening.
+- name: PG Tipple
+  source: The Spotted Pig
+  ingredients:
+  - 9cl tea (black)
+  - 1.5cl Lemon juice
+  - 1.5cl Simple syrup
+  - 6cl Bourbon
+  - Orange marmalade (One barspoon)
+  garnish: Lemon wedge
+  directions: "Combine ingredients in shaker and shake without ice. Fill a Collins glass with ice, pour cocktail (unstrained) into glass."
+  glassware: collins
+  information: "Refreshing with a bitter edge.  Alternatively, make it hot for a twist on a Toddy."
+- name: Paloma
+  source: ""
+  ingredients:
+  - 6cl Tequila
+  - 3cl Grapefruit juice
+  - 3cl Lime juice
+  - 1.5cl Simple syrup
+  - 9cl Soda water 
+  garnish: ""
+  directions: "Add all the ingredients in an ice-filled glass and stir."
+  glassware: collins
+  information: "Little is known about the historical origin of the Paloma, the most popular tequila-based cocktail in Mexico. Some conjecture that it is named after La Paloma ('The Dove'), the popular folk song composed in the early 1860s."
+- name: Old Smoke
+  source: ""
+  ingredients:
+  - 6cl Tequila (Reposado)
+  - 3cl Mezcal
+  - 1.5cl Grenadine
+  - Angostura bitters (Four dashes)
+  garnish: Orange twist
+  directions: "Add everything to a mixing glass, stir with ice as long as you would a negroni and single strain on fresh rocks."
+  glassware: old-fashioned
+  information: "Not too heavy, but smoky and sumptious."
+- name: Royalist
+  source: The Cafe Royal Cocktail Book
+  ingredients:
+  - 4.5cl Vermouth (dry)
+  - 2cl Whiskey
+  - 2cl B\xE9n\xE9dictine
+  - Peach bitters (Two dashes)
+  garnish: ""
+  directions: Stir, strain, sip.
+  glassware: coupe
+  information: More like a Manhattan than you'd think -- the power of the dry vermouth (which is often shied away from) is well balanced and brought together by the novelty of peach bitters.  Robert Hess, patron saint of Seattle bartending, has a [great video tutorial](http://smallscreennetwork.com/video/634/cocktail_spirit_royalist/) explaining the Royalist.
+- name: Melon Stand
+  source: The PDT Cocktail Book
+  ingredients:
+  - 6cl Gin (Plymouth)
+  - 3cl Watermelon juice
+  - 2cl Lemon juice
+  - 1.5cl Aperol
+  - 1.5cl Simple syrup
+  garnish: 3 watermelon balls
+  directions: Shake with ice and strain into a chilled Collins glass filled with pebble ice. Garnish with three watermelon balls on a pick.
+  glassware: Collins
+  information: "The Melon Stand is published in The PDT Cocktail Book and credited to Jane Danger in the summer of 2008. It is named after her Minnesota dream bar, Jane’s Sweet Melon Stand, though I personally don’t really get that as a name."
+- name: Painkiller
+  ingredients:
+  - 6cl Dark rum (Pusser's)
+  - 12cl Pineapple juice
+  - 3cl Orange juice
+  - 3cl Coconut milk
+  source: The Complete Guide to Rum
+  garnish: Nutmeg
+  directions: "Fill a big glass or goblet with ice and add the ingredients. To mix, pour once or twice back and forth into another glass. Grate fresh nutmeg on top."
+  glassware: hurricane
+  information: "The official drink of *Pusser's Rum*, who has an [entertaining](http://pussersrum.com/rum-cocktails/the-pussers-painkiller/) origin story for the drink.  By default, the drink is weak -- depending on your flavor profile (and ideal level of sobriety) bump up the amount of rum."
 - name: Kentucky River
   ingredients: 
   - "0.5cl Cr\xE9me liqueur"
@@ -6,26 +99,29 @@
   garnish: Orange twist
   directions: Build in glass with a large ice cube and then lightly stir to desired temperature.
   glassware: old fashioned
-  information: "Found in [Just Cocktails](http://www.amazon.com/Just-Cocktails-Bartenders-Illustrated-Engage/dp/1927970016&tag=barback-20), a mainstay cocktail book from the 30's.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors."
+  source: Just Cocktails
+  information: "A mainstay cocktail from the 30's.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors."
 - name: 20th Century
   ingredients:
   - 4.5cl Gin
   - 2cl Lillet
-  - 2cl Cr\xE9me liqueur
+  - "2cl Cr\xE9me liqueur"
   - 2cl Lemon juice
   garnish: "Lemon twist"
   directions: "Shake in an iced cocktail shaker, and strain into a cocktail glass. Garnish with a lemon twist."
   glassware: cocktail
-  information: "Created in 1937 by a British bartender named C.A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Café Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Café Royal."
+  source: C.A. Tuck
+  information: "Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Caf\xE9 Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Caf\xE9 Royal."
 - name: Coney Island
   ingredients: 
   - 6cl Rye
   - 1.5cl Punt e Mes
-  - 1.5cl Cr\xE9me liqueur
+  - "1.5cl Cr\xE9me liqueur"
   - Angostura bitters (One dash)
   garnish: Maraschino cherry
   directions: "Stir with ice and strain into a cocktail glass. Garnish with a Maraschino cherry."
   glassware: cocktail
+  source: cocktail virgin/slut
   information: "This sweet, robust drink comes to us from [cocktail virgin/slut](http://cocktailvirgin.blogspot.com/2011/10/coney-island.html)."
 - name: Hanky Panky
   ingredients:
@@ -35,16 +131,18 @@
   garnish: Orange peel
   directions: "Combine ingredients in a mixing glass and fill with ice. Stir well for 20 seconds and strain into chilled cocktail glass."
   glassware: cocktail
+  source: Ada Coleman
   information: "The Hanky Panky originated at the American Bar at the Savoy Hotel in London in the early 20th century. Developed by head bartender Ada Coleman, the Hanky Panky matches Fernet-Branca's distinctive character with the botanicals found in gin and sweet vermouth to create a rich blend of flavors--a blend that lets the pushy liqueur remind you of its better side."
 - name: Decolletage
   ingredients:
   - 4.5cl Tequila (Reposado)
-  - 3cl Dubonnet Rouge
+  - 3cl Dubonnet (Rouge)
   - 1.5cl Aperol
   - 1cl Fernet-Branca
   garnish: Orange twist
   directions: Stir over ice and strain into an ice-filled glass.
   glassware: old fashioned
+  source: Chris Hannah
   information: "This recipe from Chris Hannah of French 75 Bar in New Orleans was chosen as one of the 101 Best New Cocktails to be included in Gaz Regan's 2011 Annual Manual for Bartenders. It's fragrant and slightly mentholated, with hints of sweet orange and cinnamony spice. Not for the timid, but seductive all the same."
 - name: Toronto
   ingredients:
@@ -57,8 +155,9 @@
   directions: "Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice. Stir for 20 seconds and strain into chilled cocktail glass."
   information: "Here's a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening."
 - name: Eeyore's Requiem
-  glassware: coupe
+  glassware: cocktail
   directions: "Fill a mixing glass with ice, add Campari, Tanqueray, Cynar, Fernet, vermouth, and bitters. Stir until well chilled and strain into serving glass."
+  source: Toby Maloney
   information: "If you sat around naming all the bitter ingredients in your liquor cabinet, you might come close to the formula for this Anti-Valentine's Day tipple. Eeyore's Requiem, invented by Toby Maloney of Chicago's Violet Hour, starts with Campari, then adds a dose of Fernet-Branca, which is made with gentian, chamomile, bitter orange, myhrr, and saffron, among other things. Not bitter enough for your cynical heart? Maloney takes your Fernet and your Campari and raises you a quarter ounce of artichoke-and-herb based Cynar."
   ingredients:
   - 4.5cl Campari
@@ -72,6 +171,7 @@
   glassware: cocktail
   directions: 'Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice. Stir until outside of mixing glass is very cold to touch, about 15 seconds.'
   information: "The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn't. It's a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for 'our boys'."
+  book: Old Waldorf Bar Days
   ingredients:
   - 4.5cl Bourbon (or Rye)
   - 2cl Sweet vermouth
@@ -85,10 +185,11 @@
   - Cucumber (half-moon slices)
   directions: "Pour gin, Pimm’s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices."
   glassware: highball
+  source: Porch Swing
   information: "Straight-up (well, not literally) summertime.  This recipe comes to us from [smittenkitchen](http://smittenkitchen.com/blog/2010/07/porch-swing/), who credits [Porch Swing](http://www.bluesmoke.com/) with the original conception."
 - name: The Getaway
   ingredients:
-  - 4.5cl Blackstrap rum
+  - 4.5cl Dark rum (Blackstrap)
   - 1.5cl Cynar
   - 4.5cl Simple syrup
   - 3cl Lemon juice
@@ -111,12 +212,13 @@
   information: 'The Obituary is an intriguing spin on a gin martini, probably getting its morbid name from the inclusion of absinthe (though a pastis like Pernod can be substituted). The result is a completely new drink; the introduction of an anise-y flavor highlights the aromatics already present in both gin and vermouth.'
   ingredients:
   - 6cl Gin
-  - 1cl Dry vermouth
+  - 1cl Vermouth (dry)
   - 1cl Absinthe
 - name: Intro to Aperol
   garnish: Orange twist
   glassware: cocktail
   directions: 'Fill a cocktail shaker with 2 cups ice. Add Aperol. gin, lemon juice, Simple Syrup and Angostura bitters ; cover and shake until chilled. Strain.'
+  source: Audrey Sanders
   information: Audrey Saunders of Pegu Club in New York created this fruity and bittersweet drink to introduce customers to the flavor of Aperol.
   ingredients:
   - 6cl Aperol
@@ -145,6 +247,7 @@
   - 1.5cl Lime juice
   - 1.5cl Orange juice
   information: "The Pisco Punch is considered a classic cocktail, crucial to the history of San Francisco. It was invented by Duncan Nicol at a bar named Bank Exchange at the end of the 19th century, in SF; the original recipe was so potent that one writer of the day wrote *it tastes like lemonade but comes back with the kick of a roped steer.*  The drink gained notoriety thanks to pieces written by travelers including Mark Twain and Harold Ross. In Rudyard Kipling's 1889 epic *From Sea to Sea*, he immortalized Pisco Punch as being *compounded of the shavings of cherub's wings, the glory of a tropical dawn, the red clouds of sunset and the fragments of lost epics by dead masters*."
+  source: Duncan Nicol
 - name: Pisco Morado
   garnish: Orange peel
   glassware: cocktail
@@ -155,6 +258,7 @@
   - Lime (half)
   - 3cl Simple syrup
   information: "A cocktail with a distinctive taste and hue, due in no small part to the unique chicha base. Credit due to the fantastic [Pisco Trail](http://www.piscotrail.com/2012/10/31/cocktails/pisco-morado-purple-corn-pisco/), a great resource for the intersection of craft cocktails and Peruvian culture."
+  source: Pisco Trail
 - name: Chrysanthemum
   garnish: Orange peel
   glassware: cocktail
@@ -165,6 +269,7 @@
     base: "B\xE9n\xE9dictine"
   - Absinthe (Three dashes)
   information: "A classic, usually credited to Harry Craddock and *The Savoy Cocktail Book* despite actually being from Hugo Ensslin’s *Recipes for Mixed Drinks*.  An apparent favorite for post-Prohibition expats, the *Savoy Cocktail Book* notes that it was 'well-known and very popular in the American Bar of the S.S. Europa,' a German cruise liner that operated through the 1930s."
+  source: Recipes for Mixed Drinks
 - name: Ward 8
   garnish: Maraschino cherry
   glassware: cocktail
@@ -195,10 +300,12 @@
   - 9cl Applejack (Can substitute Calvados)
   - 9cl Sloe Gin
   name: Savoy Tango
+  source: The Savoy Cocktail Book
 - directions: Add all ingredients to a shaker and shake without ice, add ice and shake
     vigorously, strain into glass.  Top with chilled soda.
   garnish: ''
   glassware: goblet
+  source: Charles Baker
   information: This delightful drink was originally concoted by the infamous Charles
     Baker for the Astor House Hotel.  (You may have deduced this from the name.)
   ingredients:
@@ -210,6 +317,7 @@
   name: Astor Hotel Special
 - directions: Mix and serve.
   garnish: Lime slice
+  source: The Fine Art of Mixing Drinks
   glassware: cocktail
   information: '*Why on earth this stroke of genius stands unheralded and unsung in
     this fair and allegedly free land of ours shall, to us, always be a mystery like
@@ -228,6 +336,7 @@
     and and then sparkling wine.
 
     '
+  source: Boozenerds
   glassware: highball
   information: This is a *shandy* -- a beer cocktail -- created by the fine folks
     at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies
@@ -240,6 +349,7 @@
   name: Field & Cellar
 - directions: Stir first 3 ingredients with ice. Strain into a glass. Top with beer.
   glassware: highball
+  source: Boozenerds
   information: This is a *shandy* -- a beer cocktail -- created by the fine folks
     at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies
     are considered warm-weather drinks.
@@ -253,6 +363,7 @@
     Garnish with a lime wheel.
   garnish: Lime wheel
   glassware: highball
+  source: Boozenerds
   information: This is a *shandy* -- a beer cocktail -- created by the fine folks
     at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies
     are considered warm-weather drinks.
@@ -266,6 +377,7 @@
     glass.
   garnish: Orange slice
   glassware: cocktail
+  source: Barflies and Cocktails
   information: From Harry McElhone''s 1927 [Barflies and Cocktails](http://www.amazon.com/gp/product/1603111697?ie=UTF8&camp=1789&creativeASIN=1603111697&linkCode=xm2&tag=barback-20),
     this drink is a darker cousin of the Negroni -- having subtituted bourbon for
     gin.
@@ -488,8 +600,7 @@
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Whiskey
-    label: Bourbon whiskey
+    base: Bourbon
   - amount: 3
     base: Lemon juice
   - amount: 1.5
@@ -599,6 +710,7 @@
   - amount: 1.5
     base: Lemon juice
   name: Aviation
+  source: Recipes for Mixed Drinks
 - directions: 'Pour peach puree into chilled glass and add sparkling wine. Stir gently.
     Variations: Puccini (fresh mandarin juice), Rossini (fresh strawberry puree),
     Tintoretto (fresh pomegranate juice)'
@@ -609,6 +721,7 @@
   - amount: 5
     base: Peach puree
   name: Bellini
+  source: Giuseppe Cipriani
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
@@ -621,6 +734,8 @@
   - amount: 3
     base: Cream
   name: Grasshopper
+  information: "French Quarter icon Tujague's, which opened in 1856, is the unlikely origin of the sweet and minty Grasshopper. According to lore, Philibert Guichet, whose family purchased the restaurant from founders Guillaume and Marie Tujague in the 1910s, invented the cocktail while in New York City for a cocktail competition 'similar to what they have now for Tales of the Cocktail,' Latter says. Guichet's combination of equal parts crème de menthe, crème de cacao, and cream took second prize in the contest, and Guichet proudly brought the drink — supposedly named a 'Grasshopper' for its bright green color — back to New Orleans.  Eater has a [great writeup](http://www.eater.com/2014/10/23/7036159/a-brief-history-of-the-grasshopper) on it."
+  source: Philibert Guichet
 - directions: Build tequila and orange juice into highball with ice cubes. Add a splash
     of grenadine to create sunrise effect. Do not stir.
   garnish: Orange slice, cherry
@@ -733,6 +848,8 @@
   - amount: 3
     base: Cream
   name: Alexander
+  source: Recipes for Mixed Drinks
+  information: One of the sweetest and creamiest IBA official cocktails, the Alexander acts as a nice palette cleanser or after-dinner dessert.  The original recipe back in 1915 subbed cognac for gin; the cognac variation has a number of conflicting origin stories, but the most likely source was Troy Alexander -- who created his eponymous concoction in order to serve a white drink at a dinner celebrating Phoebe Snow at Rector’s, a premier pre-Prohibition lobster shop in New York.
 - directions: Shake and strain into a chilled glass rimmed with sugar.
   garnish: Lemon slice
   glassware: martini
@@ -847,6 +964,8 @@
   - base: Mint leaves
     label: Two, fresh
   name: Derby
+  information: On one hand, it's a weird drink in theory.  On the other hand, its a delightful spring mix in the same vein as a super-dry martini; be sure to err on the cold, crisp side of things. 
+  source: Barflies and Cocktails
 - directions: Shake with ice cubes. Strain into glass.
   glassware: martini
   ingredients:
@@ -857,6 +976,8 @@
   - amount: 2
     base: Lemon juice
   name: Sidecar
+  information: The exact origin of the Sidecar is unclear, but it is thought to have been invented around the end of World War I in either London or Paris. The drink was directly named for the motorcycle attachment, the drink appears in literature as early as 1907.
+  source: Cocktails and How to Mix Them
 - directions: Warm the Irish whiskey over a burner. Pour into the glass (for hot drink)
     hot coffee, and add a teaspoon of sugar. Float Cream on top.
   glassware: mug
@@ -884,6 +1005,8 @@
   - base: Soda water
     label: Splash
   name: Americano
+  information:  The cocktail was first served in creator Gaspare Campari's bar, Caff\xE9 Campari, in the 1860s. It was originally known as the *Milano-Torino* because of its ingredients: Campari, the bitter liqueur, is from Milan (Milano) and Punt e Mes, the vermouth, is from Turin (Torino). It is popular belief that in the early 1900s, the Italians noticed a surge of Americans who enjoyed the cocktail. As a compliment to the Americans, the cocktail later became known as the *Americano*.
+  source: Gaspare Campari
 - directions: Shake with ice cubes. Strain into glass.
   garnish: Pineapple slice, cherry
   glassware: highball
@@ -956,8 +1079,7 @@
   glassware: highball
   ingredients:
   - amount: 6
-    base: Whiskey
-    label: Bourbon whiskey
+    base: Bourbon
   - base: Water
     label: Two teaspoons
   - base: Powdered sugar
@@ -991,7 +1113,7 @@
   ingredients:
   - amount: 1
     base: Vermouth
-    label: Dry vermouth
+    label: Dry
   - amount: 6
     base: Vodka
   - amount: 1
@@ -1113,7 +1235,7 @@
     base: Gin
   - amount: 1
     base: Vermouth
-    label: Dry vermouth
+    label: Dry
   name: Dry Martini
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
@@ -1450,6 +1572,7 @@
 - directions: Shake well with ice and strain into a cocktail glass.
   garnish: ''
   glassware: cocktail
+  source: The Savoy Cocktail Book
   information: From [The Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).
   ingredients:
   - amount: 3
@@ -1541,7 +1664,7 @@
   - amount: 6
     base: Gin
   - amount: 3
-    base: Black Sambuca
+    base: Black sambuca
   - base: Sweet vermouth
     label: Two teaspoons
   name: 'Black Martini #1'
@@ -1561,6 +1684,7 @@
   - base: "B\xE9n\xE9dictine"
     label: Three dashes
   name: Bobby Burns
+  source: The Essential Cocktail
 - directions: 'Rinse a chilled old fashioned glass with the absinthe, add crushed
     ice and set it aside. Stir the remaining ingredients over ice and set it aside.
     Discard the ice and any excess absinthe from the prepared glass, and strain the
@@ -1568,6 +1692,8 @@
     War, rye whiskey substituted cognac as it became hard to obtain.'
   garnish: Lemon twist
   glassware: old fashioned
+  source: Famous New Orleans Drinks and How to
+    Mix ''Em
   information: This concoction gained popularity and was eventually served at the
     Merchants Exchange Coffee House (perhaps akin to the 'coffee shops' of Amsterdam?)
     which specifically used Sazerac-de-Forge et Fils Cognac as its base spirit. In
@@ -1611,11 +1737,10 @@
   - amount: 4.5
     base: Apple cider
   - amount: 1.5
-    base: Averna amaro
+    base: Amaro Averna
   - amount: 1
     base: Lemon juice
-  - amount: 1.5
-    base: Demerara syrup
+  - base: Syrup
     label: One teaspoon
   - base: Allspice Dram
     label: Half teaspoon
@@ -1658,6 +1783,7 @@
     the glass, garnish, serve and enjoy!
   garnish: Orange wheel, ground cinnamon
   glassware: rocks
+  source: Dushan Zaric
   information: Created and popularized by created by Dushan Zaric of [Employees Only](http://www.employeesonlynyc.com/)
     in New York.
   ingredients:
@@ -1719,6 +1845,7 @@
 - directions: Shake and strain into glass.
   garnish: Lemon twist
   glassware: martini
+  source: Casino Royale
   information: "\"A dry martini,\" [Bond] said. \"One. In a deep champagne goblet.\"\
     \n\n\"Oui, monsieur.\"\n\n\"Just a moment. Three measures of Gordon's, one of\
     \ vodka, half a measure of Kina Lillet. Shake it very well until it's ice-cold,\
@@ -1737,6 +1864,7 @@
     base: Vodka
   - amount: 0.75
     base: Lillet
+    label: Blanc
   name: Vesper
 - directions: Shake with ice cubes. Strain into glass.
   glassware: martini
@@ -1744,6 +1872,7 @@
     is named for the Philadelphia men''s club of the same name, which met in the Bellevue-Stratford
     hotel.
   ingredients:
+  source: The Ideal Bartender
   - amount: 1.5
     base: Raspberry syrup
   - amount: 4.5
@@ -1756,6 +1885,7 @@
 - directions: Shake with ice cubes, except for champagne. Strain into a champagne
     flute. Top up with champagne. Stir gently.
   glassware: champagne flute
+  source: Harry MacElhone
   information: The drink was created in 1915 at the New York Bar in Paris (Harry's
     New York Bar) by barman Harry MacElhone. The combination was said to have such
     a kick that it felt like being shelled with the powerful French 75mm field gun,
@@ -1791,6 +1921,7 @@
     ice and shake hard. Strain into chilled cocktail glass.
   garnish: ''
   glassware: cocktail
+  source: The Gentlemen's Companion
   information: This cocktail was created by Kirk Estopinal and published in the book
     *Beta Cocktails*, a variation on the Angostura Fizz, which itself was published
     in Charles Baker's [The Gentlemen's Companion](http://www.amazon.com/gp/product/1614273960?ie=UTF8&camp=1789&creativeASIN=1614273960&linkCode=xm2&tag=barback-20)
@@ -1809,8 +1940,8 @@
     stir.  Top it off with ginger ale.
   garnish: Lime wedge
   glassware: collins
-  information: Adapted from Albert Stevens Crockett's 1935 [The Old Wardorf-Astoria
-    Bar Book](http://www.amazon.com/gp/product/1438244304?ie=UTF8&camp=1789&creativeASIN=1438244304&linkCode=xm2&tag=barback-20).
+  source: Old Waldorf Bar Days
+  information: Adapted from Albert Stevens Crockett's 1935 [Old Waldorf Bar Days](http://www.amazon.com/gp/product/1438244304?ie=UTF8&camp=1789&creativeASIN=1438244304&linkCode=xm2&tag=barback-20).
     The drink first appeared in the *New York Herald* some thirty years prior to Crockett
     writing his book. The namesake of the drink -- a certain Mrs. Taylor -- is still
     unknown.
@@ -1824,6 +1955,7 @@
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass.
   garnish: Cherry
   glassware: martini
+  source: The Fine Art of Mixing Drinks
   information: One of the most popular and classic cocktails; one of the six basic
     cocktails in [The Fine Art of Mixing Drinks](http://www.amazon.com/gp/product/1603111646?ie=UTF8&camp=1789&creativeASIN=1603111646&linkCode=xm2&tag=barback-20)
     by David A. Embury.  Try tinkering with the amount of vermouth or substituting
@@ -1839,6 +1971,7 @@
   name: Manhattan
 - directions: Shake and strain into glass.
   glassware: cocktail
+  source: Savoy Cocktail Book
   information: Named after the 1922 movie of the same name.  First appeared in 1930,
     in the [Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).
   ingredients:
@@ -1856,6 +1989,7 @@
     froth).
   garnish: Lime wheel
   glassware: old fashioned
+  source: New American Bartender's Guide
   information: The Jungle Bird is a relatively recent Tiki concoction, credited to
     the Aviary Bar at the Kuala Lumpur Hilton hotel in 1978. It was first published
     in John J. Poister's [New American Bartender's Guide](http://www.amazon.com/gp/product/0451205243?ie=UTF8&camp=1789&creativeASIN=0451205243&linkCode=xm2&tag=barback-20)
@@ -1877,6 +2011,7 @@
   name: Jungle Bird
 - directions: Stir and strain into a chilled glass.
   glassware: cocktail
+  source: The Savoy Cocktail Book
   information: Oddly enough, there is very little known about the origins of the Alaska
     cocktail. The most that people seem to be able to ascertain is that this has nothing
     to do with Alaska or Eskimos, as seen from the description in [The Savoy Cocktail

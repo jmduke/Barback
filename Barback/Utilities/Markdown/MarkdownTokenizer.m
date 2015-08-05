@@ -201,7 +201,7 @@ typedef size_t yy_size_t;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
-    
+
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
 	do \
@@ -258,7 +258,7 @@ struct yy_buffer_state
 
     int yy_bs_lineno; /**< The line count. */
     int yy_bs_column; /**< The column count. */
-    
+
 	/* Whether to try to fill the input buffer when we reach the
 	 * end of it.
 	 */
@@ -1822,7 +1822,7 @@ static void markdown_load_buffer_state  (yyscan_t yyscanner)
     YY_BUFFER_STATE markdown_create_buffer  (FILE * file, int  size , yyscan_t yyscanner)
 {
 	YY_BUFFER_STATE b;
-    
+
 	b = (YY_BUFFER_STATE) markdownalloc(sizeof( struct yy_buffer_state ) ,yyscanner );
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in markdown_create_buffer()" );
@@ -1866,7 +1866,7 @@ static void markdown_load_buffer_state  (yyscan_t yyscanner)
 #ifndef __cplusplus
 extern int isatty (int );
 #endif /* __cplusplus */
-    
+
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
  * such as during a markdownrestart() or at EOF.
@@ -1892,7 +1892,7 @@ extern int isatty (int );
     }
 
         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
-    
+
 	errno = oerrno;
 }
 
@@ -2034,7 +2034,7 @@ static void markdownensure_buffer_stack (yyscan_t yyscanner)
 YY_BUFFER_STATE markdown_scan_buffer  (char * base, yy_size_t  size , yyscan_t yyscanner)
 {
 	YY_BUFFER_STATE b;
-    
+
 	if ( size < 2 ||
 	     base[size-2] != YY_END_OF_BUFFER_CHAR ||
 	     base[size-1] != YY_END_OF_BUFFER_CHAR )
@@ -2070,7 +2070,7 @@ YY_BUFFER_STATE markdown_scan_buffer  (char * base, yy_size_t  size , yyscan_t y
  */
 YY_BUFFER_STATE markdown_scan_string (yyconst char * yystr , yyscan_t yyscanner)
 {
-    
+
 	return markdown_scan_bytes(yystr,strlen(yystr) ,yyscanner);
 }
 
@@ -2086,7 +2086,7 @@ YY_BUFFER_STATE markdown_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybyte
 	YY_BUFFER_STATE b;
 	char *buf;
 	yy_size_t n, i;
-    
+
 	/* Get memory for full buffer, including space for trailing EOB's. */
 	n = _yybytes_len + 2;
 	buf = (char *) markdownalloc(n ,yyscanner );
@@ -2154,10 +2154,10 @@ YY_EXTRA_TYPE markdownget_extra  (yyscan_t yyscanner)
 int markdownget_lineno  (yyscan_t yyscanner)
 {
     struct yyguts_t * yyg = (struct yyguts_t*)yyscanner;
-    
+
         if (! YY_CURRENT_BUFFER)
             return 0;
-    
+
     return yylineno;
 }
 
@@ -2167,10 +2167,10 @@ int markdownget_lineno  (yyscan_t yyscanner)
 int markdownget_column  (yyscan_t yyscanner)
 {
     struct yyguts_t * yyg = (struct yyguts_t*)yyscanner;
-    
+
         if (! YY_CURRENT_BUFFER)
             return 0;
-    
+
     return yycolumn;
 }
 
@@ -2232,7 +2232,7 @@ void markdownset_lineno (int  line_number , yyscan_t yyscanner)
         /* lineno is only valid if an input buffer exists. */
         if (! YY_CURRENT_BUFFER )
            yy_fatal_error( "markdownset_lineno called with no buffer" , yyscanner); 
-    
+
     yylineno = line_number;
 }
 
@@ -2247,7 +2247,7 @@ void markdownset_column (int  column_no , yyscan_t yyscanner)
         /* column is only valid if an input buffer exists. */
         if (! YY_CURRENT_BUFFER )
            yy_fatal_error( "markdownset_column called with no buffer" , yyscanner); 
-    
+
     yycolumn = column_no;
 }
 
@@ -2337,13 +2337,13 @@ int markdownlex_init_extra(YY_EXTRA_TYPE yy_user_defined,yyscan_t* ptr_yy_global
         errno = ENOMEM;
         return 1;
     }
-    
+
     /* By setting to 0xAA, we expose bugs in
     yy_init_globals. Leave at 0x00 for releases. */
     memset(*ptr_yy_globals,0x00,sizeof(struct yyguts_t));
-    
+
     markdownset_extra (yy_user_defined, *ptr_yy_globals);
-    
+
     return yy_init_globals ( *ptr_yy_globals );
 }
 

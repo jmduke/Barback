@@ -1,5 +1,5 @@
 import Foundation
-import Parse
+
 
 // NSUserDefault keys.
 let launchedOnceKey = "launchedOnce"
@@ -33,8 +33,6 @@ func setAppSyncedThisLaunch() {
 }
 
 func dataNeedsSyncing() -> Bool {
-    let config = PFConfig.getConfig()
-    let dataVersion = config?.objectForKey(dataVersionKey) as! Int
     return false
 }
 

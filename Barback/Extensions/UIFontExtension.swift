@@ -10,12 +10,16 @@ import Foundation
 import UIKit
 
 extension UIFont {
-    
+
     class func primaryFont() -> String {
         return "Avenir"
     }
-    
+
     class func heavyFont() -> String {
         return "Avenir-Heavy"
+    }
+
+    class func emphasisFont() -> String {
+        return "Avenir-HeavyOblique"
     }
 }

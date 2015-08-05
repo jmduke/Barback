@@ -9,7 +9,7 @@
 import Foundation
 
 public class RecipeHeaderLabel: HeaderLabel {
-    
+
     var recipe: Recipe? {
         didSet {
             text = recipe!.name
