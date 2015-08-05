@@ -9,7 +9,7 @@
 import Foundation
 
 public class IngredientDescriptionTextView: DescriptionTextView {
-    
+
     var ingredient: IngredientBase? {
         didSet {
             text = ingredient!.information

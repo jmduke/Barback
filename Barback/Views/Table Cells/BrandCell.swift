@@ -7,18 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
 class BrandCell: StyledCell {
-    
+
     init(brand: Brand, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.Value1,
             reuseIdentifier: reuseIdentifier)
-        
+
         textLabel?.text = brand.name
         detailTextLabel?.text = brand.detailDescription
     }
-    
-    required init(coder: NSCoder) {
+
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 

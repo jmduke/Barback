@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Glassware {
     case Champagne
@@ -21,9 +22,9 @@ enum Glassware {
     case OldFashioned
     case Rocks
     case Shot
-    
+
     func dimensions() -> (Double, Double, Double) {
-        var base: (Double, Double, Double) = {
+        let base: (Double, Double, Double) = {
             switch self {
             case .Champagne:
                 return (100.0, 0.0, 30.0)
@@ -45,11 +46,11 @@ enum Glassware {
             }()
         return base
     }
-    
+
     func rect() -> CGRect {
         return CGRectMake(0.0, 0.0, CGFloat(dimensions().2), CGFloat(dimensions().0))
     }
-    
+
     static func fromString(string: String) -> Glassware {
         switch string {
         case "champagne flute":

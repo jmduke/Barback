@@ -14,7 +14,7 @@ func userWantsImperialUnits() -> Bool {
 
 func registerSettingsDefaults() {
     let userDefaults = NSUserDefaults.standardUserDefaults()
-    
+
     if (!userDefaults.boolForKey("useImperialUnits")) {
         let appDefaults = ["useImperialUnits": true]
         userDefaults.registerDefaults(appDefaults)

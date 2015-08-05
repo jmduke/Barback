@@ -11,10 +11,10 @@ import Foundation
 var ingredientsForRecipes: [Recipe:[Ingredient]] = {
     var dict = [Recipe:[Ingredient]]()
     for ingredient in Ingredient.all() {
-        if let previousList = dict[ingredient.recipe] {
-            dict[ingredient.recipe] = previousList + [ingredient]
+        if let previousList = dict[ingredient.recipe!] {
+            dict[ingredient.recipe!] = previousList + [ingredient]
         } else {
-            dict[ingredient.recipe] = [ingredient]
+            dict[ingredient.recipe!] = [ingredient]
         }
     }
     return dict
@@ -28,10 +28,3 @@ var privateKeys: NSDictionary = {
     let keychain = NSBundle.mainBundle().pathForResource("PrivateKeys", ofType: "plist")
     return NSDictionary(contentsOfFile: keychain!)!
     }()
-
-func isConnectedToInternet() -> Bool {
-    let reachability = Reachability.reachabilityForInternetConnection()
-    let networkStatus = reachability.currentReachabilityStatus()
-    let notReachableStatus = 0
-    return networkStatus.rawValue != notReachableStatus
-}

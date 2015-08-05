@@ -7,38 +7,20 @@
 //
 
 import AdSupport
+import Appirater
 import CoreData
-import Crashlytics
-import Fabric
-import Parse
-import ParseCrashReporting
+// import Crashlytics
+// import Fabric
+import MBProgressHUD
+import RealmSwift
 import SystemConfiguration
 import UIKit
 
 
 func initializeDependencies(launchOptions: NSDictionary?) {
-    
-    Fabric.with([Crashlytics()])
-    
-    // Initialize Parse.
-    let parseApplicationId = privateKeys["parseApplicationId"]! as! String
-    let parseClientKey = privateKeys["parseClientKey"]! as! String
-    ParseCrashReporting.enable()
-    Ingredient.registerSubclass()
-    IngredientBase.registerSubclass()
-    Brand.registerSubclass()
-    Favorite.registerSubclass()
-    Parse.enableLocalDatastore()
-    Parse.setApplicationId(parseApplicationId, clientKey: parseClientKey)
-    PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions as? [NSObject : AnyObject], block: nil)
-    
-    // Allow Twitter login.
-    let twitterConsumerKey = privateKeys["twitterConsumerKey"]! as! String
-    let twitterConsumerSecret = privateKeys["twitterConsumerSecret"]! as! String
-    PFTwitterUtils.initializeWithConsumerKey(twitterConsumerKey,
-        consumerSecret:twitterConsumerSecret)
-    
-    
+
+    // Fabric.with([Crashlytics()])
+
     // Initialize Appirater.
     Appirater.setAppId("829469529")
     Appirater.setDaysUntilPrompt(7)
@@ -51,103 +33,103 @@ func initializeDependencies(launchOptions: NSDictionary?) {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        
+
+    func application(
+        application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject) -> Bool {
+
         // Format of `barback://recipe/<RecipeName>`.
         if (url.host?.lowercaseString == Recipe.parseClassName().lowercaseString) {
             let recipeName = url.path?.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
             if let recipeName = recipeName {
                     let recipe = Recipe.forName(recipeName)
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let storyboard = R.storyboard.main.instance
                     let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
                     controller.setRecipeAs(recipe)
 
                     let tabBarController = self.window?.rootViewController as! UITabBarController
-                    let navController = tabBarController.selectedViewController as! UINavigationController
+                let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
                     navController.pushViewController(controller, animated: true)
             }
         }
 
+
         return true
     }
-    
+
     var tabBarItems: [UITabBarItem] {
         get {
             let tabBarController = self.window?.rootViewController as! UITabBarController
             let tabBar = tabBarController.tabBar
-            let items = tabBar.items as! [UITabBarItem]
+            let items = tabBar.items!
             return items
         }
     }
-    
+
     // Needed to access UITabBarIcons.
     var window: UIWindow?
-    
+
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         application.registerUserNotificationSettings(notificationSettings)
     }
-    
-    
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let currentInstallation = PFInstallation.currentInstallation()
-        currentInstallation.setDeviceTokenFromData(deviceToken)
-        currentInstallation.saveInBackgroundWithBlock(nil)
-    }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PFPush.handlePush(userInfo)
-    }
-    
+
     func syncData() {
-        let window = UIApplication.sharedApplication().delegate!.window
-        Async.main {
-            let loadingNotification = MBProgressHUD.showHUDAddedTo(window!, animated: true)
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            loadingNotification.mode = MBProgressHUDMode.Indeterminate
-            loadingNotification.labelText = "Loading"
-        }.background {
-            PFObject.unpinAll(Recipe.all(true))
-            PFObject.unpinAll(Ingredient.all(true))
-            PFObject.unpinAll(IngredientBase.all(true))
-            PFObject.unpinAll(Brand.all(true))
-            PFObject.unpinAll(Favorite.all(true))
-            PFObject.pinAll(Recipe.all(false))
-            PFObject.pinAll(Ingredient.all(false))
-            PFObject.pinAll(IngredientBase.all(false))
-            PFObject.pinAll(Brand.all(false))
-            PFObject.pinAll(Favorite.all(false))
-            Recipe.all().map({ $0.ingredients })
-            }.main {
-                MBProgressHUD.hideAllHUDsForView(window!, animated: true)
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                let tabBarController = window!!.rootViewController as! UITabBarController
-                let navController = tabBarController.childViewControllers[0] as! UINavigationController
-                let controller = navController.viewControllers[0] as! FullRecipeListViewController
-                controller.recipes = Recipe.all()
-                controller.tableView.reloadData()
+        do {
+            let realm = try Realm()
+            realm.write {
+                realm.deleteAll()
             }
+            
+            let baseFilepath = NSBundle.mainBundle().pathForResource("bases", ofType: "json")!
+            let baseData = try NSData(contentsOfFile: baseFilepath, options: NSDataReadingOptions.DataReadingMappedAlways)
+            let baseDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(baseData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
+            realm.write {
+                for object in baseDict {
+                    realm.add(IngredientBase(value: object))
+                }
+            }
+            
+            let recipeFilepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")!
+            let recipeData = try NSData(contentsOfFile: recipeFilepath, options: NSDataReadingOptions.DataReadingMappedAlways)
+            let recipeDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(recipeData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
+            realm.write {
+                for object in recipeDict {
+                    let recipe = Recipe(value: object)
+                    realm.add(recipe)
+                    for ingredient: Ingredient in recipe.ingredients {
+                        ingredient.base = realm.objects(IngredientBase).filter("name = \"\(ingredient.baseName)\"").first
+                        if (ingredient.base == nil) {
+                            print(ingredient.baseName)
+                        }
+                        ingredient.recipe = recipe
+                        realm.add(ingredient)
+                    }
+                }
+            }
+        } catch {
+            print("Error info: \(error)")
+        }
     }
-    
+
     func registerPushNotifications(application: UIApplication) {
         // Register for push notifications.
-        let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+        let userNotificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
     }
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        
+
         initializeDependencies(launchOptions)
         registerPushNotifications(application)
         styleApp()
-        if (isConnectedToInternet()) {
-            syncData()
-        }
+        syncData()
         return true
     }
-    
+
     func enableAppInteraction() {
         if !runningOnIPad() {
             for tabBarItem in tabBarItems {
@@ -155,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     func disableAppInteraction() {
         if !runningOnIPad() {
             for tabBarItem in tabBarItems {
@@ -163,18 +145,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     func styleApp() {
         // Set status bar to active.  And white.
         UIApplication.sharedApplication().statusBarHidden = false
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
+
         if !runningOnIPad() {
             // Set font of tab bar items.
-            var tabBarAttributes = NSMutableDictionary(dictionary: [:])
-            tabBarAttributes.setValue(
-                UIFont(name: UIFont.primaryFont(), size: 10), forKey: NSFontAttributeName)
-            UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes as [NSObject : AnyObject], forState: UIControlState.Normal)
+            var tabBarAttributes = [String : AnyObject]()
+            tabBarAttributes[NSFontAttributeName] = UIFont(name: UIFont.primaryFont(), size: 10)
+            UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: UIControlState.Normal)
             
             let imageColor = Color.Light.toUIColor()
             

@@ -10,19 +10,12 @@ import Foundation
 import Barback
 import UIKit
 import Nimble
-import Parse
 import Quick
 
 class FullRecipeListViewControllerSpec: QuickSpec {
-    
+
     override func spec() {
-        
-        PFObject.pinAll(Recipe.all(false))
-        PFObject.pinAll(Ingredient.all(false))
-        PFObject.pinAll(IngredientBase.all(false))
-        PFObject.pinAll(Brand.all(false))
-        PFObject.pinAll(Favorite.all(false))
-        
+
         describe("a full recipe list controller") {
             
             var controller: FullRecipeListViewController!
@@ -40,7 +33,7 @@ class FullRecipeListViewControllerSpec: QuickSpec {
                 let tableView = controller.tableView
                 var indexPath = NSIndexPath(forRow: 0, inSection: 0)
                 
-                expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("Alabama Slammer"))
+                expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("20th Century"))
             }
             
             context("when you toggle the sort") {
@@ -53,7 +46,7 @@ class FullRecipeListViewControllerSpec: QuickSpec {
                 }
             }
         }
-        
+
         
     }
 }

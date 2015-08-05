@@ -8,27 +8,22 @@
 
 import Foundation
 import CoreData
-import Parse
+import RealmSwift
 
-public class Ingredient: PFObject, PFSubclassing {
+public class Ingredient: Object {
 
-    @NSManaged public var amount: NSNumber
-    @NSManaged public var label: String?
-    
+    public dynamic var amount: Float = 0.0
+    public dynamic var label: String = ""
+
     // Technically foreign keys.
-    @NSManaged public var base: IngredientBase
-    @NSManaged public var recipe: Recipe
+    public dynamic var base: IngredientBase?
+    public dynamic var recipe: Recipe?
+    
+    
+    public dynamic var baseName: String = ""
 
     var lowercaseLabel: String? {
-        return label?.lowercaseString
-    }
-    
-    override public class func initialize() {
-        registerSubclass()
-    }
-    
-    public class func parseClassName() -> String! {
-        return "Ingredient"
+        return label.lowercaseString
     }
 
     var displayAmount: String {
@@ -39,27 +34,25 @@ public class Ingredient: PFObject, PFSubclassing {
     var detailDescription: String {
         get {
             var extraInformation = self.displayAmount
-            if let special = self.label {
-                if !extraInformation.isEmpty {
-                    extraInformation += " · "
-                }
-                extraInformation += special
+            if !extraInformation.isEmpty {
+                extraInformation += " · "
             }
+            extraInformation += label
             return extraInformation
         }
     }
-    
+
     public class func all() -> [Ingredient] {
         return all(true)
     }
-    
+
     public class func all(useLocal: Bool) -> [Ingredient] {
-        var allQuery = query()
-        allQuery.limit = 1000
-        if (useLocal) {
-            allQuery.fromLocalDatastore()
+        do {
+            return try Realm().objects(Ingredient).map({ $0 })
+        } catch {
+            print("\(error)")
+            return []
         }
-        return allQuery.findObjects() as! [Ingredient]
     }
 
 }

@@ -8,45 +8,36 @@
 
 import Foundation
 import CoreData
-import Parse
+import RealmSwift
 
-public class Brand: PFObject, PFSubclassing {
+public class Brand: Object {
 
-    @NSManaged var name: String
-    @NSManaged var price: NSNumber
-    @NSManaged var url: String
-    @NSManaged var ingredient: IngredientBase
+    dynamic var name: String = ""
+    dynamic var price: Float = 0.0
+    dynamic var url: String = ""
+    dynamic var base: IngredientBase?
 
     var detailDescription: String {
         get {
             return "$\(price)"
         }
     }
-    
-    override public class func initialize() {
-        registerSubclass()
-    }
-    
-    public class func all() -> [Brand] {
-        return all(true)
-    }
-    
+
     public class func all(useLocal: Bool) -> [Brand] {
-        var allQuery = query()
-        allQuery.limit = 1000
-        if (useLocal) {
-            allQuery.fromLocalDatastore()
+        do {
+            return try Realm().objects(Brand).map({ $0 })
+        } catch {
+            print("\(error)")
+            return []
         }
-        return allQuery.findObjects() as! [Brand]
-    }
-    
-    public class func parseClassName() -> String! {
-        return "Brand"
     }
 
-    class func forName(name: String) -> Brand {
-        var nameQuery = query()
-        nameQuery.whereKey("name", equalTo: name)
-        return nameQuery.findObjects()![0] as! Brand
+    class func forName(name: String) -> Brand? {
+        do {
+            return try Realm().objects(Brand).filter("name = '\(name)'").first
+        } catch {
+            print("\(error)")
+            return nil
+        }
     }
 }

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4B2F320FE6540C0E17E746067D8CD076ABD392E6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4B2F320FE6540C0E17E746067D8CD076ABD392E6" : 0,
+    "AEC488E3BA71E02D5162C0DBE77700704DFB47C6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "87ECCD36-FBCE-44B2-8F56-0C892B550D84",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4B2F320FE6540C0E17E746067D8CD076ABD392E6" : "BarbackSwift",
+    "AEC488E3BA71E02D5162C0DBE77700704DFB47C6" : "Ambience"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Barback",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Barback.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jmduke\/Barback.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4B2F320FE6540C0E17E746067D8CD076ABD392E6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jmduke\/Ambience.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AEC488E3BA71E02D5162C0DBE77700704DFB47C6"
+    }
+  ]
+}

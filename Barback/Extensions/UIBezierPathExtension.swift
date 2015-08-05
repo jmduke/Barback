@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 extension UIBezierPath {
-    
+
     func toImageWithStrokeColor(strokeColor: UIColor?, fillColor: UIColor?) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(bounds.size.width + self.lineWidth * 4, bounds.size.width + self.lineWidth * 4),
             false, UIScreen.mainScreen().scale)
         let context = UIGraphicsGetCurrentContext()
         CGContextTranslateCTM(context, self.lineWidth, self.lineWidth)
-        
+
         strokeColor?.setStroke()
         fillColor?.setFill()
-        
+
         fill()
         stroke()
-        
+
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image

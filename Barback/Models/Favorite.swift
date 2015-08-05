@@ -6,44 +6,22 @@
 //  Copyright (c) 2015 Justin Duke. All rights reserved.
 //
 
-import Parse
 import Foundation
+import RealmSwift
 
-public class Favorite: PFObject, PFSubclassing {
-    
-    @NSManaged var user: PFUser
-    @NSManaged var recipe: Recipe
-    
-    public class func parseClassName() -> String! {
+public class Favorite: Object {
+
+    var recipe: Recipe?
+
+    public class func parseClassName() -> String {
         return "Favorite"
     }
-    
-    override public class func initialize() {
-        registerSubclass()
-    }
-    
+
     public class func all() -> [Favorite] {
-        return all(true)
-    }
-    
-    public class func all(useLocal: Bool) -> [Favorite] {
-        var allQuery = query()
-        allQuery.limit = 1000
-        if (useLocal) {
-            allQuery.fromLocalDatastore()
-        }
-        return allQuery.findObjects() as! [Favorite]
-    }
-    
-    class func deleteSilently(user: PFUser, recipe: Recipe) {
-        Favorite
-            .query()
-            .whereKey("user", equalTo: user)
-            .whereKey("recipe", equalTo: recipe)
-            .getFirstObjectInBackgroundWithBlock({
-                (object, error) in
-                    object?.deleteEventually()
-            })
-    }
-    
+        do {
+            return try Realm().objects(Favorite).map({ $0 })
+        } catch {
+            print("\(error)")
+            return []
+        }    }
 }

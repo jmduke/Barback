@@ -24,36 +24,48 @@ app.get('/', function(req, res) {
 });
 
 app.get('/recipe/:name', function(req, res) {
-  var recipe = Parse.Cloud.run("recipeForName", {"name": req.param("name")}, {
-    success: function(results) {
-      res.render('recipe', { message: results });
-    },
-    error: function() {
-      res.render('error', { message: "lolfail"});
-    }
-  });
-});
-
-app.get('/search/:term', function(req, res) {
-  var recipe = Parse.Cloud.run("searchForTerm", {"term": req.param("term")}, {
-    success: function(results) {
-      res.render('search', { message: results });
-    },
-    error: function() {
-      res.render('error', { message: "lolfail"});
-    }
-  });
+  if (req.xhr) {
+    var recipe = Parse.Cloud.run("recipeForName", {"name": req.param("name")}, {
+      success: function(results) {
+        res.json(results);
+      },
+      error: function() {
+        res.render('error', { message: "lolfail"});
+      }
+    });
+  } else {
+    var recipes = Parse.Cloud.run("allRecipes", {}, {
+      success: function(results) {
+        res.render('recipes', { message: results });
+      },
+      error: function() {
+        res.render('error', { message: "asasd"});
+      }
+    });
+  }
 });
 
 app.get('/ingredient/:name', function(req, res) {
-  var recipe = Parse.Cloud.run("ingredientForName", {"name": req.param("name")}, {
-    success: function(results) {
-      res.render('ingredient', { message: results });
-    },
-    error: function() {
-      res.render('error', { message: "lolfail"});
-    }
-  });
+  console.log(req.xhr);
+  if (req.xhr) {
+    var recipe = Parse.Cloud.run("ingredientForName", {"name": req.param("name")}, {
+      success: function(results) {
+        res.json(results);
+      },
+      error: function() {
+        res.render('error', { message: "lolfail"});
+      }
+    });
+   } else {
+    var recipes = Parse.Cloud.run("allRecipes", {}, {
+      success: function(results) {
+        res.render('recipes', { message: results });
+      },
+      error: function() {
+        res.render('error', { message: "asasd"});
+      }
+    });
+  }
 });
 
 app.listen();

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum BezierImage {
     case Favorited
@@ -14,11 +15,11 @@ enum BezierImage {
     case Glass
     case Random
     case Search
-    
+
     func path() -> UIBezierPath {
         switch self {
         case .Favorited:
-            var bezier2Path = UIBezierPath()
+            let bezier2Path = UIBezierPath()
             bezier2Path.lineWidth = 0.5
             bezier2Path.moveToPoint(CGPointMake(21.43, 0))
             bezier2Path.addCurveToPoint(CGPointMake(15, 2.88), controlPoint1: CGPointMake(18.15, 0), controlPoint2: CGPointMake(16.07, 1.71))
@@ -40,7 +41,7 @@ enum BezierImage {
             
             return bezier2Path
         case .Favorite:
-            var bezierPath = UIBezierPath()
+            let bezierPath = UIBezierPath()
             bezierPath.lineWidth = 0.5
             bezierPath.moveToPoint(CGPointMake(11.21, 21.28))
             bezierPath.addCurveToPoint(CGPointMake(8.82, 18.91), controlPoint1: CGPointMake(10.78, 20.74), controlPoint2: CGPointMake(9.71, 19.67))
@@ -62,7 +63,7 @@ enum BezierImage {
             bezierPath.miterLimit = 4;
             return bezierPath
         case .Search:
-            var bezier2Path = UIBezierPath()
+            let bezier2Path = UIBezierPath()
             bezier2Path.lineWidth = 0.5
             
             bezier2Path.moveToPoint(CGPointMake(17, 18))
@@ -123,7 +124,7 @@ enum BezierImage {
             
             return bezier2Path
         case .Random:
-            var bezier2Path = UIBezierPath()
+            let bezier2Path = UIBezierPath()
             bezier2Path.lineWidth = 0.5
             bezier2Path.moveToPoint(CGPointMake(22, 0))
             bezier2Path.addLineToPoint(CGPointMake(8, 0))
@@ -197,7 +198,7 @@ enum BezierImage {
             
             return bezier2Path
         case .Glass:
-            var bezier2Path = UIBezierPath()
+            let bezier2Path = UIBezierPath()
             bezier2Path.lineWidth = 0.5
             bezier2Path.moveToPoint(CGPointMake(16.08, 16.91))
             bezier2Path.addLineToPoint(CGPointMake(29, 1))

@@ -10,23 +10,23 @@ import Foundation
 import UIKit
 
 public class DescriptionLabel : UILabel {
-    
+
     // It is so stupid that I need the below constructors.
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
-    required public init(coder: NSCoder) {
+
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     override public func awakeFromNib() {
         super.awakeFromNib()
         styleLabel()
     }
-    
+
     func styleLabel() {
-        font = UIFont(name: UIFont.heavyFont(), size: 15)
+        font = UIFont(name: UIFont.heavyFont(), size: 16)
         textAlignment = NSTextAlignment.Center
         textColor = Color.Light.toUIColor()
     }

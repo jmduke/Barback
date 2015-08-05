@@ -9,8 +9,12 @@
 import Foundation
 
 enum IngredientType: String {
-    case Spirit = "spirit", Liqueur = "liqueur", Garnish = "garnish", Mixer = "mixer", Other = "other"
-    
+    case Spirit
+    case Liqueur
+    case Garnish
+    case Mixer
+    case Other
+
     func pluralize() -> String {
         switch self {
         case .Garnish:
@@ -19,7 +23,7 @@ enum IngredientType: String {
             return rawValue + "s"
         }
     }
-    
+
     // Ugh, this is so inelegant.
     static let allValues = [Spirit, Liqueur, Garnish, Mixer, Other]
 }

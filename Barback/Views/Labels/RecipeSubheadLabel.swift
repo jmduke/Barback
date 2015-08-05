@@ -9,12 +9,12 @@
 import Foundation
 
 public class RecipeSubheadLabel: DescriptionLabel {
-    
+
     var recipe: Recipe? {
         didSet {
             text = "\(Int(recipe!.abv))% ABV · Served in \(recipe!.glassware) glass"
-            if (recipe!.garnish != nil && recipe!.garnish != "") {
-                text = text! + " · Garnish with \(recipe!.garnish!.lowercaseString) "
+            if (recipe!.garnish != "") {
+                text = text! + "\nGarnish with \(recipe!.garnish.lowercaseString) "
             }
         }
     }

@@ -8,18 +8,19 @@
 
 import Foundation
 import UIKit
+import WSCoachMarksView
 
 extension UIViewController {
-    
+
     func runCoachMarks(coachMarks: [CoachMark]) {
-        
+
         let caption = coachMarks[0].caption
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
-        
+
         if (!haveCoachMarksBeenShown) {
-            var parsedCoachMarks: [Dictionary] = coachMarks.map {
+            let parsedCoachMarks: [Dictionary] = coachMarks.map {
                 ["rect": NSValue(CGRect: $0.rect), "caption": $0.caption]
             }
             let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: parsedCoachMarks)
@@ -31,14 +32,14 @@ extension UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-    
+
     func styleController() {
         navigationController?.styleController()
-    
+
         tabBarController?.tabBar.translucent = false
         tabBarController?.tabBar.barTintColor = Color.Dark.toUIColor()
         tabBarController?.tabBar.tintColor = Color.Tint.toUIColor()
-    
+
         view.backgroundColor = Color.Dark.toUIColor()
     }
 

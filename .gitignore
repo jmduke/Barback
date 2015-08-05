@@ -5,7 +5,9 @@
 */parse_config.py
 */global.json
 
+
 # Boring things.
+Barback.xcworkspace/xcshareddata/
 build/
 Pods/
 Distribution/
@@ -23,7 +25,9 @@ xcuserdata
 *.moved-aside
 Podfile.lock
 DerivedData
+R.generated.swift
 *.framework
 *.hmap
 *.ipa
+Supporting Files/screenshots/
 *.xcuserstate

@@ -10,25 +10,18 @@ import Foundation
 import Barback
 import UIKit
 import Nimble
-import Parse
 import Quick
 
 class IngredientDetailViewControllerSpec: QuickSpec {
-    
+
     override func spec() {
-        
-        PFObject.pinAll(Recipe.all(false))
-        PFObject.pinAll(Ingredient.all(false))
-        PFObject.pinAll(IngredientBase.all(false))
-        PFObject.pinAll(Brand.all(false))
-        PFObject.pinAll(Favorite.all(false))
-        
+
         describe("an ingredient detail view controller") {
             
             var controller: IngredientDetailViewController!
             beforeEach {
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = R.storyboard.main.instance
                 controller =
                     storyboard.instantiateViewControllerWithIdentifier(
                         "IngredientDetailViewController") as! IngredientDetailViewController
@@ -56,12 +49,12 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                 
                 it("should have recipes which use that ingredient") {
                     var cells = [UITableViewCell]()
-                    for useIndex in 0..<ingredient.uses.count {
+                    for useIndex in 0..<ingredient.uses().count {
                         cells.append(controller.tableView(controller.drinksTableView, cellForRowAtIndexPath: NSIndexPath(forRow: useIndex, inSection: 0)))
                     }
-                    expect(cells.count).to(equal(ingredient.uses.count))
-                    for use in ingredient.uses {
-                        expect(cells.map({ $0.textLabel!.text! })).to(contain(use.recipe.name))
+                    expect(cells.count).to(equal(ingredient.uses().count))
+                    for use in ingredient.uses() {
+                        expect(cells.map({ $0.textLabel!.text! })).to(contain(use.recipe!.name))
                     }
                 }
                 

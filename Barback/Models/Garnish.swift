@@ -8,56 +8,56 @@
 
 import Foundation
 
-enum GarnishBase: String, Printable {
-    case Cherry = "cherry"
-    case Cucumber = "cucumber"
-    case Lemon = "lemon"
-    case Lime = "lime"
-    case Orange = "orange"
-    case Pineapple = "pineapple"
-    case Mint = "mint"
-    case Basil = "basil"
-    case Blackberry = "blackberry"
-    case Celery = "celery"
-    case Olive = "olive"
-    
+enum GarnishBase: String, CustomStringConvertible {
+    case Cherry
+    case Cucumber
+    case Lemon
+    case Lime
+    case Orange
+    case Pineapple
+    case Mint
+    case Basil
+    case Blackberry
+    case Celery
+    case Olive
+
     var description : String {
         get {
-            return self.rawValue
+            return self.rawValue.lowercaseString
         }
     }
 }
 
-enum GarnishType: String, Printable {
-    case Chunk = "chunk"
-    case Peel = "peel"
-    case Slice = "slice"
-    case Twist = "twist"
-    case Wedge = "wedge"
-    case Wheel = "wheel"
-    case Leaves = "leaves"
-    case Spear = "spear"
-    case Sprig = "sprig"
-    
+enum GarnishType: String, CustomStringConvertible {
+    case Chunk
+    case Peel
+    case Slice
+    case Twist
+    case Wedge
+    case Wheel
+    case Leaves
+    case Spear
+    case Sprig
+
     var description : String {
         get {
-            return self.rawValue
+            return self.rawValue.lowercaseString
         }
     }
 }
 
-struct Garnish: Printable {
+struct Garnish: CustomStringConvertible {
     var base: GarnishBase?
     var type: GarnishType?
     var amount: Double
     var raw: String
-    
+
     init(rawGarnish: String) {
         self.raw = rawGarnish
         let components = rawGarnish.componentsSeparatedByString(" ").map({
             $0.lowercaseString
         })
-        
+
         switch components.count {
             // Descriptive case: `2 orange slice`
         case 3:
@@ -77,7 +77,7 @@ struct Garnish: Printable {
             amount = 0
         }
     }
-    
+
     var description: String {
         return "\(amount) \(base) \(type) (\(raw))"
     }

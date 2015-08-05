@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class FavoriteButton: UIButton {
-    
-    override func drawRect(rect: CGRect) {
-        var bezierPath = BezierImage.Favorite.path()
 
-        
+    override func drawRect(rect: CGRect) {
+        let bezierPath = BezierImage.Favorite.path()
+
+
         if (self.state == UIControlState.Normal) {
             Color.Light.toUIColor().setFill()
         } else {
@@ -24,7 +24,7 @@ class FavoriteButton: UIButton {
 
         addTarget(self, action: "touch", forControlEvents: UIControlEvents.TouchUpInside)
     }
-    
+
     func touch() {
         // Make the recipe's heart grow three sizes.
         UIView.animateWithDuration(0.1, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
