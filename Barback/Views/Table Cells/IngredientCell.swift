@@ -17,7 +17,7 @@ class IngredientCell : StyledCell {
         super.init(style: UITableViewCellStyle.Subtitle,
             reuseIdentifier: reuseIdentifier)
 
-        textLabel?.text = ingredient.base!.name
+        textLabel?.text = ingredient.base?.name ?? ""
         detailTextLabel?.text = ingredient.label
 
         if let _ = ingredient.base?.color {

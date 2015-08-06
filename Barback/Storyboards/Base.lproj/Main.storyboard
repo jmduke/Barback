@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
@@ -97,10 +95,10 @@
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="64" width="320" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="687"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="RecipeHeaderLabel" customModule="Barback" customModuleProvider="target">
@@ -119,7 +117,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="msd-qH-YF8" userLabel="ingredientList">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="msd-qH-YF8" userLabel="ingredientList" customClass="IngredientTableView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="311" width="320" height="100"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,14 +164,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You might also be interested in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-BL-WRE" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="1037" width="241" height="21"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes" customClass="SimilarRecipeTableView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1066" width="320" height="120"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,7 +282,7 @@
                                     <constraint firstAttribute="trailing" secondItem="msd-qH-YF8" secondAttribute="trailing" id="QMN-C5-wha"/>
                                     <constraint firstAttribute="trailing" secondItem="OA9-do-xpB" secondAttribute="trailing" constant="100" id="R95-7e-cek"/>
                                     <constraint firstItem="Mpt-SD-chn" firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="RLw-XG-EQI"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" priority="500" constant="40" id="UUP-2I-UDV"/>
+                                    <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="P39-gZ-b5l" secondAttribute="bottom" constant="20" id="Sqa-hz-mcg"/>
                                     <constraint firstItem="P39-gZ-b5l" firstAttribute="top" secondItem="aEd-IL-5fz" secondAttribute="bottom" constant="13" id="UVa-Z4-JXF"/>
                                     <constraint firstAttribute="centerX" secondItem="OA9-do-xpB" secondAttribute="centerX" id="UlQ-3c-VPB"/>
                                     <constraint firstItem="OA9-do-xpB" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="101" id="XRl-68-UkW"/>
@@ -303,13 +294,10 @@
                                     <constraint firstAttribute="bottom" secondItem="P39-gZ-b5l" secondAttribute="bottom" priority="500" constant="40" id="cB9-eT-CDH"/>
                                     <constraint firstItem="aEd-IL-5fz" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" constant="41" id="dOF-mf-G8A"/>
                                     <constraint firstAttribute="trailing" secondItem="aEd-IL-5fz" secondAttribute="trailing" constant="39" id="fj6-jf-6Kh"/>
-                                    <constraint firstAttribute="centerX" secondItem="S12-BL-WRE" secondAttribute="centerX" id="mkL-Js-ei1"/>
-                                    <constraint firstItem="S12-BL-WRE" firstAttribute="top" secondItem="P39-gZ-b5l" secondAttribute="bottom" constant="20" id="n7p-o2-1S0"/>
                                     <constraint firstItem="Mpt-SD-chn" firstAttribute="top" secondItem="OA9-do-xpB" secondAttribute="bottom" constant="20" id="pj1-x2-rGT"/>
                                     <constraint firstItem="0Zg-K2-heU" firstAttribute="leading" secondItem="gmf-0i-cR3" secondAttribute="trailing" constant="8" id="she-fr-Nl7"/>
                                     <constraint firstItem="OA9-do-xpB" firstAttribute="top" secondItem="gmf-0i-cR3" secondAttribute="bottom" constant="5" id="tEx-db-w2e"/>
                                     <constraint firstAttribute="centerX" secondItem="gmf-0i-cR3" secondAttribute="centerX" id="tKz-ez-MRh"/>
-                                    <constraint firstItem="2QU-SY-UI0" firstAttribute="top" secondItem="S12-BL-WRE" secondAttribute="bottom" constant="8" id="uh1-bX-uOG"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="xxz-tA-aR0"/>
                                     <constraint firstAttribute="bottom" secondItem="2QU-SY-UI0" secondAttribute="bottom" constant="100" id="zzk-sF-fh8"/>
                                 </constraints>
@@ -353,7 +341,6 @@
                         <outlet property="recipeDiagramView" destination="Mpt-SD-chn" id="qud-6S-azA"/>
                         <outlet property="recipeDiagramWidthConstraint" destination="aJE-aM-1kO" id="dSW-Pn-TIE"/>
                         <outlet property="scrollView" destination="YnV-Wv-43m" id="cRF-FC-oko"/>
-                        <outlet property="similarDrinksLabel" destination="S12-BL-WRE" id="oHv-uq-UCS"/>
                         <outlet property="similarDrinksTableView" destination="2QU-SY-UI0" id="dnT-7d-Vnt"/>
                         <outlet property="similarDrinksTableViewHeight" destination="Z5v-2M-Oxw" id="DOU-LW-FHF"/>
                         <outlet property="subheadLabel" destination="OA9-do-xpB" id="NxK-zu-Wcv"/>
@@ -372,11 +359,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4ma-Qb-Zx6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="687"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="yL0-GF-QdU" customClass="IngredientHeaderLabel" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="98" y="20" width="122.5" height="20"/>
@@ -394,7 +381,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="gt1-Gn-CFM" userLabel="recommendedBrands">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="gt1-Gn-CFM" userLabel="recommendedBrands" customClass="BrandTableView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="289" width="320" height="0.0"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -420,7 +407,7 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XIn-7R-mxr" userLabel="relevantDrinks">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XIn-7R-mxr" userLabel="relevantDrinks" customClass="IngredientUsesTableView" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="341" width="320" height="184"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -467,31 +454,8 @@
                                             </mask>
                                         </variation>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="DJB-7f-BFV" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="258" width="320" height="21"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="IBB-O8-vYk"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="qcp-ZS-VNy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="IBB-O8-vYk"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQV-tA-SZo" customClass="DescriptionLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="309" width="320" height="20.5"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ingredient.abv" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="IngredientSubheadLabel" customModule="Barback" customModuleProvider="target">
-                                        <rect key="frame" x="106" y="45" width="109" height="20.5"/>
+                                        <rect key="frame" x="106" y="45" width="109.5" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -512,14 +476,14 @@
                                             </mask>
                                         </variation>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-sj-66r" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB3-sj-66r" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="114" y="545" width="92" height="30"/>
                                         <animations/>
                                         <state key="normal" title="On Wikipedia">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlg-YV-LFg" customClass="IngredientCocktailDBButton" customModule="Barback" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlg-YV-LFg" customClass="IngredientCocktailDBButton" customModule="Barback" customModuleProvider="target">
                                         <rect key="frame" x="109" y="595" width="102" height="30"/>
                                         <animations/>
                                         <constraints>
@@ -541,22 +505,15 @@
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="BQV-tA-SZo" secondAttribute="width" id="57q-Xt-KAj"/>
                                     <constraint firstItem="yL0-GF-QdU" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="7Sd-ai-Qkz"/>
                                     <constraint firstItem="LB3-sj-66r" firstAttribute="top" secondItem="XIn-7R-mxr" secondAttribute="bottom" constant="20" id="7dy-eH-DmT"/>
-                                    <constraint firstItem="gt1-Gn-CFM" firstAttribute="top" secondItem="DJB-7f-BFV" secondAttribute="bottom" constant="10" id="7yc-KG-FEt"/>
                                     <constraint firstAttribute="centerX" secondItem="LB3-sj-66r" secondAttribute="centerX" id="BkR-6v-37M"/>
                                     <constraint firstAttribute="centerX" secondItem="hlg-YV-LFg" secondAttribute="centerX" id="GFc-NY-T3X"/>
-                                    <constraint firstItem="DJB-7f-BFV" firstAttribute="top" secondItem="4xG-Jb-dhA" secondAttribute="bottom" constant="20" id="H5t-w1-9NY"/>
                                     <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="HKl-XH-f54"/>
-                                    <constraint firstAttribute="centerX" secondItem="DJB-7f-BFV" secondAttribute="centerX" id="Idv-hx-uMJ"/>
                                     <constraint firstItem="HRw-hB-69l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yL0-GF-QdU" secondAttribute="bottom" constant="20" id="IsR-KU-qaN"/>
-                                    <constraint firstAttribute="trailing" secondItem="BQV-tA-SZo" secondAttribute="trailing" id="JaW-jg-vP3"/>
                                     <constraint firstAttribute="centerX" secondItem="GDj-jO-OWw" secondAttribute="centerX" id="Jre-zF-cv9"/>
                                     <constraint firstAttribute="bottom" secondItem="LB3-sj-66r" secondAttribute="bottom" priority="750" constant="100" id="Lfj-px-avi"/>
                                     <constraint firstAttribute="centerX" secondItem="4xG-Jb-dhA" secondAttribute="centerX" id="MVP-8j-TVS"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="gt1-Gn-CFM" secondAttribute="bottom" constant="20" id="Mza-4X-npj"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="GDj-jO-OWw" secondAttribute="bottom" priority="250" constant="20" id="Q6P-c4-VeM"/>
                                     <constraint firstAttribute="centerX" secondItem="yL0-GF-QdU" secondAttribute="centerX" id="TSd-SS-BQo"/>
                                     <constraint firstAttribute="bottom" secondItem="XIn-7R-mxr" secondAttribute="bottom" constant="112" id="UqV-or-z9P"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="yL0-GF-QdU" secondAttribute="bottom" priority="500" constant="20" id="V3A-eW-qLg"/>
@@ -564,24 +521,16 @@
                                     <constraint firstAttribute="bottom" secondItem="hlg-YV-LFg" secondAttribute="bottom" constant="100" id="XtQ-ar-9KA"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="HRw-hB-69l" secondAttribute="bottom" constant="20" id="Xtl-Vg-VWn"/>
                                     <constraint firstItem="hlg-YV-LFg" firstAttribute="top" secondItem="LB3-sj-66r" secondAttribute="bottom" constant="20" id="YFe-qp-jne"/>
-                                    <constraint firstAttribute="width" secondItem="DJB-7f-BFV" secondAttribute="width" id="YQD-iT-2du"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="top" secondItem="GDj-jO-OWw" secondAttribute="bottom" constant="20" id="aGt-vZ-Z9X"/>
                                     <constraint firstItem="gt1-Gn-CFM" firstAttribute="width" secondItem="Qmy-sZ-Btm" secondAttribute="width" id="asT-EO-btH"/>
-                                    <constraint firstItem="DJB-7f-BFV" firstAttribute="top" secondItem="yL0-GF-QdU" secondAttribute="bottom" priority="400" constant="37" id="bbO-yp-Aen"/>
                                     <constraint firstAttribute="trailing" secondItem="4xG-Jb-dhA" secondAttribute="trailing" constant="40" id="bgv-Dq-aF9"/>
                                     <constraint firstItem="XIn-7R-mxr" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="c0d-Gu-QlT"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yL0-GF-QdU" secondAttribute="bottom" priority="500" constant="16" id="e0f-3O-bHA"/>
-                                    <constraint firstItem="XIn-7R-mxr" firstAttribute="top" secondItem="BQV-tA-SZo" secondAttribute="bottom" constant="10" id="f03-zy-N5Y"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" secondItem="4xG-Jb-dhA" secondAttribute="bottom" priority="500" constant="20" id="hel-Yv-ZOG"/>
                                     <constraint firstItem="4xG-Jb-dhA" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" constant="40" id="kf1-GC-cnD"/>
                                     <constraint firstAttribute="centerX" secondItem="HRw-hB-69l" secondAttribute="centerX" id="lJC-RE-Kvf"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HRw-hB-69l" secondAttribute="bottom" constant="20" id="mfl-Lh-ejA"/>
                                     <constraint firstItem="GDj-jO-OWw" firstAttribute="top" secondItem="yL0-GF-QdU" secondAttribute="bottom" constant="5" id="mzl-iy-wag"/>
                                     <constraint firstItem="HRw-hB-69l" firstAttribute="top" secondItem="GDj-jO-OWw" secondAttribute="bottom" constant="20" id="qlj-wX-9JR"/>
-                                    <constraint firstItem="BQV-tA-SZo" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="rcy-xl-yv7"/>
                                     <constraint firstAttribute="width" secondItem="XIn-7R-mxr" secondAttribute="width" id="v9Q-Ry-Qze"/>
                                     <constraint firstItem="gt1-Gn-CFM" firstAttribute="leading" secondItem="Qmy-sZ-Btm" secondAttribute="leading" id="xQj-MZ-6EN"/>
-                                    <constraint firstAttribute="centerX" secondItem="BQV-tA-SZo" secondAttribute="centerX" id="yus-vK-Udm"/>
                                     <constraint firstItem="yL0-GF-QdU" firstAttribute="top" secondItem="Qmy-sZ-Btm" secondAttribute="top" constant="20" id="z4P-IQ-bin"/>
                                     <constraint firstAttribute="centerX" secondItem="gt1-Gn-CFM" secondAttribute="centerX" id="zbC-Tv-tkH"/>
                                 </constraints>
@@ -591,8 +540,6 @@
                                         <exclude reference="TSd-SS-BQo"/>
                                         <exclude reference="aGt-vZ-Z9X"/>
                                         <exclude reference="xQj-MZ-6EN"/>
-                                        <exclude reference="JaW-jg-vP3"/>
-                                        <exclude reference="rcy-xl-yv7"/>
                                         <exclude reference="UqV-or-z9P"/>
                                         <exclude reference="c0d-Gu-QlT"/>
                                     </mask>
@@ -610,14 +557,12 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
-                        <outlet property="brandTableLabel" destination="DJB-7f-BFV" id="YMh-yl-yCa"/>
                         <outlet property="brandTableViewHeight" destination="R01-wZ-Qns" id="qpM-47-E3y"/>
                         <outlet property="brandsTableView" destination="gt1-Gn-CFM" id="aFp-EX-5RX"/>
                         <outlet property="cocktailDBButton" destination="hlg-YV-LFg" id="bM5-yz-h66"/>
                         <outlet property="descriptionView" destination="4xG-Jb-dhA" id="wjU-OB-MzG"/>
                         <outlet property="diagramView" destination="HRw-hB-69l" id="J5b-wt-CKM"/>
                         <outlet property="drinkTableViewHeight" destination="E2Q-6f-Kus" id="3NG-ng-HEL"/>
-                        <outlet property="drinksTableLabel" destination="BQV-tA-SZo" id="I9v-EH-tG7"/>
                         <outlet property="drinksTableView" destination="XIn-7R-mxr" id="rcU-FY-pDb"/>
                         <outlet property="headerLabel" destination="yL0-GF-QdU" id="r6R-Kj-m9V"/>
                         <outlet property="scrollView" destination="Qmy-sZ-Btm" id="xKY-VU-e4J"/>
@@ -693,63 +638,6 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3892" y="908"/>
-        </scene>
-        <!--App Login View Controller-->
-        <scene sceneID="OL8-jE-WOM">
-            <objects>
-                <viewController storyboardIdentifier="loginViewController" id="BRH-jo-ffM" customClass="AppLoginViewController" customModule="Barback" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Msm-0f-R8Z"/>
-                        <viewControllerLayoutGuide type="bottom" id="qey-KX-lqT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zIM-2h-eHp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWS-RY-05s" userLabel="loginExplanationLabel" customClass="EmptyStateLabel" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="36" y="120" width="528" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-Nc-0NB" userLabel="twitterLoginButton" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="277" y="181" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-qD-hnh" userLabel="facebookLoginButton" customClass="SimpleButton" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="277" y="231" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="PNp-qD-hnh" secondAttribute="centerX" id="6nD-L3-YwJ"/>
-                            <constraint firstItem="c9p-Nc-0NB" firstAttribute="top" secondItem="vWS-RY-05s" secondAttribute="bottom" constant="40" id="9Hh-Qv-Tf6"/>
-                            <constraint firstAttribute="centerX" secondItem="vWS-RY-05s" secondAttribute="centerX" id="BJD-3s-rVM"/>
-                            <constraint firstItem="vWS-RY-05s" firstAttribute="leading" secondItem="zIM-2h-eHp" secondAttribute="leadingMargin" constant="20" id="EC0-rh-KUz"/>
-                            <constraint firstItem="vWS-RY-05s" firstAttribute="top" secondItem="Msm-0f-R8Z" secondAttribute="bottom" constant="100" id="J6d-gA-PeO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vWS-RY-05s" secondAttribute="trailing" constant="20" id="LGf-hE-c0T"/>
-                            <constraint firstItem="PNp-qD-hnh" firstAttribute="top" secondItem="c9p-Nc-0NB" secondAttribute="bottom" constant="20" id="LO1-ey-QI5"/>
-                            <constraint firstAttribute="centerX" secondItem="c9p-Nc-0NB" secondAttribute="centerX" id="cdA-oy-rAd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="facebookLoginButton" destination="PNp-qD-hnh" id="LNJ-US-Wfu"/>
-                        <outlet property="loginExplanationLabel" destination="vWS-RY-05s" id="Gjn-57-uQq"/>
-                        <outlet property="twitterLoginButton" destination="c9p-Nc-0NB" id="mDt-hO-X9S"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FYy-zz-Y8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4535" y="1021"/>
         </scene>
         <!--Favorite Recipe List View Controller-->
         <scene sceneID="MWD-dZ-zRQ">
@@ -1047,6 +935,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e9o-z3-rpg"/>
+        <segue reference="60P-fi-ghf"/>
     </inferredMetricsTieBreakers>
 </document>

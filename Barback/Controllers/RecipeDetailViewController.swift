@@ -10,34 +10,24 @@
 import Social
 import UIKit
 
-public class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate {
 
-    var recipe: Recipe? {
-    willSet {
-        similarRecipes = newValue?.similarRecipes(2)
-
-        let ingredients = newValue?.ingredients
-        sortedIngredients = ingredients?.sort({$0.amount > $1.amount})
-    }
-    }
+    var recipe: Recipe?
 
     @IBOutlet weak var recipeDiagramWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramHeightConstraint: NSLayoutConstraint!
     var isRandom: Bool?
-    var similarRecipes: [Recipe]?
-    var sortedIngredients: [Ingredient]?
 
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
     @IBOutlet public weak var directionsTextView: DescriptionTextView!
     @IBOutlet public var nameLabel: RecipeHeaderLabel!
     @IBOutlet public weak var subheadLabel: RecipeSubheadLabel!
     @IBOutlet public weak var informationLabel: RecipeInformationTextView!
-    @IBOutlet public var ingredientsTableView : UITableView!
+    @IBOutlet var ingredientsTableView : IngredientTableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
-    @IBOutlet var similarDrinksTableView: UITableView!
-    @IBOutlet var similarDrinksLabel: UILabel!
+    @IBOutlet var similarDrinksTableView: SimilarRecipeTableView!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
@@ -82,15 +72,8 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
 
         recipe!.isNew = false
 
-        ingredientsTableView.delegate = self
-        ingredientsTableView.dataSource = self
-        ingredientsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ingredientCell")
-        ingredientsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-
-        similarDrinksTableView.delegate = self
-        similarDrinksTableView.dataSource = self
-        similarDrinksTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "similarCell")
-        similarDrinksTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        ingredientsTableView.recipe = recipe
+        similarDrinksTableView.recipe = recipe
 
         title = recipe!.name
         recipeDiagramView?.recipe = recipe!
@@ -120,10 +103,6 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(rightSwipeRecognizer)
 
-        // If there aren't any similar recipes, we can just hide the relevant elements.
-        let similarRecipesExist = similarRecipes!.count > 0
-        similarDrinksLabel.hidden = !similarRecipesExist
-        similarDrinksTableView.hidden = !similarRecipesExist
         recipeDiagramView.setNeedsDisplay()
         recipeDiagramView.layoutIfNeeded()
         view.layoutIfNeeded()
@@ -163,15 +142,8 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
         }
     }
 
-    override public func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        ingredientsTableView.reloadData()
-        similarDrinksTableView.reloadData()
-    }
-
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
-
         loadCoachMarks()
     }
 
@@ -220,43 +192,9 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
 
         runCoachMarks(coachMarks)
     }
-
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (tableView == ingredientsTableView) {
-            return recipe!.ingredients.count
-        } else {
-            return similarRecipes!.count
-        }
-    }
-
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
-        if (tableView == ingredientsTableView) {
-            let cellIdentifier = "ingredientCell"
-            
-            let ingredient: Ingredient = sortedIngredients![indexPath.row]
-            cell = IngredientCell(ingredient: ingredient, reuseIdentifier: cellIdentifier)
-            cell!.textLabel?.text = ingredient.base!.name
-            cell!.detailTextLabel?.text = ingredient.detailDescription
-        } else {
-            let cellIdentifier = "similarCell"
-            let recipe = similarRecipes![indexPath.row]
-            cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
-        }
-        return cell!
-    }
   
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if tableView == ingredientsTableView {
-            performSegueWithIdentifier(R.segue.ingredientDetail, sender: nil)
-        } else {
-            performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
-        }
+        performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
     }
 
     // Named kinda clumsily because of an ObjC conflict.
@@ -268,7 +206,7 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
     }
 
     override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        if segue!.identifier == "ingredientDetail" {
+        if segue!.identifier == R.segue.ingredientDetail {
             let destination = segue!.destinationViewController as! IngredientDetailViewController
             let ingredient = getSelectedIngredient()
             destination.setIngredientForController(ingredient)
@@ -282,14 +220,14 @@ public class RecipeDetailViewController: UIViewController, UITableViewDelegate, 
     func getSelectedIngredient() -> IngredientBase {
         let selectedRow = ingredientsTableView.indexPathForSelectedRow
         let rowIndex = selectedRow?.row
-        return sortedIngredients![rowIndex!].base!
+        return recipe!.ingredients[rowIndex!].base!
     }
 
     func getSelectedRecipe() -> Recipe? {
         let selectedRow = similarDrinksTableView.indexPathForSelectedRow
         if selectedRow != nil {
             let rowIndex = selectedRow?.row
-            return similarRecipes![rowIndex!]
+            return recipe!.similarRecipes(2)[rowIndex!]
         } else {
             return nil
         }

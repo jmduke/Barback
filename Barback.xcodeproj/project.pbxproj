@@ -81,6 +81,11 @@
 		267519761A757AFE0058E776 /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 2601EE5B1A412F4C004A110D /* fmemopen.c */; };
 		267570341AEDC9380075CD0B /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267570331AEDC9380075CD0B /* CoachMark.swift */; };
 		2675C6441B0C409D00386408 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2675C6431B0C409D00386408 /* SegmentControl.swift */; };
+		267765AB1B71C8B000E6731B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267765AA1B71C8B000E6731B /* Nimble.framework */; };
+		267765AD1B71C8B400E6731B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267765AC1B71C8B400E6731B /* Quick.framework */; };
+		267765B11B71D15D00E6731B /* Pods-Barback.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 267765B01B71D15D00E6731B /* Pods-Barback.debug.xcconfig */; };
+		267765B31B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 267765B21B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig */; };
+		267765BA1B71D4F700E6731B /* IngredientTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267765B71B71D44700E6731B /* IngredientTableView.swift */; };
 		267766CA1B00015D0076143B /* IngredientDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267766C91B00015D0076143B /* IngredientDetailViewControllerSpec.swift */; };
 		267766D01B0005C00076143B /* RecipeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267766CF1B0005C00076143B /* RecipeSpec.swift */; };
 		267766D61B00251A0076143B /* RecipeHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267766D51B00251A0076143B /* RecipeHeaderLabel.swift */; };
@@ -111,6 +116,8 @@
 		26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73D194ED3A400AF126B /* Settings.bundle */; };
 		26AAB740195010AC00AF126B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26AAB73F195010AC00AF126B /* Images.xcassets */; };
 		26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */; };
+		26AFAFDD1B7310D0002AD385 /* IngredientUsesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFAFDC1B7310D0002AD385 /* IngredientUsesTableView.swift */; };
+		26AFAFDF1B73111A002AD385 /* BrandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AFAFDE1B73111A002AD385 /* BrandTableView.swift */; };
 		26B9C73B1ADDAF5000017312 /* Glassware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9C73A1ADDAF5000017312 /* Glassware.swift */; };
 		26B9C73E1ADDAF9800017312 /* Garnish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9C73D1ADDAF9800017312 /* Garnish.swift */; };
 		26B9C7401ADDBD8F00017312 /* BezierImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9C73F1ADDBD8F00017312 /* BezierImage.swift */; };
@@ -118,6 +125,7 @@
 		26B9C7441ADE46B300017312 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B9C7431ADE46B300017312 /* BaseCell.swift */; };
 		26B9C7661ADED67B00017312 /* Recipe.mustache in Resources */ = {isa = PBXBuildFile; fileRef = 26B9C7651ADED67B00017312 /* Recipe.mustache */; };
 		26BC5DA81A19741300D538AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BC5DA71A19741300D538AB /* CoreGraphics.framework */; };
+		26C029281B72E1660073BD4A /* SimilarRecipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C029271B72E1660073BD4A /* SimilarRecipeTableView.swift */; };
 		26C783E81B71A16A0046927A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C783E71B71A16A0046927A /* R.generated.swift */; };
 		26CE10341AD19FD20028A9EE /* IngredientDiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE10331AD19FD20028A9EE /* IngredientDiagramView.swift */; };
 		26CFD7FB1AAE2C45004FE329 /* Markingbird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CFD7FA1AAE2C45004FE329 /* Markingbird.swift */; };
@@ -141,6 +149,8 @@
 		65B129C319C146C500F5B8C4 /* IngredientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129C019C146C500F5B8C4 /* IngredientType.swift */; };
 		65B129C719C146CE00F5B8C4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129C519C146CE00F5B8C4 /* UIViewControllerExtension.swift */; };
 		65B129CB19C1470B00F5B8C4 /* IngredientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B129CA19C1470B00F5B8C4 /* IngredientDetailViewController.swift */; };
+		66F00A99BA1BEF3B71638C5F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2513984ED7B3224E1C771582 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9DFAB64E711F5FD5E90C726A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2513984ED7B3224E1C771582 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F339CA62D491C5D451770319 /* Pods_BarbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 794FA48E94E6373E9592A52E /* Pods_BarbackTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -185,7 +195,6 @@
 		2631DBAD194C0EB80025DCF5 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		2634E6661B0A7240008800F3 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		2634E66A1B0A96A6008800F3 /* SourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSpec.swift; sourceTree = "<group>"; };
-		263F93921B674D6B0001C250 /* Pods-Barback.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-Barback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Barback/Pods-Barback.debug.xcconfig"; sourceTree = "<group>"; };
 		2641EF2D1A1C500F0055291E /* DescriptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionLabel.swift; sourceTree = "<group>"; };
 		2641EF2F1A1C52F00055291E /* HeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		2641EF331A1C57450055291E /* EmptyStateLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateLabel.swift; sourceTree = "<group>"; };
@@ -213,6 +222,11 @@
 		2675193C1A7574770058E776 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		267570331AEDC9380075CD0B /* CoachMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
 		2675C6431B0C409D00386408 /* SegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		267765AA1B71C8B000E6731B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Pods/../build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		267765AC1B71C8B400E6731B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
+		267765B01B71D15D00E6731B /* Pods-Barback.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-Barback.debug.xcconfig"; path = "Target Support Files/Pods-Barback/Pods-Barback.debug.xcconfig"; sourceTree = "<group>"; };
+		267765B21B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-BarbackTests.debug.xcconfig"; path = "Target Support Files/Pods-BarbackTests/Pods-BarbackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		267765B71B71D44700E6731B /* IngredientTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableView.swift; sourceTree = "<group>"; };
 		267766C91B00015D0076143B /* IngredientDetailViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientDetailViewControllerSpec.swift; sourceTree = "<group>"; };
 		267766CF1B0005C00076143B /* RecipeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeSpec.swift; sourceTree = "<group>"; };
 		267766D51B00251A0076143B /* RecipeHeaderLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeHeaderLabel.swift; sourceTree = "<group>"; };
@@ -243,6 +257,8 @@
 		26AAB73D194ED3A400AF126B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		26AAB73F195010AC00AF126B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		26AAB7411953FEA200AF126B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		26AFAFDC1B7310D0002AD385 /* IngredientUsesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientUsesTableView.swift; sourceTree = "<group>"; };
+		26AFAFDE1B73111A002AD385 /* BrandTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableView.swift; sourceTree = "<group>"; };
 		26B73D8E1AFEA05D00E8E77A /* Appirater.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Appirater.framework; path = "Pods/../build/Debug-iphoneos/Pods/Appirater.framework"; sourceTree = "<group>"; };
 		26B73D8F1AFEA05D00E8E77A /* MagicalRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MagicalRecord.framework; path = "Pods/../build/Debug-iphoneos/Pods/MagicalRecord.framework"; sourceTree = "<group>"; };
 		26B73D901AFEA05D00E8E77A /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/Pods/MBProgressHUD.framework"; sourceTree = "<group>"; };
@@ -257,6 +273,7 @@
 		26B9C7431ADE46B300017312 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BaseCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		26B9C7651ADED67B00017312 /* Recipe.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Recipe.mustache; sourceTree = "<group>"; };
 		26BC5DA71A19741300D538AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		26C029271B72E1660073BD4A /* SimilarRecipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarRecipeTableView.swift; sourceTree = "<group>"; };
 		26C783E71B71A16A0046927A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		26CE10331AD19FD20028A9EE /* IngredientDiagramView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientDiagramView.swift; sourceTree = "<group>"; };
 		26CFD7FA1AAE2C45004FE329 /* Markingbird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markingbird.swift; sourceTree = "<group>"; };
@@ -291,7 +308,6 @@
 		65B129CC19C14E1300F5B8C4 /* Barback-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Barback-Bridging-Header.h"; sourceTree = "<group>"; };
 		73778D71A3CD719FE0D3E2A7 /* Pods_Barback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		794FA48E94E6373E9592A52E /* Pods_BarbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9E46D57E833DE4F36745476 /* Pods-BarbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarbackTests/Pods-BarbackTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +336,7 @@
 				26747A3E1A102C5700313F04 /* CoreTelephony.framework in Frameworks */,
 				26747A3C1A102C5200313F04 /* AdSupport.framework in Frameworks */,
 				0C40EBAB4F5AFBF1CA00CC3E /* Pods_Barback.framework in Frameworks */,
+				9DFAB64E711F5FD5E90C726A /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +344,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267765AD1B71C8B400E6731B /* Quick.framework in Frameworks */,
+				267765AB1B71C8B000E6731B /* Nimble.framework in Frameworks */,
 				F339CA62D491C5D451770319 /* Pods_BarbackTests.framework in Frameworks */,
+				66F00A99BA1BEF3B71638C5F /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +359,6 @@
 			children = (
 				2680D8061B6EDAA100997613 /* bases.json */,
 				2680D8081B6EDAAC00997613 /* recipes.json */,
-				263F93921B674D6B0001C250 /* Pods-Barback.debug.xcconfig */,
 				267519351A7572DE0058E776 /* BarbackTests */,
 				26AAB73D194ED3A400AF126B /* Settings.bundle */,
 				2631DB7B194BFF500025DCF5 /* Barback */,
@@ -442,6 +461,7 @@
 		26747A481A1065E500313F04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				267765B61B71D43C00E6731B /* Table Views */,
 				2675C63F1B0C407B00386408 /* Controls */,
 				26CE10321AD19FC40028A9EE /* Diagrams */,
 				2641EF321A1C53B60055291E /* Table Cells */,
@@ -497,6 +517,17 @@
 				269875A11B0EFF9700DDE63F /* IngredientBaseSegmentControl.swift */,
 			);
 			name = SegmentControls;
+			sourceTree = "<group>";
+		};
+		267765B61B71D43C00E6731B /* Table Views */ = {
+			isa = PBXGroup;
+			children = (
+				267765B71B71D44700E6731B /* IngredientTableView.swift */,
+				26C029271B72E1660073BD4A /* SimilarRecipeTableView.swift */,
+				26AFAFDC1B7310D0002AD385 /* IngredientUsesTableView.swift */,
+				26AFAFDE1B73111A002AD385 /* BrandTableView.swift */,
+			);
+			name = "Table Views";
 			sourceTree = "<group>";
 		};
 		267766CD1B00058D0076143B /* ControllerSpecs */ = {
@@ -631,6 +662,8 @@
 		737783D2D7DB48B6BA5AADF3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				267765AC1B71C8B400E6731B /* Quick.framework */,
+				267765AA1B71C8B000E6731B /* Nimble.framework */,
 				268AD8141B251B3500BA231C /* Nimble.framework */,
 				26285E551B1BD463002FB47B /* Parse.framework */,
 				268B978B1B02E34F00576690 /* Crashlytics.framework */,
@@ -680,7 +713,8 @@
 		B3110AE61D9F1F0CF12FC12F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D9E46D57E833DE4F36745476 /* Pods-BarbackTests.release.xcconfig */,
+				267765B21B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig */,
+				267765B01B71D15D00E6731B /* Pods-Barback.debug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -780,8 +814,10 @@
 				26F415351A10744300D1F19A /* PrivateKeys.plist in Resources */,
 				2680D8091B6EDAAC00997613 /* recipes.json in Resources */,
 				2631DB86194BFF500025DCF5 /* Main.storyboard in Resources */,
+				267765B11B71D15D00E6731B /* Pods-Barback.debug.xcconfig in Resources */,
 				26747A351A102B1E00313F04 /* LaunchScreen.storyboard in Resources */,
 				2680D8071B6EDAA100997613 /* bases.json in Resources */,
+				267765B31B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig in Resources */,
 				2675193A1A7572DE0058E776 /* Info.plist in Resources */,
 				26DBD6071A2D6FB0006C49F9 /* iPad.storyboard in Resources */,
 				26AAB73E194ED3A400AF126B /* Settings.bundle in Resources */,
@@ -923,6 +959,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2609E8141AF7389F0049FEFD /* Recipe.swift in Sources */,
 				26CE10341AD19FD20028A9EE /* IngredientDiagramView.swift in Sources */,
 				2641EF301A1C52F00055291E /* HeaderLabel.swift in Sources */,
 				26AAB7421953FEA200AF126B /* ShoppingListViewController.swift in Sources */,
@@ -945,6 +982,7 @@
 				2698759E1B0EFD2100DDE63F /* RecipeWizardViewController.swift in Sources */,
 				2675193D1A7574770058E776 /* Reachability.m in Sources */,
 				2631DB7F194BFF500025DCF5 /* AppDelegate.swift in Sources */,
+				26AFAFDF1B73111A002AD385 /* BrandTableView.swift in Sources */,
 				26D07363194C300900AD1492 /* RecipeDetailViewController.swift in Sources */,
 				267766E21B002B8D0076143B /* RecipeInformationTextView.swift in Sources */,
 				267766D81B00271A0076143B /* IngredientHeaderLabel.swift in Sources */,
@@ -953,10 +991,10 @@
 				268BA1821A244A91005CBD10 /* SyncUtilities.swift in Sources */,
 				267766DB1B0028480076143B /* RecipeSubheadLabel.swift in Sources */,
 				262CB7FA1A3EA93300CDE94A /* SimpleButton.swift in Sources */,
-				2609E8141AF7389F0049FEFD /* Recipe.swift in Sources */,
 				2631DBAA194C022A0025DCF5 /* SearchRecipeListViewController.swift in Sources */,
 				26F679EB1A35614C0075AE5D /* CommonUtilities.swift in Sources */,
 				26747A4B1A10666D00313F04 /* UIBezierPathExtension.swift in Sources */,
+				267765BA1B71D4F700E6731B /* IngredientTableView.swift in Sources */,
 				265313471A1B274700B2A686 /* RecipeCell.swift in Sources */,
 				264B7E201AD09D5300953741 /* IngredientCell.swift in Sources */,
 				2675C6441B0C409D00386408 /* SegmentControl.swift in Sources */,
@@ -981,6 +1019,7 @@
 				26B9C7441ADE46B300017312 /* BaseCell.swift in Sources */,
 				267D02091A1DA63500E7786C /* ScrollView.swift in Sources */,
 				26CFD7FB1AAE2C45004FE329 /* Markingbird.swift in Sources */,
+				26AFAFDD1B7310D0002AD385 /* IngredientUsesTableView.swift in Sources */,
 				26DE90EB1AE0C4AF0032B9F4 /* Favorite.swift in Sources */,
 				2631DBAE194C0EB80025DCF5 /* Ingredient.swift in Sources */,
 				269875A21B0EFF9700DDE63F /* IngredientBaseSegmentControl.swift in Sources */,
@@ -989,6 +1028,7 @@
 				267766E71B002EF10076143B /* IngredientCocktailDBButton.swift in Sources */,
 				2631DBAC194C02460025DCF5 /* FavoriteRecipeListViewController.swift in Sources */,
 				2631DBA8194C02190025DCF5 /* FullRecipeListViewController.swift in Sources */,
+				26C029281B72E1660073BD4A /* SimilarRecipeTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,7 +1099,7 @@
 /* Begin XCBuildConfiguration section */
 		2631DB95194BFF500025DCF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 263F93921B674D6B0001C250 /* Pods-Barback.debug.xcconfig */;
+			baseConfigurationReference = 267765B01B71D15D00E6731B /* Pods-Barback.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1119,6 +1159,7 @@
 		};
 		2631DB96194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 267765B21B71D16C00E6731B /* Pods-BarbackTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1213,7 +1254,6 @@
 		};
 		2631DB99194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 263F93921B674D6B0001C250 /* Pods-Barback.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1260,6 +1300,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1287,12 +1328,12 @@
 		};
 		2631DB9C194BFF500025DCF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9E46D57E833DE4F36745476 /* Pods-BarbackTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Barback.app/Barback";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

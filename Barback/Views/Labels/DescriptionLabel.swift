@@ -29,5 +29,6 @@ public class DescriptionLabel : UILabel {
         font = UIFont(name: UIFont.heavyFont(), size: 16)
         textAlignment = NSTextAlignment.Center
         textColor = Color.Light.toUIColor()
+        backgroundColor = Color.Background.toUIColor()
     }
 }

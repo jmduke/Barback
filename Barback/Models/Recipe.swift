@@ -65,8 +65,8 @@ public class Recipe: Object {
         let denominator = amounts.reduce(0, combine: +) as Float
         let numerator = (self.ingredients.map({
             (ingredient: Ingredient) -> Double in
-            (ingredient.base!.abv ?? 0.0 as Double).description
-            let abv = ingredient.base!.abv as Double
+            (ingredient.base?.abv ?? 0.0 as Double).description
+            let abv = ingredient.base?.abv ?? 0.0
             let proportion = Double(ingredient.amount ?? 0.0)
             return abv * proportion
         }) as [Double]).reduce(0.0, combine: +)
