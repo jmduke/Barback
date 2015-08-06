@@ -13,10 +13,6 @@ public class Favorite: Object {
 
     var recipe: Recipe?
 
-    public class func parseClassName() -> String {
-        return "Favorite"
-    }
-
     public class func all() -> [Favorite] {
         do {
             return try Realm().objects(Favorite).map({ $0 })
