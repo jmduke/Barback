@@ -72,11 +72,15 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
 
         recipe!.isNew = false
 
+        nameLabel.recipe = recipe!
+        subheadLabel.recipe = recipe!
+        informationLabel.recipe = recipe!
         ingredientsTableView.recipe = recipe
         similarDrinksTableView.recipe = recipe
-
-        title = recipe!.name
         recipeDiagramView?.recipe = recipe!
+        
+        title = recipe!.name
+        
         recipeDiagramHeightConstraint.constant = recipeDiagramView!.idealHeight()
         recipeDiagramWidthConstraint.constant = recipeDiagramView!.idealWidth()
 
@@ -88,9 +92,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         favoriteButton.selected = favoritedRecipes.contains(recipe!)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
 
-        nameLabel.recipe = recipe!
-        subheadLabel.recipe = recipe!
-        informationLabel.recipe = recipe!
+
 
         directionsTextView.text = recipe!.directions
 
@@ -209,7 +211,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         if segue!.identifier == R.segue.ingredientDetail {
             let destination = segue!.destinationViewController as! IngredientDetailViewController
             let ingredient = getSelectedIngredient()
-            destination.setIngredientForController(ingredient)
+            destination.ingredient = ingredient
         } else {
             let destinationController = getRecipeDetailController(segue)
             let recipe = getSelectedRecipe()

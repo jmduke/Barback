@@ -18,7 +18,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     @IBOutlet public var descriptionView: IngredientDescriptionTextView!
 
     @IBOutlet var brandsTableView: BrandTableView!
-    @IBOutlet var drinksTableView: IngredientUsesTableView!
+    @IBOutlet public var drinksTableView: IngredientUsesTableView!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var drinkTableViewHeight: NSLayoutConstraint!
     @IBOutlet var brandTableViewHeight: NSLayoutConstraint!
@@ -27,7 +27,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     @IBOutlet weak var cocktailDBButton: IngredientCocktailDBButton!
 
 
-    var ingredient: IngredientBase
+    public var ingredient: IngredientBase
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         self.ingredient = IngredientBase()
@@ -85,7 +85,6 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
         vc.delegate = self
         navigationController!.presentViewController(vc, animated: true, completion: nil)
-
     }
 
     func openWikipediaPage() {
@@ -96,18 +95,9 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         navigationController!.presentViewController(vc, animated: true, completion: nil)
     }
 
-    override func styleController() {
-        super.styleController()
-
-    }
-
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    public func setIngredientForController(ingredient: IngredientBase) {
-        self.ingredient = ingredient
     }
 
     override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
@@ -123,7 +113,6 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     }
 
     public func showBrand(brand: Brand) {
-        
         let image = UIImage(urlString: brand.url)!
         
         if image.hasImage() {

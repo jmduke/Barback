@@ -105,7 +105,7 @@ class ShoppingListViewController: RecipeListViewController {
 
         let storyboard = R.storyboard.main.instance
         let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as! IngredientDetailViewController
-        controller.setIngredientForController(ingredientForIndexPath(indexPath))
+        controller.ingredient = ingredientForIndexPath(indexPath)
         navigationController?.pushViewController(controller, animated: true)
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)

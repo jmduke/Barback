@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xvW-tq-Xgk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xvW-tq-Xgk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -13,11 +13,12 @@
                         <viewControllerLayoutGuide type="bottom" id="FFD-7g-RsU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uHs-eO-3g7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgH-h8-gFS">
                                 <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="0oV-ZU-2Kf"/>
@@ -28,6 +29,7 @@
                             </tabBar>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-KW-n19">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.16862745100000001" green="0.2274509804" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="66R-4U-kYr"/>
@@ -39,6 +41,7 @@
                                 </textAttributes>
                             </navigationBar>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FFD-7g-RsU" firstAttribute="top" secondItem="lgH-h8-gFS" secondAttribute="bottom" id="doo-DL-2zc"/>
