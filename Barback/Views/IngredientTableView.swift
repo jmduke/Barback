@@ -1,24 +1,19 @@
 import Foundation
 import UIKit
 
-class IngredientTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
-
-    var recipe: Recipe?  {
+class IngredientTableView: RealmObjectTableView {
+    
+    var recipe: Recipe? {
         didSet {
-            dataSource = self
-            delegate = self
-            self.setNeedsDisplay()
-            self.reloadData()
-            
-            separatorStyle = UITableViewCellSeparatorStyle.None
+            self.initialize()
         }
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipe!.ingredients.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "ingredientCell"
         let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
         let cell = IngredientCell(ingredient: ingredient, reuseIdentifier: cellIdentifier)

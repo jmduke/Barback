@@ -1,36 +1,23 @@
 import Foundation
 import UIKit
 
-class SimilarRecipeTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
+class SimilarRecipeTableView: RealmObjectTableView {
     
     var recipe: Recipe?  {
         didSet {
-            dataSource = self
-            delegate = self
-            
-            self.setNeedsDisplay()
-            self.reloadData()
-            
-            separatorStyle = UITableViewCellSeparatorStyle.None
+            self.initialize()
         }
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+    override func textForHeaderInSection() -> String {
+        return "You may also be interested in"
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = DescriptionLabel(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
-        label.text = "You may also be interested in:"
-        label.styleLabel()
-        return label
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipe!.similarRecipes(2).count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         let cellIdentifier = "similarCell"
         let similarRecipe = recipe!.similarRecipes(2)[indexPath.row]
