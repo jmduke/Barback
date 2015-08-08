@@ -18,6 +18,10 @@ public class RealmObjectTableView: UITableView, UITableViewDataSource, UITableVi
         self.setNeedsDisplay()
         self.reloadData()
         
+        if (self.tableView(self, numberOfRowsInSection: 0) == 0) {
+            self.removeFromSuperview()
+        }
+
         separatorStyle = UITableViewCellSeparatorStyle.None
     }
     

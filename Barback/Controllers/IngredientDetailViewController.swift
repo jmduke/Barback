@@ -12,6 +12,9 @@ import UIKit
 
 public class IngredientDetailViewController: UIViewController, SFSafariViewControllerDelegate {
 
+    @IBOutlet weak var brandsTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var drinksTableViewHeight: NSLayoutConstraint!
+
     @IBOutlet public var headerLabel: IngredientHeaderLabel!
     @IBOutlet public var subheaderLabel: IngredientSubheadLabel!
     @IBOutlet weak var diagramView: IngredientDiagramView!
@@ -20,13 +23,24 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     @IBOutlet var brandsTableView: BrandTableView!
     @IBOutlet public var drinksTableView: IngredientUsesTableView!
     @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var drinkTableViewHeight: NSLayoutConstraint!
-    @IBOutlet var brandTableViewHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var wikipediaButton: SimpleButton!
     @IBOutlet weak var cocktailDBButton: IngredientCocktailDBButton!
 
-
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let correctBrandsHeight = min(view.bounds.size.height, brandsTableView.contentSize.height)
+        brandsTableViewHeight.constant = correctBrandsHeight
+        
+        if ((drinksTableView) != nil) {
+            drinksTableViewHeight.constant = drinksTableView.contentSize.height
+            view.layoutIfNeeded()
+        }
+        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
+    }
+    
     public var ingredient: IngredientBase
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -37,20 +51,6 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     required public init?(coder aDecoder: NSCoder) {
         self.ingredient = IngredientBase()
         super.init(coder: aDecoder)
-    }
-
-    override public func viewDidLayoutSubviews()  {
-
-        if (brandTableViewHeight != nil) {
-            let correctBrandsHeight = brandsTableView.contentSize.height
-            brandTableViewHeight.constant = correctBrandsHeight
-        }
-
-        let correctDrinksHeight = drinksTableView.contentSize.height
-        drinkTableViewHeight.constant = correctDrinksHeight
-
-        
-        view.layoutIfNeeded()
     }
 
     override public func viewDidLoad() {

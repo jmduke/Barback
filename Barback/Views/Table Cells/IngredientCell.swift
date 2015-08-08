@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-class IngredientCell : StyledCell {
+public class IngredientCell : StyledCell {
 
     var ingredient: Ingredient?
 
-    init(ingredient: Ingredient, reuseIdentifier: String?) {
+    public init(ingredient: Ingredient, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.Subtitle,
             reuseIdentifier: reuseIdentifier)
 
         textLabel?.text = ingredient.base?.name ?? ""
-        detailTextLabel?.text = ingredient.label
+        detailTextLabel?.text = ingredient.detailDescription
 
         if let _ = ingredient.base?.color {
             let diagramView = IngredientDiagramView(frame: CGRect(x: 15.0, y: 15.0, width: 30.0, height: 30.0), ingredient: ingredient.base!)
@@ -27,11 +27,11 @@ class IngredientCell : StyledCell {
         self.ingredient = ingredient
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         textLabel?.frame.origin.x = 60
         detailTextLabel?.frame.origin.x = 60

@@ -75,7 +75,10 @@ public struct Source {
     public var type: SourceType
     public var name: String
 
-    public init(rawSource: String) {
+    public init?(rawSource: String) {
+        if rawSource == "" {
+            return nil
+        }
         name = rawSource
         type = SourceType.fromName(rawSource)
     }

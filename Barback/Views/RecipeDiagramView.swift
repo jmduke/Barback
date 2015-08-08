@@ -104,8 +104,6 @@ class RecipeDiagramView: UIView {
         subCanvas.addLineToPoint(bottomLeft)
         subCanvas.closePath()
         subCanvas.stroke()
-        
-        sizeToFit()
     }
 }
 

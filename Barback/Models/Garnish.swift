@@ -51,13 +51,11 @@ struct Garnish: CustomStringConvertible {
     var type: GarnishType?
     var amount: Double
     var raw: String
-
+    
     init(rawGarnish: String) {
         self.raw = rawGarnish
-        let components = rawGarnish.componentsSeparatedByString(" ").map({
-            $0.lowercaseString
-        })
-
+        let components = rawGarnish.componentsSeparatedByString(" ")
+        
         switch components.count {
             // Descriptive case: `2 orange slice`
         case 3:
@@ -71,13 +69,13 @@ struct Garnish: CustomStringConvertible {
             type = GarnishType(rawValue: components[1])
             // Basic case: `Cherry`
         case 1:
-            amount = 1
+            amount = 2
             base = GarnishBase(rawValue: components[0])
         default:
             amount = 0
         }
     }
-
+    
     var description: String {
         return "\(amount) \(base) \(type) (\(raw))"
     }

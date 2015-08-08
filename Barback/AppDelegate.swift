@@ -87,7 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let baseDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(baseData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
             realm.write {
                 for object in baseDict {
-                    realm.add(IngredientBase(value: object))
+                    let base = NSMutableDictionary(dictionary: object)
+                    realm.add(IngredientBase(value: base))
                 }
             }
             
@@ -101,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     for ingredient: Ingredient in recipe.ingredients {
                         ingredient.base = realm.objects(IngredientBase).filter("name = \"\(ingredient.baseName)\"").first
                         if (ingredient.base == nil) {
-                            print(ingredient.baseName)
+                            ingredient.base = IngredientBase(value: ["name": ingredient.baseName])
                         }
                         ingredient.recipe = recipe
                         realm.add(ingredient)
