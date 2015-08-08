@@ -69,14 +69,15 @@ class BarbackSwiftTests: XCTestCase {
 
     func testGarnish() {
         let simpleGarnish = Garnish(rawGarnish: "Cherry")
-        expect(simpleGarnish.base!).to(equal(GarnishBase.Cherry))
+        expect(simpleGarnish.base).toNot(beNil())
+        expect(simpleGarnish.base).to(equal(GarnishBase.Cherry))
 
-        let typedGarnish = Garnish(rawGarnish: "Lemon twist")
+        let typedGarnish = Garnish(rawGarnish: "Lemon Twist")
         expect(typedGarnish.type!).to(equal(GarnishType.Twist))
         expect(typedGarnish.base!).to(equal(GarnishBase.Lemon))
         expect(typedGarnish.amount).to(equal(1))
 
-        let complexGarnish = Garnish(rawGarnish: "2 orange slice")
+        let complexGarnish = Garnish(rawGarnish: "2 Orange Slice")
         expect(complexGarnish.amount).to(equal(2))
         expect(complexGarnish.base!).to(equal(GarnishBase.Orange))
         expect(complexGarnish.type!).to(equal(GarnishType.Slice))

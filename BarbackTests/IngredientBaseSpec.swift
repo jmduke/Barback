@@ -26,6 +26,14 @@ class IngredientBaseSpec: QuickSpec {
             it("should have an abv") {
                 expect(base.abv).to(beCloseTo(40.0, within: 10.0))
             }
+            
+            it("should have uses") {
+                expect(base.uses().count).to(beGreaterThan(5));
+                
+                let recipe = Recipe.all().filter({ $0.name == "Manhattan" }).first!
+                let usedRecipes = base.uses().map({ $0.recipe! })
+                expect(usedRecipes).to(contain(recipe));
+            }
         }
     }
 
