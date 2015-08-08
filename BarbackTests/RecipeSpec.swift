@@ -20,7 +20,7 @@ class RecipeSpec: QuickSpec {
             
             var recipe: Recipe!
             beforeEach {
-                recipe = Recipe.all().filter({ $0.name == "Manhattan" })[0]
+                recipe = Recipe.all().filter({ $0.name == "Manhattan" }).first
             }
             
             it("should have an abv") {

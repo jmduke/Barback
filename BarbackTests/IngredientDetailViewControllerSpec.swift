@@ -21,7 +21,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
             var controller: IngredientDetailViewController!
             beforeEach {
                 
-                let storyboard = R.storyboard.main.instance
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 controller =
                     storyboard.instantiateViewControllerWithIdentifier(
                         "IngredientDetailViewController") as! IngredientDetailViewController
@@ -31,7 +31,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                 let ingredient = IngredientBase.all().filter({ $0.name == "Rye" })[0]
                 
                 beforeEach {
-                    controller.setIngredientForController(ingredient)
+                    controller.ingredient = ingredient
                     let _ = controller.view
                 }
                 
@@ -50,7 +50,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                 it("should have recipes which use that ingredient") {
                     var cells = [UITableViewCell]()
                     for useIndex in 0..<ingredient.uses().count {
-                        cells.append(controller.tableView(controller.drinksTableView, cellForRowAtIndexPath: NSIndexPath(forRow: useIndex, inSection: 0)))
+                        cells.append(controller.drinksTableView.tableView(controller.drinksTableView, cellForRowAtIndexPath: NSIndexPath(forRow: useIndex, inSection: 0)))
                     }
                     expect(cells.count).to(equal(ingredient.uses().count))
                     for use in ingredient.uses() {

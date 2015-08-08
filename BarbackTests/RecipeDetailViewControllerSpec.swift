@@ -10,7 +10,6 @@ import Foundation
 import Barback
 import UIKit
 import Nimble
-
 import Quick
 
 extension String {
@@ -37,10 +36,23 @@ class RecipeDetailViewControllerSpec: QuickSpec {
             var controller: RecipeDetailViewController!
             beforeEach {
                 
-                let storyboard = R.storyboard.main.instance
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 controller =
                     storyboard.instantiateViewControllerWithIdentifier(
                         "recipeDetail") as! RecipeDetailViewController
+            }
+            
+            context("when it has a recipe without a source") {
+                let recipe = Recipe.all().filter({ $0.name == "Alabama Slammer" })[0]
+                
+                beforeEach {
+                    controller.setRecipeAs(recipe)
+                    let _ = controller.view
+                }
+                
+                it("should not have the placeholder source text") {
+                    expect(controller.informationLabel.text).toNot(contain("came from"))
+                }
             }
             
             context("when it has a standard recipe") {
@@ -70,7 +82,7 @@ class RecipeDetailViewControllerSpec: QuickSpec {
                 it("should have recipe ingredients") {
                     var cells = [UITableViewCell]()
                     for recipeIndex in 0..<recipe.ingredients.count {
-                        cells.append(controller.tableView(controller.ingredientsTableView, cellForRowAtIndexPath: NSIndexPath(forRow: recipeIndex, inSection: 0)))
+                        cells.append(controller.ingredientsTableView.tableView(controller.ingredientsTableView, cellForRowAtIndexPath: NSIndexPath(forRow: recipeIndex, inSection: 0)))
                     }
                     expect(cells.count).to(equal(recipe.ingredients.count))
                     for ingredient in recipe.ingredients {
@@ -80,6 +92,10 @@ class RecipeDetailViewControllerSpec: QuickSpec {
                 
                 it("should have the recipe abv") {
                     expect(controller.subheadLabel.text).to(contain(Int(recipe.abv).description))
+                }
+                
+                it("should show the source") {
+                    expect(controller.informationLabel.text).to(contain("Fine Art of Mixing Drinks"))
                 }
             }
         }

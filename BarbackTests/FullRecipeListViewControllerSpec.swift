@@ -31,7 +31,7 @@ class FullRecipeListViewControllerSpec: QuickSpec {
             
             it("should start out sorted alphabetically") {
                 let tableView = controller.tableView
-                var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                 
                 expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("20th Century"))
             }
@@ -40,7 +40,7 @@ class FullRecipeListViewControllerSpec: QuickSpec {
                 it("should sort differenty") {
                     controller.toggleSortingMethod()
                     let tableView = controller.tableView
-                    var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                     
                     expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("Yellow Bird"))
                 }
