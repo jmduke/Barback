@@ -19,7 +19,6 @@ public class Ingredient: Object {
     public dynamic var base: IngredientBase?
     public dynamic var recipe: Recipe?
     
-    
     public dynamic var baseName: String = ""
 
     var lowercaseLabel: String? {
@@ -34,7 +33,7 @@ public class Ingredient: Object {
     var detailDescription: String {
         get {
             var extraInformation = self.displayAmount
-            if !extraInformation.isEmpty {
+            if !extraInformation.isEmpty && !label.isEmpty {
                 extraInformation += " · "
             }
             extraInformation += label

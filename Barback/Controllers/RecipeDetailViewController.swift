@@ -12,10 +12,11 @@ import UIKit
 
 public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
     var recipe: Recipe?
 
-    @IBOutlet weak var recipeDiagramWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var recipeDiagramHeightConstraint: NSLayoutConstraint!
     var isRandom: Bool?
 
     @IBOutlet weak var recipeDiagramView: RecipeDiagramView!
@@ -23,7 +24,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
     @IBOutlet public var nameLabel: RecipeHeaderLabel!
     @IBOutlet public weak var subheadLabel: RecipeSubheadLabel!
     @IBOutlet public weak var informationLabel: RecipeInformationTextView!
-    @IBOutlet var ingredientsTableView : IngredientTableView!
+    @IBOutlet public var ingredientsTableView : IngredientTableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var favoriteButton : UIButton!
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
@@ -79,10 +80,9 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         similarDrinksTableView.recipe = recipe
         recipeDiagramView?.recipe = recipe!
         
-        title = recipe!.name
+        print("SIZE: \(recipeDiagramView.frame.size)")
         
-        recipeDiagramHeightConstraint.constant = recipeDiagramView!.idealHeight()
-        recipeDiagramWidthConstraint.constant = recipeDiagramView!.idealWidth()
+        title = recipe!.name
 
         // Switch tab bar item title back to the title if necessary.
         if (isRandom != nil) {
@@ -104,9 +104,6 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         rightSwipeRecognizer.numberOfTouchesRequired = 1
         rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(rightSwipeRecognizer)
-
-        recipeDiagramView.setNeedsDisplay()
-        recipeDiagramView.layoutIfNeeded()
         view.layoutIfNeeded()
 
         styleController()
@@ -152,12 +149,16 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
     override public func viewDidLayoutSubviews()  {
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
+        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
 
         if ((similarDrinksTableView) != nil) {
             let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
             similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
             view.layoutIfNeeded()
         }
+        
+        recipeDiagramViewHeight.constant = recipeDiagramView!.idealHeight()
+        recipeDiagramViewWidth.constant = recipeDiagramView!.idealWidth()
     }
 
     override func styleController() {

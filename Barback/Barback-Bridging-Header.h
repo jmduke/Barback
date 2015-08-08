@@ -6,3 +6,4 @@
 //  Copyright (c) 2014 Justin Duke. All rights reserved.
 //
 
+#import "NSAttributedStringMarkdownParser.h"

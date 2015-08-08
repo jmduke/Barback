@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StyledCell : UITableViewCell {
+public class StyledCell : UITableViewCell {
 
     class var cellHeight: Float {
         get {
@@ -37,7 +37,7 @@ class StyledCell : UITableViewCell {
         textLabel?.attributedText = attributedText
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 }

@@ -13,13 +13,12 @@ public class DescriptionTextView : UITextView {
 
     var markdownText: NSString? {
         didSet {
-            /*
             let parser = NSAttributedStringMarkdownParser()
             parser.paragraphFont = font
             parser.italicFontName = UIFont.heavyFont()
             attributedText = parser.attributedStringFromMarkdownString(markdownText! as String)
             textAlignment = NSTextAlignment.Center
-            textColor = Color.Light.toUIColor() */
+            textColor = Color.Light.toUIColor()
         }
     }
 
