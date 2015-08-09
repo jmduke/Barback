@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import RealmSwift
 
-public class IngredientBase: Object {
+public final class IngredientBase: Object, SpotlightIndexable {
 
     public dynamic var information: String = ""
     public dynamic var name: String = ""
@@ -53,5 +53,13 @@ public class IngredientBase: Object {
             print("\(error)")
             return nil
         }
+    }
+    
+    class func forIndexableID(indexableID: String) -> IngredientBase {
+        return forName(getUniqueIDFromIndexableID(indexableID))!
+    }
+    
+    func uniqueID() -> String {
+        return name
     }
 }
