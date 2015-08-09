@@ -56,6 +56,13 @@ class SearchRecipeListViewController: RecipeListViewController {
         destination.viewingRecipes = true
         self.navigationController?.pushViewController(destination, animated: true)
     }
+    
+    func showIngredient() {
+        let storyboard = R.storyboard.main.instance
+        let destination: IngredientDetailViewController = storyboard.instantiateViewControllerWithIdentifier("ingredientDetail") as! IngredientDetailViewController
+        destination.ingredient = activeIngredients.first!
+        self.navigationController?.pushViewController(destination, animated: true)
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -69,16 +76,36 @@ class SearchRecipeListViewController: RecipeListViewController {
         }
 
         if !activeIngredients.isEmpty && !viewingRecipes {
-            let browseRecipesView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 120))
-            let browseRecipesButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 0, self.tableView.frame.size.width / 2, 120))
+            
+            let promptForIngredientDetail = (activeIngredients.count == 1)
+            
+            let browseRecipesViewHeight: Int = promptForIngredientDetail ? 200 : 120
+            let browseRecipesViewFrame = CGRectMake(0, 0, self.tableView.frame.size.width, CGFloat(browseRecipesViewHeight))
+            let browseRecipesView = UIView(frame: browseRecipesViewFrame)
+            
+            
+            let browseRecipesButtonY: Double = promptForIngredientDetail ? 80 : 0
+            let browseRecipesButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, CGFloat(browseRecipesButtonY), self.tableView.frame.size.width / 2, 120))
             browseRecipesButton.titleLabel!.numberOfLines = 0
             browseRecipesButton.titleLabel!.textAlignment = NSTextAlignment.Center
-            let recipeList = ", ".join(activeIngredients.map({ $0.name }))
-            let title = "See \(recipes.count) recipes with \(recipeList)"
-            browseRecipesButton.setTitle(title, forState: UIControlState.Normal)
+            let ingredientList = ", ".join(activeIngredients.map({ $0.name }))
+            let browseTitle = "Browse \(recipes.count) recipes with \(ingredientList)"
+            browseRecipesButton.setTitle(browseTitle, forState: UIControlState.Normal)
             browseRecipesButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
             browseRecipesButton.addTarget(self, action: "showRecipes", forControlEvents: UIControlEvents.TouchUpInside)
             browseRecipesView.addSubview(browseRecipesButton)
+            
+            if promptForIngredientDetail {
+                let ingredientButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 0, self.tableView.frame.size.width / 2, 80))
+                ingredientButton.titleLabel!.numberOfLines = 0
+                ingredientButton.titleLabel!.textAlignment = NSTextAlignment.Center
+                let ingredientTitle = "Learn more about \(activeIngredients.first!.name)"
+                ingredientButton.setTitle(ingredientTitle, forState: UIControlState.Normal)
+                ingredientButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+                ingredientButton.addTarget(self, action: "showIngredient", forControlEvents: UIControlEvents.TouchUpInside)
+                browseRecipesView.addSubview(ingredientButton)
+            }
+
             tableView.tableHeaderView = browseRecipesView
         }
 
