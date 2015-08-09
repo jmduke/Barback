@@ -123,12 +123,6 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
     }
 
-    func actuallyFavoriteRecipe() {
-
-        favoritedRecipes.append(recipe!)
-
-    }
-
     func markRecipeAsFavorite() {
         do {
             let realm = try Realm()
@@ -145,7 +139,6 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         }
         
         favoriteButton.selected = !favoriteButton.selected
-        
     }
 
     override public func viewDidAppear(animated: Bool)  {
