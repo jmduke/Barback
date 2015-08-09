@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         annotation: AnyObject) -> Bool {
 
         // Format of `barback://recipe/<RecipeName>`.
-        if (url.host?.lowercaseString == Recipe.parseClassName().lowercaseString) {
+        if (url.host?.lowercaseString == "recipe") {
             let recipeName = url.path?.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
             if let recipeName = recipeName {
                     let recipe = Recipe.forName(recipeName)
@@ -56,14 +56,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if userActivity.activityType == CSSearchableItemActionType {
             if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                let recipe = Recipe.forName(uniqueIdentifier)
-                let storyboard = R.storyboard.main.instance
-                let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
-                controller.setRecipeAs(recipe)
                 
-                let tabBarController = self.window?.rootViewController as! UITabBarController
-                let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-                navController.pushViewController(controller, animated: true)
+                if let _ = uniqueIdentifier.rangeOfString("ecipe") {
+                    let recipe = Recipe.forIndexableID(uniqueIdentifier)
+                    let storyboard = R.storyboard.main.instance
+                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
+                    controller.setRecipeAs(recipe)
+                    
+                    let tabBarController = self.window?.rootViewController as! UITabBarController
+                    let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+                    navController.pushViewController(controller, animated: true)
+                } else {
+                    let ingredient = IngredientBase.forIndexableID(uniqueIdentifier)
+                    let storyboard = R.storyboard.main.instance
+                    let controller: IngredientDetailViewController = storyboard.instantiateViewControllerWithIdentifier("ingredientDetail") as! IngredientDetailViewController
+                    controller.ingredient = ingredient
+                    
+                    let tabBarController = self.window?.rootViewController as! UITabBarController
+                    let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+                    navController.pushViewController(controller, animated: true)
+                }
+                
                 }
             }
         
@@ -98,8 +111,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let baseDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(baseData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
             realm.write {
                 for object in baseDict {
-                    let base = NSMutableDictionary(dictionary: object)
-                    realm.add(IngredientBase(value: base))
+                    let rawBase = NSMutableDictionary(dictionary: object)
+                    let base = IngredientBase(value: rawBase)
+                    realm.add(base)
+                    
+                    let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                    
+                    attributeSet.title = base.name
+                    attributeSet.contentDescription = base.name + ": " + base.information
+                    let item = CSSearchableItem(uniqueIdentifier: base.indexableID(), domainIdentifier: "com.jmduke.Barback", attributeSet: attributeSet)
+                    item.expirationDate = NSDate.distantFuture()
+                    CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                        if let error = error {
+                            print("Indexing error: \(error.localizedDescription)")
+                        } else {
+                            print("Search item successfully indexed!")
+                        }
+                    }
                 }
             }
             
@@ -119,9 +147,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         realm.add(ingredient)
                     }
                     let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                    
                     attributeSet.title = recipe.name
                     attributeSet.contentDescription = recipe.name + ": " + recipe.information
-                    let item = CSSearchableItem(uniqueIdentifier: recipe.name, domainIdentifier: "com.jmduke.Barback", attributeSet: attributeSet)
+                    let item = CSSearchableItem(uniqueIdentifier: recipe.indexableID(), domainIdentifier: "com.jmduke.Barback", attributeSet: attributeSet)
                     item.expirationDate = NSDate.distantFuture()
                     CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
                         if let error = error {
@@ -130,6 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("Search item successfully indexed!")
                         }
                     }
+
                 }
             }
         } catch {

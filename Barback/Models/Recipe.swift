@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import RealmSwift
 
-public class Recipe: Object {
+public final class Recipe: Object, SpotlightIndexable {
 
     public dynamic var directions: String = ""
     public dynamic var glassware: String = ""
@@ -21,14 +21,14 @@ public class Recipe: Object {
     public dynamic var information: String = ""
     public dynamic var isFavorited: Bool = false
 
-    public class func parseClassName() -> String {
-        return "Recipe"
-    }
-
     public var ingredients = List<Ingredient>()
 
     var parsedSource: Source? {
         return Source(rawSource: self.source)
+    }
+    
+    func uniqueID() -> String {
+        return name
     }
 
     var parsedGarnishes: [Garnish] {
@@ -156,5 +156,9 @@ public class Recipe: Object {
             print("\(error)")
             return nil
         }
+    }
+    
+    class func forIndexableID(indexableID: String) -> Recipe {
+        return forName(getUniqueIDFromIndexableID(indexableID))!
     }
 }
