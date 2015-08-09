@@ -15,7 +15,7 @@ class ShoppingListViewController: RecipeListViewController {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
             return (
-                !newIngredients.filter({ IngredientType(rawValue: $0.type) == type }).isEmpty
+                !newIngredients.filter({ $0.ingredientType == type }).isEmpty
             )
         })
     }
@@ -55,7 +55,7 @@ class ShoppingListViewController: RecipeListViewController {
 
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         let ingredientType = ingredientTypes[section]
-        let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
+        let ingredientsForType = ingredients.filter({ $0.ingredientType == ingredientType})
         return ingredientsForType.count
     }
 
@@ -79,7 +79,7 @@ class ShoppingListViewController: RecipeListViewController {
 
     func ingredientForIndexPath(indexPath: NSIndexPath) -> IngredientBase {
         let ingredientType = ingredientTypes[indexPath.section]
-        let ingredientsForType = ingredients.filter({IngredientType(rawValue: $0.type) == ingredientType})
+        let ingredientsForType = ingredients.filter({ $0.ingredientType == ingredientType })
         return ingredientsForType[indexPath.row]
     }
 
@@ -103,8 +103,7 @@ class ShoppingListViewController: RecipeListViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let storyboard = R.storyboard.main.instance
-        let controller = storyboard.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as! IngredientDetailViewController
+        let controller = R.storyboard.main.ingredientDetail!
         controller.ingredient = ingredientForIndexPath(indexPath)
         navigationController?.pushViewController(controller, animated: true)
 

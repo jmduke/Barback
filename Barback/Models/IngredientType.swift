@@ -9,11 +9,11 @@
 import Foundation
 
 enum IngredientType: String {
-    case Spirit
-    case Liqueur
-    case Garnish
-    case Mixer
-    case Other
+    case Spirit = "spirit"
+    case Liqueur = "liqueur"
+    case Garnish = "garnish"
+    case Mixer = "mixer"
+    case Other = "other"
 
     func pluralize() -> String {
         switch self {

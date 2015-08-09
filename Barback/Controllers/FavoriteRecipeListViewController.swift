@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FavoriteRecipeListViewController: RecipeListViewController {
+class FavoriteRecipeListViewController: RecipeListViewController, HasCoachMarks {
 
     override var viewTitle: String {
     get {
@@ -49,25 +49,24 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             shoppingListView.addSubview(shoppingListButton)
             tableView.tableFooterView = shoppingListView
         }
-
-        loadCoachMarks()
-
+        
+        runCoachMarks()
         super.viewDidAppear(animated)
     }
 
-    func loadCoachMarks() {
+    func coachMarksForController() -> [CoachMark] {
         if recipes.count < 3 {
-            return
+            return []
         }
-
+        
         let favoritePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0))).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)))
         let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"
-
+        
         let shoppingListPosition = tableView.tableFooterView!.frame
         let shoppingListCaption = "We can make you a shopping list with all the ingredients you need to make them, too."
-
+        
         let coachMarks = [CoachMark(rect: favoritePosition, caption: favoriteCaption), CoachMark(rect: shoppingListPosition, caption: shoppingListCaption)]
-        runCoachMarks(coachMarks)
+        return coachMarks
     }
 
     func ingredientsNeeded() -> [IngredientBase] {
@@ -89,10 +88,7 @@ class FavoriteRecipeListViewController: RecipeListViewController {
             }
         }
 
-        // Remove duplicates.
-        var uniqueIngredients = Array(Set(flattenedIngredients))
-        uniqueIngredients.sortInPlace({$0.name < $1.name})
-        return uniqueIngredients
+        return IngredientBase.all().filter({ flattenedIngredients.contains($0) }).sort({ $0.name < $1.name })
     }
 
     func showShoppingList() {
