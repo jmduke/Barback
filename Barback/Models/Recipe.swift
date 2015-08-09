@@ -122,7 +122,7 @@ public class Recipe: Object {
 
         var chosenRecipes: [Recipe] = [Recipe]()
         while chosenRecipes.count < recipeCount {
-            let randomIndex = Int(arc4random_uniform(UInt32(similarRecipes.count)))
+            let randomIndex = similarRecipes.count % (similarRecipes.count / 2)
             chosenRecipes.append(similarRecipes[randomIndex])
             similarRecipes.removeAtIndex(randomIndex)
         }
