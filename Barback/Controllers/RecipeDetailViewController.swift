@@ -1,12 +1,4 @@
-//
-//  RecipeDetailViewController.swift
-//  Barback
-//
-//  Created by Justin Duke on 6/14/14.
-//  Copyright (c) 2014 Justin Duke. All rights reserved.
-//
-
-
+import RealmSwift
 import Social
 import UIKit
 
@@ -132,20 +124,28 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
     }
 
     func actuallyFavoriteRecipe() {
-        let favorite = Favorite()
-        favorite.recipe = recipe!
+
         favoritedRecipes.append(recipe!)
 
-        favoriteButton.selected = !favoriteButton.selected
     }
 
     func markRecipeAsFavorite() {
+        do {
+            let realm = try Realm()
+            realm.write {
+                self.recipe!.isFavorited = !self.recipe!.isFavorited
+                realm.add(self.recipe!)
+            }
+        } catch { }
+        
         if !favoriteButton.selected {
-            actuallyFavoriteRecipe()
+            favoritedRecipes.append(recipe!)
         } else {
-            favoriteButton.selected = !favoriteButton.selected
             favoritedRecipes.removeAtIndex(favoritedRecipes.indexOf(recipe!)!)
         }
+        
+        favoriteButton.selected = !favoriteButton.selected
+        
     }
 
     override public func viewDidAppear(animated: Bool)  {
@@ -156,16 +156,16 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
     override public func viewDidLayoutSubviews()  {
         let correctIngredientsHeight = min(view.bounds.size.height, ingredientsTableView.contentSize.height)
         ingredientsTableViewHeight.constant = correctIngredientsHeight
-        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
 
         if ((similarDrinksTableView) != nil) {
             let correctSimilarDrinksHeight = min(view.bounds.size.height, similarDrinksTableView.contentSize.height)
             similarDrinksTableViewHeight.constant = correctSimilarDrinksHeight
-            view.layoutIfNeeded()
         }
         
         recipeDiagramViewHeight.constant = recipeDiagramView!.idealHeight()
         recipeDiagramViewWidth.constant = recipeDiagramView!.idealWidth()
+
+        view.layoutIfNeeded()
     }
 
     override func styleController() {

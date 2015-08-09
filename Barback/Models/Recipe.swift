@@ -19,6 +19,7 @@ public class Recipe: Object {
     public dynamic var name: String = ""
     dynamic var slug: String = ""
     public dynamic var information: String = ""
+    public dynamic var isFavorited: Bool = false
 
     public class func parseClassName() -> String {
         return "Recipe"
@@ -136,6 +137,10 @@ public class Recipe: Object {
             return []
         }
     }
+    
+    class public func favorites() -> [Recipe] {
+        return all().filter({ $0.isFavorited })
+    }
 
     class func random() -> Recipe {
         let recipes =  all()
@@ -151,9 +156,5 @@ public class Recipe: Object {
             print("\(error)")
             return nil
         }
-    }
-
-    class func favorites() -> [Recipe] {
-        return []
     }
 }
