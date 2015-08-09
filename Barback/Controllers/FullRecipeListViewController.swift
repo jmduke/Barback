@@ -69,7 +69,9 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
 
     override public var recipes : [Recipe] {
         didSet {
-            super.recipes = recipes.sort(sortingMethod.sortFunction())
+            if (searchController!.searchBar.text!.isEmpty) {
+                super.recipes = recipes.sort(sortingMethod.sortFunction())
+            }
         }
     }
 
@@ -90,15 +92,7 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
         }
     }
 
-    override public func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-        if (searchController != nil && searchController!.active) {
-            // searchController?.
-        }
-        super.prepareForSegue(segue, sender: sender)
-    }
-
     var sortingMethod: SortingMethod = SortingMethod.NameDescending
-
     
     public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         recipes = Recipe.all()
@@ -112,19 +106,10 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
             $0.information.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
         })
         recipes.sortInPlace({
-            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex >
-                $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)?.startIndex
+            let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let secondLocation = $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            return firstLocation?.startIndex > secondLocation?.startIndex
         })
-    }
-
-    func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
-        let rect = CGRectMake(0, 0, size.width, size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        color.setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
     }
 
     public func toggleSortingMethod() {
