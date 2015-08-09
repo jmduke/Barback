@@ -5,7 +5,7 @@ class IngredientDiagramView: UIView {
 
     var ingredient: IngredientBase? {
         didSet {
-            if let _ = ingredient?  .color {
+            if let _ = ingredient?.color {
                 backgroundColor = Color.Background.toUIColor()
                 strokeColor = Color.Dark.toUIColor()
                 self.setNeedsDisplay()
