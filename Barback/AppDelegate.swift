@@ -1,21 +1,14 @@
-//
-//  AppDelegate.swift
-//  Barback
-//
-//  Created by Justin Duke on 6/13/14.
-//  Copyright (c) 2014 Justin Duke. All rights reserved.
-//
-
 import AdSupport
 import Appirater
 import CoreData
+import CoreSpotlight
 // import Crashlytics
 // import Fabric
 import MBProgressHUD
+import MobileCoreServices
 import RealmSwift
 import SystemConfiguration
 import UIKit
-
 
 func initializeDependencies(launchOptions: NSDictionary?) {
 
@@ -29,6 +22,7 @@ func initializeDependencies(launchOptions: NSDictionary?) {
     Appirater.setTimeBeforeReminding(2)
     Appirater.setDebug(false)
     Appirater.appLaunched(true)
+    
 }
 
 @UIApplicationMain
@@ -58,6 +52,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                let recipe = Recipe.forName(uniqueIdentifier)
+                let storyboard = R.storyboard.main.instance
+                let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
+                controller.setRecipeAs(recipe)
+                
+                let tabBarController = self.window?.rootViewController as! UITabBarController
+                let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+                navController.pushViewController(controller, animated: true)
+                }
+            }
+        
+        return true
+        }
 
     var tabBarItems: [UITabBarItem] {
         get {
@@ -106,6 +117,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                         ingredient.recipe = recipe
                         realm.add(ingredient)
+                    }
+                    let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+                    attributeSet.title = recipe.name
+                    attributeSet.contentDescription = recipe.name + ": " + recipe.information
+                    let item = CSSearchableItem(uniqueIdentifier: recipe.name, domainIdentifier: "com.jmduke.Barback", attributeSet: attributeSet)
+                    item.expirationDate = NSDate.distantFuture()
+                    CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
+                        if let error = error {
+                            print("Indexing error: \(error.localizedDescription)")
+                        } else {
+                            print("Search item successfully indexed!")
+                        }
                     }
                 }
             }
