@@ -31,6 +31,10 @@ public class IngredientBase: Object {
     }
 
     public dynamic var brands = List<Brand>()
+    
+    public var sortedBrands: [Brand] {
+        return brands.sorted("price").map({ $0 })
+    }
 
     public class func parseClassName() -> String {
         return "IngredientBase"

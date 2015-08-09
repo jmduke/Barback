@@ -13,7 +13,7 @@ import RealmSwift
 public class Brand: Object {
 
     dynamic var name: String = ""
-    dynamic var price: Float = 0.0
+    public dynamic var price: Float = 0.0
     dynamic var url: String = ""
     dynamic var base: IngredientBase?
 
