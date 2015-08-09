@@ -26,6 +26,7 @@ class RecipeSpec: QuickSpec {
             it("should have an abv") {
                 expect(recipe.abv).to(beCloseTo(30.0, within: 10.0))
             }
+            
         }
     }
 

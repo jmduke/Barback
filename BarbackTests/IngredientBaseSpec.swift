@@ -28,10 +28,10 @@ class IngredientBaseSpec: QuickSpec {
             }
             
             it("should have uses") {
-                expect(base.uses().count).to(beGreaterThan(5));
+                expect(base.uses.count).to(beGreaterThan(5));
                 
                 let recipe = Recipe.all().filter({ $0.name == "Manhattan" }).first!
-                let usedRecipes = base.uses().map({ $0.recipe! })
+                let usedRecipes = base.uses.map({ $0.recipe! })
                 expect(usedRecipes).to(contain(recipe));
             }
             
@@ -39,7 +39,7 @@ class IngredientBaseSpec: QuickSpec {
                 base = IngredientBase.all().filter({ $0.name == "Vodka" })[0]
 
                 let brands = base.sortedBrands
-                for index in 0...(brands.count - 1) {
+                for index in 0...(brands.count - 2) {
                     expect(brands[index].price).to(beLessThanOrEqualTo(brands[index + 1].price))
                 }
             }

@@ -20,8 +20,8 @@ public class IngredientBase: Object {
     public dynamic var abv: Double = 0.0
     dynamic var color: String = ""
 
-    public func uses() -> [Ingredient] {
-        return Ingredient.all().filter({ $0.base == self })
+    public var uses: [Ingredient] {
+        return linkingObjects(Ingredient.self, forProperty: "base")
     }
 
     var uiColor: UIColor {
@@ -36,10 +36,6 @@ public class IngredientBase: Object {
         return brands.sorted("price").map({ $0 })
     }
 
-    public class func parseClassName() -> String {
-        return "IngredientBase"
-    }
-
     public class func all() -> [IngredientBase] {
         do {
             return try Realm().objects(IngredientBase).map({ $0 })
@@ -49,14 +45,6 @@ public class IngredientBase: Object {
         }
     }
 
-    class func nameContainsString(string: String) -> [IngredientBase] {
-        do {
-            return try Realm().objects(IngredientBase).filter("name contains '\(string)'").map({ $0 })
-        } catch {
-            print("\(error)")
-            return []
-        }
-    }
 
     class func forName(name: String) -> IngredientBase? {
         do {
