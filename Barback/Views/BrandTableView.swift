@@ -33,11 +33,4 @@ class BrandTableView: RealmObjectTableView {
             reuseIdentifier: cellIdentifier)
         return cell!
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let controller = self.window!.rootViewController! as! UITabBarController
-        let navController = controller.viewControllers?.first as! UINavigationController
-        (navController.visibleViewController! as! IngredientDetailViewController).showBrand(ingredient!.brands[indexPath.row])
-        deselectRowAtIndexPath(indexPath, animated: true)
-    }
 }

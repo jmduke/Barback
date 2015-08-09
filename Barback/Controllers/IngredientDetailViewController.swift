@@ -64,6 +64,15 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         brandsTableView.ingredient = ingredient
         drinksTableView.ingredient = ingredient
         
+        drinksTableView.selectionAction = {
+            (path: NSIndexPath) -> Void in
+            self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
+        }
+        brandsTableView.selectionAction = {
+            (path: NSIndexPath) -> Void in
+            self.showBrand(self.ingredient.brands[path.row])
+        }
+        
         title = ingredient.name
 
         wikipediaButton.setTitle("\(ingredient.name) on Wikipedia", forState: UIControlState.Normal)

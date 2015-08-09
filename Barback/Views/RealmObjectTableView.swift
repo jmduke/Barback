@@ -11,6 +11,8 @@ import RealmSwift
 
 public class RealmObjectTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
+    var selectionAction: ((NSIndexPath) -> Void)?
+    
     func initialize() {
         dataSource = self
         delegate = self
@@ -45,7 +47,11 @@ public class RealmObjectTableView: UITableView, UITableViewDataSource, UITableVi
     }
   
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
-        return cell!
+        return UITableViewCell()
+    }
+    
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectionAction?(indexPath)
+        deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

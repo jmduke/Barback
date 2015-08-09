@@ -10,7 +10,7 @@ public class IngredientTableView: RealmObjectTableView {
     }
 
     override func textForHeaderInSection() -> String {
-        return "Ingredients in a \(recipe!.name)"
+        return "Ingredients"
     }
     
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,12 +22,5 @@ public class IngredientTableView: RealmObjectTableView {
         let ingredient: Ingredient = recipe!.ingredients[indexPath.row]
         let cell = IngredientCell(ingredient: ingredient, reuseIdentifier: cellIdentifier)
         return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let controller = self.window!.rootViewController! as! UITabBarController
-        let navController = controller.viewControllers?.first as! UINavigationController
-        navController.visibleViewController!.performSegueWithIdentifier(R.segue.ingredientDetail, sender: nil)
-        deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

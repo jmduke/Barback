@@ -24,11 +24,4 @@ public class IngredientUsesTableView: RealmObjectTableView {
         cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         return cell!
     }
-    
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let controller = self.window!.rootViewController! as! UITabBarController
-        let navController = controller.viewControllers?.first as! UINavigationController
-        navController.visibleViewController!.performSegueWithIdentifier(R.segue.recipeDetail, sender: nil)
-        deselectRowAtIndexPath(indexPath, animated: true)
-    }
 }
