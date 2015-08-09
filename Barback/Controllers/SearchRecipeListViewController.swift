@@ -8,24 +8,31 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class SearchRecipeListViewController: RecipeListViewController {
 
     var activeIngredients: [IngredientBase] = [IngredientBase]()
     var possibleIngredients: [IngredientBase] {
-        return Array(Set(IngredientBase.all().filter({ !self.activeIngredients.contains($0) }))).sort({ $0.name < $1.name })
+        let uses: [List<Ingredient>] = recipes.map({ $0.ingredients })
+        let bases = uses.map({ $0.map({ $0.base! }) })
+        var uniqueBases = [IngredientBase]()
+        for baseList in bases {
+            baseList.filter({ !uniqueBases.contains($0) }).map({ uniqueBases.append($0) })
+        }
+        return uniqueBases.filter({ !activeIngredients.contains($0) }).sort({ $0.name < $1.name })
     }
-    lazy var recipeCountsForPossibleIngredients: [Int] = {
-        var countsForIngredients = [String:Int]()
-        for base in IngredientBase.all().filter({ !self.activeIngredients.contains($0) }) {
-            countsForIngredients[base.name] = base.uses().count
+    var recipeCountsForPossibleIngredients: [Int] {
+        let uses: [List<Ingredient>] = recipes.map({ $0.ingredients })
+        let bases = uses.map({ $0.map({ $0.base! }) })
+        var uniqueBases = [String:Int]()
+        for baseList in bases {
+            for base in baseList.filter({ !activeIngredients.contains($0) }) {
+                uniqueBases[base.name] = (uniqueBases[base.name] ?? 0) + 1
+            }
         }
-        var counts = [Int]()
-        for base in Array(countsForIngredients.keys).sort({ $0 < $1 }) {
-            counts.append(countsForIngredients[base]!)
-        }
-        return counts
-    }()
+        return uniqueBases.keys.sort({ $0 < $1 }).map({ uniqueBases[$0]! })
+    }
 
     var viewingRecipes: Bool = false
 
