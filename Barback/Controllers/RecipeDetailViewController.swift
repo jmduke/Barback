@@ -80,7 +80,14 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         similarDrinksTableView.recipe = recipe
         recipeDiagramView?.recipe = recipe!
         
-        print("SIZE: \(recipeDiagramView.frame.size)")
+        ingredientsTableView.selectionAction = {
+            (path: NSIndexPath) -> Void in
+            self.performSegueWithIdentifier(R.segue.ingredientDetail, sender: self)
+        }
+        similarDrinksTableView.selectionAction = {
+            (path: NSIndexPath) -> Void in
+            self.performSegueWithIdentifier(R.segue.similarRecipe, sender: self)
+        }
         
         title = recipe!.name
 
