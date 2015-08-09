@@ -70,7 +70,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         }
         brandsTableView.selectionAction = {
             (path: NSIndexPath) -> Void in
-            self.showBrand(self.ingredient.brands[path.row])
+            self.showBrand(self.ingredient.sortedBrands[path.row])
         }
         
         title = ingredient.name

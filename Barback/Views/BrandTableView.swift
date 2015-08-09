@@ -28,7 +28,7 @@ class BrandTableView: RealmObjectTableView {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         let cellIdentifier = "brandCell"
-        let brand = ingredient!.brands[indexPath.row]
+        let brand = ingredient!.sortedBrands[indexPath.row]
         cell = BrandCell(brand: brand,
             reuseIdentifier: cellIdentifier)
         return cell!

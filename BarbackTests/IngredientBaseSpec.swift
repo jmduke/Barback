@@ -34,6 +34,15 @@ class IngredientBaseSpec: QuickSpec {
                 let usedRecipes = base.uses().map({ $0.recipe! })
                 expect(usedRecipes).to(contain(recipe));
             }
+            
+            it("should have brands sorted in ascending price order") {
+                base = IngredientBase.all().filter({ $0.name == "Vodka" })[0]
+
+                let brands = base.sortedBrands
+                for index in 0...(brands.count - 1) {
+                    expect(brands[index].price).to(beLessThanOrEqualTo(brands[index + 1].price))
+                }
+            }
         }
     }
 
