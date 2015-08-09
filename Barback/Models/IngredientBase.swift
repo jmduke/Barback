@@ -15,10 +15,18 @@ public final class IngredientBase: Object, SpotlightIndexable {
     public dynamic var information: String = ""
     public dynamic var name: String = ""
     dynamic var slug: String = ""
-    dynamic var type: String = ""
     dynamic var cocktaildb: String = ""
     public dynamic var abv: Double = 0.0
     dynamic var color: String = ""
+    
+    // Need to do it because of https://github.com/realm/realm-cocoa/issues/921.
+    dynamic var type: String = ""
+    var ingredientType: IngredientType {
+        get {
+            guard let parsedType = IngredientType(rawValue: self.type) else { return .Other }
+            return parsedType
+        }
+    }
 
     public var uses: [Ingredient] {
         return linkingObjects(Ingredient.self, forProperty: "base")
