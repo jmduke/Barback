@@ -79,7 +79,7 @@ class RecipeWizardViewController: UIViewController {
     }
     
     func updateAdjectives() {
-        let recipes = selectedBase!.uses().map({ $0.recipe! })
+        let recipes = selectedBase!.uses.map({ $0.recipe! })
         let candidates = recipes.filter({ self.selectedFlavor.describesRecipe($0) })
         self.possibleAdjectives = Adjective.all().filter {
             (adjective: Adjective) -> Bool in
@@ -108,7 +108,7 @@ class RecipeWizardViewController: UIViewController {
     }
     
     func getRecipe() -> Recipe {
-        let recipes = selectedBase!.uses().map({ $0.recipe })
+        let recipes = selectedBase!.uses.map({ $0.recipe })
         let candidates = recipes.filter({ self.selectedFlavor.describesRecipe($0!) }).filter({ self.selectedAdjective.describesRecipe($0!) })
         
         if (candidates.count > 0) {

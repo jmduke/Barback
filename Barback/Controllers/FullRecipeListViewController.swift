@@ -69,7 +69,7 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
 
     override public var recipes : [Recipe] {
         didSet {
-            if (searchController!.searchBar.text!.isEmpty) {
+            if (searchController != nil && searchController!.searchBar.text!.isEmpty) {
                 super.recipes = recipes.sort(sortingMethod.sortFunction())
             }
         }

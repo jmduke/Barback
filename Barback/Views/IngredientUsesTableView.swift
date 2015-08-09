@@ -14,13 +14,13 @@ public class IngredientUsesTableView: RealmObjectTableView {
     }
     
     public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredient!.uses().count
+        return ingredient!.uses.count
     }
     
     public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         let cellIdentifier = "drinkCell"
-        let recipe = ingredient!.uses()[indexPath.row].recipe!
+        let recipe = ingredient!.uses[indexPath.row].recipe!
         cell = RecipeCell(recipe: recipe, reuseIdentifier: cellIdentifier)
         return cell!
     }

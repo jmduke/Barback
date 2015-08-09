@@ -49,11 +49,11 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                 
                 it("should have recipes which use that ingredient") {
                     var cells = [UITableViewCell]()
-                    for useIndex in 0..<ingredient.uses().count {
+                    for useIndex in 0..<ingredient.uses.count {
                         cells.append(controller.drinksTableView.tableView(controller.drinksTableView, cellForRowAtIndexPath: NSIndexPath(forRow: useIndex, inSection: 0)))
                     }
-                    expect(cells.count).to(equal(ingredient.uses().count))
-                    for use in ingredient.uses() {
+                    expect(cells.count).to(equal(ingredient.uses.count))
+                    for use in ingredient.uses {
                         expect(cells.map({ $0.textLabel!.text! })).to(contain(use.recipe!.name))
                     }
                 }

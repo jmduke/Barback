@@ -31,13 +31,4 @@ public class Brand: Object {
             return []
         }
     }
-
-    class func forName(name: String) -> Brand? {
-        do {
-            return try Realm().objects(Brand).filter("name = '\(name)'").first
-        } catch {
-            print("\(error)")
-            return nil
-        }
-    }
 }

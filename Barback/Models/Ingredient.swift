@@ -42,10 +42,6 @@ public class Ingredient: Object {
     }
 
     public class func all() -> [Ingredient] {
-        return all(true)
-    }
-
-    public class func all(useLocal: Bool) -> [Ingredient] {
         do {
             return try Realm().objects(Ingredient).map({ $0 })
         } catch {

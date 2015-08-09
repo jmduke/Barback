@@ -118,7 +118,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     func getSelectedRecipe() -> Recipe {
         let selectedRow = drinksTableView.indexPathForSelectedRow
         let rowIndex = selectedRow?.row
-        return ingredient.uses()[rowIndex!].recipe!
+        return ingredient.uses[rowIndex!].recipe!
     }
 
     public func showBrand(brand: Brand) {
