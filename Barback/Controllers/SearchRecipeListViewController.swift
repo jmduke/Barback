@@ -69,8 +69,6 @@ class SearchRecipeListViewController: RecipeListViewController {
 
         recipes = Recipe.all().filter(filterRecipes)
         
-        print(recipes.count)
-        
         if possibleIngredients.isEmpty || recipes.count == 1 {
             viewingRecipes = true
         }
@@ -88,8 +86,18 @@ class SearchRecipeListViewController: RecipeListViewController {
             let browseRecipesButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, CGFloat(browseRecipesButtonY), self.tableView.frame.size.width / 2, 120))
             browseRecipesButton.titleLabel!.numberOfLines = 0
             browseRecipesButton.titleLabel!.textAlignment = NSTextAlignment.Center
-            let ingredientList = ", ".join(activeIngredients.map({ $0.name }))
-            let browseTitle = "Browse \(recipes.count) recipes with \(ingredientList)"
+            
+            let ingredientsString: String
+            if activeIngredients.count > 1 {
+                // There's gotta be a nicer way to do this, right?
+                let lastIngredient = activeIngredients.removeLast()
+                ingredientsString = ", ".join(activeIngredients.map({ $0.name })) + " and \(lastIngredient.name)"
+                activeIngredients.append(lastIngredient)
+            } else {
+                ingredientsString = ", ".join(activeIngredients.map({ $0.name }))
+            }
+            let browseTitle = "Browse \(recipes.count) recipes with \(ingredientsString)"
+
             browseRecipesButton.setTitle(browseTitle, forState: UIControlState.Normal)
             browseRecipesButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
             browseRecipesButton.addTarget(self, action: "showRecipes", forControlEvents: UIControlEvents.TouchUpInside)
@@ -147,9 +155,19 @@ class SearchRecipeListViewController: RecipeListViewController {
         let selectedRow = tableView.indexPathForSelectedRow
         let rowIndex = selectedRow?.row
         let ingredient =  possibleIngredients[rowIndex!]
+        
+        
+        // If there's only one possible recipe, go ahead and show it.
+        if recipeCountsForPossibleIngredients[indexPath.row] == 1 {
+            let recipe = recipes.filter({ $0.usesIngredient(ingredient) }).first
+            let destination = R.storyboard.main.recipeDetail!
+            destination.recipe = recipe
+            self.navigationController?.pushViewController(destination, animated: true)
+            return
+        }
 
-        let storyboard = R.storyboard.main.instance
-        let destination: SearchRecipeListViewController = storyboard.instantiateViewControllerWithIdentifier("SearchRecipeListViewController") as! SearchRecipeListViewController
+
+        let destination = R.storyboard.main.searchRecipeListViewController!
         destination.activeIngredients = activeIngredients
         destination.activeIngredients.append(ingredient)
         self.navigationController?.pushViewController(destination, animated: true)
