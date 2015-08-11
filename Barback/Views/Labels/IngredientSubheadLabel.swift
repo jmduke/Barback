@@ -12,7 +12,11 @@ public class IngredientSubheadLabel: DescriptionLabel {
 
     var ingredient: IngredientBase? {
         didSet {
-            text = Int(ingredient!.abv) > 0 ? "\(ingredient!.abv)% ABV" : "(non-alcoholic)"
+            if Int(ingredient!.abv) > 0 {
+                text = "A \(ingredient!.ingredientType.rawValue) with \(ingredient!.abv)% ABV"
+            } else {
+                text = "A non-alcoholic \(ingredient!.ingredientType.rawValue)"
+            }
         }
     }
 }
