@@ -67,7 +67,7 @@ struct R {
     }
     
     struct main {
-      static var ingredientDetailViewController: Barback.IngredientDetailViewController? { return instance.instantiateViewControllerWithIdentifier("IngredientDetailViewController") as? Barback.IngredientDetailViewController }
+      static var ingredientDetail: Barback.IngredientDetailViewController? { return instance.instantiateViewControllerWithIdentifier("ingredientDetail") as? Barback.IngredientDetailViewController }
       static var initialViewController: UITabBarController? { return instance.instantiateInitialViewController() as? UITabBarController }
       static var instance: UIStoryboard { return UIStoryboard(name: "Main", bundle: nil) }
       static var recipeDetail: Barback.RecipeDetailViewController? { return instance.instantiateViewControllerWithIdentifier("recipeDetail") as? Barback.RecipeDetailViewController }
@@ -79,7 +79,7 @@ struct R {
       
       static func validateViewControllers() {
         assert(recipeDetail != nil, "[R.swift] ViewController with identifier 'recipeDetail' could not be loaded from storyboard 'Main' as 'Barback.RecipeDetailViewController'.")
-        assert(ingredientDetailViewController != nil, "[R.swift] ViewController with identifier 'ingredientDetailViewController' could not be loaded from storyboard 'Main' as 'Barback.IngredientDetailViewController'.")
+        assert(ingredientDetail != nil, "[R.swift] ViewController with identifier 'ingredientDetailViewController' could not be loaded from storyboard 'Main' as 'Barback.IngredientDetailViewController'.")
         assert(searchRecipeListViewController != nil, "[R.swift] ViewController with identifier 'searchRecipeListViewController' could not be loaded from storyboard 'Main' as 'Barback.SearchRecipeListViewController'.")
       }
     }
