@@ -84,15 +84,16 @@ class ShoppingListViewController: RecipeListViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let ingredient = ingredientForIndexPath(indexPath)
+        
+        // Don't want the cells to be reused per-section or the diagrams will get messed up.
+        let cellIdentifier = "shoppingCell\(indexPath.section)"
 
-        let cellIdentifier = "shoppingCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         if cell == nil {
-            cell = StyledCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell = BaseCell(base: ingredient, reuseIdentifier: cellIdentifier)
         }
-
-        let ingredient = ingredientForIndexPath(indexPath)
-        cell!.textLabel?.text = ingredient.name
 
         let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"
