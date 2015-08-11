@@ -21,7 +21,7 @@ public final class IngredientBase: Object, SpotlightIndexable {
     
     // Need to do it because of https://github.com/realm/realm-cocoa/issues/921.
     dynamic var type: String = ""
-    var ingredientType: IngredientType {
+    public var ingredientType: IngredientType {
         get {
             guard let parsedType = IngredientType(rawValue: self.type) else { return .Other }
             return parsedType

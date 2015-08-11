@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum IngredientType: String {
+public enum IngredientType: String {
     case Spirit = "spirit"
     case Liqueur = "liqueur"
     case Garnish = "garnish"

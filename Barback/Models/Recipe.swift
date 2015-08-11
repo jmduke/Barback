@@ -105,7 +105,7 @@ public final class Recipe: Object, SpotlightIndexable {
         return bases.contains(ingredient)
     }
 
-    func similarRecipes(recipeCount: Int) -> [Recipe] {
+    public func similarRecipes(recipeCount: Int) -> [Recipe] {
         let ingredientBases = ingredients.filter({ $0.base != nil }).map({$0.base!.name})
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
 
