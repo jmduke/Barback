@@ -1,11 +1,3 @@
-//
-//  RecipeListViewController.swift
-//  Barback
-//
-//  Created by Justin Duke on 6/13/14.
-//  Copyright (c) 2014 Justin Duke. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -45,11 +37,6 @@ public class RecipeListViewController: UITableViewController {
 
         navigationItem.titleView?.tintColor = Color.Dark.toUIColor()
         navigationItem.titleView?.backgroundColor = Color.Dark.toUIColor()
-    }
-
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {

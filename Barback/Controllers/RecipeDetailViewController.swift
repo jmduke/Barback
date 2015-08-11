@@ -2,7 +2,7 @@ import RealmSwift
 import Social
 import UIKit
 
-public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate {
+public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks {
 
     @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
@@ -140,10 +140,37 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         
         favoriteButton.selected = !favoriteButton.selected
     }
+    
+    func coachMarksForController() -> [CoachMark] {
+        var coachMarks = [CoachMark]()
+        
+        if (isRandom != nil) {
+            // We want the entire thing to hide, so define a 0,0 rect.
+            let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
+            let shakeCaption = "Don't like this one?  Shake the phone or press the button in the top left corner for a new recipe."
+            
+            let coachMark = CoachMark(rect: shakePosition, caption: shakeCaption)
+            coachMarks.append(coachMark)
+        }
+        
+        let directionsPosition = directionsTextView.frame
+        let directionsCaption = "Simple instructions on making your drinks."
+        coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
+        
+        let ingredientsPosition = ingredientsTableView.frame
+        let ingredientsCaption = "Tap an ingredient to learn more about it."
+        coachMarks.append(CoachMark(rect: ingredientsPosition, caption: ingredientsCaption))
+        
+        let favoritePosition = favoriteButton.frame
+        let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
+        coachMarks.append(CoachMark(rect: favoritePosition, caption: favoriteCaption))
+        
+        return coachMarks
+    }
 
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
-        loadCoachMarks()
+        runCoachMarks()
     }
 
     override public func viewDidLayoutSubviews()  {
@@ -169,33 +196,6 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate 
         view.layoutIfNeeded()
     }
 
-    func loadCoachMarks() {
-        var coachMarks = [CoachMark]()
-
-        if (isRandom != nil) {
-            // We want the entire thing to hide, so define a 0,0 rect.
-            let shakePosition = CGRect(x: 0, y: 0, width: 0, height: 0)
-            let shakeCaption = "Don't like this one?  Shake the phone or press the button in the top left corner for a new recipe."
-            
-            let coachMark = CoachMark(rect: shakePosition, caption: shakeCaption)
-            coachMarks.append(coachMark)
-        }
-
-        let directionsPosition = directionsTextView.frame
-        let directionsCaption = "Simple instructions on making your drinks."
-        coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
-
-        let ingredientsPosition = ingredientsTableView.frame
-        let ingredientsCaption = "Tap an ingredient to learn more about it."
-        coachMarks.append(CoachMark(rect: ingredientsPosition, caption: ingredientsCaption))
-
-        let favoritePosition = favoriteButton.frame
-        let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
-        coachMarks.append(CoachMark(rect: favoritePosition, caption: favoriteCaption))
-
-        runCoachMarks(coachMarks)
-    }
-  
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
     }
