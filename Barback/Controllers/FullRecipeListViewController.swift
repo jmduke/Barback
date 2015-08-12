@@ -111,10 +111,12 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
     }
     
     func coachMarksForController() -> [CoachMark] {
+        guard let sortView = (self.navigationItem.leftBarButtonItem?.valueForKey("view") as? UIView) else { return [] }
+
         return [
             CoachMark(rect: tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)), caption: "Recipes.  (The good stuff.)"),
             CoachMark(rect: (self.searchController?.searchBar.frame)!, caption: "Search recipes by name or description."),
-            CoachMark(rect: (self.navigationItem.leftBarButtonItem?.valueForKey("view") as! UIView).frame, caption: "Search recipes by name or description.")
+            CoachMark(rect: sortView.frame, caption: "Search recipes by name or description.")
         ]
     }
 

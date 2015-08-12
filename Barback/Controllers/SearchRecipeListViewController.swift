@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class SearchRecipeListViewController: RecipeListViewController {
+public class SearchRecipeListViewController: RecipeListViewController {
 
-    var activeIngredients: [IngredientBase] = [IngredientBase]()
+    public var activeIngredients: [IngredientBase] = [IngredientBase]()
+
     var possibleIngredients: [IngredientBase] {
         let uses: [List<Ingredient>] = recipes.map({ $0.ingredients })
         let bases = uses.map({ $0.map({ $0.base! }) })
@@ -64,7 +65,7 @@ class SearchRecipeListViewController: RecipeListViewController {
         self.navigationController?.pushViewController(destination, animated: true)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
         recipes = Recipe.all().filter(filterRecipes)
@@ -138,7 +139,7 @@ class SearchRecipeListViewController: RecipeListViewController {
         return activeIngredients.filter({ recipe.usesIngredient($0) }).count == activeIngredients.count
     }
 
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         if (viewingRecipes) {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
@@ -146,7 +147,7 @@ class SearchRecipeListViewController: RecipeListViewController {
         return possibleIngredients.count
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (viewingRecipes) {
             super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
             return
@@ -174,7 +175,7 @@ class SearchRecipeListViewController: RecipeListViewController {
 
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (viewingRecipes) {
             return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         }
