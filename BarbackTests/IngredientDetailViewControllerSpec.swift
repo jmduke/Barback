@@ -20,11 +20,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
             
             var controller: IngredientDetailViewController!
             beforeEach {
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                controller =
-                    storyboard.instantiateViewControllerWithIdentifier(
-                        "IngredientDetailViewController") as! IngredientDetailViewController
+                controller = R.storyboard.main.ingredientDetail!
             }
             
             context("when it has a standard base") {

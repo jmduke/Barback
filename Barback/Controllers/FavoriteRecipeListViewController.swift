@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FavoriteRecipeListViewController: RecipeListViewController, HasCoachMarks {
+public class FavoriteRecipeListViewController: RecipeListViewController, HasCoachMarks {
 
     override var viewTitle: String {
     get {
@@ -23,7 +23,7 @@ class FavoriteRecipeListViewController: RecipeListViewController, HasCoachMarks 
         return favoritedRecipes.contains(recipe)
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override public func viewDidAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
 
         recipes = Recipe.all().filter(filterRecipes).sort({ $0.name < $1.name })
