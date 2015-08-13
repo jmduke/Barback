@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShoppingListViewController: RecipeListViewController {
+class ShoppingListViewController: RecipeListViewController, Shareable {
 
     var ingredients: [IngredientBase] = [IngredientBase]() {
     willSet(newIngredients) {
@@ -47,6 +47,22 @@ class ShoppingListViewController: RecipeListViewController {
     func setIngredientsForController(ingredients: [IngredientBase]) {
         self.ingredients = ingredients
         recipes = Recipe.favorites()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        makeContentShareable()
+    }
+    
+    func shareableContent() -> [AnyObject] {
+        let favoritedRecipes = Recipe.favorites()
+        let shoppingListAsPlainText = "\n".join(ingredients.map({
+            (base: IngredientBase) in
+            let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(base) }).count
+            return "- \(base.name) (used in \(recipeCount) recipes)"
+        }))
+        print(shoppingListAsPlainText)
+        return [shoppingListAsPlainText]
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
