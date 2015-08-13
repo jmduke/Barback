@@ -27,7 +27,10 @@ class SimpleButton : UIButton {
 
     func styleButton() {
         tintColor = Color.Tint.toUIColor()
-        titleLabel!.font = UIFont(name: UIFont.heavyFont(), size: 20)
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            .pointSize, 20)
+        titleLabel!.font = UIFont(name: UIFont.heavyFont(), size: fontSize)
         userInteractionEnabled = true
     }
 

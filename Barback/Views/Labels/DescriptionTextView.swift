@@ -36,7 +36,10 @@ public class DescriptionTextView : UITextView {
     }
 
     func styleLabel() {
-        font = UIFont(name: UIFont.primaryFont(), size: 15)
+        let fontSize = UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
+            .pointSize
+        font = UIFont(name: UIFont.primaryFont(), size: fontSize)
         textAlignment = NSTextAlignment.Center
         backgroundColor = Color.Background.toUIColor()
         tintColor = Color.Tint.toUIColor()

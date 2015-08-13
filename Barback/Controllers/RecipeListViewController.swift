@@ -32,7 +32,10 @@ public class RecipeListViewController: UITableViewController {
         tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
         tableView.sectionIndexColor = Color.Dark.toUIColor()
 
-        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: 16.0)
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleBody)
+            .pointSize, 16)
+        UITextField.appearance().font = UIFont(name: UIFont.primaryFont(), size: fontSize)
         UITextField.appearance().textColor = Color.Background.toUIColor()
 
         navigationItem.titleView?.tintColor = Color.Dark.toUIColor()

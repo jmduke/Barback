@@ -27,7 +27,11 @@ public class HeaderLabel : UILabel {
 
     func styleLabel() {
         textColor = Color.Dark.toUIColor()
-        font = UIFont(name: UIFont.heavyFont(), size: 32)
+        
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
+            .pointSize, 32)
+        font = UIFont(name: UIFont.heavyFont(), size: fontSize)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.5

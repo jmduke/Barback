@@ -28,7 +28,13 @@ extension UINavigationController {
         navigationBar.translucent = false
         navigationBar.tintColor = UIColor.whiteColor()
         navigationBar.barTintColor = Color.Dark.toUIColor()
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20 as CGFloat)!]
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 16)!], forState: UIControlState.Normal)
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            .pointSize, 20)
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: fontSize as CGFloat)!]
+        let buttonFontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
+            .pointSize, 16)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: buttonFontSize)!], forState: UIControlState.Normal)
     }
 }
