@@ -42,6 +42,14 @@ class RecipeSpec: QuickSpec {
                 } catch { }
             }
             
+            it("has ingredients which have bases") {
+                let ingredients = recipe.ingredients
+                expect(ingredients.count).to(equal(3))
+                ingredients.map({
+                    expect($0.base).toNot(beNil())
+                })
+            }
+            
         }
         
         describe("all recipes") {
