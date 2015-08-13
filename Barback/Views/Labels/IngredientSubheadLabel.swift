@@ -10,7 +10,7 @@ import Foundation
 
 public class IngredientSubheadLabel: DescriptionLabel {
 
-    var ingredient: IngredientBase? {
+    public var ingredient: IngredientBase? {
         didSet {
             if Int(ingredient!.abv) > 0 {
                 text = "A \(ingredient!.ingredientType.rawValue) with \(ingredient!.abv)% ABV"

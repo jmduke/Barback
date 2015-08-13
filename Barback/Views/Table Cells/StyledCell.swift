@@ -19,9 +19,15 @@ public class StyledCell : UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        textLabel?.font = UIFont(name: UIFont.primaryFont(), size: 20)
-        detailTextLabel?.font = UIFont(name: UIFont.heavyFont(), size: 14)
+        
+        let textFontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            .pointSize, 20)
+        let detailFontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption2)
+            .pointSize, 14)
+        textLabel?.font = UIFont(name: UIFont.primaryFont(), size: textFontSize)
+        detailTextLabel?.font = UIFont(name: UIFont.heavyFont(), size: detailFontSize)
 
         textLabel?.textColor = Color.Light.toUIColor()
         detailTextLabel?.textColor = Color.Lighter.toUIColor()

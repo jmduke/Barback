@@ -15,7 +15,10 @@ class SegmentControl: UISegmentedControl {
         super.awakeFromNib()
         backgroundColor = UIColor.whiteColor()
         tintColor = Color.Light.toUIColor()
-        setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: 20)!], forState: UIControlState.Normal)
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            .pointSize, 20)
+        setTitleTextAttributes([NSFontAttributeName: UIFont(name: UIFont.primaryFont(), size: fontSize)!], forState: UIControlState.Normal)
         addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 240))
 
         layer.borderColor = Color.Dark.toUIColor().CGColor

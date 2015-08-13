@@ -36,12 +36,18 @@ extension UIViewController {
             }
             if let controller = navigationController {
                 let coachMarksView = WSCoachMarksView(frame: controller.view.bounds, coachMarks: parsedCoachMarks)
-                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: 20)
+                let fontSize = max(UIFontDescriptor
+                    .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+                    .pointSize, 20)
+                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: fontSize)
                 controller.view.addSubview(coachMarksView)
                 coachMarksView.start()
             } else {
                 let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: parsedCoachMarks)
-                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: 20)
+                let fontSize = max(UIFontDescriptor
+                    .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+                    .pointSize, 20)
+                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: fontSize)
                 view.addSubview(coachMarksView)
                 coachMarksView.start()
             }
