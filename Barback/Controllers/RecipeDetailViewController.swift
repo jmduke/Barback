@@ -2,7 +2,7 @@ import RealmSwift
 import Social
 import UIKit
 
-public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks {
+public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks, Shareable {
 
     @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
@@ -27,33 +27,21 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         registerSettingsDefaults()
         return true
     }
-
-    func shareRecipe() {
-
+    
+    func shareableContent() -> [AnyObject] {
         // Handle the printing setup.
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "BarbackRecipe"
         printInfo.outputType = UIPrintInfoOutputType.General
         let formatter = UIMarkupTextPrintFormatter(markupText: recipe!.htmlString)
         formatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72) // 1" margins
-
+        
         let activities = [printInfo, formatter, "Just made a \(recipe!.name) with @getbarback!", recipe!.url]
-        let controller = UIActivityViewController(activityItems: activities, applicationActivities: nil)
-        navigationController?.presentViewController(controller, animated: true, completion: nil)
-
-        // Needed to play nice with iPad views.
-        if (controller.respondsToSelector("popoverPresentationController")) {
-            let presentationController = controller.popoverPresentationController
-            let shareButton = self.navigationItem.rightBarButtonItem
-            presentationController?.barButtonItem = shareButton
-        }
+        return activities
     }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        let shareButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareRecipe")
-        self.navigationItem.rightBarButtonItem = shareButton
 
         if (recipe == nil) {
             recipe = Recipe.random()
@@ -105,6 +93,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         view.addGestureRecognizer(rightSwipeRecognizer)
         view.layoutIfNeeded()
 
+        makeContentShareable()
         styleController()
     }
 
