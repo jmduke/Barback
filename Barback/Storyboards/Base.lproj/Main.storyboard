@@ -96,14 +96,14 @@
                         <viewControllerLayoutGuide type="bottom" id="5Wi-sy-obz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="asK-eR-Xag">
-                        <rect key="frame" x="0.0" y="64" width="320" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="687"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="707"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="redraw" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tB5-qp-DsW">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="914"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="12974"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="RecipeHeaderLabel" customModule="Barback" customModuleProvider="target">
                                                 <rect key="frame" x="113" y="0.0" width="94" height="20"/>
@@ -121,7 +121,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="recipe.subhead stuff goesh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="RecipeSubheadLabel" customModule="Barback" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="recipe.subhead stuff goesh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-do-xpB" userLabel="recipe.subhead" customClass="RecipeSubheadLabel" customModule="Barback" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="40" width="210" height="20.5"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,10 +184,13 @@
                                                     </mask>
                                                 </variation>
                                             </tableView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-IL-5fz" userLabel="recipe.directions" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
-                                                <rect key="frame" x="143.5" y="460.5" width="33" height="33"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEd-IL-5fz" userLabel="recipe.directions" customClass="DescriptionTextView" customModule="Barback" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="460.5" width="280" height="33"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="Hhy-7X-dXl"/>
+                                                </constraints>
                                                 <attributedString key="attributedText">
                                                     <fragment content="asd">
                                                         <attributes>
@@ -199,7 +202,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="RecipeInformationTextView" customModule="Barback" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="513.5" width="320" height="216.5"/>
+                                                <rect key="frame" x="20" y="513.5" width="280" height="12276.5"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -208,14 +211,23 @@
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="ca4-cP-Vq8"/>
-                                                    </mask>
-                                                </variation>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="FavoriteButton" customModule="Barback" customModuleProvider="target">
+                                                <rect key="frame" x="148" y="12810" width="24" height="24"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="FdQ-T9-Pod"/>
+                                                    <constraint firstAttribute="height" constant="24" id="k4a-9L-9NA"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2QU-SY-UI0" userLabel="similarRecipes" customClass="SimilarRecipeTableView" customModule="Barback" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="750" width="320" height="120"/>
+                                                <rect key="frame" x="0.0" y="12854" width="320" height="120"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -255,20 +267,6 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-K2-heU" customClass="FavoriteButton" customModule="Barback" customModuleProvider="target">
-                                                <rect key="frame" x="148" y="890" width="24" height="24"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="FdQ-T9-Pod"/>
-                                                    <constraint firstAttribute="height" constant="24" id="k4a-9L-9NA"/>
-                                                </constraints>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="selected">
-                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
                                         </subviews>
                                         <animations/>
                                     </stackView>
@@ -281,7 +279,13 @@
                                     <constraint firstAttribute="bottom" secondItem="tB5-qp-DsW" secondAttribute="bottom" constant="20" id="a7N-aF-fJT"/>
                                     <constraint firstAttribute="width" secondItem="msd-qH-YF8" secondAttribute="width" id="fQ5-CI-fKs"/>
                                     <constraint firstItem="tB5-qp-DsW" firstAttribute="leading" secondItem="YnV-Wv-43m" secondAttribute="leading" id="fwv-ej-rJJ"/>
+                                    <constraint firstItem="tB5-qp-DsW" firstAttribute="height" secondItem="YnV-Wv-43m" secondAttribute="height" id="xMR-M3-BZq"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xMR-M3-BZq"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <animations/>
@@ -323,13 +327,13 @@
         <!--Ingredient Detail View Controller-->
         <scene sceneID="wDJ-dU-QRq">
             <objects>
-                <viewController storyboardIdentifier="IngredientDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ingredientDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uyo-6E-2Tc" customClass="IngredientDetailViewController" customModule="Barback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hxt-uY-GuR"/>
                         <viewControllerLayoutGuide type="bottom" id="Q29-Ke-qiu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4ma-Qb-Zx6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-sZ-Btm" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
@@ -345,8 +349,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ingredient.abv" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="IngredientSubheadLabel" customModule="Barback" customModuleProvider="target">
-                                                <rect key="frame" x="105.5" y="40" width="109.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ingredient.abv and others" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDj-jO-OWw" customClass="IngredientSubheadLabel" customModule="Barback" customModuleProvider="target">
+                                                <rect key="frame" x="62.5" y="40" width="195.5" height="20.5"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -855,6 +859,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FxA-aX-U3X"/>
+        <segue reference="60P-fi-ghf"/>
     </inferredMetricsTieBreakers>
 </document>

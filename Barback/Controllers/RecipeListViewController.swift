@@ -1,10 +1,12 @@
 import Foundation
 import UIKit
 
-public class RecipeListViewController: UITableViewController {
+public class RecipeListViewController: UITableViewController, UISearchResultsUpdating {
 
     var viewTitle: String = ""
     lazy public var recipes: [Recipe] = Recipe.all()
+    
+    var searchController: UISearchController?
 
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -103,6 +105,40 @@ public class RecipeListViewController: UITableViewController {
     // Should be overwritten or super-called by subclasses to filter all recipes.
     func filterRecipes(recipe: Recipe) -> Bool {
         return true
+    }
+    
+    public func updateSearchResultsForSearchController(searchController: UISearchController) {
+        if (!searchController.searchBar.text!.isEmpty) {
+            self.filterContentForSearchText(searchController.searchBar.text!)
+        } else {
+            recipes = Recipe.all()
+        }
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+    }
+
+    func filterContentForSearchText(searchText: String) {
+        recipes = Recipe.all().filter({
+            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil ||
+                (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
+                    $0.information.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
+        })
+        recipes.sortInPlace({
+            let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let secondLocation = $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            return firstLocation?.startIndex > secondLocation?.startIndex
+        })
+    }
+
+    func attachSearchBar() {
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController!.searchResultsUpdater = self
+        self.searchController!.searchBar.scopeButtonTitles = []
+        self.searchController!.dimsBackgroundDuringPresentation = false
+        self.searchController!.hidesNavigationBarDuringPresentation = false
+        self.searchController!.searchBar.styleSearchBar()
+        self.tableView.tableHeaderView = UIView(frame: self.searchController!.searchBar.frame)
+        self.tableView.tableHeaderView!.addSubview(self.searchController!.searchBar)
+        self.searchController!.searchBar.sizeToFit()
     }
 
 }

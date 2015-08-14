@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-public class SearchRecipeListViewController: RecipeListViewController {
+public class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate {
 
     public var activeIngredients: [IngredientBase] = [IngredientBase]()
 
@@ -21,9 +21,9 @@ public class SearchRecipeListViewController: RecipeListViewController {
         for baseList in bases {
             baseList.filter({ !uniqueBases.contains($0) }).map({ uniqueBases.append($0) })
         }
-        return uniqueBases.filter({ !activeIngredients.contains($0) }).sort({ $0.name < $1.name })
+        return uniqueBases.filter({ !activeIngredients.contains($0) }).sort({ $0.name < $1.name }).filter({ searchController == nil || searchController!.searchBar.text == "" || $0.name.lowercaseString.rangeOfString(searchController!.searchBar.text!.lowercaseString) != nil })
     }
-    var recipeCountsForPossibleIngredients: [Int] {
+    var recipeCountsForPossibleIngredients: [String:Int] {
         let uses: [List<Ingredient>] = recipes.map({ $0.ingredients })
         let bases = uses.map({ $0.map({ $0.base! }) })
         var uniqueBases = [String:Int]()
@@ -32,7 +32,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
                 uniqueBases[base.name] = (uniqueBases[base.name] ?? 0) + 1
             }
         }
-        return uniqueBases.keys.sort({ $0 < $1 }).map({ uniqueBases[$0]! })
+        return uniqueBases
     }
 
     var viewingRecipes: Bool = false
@@ -45,6 +45,13 @@ public class SearchRecipeListViewController: RecipeListViewController {
             return ", ".join(activeIngredients.map({ $0.name }))
         }
         set { }
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        if !viewingRecipes {
+            attachSearchBar()
+        }
     }
 
     func showRecipes() {
@@ -82,7 +89,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
 
         if viewingRecipes && recipes.count > 1 {
             let bartendersChoiceView = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, 60))
-            let bartendersChoiceButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 10, self.tableView.frame.size.width / 2, 40))
+            let bartendersChoiceButton = SimpleButton(frame: CGRectMake(50, 10, self.tableView.frame.size.width - 100, 40))
             bartendersChoiceButton.setTitle("Pick random recipe", forState: UIControlState.Normal)
             bartendersChoiceButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
             bartendersChoiceButton.addTarget(self, action: "pickRandomRecipe", forControlEvents: UIControlEvents.TouchUpInside)
@@ -110,6 +117,8 @@ public class SearchRecipeListViewController: RecipeListViewController {
 
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        searchController!.dismissViewControllerAnimated(true, completion: nil)
+        
         // If you're viewing recipes, just use the superclass.
         if (viewingRecipes) {
             super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
@@ -119,7 +128,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
         let ingredient =  possibleIngredients[indexPath.row]
         
         // If there's only one possible recipe, go ahead and show it.
-        if recipeCountsForPossibleIngredients[indexPath.row] == 1 {
+        if recipeCountsForPossibleIngredients[ingredient.name] == 1 {
             let recipe = recipes.filter({ $0.usesIngredient(ingredient) }).first
             let destination = R.storyboard.main.recipeDetail!
             destination.recipe = recipe
@@ -149,10 +158,15 @@ public class SearchRecipeListViewController: RecipeListViewController {
             cell.textLabel?.text = "and " + cell.textLabel!.text!
         }
 
-        let recipeCount = recipeCountsForPossibleIngredients[indexPath.row]
+        let recipeCount = recipeCountsForPossibleIngredients[ingredient.name]!
         let designator = recipeCount > 1 ? "recipes" : "recipe"
         cell.detailTextLabel?.text = "\(recipeCount) \(designator)"
 
         return cell
     }
+    
+    override func filterContentForSearchText(searchText: String) {
+        return
+    }
+
 }

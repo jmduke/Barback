@@ -51,6 +51,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         makeContentShareable()
     }
     
