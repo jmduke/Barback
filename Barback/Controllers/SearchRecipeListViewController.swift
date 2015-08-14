@@ -44,9 +44,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
             }
             return ", ".join(activeIngredients.map({ $0.name }))
         }
-        set {
-            
-        }
+        set { }
     }
 
     func showRecipes() {
@@ -75,46 +73,10 @@ public class SearchRecipeListViewController: RecipeListViewController {
         }
 
         if !activeIngredients.isEmpty && !viewingRecipes {
-            
-            let promptForIngredientDetail = (activeIngredients.count == 1)
-            
-            let browseRecipesViewHeight: Int = promptForIngredientDetail ? 200 : 120
-            let browseRecipesViewFrame = CGRectMake(0, 0, self.tableView.frame.size.width, CGFloat(browseRecipesViewHeight))
-            let browseRecipesView = UIView(frame: browseRecipesViewFrame)
-            
-            
-            let browseRecipesButtonY: Double = promptForIngredientDetail ? 80 : 0
-            let browseRecipesButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, CGFloat(browseRecipesButtonY), self.tableView.frame.size.width / 2, 120))
-            browseRecipesButton.titleLabel!.numberOfLines = 0
-            browseRecipesButton.titleLabel!.textAlignment = NSTextAlignment.Center
-            
-            let ingredientsString: String
-            if activeIngredients.count > 1 {
-                // There's gotta be a nicer way to do this, right?
-                let lastIngredient = activeIngredients.removeLast()
-                ingredientsString = ", ".join(activeIngredients.map({ $0.name })) + " and \(lastIngredient.name)"
-                activeIngredients.append(lastIngredient)
-            } else {
-                ingredientsString = ", ".join(activeIngredients.map({ $0.name }))
-            }
-            let browseTitle = "Browse \(recipes.count) recipes with \(ingredientsString)"
-
-            browseRecipesButton.setTitle(browseTitle, forState: UIControlState.Normal)
-            browseRecipesButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
-            browseRecipesButton.addTarget(self, action: "showRecipes", forControlEvents: UIControlEvents.TouchUpInside)
-            browseRecipesView.addSubview(browseRecipesButton)
-            
-            if promptForIngredientDetail {
-                let ingredientButton = SimpleButton(frame: CGRectMake(self.tableView.frame.size.width / 4, 0, self.tableView.frame.size.width / 2, 80))
-                ingredientButton.titleLabel!.numberOfLines = 0
-                ingredientButton.titleLabel!.textAlignment = NSTextAlignment.Center
-                let ingredientTitle = "Learn more about \(activeIngredients.first!.name)"
-                ingredientButton.setTitle(ingredientTitle, forState: UIControlState.Normal)
-                ingredientButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
-                ingredientButton.addTarget(self, action: "showIngredient", forControlEvents: UIControlEvents.TouchUpInside)
-                browseRecipesView.addSubview(ingredientButton)
-            }
-
+            let browseRecipesViewFrame = CGRectMake(0, 0, self.tableView.frame.size.width, 200)
+            let browseRecipesView = BrowseRecipesView(frame: browseRecipesViewFrame)
+            browseRecipesView.delegate = self
+            browseRecipesView.ingredients = activeIngredients
             tableView.tableHeaderView = browseRecipesView
         }
 
@@ -143,20 +105,18 @@ public class SearchRecipeListViewController: RecipeListViewController {
         if (viewingRecipes) {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
-
         return possibleIngredients.count
     }
 
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // If you're viewing recipes, just use the superclass.
         if (viewingRecipes) {
             super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
             return
         }
-
-        let selectedRow = tableView.indexPathForSelectedRow
-        let rowIndex = selectedRow?.row
-        let ingredient =  possibleIngredients[rowIndex!]
         
+        let ingredient =  possibleIngredients[indexPath.row]
         
         // If there's only one possible recipe, go ahead and show it.
         if recipeCountsForPossibleIngredients[indexPath.row] == 1 {
@@ -167,7 +127,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
             return
         }
 
-
+        // Otherwise, push the thing onto itself.
         let destination = R.storyboard.main.searchRecipeListViewController!
         destination.activeIngredients = activeIngredients
         destination.activeIngredients.append(ingredient)
@@ -176,6 +136,7 @@ public class SearchRecipeListViewController: RecipeListViewController {
     }
 
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         if (viewingRecipes) {
             return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         }
@@ -184,7 +145,9 @@ public class SearchRecipeListViewController: RecipeListViewController {
         let cellIdentifier = "recipeCell"
         let cell = BaseCell(base: ingredient, reuseIdentifier: cellIdentifier)
 
-        cell.textLabel?.text = activeIngredients.isEmpty ? ingredient.name : "and \(ingredient.name)"
+        if !activeIngredients.isEmpty {
+            cell.textLabel?.text = "and " + cell.textLabel!.text!
+        }
 
         let recipeCount = recipeCountsForPossibleIngredients[indexPath.row]
         let designator = recipeCount > 1 ? "recipes" : "recipe"
