@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-public class FullRecipeListViewController: RecipeListViewController, UISearchResultsUpdating, UISearchBarDelegate, HasCoachMarks {
-
-    var searchController: UISearchController?
+public class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks {
 
     override public var recipes : [Recipe] {
         didSet {
@@ -19,15 +17,6 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
                 super.recipes = recipes.sort(sortingMethod.sortFunction())
             }
         }
-    }
-
-    public func updateSearchResultsForSearchController(searchController: UISearchController) {
-        if (!searchController.searchBar.text!.isEmpty) {
-            self.filterContentForSearchText(searchController.searchBar.text!)
-        } else {
-            recipes = Recipe.all()
-        }
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
 
     override var viewTitle: String {
@@ -45,19 +34,6 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
 
-    func filterContentForSearchText(searchText: String) {
-        recipes = Recipe.all().filter({
-            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil ||
-            (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
-            $0.information.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
-        })
-        recipes.sortInPlace({
-            let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)
-            let secondLocation = $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)
-            return firstLocation?.startIndex > secondLocation?.startIndex
-        })
-    }
-
     public func toggleSortingMethod() {
         let nextSortingMethodRawValue = (sortingMethod.rawValue + 1) % RecipeSortingMethod.maximum()
         sortingMethod = RecipeSortingMethod(rawValue: nextSortingMethodRawValue)!
@@ -70,29 +46,12 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchRes
         super.viewDidLoad()
 
         self.definesPresentationContext = true
-
-        self.searchController = UISearchController(searchResultsController: nil)
-        self.searchController!.searchResultsUpdater = self
-        self.searchController!.searchBar.scopeButtonTitles = []
-        self.searchController!.dimsBackgroundDuringPresentation = false
-        self.searchController!.hidesNavigationBarDuringPresentation = false
-
-        self.searchController!.searchBar.styleSearchBar()
-
-        self.tableView.tableHeaderView = UIView(frame: self.searchController!.searchBar.frame)
-        self.tableView.tableHeaderView!.addSubview(self.searchController!.searchBar)
-        self.searchController!.searchBar.sizeToFit()
-
+        
+        attachSearchBar()
 
         let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleSortingMethod")
         self.navigationItem.leftBarButtonItem = sortButton
 
-        if recipes.count == 0 {
-            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
-            emptyStateLabel.text = "Connect to the internet to grab recipes!"
-            tableView.backgroundView = emptyStateLabel
-        }
-        
         runCoachMarks()
     }
 
