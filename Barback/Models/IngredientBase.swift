@@ -54,7 +54,7 @@ public final class IngredientBase: Object, SpotlightIndexable {
     }
 
 
-    class func forName(name: String) -> IngredientBase? {
+    class public func forName(name: String) -> IngredientBase? {
         do {
             return try Realm().objects(IngredientBase).filter("name = '\(name)'").map({ $0 }).first
         } catch {

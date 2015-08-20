@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ShoppingListViewController: RecipeListViewController, Shareable {
+public class ShoppingListViewController: RecipeListViewController, Shareable {
 
-    var ingredients: [IngredientBase] = [IngredientBase]() {
+    public var ingredients: [IngredientBase] = [IngredientBase]() {
     willSet(newIngredients) {
         ingredientTypes = IngredientType.allValues.filter({
             (type: IngredientType) -> Bool in
@@ -23,7 +23,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
 
     var ingredientTypes: [IngredientType] = [IngredientType]()
 
-    override var viewTitle: String {
+    override public var viewTitle: String {
         get {
             return "Shopping List"
         }
@@ -40,7 +40,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
         super.init(style: style)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -49,7 +49,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
         recipes = Recipe.favorites()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         makeContentShareable()
@@ -62,21 +62,20 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
             let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(base) }).count
             return "- \(base.name) (used in \(recipeCount) recipes)"
         }))
-        print(shoppingListAsPlainText)
         return [shoppingListAsPlainText]
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return ingredientTypes.count
     }
 
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         let ingredientType = ingredientTypes[section]
         let ingredientsForType = ingredients.filter({ $0.ingredientType == ingredientType})
         return ingredientsForType.count
     }
 
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
+    override public func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
         let sectionLabel = IngredientTypeSectionLabel()
         sectionLabel.ingredientType = ingredientTypes[section]
         sectionLabel.frame = CGRectMake(0, 0, tableView.frame.width, 40)
@@ -86,11 +85,11 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
         return headerView
     }
 
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+    override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String {
         return ingredientTypes[section].rawValue
     }
 
@@ -100,7 +99,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
         return ingredientsForType[indexPath.row]
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let ingredient = ingredientForIndexPath(indexPath)
         
@@ -119,7 +118,7 @@ class ShoppingListViewController: RecipeListViewController, Shareable {
         return cell!
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let controller = R.storyboard.main.ingredientDetail!
         controller.ingredient = ingredientForIndexPath(indexPath)

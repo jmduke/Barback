@@ -66,6 +66,16 @@ class RecipeSpec: QuickSpec {
                     expect(recipe.ingredients.count).to(beGreaterThan(1.0))
                 }
             }
+            
+            // This can technically fail sometimes, but meh.
+            it("can be reduced to a random one") {
+                var randomRecipes: [Recipe] = []
+                for _ in 0...3 {
+                    let recipe = Recipe.random()
+                    expect(randomRecipes).toNot(contain(recipe))
+                    randomRecipes.append(recipe)
+                }
+            }
         }
     }
 

@@ -1,9 +1,9 @@
 import Foundation
 import UIKit
 
-class SimilarRecipeTableView: RealmObjectTableView {
+public class SimilarRecipeTableView: RealmObjectTableView {
     
-    var recipe: Recipe?  {
+    public var recipe: Recipe?  {
         didSet {
             self.initialize()
         }
@@ -13,11 +13,11 @@ class SimilarRecipeTableView: RealmObjectTableView {
         return "You may also be interested in"
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipe!.similarRecipes(2).count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         let cellIdentifier = "similarCell"
         let similarRecipe = recipe!.similarRecipes(2)[indexPath.row]

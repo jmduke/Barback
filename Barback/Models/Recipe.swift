@@ -142,13 +142,13 @@ public final class Recipe: Object, SpotlightIndexable {
         return all().filter({ $0.isFavorited })
     }
 
-    class func random() -> Recipe {
+    class public func random() -> Recipe {
         let recipes =  all()
         let randomIndex = Int(arc4random_uniform(UInt32(recipes.count)))
         return recipes[randomIndex]
     }
 
-    class func forName(name: String) -> Recipe? {
+    class public func forName(name: String) -> Recipe? {
         do {
             return try Realm().objects(Recipe).filter("name = '\(name)'").map({ $0 }).first
             
