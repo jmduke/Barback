@@ -8,7 +8,16 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
     @IBOutlet weak var stackView: UIStackView!
-    var recipe: Recipe?
+
+    var recipe: Recipe? {
+        didSet {
+            if (recipe == nil) {
+                return
+            }
+
+            recipe!.isNew = false
+        }
+    }
 
     var isRandom: Bool?
 
@@ -43,17 +52,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
-        if (recipe == nil) {
-            recipe = Recipe.random()
-            isRandom = true
-            
-            let randomButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "findNewRecipe")
-            self.navigationItem.leftBarButtonItem = randomButton
-        }
-
-        recipe!.isNew = false
-
+        
         nameLabel.recipe = recipe!
         subheadLabel.recipe = recipe!
         informationLabel.recipe = recipe!
@@ -72,46 +71,18 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         
         title = recipe!.name
 
-        // Switch tab bar item title back to the title if necessary.
-        if (isRandom != nil) {
-            navigationController?.tabBarItem.title = "Random"
-        }
-
         favoriteButton.selected = favoritedRecipes.contains(recipe!)
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
 
-
-
         directionsTextView.text = recipe!.directions
-
         
         scrollView.delegate = self
 
-        // Allow folks to swipe right to go back.
-        let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousView:")
-        rightSwipeRecognizer.numberOfTouchesRequired = 1
-        rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
-        view.addGestureRecognizer(rightSwipeRecognizer)
         view.layoutIfNeeded()
 
         makeContentShareable()
         styleController()
         
-    }
-
-    func goToPreviousView(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
-    }
-
-    override public func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)  {
-        if (motion == UIEventSubtype.MotionShake && isRandom != nil) {
-            findNewRecipe()
-        }
-    }
-
-    func findNewRecipe() {
-        recipe = Recipe.random()
-        performSegueWithIdentifier(R.segue.similarRecipe, sender: nil)
     }
 
     func markRecipeAsFavorite() {
