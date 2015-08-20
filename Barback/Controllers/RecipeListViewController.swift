@@ -6,7 +6,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
     var viewTitle: String = ""
     lazy public var recipes: [Recipe] = Recipe.all()
     
-    var searchController: UISearchController?
+    public var searchController: UISearchController?
 
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
@@ -125,7 +125,16 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
         recipes.sortInPlace({
             let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)
             let secondLocation = $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)
-            return firstLocation?.startIndex > secondLocation?.startIndex
+            
+            if (secondLocation?.startIndex == nil) {
+                return true
+            }
+            
+            if (firstLocation?.startIndex == nil) {
+                return false
+            }
+
+            return firstLocation?.startIndex < secondLocation?.startIndex
         })
     }
 
