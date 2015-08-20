@@ -10,11 +10,38 @@ public enum Flavor: String {
     public func describesRecipe(recipe: Recipe) -> Bool {
         switch self {
         case .Sweet:
-            return recipe.ingredients.map({ $0.base }).filter({ $0 != nil }).filter({ $0!.name.rangeOfString("juice") != nil }).count > 0
+            return [
+                "Astor Hotel Special",
+                "Painkiller",
+                "Bocce Ball",
+                "Moscow Mule",
+                "Margarita",
+                "Mint Julep",
+                "Mojito",
+                "Planter's Punch",
+                "Sex on the Beach"
+                ].contains(recipe.name)
         case .Smoky:
-            return false
+            return [
+                "Angostura Sour",
+                "Manhattan",
+                "Flannel Shirt",
+                "Mark Twain",
+                "Old Fashioned",
+                "Penicillin",
+                "Rob Roy",
+                "The Second Year"
+                ].contains(recipe.name)
         case .Crisp:
-            return false
+            return [
+                "Dry Martini",
+                "Melon Stand",
+                "Obituary",
+                "Paloma",
+                "Samsara",
+                "Sazerac",
+                "Smith & Kearns"
+                ].contains(recipe.name)
         }
     }
 }
