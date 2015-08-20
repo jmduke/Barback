@@ -9,7 +9,6 @@ target 'Barback' do
     pod 'Realm', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
     pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'swift-2.0'
     pod 'RNBlurModalView', '~> 0.1.0'
-    pod 'WSCoachMarksView', '~> 0.2'
 end
 
 target 'BarbackTests' do
