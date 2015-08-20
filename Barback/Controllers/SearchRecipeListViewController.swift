@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-public class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate {
+public class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks {
 
     public var activeIngredients: [IngredientBase] = [IngredientBase]()
 
@@ -52,6 +52,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         if !viewingRecipes {
             attachSearchBar()
         }
+        runCoachMarks(view)
     }
 
     func showRecipes() {
@@ -117,7 +118,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
 
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        searchController!.dismissViewControllerAnimated(true, completion: nil)
+        searchController?.dismissViewControllerAnimated(true, completion: nil)
         
         // If you're viewing recipes, just use the superclass.
         if (viewingRecipes) {
@@ -149,6 +150,10 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         if (viewingRecipes) {
             return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         }
+        
+        if (indexPath.row >= possibleIngredients.count) {
+            return UITableViewCell(frame: CGRectZero)
+        }
             
         let ingredient = possibleIngredients[indexPath.row]
         let cellIdentifier = "recipeCell"
@@ -167,6 +172,13 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
     
     override func filterContentForSearchText(searchText: String) {
         return
+    }
+    
+    func coachMarksForController() -> [CoachMark] {
+        return [
+            CoachMark(rect: tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 4, inSection: 0)), caption: "Click on ingredients to learn more and find recipes that use them."),
+            CoachMark(rect: (self.searchController?.searchBar.frame)!, caption: "Search through 'em by name or description.")
+        ]
     }
 
 }
