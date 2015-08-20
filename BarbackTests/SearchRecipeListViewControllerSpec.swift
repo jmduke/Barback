@@ -53,13 +53,9 @@ class SearchRecipeListViewControllerSpec: QuickSpec {
                 }
 
                 it("should have still only have one row for each base") {
-                    
-                    base = IngredientBase.all().filter({ $0.name == "Rye" }).first!
-                    controller.activeIngredients = [base]
-                    let _ = controller.view
-                    controller.viewWillAppear(true)
-                    
                     let tableView = controller.tableView
+                    tableView.reloadData()
+                    
                     var allBases = [IngredientBase]()
                     Recipe.all().map({
                         (r: Recipe) in
@@ -72,13 +68,13 @@ class SearchRecipeListViewControllerSpec: QuickSpec {
                         l.map({ allBases.append($0) })
                     })
                     let uniqueBases = Set(allBases.filter({ $0 != base }).map({ $0.name}))
-                    
                     let numberOfRows = tableView.numberOfRowsInSection(0)
                     expect(numberOfRows).to(equal(uniqueBases.count))
                 }
                 
                 it("should not show that active ingredient") {
                     let tableView = controller.tableView
+                    tableView.reloadData()
                     let rowCount = tableView.numberOfRowsInSection(0) - 1
                     for row in 0...(rowCount) {
                         let indexPath = NSIndexPath(forRow: row, inSection: 0)

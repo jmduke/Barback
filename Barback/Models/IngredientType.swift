@@ -15,7 +15,7 @@ public enum IngredientType: String {
     case Mixer = "mixer"
     case Other = "other"
 
-    func pluralize() -> String {
+    public func pluralize() -> String {
         switch self {
         case .Garnish:
             return rawValue + "es"
@@ -25,5 +25,5 @@ public enum IngredientType: String {
     }
 
     // Ugh, this is so inelegant.
-    static let allValues = [Spirit, Liqueur, Garnish, Mixer, Other]
+    public static let allValues = [Spirit, Liqueur, Garnish, Mixer, Other]
 }

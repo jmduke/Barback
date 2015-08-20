@@ -1,4 +1,4 @@
-enum Adjective: CustomStringConvertible {
+public enum Adjective: CustomStringConvertible {
     case Bold
     case Bubbly
     case Ecstatic
@@ -6,7 +6,7 @@ enum Adjective: CustomStringConvertible {
     case Thirsty
     case Weird
     
-    func describesRecipe(recipe: Recipe) -> Bool {
+    public func describesRecipe(recipe: Recipe) -> Bool {
         switch self {
             case .Bold:
                 return recipe.abv > 20
@@ -37,7 +37,7 @@ enum Adjective: CustomStringConvertible {
         return [.Bold, .Bubbly, .Ecstatic, .Pensive, .Thirsty, .Weird]
     }
     
-    var description : String {
+    public var description : String {
         switch self {
         case .Bold: return "Bold";
         case .Bubbly: return "Bubbly";

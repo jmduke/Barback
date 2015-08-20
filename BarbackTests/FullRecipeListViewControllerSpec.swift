@@ -37,6 +37,35 @@ class FullRecipeListViewControllerSpec: QuickSpec {
                     expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("Yellow Bird"))
                 }
             }
+            
+            context("when you search") {
+                let searchText = "Man"
+                beforeEach {
+                    let _ = controller.viewDidLoad()
+                    controller.searchController!.searchBar.text = searchText
+                }
+                
+                it("should only show recipes with the search term") {
+                    expect(controller.tableView(controller.tableView, numberOfRowsInSection: 0)).to(equal(Recipe.all().filter({
+                        $0.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil ||
+                            $0.information.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+                    }).count))
+                }
+
+                it("should only show recipes with the search term in the name first") {
+                    let tableView = controller.tableView
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    
+                    expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text!.lowercaseString).to(contain(searchText.lowercaseString))
+                }
+                
+                it("should only show recipes with the search term in the name first, first") {
+                    let tableView = controller.tableView
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    
+                    expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("Manhattan"))
+                }
+            }
         }
 
         
