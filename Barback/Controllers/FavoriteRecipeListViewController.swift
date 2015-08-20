@@ -50,7 +50,7 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
             tableView.tableFooterView = shoppingListView
         }
         
-        runCoachMarks()
+        runCoachMarks(view)
         super.viewDidAppear(animated)
     }
 

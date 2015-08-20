@@ -1,8 +1,9 @@
+import WSCoachMarksView
 import RealmSwift
 import Social
 import UIKit
 
-public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks, Shareable {
+public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks, Shareable, CoachMarksViewDelegate {
 
     @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
@@ -95,6 +96,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
 
         makeContentShareable()
         styleController()
+        
     }
 
     func goToPreviousView(sender: AnyObject) {
@@ -142,24 +144,36 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
             coachMarks.append(coachMark)
         }
         
-        let directionsPosition = directionsTextView.frame
-        let directionsCaption = "Simple instructions on making your drinks."
-        coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
+        coachMarks.append(CoachMark(rect: subheadLabel.frame, caption: "Here are some details about your recipe."))
+        coachMarks.append(CoachMark(rect: recipeDiagramView.frame, caption: "This is what it looks like."))
         
         let ingredientsPosition = ingredientsTableView.frame
-        let ingredientsCaption = "Tap an ingredient to learn more about it."
+        let ingredientsCaption = "Here's what's in it.  (Tap an ingredient to learn more about it.)"
         coachMarks.append(CoachMark(rect: ingredientsPosition, caption: ingredientsCaption))
         
+        let directionsPosition = directionsTextView.frame
+        let directionsCaption = "Here's how you make it."
+        coachMarks.append(CoachMark(rect: directionsPosition, caption: directionsCaption))
+
+        let infoPosition = informationLabel.frame
+        let infoCaption = "Here's some information about it."
+        coachMarks.append(CoachMark(rect: infoPosition, caption: infoCaption))
+        
         let favoritePosition = favoriteButton.frame
-        let favoriteCaption = "This button saves your favorite recipes and lets you easily access them later."
+        let favoriteCaption = "This lil button saves your favorite recipes and lets you easily access them later."
         coachMarks.append(CoachMark(rect: favoritePosition, caption: favoriteCaption))
+        
+        let similarPosition = similarDrinksTableView.frame
+        let similarCaption = "Here are some similar drinks, if you wanna try out something else."
+        coachMarks.append(CoachMark(rect: similarPosition, caption: similarCaption))
+        
         
         return coachMarks
     }
 
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
-        runCoachMarks()
+        runCoachMarks(scrollView)
     }
 
     override public func viewDidLayoutSubviews()  {
@@ -173,13 +187,14 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         
         recipeDiagramViewHeight.constant = recipeDiagramView!.idealHeight()
         recipeDiagramViewWidth.constant = recipeDiagramView!.idealWidth()
-
+        
         view.layoutIfNeeded()
     }
 
     override func styleController() {
         super.styleController()
 
+        view.backgroundColor = Color.Background.toUIColor()
         directionsTextView.textColor = Color.Dark.toUIColor()
 
         view.layoutIfNeeded()
@@ -223,6 +238,11 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         } else {
             return nil
         }
+    }
+    
+    func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int) {
+        let coachMark = view.coachMarks[index].rect
+        scrollView.setContentOffset(CGPoint(x: 0, y: coachMark.origin.y - 50), animated: true)
     }
 
 }
