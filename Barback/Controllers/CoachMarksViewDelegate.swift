@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+@objc protocol CoachMarksViewDelegate {
+    
+    optional func coachMarksViewWillCleanUp(view: CoachMarksView)
+    optional func coachMarksViewDidCleanUp(view: CoachMarksView)
+    optional func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int)
+    optional func coachMarksViewDidNavigateToIndex(view: CoachMarksView, index: Int)
+    
+}

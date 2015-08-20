@@ -10,7 +10,7 @@ import RNBlurModalView
 import SafariServices
 import UIKit
 
-public class IngredientDetailViewController: UIViewController, SFSafariViewControllerDelegate {
+public class IngredientDetailViewController: UIViewController, SFSafariViewControllerDelegate, HasCoachMarks {
 
     @IBOutlet weak var brandsTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var drinksTableViewHeight: NSLayoutConstraint!
@@ -38,7 +38,6 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
             drinksTableViewHeight.constant = drinksTableView.contentSize.height
             view.layoutIfNeeded()
         }
-        scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height)
     }
     
     public var ingredient: IngredientBase
@@ -83,6 +82,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         viewDidLayoutSubviews()
         view.layoutIfNeeded()
         styleController()
+        runCoachMarks(scrollView)
     }
 
     public func safariViewControllerDidFinish(controller: SFSafariViewController) {
@@ -135,5 +135,21 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
             let modal = RNBlurModalView(viewController: self, title: "Image not found", message: modalMessage)
             modal.show()
         }
+    }
+    
+    func coachMarksForController() -> [CoachMark] {
+        return [
+            CoachMark(rect: subheaderLabel.frame, caption: "Some details about the ingredient."),
+            CoachMark(rect: diagramView.frame, caption: "This is the color of the ingredient. (Well, yknow, artistic license.)"),
+            CoachMark(rect: descriptionView.frame, caption: "Here's some information about it."),
+            CoachMark(rect: brandsTableView.frame, caption: "Some recommended brands."),
+            CoachMark(rect: wikipediaButton.frame, caption: "Get some more info here!"),
+            CoachMark(rect: cocktailDBButton.frame, caption: "Or here!"),
+        ]
+    }
+    
+    func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int) {
+        let coachMark = view.coachMarks[index].rect
+        scrollView.setContentOffset(CGPoint(x: 0, y: coachMark.origin.y - 50), animated: true)
     }
 }

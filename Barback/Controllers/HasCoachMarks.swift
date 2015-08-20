@@ -1,25 +1,24 @@
 import Foundation
-import WSCoachMarksView
 
 protocol HasCoachMarks {
     
     func coachMarksForController() -> [CoachMark]
-    func runCoachMarks()
+    func runCoachMarks(attachedView: UIView)
     
 }
 
 extension HasCoachMarks {
     
-    func runCoachMarks() {
+    func runCoachMarks(attachedView: UIView) {
         if let controller = self as? UIViewController {
-            controller.runCoachMarks(coachMarksForController())
+            controller.runCoachMarks(attachedView, coachMarks: coachMarksForController())
         }
     }
 }
 
 extension UIViewController {
     
-    func runCoachMarks(coachMarks: [CoachMark]) {
+    func runCoachMarks(attachedView: UIView, coachMarks: [CoachMark]) {
         
         if coachMarks.isEmpty {
             return
@@ -28,33 +27,25 @@ extension UIViewController {
         let caption = coachMarks[0].caption
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
-        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey) && false
+        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey) && true
         
-        if (!haveCoachMarksBeenShown) {
-            let parsedCoachMarks: [Dictionary] = coachMarks.map {
-                ["rect": NSValue(CGRect: $0.rect), "caption": $0.caption]
-            }
-            if let controller = navigationController {
-                let coachMarksView = WSCoachMarksView(frame: controller.view.bounds, coachMarks: parsedCoachMarks)
-                let fontSize = max(UIFontDescriptor
-                    .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
-                    .pointSize, 20)
-                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: fontSize)
-                controller.view.addSubview(coachMarksView)
-                coachMarksView.start()
-            } else {
-                let coachMarksView = WSCoachMarksView(frame: view.bounds, coachMarks: parsedCoachMarks)
-                let fontSize = max(UIFontDescriptor
-                    .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
-                    .pointSize, 20)
-                coachMarksView.lblCaption.font = UIFont(name: UIFont.primaryFont(), size: fontSize)
-                view.addSubview(coachMarksView)
-                coachMarksView.start()
-            }
-            
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: userDefaultsKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+        if (haveCoachMarksBeenShown) {
+            return
         }
-    }
 
+        let frame = (attachedView as? UIScrollView)?.contentSize ?? attachedView.bounds.size
+        let coachMarksView = CoachMarksView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: attachedView.bounds.width, height: frame.height)), coachMarks: coachMarks)
+    
+        let fontSize = max(UIFontDescriptor
+            .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
+            .pointSize, 20)
+        coachMarksView.captionLabel?.font = UIFont(name: UIFont.primaryFont(), size: fontSize)
+    
+        coachMarksView.delegate = (self as? CoachMarksViewDelegate)
+        attachedView.addSubview(coachMarksView)
+        coachMarksView.start()
+        
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: userDefaultsKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 }
