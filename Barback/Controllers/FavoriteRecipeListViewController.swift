@@ -23,7 +23,7 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
         return favoritedRecipes.contains(recipe)
     }
 
-    override public func viewDidAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
 
         recipes = Recipe.all().filter(filterRecipes).sort({ $0.name < $1.name })
