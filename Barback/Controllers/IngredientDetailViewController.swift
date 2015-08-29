@@ -58,7 +58,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         headerLabel.ingredient = ingredient
         subheaderLabel.ingredient = ingredient
         descriptionView.ingredient = ingredient
-        diagramView.ingredient = ingredient
+        diagramView.ingredients = [ingredient]
         cocktailDBButton.ingredient = ingredient
         brandsTableView.ingredient = ingredient
         drinksTableView.ingredient = ingredient
