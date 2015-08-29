@@ -7,6 +7,7 @@ public enum Adjective: CustomStringConvertible {
     case Weird
     
     public func describesRecipe(recipe: Recipe) -> Bool {
+        /*
         switch self {
             case .Bold:
                 return recipe.abv > 20
@@ -30,7 +31,8 @@ public enum Adjective: CustomStringConvertible {
                 }).count > 0
             case .Thirsty:
                 return recipe.glassware == "highball"
-        }
+        }*/
+        return true
     }
     
     static func all() -> [Adjective] {

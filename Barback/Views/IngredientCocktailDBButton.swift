@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class IngredientCocktailDBButton: SimpleButton {
+public class IngredientCocktailDBButton: SimpleButton {
     var ingredient: IngredientBase? {
         didSet {
             if ingredient!.cocktaildb != "" {
