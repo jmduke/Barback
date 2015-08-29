@@ -27,6 +27,20 @@ enum RecipeSortingMethod: Int {
         return ["ABV", "Complexity", "Name"][rawValue / 2] + ["↓", "↑"][rawValue % 2]
     }
     
+    func possibleMethods() -> [RecipeSortingMethod] {
+        var rawValues: [Int]
+        if (rawValue % 2 == 1) {
+            rawValues = [0,2,4]
+        } else if (rawValue == 0) {
+            rawValues = [1,2,4]
+        } else if (rawValue == 2) {
+            rawValues = [0,3,4]
+        } else {
+            rawValues = [0,2,5]
+        }
+        return rawValues.map({RecipeSortingMethod(rawValue: $0)!})
+    }
+    
     func sortFunction() -> ((Recipe, Recipe) -> Bool) {
         func sortByABV(isDescending: Bool) -> ((Recipe, two: Recipe) -> Bool) {
             func ascending(one: Recipe, two: Recipe) -> Bool { return one.abv < two.abv }

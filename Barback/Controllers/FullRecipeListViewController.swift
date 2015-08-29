@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Popover
 import UIKit
 
 public class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks {
@@ -26,6 +27,8 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
         set {
         }
     }
+    
+    let popover = Popover()
 
     var sortingMethod: RecipeSortingMethod = RecipeSortingMethod.NameDescending
     
@@ -35,11 +38,29 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
     }
 
     public func toggleSortingMethod() {
-        let nextSortingMethodRawValue = (sortingMethod.rawValue + 1) % RecipeSortingMethod.maximum()
-        sortingMethod = RecipeSortingMethod(rawValue: nextSortingMethodRawValue)!
+        let startPoint = CGPoint(x: 60, y: 55)
+        let buttonHeight = CGFloat(60)
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width / 2, height: buttonHeight * 3))
+
+        for (i, method) in sortingMethod.possibleMethods().enumerate() {
+            let button = SimpleButton(frame: CGRect(x: 0, y: CGFloat(i) * buttonHeight, width: self.view.frame.width / 2, height: buttonHeight))
+            button.setTitle(method.title(), forState: UIControlState.Normal)
+            button.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            button.tag = method.rawValue
+            button.addTarget(self, action: "changeSortingMethod:", forControlEvents: UIControlEvents.TouchUpInside)
+            aView.addSubview(button)
+            
+        }
+
+        popover.show(aView, point: startPoint)
+    }
+    
+    public func changeSortingMethod(sender: UIButton) {
+        sortingMethod = RecipeSortingMethod(rawValue: sender.tag)!
         recipes = recipes.sort(sortingMethod.sortFunction())
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
+        popover.dismiss()
     }
 
     override public func viewDidLoad() {
