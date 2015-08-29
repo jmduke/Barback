@@ -24,7 +24,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
             }
             
             context("when it has a standard base") {
-                let ingredient = IngredientBase.all().filter({ $0.name == "Rye" })[0]
+                let ingredient = IngredientBase.forName("Rye")!
                 
                 beforeEach {
                     controller.ingredient = ingredient
@@ -52,6 +52,23 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                     for use in ingredient.uses {
                         expect(cells.map({ $0.textLabel!.text! })).to(contain(use.recipe!.name))
                     }
+                }
+                
+                it("should not have a cocktaildb button if the attribute isn't present") {
+                    expect(controller.cocktailDBButton.superview).to(beNil())
+                }
+            }
+            
+            context("when it has a base with a cocktaildb field") {
+                let ingredient = IngredientBase.forName("Gin")!
+                
+                beforeEach {
+                    controller.ingredient = ingredient
+                    let _ = controller.view
+                }
+            
+                it("should have a cocktaildb button") {
+                    expect(controller.cocktailDBButton.superview).toNot(beNil())
                 }
                 
                 
