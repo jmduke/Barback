@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class SimpleButton : UIButton {
+public class SimpleButton : UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         styleButton()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         styleButton()
     }
