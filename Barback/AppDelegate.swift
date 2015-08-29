@@ -2,8 +2,7 @@ import AdSupport
 import Appirater
 import CoreData
 import CoreSpotlight
-// import Crashlytics
-// import Fabric
+import JLRoutes
 import MBProgressHUD
 import MobileCoreServices
 import RealmSwift
@@ -33,48 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         openURL url: NSURL,
         sourceApplication: String?,
         annotation: AnyObject) -> Bool {
-
-        // Format of `barback://recipe/<RecipeName>`.
-        if (url.host?.lowercaseString == "recipe") {
-            let recipeName = url.path?.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
-            if let recipeName = recipeName {
-                    let recipe = Recipe.forName(recipeName)
-                    let storyboard = R.storyboard.main.instance
-                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
-                    controller.setRecipeAs(recipe)
-
-                    let tabBarController = self.window?.rootViewController as! UITabBarController
-                let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-                    navController.pushViewController(controller, animated: true)
-            }
-        }
-
-
-        return true
+        return JLRoutes.routeURL(url)
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if userActivity.activityType == CSSearchableItemActionType {
             if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                
                 if let _ = uniqueIdentifier.rangeOfString("ecipe") {
                     let recipe = Recipe.forIndexableID(uniqueIdentifier)
-                    let storyboard = R.storyboard.main.instance
-                    let controller: RecipeDetailViewController = storyboard.instantiateViewControllerWithIdentifier("recipeDetail") as! RecipeDetailViewController
-                    controller.setRecipeAs(recipe)
-                    
-                    let tabBarController = self.window?.rootViewController as! UITabBarController
-                    let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-                    navController.pushViewController(controller, animated: true)
+                    pushRecipeDetailController(recipe)
                 } else {
                     let ingredient = IngredientBase.forIndexableID(uniqueIdentifier)
-                    let storyboard = R.storyboard.main.instance
-                    let controller: IngredientDetailViewController = storyboard.instantiateViewControllerWithIdentifier("ingredientDetail") as! IngredientDetailViewController
-                    controller.ingredient = ingredient
-                    
-                    let tabBarController = self.window?.rootViewController as! UITabBarController
-                    let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-                    navController.pushViewController(controller, animated: true)
+                    pushIngredientDetailController(ingredient)
                 }
                 
                 }
@@ -166,6 +135,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error info: \(error)")
         }
     }
+    
+    func pushRecipeDetailController(recipe: Recipe) {
+        let controller = R.storyboard.main.recipeDetail!
+        controller.setRecipeAs(recipe)
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+        navController.pushViewController(controller, animated: true)
+    }
+    
+    func pushIngredientDetailController(ingredient: IngredientBase) {
+        let controller = R.storyboard.main.ingredientDetail!
+        controller.ingredient = ingredient
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+        navController.pushViewController(controller, animated: true)
+    }
 
     func registerPushNotifications(application: UIApplication) {
         // Register for push notifications.
@@ -177,27 +162,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 
+        initializeRouting()
         initializeDependencies(launchOptions)
         registerPushNotifications(application)
         styleApp()
         // syncData()
         return true
     }
-
-    func enableAppInteraction() {
-        if !runningOnIPad() {
-            for tabBarItem in tabBarItems {
-                tabBarItem.enabled = true
-            }
-        }
-    }
-
-    func disableAppInteraction() {
-        if !runningOnIPad() {
-            for tabBarItem in tabBarItems {
-                tabBarItem.enabled = false
-            }
-        }
+    
+    func initializeRouting() {
+        // Format of `barback://recipe/<RecipeName>`.
+        JLRoutes.addRoute("/recipe/:name", handler:
+            {
+                (params: [NSObject: AnyObject]!) -> Bool in
+                print(params)
+                let recipe = Recipe.forName(params["name"] as! String)!
+                self.pushRecipeDetailController(recipe)
+                return true
+        })
+        // Format of `barback://recipe/<RecipeName>`.
+        JLRoutes.addRoute("/ingredient/:name", handler:
+            {
+                (params: [NSObject: AnyObject]!) -> Bool in
+                print(params)
+                let base = IngredientBase.all().filter({ $0.name == (params["name"] as! String) }).first!
+                self.pushIngredientDetailController(base)
+                return true
+        })
+        
     }
 
     func styleApp() {
