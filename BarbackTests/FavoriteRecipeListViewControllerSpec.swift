@@ -23,6 +23,13 @@ class FavoriteRecipeListViewControllerSpec: QuickSpec {
                 let favoriteRecipes = Recipe.favorites()
                 expect(numberOfRows).to(equal(favoriteRecipes.count))
             }
+            
+            it("should show a shopping list view button") {
+                let tableView = controller.tableView
+                let footer = tableView.tableFooterView!
+                let button = footer.subviews.first as! UIButton
+                expect(button.titleLabel?.text).to(contain("Shopping"))
+            }
         }
         
     }

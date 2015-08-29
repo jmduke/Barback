@@ -26,7 +26,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var wikipediaButton: SimpleButton!
-    @IBOutlet weak var cocktailDBButton: IngredientCocktailDBButton!
+    @IBOutlet public var cocktailDBButton: IngredientCocktailDBButton!
 
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
