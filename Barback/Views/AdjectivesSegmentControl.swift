@@ -1,9 +1,25 @@
-//
-//  AdjectivesSegmentControl.swift
-//  Barback
-//
-//  Created by Justin Duke on 8/23/15.
-//  Copyright © 2015 Justin Duke. All rights reserved.
-//
-
 import Foundation
+import UIKit
+
+class AdjectivesSegmentControl: SegmentControl {
+
+    var adjectives: [Adjective] = [] {
+        didSet {
+            let adjectiveCount = min(adjectives.count, 3)
+            (0..<adjectiveCount).map {
+                (i: Int) -> () in
+                    setTitle(adjectives[i].description, forSegmentAtIndex: i)
+                    setEnabled(true, forSegmentAtIndex: i)
+            }
+            (adjectiveCount..<3).map {
+                (i: Int) -> () in
+                setTitle("", forSegmentAtIndex: i)
+                setEnabled(false, forSegmentAtIndex: i)
+            }
+        }
+    }
+    
+    var selectedAdjective: Adjective {
+        return adjectives[selectedSegmentIndex]
+    }
+}

@@ -9,15 +9,20 @@
 import Foundation
 import UIKit
 
-class IngredientBaseSegmentControl: SegmentControl {
+class IngredientBasesSegmentControl: SegmentControl {
     
-    var ingredientBase: IngredientBase? {
+    var bases: [IngredientBase] = [] {
         didSet {
-            addSubview(IngredientDiagramView(frame: CGRect(x: 25, y: 25, width: self.frame.width / 5 - 50, height: self.frame.width / 5 - 50), ingredient: ingredientBase!))
+            (0...2).map({
+                setTitle(bases[$0].name, forSegmentAtIndex: $0)
+            })
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var selectedBase: IngredientBase? {
+        if selectedSegmentIndex == -1 {
+            return nil
+        }
+        return bases[selectedSegmentIndex]
     }
 }
