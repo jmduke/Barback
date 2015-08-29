@@ -105,28 +105,28 @@ public final class Recipe: Object, SpotlightIndexable {
         return bases.contains(ingredient)
     }
 
-    public func similarRecipes(recipeCount: Int) -> [Recipe] {
-        let ingredientBases = ingredients.filter({ $0.base != nil }).map({$0.base!.name})
-        let numberOfSimilarIngredientsRequired = Int(ceil(Double(ingredients.count) / 2.0))
+    func similarRecipes() -> [Recipe] {
+        let ingredientBases = self.ingredients.filter({ $0.base != nil }).map({ $0.base! })
+        let numberOfSimilarIngredientsRequired = Int(ceil(Double(self.ingredients.count) / 2.0))
 
-        var similarRecipes = Recipe.all().filter({
+        let similarUses: [[Recipe]] = ingredientBases.map({ $0.uses.map({ $0.recipe! }) })
+        let similarRecipes = Recipe.all().filter({
             (recipe: Recipe) -> Bool in
-            let comparisonBases = recipe.ingredients.filter({ $0.base != nil }).map({$0.base!.name})
-            let matchedIngredients = ingredientBases.filter({ comparisonBases.contains($0) })
-            return matchedIngredients.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
+            let similarities = similarUses.filter({ $0.contains(recipe) })
+            return similarities.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
         })
 
-        if similarRecipes.count <= recipeCount {
-            return similarRecipes
-        }
-
-        var chosenRecipes: [Recipe] = [Recipe]()
-        while chosenRecipes.count < recipeCount {
-            let randomIndex = similarRecipes.count % (similarRecipes.count / 2)
-            chosenRecipes.append(similarRecipes[randomIndex])
-            similarRecipes.removeAtIndex(randomIndex)
-        }
-        return chosenRecipes
+//        if similarRecipes.count <= recipeCount {
+//            return similarRecipes
+//        }
+//
+//        var chosenRecipes: [Recipe] = [Recipe]()
+//        while chosenRecipes.count < recipeCount {
+//            let randomIndex = similarRecipes.count % (similarRecipes.count / 2)
+//            chosenRecipes.append(similarRecipes[randomIndex])
+//            similarRecipes.removeAtIndex(randomIndex)
+//        }
+        return similarRecipes
     }
 
     class public func all() -> [Recipe] {

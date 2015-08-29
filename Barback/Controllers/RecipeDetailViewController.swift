@@ -1,4 +1,3 @@
-import WSCoachMarksView
 import RealmSwift
 import Social
 import UIKit
@@ -205,7 +204,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         let selectedRow = similarDrinksTableView.indexPathForSelectedRow
         if selectedRow != nil {
             let rowIndex = selectedRow?.row
-            return recipe!.similarRecipes(2)[rowIndex!]
+            return recipe!.similarRecipes()[rowIndex!]
         } else {
             return nil
         }
