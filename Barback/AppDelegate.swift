@@ -93,8 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
                         if let error = error {
                             print("Indexing error: \(error.localizedDescription)")
-                        } else {
-                            print("Search item successfully indexed!")
                         }
                     }
                 }
@@ -108,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let recipe = Recipe(value: object)
                     realm.add(recipe)
                     for ingredient: Ingredient in recipe.ingredients {
-                        ingredient.base = realm.objects(IngredientBase).filter("name = \"\(ingredient.baseName)\"").first
+                        ingredient.base = IngredientBase.forName(ingredient.baseName)
                         if (ingredient.base == nil) {
                             ingredient.base = IngredientBase(value: ["name": ingredient.baseName])
                         }
@@ -124,8 +122,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error: NSError?) -> Void in
                         if let error = error {
                             print("Indexing error: \(error.localizedDescription)")
-                        } else {
-                            print("Search item successfully indexed!")
                         }
                     }
 
@@ -175,7 +171,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         JLRoutes.addRoute("/recipe/:name", handler:
             {
                 (params: [NSObject: AnyObject]!) -> Bool in
-                print(params)
                 let recipe = Recipe.forName(params["name"] as! String)!
                 self.pushRecipeDetailController(recipe)
                 return true
@@ -184,7 +179,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         JLRoutes.addRoute("/ingredient/:name", handler:
             {
                 (params: [NSObject: AnyObject]!) -> Bool in
-                print(params)
                 let base = IngredientBase.all().filter({ $0.name == (params["name"] as! String) }).first!
                 self.pushIngredientDetailController(base)
                 return true

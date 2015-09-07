@@ -4,6 +4,7 @@ target 'Barback' do
     pod 'Bolts'
     pod 'Crashlytics'
     pod 'Fabric'
+    pod 'GRMustache.swift', :git => 'https://github.com/groue/GRMustache.swift.git', :branch => 'Swift2'
     pod 'JLRoutes'
     pod 'MBProgressHUD', '~> 0.8'
     pod 'Popover', :git => 'https://github.com/corin8823/Popover.git', :branch => 'swift-2.0'
