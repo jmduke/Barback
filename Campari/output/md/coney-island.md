@@ -1,6 +1,6 @@
 {
     "directions": "Stir with ice and strain into a cocktail glass. Garnish with a Maraschino cherry.",
-    "garnish": "Maraschino cherry",
+    "garnish": "Cherry",
     "glassware": "cocktail",
     "information": "This sweet, robust drink comes to us from [cocktail virgin/slut](http://cocktailvirgin.blogspot.com/2011/10/coney-island.html).",
     "ingredients": [
