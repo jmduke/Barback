@@ -59,7 +59,7 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
             return []
         }
         
-        let favoritePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0))).rectByUnion(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)))
+        let favoritePosition = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).union(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0))).union(tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 2, inSection: 0)))
         let favoriteCaption = "Your favorite recipes will show up here.  (I added a few of mine to start you off.)"
         
         let shoppingListPosition = tableView.tableFooterView!.frame
