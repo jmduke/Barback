@@ -21,14 +21,14 @@
 
         <h2>Ingredients</h2>
         <ul>
-            {{#recipe.ingredients}}
+            {{#ingredients}}
                 <li>
                     {{displayAmount}} {{base.name}}
                     {{#label}}
                         ({{label}})
                     {{/label}}
                 </li>
-            {{/recipe.ingredients}}
+            {{/ingredients}}
         </ul>
 
         <h2>Directions</h2>

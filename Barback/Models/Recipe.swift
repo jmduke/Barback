@@ -1,13 +1,6 @@
-//
-//  Recipe.swift
-//  
-//
-//  Created by Justin Duke on 10/6/14.
-//
-//
-
-import Foundation
 import CoreData
+import Foundation
+import Mustache
 import RealmSwift
 
 public final class Recipe: Object, SpotlightIndexable {
@@ -57,7 +50,7 @@ public final class Recipe: Object, SpotlightIndexable {
                 (ingredient: Ingredient) -> String in
                 return (ingredient.base?.name ?? "")
             }))
-            return ", ".join(relevantIngredients)
+            return relevantIngredients.joinWithSeparator(", ")
         }
     }
 
@@ -74,15 +67,14 @@ public final class Recipe: Object, SpotlightIndexable {
         return Double(numerator) / Double(denominator)
     }()
 
-    var htmlString: String {
+    public var htmlString: String {
         get {
-                        /*
-            let hasGarnish = (garnish != nil && !garnish!.isEmpty)
-            let hasInformation = (information != nil)
+            let hasGarnish = (garnish != "" && !garnish.isEmpty)
+            let hasInformation = (information != "")
             var convertedMarkdown: String = ""
             if hasInformation {
                 var markdownConverter = Markdown()
-                convertedMarkdown = markdownConverter.transform(information!)
+                convertedMarkdown = markdownConverter.transform(information)
             }
 
             // Render using Mustache.
@@ -92,11 +84,11 @@ public final class Recipe: Object, SpotlightIndexable {
                 "recipe": self,
                 "hasGarnish": hasGarnish,
                 "hasInformation": hasInformation,
-                "renderedInformation": convertedMarkdown
+                "renderedInformation": convertedMarkdown,
+                "ingredients": self.ingredients
             ]
             let rendering = try! template.render(Box(data))
-            return rendering*/
-            return ""
+            return rendering
         }
     }
 
@@ -105,7 +97,7 @@ public final class Recipe: Object, SpotlightIndexable {
         return bases.contains(ingredient)
     }
 
-    func similarRecipes() -> [Recipe] {
+    public func similarRecipes() -> [Recipe] {
         let ingredientBases = self.ingredients.filter({ $0.base != nil }).map({ $0.base! })
         let numberOfSimilarIngredientsRequired = Int(ceil(Double(self.ingredients.count) / 2.0))
 
@@ -116,16 +108,6 @@ public final class Recipe: Object, SpotlightIndexable {
             return similarities.count >= numberOfSimilarIngredientsRequired && recipe.name != self.name
         })
 
-//        if similarRecipes.count <= recipeCount {
-//            return similarRecipes
-//        }
-//
-//        var chosenRecipes: [Recipe] = [Recipe]()
-//        while chosenRecipes.count < recipeCount {
-//            let randomIndex = similarRecipes.count % (similarRecipes.count / 2)
-//            chosenRecipes.append(similarRecipes[randomIndex])
-//            similarRecipes.removeAtIndex(randomIndex)
-//        }
         return similarRecipes
     }
 

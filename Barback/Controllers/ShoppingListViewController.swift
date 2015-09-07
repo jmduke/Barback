@@ -57,11 +57,11 @@ public class ShoppingListViewController: RecipeListViewController, Shareable {
     
     func shareableContent() -> [AnyObject] {
         let favoritedRecipes = Recipe.favorites()
-        let shoppingListAsPlainText = "\n".join(ingredients.map({
+        let shoppingListAsPlainText = (ingredients.map({
             (base: IngredientBase) in
             let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(base) }).count
             return "- \(base.name) (used in \(recipeCount) recipes)"
-        }))
+        })).joinWithSeparator("\n")
         return [shoppingListAsPlainText]
     }
 

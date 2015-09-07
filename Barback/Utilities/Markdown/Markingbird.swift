@@ -410,7 +410,7 @@ public struct Markdown {
             }
         }
 
-        return "\n\n".join(grafs)
+        return grafs.joinWithSeparator("\n\n")
     }
 
     private mutating func setup() {
@@ -436,12 +436,12 @@ public struct Markdown {
         // in other words [this] and [this[also]] and [this[also[too]]]
         // up to _nestDepth
         if (_nestedBracketsPattern.isEmpty) {
-            _nestedBracketsPattern = repeatString("\n".join([
+            _nestedBracketsPattern = repeatString([
                 "(?>             # Atomic matching",
                 "[^\\[\\]]+      # Anything other than brackets",
                 "|",
                 "\\["
-                ]), _nestDepth) +
+                ].joinWithSeparator("\n"), _nestDepth) +
                 repeatString(" \\])*", _nestDepth)
         }
         return _nestedBracketsPattern
@@ -455,18 +455,18 @@ public struct Markdown {
         // in other words (this) and (this(also)) and (this(also(too)))
         // up to _nestDepth
         if (_nestedParensPattern.isEmpty) {
-            _nestedParensPattern = repeatString("\n".join([
+            _nestedParensPattern = repeatString([
                 "(?>            # Atomic matching",
                 "[^()\\s]+      # Anything other than parens or whitespace",
                 "|",
                 "\\("
-                ]), _nestDepth) +
+                ].joinWithSeparator("\n"), _nestDepth) +
                 repeatString(" \\))*", _nestDepth)
         }
         return _nestedParensPattern
     }
 
-    private static var _linkDef = Regex("\n".join([
+    private static var _linkDef = Regex([
         "^\\p{Z}{0,\(Markdown._tabWidth - 1)}\\[([^\\[\\]]+)\\]:  # id = $1",
         "  \\p{Z}*",
         "  \\n?                   # maybe *one* newline",
@@ -483,7 +483,7 @@ public struct Markdown {
         "    \\p{Z}*",
         ")?                       # title is optional",
         "(?:\\n+|\\Z)"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
 
     /// Strips link definitions from text, stores the URLs and titles in hash references.
@@ -531,7 +531,7 @@ public struct Markdown {
         let blockTagsB = "p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|address|script|noscript|form|fieldset|iframe|math"
 
         // Regular expression for the content of a block tag.
-        let attr = "\n".join([
+        let attr = [
             "(?>                         # optional tag attributes",
             "  \\s                       # starts with whitespace",
             "  (?>",
@@ -544,9 +544,9 @@ public struct Markdown {
             "    '[^']*'                 # text inside single quotes (tolerate >)",
             "  )*",
             ")?"
-            ])
+            ].joinWithSeparator("\n")
 
-        let content = repeatString("\n".join([
+        let content = repeatString([
             "(?>",
             "  [^<]+                         # content without tag",
             "|",
@@ -555,16 +555,16 @@ public struct Markdown {
             "(?>",
             "    />",
             "|",
-            "    >"]),
+            "    >"].joinWithSeparator("\n"),
             _nestDepth) +   // end of opening tag
             ".*?" +             // last level nested tag content
-            repeatString("\n".join([
+            repeatString([
                 "      </\\2\\s*>          # closing nested tag",
                 "  )",
                 "  |                             ",
                 "  <(?!/\\2\\s*>           # other tags with a different name",
                 "  )",
-                ")*"]),
+                ")*"].joinWithSeparator("\n"),
                 _nestDepth)
 
         let content2 = content.stringByReplacingOccurrencesOfString("\\2", withString: "\\3")
@@ -580,7 +580,7 @@ public struct Markdown {
         // the inner nested divs must be indented.
         // We need to do this before the next, more liberal match, because the next
         // match will start at the first `<div>` and stop at the first `</div>`.
-        var pattern = "\n".join([
+        var pattern = [
             "(?>",
             "      (?>",
             "        (?<=\\n)     # Starting at the beginning of a line",
@@ -641,7 +641,7 @@ public struct Markdown {
             "          ",
             "      )",
             ")"
-            ])
+            ].joinWithSeparator("\n")
         pattern = pattern.stringByReplacingOccurrencesOfString("$less_than_tab",
             withString: String(_tabWidth - 1))
         pattern = pattern.stringByReplacingOccurrencesOfString("$block_tags_b_re",
@@ -678,10 +678,10 @@ public struct Markdown {
 
     // TODO: C# code uses RegexOptions.ExplicitCapture here. Need to figure out
     // how/whether to emulate that with NSRegularExpression.
-    private static let _htmlTokens = Regex("\n".join([
+    private static let _htmlTokens = Regex([
         "(<!--(?:|(?:[^>-]|-[^>])(?:[^-]|-[^-])*)-->)|   # match <!-- foo -->",
         "(<\\?.*?\\?>)|                                  # match <?foo?>"
-        ]) +
+        ].joinWithSeparator("\n") +
         Markdown.repeatString("(<[A-Za-z\\/!$](?:[^<>]|", _nestDepth) +
         Markdown.repeatString(")*>)", _nestDepth) + " # match <tag> and </tag>",
         options: [RegexOptions.Multiline, RegexOptions.Singleline, RegexOptions.IgnorePatternWhitespace])
@@ -718,7 +718,7 @@ public struct Markdown {
         return tokens
     }
 
-    private static let _anchorRef = Regex("\n".join([
+    private static let _anchorRef = Regex([
         "(                               # wrap whole match in $1",
         "    \\[",
         "        (\(Markdown.getNestedBracketsPattern()))  # link text = $2",
@@ -731,10 +731,10 @@ public struct Markdown {
         "        (.*?)                   # id = $3",
         "    \\]",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Singleline, RegexOptions.IgnorePatternWhitespace])
 
-    private static let _anchorInline = Regex("\n".join([
+    private static let _anchorInline = Regex([
         "(                           # wrap whole match in $1",
         "    \\[",
         "        (\(Markdown.getNestedBracketsPattern()))   # link text = $2",
@@ -751,16 +751,16 @@ public struct Markdown {
         "        )?                  # title is optional",
         "    \\)",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Singleline, RegexOptions.IgnorePatternWhitespace])
 
-    private static let _anchorRefShortcut = Regex("\n".join([
+    private static let _anchorRefShortcut = Regex([
         "(                               # wrap whole match in $1",
         "  \\[",
         "     ([^\\[\\]]+)               # link text = $2; can't contain [ or ]",
         "  \\]",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Singleline, RegexOptions.IgnorePatternWhitespace])
 
     /// Turn Markdown link shortcuts into HTML anchor tags
@@ -869,7 +869,7 @@ public struct Markdown {
         return result
     }
 
-    private static let _imagesRef = Regex("\n".join([
+    private static let _imagesRef = Regex([
         "(               # wrap whole match in $1",
         "!\\[",
         "    (.*?)       # alt text = $2",
@@ -883,10 +883,10 @@ public struct Markdown {
         "\\]",
         "",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.IgnorePatternWhitespace, RegexOptions.Singleline])
 
-    private static let _imagesInline = Regex("\n".join([
+    private static let _imagesInline = Regex([
         "(                     # wrap whole match in $1",
         "  !\\[",
         "      (.*?)           # alt text = $2",
@@ -904,7 +904,7 @@ public struct Markdown {
         "      )?              # title is optional",
         "  \\)",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.IgnorePatternWhitespace, RegexOptions.Singleline])
 
     /// Turn Markdown image shortcuts into HTML img tags.
@@ -978,24 +978,24 @@ public struct Markdown {
         return result
     }
 
-    private static let _headerSetext = Regex("\n".join([
+    private static let _headerSetext = Regex([
         "^(.+?)",
         "\\p{Z}*",
         "\\n",
         "(=+|-+)     # $1 = string of ='s or -'s",
         "\\p{Z}*",
         "\\n+"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
 
-    private static let _headerAtx = Regex("\n".join([
+    private static let _headerAtx = Regex([
         "^(\\#{1,6})  # $1 = string of #'s",
         "\\p{Z}*",
         "(.+?)        # $2 = Header text",
         "\\p{Z}*",
         "\\#*         # optional closing #'s (not counted)",
         "\\n+"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
 
     /// Turn Markdown headers into HTML header tags
@@ -1033,7 +1033,7 @@ public struct Markdown {
         return "<h\(level)>\(runSpanGamut(header as String))</h\(level)>\n\n"
     }
 
-    private static let _horizontalRules = Regex("\n".join([
+    private static let _horizontalRules = Regex([
         "^\\p{Z}{0,3}         # Leading space",
         "    ([-*_])       # $1: First marker",
         "    (?>           # Repeated marker group",
@@ -1042,7 +1042,7 @@ public struct Markdown {
         "    ){2,}         # Group repeated at least twice",
         "    \\p{Z}*          # Trailing spaces",
         "    $             # End of line."
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
 
     /// Turn Markdown horizontal rules into HTML hr tags
@@ -1060,7 +1060,7 @@ public struct Markdown {
 
     private static let _listMarker = "(?:\(_markerUL)|\(_markerOL))"
 
-    private static let _wholeList = "\n".join([
+    private static let _wholeList = [
         "(                               # $1 = whole list",
         "  (                             # $2",
         "    \\p{Z}{0,\(_tabWidth - 1)}",
@@ -1079,7 +1079,7 @@ public struct Markdown {
         "      )",
         "  )",
         ")"
-        ])
+        ].joinWithSeparator("\n")
 
     private static let _listNested = Regex("^" + _wholeList,
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
@@ -1146,13 +1146,13 @@ public struct Markdown {
         // Trim trailing blank lines:
         list = Regex.replace(list, pattern: "\\n{2,}\\z", replacement: "\n")
 
-        let pattern = "\n".join([
+        let pattern = [
             "(^\\p{Z}*)                    # leading whitespace = $1",
             "(\(marker)) \\p{Z}+           # list marker = $2",
             "((?s:.+?)                  # list item text = $3",
             "(\\n+))",
             "(?= (\\z | \\1 (\(marker)) \\p{Z}+))"
-            ])
+            ].joinWithSeparator("\n")
 
         var lastItemHadADoubleNewline = false
 
@@ -1189,7 +1189,7 @@ public struct Markdown {
         return list
     }
 
-    private static let _codeBlock = Regex("\n".join([
+    private static let _codeBlock = Regex([
         "(?:\\n\\n|\\A\\n?)",
         "(                        # $1 = the code block -- one or more lines, starting with a space",
         "(?:",
@@ -1198,7 +1198,7 @@ public struct Markdown {
         ")+",
         ")",
         "((?=^\\p{Z}{0,\(_tabWidth)}[^ \\t\\n])|\\Z) # Lookahead for non-space at line-start, or end of doc"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.Multiline, RegexOptions.IgnorePatternWhitespace])
 
     /// Turn Markdown 4-space indented code into HTML pre code blocks
@@ -1216,7 +1216,7 @@ public struct Markdown {
         return "\n\n<pre><code>\(codeBlock)\n</code></pre>\n\n"
     }
 
-    private static let _codeSpan = Regex("\n".join([
+    private static let _codeSpan = Regex([
         "(?<![\\\\`])   # Character before opening ` can't be a backslash or backtick",
         "(`+)           # $1 = Opening run of `",
         "(?!`)          # and no more backticks -- match the full run",
@@ -1224,7 +1224,7 @@ public struct Markdown {
         "(?<!`)",
         "\\1",
         "(?!`)"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.IgnorePatternWhitespace, RegexOptions.Singleline])
 
     /// Turn Markdown `code spans` into HTML code tags
@@ -1299,7 +1299,7 @@ public struct Markdown {
         return text
     }
 
-    private static let _blockquote = Regex("\n".join([
+    private static let _blockquote = Regex([
         "(                           # Wrap whole match in $1",
         "    (",
         "    ^\\p{Z}*>\\p{Z}?              # '>' at the start of a line",
@@ -1308,7 +1308,7 @@ public struct Markdown {
         "    \\n*                    # blanks",
         "    )+",
         ")"
-        ]),
+        ].joinWithSeparator("\n"),
         options: [RegexOptions.IgnorePatternWhitespace, RegexOptions.Multiline])
 
     
@@ -1426,7 +1426,7 @@ public struct Markdown {
         text = Regex.replace(text, pattern: "<((https?|ftp):[^'\">\\s]+)>", evaluator: { self.hyperlinkEvaluator($0) })
         if (_linkEmails) {
             // Email addresses: <address@domain.foo>
-            let pattern = "\n".join([
+            let pattern = [
                 "<",
                 "(?:mailto:)?",
                 "(",
@@ -1435,7 +1435,7 @@ public struct Markdown {
                 "  [-a-z0-9]+(\\.[-a-z0-9]+)*\\.[a-z]+",
                 ")",
                 ">"
-                ])
+                ].joinWithSeparator("\n")
             text = Regex.replace(text,
                 pattern: pattern,
                 evaluator: { self.emailEvaluator($0) },

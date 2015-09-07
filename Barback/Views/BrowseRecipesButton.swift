@@ -17,10 +17,10 @@ class BrowseRecipesForIngredientsButton: SimpleButton {
             if ingredients!.count > 1 {
                 // There's gotta be a nicer way to do this, right?
                 let lastIngredient = ingredients!.removeLast()
-                ingredientsString = ", ".join(ingredients!.map({ $0.name })) + " and \(lastIngredient.name)"
+                ingredientsString = ingredients!.map({ $0.name }).joinWithSeparator(", ") + " and \(lastIngredient.name)"
                 ingredients!.append(lastIngredient)
             } else {
-                ingredientsString = ", ".join(ingredients!.map({ $0.name }))
+                ingredientsString = ingredients!.map({ $0.name }).joinWithSeparator(", ")
             }
             
             titleLabel!.numberOfLines = 0
