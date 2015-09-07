@@ -11,18 +11,18 @@ import UIKit
 
 class IngredientBasesSegmentControl: SegmentControl {
     
-    var bases: [IngredientBase] = [] {
+    var baseGroups: [IngredientBaseGroup] = [] {
         didSet {
-            (0...2).map({
-                setTitle(bases[$0].name, forSegmentAtIndex: $0)
+            (0...1).map({
+                setTitle(baseGroups[$0].bases.first!.name, forSegmentAtIndex: $0)
             })
         }
     }
     
-    var selectedBase: IngredientBase? {
+    var selectedBase: IngredientBaseGroup? {
         if selectedSegmentIndex == -1 {
             return nil
         }
-        return bases[selectedSegmentIndex]
+        return baseGroups[selectedSegmentIndex]
     }
 }

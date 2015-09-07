@@ -1,9 +1,46 @@
-//
-//  IngredientBaseGroup.swift
-//  Barback
-//
-//  Created by Justin Duke on 9/6/15.
-//  Copyright © 2015 Justin Duke. All rights reserved.
-//
-
 import Foundation
+
+public enum IngredientBaseGroup {
+    case Whiskey
+    case Vodka
+    case Gin
+    case Tequila
+    
+    var bases: [IngredientBase] {
+        switch self {
+        case .Whiskey:
+            return [
+                IngredientBase.forName("Whiskey")!,
+                IngredientBase.forName("Rye")!,
+                IngredientBase.forName("Bourbon")!,
+                IngredientBase.forName("Scotch")!,
+            ]
+        case .Vodka:
+            return [
+                IngredientBase.forName("Vodka")!
+            ]
+        case .Gin:
+            return [
+                IngredientBase.forName("Gin")!,
+                IngredientBase.forName("Sloe Gin")!,
+            ]
+        case .Tequila:
+            return [
+                IngredientBase.forName("Tequila")!,
+                IngredientBase.forName("Mezcal")!,
+            ]
+        }
+    }
+    
+    public var recipes: [Recipe] {
+        var recipes = [Recipe]()
+        for base in bases {
+            recipes.appendContentsOf(base.uses.map({ $0.recipe! }))
+        }
+        return recipes
+    }
+    
+    static public func all() -> [IngredientBaseGroup] {
+        return [.Whiskey, .Vodka, .Gin, .Tequila]
+    }
+}
