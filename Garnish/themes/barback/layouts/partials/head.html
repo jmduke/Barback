@@ -1,0 +1,24 @@
+<head>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+
+	<script>
+		var baseList = {{ $.Site.Data.bases }};
+		var bases = {};
+		for (var baseIndex in baseList) {
+			var base = baseList[baseIndex];
+			bases[base.name] = base;
+		}
+
+		var recipeList = {{ $.Site.Data.recipes }};
+		var recipes = {};
+		for (var recipeIndex in recipeList) {
+			var recipe = recipeList[recipeIndex];
+			recipes[recipe.name] = recipe;
+		}
+	</script>
+	<script src="/js/vendor/jquery.min.js"></script>
+	<script src="/js/vendor/svg.js"></script>
+	<script src="/js/vendor/isotope.min.js"></script>
+	<script src="/js/recipe.js"></script>
+</head>

@@ -1,0 +1,20 @@
+<tr>
+<td>
+{{ if in .base "" }}
+{{ .base }}
+{{ else }}
+{{ .base.name }}
+{{ end }}
+
+<td class="minor">
+{{ if .label }}
+{{ .label }}
+{{ end }}
+
+{{ if and .label .amount }}
+x
+{{ end }}
+
+{{ if .amount }}
+{{ .amount }}cl
+{{ end }}

@@ -1,0 +1,13 @@
+<div class="recipe text-center col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" data-name="{{ .name }}" data-ingredients="{{ .ingredients }}">
+  <a href="/recipe/{{ .slug }}">
+    <div class="recipe-container">
+      <div class="row">
+      	<h2 class="pull-right">{{ .name }}</h2>
+      </div>
+      <div id="{{ .slug }}"></div>
+      <script>
+        drawRecipe("{{ .glassware }}", {{ .ingredients }}, "{{ .slug }}");
+      </script>
+    </div>
+  </a>
+</div>
