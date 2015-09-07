@@ -22,6 +22,7 @@ public enum Flavor: String {
                 "Mai-tai",
                 "Mint Julep",
                 "Mojito",
+                "Pamplemousse",
                 "Planter's Punch",
                 "Sex on the Beach"
                 ].contains(recipe.name)
@@ -33,6 +34,7 @@ public enum Flavor: String {
                 "Flannel Shirt",
                 "Mark Twain",
                 "Old Fashioned",
+                "The Condor",
                 "Old Smoke",
                 "Penicillin",
                 "Rob Roy",
@@ -50,6 +52,7 @@ public enum Flavor: String {
                 "Obituary",
                 "Paloma",
                 "Samsara",
+                "Rye Smash",
                 "Vesper",
                 "Sazerac",
                 "Smith & Kearns"
