@@ -57,20 +57,27 @@ struct Garnish: CustomStringConvertible {
         let components = rawGarnish.componentsSeparatedByString(" ")
         
         switch components.count {
-            // Descriptive case: `2 orange slice`
+        // Descriptive case: `2 orange slice`
         case 3:
             amount = (components[0] as NSString).doubleValue
-            base = GarnishBase(rawValue: components[1])
-            type = GarnishType(rawValue: components[2])
-            // Non-count case: `Lemon twist`
+            base = GarnishBase(rawValue: components[1].capitalizedString)
+            type = GarnishType(rawValue: components[2].capitalizedString)
+        // Non-count case: `Lemon twist`
+        // Or count basic: `2 cherry`
         case 2:
-            amount = 1
-            base = GarnishBase(rawValue: components[0])
-            type = GarnishType(rawValue: components[1])
-            // Basic case: `Cherry`
+            if let garnishAmount = Double(components[0]) {
+                amount = garnishAmount
+                base = GarnishBase(rawValue: components[1].capitalizedString)
+                
+            } else {
+                amount = 1
+                base = GarnishBase(rawValue: components[0].capitalizedString)
+                type = GarnishType(rawValue: components[1].capitalizedString)
+            }
+        // Basic case: `Cherry`
         case 1:
-            amount = 2
-            base = GarnishBase(rawValue: components[0])
+            amount = 1
+            base = GarnishBase(rawValue: components[0].capitalizedString)
         default:
             amount = 0
         }
