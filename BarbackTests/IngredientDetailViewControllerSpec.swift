@@ -36,7 +36,7 @@ class IngredientDetailViewControllerSpec: QuickSpec {
                 }
                 
                 it("should have ingredient information") {
-                    expect(controller.descriptionView.text[0...20]).to(equal(ingredient.information[0...20]))
+                    expect(controller.descriptionView.text).to(equal(ingredient.information))
                 }
                 
                 it("should have the ingredient's abv") {

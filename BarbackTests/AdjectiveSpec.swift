@@ -19,7 +19,23 @@ class AdjectiveSpec: QuickSpec {
         }
         
         describe("bubbly recipes") {
-            adjective = Adjective.Bubbly
+            adjective = Adjective.Daring
+            
+            it("should have a bunch") {
+                expect(Recipe.all().filter({ adjective.describesRecipe($0) }).count).to(beGreaterThan(6))
+            }
+        }
+        
+        describe("silly recipes") {
+            adjective = Adjective.Silly
+            
+            it("should have a bunch") {
+                expect(Recipe.all().filter({ adjective.describesRecipe($0) }).count).to(beGreaterThan(6))
+            }
+        }
+        
+        describe("quiet recipes") {
+            adjective = Adjective.Quiet
             
             it("should have a bunch") {
                 expect(Recipe.all().filter({ adjective.describesRecipe($0) }).count).to(beGreaterThan(6))

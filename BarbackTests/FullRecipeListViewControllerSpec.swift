@@ -28,16 +28,6 @@ class FullRecipeListViewControllerSpec: QuickSpec {
                 expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("20th Century"))
             }
             
-            context("when you toggle the sort") {
-                it("should sort differenty") {
-                    controller.toggleSortingMethod()
-                    let tableView = controller.tableView
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    
-                    expect(controller.tableView(tableView, cellForRowAtIndexPath: indexPath).textLabel!.text).to(equal("Yellow Bird"))
-                }
-            }
-            
             context("when you search") {
                 let searchText = "Man"
                 beforeEach {

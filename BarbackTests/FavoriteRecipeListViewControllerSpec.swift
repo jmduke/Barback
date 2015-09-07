@@ -14,7 +14,7 @@ class FavoriteRecipeListViewControllerSpec: QuickSpec {
             beforeEach {
                 controller = FavoriteRecipeListViewController()
                 let _ = controller.view
-                controller.viewDidAppear(true)
+                controller.viewWillAppear(true)
             }
             
             it("should have exactly one row for each favorited recipe") {

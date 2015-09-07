@@ -10,6 +10,24 @@ class FlavorSpec: QuickSpec {
         
         var flavor: Flavor!
         
+        describe("major bases") {
+            
+            it("should have at least one recipe of each flavor") {
+                expect(IngredientBaseGroup.Gin.recipes.filter({ Flavor.Crisp.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Gin.recipes.filter({ Flavor.Sweet.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Gin.recipes.filter({ Flavor.Smoky.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Vodka.recipes.filter({ Flavor.Crisp.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Vodka.recipes.filter({ Flavor.Sweet.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Vodka.recipes.filter({ Flavor.Smoky.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Whiskey.recipes.filter({ Flavor.Crisp.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Whiskey.recipes.filter({ Flavor.Sweet.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Whiskey.recipes.filter({ Flavor.Smoky.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Tequila.recipes.filter({ Flavor.Crisp.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Tequila.recipes.filter({ Flavor.Sweet.describesRecipe($0) }).count).to(beGreaterThan(0))
+                expect(IngredientBaseGroup.Tequila.recipes.filter({ Flavor.Smoky.describesRecipe($0) }).count).to(beGreaterThan(0))
+            }
+        }
+        
         describe("a sweet flavor") {
             flavor = Flavor.Sweet
             

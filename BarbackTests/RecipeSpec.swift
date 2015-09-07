@@ -29,7 +29,7 @@ class RecipeSpec: QuickSpec {
             }
             
             it("should have a similar recipe or two") {
-                expect(recipe.similarRecipes(2).count).to(beGreaterThan(0.0))
+                expect(recipe.similarRecipes().count).to(beGreaterThan(0.0))
             }
             
             it("can be favorited") {
@@ -48,6 +48,20 @@ class RecipeSpec: QuickSpec {
                 ingredients.map({
                     expect($0.base).toNot(beNil())
                 })
+            }
+            
+            it("can be exported to html") {
+                let html = recipe.htmlString
+                expect(html).to(contain(recipe.name))
+                
+                var transformer = Markdown()
+                let markdownInformation = transformer.transform(recipe.information)
+                expect(html).to(contain(markdownInformation))
+                expect(html).to(contain(recipe.directions))
+                for ingredient in recipe.ingredients {
+                    expect(html).to(contain(ingredient.base?.name ?? ""
+                        ))
+                }
             }
             
         }
