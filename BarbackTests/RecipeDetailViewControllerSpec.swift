@@ -15,7 +15,7 @@ import Quick
 extension String {
 
     subscript (i: Int) -> Character {
-        return self[advance(self.startIndex, i)]
+        return self[self.startIndex.advancedBy(i)]
     }
 
     subscript (i: Int) -> String {
@@ -23,7 +23,7 @@ extension String {
     }
 
     subscript (r: Range<Int>) -> String {
-        return substringWithRange(Range(start: advance(startIndex, r.startIndex), end: advance(startIndex, r.endIndex)))
+        return substringWithRange(Range(start: startIndex.advancedBy(r.startIndex), end: startIndex.advancedBy(r.endIndex)))
     }
 }
 
@@ -68,11 +68,15 @@ class RecipeDetailViewControllerSpec: QuickSpec {
                 }
                 
                 it("should have recipe information") {
-                    expect(controller.informationLabel.text[0...20]).to(equal(recipe.information[0...20]))
+                    
+                    
+                    var transformer = Markdown()
+                    let information = transformer.transform(recipe.information)
+                    expect(controller.informationLabel.text).to(contain(information))
                 }
                 
                 it("should convert recipe information into markdown") {
-                    expect(controller.informationLabel.text[0...20]).toNot(contain("http"))
+                    expect(controller.informationLabel.text).toNot(contain("http"))
                 }
                 
                 it("should have recipe directions") {
