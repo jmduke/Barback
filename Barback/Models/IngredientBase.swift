@@ -38,7 +38,7 @@ public final class IngredientBase: Object, SpotlightIndexable {
         }
     }
 
-    public dynamic var brands = List<Brand>()
+    public var brands = List<Brand>()
     
     public var sortedBrands: [Brand] {
         return brands.sorted("price").map({ $0 })
@@ -56,7 +56,8 @@ public final class IngredientBase: Object, SpotlightIndexable {
 
     class public func forName(name: String) -> IngredientBase? {
         do {
-            return try Realm().objects(IngredientBase).filter("name = '\(name)'").map({ $0 }).first
+            let queryString = "name = \"\(name)\""
+            return try Realm().objects(IngredientBase).filter(queryString).map({ $0 }).first
         } catch {
             print("\(error)")
             return nil
