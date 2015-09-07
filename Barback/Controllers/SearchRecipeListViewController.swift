@@ -44,7 +44,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             if activeIngredients.isEmpty {
                 return "Ingredients"
             }
-            return ", ".join(activeIngredients.map({ $0.name }))
+            return activeIngredients.map({ $0.name }).joinWithSeparator(", ")
         }
         set { }
     }
@@ -175,7 +175,12 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
     }
     
     override func filterContentForSearchText(searchText: String) {
-        return
+        possibleIngredients = getPossibleIngredients()
+    }
+    
+    override public func updateSearchResultsForSearchController(searchController: UISearchController) {
+        self.filterContentForSearchText(searchController.searchBar.text!)
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func coachMarksForController() -> [CoachMark] {
