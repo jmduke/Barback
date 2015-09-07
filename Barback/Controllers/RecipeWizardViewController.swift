@@ -22,9 +22,8 @@ class RecipeWizardViewController: UIViewController {
     @IBOutlet weak var recipeSelectionButton: SimpleButton!
     
     var candidateRecipes: [Recipe] {
-        let selectedBase = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
-        let recipes = selectedBase.uses.map({ $0.recipe! })
-        return recipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) })
+        let selectedBaseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
+        return selectedBaseGroup.recipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) })
     }
     
     override func viewDidLoad() {
@@ -34,15 +33,13 @@ class RecipeWizardViewController: UIViewController {
         
         recipeSelectionButton.addTarget(self, action: "pickRecipe", forControlEvents: UIControlEvents.TouchUpInside)
         
-        firstBaseSegmentedControl.bases = [
-            IngredientBase.self.forName("Rye")!,
-            IngredientBase.self.forName("Bourbon")!,
-            IngredientBase.self.forName("Whiskey")!
+        firstBaseSegmentedControl.baseGroups = [
+            IngredientBaseGroup.Gin,
+            IngredientBaseGroup.Whiskey
         ]
-        secondBaseSegmentedControl.bases = [
-            IngredientBase.self.forName("Vodka")!,
-            IngredientBase.self.forName("Tequila")!,
-            IngredientBase.self.forName("Gin")!
+        secondBaseSegmentedControl.baseGroups = [
+            IngredientBaseGroup.Vodka,
+            IngredientBaseGroup.Tequila
         ]
         
         styleController()
@@ -80,22 +77,27 @@ class RecipeWizardViewController: UIViewController {
     }
     
     func pickRecipe() {
+        
+        /*
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
+
         Async.main {
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             loadingNotification.mode = MBProgressHUDMode.Indeterminate
             loadingNotification.labelText = "Thinking."
-            }.background {
-                sleep(1)
-                loadingNotification.labelText = "Mixing."
-                sleep(1)
-                loadingNotification.labelText = "Tasting."
-                sleep(1)
-            }.main {
-                loadingNotification.hide(true)
-                self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
-        }
+        }.background {
+            sleep(1)
+            loadingNotification.labelText = "Mixing."
+            sleep(1)
+            loadingNotification.labelText = "Tasting."
+            sleep(1)
+        }.main {
+            loadingNotification.hide(true)
+            self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+        }*/
+        
+        self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
