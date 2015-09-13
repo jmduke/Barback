@@ -25,6 +25,7 @@ class RecipeWizardViewController: UIViewController {
         let selectedBaseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
         return selectedBaseGroup.recipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) })
     }
+    var previousRecipes: [Recipe] = []
     
     override func viewDidLoad() {
         firstBaseSegmentedControl.addTarget(self, action: "selectBase:", forControlEvents: UIControlEvents.ValueChanged)
@@ -41,6 +42,7 @@ class RecipeWizardViewController: UIViewController {
             IngredientBaseGroup.Vodka,
             IngredientBaseGroup.Tequila
         ]
+        updateAdjectives()
         
         styleController()
         title = "Bartender"
@@ -69,35 +71,33 @@ class RecipeWizardViewController: UIViewController {
     func getRecipe() -> Recipe {
         let candidates = candidateRecipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) }).filter({ secondAdjectiveSegmentedControl.selectedAdjective.describesRecipe($0) })
         
-        if (candidates.count > 0) {
-            return candidates[Int(arc4random_uniform(UInt32(candidates.count)))]
-        } else {
-            return Recipe.forName("Manhattan")!
-        }
+        let recipe = candidates[Int(arc4random_uniform(UInt32(candidates.count)))]
+        previousRecipes.append(recipe)
+        return recipe
     }
     
     func pickRecipe() {
         
-        /*
+        
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
 
         Async.main {
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             loadingNotification.mode = MBProgressHUDMode.Indeterminate
             loadingNotification.labelText = "Thinking."
-        }.background {
-            sleep(1)
-            loadingNotification.labelText = "Mixing."
-            sleep(1)
-            loadingNotification.labelText = "Tasting."
-            sleep(1)
-        }.main {
-            loadingNotification.hide(true)
-            self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-        }*/
-        
-        self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
+            Async.background {
+                sleep(1)
+                loadingNotification.labelText = "Mixing."
+                sleep(1)
+                loadingNotification.labelText = "Tasting."
+                sleep(1)
+                Async.main {
+                    loadingNotification.hide(true)
+                    self.performSegueWithIdentifier(R.segue.recipeDetail, sender: self)
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                }
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
