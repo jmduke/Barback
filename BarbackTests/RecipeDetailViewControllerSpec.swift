@@ -68,11 +68,7 @@ class RecipeDetailViewControllerSpec: QuickSpec {
                 }
                 
                 it("should have recipe information") {
-                    
-                    
-                    var transformer = Markdown()
-                    let information = transformer.transform(recipe.information)
-                    expect(controller.informationLabel.text).to(contain(information))
+                    expect(controller.informationLabel.markdownText).to(contain("amazon"))
                 }
                 
                 it("should convert recipe information into markdown") {
