@@ -23,7 +23,7 @@ class RecipeCell : StyledCell {
         let diagram = RecipeDiagramView(recipe: recipe)
         diagram.strokeWidth = 1
         diagram.diagramScale = 0.4
-        if favoritedRecipes.contains(recipe) {
+        if recipe.isFavorited {
             diagram.outlineColor = Color.Tint.toUIColor()
             diagram.outlineWidth = 4
         }
