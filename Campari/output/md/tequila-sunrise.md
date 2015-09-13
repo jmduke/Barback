@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -47,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -60,5 +60,6 @@
         }
     ],
     "name": "Tequila Sunrise",
-    "slug": "tequila-sunrise"
+    "slug": "tequila-sunrise",
+    "source": ""
 }

@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -47,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=201",
                 "color": "fbff8a",
@@ -59,5 +59,6 @@
         }
     ],
     "name": "Freddie Fuddpucker",
-    "slug": "freddie-fuddpucker"
+    "slug": "freddie-fuddpucker",
+    "source": ""
 }

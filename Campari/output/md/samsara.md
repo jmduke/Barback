@@ -1,10 +1,11 @@
 {
     "directions": "Stir first 3 ingredients with ice. Strain into a glass. Top with beer.",
+    "garnish": "",
     "glassware": "highball",
     "information": "This is a *shandy* -- a beer cocktail -- created by the fine folks at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies are considered warm-weather drinks.",
     "ingredients": [
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -47,7 +48,7 @@
         },
         {
             "amount": 0.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -61,7 +62,7 @@
         },
         {
             "amount": 9.0,
-            "base": {
+            "baseName": {
                 "abv": 8,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=10",

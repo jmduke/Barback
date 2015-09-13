@@ -1,10 +1,11 @@
 {
     "directions": "Pour all ingredients in a chilled glass.  Top with Prosecco.",
+    "garnish": "",
     "glassware": "margarita",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -24,7 +25,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=201",
                 "color": "fbff8a",
@@ -36,7 +37,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -48,7 +49,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 11,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=444",
@@ -60,7 +61,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -74,5 +75,6 @@
         }
     ],
     "name": "Barracuda",
-    "slug": "barracuda"
+    "slug": "barracuda",
+    "source": ""
 }

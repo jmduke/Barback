@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 24,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=150",
@@ -47,7 +47,7 @@
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -61,7 +61,7 @@
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "",
@@ -74,7 +74,7 @@
         },
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -87,7 +87,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -100,7 +100,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -112,7 +112,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -126,5 +126,6 @@
         }
     ],
     "name": "Singapore Sling",
-    "slug": "singapore-sling"
+    "slug": "singapore-sling",
+    "source": ""
 }

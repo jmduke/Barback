@@ -1,10 +1,11 @@
 {
     "directions": "Build into old fashioned glass filled with ice cubes. Stir gently. Note: for White Russian, float fresh cream on the top and stir gently.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -46,5 +47,6 @@
         }
     ],
     "name": "Black Russian",
-    "slug": "black-russian"
+    "slug": "black-russian",
+    "source": ""
 }

@@ -1,12 +1,13 @@
 {
     "book": "Old Waldorf Bar Days",
     "directions": "Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice. Stir until outside of mixing glass is very cold to touch, about 15 seconds.",
+    "garnish": "",
     "glassware": "cocktail",
     "information": "The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn't. It's a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for 'our boys'.",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=415",
@@ -20,7 +21,7 @@
         },
         {
             "amount": 2.0,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -49,7 +50,7 @@
         },
         {
             "amount": 1.0,
-            "base": {
+            "baseName": {
                 "abv": 39,
                 "brands": [],
                 "cocktaildb": "",
@@ -62,5 +63,6 @@
         }
     ],
     "name": "Fanciulli",
-    "slug": "fanciulli"
+    "slug": "fanciulli",
+    "source": ""
 }

@@ -1,11 +1,12 @@
 {
     "directions": "Shake and strain into a chilled glass. Sprinkle with fresh ground nutmeg.",
+    "garnish": "",
     "glassware": "martini",
     "information": "One of the sweetest and creamiest IBA official cocktails, the Alexander acts as a nice palette cleanser or after-dinner dessert.  The original recipe back in 1915 subbed cognac for gin; the cognac variation has a number of conflicting origin stories, but the most likely source was Troy Alexander -- who created his eponymous concoction in order to serve a white drink at a dinner celebrating Phoebe Snow at Rector\u2019s, a premier pre-Prohibition lobster shop in New York.",
     "ingredients": [
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -32,7 +33,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",

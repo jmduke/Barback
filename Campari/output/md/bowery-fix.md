@@ -1,11 +1,11 @@
 {
     "directions": "Shake with ice. Double strain. Garnish with chili oil drops.",
-    "garnish": null,
+    "garnish": "",
     "glassware": "highball",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=527",
@@ -48,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [],
                 "cocktaildb": "",
@@ -61,11 +61,11 @@
         },
         {
             "amount": 3.0,
-            "base": "Fresh yellow bell pepper juice"
+            "baseName": "Fresh yellow bell pepper juice"
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -78,7 +78,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -90,11 +90,11 @@
             }
         },
         {
-            "base": "Chili tincture",
+            "baseName": "Chili tincture",
             "label": "Three dashes"
         },
         {
-            "base": "Citrus salt",
+            "baseName": "Citrus salt",
             "label": "One pinch"
         }
     ],

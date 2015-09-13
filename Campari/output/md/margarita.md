@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into cocktail glass rimmed with salt (note: Fruit Margarita - blend selected fruit with the above recipe).",
+    "garnish": "",
     "glassware": "margarita",
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -47,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -60,5 +61,6 @@
         }
     ],
     "name": "Margarita",
-    "slug": "margarita"
+    "slug": "margarita",
+    "source": ""
 }

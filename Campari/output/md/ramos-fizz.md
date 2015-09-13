@@ -1,10 +1,11 @@
 {
     "directions": "Pour all ingredients (except soda) in a mixing glass, dry shake (no ice) for two minutes, add ice and hard shake for another minute. Strain into glass without ice, top with soda.",
+    "garnish": "",
     "glassware": "highball",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -46,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -59,7 +60,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
@@ -72,7 +73,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -84,7 +85,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=380",
@@ -96,7 +97,7 @@
             "label": "Two drops"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=339",
@@ -108,7 +109,7 @@
             "label": "Three dashes"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",
@@ -120,5 +121,6 @@
         }
     ],
     "name": "Ramos Fizz",
-    "slug": "ramos-fizz"
+    "slug": "ramos-fizz",
+    "source": ""
 }

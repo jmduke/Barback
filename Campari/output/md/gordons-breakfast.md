@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -36,7 +36,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -48,15 +48,15 @@
             }
         },
         {
-            "base": "Cucumber",
+            "baseName": "Cucumber",
             "label": "one half"
         },
         {
-            "base": "Lime",
+            "baseName": "Lime",
             "label": "one half"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -67,7 +67,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -78,7 +78,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=359",
@@ -89,7 +89,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -102,5 +102,5 @@
     ],
     "name": "Gordon's Breakfast",
     "slug": "gordons-breakfast",
-    "source": null
+    "source": ""
 }

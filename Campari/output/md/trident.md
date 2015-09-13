@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 16.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -32,7 +32,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=254",
                 "color": "fbff8c",
@@ -43,7 +43,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=38",
@@ -56,5 +56,6 @@
         }
     ],
     "name": "Trident",
-    "slug": "trident"
+    "slug": "trident",
+    "source": ""
 }

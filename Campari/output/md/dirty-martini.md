@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -64,7 +64,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -77,5 +77,6 @@
         }
     ],
     "name": "Dirty Martini",
-    "slug": "dirty-martini"
+    "slug": "dirty-martini",
+    "source": ""
 }

@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -28,7 +29,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=201",
                 "color": "fbff8a",
@@ -40,7 +41,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -53,7 +54,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -66,5 +67,6 @@
         }
     ],
     "name": "Yellow Bird",
-    "slug": "yellow-bird"
+    "slug": "yellow-bird",
+    "source": ""
 }

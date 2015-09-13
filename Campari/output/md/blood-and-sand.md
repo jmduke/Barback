@@ -1,11 +1,12 @@
 {
     "directions": "Shake and strain into glass.",
+    "garnish": "",
     "glassware": "cocktail",
     "information": "Named after the 1922 movie of the same name.  First appeared in 1930, in the [Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).",
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -47,7 +48,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=69",
@@ -60,7 +61,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {

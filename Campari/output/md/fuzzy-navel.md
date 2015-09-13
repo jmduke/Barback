@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 23,
                 "brands": [],
                 "cocktaildb": "",
@@ -31,5 +31,6 @@
         }
     ],
     "name": "Fuzzy Navel",
-    "slug": "fuzzy-navel"
+    "slug": "fuzzy-navel",
+    "source": ""
 }

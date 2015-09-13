@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=415",
@@ -19,15 +19,15 @@
         },
         {
             "amount": 1.5,
-            "base": "Allspice Dram"
+            "baseName": "Allspice Dram"
         },
         {
             "amount": 0.75,
-            "base": "B\\xE9n\\xE9dictine"
+            "baseName": "B\\u00e9n\\u00e9dictine"
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -39,7 +39,7 @@
             }
         },
         {
-            "base": "Bitters",
+            "baseName": "Bitters",
             "label": "two dashes"
         }
     ],

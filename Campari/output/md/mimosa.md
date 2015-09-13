@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 7.5,
-            "base": {
+            "baseName": {
                 "abv": 12,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=432",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 7.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -31,5 +31,6 @@
         }
     ],
     "name": "Mimosa",
-    "slug": "mimosa"
+    "slug": "mimosa",
+    "source": ""
 }

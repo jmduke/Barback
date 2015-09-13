@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -30,7 +30,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -42,7 +42,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -54,7 +54,7 @@
             "label": "Two teaspoons"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -66,10 +66,11 @@
             }
         },
         {
-            "base": "Mint sprigs",
+            "baseName": "Mint sprigs",
             "label": "Six"
         }
     ],
     "name": "Mojito",
-    "slug": "mojito"
+    "slug": "mojito",
+    "source": ""
 }

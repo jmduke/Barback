@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -31,7 +31,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -44,7 +44,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -56,7 +56,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -70,5 +70,6 @@
         }
     ],
     "name": "Jake Barnes",
-    "slug": "jake-barnes"
+    "slug": "jake-barnes",
+    "source": ""
 }

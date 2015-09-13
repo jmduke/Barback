@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -47,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -61,7 +61,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -74,5 +74,6 @@
         }
     ],
     "name": "Russian Spring Punch",
-    "slug": "russian-spring-punch"
+    "slug": "russian-spring-punch",
+    "source": ""
 }

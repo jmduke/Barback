@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -24,7 +24,7 @@
         },
         {
             "amount": 10,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=313",
@@ -37,5 +37,6 @@
         }
     ],
     "name": "Dark 'n' Stormy",
-    "slug": "dark-n-stormy"
+    "slug": "dark-n-stormy",
+    "source": ""
 }

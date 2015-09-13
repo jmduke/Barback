@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -31,7 +31,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -60,5 +60,6 @@
         }
     ],
     "name": "Hollywood",
-    "slug": "hollywood"
+    "slug": "hollywood",
+    "source": ""
 }

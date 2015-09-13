@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -29,7 +29,7 @@
         },
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=302",
@@ -42,7 +42,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -55,5 +55,6 @@
         }
     ],
     "name": "Cuba Libre",
-    "slug": "cuba-libre"
+    "slug": "cuba-libre",
+    "source": ""
 }

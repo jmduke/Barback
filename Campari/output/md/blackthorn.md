@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 2.0,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [
                     {
@@ -53,7 +53,7 @@
         },
         {
             "amount": 2.0,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -82,7 +82,7 @@
             "label": "Sweet"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",

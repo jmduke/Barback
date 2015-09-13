@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 2.5,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -64,7 +64,7 @@
             "label": "Sweet"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -78,5 +78,6 @@
         }
     ],
     "name": "Rob Roy",
-    "slug": "rob-roy"
+    "slug": "rob-roy",
+    "source": ""
 }

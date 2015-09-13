@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -47,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -60,7 +60,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=509",
@@ -73,5 +73,6 @@
         }
     ],
     "name": "Bramble",
-    "slug": "bramble"
+    "slug": "bramble",
+    "source": ""
 }

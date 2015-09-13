@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 7.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=78",
@@ -18,12 +18,12 @@
             }
         },
         {
-            "base": "Lime",
+            "baseName": "Lime",
             "label": "half"
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -36,7 +36,7 @@
         },
         {
             "amount": 12.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=312",
@@ -48,7 +48,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -62,5 +62,6 @@
         }
     ],
     "name": "Chilcano",
-    "slug": "chilcano"
+    "slug": "chilcano",
+    "source": ""
 }

@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled flute. Dash some Angostura bitters on top.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=78",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -42,7 +43,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",
@@ -54,5 +55,6 @@
         }
     ],
     "name": "Pisco Sour",
-    "slug": "pisco-sour"
+    "slug": "pisco-sour",
+    "source": ""
 }

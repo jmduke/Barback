@@ -24,10 +24,10 @@ def write_to_json(objects, filename):
 def write_to_markdown(recipes, bases, foldername):
 	for recipe in recipes:
 		for (i, ingredient) in enumerate(recipe["ingredients"]):
-			base_name = recipe["ingredients"][i]["base"]
+			base_name = recipe["ingredients"][i]["baseName"]
 			base = next((base for base in bases if base['name'] == base_name), None)
 			if base:
-				recipe["ingredients"][i]["base"] = base
+				recipe["ingredients"][i]["baseName"] = base
 		json_recipe = json.dumps(recipe, sort_keys=True, indent=4, separators=(',', ': '))
 		with open(foldername + recipe['slug'] + ".md", "w") as outfile:
 			outfile.write(json_recipe)
@@ -39,6 +39,10 @@ if __name__ == "__main__":
 
     for recipe in recipes:
         recipe['slug'] = slugify(unicode(recipe['name']))
+        if not recipe.get('garnish', None):
+            recipe['garnish'] = ''
+        if not recipe.get('source', None):
+            recipe['source'] = ''
     for base in bases:
         base['slug'] = slugify(unicode(base['name']))
 

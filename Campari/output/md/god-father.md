@@ -1,10 +1,11 @@
 {
     "directions": "Build into glass filled with ice cubes. Stir gently.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 28,
                 "brands": [],
                 "cocktaildb": "",
@@ -46,5 +47,6 @@
         }
     ],
     "name": "God Father",
-    "slug": "god-father"
+    "slug": "god-father",
+    "source": ""
 }

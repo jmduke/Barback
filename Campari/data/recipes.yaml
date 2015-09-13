@@ -95,7 +95,7 @@
   ingredients: 
   - 6cl Bourbon
   - 1.5cl Allspice Dram
-  - .75cl B\xE9n\xE9dictine
+  - .75cl B\u00e9n\u00e9dictine
   - .75cl Lemon juice
   - Bitters (two dashes)
   garnish: Lemon twist
@@ -154,7 +154,7 @@
   ingredients:
   - 4.5cl Vermouth (dry)
   - 2cl Whiskey
-  - 2cl B\xE9n\xE9dictine
+  - 2cl B\u00e9n\u00e9dictine
   - Peach bitters (Two dashes)
   garnish: ""
   directions: Stir, strain, sip.
@@ -358,7 +358,7 @@
   ingredients:
   - 3cl Vermouth (French)
   - amount: 1.5
-    base: "B\xE9n\xE9dictine"
+    baseName: "B\u00e9n\u00e9dictine"
   - Absinthe (Three dashes)
   information: "A classic, usually credited to Harry Craddock and *The Savoy Cocktail Book* despite actually being from Hugo Ensslin’s *Recipes for Mixed Drinks*.  An apparent favorite for post-Prohibition expats, the *Savoy Cocktail Book* notes that it was 'well-known and very popular in the American Bar of the S.S. Europa,' a German cruise liner that operated through the 1930s."
   source: Recipes for Mixed Drinks
@@ -484,13 +484,13 @@
   - 3cl Rye
   - 3cl Cognac
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet
   - amount: 1
-    base: "B\xE9n\xE9dictine"
-  - base: "Peychaud\u2019s bitters"
+    baseName: "B\xE9n\xE9dictine"
+  - baseName: "Peychaud\u2019s bitters"
     label: Two dashes
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: Two dashes
   name: "Vieux Carr\xE9"
 - directions: Combine ingredients in shaker tin. Muddle kiwi until crushed. Add a
@@ -500,14 +500,14 @@
   glassware: collins
   ingredients:
   - amount: 4.5
-    base: Dark rum
+    baseName: Dark rum
   - amount: 1.5
-    base: Mezcal
+    baseName: Mezcal
   - amount: 3
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 1.5
-    base: Lime juice
-  - base: Kiwi slice
+    baseName: Lime juice
+  - baseName: Kiwi slice
   name: El Comendador
 - directions: Mix all ingredients and carbonate. Pour over ice. Alternatively, shake
     and strain.
@@ -515,12 +515,12 @@
   glassware: old fashioned
   ingredients:
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Dry
   - amount: 4
-    base: Campari
+    baseName: Campari
   - amount: 3
-    base: Elderflower liqueur
+    baseName: Elderflower liqueur
   name: Apertif
 - directions: Prepare glass by moistening the rim with lemon and dipping it in sugar,
     then carefully curling the lemon peel around the inside of the glass. Combine
@@ -530,35 +530,35 @@
   glassware: cocktail
   ingredients:
   - amount: 6
-    base: Cognac
-  - base: "Orange cura\xE7ao"
+    baseName: Cognac
+  - baseName: "Orange cura\xE7ao"
     label: One teaspoon
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: One dash
-  - base: Lemon juice
+  - baseName: Lemon juice
     label: Half teaspoon
   name: Brandy Crusta
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 4.5
-    base: White rum
+    baseName: White rum
     label: Bacardi
   - amount: 2
-    base: Lime juice
+    baseName: Lime juice
   - amount: 1
-    base: Grenadine
+    baseName: Grenadine
   name: Bacardi
 - directions: Stir all ingredients with ice and strain into a cocktail glass.  Add
     three dashes of syrup.
   glassware: martini
   ingredients:
   - amount: 2
-    base: Kirsch
+    baseName: Kirsch
   - amount: 4
-    base: Vermouth
+    baseName: Vermouth
     label: Dry
-  - base: Strawberry syrup
+  - baseName: Strawberry syrup
   name: Rose
 - directions: Place sugar cube in old fashioned glass and saturate with bitters, add
     a dash of plain water. Muddle until dissolve. Fill the glass with ice cubes and
@@ -567,26 +567,26 @@
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Whiskey
+    baseName: Whiskey
     label: Bourbon or rye whiskey
-  - base: Sugar cube
-  - base: Angostura bitters
+  - baseName: Sugar cube
+  - baseName: Angostura bitters
   name: Old Fashioned
 - directions: Stir all ingredients with ice and strain into glass.
   garnish: Cherry, lemon twist
   glassware: martini
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
     label: Old Tom Gin
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Dry
-  - base: Orange bitters
+  - baseName: Orange bitters
     label: Three dashes
-  - base: Maraschino
+  - baseName: Maraschino
     label: Half barspoon
-  - base: Absinthe
+  - baseName: Absinthe
     label: Quarter barspoon
   name: Tuxedo
 - directions: Muddle mint springs with sugar and lime juice. Add splash of soda water
@@ -596,14 +596,14 @@
   glassware: collins
   ingredients:
   - amount: 4
-    base: White rum
+    baseName: White rum
     label: White Cuban Rum
   - amount: 3
-    base: Lime juice
-  - base: White sugar
+    baseName: Lime juice
+  - baseName: White sugar
     label: Two teaspoons
-  - base: Soda water
-  - base: Mint sprigs
+  - baseName: Soda water
+  - baseName: Mint sprigs
     label: Six
   name: Mojito
 - directions: Build into highball glass with ice cubes. Stir gently. If required,
@@ -612,10 +612,10 @@
   glassware: highball
   ingredients:
   - amount: 12
-    base: Ginger ale
+    baseName: Ginger ale
   - amount: 4
-    base: Cognac
-  - base: Angostura bitters
+    baseName: Cognac
+  - baseName: Angostura bitters
     label: One dash
   name: Horse's Neck
 - directions: Build all ingredients in a glass filled with ice.
@@ -623,23 +623,23 @@
   glassware: highball
   ingredients:
   - amount: 3
-    base: Grapefruit juice
+    baseName: Grapefruit juice
   - amount: 12
-    base: Cranberry juice
+    baseName: Cranberry juice
   - amount: 4
-    base: Vodka
+    baseName: Vodka
   name: Sea Breeze
 - directions: Shake and strain into a chilled flute. Dash some Angostura bitters on
     top.
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Pisco
+    baseName: Pisco
   - amount: 3
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 2
-    base: Simple syrup
-  - base: Egg white
+    baseName: Simple syrup
+  - baseName: Egg white
   name: Pisco Sour
 - directions: Add all ingredients into highball glass filled with ice. Stir gently.
     Serve with straw.
@@ -647,32 +647,32 @@
   glassware: highball
   ingredients:
   - amount: 1.5
-    base: Tequila
+    baseName: Tequila
   - amount: 1.5
-    base: Vodka
+    baseName: Vodka
   - amount: 1.5
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: White rum
+    baseName: White rum
   - amount: 1.5
-    base: Triple sec
+    baseName: Triple sec
   - amount: 2.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 3
-    base: Syrup
+    baseName: Syrup
     label: Gomme
-  - base: Cola
+  - baseName: Cola
     label: One dash
   name: Long Island Iced Tea
 - directions: Shake with ice cubes. Strain into glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: Calvados
+    baseName: Calvados
   - amount: 3
-    base: Apricot brandy
+    baseName: Apricot brandy
   - amount: 3
-    base: Gin
+    baseName: Gin
   name: Angel Face
 - directions: "Pour orange juice into flute and gently pour Champagne. Stir gently.\
     \ Note: a Buck\u2019s Fizz and a Mimosa are the same drink."
@@ -680,9 +680,9 @@
   glassware: champagne flute
   ingredients:
   - amount: 7.5
-    base: Champagne
+    baseName: Champagne
   - amount: 7.5
-    base: Orange juice
+    baseName: Orange juice
   name: Mimosa
 - directions: "Dash egg white (Optional: if used shake little harder to foam up the\
     \ egg white). Pour all ingredients into cocktail shaker filled with ice. Shake.\
@@ -692,42 +692,42 @@
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Bourbon
+    baseName: Bourbon
   - amount: 3
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1.5
-    base: Simple syrup
+    baseName: Simple syrup
   name: Whiskey Sour
 - directions: Build into a highball glass filled with ice. Stir gently.
   garnish: Orange slice
   glassware: highball
   ingredients:
   - amount: 5
-    base: Vodka
+    baseName: Vodka
   - amount: 10
-    base: Orange juice
+    baseName: Orange juice
   name: Screwdriver
 - directions: Build all ingredients in a highball glass filled with ice.
   garnish: Lime wedge
   glassware: highball
   ingredients:
   - amount: 5
-    base: White rum
+    baseName: White rum
   - amount: 12
-    base: Cola
+    baseName: Cola
   - amount: 1
-    base: Lime juice
+    baseName: Lime juice
   name: Cuba Libre
 - directions: Shake with ice cubes. Strain into cocktail glass. Sprinkle with fresh
     ground nutmeg.
   glassware: martini
   ingredients:
   - amount: 1.5
-    base: Cognac
+    baseName: Cognac
   - amount: 4.5
-    base: Port
+    baseName: Port
   - amount: 1
-    base: Egg yolk
+    baseName: Egg yolk
   name: Porto Flip
 - directions: Shake all ingredients with ice cubes, except soda water. Pour into glass.
     Top with soda water.
@@ -735,24 +735,24 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 3
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 8
-    base: Soda water
+    baseName: Soda water
   name: Gin Fizz
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 5
-    base: Vodka
+    baseName: Vodka
   - amount: 1
-    base: Coffee liqueur
+    baseName: Coffee liqueur
     label: "Kahl\xFAa"
-  - base: Simple syrup
-  - base: Espresso
+  - baseName: Simple syrup
+  - baseName: Espresso
     label: One shot
   name: Espresso Martini
 - directions: 'Shake with ice cubes. Strain into cocktail glass rimmed with salt (note:
@@ -760,24 +760,24 @@
   glassware: margarita
   ingredients:
   - amount: 2
-    base: Triple sec
+    baseName: Triple sec
     label: Cointreau
   - amount: 3.5
-    base: Tequila
+    baseName: Tequila
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   name: Margarita
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: White rum
+    baseName: White rum
   - amount: 1.5
-    base: Galliano
+    baseName: Galliano
   - amount: 1.5
-    base: Triple sec
+    baseName: Triple sec
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   name: Yellow Bird
 - directions: Blend all the ingredients with ice in a electric blender, pour into
     a large goblet or Hurricane glass and serve with straws.
@@ -785,22 +785,22 @@
   glassware: hurricane
   ingredients:
   - amount: 9
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 3
-    base: Coconut milk
+    baseName: Coconut milk
   - amount: 3
-    base: White rum
+    baseName: White rum
   name: Pina Colada
 - directions: Shake and strain into a chilled cocktail glass.
   glassware: martini
   ingredients:
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Cherry liqueur
+    baseName: Cherry liqueur
     label: Maraschino
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   name: Aviation
   source: Recipes for Mixed Drinks
 - directions: 'Pour peach puree into chilled glass and add sparkling wine. Stir gently.
@@ -809,22 +809,22 @@
   glassware: champagne flute
   ingredients:
   - amount: 10
-    base: Prosecco
+    baseName: Prosecco
   - amount: 5
-    base: Peach puree
+    baseName: Peach puree
   name: Bellini
   source: Giuseppe Cipriani
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "Green Cr\xE9me de Menthe"
   - amount: 3
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "White Cr\xE9me de Cacao"
   - amount: 3
-    base: Cream
+    baseName: Cream
   name: Grasshopper
   information: "French Quarter icon Tujague's, which opened in 1856, is the unlikely origin of the sweet and minty Grasshopper. According to lore, Philibert Guichet, whose family purchased the restaurant from founders Guillaume and Marie Tujague in the 1910s, invented the cocktail while in New York City for a cocktail competition 'similar to what they have now for Tales of the Cocktail,' Latter says. Guichet's combination of equal parts crème de menthe, crème de cacao, and cream took second prize in the contest, and Guichet proudly brought the drink — supposedly named a 'Grasshopper' for its bright green color — back to New Orleans.  Eater has a [great writeup](http://www.eater.com/2014/10/23/7036159/a-brief-history-of-the-grasshopper) on it."
   source: Philibert Guichet
@@ -834,21 +834,21 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Tequila
+    baseName: Tequila
   - amount: 9
-    base: Orange juice
+    baseName: Orange juice
   - amount: 1.5
-    base: Grenadine
+    baseName: Grenadine
   name: Tequila Sunrise
 - directions: Shake and strain.
   glassware: martini
   ingredients:
   - amount: 1.5
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 3
-    base: Lime juice
+    baseName: Lime juice
   - amount: 4.5
-    base: White rum
+    baseName: White rum
   name: Daiquiri
 - directions: "Layer ingredients one at a time starting with Kahl\xFAa, followed by\
     \ Baileys Irish Cream and top with Grand Marnier. Flame the Grand Marnier, serve\
@@ -856,13 +856,13 @@
   glassware: shot
   ingredients:
   - amount: 2
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: Baileys Irish Cream
   - amount: 2
-    base: Coffee liqueur
+    baseName: Coffee liqueur
     label: "Kahl\xFAa"
   - amount: 2
-    base: Triple sec
+    baseName: Triple sec
     label: Grand Marnier
   name: B52
 - directions: Build into old fashioned glass filled with ice. Stir gently.
@@ -870,30 +870,30 @@
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Scotch
+    baseName: Scotch
   - amount: 2.5
-    base: Drambuie
+    baseName: Drambuie
   name: Rusty Nail
 - directions: Stir in mixing glass with ice cubes. Strain.
   glassware: martini
   ingredients:
   - amount: 5
-    base: Cognac
+    baseName: Cognac
   - amount: 2
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "White Cr\xE9me de Menthe"
   name: Stinger
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 2
-    base: Galliano
+    baseName: Galliano
   - amount: 2
-    base: Orange juice
+    baseName: Orange juice
   - amount: 2
-    base: Triple sec
+    baseName: Triple sec
   - amount: 1
-    base: Cream
+    baseName: Cream
   name: Golden Dream
 - directions: Build into an old fashioned glass filled with ice. Top with a splash
     of soda water.
@@ -901,19 +901,19 @@
   glassware: old fashioned
   ingredients:
   - amount: 6
-    base: Prosecco
+    baseName: Prosecco
   - amount: 4
-    base: Aperol
-  - base: Soda water
+    baseName: Aperol
+  - baseName: Soda water
     label: Splash
   name: Spritz Veneziano
 - directions: Build into old fashioned glass filled with ice cubes. Stir gently.
   glassware: old fashioned
   ingredients:
   - amount: 3.5
-    base: Disaronno
+    baseName: Disaronno
   - amount: 3.5
-    base: Vodka
+    baseName: Vodka
   name: God Mother
 - directions: Build over crushed ice. Stir, then pour the blackberry liqueur over
     the top of the drink in a circular fashion.
@@ -921,24 +921,24 @@
   glassware: old fashioned
   ingredients:
   - amount: 1
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 4
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1.5
-    base: Blackberry liqueur
+    baseName: Blackberry liqueur
   name: Bramble
 - directions: Shake and strain into a chilled glass. Sprinkle with fresh ground nutmeg.
   glassware: martini
   ingredients:
   - amount: 4
-    base: Cognac
+    baseName: Cognac
   - amount: 3
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "Brown Cr\xE9me de Cacao"
   - amount: 3
-    base: Cream
+    baseName: Cream
   name: Alexander
   source: Recipes for Mixed Drinks
   information: One of the sweetest and creamiest IBA official cocktails, the Alexander acts as a nice palette cleanser or after-dinner dessert.  The original recipe back in 1915 subbed cognac for gin; the cognac variation has a number of conflicting origin stories, but the most likely source was Troy Alexander -- who created his eponymous concoction in order to serve a white drink at a dinner celebrating Phoebe Snow at Rector’s, a premier pre-Prohibition lobster shop in New York.
@@ -947,77 +947,77 @@
   glassware: martini
   ingredients:
   - amount: 2.5
-    base: Vodka
+    baseName: Vodka
     label: Citron
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 2
-    base: Triple sec
+    baseName: Triple sec
   name: Lemon Drop Martini
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze
     oil from lemon peel onto the drink.
   glassware: martini
   ingredients:
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   - amount: 1.5
-    base: Raspberry liqueur
+    baseName: Raspberry liqueur
   - amount: 1.5
-    base: Pineapple juice
+    baseName: Pineapple juice
   name: French Martini
 - directions: 'Build into old fashioned glass filled with ice cubes. Stir gently.
     Note: for White Russian, float fresh cream on the top and stir gently.'
   glassware: old fashioned
   ingredients:
   - amount: 5
-    base: Vodka
+    baseName: Vodka
   - amount: 2
-    base: Coffee liqueur
+    baseName: Coffee liqueur
   name: Black Russian
 - directions: Stir gently, pour all ingredients into glass.
   garnish: Celery, lemon wedge
   glassware: highball
   ingredients:
-  - base: Pepper
+  - baseName: Pepper
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   - amount: 9
-    base: Tomato juice
+    baseName: Tomato juice
   - amount: 1.5
-    base: Lemon juice
-  - base: Tabasco
-  - base: Worchestershire sauce
+    baseName: Lemon juice
+  - baseName: Tabasco
+  - baseName: Worchestershire sauce
     label: Two to three dashes
-  - base: Celery salt
+  - baseName: Celery salt
   name: Bloody Mary
 - directions: Shake and strain into glass. Serve with straw.
   garnish: Pineapple spear, mint leaves, lime wedge
   glassware: highball
   ingredients:
   - amount: 2
-    base: Dark rum
+    baseName: Dark rum
   - amount: 4
-    base: White rum
+    baseName: White rum
   - amount: 1.5
-    base: Triple sec
+    baseName: Triple sec
     label: "Orange Cura\xE7ao"
   - amount: 1.5
-    base: Orgeat
+    baseName: Orgeat
   - amount: 1
-    base: Lime juice
+    baseName: Lime juice
   name: Mai-tai
 - directions: Pour all ingredients in a chilled glass.  Top with Prosecco.
   glassware: margarita
   ingredients:
   - amount: 4.5
-    base: Dark rum
+    baseName: Dark rum
     label: Gold rum
   - amount: 1.5
-    base: Galliano
+    baseName: Galliano
   - amount: 6
-    base: Pineapple juice
-  - base: Prosecco
-  - base: Lime juice
+    baseName: Pineapple juice
+  - baseName: Prosecco
+  - baseName: Lime juice
     label: Dash
   name: Barracuda
 - directions: Build all ingredients in a glass filled with ice.
@@ -1025,24 +1025,24 @@
   glassware: highball
   ingredients:
   - amount: 4
-    base: Cranberry juice
+    baseName: Cranberry juice
   - amount: 4
-    base: Vodka
+    baseName: Vodka
   - amount: 2
-    base: Peach schnapps
+    baseName: Peach schnapps
   - amount: 4
-    base: Orange juice
+    baseName: Orange juice
   name: Sex on the Beach
 - directions: Shake and strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: Orange juice
+    baseName: Orange juice
   - amount: 5
-    base: Gin
-  - base: Grenadine
+    baseName: Gin
+  - baseName: Grenadine
     label: Two drops
-  - base: Absinthe
+  - baseName: Absinthe
     label: Two drops
   name: Monkey Gland
 - directions: Stir in mixing glass with ice cubes. Strain into glass.
@@ -1050,10 +1050,10 @@
   glassware: martini
   ingredients:
   - amount: 6
-    base: Gin
-  - base: Peach bitters
+    baseName: Gin
+  - baseName: Peach bitters
     label: Two drops
-  - base: Mint leaves
+  - baseName: Mint leaves
     label: Two, fresh
   name: Derby
   information: On one hand, it's a weird drink in theory.  On the other hand, its a delightful spring mix in the same vein as a super-dry martini; be sure to err on the cold, crisp side of things. 
@@ -1062,11 +1062,11 @@
   glassware: martini
   ingredients:
   - amount: 5
-    base: Cognac
+    baseName: Cognac
   - amount: 2
-    base: Triple sec
+    baseName: Triple sec
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   name: Sidecar
   information: The exact origin of the Sidecar is unclear, but it is thought to have been invented around the end of World War I in either London or Paris. The drink was directly named for the motorcycle attachment, the drink appears in literature as early as 1907.
   source: Cocktails and How to Mix Them
@@ -1075,14 +1075,14 @@
   glassware: mug
   ingredients:
   - amount: 3
-    base: Cream
+    baseName: Cream
   - amount: 4
-    base: Whiskey
+    baseName: Whiskey
     label: Irish whiskey
   - amount: 9
-    base: Coffee
+    baseName: Coffee
     label: Hot
-  - base: Brown sugar
+  - baseName: Brown sugar
     label: One teaspoon
   name: Irish Coffee
 - directions: Build into glass filled with ice cubes. Add a splash of soda water.
@@ -1090,11 +1090,11 @@
   glassware: old fashioned
   ingredients:
   - amount: 3
-    base: Campari
+    baseName: Campari
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Red vermouth
-  - base: Soda water
+  - baseName: Soda water
     label: Splash
   name: Americano
   information: "The cocktail was first served in creator Gaspare Campari's bar, Caff\xE9 Campari, in the 1860s. It was originally known as the *Milano-Torino* because of its ingredients: Campari, the bitter liqueur, is from Milan (Milano) and Punt e Mes, the vermouth, is from Turin (Torino). It is popular belief that in the early 1900s, the Italians noticed a surge of Americans who enjoyed the cocktail. As a compliment to the Americans, the cocktail later became known as the *Americano*."
@@ -1104,41 +1104,41 @@
   glassware: highball
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Cherry liqueur
+    baseName: Cherry liqueur
   - amount: 0.75
-    base: Triple sec
+    baseName: Triple sec
     label: Cointreau
   - amount: 0.75
-    base: "B\xE9n\xE9dictine"
+    baseName: "B\xE9n\xE9dictine"
   - amount: 12
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   - amount: 1
-    base: Grenadine
-  - base: Angostura bitters
+    baseName: Grenadine
+  - baseName: Angostura bitters
     label: One dash
   name: Singapore Sling
 - directions: Build into glass filled with ice cubes. Stir gently.
   glassware: old fashioned
   ingredients:
   - amount: 3.5
-    base: Cognac
+    baseName: Cognac
   - amount: 3.5
-    base: Disaronno
+    baseName: Disaronno
   name: French Connection
 - directions: Combine the vodka and ginger beer. Add lime juice.
   garnish: Lime slice
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   - amount: 12
-    base: Ginger beer
+    baseName: Ginger beer
   - amount: 0.5
-    base: Lime juice
+    baseName: Lime juice
   name: Moscow Mule
 - directions: 'Build into glass filled with ice. Stir gently. Add a dash of Angostura
     bitters. (Note: Use Old Tom Gin for Tom Collins)'
@@ -1146,23 +1146,23 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 3
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1.5
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 6
-    base: Soda water
+    baseName: Soda water
   name: John Collins
 - directions: "Pour Cr\xE9me de Cassis into glass, top up with white wine. For Kir\
     \ Royal: Use champagne instead of white wine."
   glassware: cocktail
   ingredients:
   - amount: 9
-    base: White wine
+    baseName: White wine
     label: Dry
   - amount: 1
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "Cr\xE9me de Cassis"
   name: Kir
 - directions: In the glass, gently muddle the mint, sugar and water. Fill the glass
@@ -1171,45 +1171,45 @@
   glassware: highball
   ingredients:
   - amount: 6
-    base: Bourbon
-  - base: Water
+    baseName: Bourbon
+  - baseName: Water
     label: Two teaspoons
-  - base: Powdered sugar
+  - baseName: Powdered sugar
     label: One teaspoon
-  - base: Mint sprigs
+  - baseName: Mint sprigs
     label: Four
   name: Mint Julep
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 4.5
-    base: Tequila
+    baseName: Tequila
   - amount: 1.5
-    base: Lime juice
-  - base: Agave nectar
+    baseName: Lime juice
+  - baseName: Agave nectar
     label: Two barspoons
   name: Tommy's Margarita
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 3.5
-    base: Gin
+    baseName: Gin
   - amount: 2
-    base: Apricot brandy
+    baseName: Apricot brandy
   - amount: 1.5
-    base: Orange juice
+    baseName: Orange juice
   name: Paradise
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass.
   garnish: Olive
   glassware: martini
   ingredients:
   - amount: 1
-    base: Vermouth
+    baseName: Vermouth
     label: Dry
   - amount: 6
-    base: Vodka
+    baseName: Vodka
   - amount: 1
-    base: Olive juice
+    baseName: Olive juice
   name: Dirty Martini
 - directions: Add dash of Angostura bitter onto sugar cube and drop it into champagne
     flute. Add cognac followed by pouring gently chilled champagne.
@@ -1217,39 +1217,39 @@
   glassware: champagne flute
   ingredients:
   - amount: 1
-    base: Cognac
+    baseName: Cognac
   - amount: 9
-    base: Champagne
+    baseName: Champagne
     label: Chilled
-  - base: Sugar cube
-  - base: Angostura bitters
+  - baseName: Sugar cube
+  - baseName: Angostura bitters
     label: Two dashes
   name: Champagne Cocktail
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 6
-    base: White rum
+    baseName: White rum
   - amount: 1
-    base: Cherry liqueur
+    baseName: Cherry liqueur
     label: Maraschino
   - amount: 6
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 1
-    base: Grenadine
+    baseName: Grenadine
   name: Mary Pickford
 - directions: Shake with ice cubes. Strain into a double cocktail glass.
   glassware: martini
   ingredients:
   - amount: 6
-    base: White rum
+    baseName: White rum
   - amount: 4
-    base: Grapefruit juice
+    baseName: Grapefruit juice
   - amount: 1.5
-    base: Cherry liqueur
+    baseName: Cherry liqueur
     label: Maraschino
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   name: Hemingway Special
 - directions: Build into glass filled with ice. Add rum first and top it with ginger
     beer.
@@ -1257,9 +1257,9 @@
   glassware: highball
   ingredients:
   - amount: 6
-    base: Dark rum
+    baseName: Dark rum
   - amount: 10
-    base: Ginger beer
+    baseName: Ginger beer
   name: Dark 'n' Stormy
 - directions: Pour all ingredients (except soda) in a mixing glass, dry shake (no
     ice) for two minutes, add ice and hard shake for another minute. Strain into glass
@@ -1267,56 +1267,56 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 6
-    base: Cream
+    baseName: Cream
   - amount: 3
-    base: Simple syrup
-  - base: Vanilla extract
+    baseName: Simple syrup
+  - baseName: Vanilla extract
     label: Two drops
-  - base: Orange flower water
+  - baseName: Orange flower water
     label: Three dashes
-  - base: Egg white
+  - baseName: Egg white
   name: Ramos Fizz
 - directions: Shake the ingredients and pour into glass. Top with Sparkling wine.
   garnish: Lemon slice, blackberry
   glassware: highball
   ingredients:
   - amount: 3
-    base: Vodka
+    baseName: Vodka
   - amount: 3
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1.5
-    base: "Cr\xE9me liqueur"
+    baseName: "Cr\xE9me liqueur"
     label: "Cr\xE9me de Cassis"
   - amount: 1
-    base: Simple syrup
+    baseName: Simple syrup
   name: Russian Spring Punch
 - directions: Build into glass filled with ice cubes. Stir gently.
   glassware: old fashioned
   ingredients:
   - amount: 3.5
-    base: Scotch
+    baseName: Scotch
   - amount: 3.5
-    base: Disaronno
+    baseName: Disaronno
   name: God Father
 - directions: Shake with ice cubes. Strain into a large cocktail glass.
   garnish: Lime slice
   glassware: martini
   ingredients:
   - amount: 1.5
-    base: Triple sec
+    baseName: Triple sec
     label: Cointreau
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   - amount: 3
-    base: Cranberry juice
+    baseName: Cranberry juice
   - amount: 4
-    base: Vodka
+    baseName: Vodka
     label: Citron vodka
   name: Cosmopolitan
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze
@@ -1324,47 +1324,47 @@
   glassware: martini
   ingredients:
   - amount: 6
-    base: Gin
+    baseName: Gin
   - amount: 1
-    base: Vermouth
+    baseName: Vermouth
     label: Dry
   name: Dry Martini
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: White rum
+    baseName: White rum
   - amount: 3
-    base: Cognac
+    baseName: Cognac
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 3
-    base: Triple sec
+    baseName: Triple sec
   name: Between the Sheets
 - directions: Shake with ice cubes. Strain into chilled glass.
   garnish: Lemon twist, cherry
   glassware: martini
   ingredients:
   - amount: 4
-    base: Gin
+    baseName: Gin
     label: Old Tom Gin
   - amount: 1
-    base: Cherry liqueur
+    baseName: Cherry liqueur
     label: Maraschino
   - amount: 1
-    base: Orange bitters
+    baseName: Orange bitters
   - amount: 1
-    base: Lemon juice
+    baseName: Lemon juice
   name: Casino
 - directions: 'Place lime and sugar in glass and muddle. Fill glass with ice and Cachaca
     (note: for a Caipiroska, use Vodka instead of Cachaca).'
   glassware: old fashioned
   ingredients:
   - amount: 5
-    base: Cachaca
-  - base: White sugar
+    baseName: Cachaca
+  - baseName: White sugar
     label: Two teaspoons
-  - base: Lime
+  - baseName: Lime
     label: Cut into wedges
   name: Caipirinha
 - directions: Shake with ice cubes. Strain into glass, filled with ice.
@@ -1372,42 +1372,42 @@
   glassware: highball
   ingredients:
   - amount: 3
-    base: Orange juice
+    baseName: Orange juice
   - amount: 5
-    base: Tequila
+    baseName: Tequila
     label: Silver
   - amount: 7
-    base: Tomato juice
+    baseName: Tomato juice
   - amount: 1
-    base: Lime juice
-  - base: Worchestershire sauce
+    baseName: Lime juice
+  - baseName: Worchestershire sauce
     label: Few dashes
-  - base: Salt
-  - base: Red chili peppers
-  - base: Onion
+  - baseName: Salt
+  - baseName: Red chili peppers
+  - baseName: Onion
     label: Half slice, finely chopped
-  - base: Honey
+  - baseName: Honey
     label: One teaspoon
   name: Vampiro
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
-    base: Vodka
+    baseName: Vodka
   - amount: 3
-    base: Triple sec
+    baseName: Triple sec
   - amount: 3
-    base: Lime juice
+    baseName: Lime juice
   name: Kamikaze
 - directions: Shake with ice cubes. Strain into large glass.
   glassware: martini
   ingredients:
   - amount: 4
-    base: Gin
+    baseName: Gin
   - amount: 3
-    base: Triple sec
+    baseName: Triple sec
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   name: White Lady
 - directions: Build vodka and orange juice into a highball glass filled with ice.
     Stir gently and float Galliano on top.
@@ -1415,45 +1415,45 @@
   glassware: highball
   ingredients:
   - amount: 9
-    base: Orange juice
+    baseName: Orange juice
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   - amount: 1.5
-    base: Galliano
+    baseName: Galliano
   name: Harvey Wallbanger
 - directions: Pour all ingredients into a cocktail shaker.  Shake and strain into
     a glass filled with ice.
   glassware: old fashioned
   ingredients:
   - amount: 4.5
-    base: Coffee liqueur
+    baseName: Coffee liqueur
   - amount: 4.5
-    base: Irish cream liqueur
+    baseName: Irish cream liqueur
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   name: Mudslide
 - directions: Pour the coffee liqueur and cream into a cocktail shaker filled with
     ice.  Shake well and strain into a highball filled with ice.  Top with club soda.
   glassware: highball
   ingredients:
   - amount: 6
-    base: Coffee liqueur
+    baseName: Coffee liqueur
   - amount: 6
-    base: Cream
+    baseName: Cream
   - amount: 12
-    base: Soda water
+    baseName: Soda water
   name: Smith & Kearns
 - directions: Pour the ingredients into a mixing glass with ice cubes.  Stir well
     and strain into a chilled glass.
   glassware: martini
   ingredients:
   - amount: 2
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet
   - amount: 2
-    base: Orange juice
+    baseName: Orange juice
   - amount: 2
-    base: Gin
+    baseName: Gin
   name: Orange Blossom
 - directions: Pour the liquors into a glass filled with ice.  Fill with pineapple
     juice.
@@ -1461,11 +1461,11 @@
   glassware: highball
   ingredients:
   - amount: 1.5
-    base: Raspberry liqueur
+    baseName: Raspberry liqueur
   - amount: 9
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   name: Hollywood
 - directions: Pour the peach schnapps into a glass filled with ice cubes.  Top with
     orange juice.  Stir well.
@@ -1473,9 +1473,9 @@
   glassware: highball
   ingredients:
   - amount: 12
-    base: Orange juice
+    baseName: Orange juice
   - amount: 4.5
-    base: Peach schnapps
+    baseName: Peach schnapps
   name: Fuzzy Navel
 - directions: Build tequila and orange juice into a glass filled with ice. Stir gently
     and float Galliano on top.
@@ -1483,11 +1483,11 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Tequila
+    baseName: Tequila
   - amount: 9
-    base: Orange juice
+    baseName: Orange juice
   - amount: 1.5
-    base: Galliano
+    baseName: Galliano
   name: Freddie Fuddpucker
 - directions: Pour the vodka, amaretto, and orange juice into a glass filled with
     ice. Add a splash of soda water.
@@ -1495,12 +1495,12 @@
   glassware: collins
   ingredients:
   - amount: 4.5
-    base: Vodka
+    baseName: Vodka
   - amount: 1.5
-    base: Amaretto
+    baseName: Amaretto
   - amount: 9
-    base: Orange juice
-  - base: Soda water
+    baseName: Orange juice
+  - baseName: Soda water
   name: Bocce Ball
 - directions: Pour the vodka into a ice filled glass.  Fill with equal parts of both
     juices.
@@ -1508,25 +1508,25 @@
   glassware: highball
   ingredients:
   - amount: 6
-    base: Vodka
+    baseName: Vodka
   - amount: 6
-    base: Cranberry juice
+    baseName: Cranberry juice
   - amount: 6
-    base: Pineapple juice
+    baseName: Pineapple juice
   name: Bay Breeze
 - directions: Pour the liquors into a glass filled with ice.  Fill with orange juice.
   glassware: highball
   ingredients:
   - amount: 1.5
-    base: Southern Comfort
+    baseName: Southern Comfort
   - amount: 1.5
-    base: Vodka
+    baseName: Vodka
   - amount: 1.5
-    base: Sloe Gin
+    baseName: Sloe Gin
   - amount: 1.5
-    base: Amaretto
+    baseName: Amaretto
   - amount: 9
-    base: Orange juice
+    baseName: Orange juice
   name: Alabama Slammer
 - directions: Pour all ingredients into rinsed shaker, shake on ice and double strain
     into glass.
@@ -1534,29 +1534,29 @@
   glassware: cocktail
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
     label: London dry
   - amount: 3
-    base: Grapefruit juice
+    baseName: Grapefruit juice
   - amount: 1.5
-    base: Elderflower liqueur
+    baseName: Elderflower liqueur
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   name: Pamplemousse
 - directions: Dry shake, then shake on ice, and fine strain.
   glassware: cocktail
   ingredients:
   - amount: 6
-    base: White rum
+    baseName: White rum
   - amount: 1.5
-    base: "B\xE9n\xE9dictine"
+    baseName: "B\xE9n\xE9dictine"
   - amount: 1.5
-    base: Lemon juice
-  - base: Simple syrup
+    baseName: Lemon juice
+  - baseName: Simple syrup
     label: Two dashes
-  - base: Orange bitters
+  - baseName: Orange bitters
     label: One dash
-  - base: Egg white
+  - baseName: Egg white
     label: One half
   name: Brass Rail
 - directions: Pour all ingredients into a shaker, shake, and strain into glass.
@@ -1564,11 +1564,11 @@
   glassware: martini
   ingredients:
   - amount: 4.5
-    base: Honey whiskey
+    baseName: Honey whiskey
   - amount: 4.5
-    base: Bourbon
+    baseName: Bourbon
   - amount: 4.5
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet
   name: City Honey Bee
 - directions: Stir all ingredients with ice. Strain into glass.
@@ -1576,27 +1576,27 @@
   glassware: cocktail
   ingredients:
   - amount: 3
-    base: Sherry
+    baseName: Sherry
     label: Dry
   - amount: 3
-    base: Cynar
+    baseName: Cynar
   - amount: 3
-    base: Aquavit
-  - base: Peach bitters
+    baseName: Aquavit
+  - baseName: Peach bitters
     label: Two dashes
   name: Trident
 - directions: Stir well with cracked ice, then strain into a chilled glass.
   glassware: cocktail
   ingredients:
   - amount: 1.5
-    base: Dark rum
+    baseName: Dark rum
   - amount: 4.5
-    base: Rye
+    baseName: Rye
   - amount: 1.5
-    base: Port
-  - base: Orange bitters
+    baseName: Port
+  - baseName: Orange bitters
     label: One dash
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: One dash
   name: Suburban
 - directions: Pour the gin, lime juice, and framboise into a highball glass filled
@@ -1605,27 +1605,27 @@
   glassware: highball
   ingredients:
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Lime juice
-  - base: Ginger ale
+    baseName: Lime juice
+  - baseName: Ginger ale
   - amount: 1.5
-    base: Framboise
+    baseName: Framboise
   name: Floradora
 - directions: Stir all ingredients with ice. Strain into glass.
   glassware: cocktail
   ingredients:
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet
   - amount: 3
-    base: Gin
+    baseName: Gin
     label: Old Tom Gin
   - amount: 3
-    base: Brandy
-  - base: Orange bitters
+    baseName: Brandy
+  - baseName: Orange bitters
     label: Two dashes
-  - base: "Orange cura\xE7ao"
+  - baseName: "Orange cura\xE7ao"
   name: Ampersand
 - directions: Add both ingredients and stir.  Can be served up or down, and with or
     without ice.
@@ -1633,9 +1633,9 @@
   glassware: old fashioned
   ingredients:
   - amount: 6
-    base: Rhum Agricole
+    baseName: Rhum Agricole
   - amount: 1
-    base: Simple syrup
+    baseName: Simple syrup
   name: Ti' Punch
 - directions: Pour the Pimm's into a collins glass with ice cubes.  Add the lemonade
     and (if desired) a splash of club soda or lemon-lime soda.
@@ -1643,9 +1643,9 @@
   glassware: collins
   ingredients:
   - amount: 9
-    base: Lemonade
+    baseName: Lemonade
   - amount: 6
-    base: Pimm's No. 1
+    baseName: Pimm's No. 1
   name: Pimm's Cup
 - directions: Stir on ice, serve on the rocks.
   garnish: lemon peel
@@ -1655,10 +1655,10 @@
     make a man throw stones at his grandfather'.
   ingredients:
   - amount: 1.5
-    base: Orgeat
+    baseName: Orgeat
   - amount: 6
-    base: Cognac
-  - base: Angostura bitters
+    baseName: Cognac
+  - baseName: Angostura bitters
     label: Two dashes
   name: Japanese
 - directions: Shake well with ice and strain into a cocktail glass.
@@ -1668,11 +1668,11 @@
   information: From [The Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).
   ingredients:
   - amount: 3
-    base: Grapefruit juice
+    baseName: Grapefruit juice
   - amount: 1.5
-    base: Honey syrup
+    baseName: Honey syrup
   - amount: 6
-    base: Bourbon
+    baseName: Bourbon
   name: De Rigueur
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass.
   garnish: Maraschino cherry, lemon twist
@@ -1681,11 +1681,11 @@
     because it is.  (Except usually sweeter.).
   ingredients:
   - amount: 4.5
-    base: Scotch
+    baseName: Scotch
   - amount: 2.5
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: One dash
   name: Rob Roy
 - directions: Combine all ingredients in a shaker with ice. Stir gently and strain
@@ -1696,14 +1696,14 @@
     Scotch.* ~ Inglorious Basterds'
   ingredients:
   - amount: 6
-    base: Scotch
+    baseName: Scotch
   - amount: 1
-    base: Laphroaig
+    baseName: Laphroaig
     label: Or try another Islay
   - amount: 2
-    base: Honey syrup
+    baseName: Honey syrup
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   name: Penicillin
 - directions: Add all ingredients to a shaker and shake without ice, add ice and shake
     vigorously, strain into chilled cocktail glass.
@@ -1711,12 +1711,12 @@
   information: ''
   ingredients:
   - amount: 3
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 4.5
-    base: Scotch
-  - base: Angostura bitters
+    baseName: Scotch
+  - baseName: Angostura bitters
     label: Two dashes
   name: Mark Twain
 - directions: Add all ingredients to shaker, fill completely with ice and shake vigorously.
@@ -1724,13 +1724,13 @@
   information: Autumn in a cocktail glass.
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
   - amount: 2
-    base: Grenadine
+    baseName: Grenadine
   - amount: 2
-    base: Lime juice
+    baseName: Lime juice
   - amount: 2
-    base: Applejack
+    baseName: Applejack
   name: Royal Smile
 - directions: Add all ingredients to shaker, fill completely with ice and shake vigorously.
   garnish: Pineapple wedge
@@ -1738,14 +1738,14 @@
   information: ''
   ingredients:
   - amount: 4.5
-    base: Applejack
+    baseName: Applejack
   - amount: 2
-    base: Grenadine
+    baseName: Grenadine
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1.5
-    base: Pineapple juice
-  - base: Angostura bitters
+    baseName: Pineapple juice
+  - baseName: Angostura bitters
     label: One dash
   name: Jake Barnes
 - directions: Shake all the ingredients with ice.
@@ -1754,10 +1754,10 @@
   information: ''
   ingredients:
   - amount: 6
-    base: Gin
+    baseName: Gin
   - amount: 3
-    base: Black sambuca
-  - base: Sweet vermouth
+    baseName: Black sambuca
+  - baseName: Sweet vermouth
     label: Two teaspoons
   name: 'Black Martini #1'
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass.
@@ -1769,11 +1769,11 @@
     \ Syne*!)"
   ingredients:
   - amount: 4.5
-    base: Scotch
+    baseName: Scotch
   - amount: 4.5
-    base: Vermouth
+    baseName: Vermouth
     label: Italian
-  - base: "B\xE9n\xE9dictine"
+  - baseName: "B\xE9n\xE9dictine"
     label: Three dashes
   name: Bobby Burns
   source: The Essential Cocktail
@@ -1803,11 +1803,11 @@
     base spirit from cognac to rye whiskey.
   ingredients:
   - amount: 5
-    base: Cognac
+    baseName: Cognac
   - amount: 1
-    base: Absinthe
-  - base: Sugar cube
-  - base: "Peychaud\u2019s bitters"
+    baseName: Absinthe
+  - baseName: Sugar cube
+  - baseName: "Peychaud\u2019s bitters"
     label: Two dashes
   name: Sazerac
 - directions: Combine in a cocktail shaker or mixing glass. Shake with ice cubes and
@@ -1822,19 +1822,19 @@
     says, ''It reminds me of a hot drink that you''d have on Thanksgiving morning
     -- only served cold.''
   ingredients:
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: Two dashes
   - amount: 5
-    base: Scotch
+    baseName: Scotch
   - amount: 4.5
-    base: Apple cider
+    baseName: Apple cider
   - amount: 1.5
-    base: Amaro Averna
+    baseName: Amaro Averna
   - amount: 1
-    base: Lemon juice
-  - base: Syrup
+    baseName: Lemon juice
+  - baseName: Syrup
     label: One teaspoon
-  - base: Allspice Dram
+  - baseName: Allspice Dram
     label: Half teaspoon
   name: Flannel Shirt
 - directions: In a mixing glass with ice, combine all ingredients except cider, stir
@@ -1844,13 +1844,13 @@
   information: Goes well with rich stews, crackling fires, and down vests.
   ingredients:
   - amount: 6
-    base: Scotch
+    baseName: Scotch
   - amount: 1
-    base: Honey syrup
-  - base: Angostura bitters
+    baseName: Honey syrup
+  - baseName: Angostura bitters
     label: Two dashes
   - amount: 6
-    base: Hard cider
+    baseName: Hard cider
   name: Scottish Orchard
 - directions: Build in an old-fashioned glass over ice. Stir until chilled. Garnish
     with your own best wishes or deepest fears.
@@ -1861,11 +1861,11 @@
     poison.
   ingredients:
   - amount: 4.5
-    base: Rye
+    baseName: Rye
   - amount: 3
-    base: Applejack
+    baseName: Applejack
   - amount: 1.5
-    base: Green Chartreuse
+    baseName: Green Chartreuse
   name: Diamondback
 - directions: Add all of the ingredients, save the flower water, to the mixing glass
     and stir for several minutes with plenty of cracked and non-cracked ice until
@@ -1880,14 +1880,14 @@
     in New York.
   ingredients:
   - amount: 3
-    base: Campari
+    baseName: Campari
   - amount: 2
-    base: Port
-  - base: Orange bitters
+    baseName: Port
+  - baseName: Orange bitters
     label: Three dashes
   - amount: 3
-    base: Rye
-  - base: Orange flower water
+    baseName: Rye
+  - baseName: Orange flower water
     label: Five drops
   name: Malena
 - directions: Pour all ingredients, except the bitters, into shaker filled with ice.
@@ -1901,37 +1901,37 @@
     \nAt least, so they say in Jamaica."
   ingredients:
   - amount: 4.5
-    base: Dark rum
+    baseName: Dark rum
   - amount: 3.5
-    base: Orange juice
+    baseName: Orange juice
   - amount: 3.5
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 1
-    base: Grenadine
+    baseName: Grenadine
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 1
-    base: Simple syrup
-  - base: Angostura bitters
+    baseName: Simple syrup
+  - baseName: Angostura bitters
     label: Three to four dashes
   name: Planter's Punch
 - directions: Build into old fashioned glass filled with ice. Stir gently.
   garnish: 0.5 orange slice
   glassware: old fashioned
-  information: While the drink''s origins are unknown, the most widely reported account
+  information: "While the drink's origins are unknown, the most widely reported account
     is that it was invented in Florence, Italy in 1919, at Cafe Casoni, ex Cafe Giacosa,
     now called Cafe Cavalli. Count Camillo Negroni invented it by asking the bartender,
     Fosco Scarselli, to strengthen his favorite cocktail, the Americano, by adding
     gin rather than the normal soda water. The bartender also added an orange garnish
     rather than the typical lemon garnish of the Americano to signify that it was
-    a different drink.
+    a different drink."
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
   - amount: 3
-    base: Campari
+    baseName: Campari
   - amount: 3
-    base: Vermouth
+    baseName: Vermouth
     label: Sweet/red
   name: Negroni
 - directions: Shake and strain into glass.
@@ -1951,11 +1951,11 @@
     \ Casino Royale, Chapter 7, \"Rouge et Noir'"
   ingredients:
   - amount: 6
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Vodka
+    baseName: Vodka
   - amount: 0.75
-    base: Lillet
+    baseName: Lillet
     label: Blanc
   name: Vesper
 - directions: Shake with ice cubes. Strain into glass.
@@ -1966,12 +1966,12 @@
   source: The Ideal Bartender
   ingredients:
   - amount: 1.5
-    base: Raspberry syrup
+    baseName: Raspberry syrup
   - amount: 4.5
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Lemon juice
-  - base: Egg white
+    baseName: Lemon juice
+  - baseName: Egg white
     label: Few drops
   name: Clover Club
 - directions: Shake with ice cubes, except for champagne. Strain into a champagne
@@ -1985,12 +1985,12 @@
     popularized in America at the Stork Club in New York.
   ingredients:
   - amount: 3
-    base: Gin
+    baseName: Gin
   - amount: 1.5
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 6
-    base: Champagne
-  - base: Simple syrup
+    baseName: Champagne
+  - baseName: Simple syrup
     label: Two dashes
   name: French 75
 - directions: 'In a mixing glass with ice, combine all ingredients except cider, stir
@@ -2002,11 +2002,11 @@
     as opposed to being overly saccharine.
   ingredients:
   - amount: 2
-    base: Lemon juice
+    baseName: Lemon juice
   - amount: 6
-    base: Rye
+    baseName: Rye
   - amount: 2
-    base: Maple syrup
+    baseName: Maple syrup
     label: Grade B
   name: Maple Leaf
 - directions: Dry shake the egg white and the lime juice. Add the remaining ingredients,
@@ -2020,12 +2020,12 @@
     in the 1930s, using half an ounce of bitters and additional rum.
   ingredients:
   - amount: 4.5
-    base: Angostura bitters
+    baseName: Angostura bitters
   - amount: 3
-    base: Simple syrup
+    baseName: Simple syrup
   - amount: 2
-    base: Lime juice
-  - base: Egg white
+    baseName: Lime juice
+  - baseName: Egg white
     label: One egg
   name: Angostura Sour
 - directions: Pour scotch and lime juice into ice-filled collins glass and lightly
@@ -2039,10 +2039,10 @@
     unknown.
   ingredients:
   - amount: 6
-    base: Scotch
+    baseName: Scotch
   - amount: 1
-    base: Lime juice
-  - base: Ginger ale
+    baseName: Lime juice
+  - baseName: Ginger ale
   name: Mamie Taylor
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass.
   garnish: Cherry
@@ -2054,11 +2054,11 @@
     the base liquor for something else in the whiskey family.
   ingredients:
   - amount: 5
-    base: Rye
+    baseName: Rye
   - amount: 2
-    base: Vermouth
+    baseName: Vermouth
     label: Red vermouth
-  - base: Angostura bitters
+  - baseName: Angostura bitters
     label: One dash
   name: Manhattan
 - directions: Shake and strain into glass.
@@ -2068,13 +2068,13 @@
     in the [Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).
   ingredients:
   - amount: 2
-    base: Scotch
+    baseName: Scotch
   - amount: 2
-    base: Orange juice
+    baseName: Orange juice
   - amount: 2
-    base: Cherry brandy
+    baseName: Cherry brandy
   - amount: 2
-    base: Vermouth
+    baseName: Vermouth
     label: Italian
   name: Blood and Sand
 - directions: Shake and strain over rocks (use a fine strainer if you want a lot of
@@ -2091,15 +2091,15 @@
     cocktail crowd, with notable bartenders putting their own personal stamp on it.
   ingredients:
   - amount: 4.5
-    base: Dark rum
+    baseName: Dark rum
   - amount: 4.5
-    base: Pineapple juice
+    baseName: Pineapple juice
   - amount: 2
-    base: Campari
+    baseName: Campari
   - amount: 1.5
-    base: Lime juice
+    baseName: Lime juice
   - amount: 1.5
-    base: Simple syrup
+    baseName: Simple syrup
   name: Jungle Bird
 - directions: Stir and strain into a chilled glass.
   glassware: cocktail
@@ -2111,9 +2111,9 @@
     and instead is attributed to originating in South Carolina.
   ingredients:
   - amount: 1.5
-    base: Yellow Chartreuse
+    baseName: Yellow Chartreuse
   - amount: 4.5
-    base: Gin
-  - base: Orange bitters
+    baseName: Gin
+  - baseName: Orange bitters
     label: Two dashes
   name: Alaska

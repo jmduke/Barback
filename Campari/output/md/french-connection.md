@@ -1,10 +1,11 @@
 {
     "directions": "Build into glass filled with ice cubes. Stir gently.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 28,
                 "brands": [],
                 "cocktaildb": "",
@@ -30,5 +31,6 @@
         }
     ],
     "name": "French Connection",
-    "slug": "french-connection"
+    "slug": "french-connection",
+    "source": ""
 }

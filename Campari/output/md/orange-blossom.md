@@ -1,10 +1,11 @@
 {
     "directions": "Pour the ingredients into a mixing glass with ice cubes.  Stir well and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -47,7 +48,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -76,5 +77,6 @@
         }
     ],
     "name": "Orange Blossom",
-    "slug": "orange-blossom"
+    "slug": "orange-blossom",
+    "source": ""
 }

@@ -1,11 +1,12 @@
 {
     "directions": "Shake with ice cubes. Strain into glass.",
+    "garnish": "",
     "glassware": "martini",
     "information": "The Clover Club Cocktail is a drink that pre-dates Prohibition, and is named for the Philadelphia men''s club of the same name, which met in the Bellevue-Stratford hotel.",
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=516",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -47,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -59,7 +60,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",

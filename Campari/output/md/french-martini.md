@@ -1,10 +1,11 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze oil from lemon peel onto the drink.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -46,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "French Martini",
-    "slug": "french-martini"
+    "slug": "french-martini",
+    "source": ""
 }

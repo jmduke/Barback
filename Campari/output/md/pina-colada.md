@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=296",
@@ -31,7 +31,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -55,5 +55,6 @@
         }
     ],
     "name": "Pina Colada",
-    "slug": "pina-colada"
+    "slug": "pina-colada",
+    "source": ""
 }
