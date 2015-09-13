@@ -26,9 +26,9 @@ public class DescriptionLabel : UILabel {
     }
 
     func styleLabel() {
-        let fontSize = UIFontDescriptor
+        let fontSize = max(UIFontDescriptor
             .preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
-            .pointSize
+            .pointSize, 16)
         font = UIFont(name: UIFont.heavyFont(), size: fontSize)
         textAlignment = NSTextAlignment.Center
         textColor = Color.Light.toUIColor()
