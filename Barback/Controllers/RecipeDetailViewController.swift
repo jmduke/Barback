@@ -70,7 +70,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         
         title = recipe!.name
 
-        favoriteButton.selected = favoritedRecipes.contains(recipe!)
+        favoriteButton.selected = recipe!.isFavorited
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
 
         directionsTextView.text = recipe!.directions
@@ -92,12 +92,6 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
                 realm.add(self.recipe!)
             }
         } catch { }
-        
-        if !favoriteButton.selected {
-            favoritedRecipes.append(recipe!)
-        } else {
-            favoritedRecipes.removeAtIndex(favoritedRecipes.indexOf(recipe!)!)
-        }
         
         favoriteButton.selected = !favoriteButton.selected
     }
@@ -212,7 +206,8 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     
     func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int) {
         let coachMark = view.coachMarks[index].rect
-        scrollView.setContentOffset(CGPoint(x: 0, y: coachMark.origin.y - 50), animated: true)
+        let y = min(scrollView.contentSize.height - UIScreen.mainScreen().bounds.size.height, coachMark.origin.y - 50)
+        scrollView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
     }
 
 }
