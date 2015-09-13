@@ -108,59 +108,10 @@ class RecipeDiagramView: UIView {
         if diagramScale < 1.0 {
             return
         }
-        
-        // BDE6BA
-        
+
         let garnishes = recipe!.parsedGarnishes
-        print(garnishes)
         for garnish in garnishes {
-            switch(garnish.base) {
-            case .Cherry?:
-                let cherryRadius = 10.0 * diagramScale
-                let insetRect = CGRect(origin: CGPoint(x: 20, y: 0), size: CGSize(width: cherryRadius, height: cherryRadius))
-                let diagram = UIBezierPath(ovalInRect: insetRect)
-                UIColor.fromHex("EEACAC").setFill()
-                diagram.fill()
-                UIColor.whiteColor().setStroke()
-                diagram.stroke()
-            case .Olive?:
-                let oliveRadius = 10.0 * diagramScale
-                let insetRect = CGRect(origin: CGPoint(x: 20, y: 0), size: CGSize(width: oliveRadius, height: oliveRadius))
-                let diagram = UIBezierPath(ovalInRect: insetRect)
-                UIColor.fromHex("BDE6BA").setFill()
-                diagram.fill()
-                UIColor.whiteColor().setStroke()
-                diagram.stroke()
-            case .Orange?:
-                //// General Declarations
-                //// General Declarations
-                let context = UIGraphicsGetCurrentContext()
-                
-                //// Color Declarations
-                let f7B63E = UIColor(red: 0.969, green: 0.714, blue: 0.243, alpha: 1.000)
-                
-                //// Bezier Drawing
-                CGContextSaveGState(context)
-                CGContextTranslateCTM(context, 33.18, -5.74)
-                CGContextRotateCTM(context, 45 * CGFloat(M_PI) / 180)
-                
-                let bezierPath = UIBezierPath()
-                bezierPath.moveToPoint(CGPointMake(22, -0))
-                bezierPath.addCurveToPoint(CGPointMake(0, 27), controlPoint1: CGPointMake(22, -0), controlPoint2: CGPointMake(0, 4))
-                bezierPath.addCurveToPoint(CGPointMake(22, 54), controlPoint1: CGPointMake(0, 50), controlPoint2: CGPointMake(22, 54))
-                bezierPath.addLineToPoint(CGPointMake(22, -0))
-                bezierPath.closePath()
-                f7B63E.setFill()
-                bezierPath.fill()
-                UIColor.whiteColor().setStroke()
-                bezierPath.stroke()
-                
-                CGContextRestoreGState(context)
-
-
-
-            default: break
-            }
+            garnish.draw(diagramScale)
         }
     }
 }
