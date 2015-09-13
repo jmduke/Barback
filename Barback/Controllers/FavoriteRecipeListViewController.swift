@@ -20,7 +20,7 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
     }
 
     override func filterRecipes(recipe: Recipe) -> Bool {
-        return favoritedRecipes.contains(recipe)
+        return recipe.isFavorited
     }
 
     override public func viewWillAppear(animated: Bool) {

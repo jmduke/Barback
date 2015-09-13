@@ -2,6 +2,7 @@ import Foundation
 import Barback
 import UIKit
 import Nimble
+import RealmSwift
 import Quick
 
 class FavoriteRecipeListViewControllerSpec: QuickSpec {
@@ -12,6 +13,18 @@ class FavoriteRecipeListViewControllerSpec: QuickSpec {
             
             var controller: FavoriteRecipeListViewController!
             beforeEach {
+
+                if (Recipe.favorites().isEmpty) {
+                    do {
+                        let realm = try Realm()
+                        realm.write {
+                            let recipe = Recipe.all().first!
+                            recipe.isFavorited = !recipe.isFavorited
+                            realm.add(recipe)
+                        }
+                    } catch { }
+                }
+                
                 controller = FavoriteRecipeListViewController()
                 let _ = controller.view
                 controller.viewWillAppear(true)
