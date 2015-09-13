@@ -19,7 +19,3 @@ var ingredientsForRecipes: [Recipe:[Ingredient]] = {
     }
     return dict
     }()
-
-var favoritedRecipes: [Recipe] = {
-    Recipe.favorites()
-    }()

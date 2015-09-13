@@ -111,7 +111,7 @@ public class ShoppingListViewController: RecipeListViewController, Shareable {
             cell = BaseCell(base: ingredient, reuseIdentifier: cellIdentifier)
         }
 
-        let recipeCount = favoritedRecipes.filter({ $0.usesIngredient(ingredient) }).count
+        let recipeCount = Recipe.favorites().filter({ $0.usesIngredient(ingredient) }).count
         let designator = recipeCount > 1 ? "recipes" : "recipe"
         cell!.detailTextLabel?.text = "Used in \(recipeCount) \(designator)"
 
