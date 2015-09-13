@@ -11,7 +11,7 @@ import UIKit
 
 public class DescriptionTextView : UITextView {
 
-    var markdownText: NSString? {
+    public var markdownText: NSString? {
         didSet {
             let parser = NSAttributedStringMarkdownParser()
             parser.paragraphFont = font
@@ -36,9 +36,9 @@ public class DescriptionTextView : UITextView {
     }
 
     func styleLabel() {
-        let fontSize = UIFontDescriptor
+        let fontSize = max(UIFontDescriptor
             .preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
-            .pointSize
+            .pointSize, 14)
         font = UIFont(name: UIFont.primaryFont(), size: fontSize)
         textAlignment = NSTextAlignment.Center
         backgroundColor = Color.Background.toUIColor()
