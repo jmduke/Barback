@@ -27,14 +27,16 @@ extension UIViewController {
         let caption = coachMarks[0].caption
         let prefix: AnyObject = caption.componentsSeparatedByString(" ")[0]
         let userDefaultsKey = "coachMarksFor\(prefix)"
-        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey) && true
+        let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey) && false
         
         if (haveCoachMarksBeenShown) {
             return
         }
 
         let frame = (attachedView as? UIScrollView)?.contentSize ?? attachedView.bounds.size
-        let coachMarksView = CoachMarksView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: attachedView.bounds.width, height: frame.height)), coachMarks: coachMarks)
+        
+        let visibleCoachMarks = coachMarks.filter({ $0.rect.height > 0 })
+        let coachMarksView = CoachMarksView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: attachedView.bounds.width, height: frame.height)), coachMarks: visibleCoachMarks)
     
         let fontSize = max(UIFontDescriptor
             .preferredFontDescriptorWithTextStyle(UIFontTextStyleSubheadline)
