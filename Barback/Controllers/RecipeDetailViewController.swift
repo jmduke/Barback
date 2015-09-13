@@ -31,6 +31,8 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     @IBOutlet var ingredientsTableViewHeight : NSLayoutConstraint!
     @IBOutlet var similarDrinksTableView: SimilarRecipeTableView!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
+    
+    var shareOverride: String?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         registerSettingsDefaults()
@@ -45,7 +47,8 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         let formatter = UIMarkupTextPrintFormatter(markupText: recipe!.htmlString)
         formatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72) // 1" margins
         
-        let activities = [printInfo, formatter, "Just made a \(recipe!.name) with @getbarback!", recipe!.url]
+        let shareString = shareOverride ?? "Just made a \(recipe!.name) with @getbarback!"
+        let activities = [printInfo, formatter, shareString, recipe!.url]
         return activities
     }
 
