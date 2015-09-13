@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 42,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=481",
                 "color": "4161BF",
@@ -46,7 +46,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -76,5 +76,6 @@
         }
     ],
     "name": "Black Martini #1",
-    "slug": "black-martini-1"
+    "slug": "black-martini-1",
+    "source": ""
 }

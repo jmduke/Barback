@@ -5,11 +5,11 @@
     "ingredients": [
         {
             "amount": 3.0,
-            "base": "Smith & Cross"
+            "baseName": "Smith & Cross"
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -39,7 +39,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 16,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=445",
@@ -52,7 +52,7 @@
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [],
                 "cocktaildb": "",

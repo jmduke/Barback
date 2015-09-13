@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into large glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -46,7 +47,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "White Lady",
-    "slug": "white-lady"
+    "slug": "white-lady",
+    "source": ""
 }

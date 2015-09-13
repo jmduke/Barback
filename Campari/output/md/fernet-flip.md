@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 39,
                 "brands": [],
                 "cocktaildb": "",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -48,7 +48,7 @@
             "label": "Carpano Antica"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -61,11 +61,11 @@
             "label": "One dash"
         },
         {
-            "base": "Chocolate bitters",
+            "baseName": "Chocolate bitters",
             "label": "Two dashes"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",

@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -33,7 +33,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=312",
@@ -45,7 +45,7 @@
             }
         },
         {
-            "base": "Club soda"
+            "baseName": "Club soda"
         }
     ],
     "name": "Presbyterian",

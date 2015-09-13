@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -28,7 +29,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 24,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=150",
@@ -42,7 +43,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -55,7 +56,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -68,5 +69,6 @@
         }
     ],
     "name": "Mary Pickford",
-    "slug": "mary-pickford"
+    "slug": "mary-pickford",
+    "source": ""
 }

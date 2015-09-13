@@ -1,11 +1,12 @@
 {
     "directions": "Shake with ice cubes, except for champagne. Strain into a champagne flute. Top up with champagne. Stir gently.",
+    "garnish": "",
     "glassware": "champagne flute",
     "information": "The drink was created in 1915 at the New York Bar in Paris (Harry's New York Bar) by barman Harry MacElhone. The combination was said to have such a kick that it felt like being shelled with the powerful French 75mm field gun, also called a *75 Cocktail*, or *Soixante Quinze* in French. The French 75 was popularized in America at the Stork Club in New York.",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -47,7 +48,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 12,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=432",
@@ -59,7 +60,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",

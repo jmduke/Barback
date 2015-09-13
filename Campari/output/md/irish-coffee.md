@@ -1,10 +1,11 @@
 {
     "directions": "Warm the Irish whiskey over a burner. Pour into the glass (for hot drink) hot coffee, and add a teaspoon of sugar. Float Cream on top.",
+    "garnish": "",
     "glassware": "mug",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -42,7 +43,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [
                     {
@@ -61,7 +62,7 @@
             "label": "Hot"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=281",
@@ -74,5 +75,6 @@
         }
     ],
     "name": "Irish Coffee",
-    "slug": "irish-coffee"
+    "slug": "irish-coffee",
+    "source": ""
 }

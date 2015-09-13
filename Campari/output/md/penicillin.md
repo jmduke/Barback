@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 38,
                 "brands": [],
                 "cocktaildb": "",
@@ -49,7 +49,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -62,7 +62,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -75,5 +75,6 @@
         }
     ],
     "name": "Penicillin",
-    "slug": "penicillin"
+    "slug": "penicillin",
+    "source": ""
 }

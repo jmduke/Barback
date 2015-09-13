@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=201",
                 "color": "fbff8a",
@@ -16,7 +17,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -29,7 +30,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -42,7 +43,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
@@ -55,5 +56,6 @@
         }
     ],
     "name": "Golden Dream",
-    "slug": "golden-dream"
+    "slug": "golden-dream",
+    "source": ""
 }

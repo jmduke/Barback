@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -25,7 +25,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -54,7 +54,7 @@
             "label": "Red vermouth"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",

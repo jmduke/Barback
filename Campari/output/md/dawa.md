@@ -1,10 +1,11 @@
 {
-    "directions": "Combine the vodka and ginger beer. Add lime juice.",
-    "garnish": "Lime slice",
-    "glassware": "highball",
+    "directions": "Into a rocks glass place lime chunks, honey and sugar. Muddle just enough to release the lime juice and mix with the honey and sugar, but not so much as to mash the pith (that will release a bitter flavour). Add some crushed ice, then the vodka and stir to combine ingredients and bring up the lime from the bottom of the glass. Add more ice until the glass is full, then garnish with a lime wheel.",
+    "garnish": "Lime wheel",
+    "glassware": "old-fashioned",
+    "information": "The word dawa is Swahili for medicine and after sampling the drink \u2014 a strong mixture of vodka, lime juice and honey \u2014 I can see it\u2019s been appropriately named. The Dawa first made a name for itself in Kenya, where it\u2019s as popular in Nairobi  as it is on safari as a sundowner cocktail. Since Tanzania borders Kenya, the drink is equally popular there.",
     "ingredients": [
         {
-            "amount": 4.5,
+            "amount": 6.0,
             "baseName": {
                 "abv": 40,
                 "brands": [
@@ -33,33 +34,35 @@
             }
         },
         {
-            "amount": 12,
             "baseName": {
                 "abv": 0,
                 "brands": [],
-                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=313",
-                "color": "D4E9BE",
-                "information": "Think of ginger beer as a sweeter ginger ale.  It is produced in two versions: brewed ginger beer (which includes home-brewed) or a carbonated drink flavored primarily with ginger and sweetened with sugar or artificial sweeteners.",
-                "name": "Ginger beer",
-                "slug": "ginger-beer",
-                "type": "mixer"
-            }
+                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=370",
+                "information": "Sugar is the generalized name for sweet, short-chain, soluble carbohydrates, many of which are used in food. They are carbohydrates, composed of carbon, hydrogen, and oxygen.",
+                "name": "Sugar",
+                "slug": "sugar",
+                "type": "other"
+            },
+            "label": "One teaspoon"
         },
         {
-            "amount": 0.5,
             "baseName": {
                 "abv": 0,
                 "brands": [],
-                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
-                "color": "C8E9CE",
+                "cocktaildb": "",
                 "information": "",
-                "name": "Lime juice",
-                "slug": "lime-juice",
+                "name": "Honey",
+                "slug": "honey",
                 "type": "other"
-            }
+            },
+            "label": "One tablespoon"
+        },
+        {
+            "baseName": "Lime",
+            "label": "quartered"
         }
     ],
-    "name": "Moscow Mule",
-    "slug": "moscow-mule",
-    "source": ""
+    "name": "Dawa",
+    "slug": "dawa",
+    "source": "Kenya"
 }

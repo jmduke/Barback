@@ -20,5 +20,5 @@ def convert_ingredient_to_dict(ingredient):
     if len(splits) > 1:
         parsed_ingredient["label"] = splits[-1][:-1]
 
-    parsed_ingredient["base"] = splits[0].lstrip().strip()
+    parsed_ingredient["baseName"] = splits[0].lstrip().strip()
     return parsed_ingredient

@@ -1,10 +1,11 @@
 {
     "directions": "Pour Cr\u00e9me de Cassis into glass, top up with white wine. For Kir Royal: Use champagne instead of white wine.",
+    "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 12,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=468",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -32,5 +33,6 @@
         }
     ],
     "name": "Kir",
-    "slug": "kir"
+    "slug": "kir",
+    "source": ""
 }

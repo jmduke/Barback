@@ -1,11 +1,12 @@
 {
     "directions": "Pour gin, Pimm\u2019s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices.",
+    "garnish": "",
     "glassware": "highball",
     "information": "Straight-up (well, not literally) summertime.  This recipe comes to us from [smittenkitchen](http://smittenkitchen.com/blog/2010/07/porch-swing/), who credits [Porch Swing](http://www.bluesmoke.com/) with the original conception.",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +36,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [],
                 "cocktaildb": "",
@@ -48,7 +49,7 @@
         },
         {
             "amount": 12.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=327",
@@ -60,10 +61,10 @@
             }
         },
         {
-            "base": "7-Up"
+            "baseName": "7-Up"
         },
         {
-            "base": "Cucumber",
+            "baseName": "Cucumber",
             "label": "half-moon slices"
         }
     ],

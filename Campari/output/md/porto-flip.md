@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into cocktail glass. Sprinkle with fresh ground nutmeg.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [],
                 "cocktaildb": "",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=476",
@@ -43,5 +44,6 @@
         }
     ],
     "name": "Porto Flip",
-    "slug": "porto-flip"
+    "slug": "porto-flip",
+    "source": ""
 }

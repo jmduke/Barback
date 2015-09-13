@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -32,7 +32,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=303",
@@ -45,7 +45,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -75,5 +75,6 @@
         }
     ],
     "name": "Cosmopolitan",
-    "slug": "cosmopolitan"
+    "slug": "cosmopolitan",
+    "source": ""
 }

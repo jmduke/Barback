@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 9.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -64,10 +64,10 @@
         },
         {
             "amount": 2.0,
-            "base": "Apricot liqueur"
+            "baseName": "Apricot liqueur"
         },
         {
-            "base": "Chocolate bitters",
+            "baseName": "Chocolate bitters",
             "label": "Three dashes"
         }
     ],

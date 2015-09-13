@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -64,7 +64,7 @@
             "label": "Dry"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",
@@ -77,7 +77,7 @@
             "label": "Three dashes"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -90,7 +90,7 @@
             "label": "Half barspoon"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 50,
                 "brands": [
                     {
@@ -110,5 +110,6 @@
         }
     ],
     "name": "Tuxedo",
-    "slug": "tuxedo"
+    "slug": "tuxedo",
+    "source": ""
 }

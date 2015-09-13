@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -54,5 +55,6 @@
         }
     ],
     "name": "Daiquiri",
-    "slug": "daiquiri"
+    "slug": "daiquiri",
+    "source": ""
 }

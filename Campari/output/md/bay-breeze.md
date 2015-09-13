@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=303",
@@ -47,7 +47,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
@@ -60,5 +60,6 @@
         }
     ],
     "name": "Bay Breeze",
-    "slug": "bay-breeze"
+    "slug": "bay-breeze",
+    "source": ""
 }

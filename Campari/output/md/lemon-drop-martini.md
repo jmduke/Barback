@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 2.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -48,7 +48,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -61,5 +61,6 @@
         }
     ],
     "name": "Lemon Drop Martini",
-    "slug": "lemon-drop-martini"
+    "slug": "lemon-drop-martini",
+    "source": ""
 }

@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -24,7 +24,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -48,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -62,7 +62,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=342",
                 "color": "F5E9D0",
@@ -74,7 +74,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -87,5 +87,6 @@
         }
     ],
     "name": "Mai-tai",
-    "slug": "mai-tai"
+    "slug": "mai-tai",
+    "source": ""
 }

@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -28,7 +29,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -41,7 +42,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -54,7 +55,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -67,5 +68,6 @@
         }
     ],
     "name": "Between the Sheets",
-    "slug": "between-the-sheets"
+    "slug": "between-the-sheets",
+    "source": ""
 }

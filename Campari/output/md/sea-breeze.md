@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=316",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=303",
@@ -31,7 +31,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -60,5 +60,6 @@
         }
     ],
     "name": "Sea Breeze",
-    "slug": "sea-breeze"
+    "slug": "sea-breeze",
+    "source": ""
 }

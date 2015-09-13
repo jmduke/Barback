@@ -1,11 +1,12 @@
 {
     "directions": "Combine ingredients with ice and stir until well-chilled. Strain into a chilled cocktail glass.",
+    "garnish": "",
     "glassware": "martini",
     "information": "The Obituary is an intriguing spin on a gin martini, probably getting its morbid name from the inclusion of absinthe (though a pastis like Pernod can be substituted). The result is a completely new drink; the introduction of an anise-y flavor highlights the aromatics already present in both gin and vermouth.",
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 1.0,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -64,7 +65,7 @@
         },
         {
             "amount": 1.0,
-            "base": {
+            "baseName": {
                 "abv": 50,
                 "brands": [
                     {
@@ -83,5 +84,6 @@
         }
     ],
     "name": "Obituary",
-    "slug": "obituary"
+    "slug": "obituary",
+    "source": ""
 }

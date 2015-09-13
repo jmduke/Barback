@@ -1,10 +1,11 @@
 {
     "directions": "Pour all ingredients into a cocktail shaker.  Shake and strain into a glass filled with ice.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Mudslide",
-    "slug": "mudslide"
+    "slug": "mudslide",
+    "source": ""
 }
