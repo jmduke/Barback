@@ -102,6 +102,11 @@ class RecipeWizardViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
         let destinationController = getRecipeDetailController(segue)
-        destinationController.setRecipeAs(getRecipe())
+        destinationController.recipe = getRecipe()
+        
+        
+        let selectedBaseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
+        destinationController.shareOverride = "Asked @GetBarback to make me something \(firstAdjectiveSegmentedControl.selectedFlavor) and \(secondAdjectiveSegmentedControl.selectedAdjective) with \(selectedBaseGroup) -- they made me a \(destinationController.recipe!.name)!"
+        print(destinationController.shareOverride)
     }
 }
