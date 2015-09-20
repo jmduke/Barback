@@ -1,10 +1,11 @@
 {
     "directions": "Stir well with cracked ice, then strain into a chilled glass.",
+    "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -23,7 +24,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -42,7 +43,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [],
                 "cocktaildb": "",
@@ -54,7 +55,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",
@@ -67,7 +68,7 @@
             "label": "One dash"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -81,5 +82,6 @@
         }
     ],
     "name": "Suburban",
-    "slug": "suburban"
+    "slug": "suburban",
+    "source": ""
 }

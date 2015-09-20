@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -47,7 +47,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -61,7 +61,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 8,
                 "brands": [],
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=289",
@@ -74,5 +74,6 @@
         }
     ],
     "name": "Scottish Orchard",
-    "slug": "scottish-orchard"
+    "slug": "scottish-orchard",
+    "source": ""
 }

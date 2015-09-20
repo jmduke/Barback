@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -25,7 +25,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 16,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=445",
@@ -38,7 +38,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 16.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -51,7 +51,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -64,5 +64,6 @@
         }
     ],
     "name": "The Second Year",
-    "slug": "the-second-year"
+    "slug": "the-second-year",
+    "source": ""
 }

@@ -3,7 +3,7 @@ function abv(ingredients) {
   var totalVolume = 0;
   for (var index in ingredients) {
     var ingredient = ingredients[index];
-    var base = ingredient.base;
+    var base = ingredient.baseName;
     if (!ingredient.amount) {
       continue;
     }
@@ -85,10 +85,10 @@ function drawRecipe(glass, ingredients, selector) {
         // Get color for ratio.
         var fill_color = BACKGROUND_COLOR;
         if (i > 1) {
-            if (ingredient && ingredient.base && bases[ingredient.base]) {
-                fill_color = "#" + bases[ingredient.base].color;
-            } else if (ingredient && ingredient.base.color) {
-                fill_color = "#" + ingredient.base.color;
+            if (ingredient && ingredient.baseName && bases[ingredient.baseName]) {
+                fill_color = "#" + bases[ingredient.baseName].color;
+            } else if (ingredient && ingredient.baseName.color) {
+                fill_color = "#" + ingredient.baseName.color;
             } else {
                 fill_color = FALLBACK_COLOR;
             }

@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=327",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [],
                 "cocktaildb": "",
@@ -31,5 +31,6 @@
         }
     ],
     "name": "Pimm's Cup",
-    "slug": "pimms-cup"
+    "slug": "pimms-cup",
+    "source": ""
 }

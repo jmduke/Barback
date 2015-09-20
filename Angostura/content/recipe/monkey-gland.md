@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -45,7 +46,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -58,7 +59,7 @@
             "label": "Two drops"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 50,
                 "brands": [
                     {
@@ -78,5 +79,6 @@
         }
     ],
     "name": "Monkey Gland",
-    "slug": "monkey-gland"
+    "slug": "monkey-gland",
+    "source": ""
 }

@@ -1,11 +1,12 @@
 {
     "directions": "Mix all ingredients in an old fashioned glass over ice; stir.",
+    "garnish": "",
     "glassware": "old fashioned",
     "information": "Comes from **Columbia Room** in Washington, D.C.",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -25,7 +26,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 16.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -38,7 +39,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -51,7 +52,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -64,5 +65,6 @@
         }
     ],
     "name": "The Getaway",
-    "slug": "the-getaway"
+    "slug": "the-getaway",
+    "source": ""
 }

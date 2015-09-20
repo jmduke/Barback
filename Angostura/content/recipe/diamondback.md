@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -25,7 +25,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
@@ -37,7 +37,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 50,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=527",
@@ -50,5 +50,6 @@
         }
     ],
     "name": "Diamondback",
-    "slug": "diamondback"
+    "slug": "diamondback",
+    "source": ""
 }

@@ -1,12 +1,12 @@
 {
     "directions": "Stir with ice and strain into a cocktail glass. Garnish with a Maraschino cherry.",
-    "garnish": "Maraschino cherry",
+    "garnish": "Cherry",
     "glassware": "cocktail",
     "information": "This sweet, robust drink comes to us from [cocktail virgin/slut](http://cocktailvirgin.blogspot.com/2011/10/coney-island.html).",
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -25,7 +25,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 16,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=445",
@@ -38,7 +38,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -50,7 +50,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",

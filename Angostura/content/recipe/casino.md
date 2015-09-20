@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 24,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=150",
@@ -49,7 +49,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",
@@ -62,7 +62,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -75,5 +75,6 @@
         }
     ],
     "name": "Casino",
-    "slug": "casino"
+    "slug": "casino",
+    "source": ""
 }

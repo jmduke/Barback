@@ -1,10 +1,11 @@
 {
     "directions": "Stir all ingredients with ice and strain into a cocktail glass.  Add three dashes of syrup.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=74",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -46,7 +47,7 @@
             "label": "Dry"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=369",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Rose",
-    "slug": "rose"
+    "slug": "rose",
+    "source": ""
 }

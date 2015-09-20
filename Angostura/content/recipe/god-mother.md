@@ -1,10 +1,11 @@
 {
     "directions": "Build into old fashioned glass filled with ice cubes. Stir gently.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 28,
                 "brands": [],
                 "cocktaildb": "",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -46,5 +47,6 @@
         }
     ],
     "name": "God Mother",
-    "slug": "god-mother"
+    "slug": "god-mother",
+    "source": ""
 }

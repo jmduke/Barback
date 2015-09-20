@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -45,7 +46,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Tommy's Margarita",
-    "slug": "tommys-margarita"
+    "slug": "tommys-margarita",
+    "source": ""
 }

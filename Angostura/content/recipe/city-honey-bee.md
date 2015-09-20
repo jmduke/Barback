@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=415",
@@ -31,7 +31,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -61,5 +61,6 @@
         }
     ],
     "name": "City Honey Bee",
-    "slug": "city-honey-bee"
+    "slug": "city-honey-bee",
+    "source": ""
 }

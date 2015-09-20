@@ -5,7 +5,7 @@
     "information": "Bartender Jeffrey Morgenthaler of the Clyde Common in Portland, Oregon, created the Flannel Shirt for an autumnal event. Using classic fall flavors -- apple, earth, spice and smoke -- he whipped up this fleecy, bone-warming drink with the bold backbone of Scotch and a wonderful supporting cast. Morgenthaler says, ''It reminds me of a hot drink that you''d have on Thanksgiving morning -- only served cold.''",
     "ingredients": [
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -48,7 +48,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=273",
@@ -61,7 +61,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "",
@@ -74,7 +74,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -86,7 +86,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=372",
@@ -99,10 +99,11 @@
             "label": "One teaspoon"
         },
         {
-            "base": "Allspice Dram",
+            "baseName": "Allspice Dram",
             "label": "Half teaspoon"
         }
     ],
     "name": "Flannel Shirt",
-    "slug": "flannel-shirt"
+    "slug": "flannel-shirt",
+    "source": ""
 }

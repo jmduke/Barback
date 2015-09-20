@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -29,7 +29,7 @@
             "label": "Bourbon or rye whiskey"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -40,7 +40,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -53,5 +53,6 @@
         }
     ],
     "name": "Old Fashioned",
-    "slug": "old-fashioned"
+    "slug": "old-fashioned",
+    "source": ""
 }

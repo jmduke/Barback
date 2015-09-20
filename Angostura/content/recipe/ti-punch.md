@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 42,
                 "brands": [],
                 "cocktaildb": "",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -31,5 +31,6 @@
         }
     ],
     "name": "Ti' Punch",
-    "slug": "ti-punch"
+    "slug": "ti-punch",
+    "source": ""
 }

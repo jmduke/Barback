@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 2.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=246",
@@ -47,5 +47,6 @@
         }
     ],
     "name": "Rusty Nail",
-    "slug": "rusty-nail"
+    "slug": "rusty-nail",
+    "source": ""
 }

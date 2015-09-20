@@ -1,11 +1,12 @@
 {
     "directions": "Make a large lemon twist, rub it on the glass rim, drop it into the glass. Stir first two ingredients with ice. Strain into a glass. Top with beer and and then sparkling wine.\n",
+    "garnish": "",
     "glassware": "highball",
     "information": "This is a *shandy* -- a beer cocktail -- created by the fine folks at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies are considered warm-weather drinks.",
     "ingredients": [
         {
             "amount": 9.0,
-            "base": {
+            "baseName": {
                 "abv": 8,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=10",
@@ -19,7 +20,7 @@
         },
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "color": "FFF7DB",
                 "information": "",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -43,7 +44,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {

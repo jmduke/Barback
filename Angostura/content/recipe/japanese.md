@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=342",
                 "color": "F5E9D0",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -30,7 +30,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -44,5 +44,6 @@
         }
     ],
     "name": "Japanese",
-    "slug": "japanese"
+    "slug": "japanese",
+    "source": ""
 }

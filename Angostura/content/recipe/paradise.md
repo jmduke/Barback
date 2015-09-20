@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [],
                 "cocktaildb": "",
@@ -46,7 +47,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Paradise",
-    "slug": "paradise"
+    "slug": "paradise",
+    "source": ""
 }

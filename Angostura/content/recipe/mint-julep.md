@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=415",
@@ -17,7 +17,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=383",
@@ -30,7 +30,7 @@
             "label": "Two teaspoons"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=631",
@@ -42,10 +42,11 @@
             "label": "One teaspoon"
         },
         {
-            "base": "Mint sprigs",
+            "baseName": "Mint sprigs",
             "label": "Four"
         }
     ],
     "name": "Mint Julep",
-    "slug": "mint-julep"
+    "slug": "mint-julep",
+    "source": ""
 }

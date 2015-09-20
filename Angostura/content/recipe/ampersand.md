@@ -1,10 +1,11 @@
 {
     "directions": "Stir all ingredients with ice. Strain into glass.",
+    "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -64,7 +65,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [
                     {
@@ -87,7 +88,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",
@@ -100,9 +101,10 @@
             "label": "Two dashes"
         },
         {
-            "base": "Orange cura\u00e7ao"
+            "baseName": "Orange cura\u00e7ao"
         }
     ],
     "name": "Ampersand",
-    "slug": "ampersand"
+    "slug": "ampersand",
+    "source": ""
 }

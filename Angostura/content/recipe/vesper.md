@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -64,7 +64,7 @@
         },
         {
             "amount": 0.75,
-            "base": {
+            "baseName": {
                 "abv": 17,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=480",

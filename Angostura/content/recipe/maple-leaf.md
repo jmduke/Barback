@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -38,10 +38,10 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
-                "cocktaildb": null,
+                "cocktaildb": "",
                 "color": "C5906C",
                 "information": "Good in cocktails.  Great on waffles.",
                 "name": "Maple syrup",
@@ -52,5 +52,6 @@
         }
     ],
     "name": "Maple Leaf",
-    "slug": "maple-leaf"
+    "slug": "maple-leaf",
+    "source": ""
 }

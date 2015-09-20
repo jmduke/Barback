@@ -1,10 +1,11 @@
 {
     "directions": "Shake with ice cubes. Strain into glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=61",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [],
                 "cocktaildb": "",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Angel Face",
-    "slug": "angel-face"
+    "slug": "angel-face",
+    "source": ""
 }
