@@ -162,7 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeDependencies(launchOptions)
         registerPushNotifications(application)
         styleApp()
-        // syncData()
+        syncData()
         return true
     }
     
