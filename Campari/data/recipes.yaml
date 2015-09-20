@@ -1,3 +1,75 @@
+- name: Rico Suave
+  source: The Raymond Restaurant
+  ingredients:
+  - 6cl Pineapple juice
+  - 3cl Rye
+  - Simple syrup (One barspoon)
+  - Smoked salt (One dash)
+  - Angostura bitters (One dash)
+  - Beer (Hefeweizen)
+  directions: "Shake the juice, rye, simple syrup, and salt with ice. Strain into a pint glass. Top with the hefeweizen. You're going to want to pour it over a bar spoon to try and avoid some of the foam."
+  garnish: ""
+  glassware: highball
+  information: "" 
+- name: Suffering Bastard
+  source: Esquire
+  ingredients:
+  - 3cl Whiskey
+  - 3cl Gin
+  - 3cl Lime juice
+  - Angostura bitters (One dash)
+  - 12cl Ginger ale
+  directions: "Pour ingredients into an ice-filled Old Fashioned glass and top with ginger ale, adding more ice if needed."
+  garnish: Orange slice
+  glassware: old-fashioned
+  information: "The drink's genesis can be traced to the Long Bar at the Shepheard Hotel in Cairo. As the story goes, in the late 1940s, the Shepheard's bar steward was Joe Scialom. One day in 1947, according to Esquire, Scialom was desperate for a hangover remedy and the Suffering Bar Steward (soon somewhat sloppily rechristened as the Suffering Bastard) was the result."
+- name: English Garden
+  source: ""
+  ingredients:
+  - 4.5cl Gin (Hendrick's)
+  - 1.5cl Elderflower liqueur
+  - .5cl Rose water
+  - 1cl Simple syrup
+  - 1cl Lime juice
+  - Cucumber (one fourth)
+  directions: "Muddle cucmber, lime, syrup and rose water. Add gin and st germain. Shake with ice. Double strain over ice. Top with tonic. Garnish with cucumber."
+  garnish: Cucumber slice
+  glassware: Collins
+  information: ""
+- name: Black Watch
+  source: https://www.youtube.com/watch?v=q9Vqc0T1dOg
+  ingredients: 
+  - 4.5cl Scotch
+  - 2cl Coffee liqueur
+  - Soda water
+  directions: "Build in chilled rocks glass over large ice. Add Scotch and Coffee Liqueur. Top with soda (optional). Garnish with Lemon Twist."
+  garnish: Lemon twist
+  glassware: rocks
+  information: "Like most Scotch cocktails, this one is usually made with a blended Scotch, but this one benefits from a Scotch with an emphasis on the smoky flavors.  Additionally, the liqueur you use will have a big impact on the drink, so choose wisely."
+- name: Kingston Club
+  source: Jeffrey Morgenthaler
+  ingredients:
+  - 4.5cl Drambuie
+  - 4.5cl Pineapple juice
+  - 2cl Lime juice
+  - Fernet Branca (One tablespoon)
+  - Angostura bitters (Three dashes)
+  - 3cl Soda
+  directions: "Shake ingredients with ice and finish with 1 oz soda water. Strain mix over fresh ice into a chilled collins glass and garnish with an orange twist."
+  garnish: Orange twist
+  glassware: Collins
+  information: ""
+- name: Black Donald
+  source: http://smallscreennetwork.com/video/492/raising_the_bar_black_donald
+  ingredients: 
+  - 4.5cl Scotch
+  - 2cl Drambuie
+  - 2cl Lime juice
+  - Ginger beer
+  directions: "Shake first three ingredients with ice. Strain into an ice filled collins glass. Top with ginger beer.  Garnish with a lime wheel."
+  garnish: Lime wheel
+  glassware: collins
+  information: ""
 - name: Dawa
   source: Kenya
   ingredients:
@@ -1515,6 +1587,7 @@
     baseName: Pineapple juice
   name: Bay Breeze
 - directions: Pour the liquors into a glass filled with ice.  Fill with orange juice.
+  information: Think of it as a slightly classier, fruit-forward version of a Long Island.
   glassware: highball
   ingredients:
   - amount: 1.5

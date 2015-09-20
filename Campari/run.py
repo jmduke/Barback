@@ -17,20 +17,24 @@ def load_bases_from_yaml(bases_filename):
     return raw_bases
 
 def write_to_json(objects, filename):
-	json_objects = json.dumps(objects)
-	with open(filename, 'w') as outfile:
-		outfile.write(json_objects)
+    json_objects = json.dumps(objects)
+    with open(filename, 'w') as outfile:
+        outfile.write(json_objects)
 
 def write_to_markdown(recipes, bases, foldername):
-	for recipe in recipes:
-		for (i, ingredient) in enumerate(recipe["ingredients"]):
-			base_name = recipe["ingredients"][i]["baseName"]
-			base = next((base for base in bases if base['name'] == base_name), None)
-			if base:
-				recipe["ingredients"][i]["baseName"] = base
-		json_recipe = json.dumps(recipe, sort_keys=True, indent=4, separators=(',', ': '))
-		with open(foldername + recipe['slug'] + ".md", "w") as outfile:
-			outfile.write(json_recipe)
+    for recipe in recipes:
+        for (i, ingredient) in enumerate(recipe["ingredients"]):
+            base_name = recipe["ingredients"][i]["baseName"]
+            base = next((base for base in bases if base['name'] == base_name), None)
+            if base:
+                recipe["ingredients"][i]["baseName"] = base
+        json_recipe = json.dumps(recipe, sort_keys=True, indent=4, separators=(',', ': '))
+        with open(foldername + "recipe/" + recipe['slug'] + ".md", "w") as outfile:
+            outfile.write(json_recipe)
+    for base in bases:
+        json_base = json.dumps(base, sort_keys=True, indent=4, separators=(',', ': '))
+        with open(foldername + "base/" + base['slug'] + ".md", "w") as outfile:
+            outfile.write(json_base)
 
 
 if __name__ == "__main__":
