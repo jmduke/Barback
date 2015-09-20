@@ -1,3 +1,4 @@
+
 var container = $('.recipes');
 
 container.isotope({

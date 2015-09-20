@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=316",
@@ -48,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -61,7 +61,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -74,5 +74,6 @@
         }
     ],
     "name": "Pamplemousse",
-    "slug": "pamplemousse"
+    "slug": "pamplemousse",
+    "source": ""
 }

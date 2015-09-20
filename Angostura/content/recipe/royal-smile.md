@@ -1,11 +1,12 @@
 {
     "directions": "Add all ingredients to shaker, fill completely with ice and shake vigorously.",
+    "garnish": "",
     "glassware": "cocktail",
     "information": "Autumn in a cocktail glass.",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -34,7 +35,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
@@ -47,7 +48,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -60,7 +61,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
@@ -72,5 +73,6 @@
         }
     ],
     "name": "Royal Smile",
-    "slug": "royal-smile"
+    "slug": "royal-smile",
+    "source": ""
 }

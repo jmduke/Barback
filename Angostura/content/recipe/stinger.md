@@ -1,10 +1,11 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -31,5 +32,6 @@
         }
     ],
     "name": "Stinger",
-    "slug": "stinger"
+    "slug": "stinger",
+    "source": ""
 }

@@ -1,10 +1,11 @@
 {
     "directions": "Pour peach puree into chilled glass and add sparkling wine. Stir gently. Variations: Puccini (fresh mandarin juice), Rossini (fresh strawberry puree), Tintoretto (fresh pomegranate juice)",
+    "garnish": "",
     "glassware": "champagne flute",
     "ingredients": [
         {
             "amount": 10,
-            "base": {
+            "baseName": {
                 "abv": 11,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=444",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "color": "C3FFC2",
                 "information": "",

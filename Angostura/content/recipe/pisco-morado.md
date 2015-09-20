@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=78",
@@ -19,15 +19,15 @@
         },
         {
             "amount": 3.0,
-            "base": "Chicha Morada base"
+            "baseName": "Chicha Morada base"
         },
         {
-            "base": "Lime",
+            "baseName": "Lime",
             "label": "half"
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",

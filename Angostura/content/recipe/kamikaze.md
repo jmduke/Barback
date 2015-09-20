@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -46,7 +47,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
@@ -59,5 +60,6 @@
         }
     ],
     "name": "Kamikaze",
-    "slug": "kamikaze"
+    "slug": "kamikaze",
+    "source": ""
 }

@@ -1,11 +1,12 @@
 {
     "directions": "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into chilled cocktail glass.",
+    "garnish": "",
     "glassware": "cocktail",
     "information": "",
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -18,7 +19,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -31,7 +32,7 @@
         },
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 43,
                 "brands": [
                     {
@@ -59,7 +60,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -73,5 +74,6 @@
         }
     ],
     "name": "Mark Twain",
-    "slug": "mark-twain"
+    "slug": "mark-twain",
+    "source": ""
 }

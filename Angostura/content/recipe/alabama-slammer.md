@@ -1,10 +1,12 @@
 {
     "directions": "Pour the liquors into a glass filled with ice.  Fill with orange juice.",
+    "garnish": "",
     "glassware": "highball",
+    "information": "Think of it as a slightly classier, fruit-forward version of a Long Island.",
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=183",
@@ -17,7 +19,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -46,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [
                     {
@@ -65,7 +67,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=231",
@@ -78,7 +80,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -91,5 +93,6 @@
         }
     ],
     "name": "Alabama Slammer",
-    "slug": "alabama-slammer"
+    "slug": "alabama-slammer",
+    "source": ""
 }

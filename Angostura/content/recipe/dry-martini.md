@@ -1,10 +1,11 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze oil from lemon peel onto the drink, or garnish with olive.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -63,5 +64,6 @@
         }
     ],
     "name": "Dry Martini",
-    "slug": "dry-martini"
+    "slug": "dry-martini",
+    "source": ""
 }

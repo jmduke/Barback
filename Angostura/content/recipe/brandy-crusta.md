@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -17,11 +17,11 @@
             }
         },
         {
-            "base": "Orange cura\u00e7ao",
+            "baseName": "Orange cura\u00e7ao",
             "label": "One teaspoon"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -34,7 +34,7 @@
             "label": "One dash"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -48,5 +48,6 @@
         }
     ],
     "name": "Brandy Crusta",
-    "slug": "brandy-crusta"
+    "slug": "brandy-crusta",
+    "source": ""
 }

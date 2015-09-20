@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -36,11 +36,11 @@
         },
         {
             "amount": 3.0,
-            "base": "Watermelon juice"
+            "baseName": "Watermelon juice"
         },
         {
             "amount": 2.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -53,7 +53,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 11,
                 "brands": [],
                 "cocktaildb": "",
@@ -66,7 +66,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",

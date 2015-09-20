@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=303",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -47,7 +47,7 @@
         },
         {
             "amount": 2,
-            "base": {
+            "baseName": {
                 "abv": 23,
                 "brands": [],
                 "cocktaildb": "",
@@ -60,7 +60,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
@@ -73,5 +73,6 @@
         }
     ],
     "name": "Sex on the Beach",
-    "slug": "sex-on-the-beach"
+    "slug": "sex-on-the-beach",
+    "source": ""
 }

@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled cocktail glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 4.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 24,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=150",
@@ -47,7 +48,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",

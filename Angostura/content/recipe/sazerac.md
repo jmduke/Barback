@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 50,
                 "brands": [
                     {
@@ -37,7 +37,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -48,7 +48,7 @@
             }
         },
         {
-            "base": "Peychaud\u2019s bitters",
+            "baseName": "Peychaud\u2019s bitters",
             "label": "Two dashes"
         }
     ],

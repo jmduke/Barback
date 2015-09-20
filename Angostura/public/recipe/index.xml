@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recipes on My New Hugo Site</title>
+    <title>Recipes on Barback</title>
     <link>http://localhost:1313/recipe/</link>
-    <description>Recent content in Recipes on My New Hugo Site</description>
+    <description>Recent content in Recipes on Barback</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/recipe/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/absinthe/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/absinthe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/agave-nectar/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/agave-nectar/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title></title>
@@ -46,6 +28,15 @@
     
     <item>
       <title></title>
+      <link>http://localhost:1313/recipe/americano/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/americano/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>http://localhost:1313/recipe/alaska/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -55,28 +46,10 @@
     
     <item>
       <title></title>
-      <link>http://localhost:1313/recipe/amaretto/</link>
+      <link>http://localhost:1313/recipe/ampersand/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/recipe/amaretto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/amaro-averna/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/amaro-averna/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/americano/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/americano/</guid>
+      <guid>http://localhost:1313/recipe/ampersand/</guid>
       <description></description>
     </item>
     
@@ -100,28 +73,10 @@
     
     <item>
       <title></title>
-      <link>http://localhost:1313/recipe/ampersand/</link>
+      <link>http://localhost:1313/recipe/angostura-sour/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/recipe/ampersand/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/aperol/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/aperol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/recipe/angostura-bitters/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/recipe/angostura-bitters/</guid>
+      <guid>http://localhost:1313/recipe/angostura-sour/</guid>
       <description></description>
     </item>
     
@@ -136,10 +91,55 @@
     
     <item>
       <title></title>
-      <link>http://localhost:1313/recipe/angostura-sour/</link>
+      <link>http://localhost:1313/recipe/ashtray-heart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/recipe/angostura-sour/</guid>
+      <guid>http://localhost:1313/recipe/ashtray-heart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/recipe/b52/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/b52/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/recipe/astor-hotel-special/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/astor-hotel-special/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/recipe/bacardi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/bacardi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/recipe/barracuda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/barracuda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/recipe/aviation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/recipe/aviation/</guid>
       <description></description>
     </item>
     

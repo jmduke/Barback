@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 9,
-            "base": {
+            "baseName": {
                 "abv": 12,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=432",
@@ -31,7 +31,7 @@
             "label": "Chilled"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -42,7 +42,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -56,5 +56,6 @@
         }
     ],
     "name": "Champagne Cocktail",
-    "slug": "champagne-cocktail"
+    "slug": "champagne-cocktail",
+    "source": ""
 }

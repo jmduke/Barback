@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=312",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -30,7 +30,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -44,5 +44,6 @@
         }
     ],
     "name": "Horse's Neck",
-    "slug": "horses-neck"
+    "slug": "horses-neck",
+    "source": ""
 }

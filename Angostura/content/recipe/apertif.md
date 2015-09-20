@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -35,7 +35,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 24,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=28",
@@ -48,7 +48,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -61,5 +61,6 @@
         }
     ],
     "name": "Apertif",
-    "slug": "apertif"
+    "slug": "apertif",
+    "source": ""
 }

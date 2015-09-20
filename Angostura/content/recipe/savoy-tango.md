@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 9.0,
-            "base": {
+            "baseName": {
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
@@ -19,7 +19,7 @@
         },
         {
             "amount": 9.0,
-            "base": {
+            "baseName": {
                 "abv": 25,
                 "brands": [
                     {

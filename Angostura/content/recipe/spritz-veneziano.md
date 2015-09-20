@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 11,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=444",
@@ -18,7 +18,7 @@
         },
         {
             "amount": 4,
-            "base": {
+            "baseName": {
                 "abv": 11,
                 "brands": [],
                 "cocktaildb": "",
@@ -30,7 +30,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -44,5 +44,6 @@
         }
     ],
     "name": "Spritz Veneziano",
-    "slug": "spritz-veneziano"
+    "slug": "spritz-veneziano",
+    "source": ""
 }

@@ -24,6 +24,9 @@
           <h3>Directions</h3>
           <p>{{ .Params.directions | markdownify }}</p>
         {{ end }}
+
+        <hr />
+        {{ partial "tweet.html" . }}
     </div>
       <div class="col-xs-12 col-md-6">
       <br />

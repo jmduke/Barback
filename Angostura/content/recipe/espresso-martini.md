@@ -1,10 +1,11 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "garnish": "",
     "glassware": "martini",
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -33,7 +34,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -46,7 +47,7 @@
             "label": "Kahl\u00faa"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -58,7 +59,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=300",
@@ -72,5 +73,6 @@
         }
     ],
     "name": "Espresso Martini",
-    "slug": "espresso-martini"
+    "slug": "espresso-martini",
+    "source": ""
 }

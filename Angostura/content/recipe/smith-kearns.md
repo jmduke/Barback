@@ -1,10 +1,11 @@
 {
     "directions": "Pour the coffee liqueur and cream into a cocktail shaker filled with ice.  Shake well and strain into a highball filled with ice.  Top with club soda.",
+    "garnish": "",
     "glassware": "highball",
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 17.5,
                 "brands": [],
                 "cocktaildb": "",
@@ -17,7 +18,7 @@
         },
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
@@ -30,7 +31,7 @@
         },
         {
             "amount": 12,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -43,5 +44,6 @@
         }
     ],
     "name": "Smith & Kearns",
-    "slug": "smith-kearns"
+    "slug": "smith-kearns",
+    "source": ""
 }

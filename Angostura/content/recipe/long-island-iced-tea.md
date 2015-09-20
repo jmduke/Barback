@@ -5,7 +5,7 @@
     "ingredients": [
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 55,
                 "brands": [
                     {
@@ -34,7 +34,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -63,7 +63,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -92,7 +92,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -116,7 +116,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 30,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
@@ -129,7 +129,7 @@
         },
         {
             "amount": 2.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -142,7 +142,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=372",
@@ -155,7 +155,7 @@
             "label": "Gomme"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=302",
@@ -169,5 +169,6 @@
         }
     ],
     "name": "Long Island Iced Tea",
-    "slug": "long-island-iced-tea"
+    "slug": "long-island-iced-tea",
+    "source": ""
 }

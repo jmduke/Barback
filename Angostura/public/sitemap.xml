@@ -7,11 +7,479 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/absinthe/</loc>
+    <loc>http://localhost:1313/base/absinthe/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/agave-nectar/</loc>
+    <loc>http://localhost:1313/base/agave-nectar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/angostura-bitters/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/amaro-averna/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/aperol/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/amaretto/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/apple-cider/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/applejack/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/beer/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/apricot-brandy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/aquavit/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/black-sambuca/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/benedictine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/bourbon/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/brandy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/blackberry-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cachaca/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/calvados/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/brown-sugar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/celery-salt/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/campari/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cherry-brandy/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/champagne/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cherry-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/coffee-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cognac/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/coconut-milk/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/coffee/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cola/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cream/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cranberry-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/creme-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/cynar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/dark-rum/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/disaronno/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/egg-yolk/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/dubonnet/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/drambuie/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/egg-white/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/elderflower-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/espresso/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/fernet-branca/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/framboise/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/gin/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/grapefruit-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/ginger-ale/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/ginger-beer/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/green-chartreuse/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/grenadine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/galliano/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/honey-whiskey/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/hard-cider/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/honey/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/honey-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/irish-cream-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/kiwi-slice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/kirsch/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/lemon-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/laphroaig/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/lemonade/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/lime-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/lillet/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/maple-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/maraschino/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/onion/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/mezcal/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/orange-bitters/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/mint-leaves/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/olive-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/orange-curacao/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/orange-flower-water/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/orange-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/peach-bitters/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/orgeat/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/peach-puree/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/peach-schnapps/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/pepper/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/pineapple-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/pimms-no-1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/pisco/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/pineapple-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/port/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/prosecco/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/powdered-sugar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/punt-e-mes/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/raspberry-liqueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/raspberry-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/rye/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/red-chili-peppers/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/salt/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/rhum-agricole/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/scotch/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/simple-cane-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/simple-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sherry/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sloe-gin/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/soda-water/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/southern-comfort/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sparkling-wine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/strawberry-syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sugar-cube/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sugar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/sweet-vermouth/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/tabasco/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/tomato-juice/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/syrup/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/tequila/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/triple-sec/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/vanilla-extract/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/water/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/vermouth/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/whiskey/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/vodka/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/white-rum/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/white-sugar/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/white-wine/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/worcestershire-sauce/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/worchestershire-sauce/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/base/yellow-chartreuse/</loc>
   </url>
   
   <url>
@@ -23,19 +491,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/americano/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/alaska/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/amaretto/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/amaro-averna/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/americano/</loc>
+    <loc>http://localhost:1313/recipe/ampersand/</loc>
   </url>
   
   <url>
@@ -47,15 +511,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/ampersand/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/aperol/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/angostura-bitters/</loc>
+    <loc>http://localhost:1313/recipe/angostura-sour/</loc>
   </url>
   
   <url>
@@ -63,23 +519,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/angostura-sour/</loc>
+    <loc>http://localhost:1313/recipe/ashtray-heart/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/apricot-brandy/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/apple-cider/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/applejack/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/aquavit/</loc>
+    <loc>http://localhost:1313/recipe/b52/</loc>
   </url>
   
   <url>
@@ -91,7 +535,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/b52/</loc>
+    <loc>http://localhost:1313/recipe/barracuda/</loc>
   </url>
   
   <url>
@@ -99,19 +543,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/barracuda/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/benedictine/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/bellini/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/beer/</loc>
   </url>
   
   <url>
@@ -119,23 +551,23 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/between-the-sheets/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/black-sambuca/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/blackberry-liqueur/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/black-russian/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/black-martini-1/</loc>
+    <loc>http://localhost:1313/recipe/between-the-sheets/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/black-watch/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/black-donald/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/blackthorn/</loc>
   </url>
   
   <url>
@@ -143,11 +575,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/bocce-ball/</loc>
+    <loc>http://localhost:1313/recipe/black-martini-1/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/boulevardier/</loc>
+    <loc>http://localhost:1313/recipe/bocce-ball/</loc>
   </url>
   
   <url>
@@ -155,7 +587,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/bourbon/</loc>
+    <loc>http://localhost:1313/recipe/boulevardier/</loc>
   </url>
   
   <url>
@@ -163,19 +595,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/brandy/</loc>
+    <loc>http://localhost:1313/recipe/bramble/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/brown-sugar/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/brass-rail/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cachaca/</loc>
+    <loc>http://localhost:1313/recipe/bowery-fix/</loc>
   </url>
   
   <url>
@@ -183,39 +607,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/bramble/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/calvados/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/campari/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/caipirinha/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/celery-salt/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/champagne/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cherry-brandy/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/casino/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cherry-liqueur/</loc>
   </url>
   
   <url>
@@ -223,27 +615,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/brass-rail/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/casino/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/chilcano/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/clover-club/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/chrysanthemum/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/city-honey-bee/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/coconut-milk/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cognac/</loc>
   </url>
   
   <url>
@@ -251,15 +631,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/cola/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/coffee-liqueur/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/coffee/</loc>
+    <loc>http://localhost:1313/recipe/chrysanthemum/</loc>
   </url>
   
   <url>
@@ -267,19 +639,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/cream/</loc>
+    <loc>http://localhost:1313/recipe/city-honey-bee/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/creme-liqueur/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cranberry-juice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cosmopolitan/</loc>
+    <loc>http://localhost:1313/recipe/clover-club/</loc>
   </url>
   
   <url>
@@ -287,19 +651,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/dark-rum/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/cynar/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/daiquiri/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/de-rigueur/</loc>
+    <loc>http://localhost:1313/recipe/cosmopolitan/</loc>
   </url>
   
   <url>
@@ -307,15 +663,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/de-rigueur/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/dawa/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/diamondback/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/dirty-martini/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/disaronno/</loc>
   </url>
   
   <url>
@@ -323,15 +679,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/drambuie/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/derby/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/dubonnet/</loc>
+    <loc>http://localhost:1313/recipe/dirty-martini/</loc>
   </url>
   
   <url>
@@ -343,14 +695,6 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/egg-yolk/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/egg-white/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/eeyores-requiem/</loc>
   </url>
   
@@ -359,31 +703,19 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/fanciulli/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/espresso-martini/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/espresso/</loc>
+    <loc>http://localhost:1313/recipe/fanciulli/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/elderflower-liqueur/</loc>
+    <loc>http://localhost:1313/recipe/fernet-flip/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/fernet-branca/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/floradora/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/flannel-shirt/</loc>
+    <loc>http://localhost:1313/recipe/english-garden/</loc>
   </url>
   
   <url>
@@ -391,11 +723,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/freddie-fuddpucker/</loc>
+    <loc>http://localhost:1313/recipe/flannel-shirt/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/framboise/</loc>
+    <loc>http://localhost:1313/recipe/floradora/</loc>
   </url>
   
   <url>
@@ -403,19 +735,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/galliano/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/french-martini/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/fuzzy-navel/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/gimlet/</loc>
   </url>
   
   <url>
@@ -423,31 +743,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/gin/</loc>
+    <loc>http://localhost:1313/recipe/freddie-fuddpucker/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/gin-fizz/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/ginger-beer/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/ginger-ale/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/grapefruit-juice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/grasshopper/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/green-chartreuse/</loc>
+    <loc>http://localhost:1313/recipe/gimlet/</loc>
   </url>
   
   <url>
@@ -455,11 +755,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/golden-dream/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/grenadine/</loc>
+    <loc>http://localhost:1313/recipe/gin-fizz/</loc>
   </url>
   
   <url>
@@ -467,27 +763,19 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/golden-dream/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/grasshopper/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/gordons-breakfast/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/hanky-panky/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/hard-cider/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/hollywood/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/honey-syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/hemingway-special/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/honey-whiskey/</loc>
   </url>
   
   <url>
@@ -495,7 +783,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/honey/</loc>
+    <loc>http://localhost:1313/recipe/hemingway-special/</loc>
   </url>
   
   <url>
@@ -503,15 +791,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/hollywood/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/intro-to-aperol/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/irish-coffee/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/irish-cream-liqueur/</loc>
+    <loc>http://localhost:1313/recipe/jake-barnes/</loc>
   </url>
   
   <url>
@@ -523,18 +811,6 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/jake-barnes/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/kentucky-river/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/kir/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/jungle-bird/</loc>
   </url>
   
@@ -543,27 +819,15 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/kirsch/</loc>
+    <loc>http://localhost:1313/recipe/kentucky-river/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/lemon-juice/</loc>
+    <loc>http://localhost:1313/recipe/kingston-club/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/laphroaig/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/lemonade/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/kiwi-slice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/lillet/</loc>
+    <loc>http://localhost:1313/recipe/kir/</loc>
   </url>
   
   <url>
@@ -575,11 +839,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/lime-juice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/malena/</loc>
+    <loc>http://localhost:1313/recipe/french-martini/</loc>
   </url>
   
   <url>
@@ -587,11 +847,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/maple-syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/maple-leaf/</loc>
+    <loc>http://localhost:1313/recipe/irish-coffee/</loc>
   </url>
   
   <url>
@@ -599,7 +855,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/maraschino/</loc>
+    <loc>http://localhost:1313/recipe/maple-leaf/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/margarita/</loc>
   </url>
   
   <url>
@@ -615,23 +875,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/margarita/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/mezcal/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/mint-leaves/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/melon-stand/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/mint-julep/</loc>
+    <loc>http://localhost:1313/recipe/malena/</loc>
   </url>
   
   <url>
@@ -643,7 +887,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/mudslide/</loc>
+    <loc>http://localhost:1313/recipe/mint-julep/</loc>
   </url>
   
   <url>
@@ -651,7 +895,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/negroni/</loc>
+    <loc>http://localhost:1313/recipe/melon-stand/</loc>
   </url>
   
   <url>
@@ -659,23 +903,19 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/obituary/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/onion/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/olive-juice/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/old-fashioned/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/orange-bitters/</loc>
+    <loc>http://localhost:1313/recipe/negroni/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/obituary/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/mudslide/</loc>
   </url>
   
   <url>
@@ -683,23 +923,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/orange-juice/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/orange-blossom/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/orange-curacao/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/orange-flower-water/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/orgeat/</loc>
+    <loc>http://localhost:1313/recipe/paloma/</loc>
   </url>
   
   <url>
@@ -707,15 +935,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/peach-bitters/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/peach-puree/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/peach-schnapps/</loc>
+    <loc>http://localhost:1313/recipe/pamplemousse/</loc>
   </url>
   
   <url>
@@ -723,27 +943,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/pamplemousse/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/pepper/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/pimms-cup/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/penicillin/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/pimms-no-1/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/paloma/</loc>
+    <loc>http://localhost:1313/recipe/pimms-cup/</loc>
   </url>
   
   <url>
@@ -755,14 +959,6 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/pineapple-juice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/pineapple-syrup/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/pisco-morado/</loc>
   </url>
   
@@ -771,7 +967,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/pisco/</loc>
+    <loc>http://localhost:1313/recipe/planters-punch/</loc>
   </url>
   
   <url>
@@ -783,51 +979,19 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/pisco-sour/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/planters-punch/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/port/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/punt-e-mes/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/prosecco/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/powdered-sugar/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/porto-flip/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/raspberry-liqueur/</loc>
+    <loc>http://localhost:1313/recipe/pisco-sour/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/rhum-agricole/</loc>
+    <loc>http://localhost:1313/recipe/presbyterian/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/ramos-fizz/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/raspberry-syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/red-chili-peppers/</loc>
+    <loc>http://localhost:1313/recipe/rico-suave/</loc>
   </url>
   
   <url>
@@ -835,15 +999,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/rose/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/rusty-nail/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/royalist/</loc>
+    <loc>http://localhost:1313/recipe/ramos-fizz/</loc>
   </url>
   
   <url>
@@ -851,23 +1007,15 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/russian-spring-punch/</loc>
+    <loc>http://localhost:1313/recipe/rose/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/rye-smash/</loc>
+    <loc>http://localhost:1313/recipe/royalist/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/salt/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/rye/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/savoy-tango/</loc>
+    <loc>http://localhost:1313/recipe/rusty-nail/</loc>
   </url>
   
   <url>
@@ -875,19 +1023,19 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/rye-smash/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/russian-spring-punch/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/savoy-tango/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/sazerac/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/scotch/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/screwdriver/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/sea-breeze/</loc>
   </url>
   
   <url>
@@ -895,19 +1043,11 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/sex-on-the-beach/</loc>
+    <loc>http://localhost:1313/recipe/sea-breeze/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/simple-syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/simple-cane-syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/sherry/</loc>
+    <loc>http://localhost:1313/recipe/screwdriver/</loc>
   </url>
   
   <url>
@@ -915,31 +1055,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/sloe-gin/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/singapore-sling/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/southern-comfort/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/sparkling-wine/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/soda-water/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/smith-kearns/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/strawberry-syrup/</loc>
   </url>
   
   <url>
@@ -951,11 +1067,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/sugar-cube/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/sugar/</loc>
+    <loc>http://localhost:1313/recipe/singapore-sling/</loc>
   </url>
   
   <url>
@@ -963,23 +1075,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/sweet-vermouth/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/syrup/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/tabasco/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/tequila/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/the-getaway/</loc>
+    <loc>http://localhost:1313/recipe/suffering-bastard/</loc>
   </url>
   
   <url>
@@ -987,15 +1083,19 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/the-condor/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/the-getaway/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/recipe/sex-on-the-beach/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/the-second-year/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/tomato-juice/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/ti-punch/</loc>
   </url>
   
   <url>
@@ -1003,23 +1103,11 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/recipe/ti-punch/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/recipe/toronto/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/trident/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/vanilla-extract/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/vermouth/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/triple-sec/</loc>
   </url>
   
   <url>
@@ -1031,22 +1119,6 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/vampiro/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/vodka/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/water/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/vieux-carre/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/ward-8/</loc>
   </url>
   
@@ -1055,19 +1127,7 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/white-rum/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/whiskey/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/recipe/white-lady/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/white-sugar/</loc>
   </url>
   
   <url>
@@ -1075,19 +1135,15 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/white-wine/</loc>
+    <loc>http://localhost:1313/recipe/trident/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/worcestershire-sauce/</loc>
+    <loc>http://localhost:1313/recipe/vampiro/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/recipe/worchestershire-sauce/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/recipe/yellow-chartreuse/</loc>
+    <loc>http://localhost:1313/recipe/vieux-carre/</loc>
   </url>
   
 </urlset>

@@ -6,7 +6,7 @@
     "ingredients": [
         {
             "amount": 6.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -25,7 +25,7 @@
         },
         {
             "amount": 1.0,
-            "base": {
+            "baseName": {
                 "abv": 39,
                 "brands": [],
                 "cocktaildb": "",
@@ -38,7 +38,7 @@
         },
         {
             "amount": 1.0,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -50,7 +50,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -64,5 +64,6 @@
         }
     ],
     "name": "Toronto",
-    "slug": "toronto"
+    "slug": "toronto",
+    "source": ""
 }

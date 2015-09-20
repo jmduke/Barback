@@ -1,10 +1,11 @@
 {
     "directions": "Mix all ingredients in an old fashioned glass over ice; stir.",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [
                     {
@@ -23,7 +24,7 @@
         },
         {
             "amount": 3.0,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
@@ -36,7 +37,7 @@
         },
         {
             "amount": 3,
-            "base": {
+            "baseName": {
                 "abv": 15,
                 "brands": [
                     {
@@ -66,7 +67,7 @@
         },
         {
             "amount": 1,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "",
@@ -78,11 +79,11 @@
             }
         },
         {
-            "base": "Peychaud\u2019s bitters",
+            "baseName": "Peychaud\u2019s bitters",
             "label": "Two dashes"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=19",
@@ -96,5 +97,6 @@
         }
     ],
     "name": "Vieux Carr\u00e9",
-    "slug": "vieux-carre"
+    "slug": "vieux-carre",
+    "source": ""
 }

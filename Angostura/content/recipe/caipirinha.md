@@ -1,10 +1,11 @@
 {
     "directions": "Place lime and sugar in glass and muddle. Fill glass with ice and Cachaca (note: for a Caipiroska, use Vodka instead of Cachaca).",
+    "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
         {
             "amount": 5,
-            "base": {
+            "baseName": {
                 "abv": 45,
                 "brands": [],
                 "cocktaildb": "",
@@ -16,7 +17,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
@@ -28,10 +29,11 @@
             "label": "Two teaspoons"
         },
         {
-            "base": "Lime",
+            "baseName": "Lime",
             "label": "Cut into wedges"
         }
     ],
     "name": "Caipirinha",
-    "slug": "caipirinha"
+    "slug": "caipirinha",
+    "source": ""
 }

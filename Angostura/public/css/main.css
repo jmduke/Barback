@@ -24,8 +24,6 @@ footer {
     padding-top: 3em;
     padding-bottom: 2em;
     z-index: 1;
-    width: 50%;
-    margin-left: 25%;
 }
 
 hr {
@@ -67,6 +65,9 @@ hr {
 }
 .navbar-right {
   margin-right: 0;
+}
+.navbar {
+  padding-bottom: 1em;
 }
 
 .jumbotron {

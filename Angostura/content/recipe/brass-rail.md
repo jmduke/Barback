@@ -1,10 +1,11 @@
 {
     "directions": "Dry shake, then shake on ice, and fine strain.",
+    "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
         {
             "amount": 6,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [
                     {
@@ -28,7 +29,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "",
@@ -41,7 +42,7 @@
         },
         {
             "amount": 1.5,
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
@@ -53,7 +54,7 @@
             }
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
@@ -66,7 +67,7 @@
             "label": "Two dashes"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 40,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=37",
@@ -79,7 +80,7 @@
             "label": "One dash"
         },
         {
-            "base": {
+            "baseName": {
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",
@@ -92,5 +93,6 @@
         }
     ],
     "name": "Brass Rail",
-    "slug": "brass-rail"
+    "slug": "brass-rail",
+    "source": ""
 }
