@@ -15,14 +15,12 @@ class FavoriteRecipeListViewControllerSpec: QuickSpec {
             beforeEach {
 
                 if (Recipe.favorites().isEmpty) {
-                    do {
-                        let realm = try Realm()
-                        realm.write {
-                            let recipe = Recipe.all().first!
-                            recipe.isFavorited = !recipe.isFavorited
-                            realm.add(recipe)
-                        }
-                    } catch { }
+                    let realm = try! Realm()
+                    realm.write {
+                        let recipe = Recipe.all().first!
+                        recipe.isFavorited = !recipe.isFavorited
+                        realm.add(recipe)
+                    }
                 }
                 
                 controller = FavoriteRecipeListViewController()

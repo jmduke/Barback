@@ -42,12 +42,7 @@ public class Ingredient: Object {
     }
 
     public class func all() -> [Ingredient] {
-        do {
-            return try Realm().objects(Ingredient).map({ $0 })
-        } catch {
-            print("\(error)")
-            return []
-        }
+        return (try? Realm().objects(Ingredient).map({ $0 })) ?? []
     }
 
 }

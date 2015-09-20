@@ -88,13 +88,11 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     }
 
     func markRecipeAsFavorite() {
-        do {
-            let realm = try Realm()
-            realm.write {
-                self.recipe!.isFavorited = !self.recipe!.isFavorited
-                realm.add(self.recipe!)
-            }
-        } catch { }
+        let realm = try! Realm()
+        realm.write {
+            self.recipe!.isFavorited = !self.recipe!.isFavorited
+            realm.add(self.recipe!)
+        }
         
         favoriteButton.selected = !favoriteButton.selected
     }

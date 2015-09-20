@@ -24,11 +24,6 @@ public class Brand: Object {
     }
 
     public class func all(useLocal: Bool) -> [Brand] {
-        do {
-            return try Realm().objects(Brand).map({ $0 })
-        } catch {
-            print("\(error)")
-            return []
-        }
+        return (try? Realm().objects(Brand).map({ $0 })) ?? []
     }
 }

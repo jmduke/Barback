@@ -112,12 +112,7 @@ public final class Recipe: Object, SpotlightIndexable {
     }
 
     class public func all() -> [Recipe] {
-        do {
-            return try Realm().objects(Recipe).sorted("name").map({ $0 })
-        } catch {
-            print("\(error)")
-            return []
-        }
+        return (try? Realm().objects(Recipe).sorted("name").map({ $0 })) ?? []
     }
     
     class public func favorites() -> [Recipe] {
@@ -131,13 +126,7 @@ public final class Recipe: Object, SpotlightIndexable {
     }
 
     class public func forName(name: String) -> Recipe? {
-        do {
-            return try Realm().objects(Recipe).filter("name = '\(name)'").map({ $0 }).first
-            
-        } catch {
-            print("\(error)")
-            return nil
-        }
+        return ((try? Realm().objects(Recipe).filter("name = '\(name)'").map({ $0 })) ?? []).first
     }
     
     class func forIndexableID(indexableID: String) -> Recipe {

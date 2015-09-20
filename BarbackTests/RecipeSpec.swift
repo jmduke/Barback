@@ -33,13 +33,11 @@ class RecipeSpec: QuickSpec {
             }
             
             it("can be favorited") {
-                do {
-                    let realm = try Realm()
-                    realm.write {
-                        recipe.isFavorited = true
-                        expect(Recipe.favorites()).to(contain(recipe))
-                    }
-                } catch { }
+                let realm! = try Realm()
+                realm.write {
+                    recipe.isFavorited = true
+                    expect(Recipe.favorites()).to(contain(recipe))
+                }
             }
             
             it("has ingredients which have bases") {

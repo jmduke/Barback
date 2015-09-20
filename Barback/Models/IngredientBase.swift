@@ -45,23 +45,13 @@ public final class IngredientBase: Object, SpotlightIndexable {
     }
 
     public class func all() -> [IngredientBase] {
-        do {
-            return try Realm().objects(IngredientBase).map({ $0 })
-        } catch {
-            print("\(error)")
-            return []
-        }
+        return (try? Realm().objects(IngredientBase).map({ $0 })) ?? []
     }
 
 
     class public func forName(name: String) -> IngredientBase? {
-        do {
-            let queryString = "name = \"\(name)\""
-            return try Realm().objects(IngredientBase).filter(queryString).map({ $0 }).first
-        } catch {
-            print("\(error)")
-            return nil
-        }
+        let queryString = "name = \"\(name)\""
+        return ((try? Realm().objects(IngredientBase).filter(queryString).map({ $0 })) ?? []).first
     }
     
     class func forIndexableID(indexableID: String) -> IngredientBase {
