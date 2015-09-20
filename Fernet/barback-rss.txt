@@ -22,7 +22,6 @@ http://12bottlebar.com/feed/
 http://spirits.drinks-business-review.com/rss
 http://feeds.feedburner.com/CocktailEnthusiast?format=xml
 http://www.amountainofcrushedice.com/?feed=rss2
-http://bitbyafox.com/?feed=rss2
 http://measureandstir.com/feed/
 http://cold-glass.com/feed/
 http://cocktailmusings.com/feed/
