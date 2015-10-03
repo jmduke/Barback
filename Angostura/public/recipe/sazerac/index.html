@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Sazerac</h2>
+  <div>
+    <h1>Sazerac</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Cognac
+<a href="/base/cognac">Cognac</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Cognac
             <tr>
 <td>
 
-Absinthe
+<a href="/base/absinthe">Absinthe</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Absinthe
             <tr>
 <td>
 
-Sugar cube
+<a href="/base/sugar-cube">Sugar cube</a>
 
 
 <td class="minor">
@@ -137,23 +139,28 @@ Two dashes
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>This concoction gained popularity and was eventually served at the Merchants Exchange Coffee House (perhaps akin to the &lsquo;coffee shops&rsquo; of Amsterdam?) which specifically used Sazerac-de-Forge et Fils Cognac as its base spirit. In 1859, John Schiller acquired the Merchants Exchange Coffee House, renaming it to the Sazerac Coffee House and between the use of Sazerac Cognac and being served at the Sazerac Coffee House that this cocktail received its name. According to Stanley Clisby Arthur, author of the 1937 <a href="http://www.amazon.com/gp/product/0882891324?ie=UTF8&amp;camp=1789&amp;creativeASIN=0882891324&amp;linkCode=xm2&amp;tag=barback-20">Famous New Orleans Drinks and How to Mix &ldquo;Em</a>, at some point in the following decade, Leon Lamothe, a bartender at the Sazerac Coffee House, thought to add a dash of absinthe. Unfortunately, starting in the in the 1860s, Europe&rsquo;s vineyards were decimated by the phylloxera plague, which severely curtailed the availability of Cognac for the original Sazerac. It was around this time that the Sazerac that we know today finally took shape, as a Thomas (John?) H. Handy, a new owner of the Sazerac Coffee House, changed the base spirit from cognac to rye whiskey.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Rinse a chilled old fashioned glass with the absinthe, add crushed ice and set it aside. Stir the remaining ingredients over ice and set it aside. Discard the ice and any excess absinthe from the prepared glass, and strain the drink into the glass. Note: The original recipe changed after the American Civil War, rye whiskey substituted cognac as it became hard to obtain.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in old fashioned
           <br /><span id='abv'></span>% ABV
@@ -161,8 +168,17 @@ Two dashes
           <br />Garnish with Lemon twist
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>This concoction gained popularity and was eventually served at the Merchants Exchange Coffee House (perhaps akin to the &lsquo;coffee shops&rsquo; of Amsterdam?) which specifically used Sazerac-de-Forge et Fils Cognac as its base spirit. In 1859, John Schiller acquired the Merchants Exchange Coffee House, renaming it to the Sazerac Coffee House and between the use of Sazerac Cognac and being served at the Sazerac Coffee House that this cocktail received its name. According to Stanley Clisby Arthur, author of the 1937 <a href="http://www.amazon.com/gp/product/0882891324?ie=UTF8&amp;camp=1789&amp;creativeASIN=0882891324&amp;linkCode=xm2&amp;tag=barback-20">Famous New Orleans Drinks and How to Mix &ldquo;Em</a>, at some point in the following decade, Leon Lamothe, a bartender at the Sazerac Coffee House, thought to add a dash of absinthe. Unfortunately, starting in the in the 1860s, Europe&rsquo;s vineyards were decimated by the phylloxera plague, which severely curtailed the availability of Cognac for the original Sazerac. It was around this time that the Sazerac that we know today finally took shape, as a Thomas (John?) H. Handy, a new owner of the Sazerac Coffee House, changed the base spirit from cognac to rye whiskey.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -186,7 +202,4 @@ Two dashes
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

@@ -1,3 +1,4 @@
+# This Python file uses the following encoding: utf-8
 import json
 import yaml
 
@@ -5,21 +6,27 @@ from slugify import slugify
 
 from utils import convert_ingredient_to_dict
 
+
 def load_recipes_from_yaml(recipes_filename):
-    raw_recipes = yaml.safe_load(open(recipes_filename).read())
+    # CLoader needed or else it flips out when it encounters emoji.
+    raw_recipes = yaml.load(open(recipes_filename).read(), Loader=yaml.CLoader)
     for r, recipe in enumerate(raw_recipes):
         for i, ingredient in enumerate(recipe["ingredients"]):
-            raw_recipes[r]["ingredients"][i] = convert_ingredient_to_dict(ingredient)
+            ingredient_dict = convert_ingredient_to_dict(ingredient)
+            raw_recipes[r]["ingredients"][i] = ingredient_dict
     return raw_recipes
 
+
 def load_bases_from_yaml(bases_filename):
-    raw_bases = yaml.safe_load(open(bases_filename).read())
+    raw_bases = yaml.load(open(bases_filename).read())
     return raw_bases
+
 
 def write_to_json(objects, filename):
     json_objects = json.dumps(objects)
     with open(filename, 'w') as outfile:
         outfile.write(json_objects)
+
 
 def write_to_markdown(recipes, bases, foldername):
     for recipe in recipes:
@@ -29,11 +36,13 @@ def write_to_markdown(recipes, bases, foldername):
             if base:
                 recipe["ingredients"][i]["baseName"] = base
         json_recipe = json.dumps(recipe, sort_keys=True, indent=4, separators=(',', ': '))
-        with open(foldername + "recipe/" + recipe['slug'] + ".md", "w") as outfile:
+        recipe_filename = foldername + "recipe/" + recipe['slug'] + ".md"
+        with open(recipe_filename, "w") as outfile:
             outfile.write(json_recipe)
     for base in bases:
         json_base = json.dumps(base, sort_keys=True, indent=4, separators=(',', ': '))
-        with open(foldername + "base/" + base['slug'] + ".md", "w") as outfile:
+        base_filename = foldername + "base/" + base['slug'] + ".md"
+        with open(base_filename, "w") as outfile:
             outfile.write(json_base)
 
 

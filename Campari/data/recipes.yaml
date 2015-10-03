@@ -1,3 +1,80 @@
+- name: "Réveillon"
+  source: Tuxedo No. 2
+  ingredients:
+  - 6cl Applejack
+  - 1.5cl Pear Eau de Vie
+  - 1.5cl Allspice dram
+  - 1.5cl Sweet vermouth
+  - Angostura bitters (One dash)
+  directions: "The original recipe instructs to combine all ingredients with ice and “stir like hell for no less than 30 seconds.” This is not a step to be flippant about. The large dosage of spice in this drink can turn bitter if sufficient water is not released. It also has it’s fair share of esoteric ingredients, but isn’t delicate and could probably accommodate alterations. The original recipe calls for homemade dram, but we've made due with the retail versions added to shelves recently. It also recommends the bitter Punt e Mes as a vermouth, which is a great recommendation but not required."
+  garnish: Cinnamon stick
+  glassware: coupe
+  information: "Historically, a Réveillon is a dinner held late the night before Christmas. They are decadent affairs that frequently (and sometimes deliberately) contend as parties. The drink described here—indulgent, nocturnal, and somewhat miraculous—could not have found a better partner to share a name with. Not all greatness is intuitive, however. In an article describing the origin of the drink, Chuck Taggart reveals the name he nearly gave it: “The Bingle.” Silly names have a long-standing and generally positive relationship with cocktails, but here, history was the victor."
+- name: "Pumpkin Spice ____"
+  source: /u/MoreDetailThanNeeded
+  ingredients:
+  - 3cl Tequila (Blanco)
+  - 3cl ancho chili liqueur
+  - 3cl Pumpkin syrup
+  - 1.5cl Lemon juice
+  - Egg white (One)
+  - Angostura bitters (Two dashes)
+  directions: "Shake with just a few cubes of ice, double strain, dump out the ice, shake again in the tin with no ice and pour without straining again over a few rocks or a single big rock. The dry shake makes it super frothy and rich and extremely reminiscent of the mouthfeel of a latte."
+  garnish: ""
+  glassware: martini
+  emoji: "🍂"
+  information: "I mean, there's nothing even clever here to say.  You either know you want a pumpkin spice cocktail, or you know you don't."
+- name: Test Pilot
+  source: Tuxedo No. 2
+  ingredients: 
+  - 4.5cl Dark rum
+  - 2cl Light rum
+  - 1.5cl Falernum
+  - 1.5cl Cointreau
+  - 1.5cl Lime juice
+  - Angostura bitters (One dash)
+  - Absinthe (One dash)
+  directions: "Combine all ingredients with 1 cup crushed ice in a blender. Blend for five seconds.  Pour, unstrained, over crushed ice."
+  garnish: ""
+  glassware: highball
+  information: "The test pilot is complicated, but does not require finesse. So many voices are in this choir, a couple flat notes won’t be noticed. Light and dark rums are requested, but if this drink were prepared with only one rum, angels wouldn’t lose wings (though they might kindly recommend a second rum). For bigger bars, we prefer combining a smooth, team-playing label like Plantation 3-Star with something dark and buttery, such as Smith and Cross or Goslings. If this drink takes a nose dive, it will be with absinthe, so take it easy."
+- name: Seelbach
+  source: Tuxedo No. 2
+  ingredients: 
+  - 3cl Bourbon
+  - 1.5cl Cointreau
+  - Angostura bitters (Six dashes)
+  - Peychaud's bitters (Six dashes)
+  - Champagne
+  directions: "Combine bitters, bourbon, and cointreau with ice and stir. Strain into a chilled flute, coupe, or cocktail glass.   Top with champagne."
+  garnish: ""
+  glassware: coupe
+  information: "A proper Seelbach is akin to a Champagne Cocktail, beefed up with some bourbon and a boatload of bitters. The amount of bitters requested in this recipe is bordering on wild, but we think it helps make sense of the bourbon, which otherwise feels a bit out of place. The finished product is spicy and effervescent, with gentian and floral notes bubbling upward over the bourbon and Cointreau. Honestly, the drink is a bit strange, but in a lovable way. Try it as a funky alternative to the traditional brunch cocktail, or to satisfy a craving for bitters and bubbly."
+- name: Northern Spy
+  emoji: "🍅"
+  source: ""
+  ingredients:
+  - 6cl Apple brandy
+  - 3cl Apple cider
+  - 1.5cl Apricot liqueur
+  - 1.5cl Lemon juice
+  - Champagne
+  directions: Shake with ice and strain into cocktail glass.  Top with champagne and garnish with a cranberry.
+  garnish: Cranberry
+  glassware: cocktail
+  information: ""
+- name: "Clove & Oak"
+  source: ""
+  ingredients:
+  - 4.5cl Rye
+  - 4.5cl Hard cider
+  - 1.5cl Allspice dram
+  - 1.5cl Lemon juice
+  - .75cl Demerara syrup
+  directions: "Shake with ice and strain into a cocktail glass.  Garnish with apple slices."
+  garnish: "Apple slices"
+  glassware: cocktail
+  information: ""
 - name: Rico Suave
   source: The Raymond Restaurant
   ingredients:
@@ -24,6 +101,7 @@
   glassware: old-fashioned
   information: "The drink's genesis can be traced to the Long Bar at the Shepheard Hotel in Cairo. As the story goes, in the late 1940s, the Shepheard's bar steward was Joe Scialom. One day in 1947, according to Esquire, Scialom was desperate for a hangover remedy and the Suffering Bar Steward (soon somewhat sloppily rechristened as the Suffering Bastard) was the result."
 - name: English Garden
+  emoji: "🏡"
   source: ""
   ingredients:
   - 4.5cl Gin (Hendrick's)
@@ -38,7 +116,7 @@
   information: ""
 - name: Black Watch
   source: https://www.youtube.com/watch?v=q9Vqc0T1dOg
-  ingredients: 
+  ingredients:
   - 4.5cl Scotch
   - 2cl Coffee liqueur
   - Soda water
@@ -54,7 +132,7 @@
   - 2cl Lime juice
   - Fernet Branca (One tablespoon)
   - Angostura bitters (Three dashes)
-  - 3cl Soda
+  - 3cl Soda water
   directions: "Shake ingredients with ice and finish with 1 oz soda water. Strain mix over fresh ice into a chilled collins glass and garnish with an orange twist."
   garnish: Orange twist
   glassware: Collins
@@ -122,7 +200,7 @@
 - name: Ashtray Heart
   source: ""
   ingredients:
-  - '3cl Smith & Cross'
+  - '3cl Rum (Smith & Cross)'
   - 3cl Vermouth (Dry)
   - 3cl Punt e Mes
   - .75cl Mezcal
@@ -234,6 +312,7 @@
   information: More like a Manhattan than you'd think -- the power of the dry vermouth (which is often shied away from) is well balanced and brought together by the novelty of peach bitters.  Robert Hess, patron saint of Seattle bartending, has a [great video tutorial](http://smallscreennetwork.com/video/634/cocktail_spirit_royalist/) explaining the Royalist.
 - name: Melon Stand
   source: The PDT Cocktail Book
+  emoji: "🍉"
   ingredients:
   - 6cl Gin (Plymouth)
   - 3cl Watermelon juice
@@ -245,6 +324,7 @@
   glassware: Collins
   information: "The Melon Stand is published in The PDT Cocktail Book and credited to Jane Danger in the summer of 2008. It is named after her Minnesota dream bar, Jane’s Sweet Melon Stand, though I personally don’t really get that as a name."
 - name: Painkiller
+  emoji: "💊"
   ingredients:
   - 6cl Dark rum (Pusser's)
   - 12cl Pineapple juice
@@ -430,7 +510,7 @@
   ingredients:
   - 3cl Vermouth (French)
   - amount: 1.5
-    baseName: "B\u00e9n\u00e9dictine"
+    baseName: "B\xE9n\xE9dictine"
   - Absinthe (Three dashes)
   information: "A classic, usually credited to Harry Craddock and *The Savoy Cocktail Book* despite actually being from Hugo Ensslin’s *Recipes for Mixed Drinks*.  An apparent favorite for post-Prohibition expats, the *Savoy Cocktail Book* notes that it was 'well-known and very popular in the American Bar of the S.S. Europa,' a German cruise liner that operated through the 1930s."
   source: Recipes for Mixed Drinks
@@ -511,6 +591,7 @@
   - 1.5cl Simple syrup
   - 4.5cl Dark rum (Gold)
   name: Field & Cellar
+  emoji: "🍺"
 - directions: Stir first 3 ingredients with ice. Strain into a glass. Top with beer.
   glassware: highball
   source: Boozenerds
@@ -523,6 +604,7 @@
   - 0.5cl Simple syrup (Saffron)
   - 9cl Beer (Barrel aged IPA)
   name: Samsara
+  emoji: "🍺"
 - directions: Shake first 3 ingredients with ice. Strain into a glass. Top with beer.
     Garnish with a lime wheel.
   garnish: Lime wheel
@@ -537,6 +619,7 @@
   - 3cl Rye
   - 9cl Beer (Barrel aged IPA)
   name: Draughtsman
+  emoji: "🍺"
 - directions: Stir long and well with ice in a mixing glass and strain into a cocktail
     glass.
   garnish: Orange slice
@@ -827,6 +910,7 @@
   - baseName: Espresso
     label: One shot
   name: Espresso Martini
+  emoji: "☕️"
 - directions: 'Shake with ice cubes. Strain into cocktail glass rimmed with salt (note:
     Fruit Margarita - blend selected fruit with the above recipe).'
   glassware: margarita
@@ -912,6 +996,7 @@
   - amount: 1.5
     baseName: Grenadine
   name: Tequila Sunrise
+  emoji: "🌅"
 - directions: Shake and strain.
   glassware: martini
   ingredients:
@@ -946,6 +1031,7 @@
   - amount: 2.5
     baseName: Drambuie
   name: Rusty Nail
+  emoji: "💅"
 - directions: Stir in mixing glass with ice cubes. Strain.
   glassware: martini
   ingredients:
@@ -955,6 +1041,7 @@
     baseName: "Cr\xE9me liqueur"
     label: "White Cr\xE9me de Menthe"
   name: Stinger
+  emoji: "🐝"
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
@@ -967,6 +1054,7 @@
   - amount: 1
     baseName: Cream
   name: Golden Dream
+  emoji: "😴"
 - directions: Build into an old fashioned glass filled with ice. Top with a splash
     of soda water.
   garnish: 0.5 orange slice
@@ -1062,6 +1150,7 @@
     label: Two to three dashes
   - baseName: Celery salt
   name: Bloody Mary
+  emoji: "🍅"
 - directions: Shake and strain into glass. Serve with straw.
   garnish: Pineapple spear, mint leaves, lime wedge
   glassware: highball
@@ -1157,6 +1246,7 @@
   - baseName: Brown sugar
     label: One teaspoon
   name: Irish Coffee
+  emoji: "☕️"
 - directions: Build into glass filled with ice cubes. Add a splash of soda water.
   garnish: 0.5 orange slice
   glassware: old fashioned
@@ -1169,6 +1259,7 @@
   - baseName: Soda water
     label: Splash
   name: Americano
+  emoji: "🇺🇸"
   information: "The cocktail was first served in creator Gaspare Campari's bar, Caff\xE9 Campari, in the 1860s. It was originally known as the *Milano-Torino* because of its ingredients: Campari, the bitter liqueur, is from Milan (Milano) and Punt e Mes, the vermouth, is from Turin (Torino). It is popular belief that in the early 1900s, the Italians noticed a surge of Americans who enjoyed the cocktail. As a compliment to the Americans, the cocktail later became known as the *Americano*."
   source: Gaspare Campari
 - directions: Shake with ice cubes. Strain into glass.
@@ -1333,6 +1424,7 @@
   - amount: 10
     baseName: Ginger beer
   name: Dark 'n' Stormy
+  emoji: "☁️"
 - directions: Pour all ingredients (except soda) in a mixing glass, dry shake (no
     ice) for two minutes, add ice and hard shake for another minute. Strain into glass
     without ice, top with soda.
@@ -1391,6 +1483,7 @@
     baseName: Vodka
     label: Citron vodka
   name: Cosmopolitan
+  emoji: "🍸"
 - directions: Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze
     oil from lemon peel onto the drink, or garnish with olive.
   glassware: martini
@@ -1401,6 +1494,7 @@
     baseName: Vermouth
     label: Dry
   name: Dry Martini
+  emoji: "🍸"
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
@@ -1805,6 +1899,7 @@
   - amount: 2
     baseName: Applejack
   name: Royal Smile
+  emoji: "👑"
 - directions: Add all ingredients to shaker, fill completely with ice and shake vigorously.
   garnish: Pineapple wedge
   glassware: cocktail

@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Draughtsman</h2>
+  <div>
+    <h1>Draughtsman</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Lime juice
+<a href="/base/lime-juice">Lime juice</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Lime juice
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Simple syrup
             <tr>
 <td>
 
-Rye
+<a href="/base/rye">Rye</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Rye
             <tr>
 <td>
 
-Beer
+<a href="/base/beer">Beer</a>
 
 
 <td class="minor">
@@ -143,23 +145,28 @@ x
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>This is a <em>shandy</em> &ndash; a beer cocktail &ndash; created by the fine folks at <a href="http://boozenerds.com/2014/10/26/shandies/">Boozenerds</a>.  Generally, shandies are considered warm-weather drinks.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Shake first 3 ingredients with ice. Strain into a glass. Top with beer. Garnish with a lime wheel.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in highball
           <br /><span id='abv'></span>% ABV
@@ -167,8 +174,17 @@ x
           <br />Garnish with Lime wheel
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>This is a <em>shandy</em> &ndash; a beer cocktail &ndash; created by the fine folks at <a href="http://boozenerds.com/2014/10/26/shandies/">Boozenerds</a>.  Generally, shandies are considered warm-weather drinks.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -192,7 +208,4 @@ x
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

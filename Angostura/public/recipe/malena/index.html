@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Malena</h2>
+  <div>
+    <h1>Malena</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Campari
+<a href="/base/campari">Campari</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Campari
             <tr>
 <td>
 
-Port
+<a href="/base/port">Port</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Port
             <tr>
 <td>
 
-Orange bitters
+<a href="/base/orange-bitters">Orange bitters</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Three dashes
             <tr>
 <td>
 
-Rye
+<a href="/base/rye">Rye</a>
 
 
 <td class="minor">
@@ -141,7 +143,7 @@ Rye
             <tr>
 <td>
 
-Orange flower water
+<a href="/base/orange-flower-water">Orange flower water</a>
 
 
 <td class="minor">
@@ -155,23 +157,28 @@ Five drops
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Created and popularized by created by Dushan Zaric of <a href="http://www.employeesonlynyc.com/">Employees Only</a> in New York.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Add all of the ingredients, save the flower water, to the mixing glass and stir for several minutes with plenty of cracked and non-cracked ice until well chilled (adding in additional ice as needed along the way). Add/sprinkle the flower water over ice (a large rock cube is preferred by us) that you have placed in the serving glass.  Strain the stirred drink mixture over the ice in the glass, garnish, serve and enjoy!</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in rocks
           <br /><span id='abv'></span>% ABV
@@ -179,8 +186,17 @@ Five drops
           <br />Garnish with Orange wheel, ground cinnamon
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Created and popularized by created by Dushan Zaric of <a href="http://www.employeesonlynyc.com/">Employees Only</a> in New York.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -204,7 +220,4 @@ Five drops
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

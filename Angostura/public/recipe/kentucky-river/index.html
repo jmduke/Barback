@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Kentucky River</h2>
+  <div>
+    <h1>Kentucky River</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Créme liqueur
+<a href="/base/creme-liqueur">Créme liqueur</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Créme liqueur
             <tr>
 <td>
 
-Bourbon
+<a href="/base/bourbon">Bourbon</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Bourbon
             <tr>
 <td>
 
-Peach bitters
+<a href="/base/peach-bitters">Peach bitters</a>
 
 
 <td class="minor">
@@ -123,23 +125,28 @@ Three dashes
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>A mainstay cocktail from the 30&rsquo;s.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Build in glass with a large ice cube and then lightly stir to desired temperature.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in old fashioned
           <br /><span id='abv'></span>% ABV
@@ -147,8 +154,17 @@ Three dashes
           <br />Garnish with Orange twist
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>A mainstay cocktail from the 30&rsquo;s.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -172,7 +188,4 @@ Three dashes
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

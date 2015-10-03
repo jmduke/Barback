@@ -16,8 +16,8 @@ class RecipeDiagramView: UIView {
 
     var strokeWidth: Double = 3.0
     var diagramScale: Double = 2.0
-    var heightOffset: Double = 21.0
-    var widthOffset: Double = 26.0
+    var heightOffset: Double = 6.0
+    var widthOffset: Double = 6.0
     var outlineColor: UIColor = Color.Dark.toUIColor()
     var outlineWidth: Double = 3.0
 
@@ -111,7 +111,7 @@ class RecipeDiagramView: UIView {
 
         let garnishes = recipe!.parsedGarnishes
         for garnish in garnishes {
-            garnish.draw(diagramScale)
+            // garnish.draw(diagramScale)
         }
     }
 }

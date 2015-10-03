@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Pisco Punch</h2>
+  <div>
+    <h1>Pisco Punch</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Pisco
+<a href="/base/pisco">Pisco</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Pisco
             <tr>
 <td>
 
-Pineapple syrup
+<a href="/base/pineapple-syrup">Pineapple syrup</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Pineapple syrup
             <tr>
 <td>
 
-Lime juice
+<a href="/base/lime-juice">Lime juice</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Lime juice
             <tr>
 <td>
 
-Orange juice
+<a href="/base/orange-juice">Orange juice</a>
 
 
 <td class="minor">
@@ -139,23 +141,28 @@ Orange juice
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>The Pisco Punch is considered a classic cocktail, crucial to the history of San Francisco. It was invented by Duncan Nicol at a bar named Bank Exchange at the end of the 19th century, in SF; the original recipe was so potent that one writer of the day wrote <em>it tastes like lemonade but comes back with the kick of a roped steer.</em>  The drink gained notoriety thanks to pieces written by travelers including Mark Twain and Harold Ross. In Rudyard Kipling&rsquo;s 1889 epic <em>From Sea to Sea</em>, he immortalized Pisco Punch as being <em>compounded of the shavings of cherub&rsquo;s wings, the glory of a tropical dawn, the red clouds of sunset and the fragments of lost epics by dead masters</em>.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Mix the Pisco, pineapple simple syrup, lime juice, and orange juice in a shaker. Add ice and shake for 30 seconds to chill. Serve strained in a glass with cracked ice and garnish with as much fruit as possible.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in cocktail
           <br /><span id='abv'></span>% ABV
@@ -163,8 +170,17 @@ Orange juice
           <br />Garnish with Nutmeg zest
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>The Pisco Punch is considered a classic cocktail, crucial to the history of San Francisco. It was invented by Duncan Nicol at a bar named Bank Exchange at the end of the 19th century, in SF; the original recipe was so potent that one writer of the day wrote <em>it tastes like lemonade but comes back with the kick of a roped steer.</em>  The drink gained notoriety thanks to pieces written by travelers including Mark Twain and Harold Ross. In Rudyard Kipling&rsquo;s 1889 epic <em>From Sea to Sea</em>, he immortalized Pisco Punch as being <em>compounded of the shavings of cherub&rsquo;s wings, the glory of a tropical dawn, the red clouds of sunset and the fragments of lost epics by dead masters</em>.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -188,7 +204,4 @@ Orange juice
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

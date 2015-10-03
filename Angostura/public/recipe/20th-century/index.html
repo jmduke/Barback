@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>20th Century</h2>
+  <div>
+    <h1>20th Century</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Gin
+<a href="/base/gin">Gin</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Gin
             <tr>
 <td>
 
-Lillet
+<a href="/base/lillet">Lillet</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Lillet
             <tr>
 <td>
 
-Créme liqueur
+<a href="/base/creme-liqueur">Créme liqueur</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Créme liqueur
             <tr>
 <td>
 
-Lemon juice
+<a href="/base/lemon-juice">Lemon juice</a>
 
 
 <td class="minor">
@@ -139,23 +141,28 @@ Lemon juice
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Café Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders&rsquo; Guild and head bartender at the Café Royal.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Shake in an iced cocktail shaker, and strain into a cocktail glass. Garnish with a lemon twist.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in cocktail
           <br /><span id='abv'></span>% ABV
@@ -163,8 +170,17 @@ Lemon juice
           <br />Garnish with Lemon twist
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Café Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders&rsquo; Guild and head bartender at the Café Royal.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -188,7 +204,4 @@ Lemon juice
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

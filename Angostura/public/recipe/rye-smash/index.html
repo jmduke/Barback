@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Rye Smash</h2>
+  <div>
+    <h1>Rye Smash</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Rye
+<a href="/base/rye">Rye</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Rye
             <tr>
 <td>
 
-Water
+<a href="/base/water">Water</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Water
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -141,7 +143,7 @@ Two
             <tr>
 <td>
 
-Mint leaves
+<a href="/base/mint-leaves">Mint leaves</a>
 
 
 <td class="minor">
@@ -155,23 +157,28 @@ Two
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Smashes are known for their refreshing quality &ndash; generally heavy on fruit and ice compared to other classes of cocktail, giving them a certain flexibility: you can dress one up for a summer afternoon or an autumn night equally well.  <em>Imbibe</em> has a <a href="http://imbibemagazine.com/history-of-the-smash/">great piece</a> on the history of the smash; for this Rye Smash, we recommend tinkering with the potency of the beverage to find your ideal level.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>In a shaker, muddle the mint, lemon, simple syrup and water. Add the rye and fill with ice.  Shake and strain into a rocks-filled glass.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in old fashioned
           <br /><span id='abv'></span>% ABV
@@ -179,8 +186,17 @@ Two
           <br />Garnish with Mint sprig
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Smashes are known for their refreshing quality &ndash; generally heavy on fruit and ice compared to other classes of cocktail, giving them a certain flexibility: you can dress one up for a summer afternoon or an autumn night equally well.  <em>Imbibe</em> has a <a href="http://imbibemagazine.com/history-of-the-smash/">great piece</a> on the history of the smash; for this Rye Smash, we recommend tinkering with the potency of the beverage to find your ideal level.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -204,7 +220,4 @@ Two
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

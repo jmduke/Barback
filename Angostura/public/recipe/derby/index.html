@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Derby</h2>
+  <div>
+    <h1>Derby</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Gin
+<a href="/base/gin">Gin</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Gin
             <tr>
 <td>
 
-Peach bitters
+<a href="/base/peach-bitters">Peach bitters</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Two drops
             <tr>
 <td>
 
-Mint leaves
+<a href="/base/mint-leaves">Mint leaves</a>
 
 
 <td class="minor">
@@ -123,23 +125,28 @@ Two, fresh
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>On one hand, it&rsquo;s a weird drink in theory.  On the other hand, its a delightful spring mix in the same vein as a super-dry martini; be sure to err on the cold, crisp side of things.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Stir in mixing glass with ice cubes. Strain into glass.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in martini
           <br /><span id='abv'></span>% ABV
@@ -147,8 +154,17 @@ Two, fresh
           <br />Garnish with Mint leaves
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>On one hand, it&rsquo;s a weird drink in theory.  On the other hand, its a delightful spring mix in the same vein as a super-dry martini; be sure to err on the cold, crisp side of things.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -172,7 +188,4 @@ Two, fresh
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

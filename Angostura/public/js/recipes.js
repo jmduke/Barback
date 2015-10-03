@@ -7,6 +7,9 @@ container.isotope({
   getSortData: {
     name: '[data-name]',
     abv: function (element) {
+      if (!recipes[$(element).attr("data-name")]) {
+        return 0;
+      }
     	var ingredients = recipes[$(element).attr("data-name")].ingredients;
     	var totalAlcohol = 0;
     	var totalVolume = 0;
@@ -25,6 +28,9 @@ container.isotope({
     	return (totalAlcohol / totalVolume);
     },
     complexity: function (element) {
+      if (!recipes[$(element).attr("data-name")]) {
+        return 0;
+      }
       return recipes[$(element).attr("data-name")].ingredients.length;
     }
   }

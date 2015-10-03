@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Planter&#39;s Punch</h2>
+  <div>
+    <h1>Planter&#39;s Punch</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Dark rum
+<a href="/base/dark-rum">Dark rum</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Dark rum
             <tr>
 <td>
 
-Orange juice
+<a href="/base/orange-juice">Orange juice</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Orange juice
             <tr>
 <td>
 
-Pineapple juice
+<a href="/base/pineapple-juice">Pineapple juice</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Pineapple juice
             <tr>
 <td>
 
-Grenadine
+<a href="/base/grenadine">Grenadine</a>
 
 
 <td class="minor">
@@ -141,7 +143,7 @@ Grenadine
             <tr>
 <td>
 
-Lemon juice
+<a href="/base/lemon-juice">Lemon juice</a>
 
 
 <td class="minor">
@@ -157,7 +159,7 @@ Lemon juice
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -173,7 +175,7 @@ Simple syrup
             <tr>
 <td>
 
-Angostura bitters
+<a href="/base/angostura-bitters">Angostura bitters</a>
 
 
 <td class="minor">
@@ -187,10 +189,41 @@ Three to four dashes
 
           
         </table>
-
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
+          <p>Pour all ingredients, except the bitters, into shaker filled with ice. Shake. Pour into large glass, filled with ice. Add Angostura bitters, &ldquo;on top&rdquo;.</p>
         
-          <h3>Information</h3>
-          <p>To quote the magazine <em>Fun</em>, in 1878:</p>
+        </div>
+
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+
+      </div>
+      <div class="col-xs-12 col-md-6">
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
+        <p>
+          Served in highball
+          <br /><span id='abv'></span>% ABV
+          
+          <br />Garnish with Pineapple slice, cherry
+          
+        </p>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>To quote the magazine <em>Fun</em>, in 1878:</p>
 
 <p>A wine-glass with lemon juice fill,
 Of sugar the same glass fill twice
@@ -201,28 +234,11 @@ The mixture looks smooth, soft, and nice.</p>
 And four of cold water please take. A
 Drink then you&rsquo;ll have that&rsquo;s not bad—
 At least, so they say in Jamaica.</p>
-        
+        </div>
+      
 
-        
-          <h3>Directions</h3>
-          <p>Pour all ingredients, except the bitters, into shaker filled with ice. Shake. Pour into large glass, filled with ice. Add Angostura bitters, &ldquo;on top&rdquo;.</p>
-        
-
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
-      <div class="col-xs-12 col-md-6">
-      <br />
-        <p>
-          Served in highball
-          <br /><span id='abv'></span>% ABV
-          
-          <br />Garnish with Pineapple slice, cherry
-          
-        </p>
-        <div id="diagram"></div>
       </div>
+    </div>
   </div>
 
   <script>
@@ -246,7 +262,4 @@ At least, so they say in Jamaica.</p>
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

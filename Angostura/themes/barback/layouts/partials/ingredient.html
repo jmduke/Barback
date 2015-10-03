@@ -3,7 +3,7 @@
 {{ if in .baseName "" }}
 {{ .baseName }}
 {{ else }}
-{{ .baseName.name }}
+<a href="/base/{{ .baseName.slug }}">{{ .baseName.name }}</a>
 {{ end }}
 
 <td class="minor">

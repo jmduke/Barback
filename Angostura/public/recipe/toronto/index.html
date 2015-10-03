@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Toronto</h2>
+  <div>
+    <h1>Toronto</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Rye
+<a href="/base/rye">Rye</a>
 
 
 <td class="minor">
@@ -93,7 +95,7 @@ Rye
             <tr>
 <td>
 
-Fernet-Branca
+<a href="/base/fernet-branca">Fernet-Branca</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ Fernet-Branca
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Simple syrup
             <tr>
 <td>
 
-Angostura bitters
+<a href="/base/angostura-bitters">Angostura bitters</a>
 
 
 <td class="minor">
@@ -139,23 +141,28 @@ Two dashes
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Here&rsquo;s a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice. Stir for 20 seconds and strain into chilled cocktail glass.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in cocktail
           <br /><span id='abv'></span>% ABV
@@ -163,8 +170,17 @@ Two dashes
           <br />Garnish with Orange peel
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Here&rsquo;s a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -188,7 +204,4 @@ Two dashes
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

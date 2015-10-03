@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>The Getaway</h2>
+  <div>
+    <h1>The Getaway</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Dark rum
+<a href="/base/dark-rum">Dark rum</a>
 
 
 <td class="minor">
@@ -97,7 +99,7 @@ x
             <tr>
 <td>
 
-Cynar
+<a href="/base/cynar">Cynar</a>
 
 
 <td class="minor">
@@ -113,7 +115,7 @@ Cynar
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -129,7 +131,7 @@ Simple syrup
             <tr>
 <td>
 
-Lemon juice
+<a href="/base/lemon-juice">Lemon juice</a>
 
 
 <td class="minor">
@@ -143,30 +145,44 @@ Lemon juice
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Comes from <strong>Columbia Room</strong> in Washington, D.C.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Mix all ingredients in an old fashioned glass over ice; stir.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in old fashioned
           <br /><span id='abv'></span>% ABV
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Comes from <strong>Columbia Room</strong> in Washington, D.C.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -190,7 +206,4 @@ Lemon juice
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

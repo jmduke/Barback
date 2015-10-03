@@ -2,144 +2,144 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Barback</title>
-    <link>http://localhost:1313/</link>
+    <link>http://getbarback.com/</link>
     <description>Recent content on Barback</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://getbarback.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/absinthe/</link>
+      <link>http://getbarback.com/base/amaro-averna/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/absinthe/</guid>
+      <guid>http://getbarback.com/base/amaro-averna/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/agave-nectar/</link>
+      <link>http://getbarback.com/base/amaretto/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/agave-nectar/</guid>
+      <guid>http://getbarback.com/base/amaretto/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/angostura-bitters/</link>
+      <link>http://getbarback.com/base/absinthe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/angostura-bitters/</guid>
+      <guid>http://getbarback.com/base/absinthe/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/amaro-averna/</link>
+      <link>http://getbarback.com/base/angostura-bitters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/amaro-averna/</guid>
+      <guid>http://getbarback.com/base/angostura-bitters/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/aperol/</link>
+      <link>http://getbarback.com/base/agave-nectar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/aperol/</guid>
+      <guid>http://getbarback.com/base/agave-nectar/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/amaretto/</link>
+      <link>http://getbarback.com/base/aperol/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/amaretto/</guid>
+      <guid>http://getbarback.com/base/aperol/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/apple-cider/</link>
+      <link>http://getbarback.com/base/applejack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/apple-cider/</guid>
+      <guid>http://getbarback.com/base/applejack/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/applejack/</link>
+      <link>http://getbarback.com/base/apple-cider/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/applejack/</guid>
+      <guid>http://getbarback.com/base/apple-cider/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/beer/</link>
+      <link>http://getbarback.com/base/apricot-brandy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/beer/</guid>
+      <guid>http://getbarback.com/base/apricot-brandy/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/apricot-brandy/</link>
+      <link>http://getbarback.com/base/aquavit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/apricot-brandy/</guid>
+      <guid>http://getbarback.com/base/aquavit/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/aquavit/</link>
+      <link>http://getbarback.com/base/black-sambuca/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/aquavit/</guid>
+      <guid>http://getbarback.com/base/black-sambuca/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/black-sambuca/</link>
+      <link>http://getbarback.com/base/blackberry-liqueur/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/black-sambuca/</guid>
+      <guid>http://getbarback.com/base/blackberry-liqueur/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/benedictine/</link>
+      <link>http://getbarback.com/base/beer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/benedictine/</guid>
+      <guid>http://getbarback.com/base/beer/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/bourbon/</link>
+      <link>http://getbarback.com/base/benedictine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/bourbon/</guid>
+      <guid>http://getbarback.com/base/benedictine/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/base/brandy/</link>
+      <link>http://getbarback.com/base/bourbon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/base/brandy/</guid>
+      <guid>http://getbarback.com/base/bourbon/</guid>
       <description></description>
     </item>
     

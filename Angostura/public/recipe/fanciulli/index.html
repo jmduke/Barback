@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Fanciulli</h2>
+  <div>
+    <h1>Fanciulli</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Bourbon
+<a href="/base/bourbon">Bourbon</a>
 
 
 <td class="minor">
@@ -97,7 +99,7 @@ x
             <tr>
 <td>
 
-Sweet vermouth
+<a href="/base/sweet-vermouth">Sweet vermouth</a>
 
 
 <td class="minor">
@@ -113,7 +115,7 @@ Sweet vermouth
             <tr>
 <td>
 
-Fernet-Branca
+<a href="/base/fernet-branca">Fernet-Branca</a>
 
 
 <td class="minor">
@@ -127,30 +129,44 @@ Fernet-Branca
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn&rsquo;t. It&rsquo;s a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for &lsquo;our boys&rsquo;.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice. Stir until outside of mixing glass is very cold to touch, about 15 seconds.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in cocktail
           <br /><span id='abv'></span>% ABV
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn&rsquo;t. It&rsquo;s a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for &lsquo;our boys&rsquo;.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -174,7 +190,4 @@ Fernet-Branca
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

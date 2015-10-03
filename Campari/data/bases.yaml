@@ -1,3 +1,59 @@
+- abv: 0
+  brands: []
+  cocktaildb: ""
+  information: ""
+  name: Watermelon juice
+  type: mixer
+  color: "FF7287"
+- abv: 0
+  brands: []
+  cocktaildb: ""
+  information: ""
+  name: Fresh yellow bell pepper juice
+  type: mixer
+  color: "FDD731"
+- abv: 0
+  brands: []
+  cocktaildb: ""
+  information: "Tea.  It can either be hot or cold, depending on the recipe."
+  name: Tea
+  type: mixer
+  color: "993300"
+- abv: 24
+  brands: []
+  cocktaildb: http://www.cocktaildb.com/ingr_detail?id=138
+  information: "Apricot liqueur is a sweet liqueur with the flavor of apricots. Many producers make an apricot liqueur, with the difference in price being the quality of the base spirit and the use of natural flavoring components instead of artificial flavors. The best apricot liqueurs use apricot brandy and the juice from the same apricots to make a liqueur."
+  name: Apricot liqueur
+  type: liqueur
+  color: E8DF9B
+- abv: 23
+  brands: []
+  cocktaildb: ""
+  information: "Allspice Dram, also known as Pimento Dram, is an allspice flavored liqueur originally made in Jamaica. Wray and Nephew imported their version into the United Stated until the 1980's, then stopped. For years, Allspice Dram was almost impossible to find in the United States, leading to some people trying to recreate the liqueur. Many of these recipes are still available on the Internet."
+  name: Allspice Dram
+  type: liqueur 
+  color: "993300"
+- abv: 0
+  brands: []
+  cocktaildb: ""
+  information: "Rosewater is a product of the distillation of rose petals. The raw distillate of rose petals is really a layer of oil known as rose attar that is typically used in perfumes floating on top of a water layer, which is the actual rosewater. Muslim chemists first commercialized rosewater production during their Golden Age, mainly for beverages and perfumes. Rosewater is also quite common in Persian and Indian cuisine. \n\nTo make rosewater, take a large pot, place a brick in the bottom of it, and place a smaller bowl on top of the brick. Add enough fresh, organic rose petals (most roses from flower shops are not appropriate) to reach the top of the brick, then add water just to cover. Place the lid on the pot upside down. Bring the pot to a simmer, reduce the heat to barely hold it there, and then add ice to the inverted lid. Water vapor containing rose essence will condense on the colder lid and drip into the smaller bowl. Check the rosewater from time to time, and stop the process when the liquid has a strong rose aroma and flavor. This rosewater can be preserved with a bit of vodka."
+  name: Rose water
+  type: other
+  color: FFF5FE
+- abv: 0
+  brands: []
+  cocktaildb: http://www.cocktaildb.com/ingr_detail?id=623
+  information: ""
+  name: Pomegranate molasses
+  type: mixer
+  color: "955251"
+- abv: 0
+  brands: []
+  cocktaildb: http://www.cocktaildb.com/ingr_detail?id=623
+  information: "Pomegranate juice is made from the fruit of the pomegranate. It is used in cooking both as a fresh juice and as a concentrated syrup."
+  name: Pomegranate juice
+  type: mixer
+  color: "955251"
 - abv: 30
   brands: []
   cocktaildb: ""

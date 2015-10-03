@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Chilcano</h2>
+  <div>
+    <h1>Chilcano</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Pisco
+<a href="/base/pisco">Pisco</a>
 
 
 <td class="minor">
@@ -109,7 +111,7 @@ half
             <tr>
 <td>
 
-Simple syrup
+<a href="/base/simple-syrup">Simple syrup</a>
 
 
 <td class="minor">
@@ -125,7 +127,7 @@ Simple syrup
             <tr>
 <td>
 
-Ginger ale
+<a href="/base/ginger-ale">Ginger ale</a>
 
 
 <td class="minor">
@@ -141,7 +143,7 @@ Ginger ale
             <tr>
 <td>
 
-Angostura bitters
+<a href="/base/angostura-bitters">Angostura bitters</a>
 
 
 <td class="minor">
@@ -155,23 +157,28 @@ Two drops
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>January 11-17 is officially Chilcano week in Peru; the drinks are generally enjoyed socially, in a similar context as lemonade (or, more aptly, G&amp;Ts.)</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Mix the Pisco and juice of <sup>1</sup>&frasl;<sub>2</sub> a lime in a tall glass, add simple syrup if desired. Add 4 or more cubes of ice, and top off with ginger ale. Add 2 drops Angostura bitter, stir, and garnish.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in highball
           <br /><span id='abv'></span>% ABV
@@ -179,8 +186,17 @@ Two drops
           <br />Garnish with Lime wheel
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>January 11-17 is officially Chilcano week in Peru; the drinks are generally enjoyed socially, in a similar context as lemonade (or, more aptly, G&amp;Ts.)</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -204,7 +220,4 @@ Two drops
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

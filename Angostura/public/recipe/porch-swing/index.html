@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Porch Swing</h2>
+  <div>
+    <h1>Porch Swing</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Gin
+<a href="/base/gin">Gin</a>
 
 
 <td class="minor">
@@ -97,7 +99,7 @@ x
             <tr>
 <td>
 
-Pimm&#39;s No. 1
+<a href="/base/pimms-no-1">Pimm&#39;s No. 1</a>
 
 
 <td class="minor">
@@ -113,7 +115,7 @@ Pimm&#39;s No. 1
             <tr>
 <td>
 
-Lemonade
+<a href="/base/lemonade">Lemonade</a>
 
 
 <td class="minor">
@@ -157,30 +159,44 @@ half-moon slices
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>Straight-up (well, not literally) summertime.  This recipe comes to us from <a href="http://smittenkitchen.com/blog/2010/07/porch-swing/">smittenkitchen</a>, who credits <a href="http://www.bluesmoke.com/">Porch Swing</a> with the original conception.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Pour gin, Pimm’s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in highball
           <br /><span id='abv'></span>% ABV
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>Straight-up (well, not literally) summertime.  This recipe comes to us from <a href="http://smittenkitchen.com/blog/2010/07/porch-swing/">smittenkitchen</a>, who credits <a href="http://www.bluesmoke.com/">Porch Swing</a> with the original conception.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -204,7 +220,4 @@ half-moon slices
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>

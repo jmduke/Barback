@@ -68,16 +68,18 @@
   </ul>
 </div>
 
-  <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>Painkiller</h2>
+  <div>
+    <h1>Painkiller</h1>
+    <div class="row">
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
+        <div class="card">
+        <h2>Ingredients</h2>
         <table class="ingredients">
           
             <tr>
 <td>
 
-Dark rum
+<a href="/base/dark-rum">Dark rum</a>
 
 
 <td class="minor">
@@ -97,7 +99,7 @@ x
             <tr>
 <td>
 
-Pineapple juice
+<a href="/base/pineapple-juice">Pineapple juice</a>
 
 
 <td class="minor">
@@ -113,7 +115,7 @@ Pineapple juice
             <tr>
 <td>
 
-Orange juice
+<a href="/base/orange-juice">Orange juice</a>
 
 
 <td class="minor">
@@ -129,7 +131,7 @@ Orange juice
             <tr>
 <td>
 
-Coconut milk
+<a href="/base/coconut-milk">Coconut milk</a>
 
 
 <td class="minor">
@@ -143,23 +145,28 @@ Coconut milk
 
           
         </table>
-
-        
-          <h3>Information</h3>
-          <p>The official drink of <em>Pusser&rsquo;s Rum</em>, who has an <a href="http://pussersrum.com/rum-cocktails/the-pussers-painkiller/">entertaining</a> origin story for the drink.  By default, the drink is weak &ndash; depending on your flavor profile (and ideal level of sobriety) bump up the amount of rum.</p>
-        
-
-        
-          <h3>Directions</h3>
+        </div>
+            
+        <div class="card">
+          <h2>Directions</h2>
           <p>Fill a big glass or goblet with ice and add the ingredients. To mix, pour once or twice back and forth into another glass. Grate fresh nutmeg on top.</p>
         
+        </div>
 
-        <hr />
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
+      <div class="card" style="text-align: center">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="getbarback" data-size="large">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
+      </div>
+
+      </div>
       <div class="col-xs-12 col-md-6">
-      <br />
+
+        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+        <div id="diagram"></div>
+        </div>
+
+        <div class="card">
+      <h2>Data</h2>
         <p>
           Served in hurricane
           <br /><span id='abv'></span>% ABV
@@ -167,8 +174,17 @@ Coconut milk
           <br />Garnish with Nutmeg
           
         </p>
-        <div id="diagram"></div>
+        </div>
+            
+
+        <div class="card">
+        <h2>Information</h2>
+        <p>The official drink of <em>Pusser&rsquo;s Rum</em>, who has an <a href="http://pussersrum.com/rum-cocktails/the-pussers-painkiller/">entertaining</a> origin story for the drink.  By default, the drink is weak &ndash; depending on your flavor profile (and ideal level of sobriety) bump up the amount of rum.</p>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 
   <script>
@@ -192,7 +208,4 @@ Coconut milk
   </div>
 </div>
 </div>
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
