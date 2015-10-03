@@ -13,6 +13,7 @@ public final class Recipe: Object, SpotlightIndexable {
     dynamic var slug: String = ""
     public dynamic var information: String = ""
     public dynamic var isFavorited: Bool = false
+    public dynamic var emoji: String = ""
 
     public var ingredients = List<Ingredient>()
 
@@ -131,5 +132,24 @@ public final class Recipe: Object, SpotlightIndexable {
     
     class func forIndexableID(indexableID: String) -> Recipe {
         return forName(getUniqueIDFromIndexableID(indexableID))!
+    }
+}
+
+extension Recipe {
+    func matchesText(text: String) -> Bool {
+        if (name.lowercaseString.rangeOfString(text.lowercaseString) != nil) {
+            return true
+        }
+        
+        if (text.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
+            information.lowercaseString.rangeOfString(text.lowercaseString) != nil) {
+            return true
+        }
+        
+        if (emoji.rangeOfString(text) != nil) {
+            return true
+        }
+        
+        return false
     }
 }

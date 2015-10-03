@@ -8,13 +8,6 @@
   <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
         <h2>{{ .Params.name }}</h2>
       <div class="col-xs-12 col-md-6">
-        <h3>Ingredients</h3>
-        <table class="ingredients">
-          {{ range .Params.ingredients }}
-            {{ partial "ingredient.html" . }}
-          {{ end }}
-        </table>
-
         {{ if .Params.information }}
           <h3>Information</h3>
           <p>{{ .Params.information | markdownify }}</p>
@@ -31,20 +24,12 @@
       <div class="col-xs-12 col-md-6">
       <br />
         <p>
-          Served in {{ .Params.glassware }}
-          <br /><span id='abv'></span>% ABV
-          {{ if .Params.garnish }}
-          <br />Garnish with {{ .Params.garnish }}
-          {{ end }}
+          A <strong>{{ .Type }}</strong>
+          <br />with <strong>{{ .Params.abv }}%</strong> ABV
         </p>
-        <div id="diagram"></div>
+        <div id="diagram" style="width: 100px; height: 100px; border-radius: 50%; background-color: #{{ .Params.color }}; margin: 0 auto; border: 1px #333 solid"></div>
       </div>
   </div>
-
-  <script>
-    drawRecipe("{{ .Params.glassware }}", {{ .Params.ingredients }}, "diagram");
-    $("#abv").html(abv({{ .Params.ingredients }}));
-  </script>
 
   {{ partial "footer.html" . }}
 </div>

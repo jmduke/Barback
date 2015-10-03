@@ -2,7 +2,7 @@ import Foundation
 
 
 // NSUserDefault keys.
-let launchedOnceKey = "launchedOnce"
+let launchedOnceKey = "launchedOnce2"
 let syncedThisLaunchKey = "syncedThisLaunch"
 let dataVersionKey = "dataVersion"
 let syncDateKey = "syncDate"

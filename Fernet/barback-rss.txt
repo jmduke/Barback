@@ -26,3 +26,11 @@ http://measureandstir.com/feed/
 http://cold-glass.com/feed/
 http://cocktailmusings.com/feed/
 http://feeds.feedburner.com/kaiserpenguin?format=xml
+http://twoforthebar.ca/feed/
+http://www.melbournecocktails.com/feed/
+http://www.thedrinkblog.com/feed/
+http://stirandstrain.com/feed/
+http://therumhowlerblog.com/feed/
+http://thekrav.blogspot.com/feeds/posts/default
+http://theginisin.com/feed/
+http://www.bourbonblog.com/?feed=rss2

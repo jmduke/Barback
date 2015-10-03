@@ -108,8 +108,16 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
     }
     
     public func updateSearchResultsForSearchController(searchController: UISearchController) {
-        if (!searchController.searchBar.text!.isEmpty) {
-            self.filterContentForSearchText(searchController.searchBar.text!)
+        let searchedText = searchController.searchBar.text!
+        if (!searchedText.isEmpty) {
+            self.filterContentForSearchText(searchedText)
+            if (recipes.isEmpty) {
+                let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
+                emptyStateLabel.text = "Sorry, we couldn't find any recipes matching '\(searchedText)'."
+                tableView.backgroundView = emptyStateLabel
+            } else {
+                tableView.backgroundView = nil
+            }
         } else {
             recipes = Recipe.all()
         }
@@ -118,9 +126,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
 
     func filterContentForSearchText(searchText: String) {
         recipes = Recipe.all().filter({
-            $0.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil ||
-                (searchText.lowercaseString.lengthOfBytesUsingEncoding(NSASCIIStringEncoding) > 2 &&
-                    $0.information.lowercaseString.rangeOfString(searchText.lowercaseString) != nil)
+            $0.matchesText(searchText)
         })
         recipes.sortInPlace({
             let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)

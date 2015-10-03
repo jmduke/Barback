@@ -1,10 +1,13 @@
 # Xcode
-
+Angostura/public
+Angostura/content
+Campari/output
 # Private things.
 */PrivateKeys.plist
 */parse_config.py
 */global.json
 
+Fernet/barbackconfig.py
 
 # Boring things.
 Barback.xcworkspace/xcshareddata/

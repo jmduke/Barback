@@ -179,7 +179,15 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
     }
     
     override public func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.filterContentForSearchText(searchController.searchBar.text!)
+        let searchedText = searchController.searchBar.text!
+        self.filterContentForSearchText(searchedText)
+        if (possibleIngredients.isEmpty) {
+            let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
+            emptyStateLabel.text = "Sorry, we couldn't find any ingredients matching '\(searchedText)'."
+            tableView.backgroundView = emptyStateLabel
+        } else {
+            tableView.backgroundView = nil
+        }
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
