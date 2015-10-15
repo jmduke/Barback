@@ -18,7 +18,7 @@ def load_recipes_from_yaml(recipes_filename):
 
 
 def load_bases_from_yaml(bases_filename):
-    raw_bases = yaml.load(open(bases_filename).read())
+    raw_bases = yaml.load(open(bases_filename).read(), Loader=yaml.CLoader)
     return raw_bases
 
 
