@@ -1,33 +1,31 @@
 {{ partial "head.html" . }}
+{{ partial "header.html" . }}
+{{ partial "jumbotron.html" . }}
 
-<body>
-<link rel="stylesheet" href="/css/recipes.css">
-
-<div class="container">
-  {{ partial "header.html" . }}
-  {{ partial "jumbotron.html" . }}
-  <div class="row">
-    <h4 class="col-xs-12 col-md-6"> Sort by:
-      <a id="name" href="#">Name</a>
-      <a id="abv" href="#">ABV</a>
-      <a id="complexity" href="#">Complexity</a>
-    </h4>
-    <div class="col-xs-12 col-md-6">
-      <h4 class="pull-left">Search for:</h4>
-      <div class="form-inline">
-        <input id="search_filter" name="search" type="text" class="form-control" placeholder="Search for...">
-      </div>
+<div class="row">
+  <h4 class="col-xs-12 col-md-6"> Sort by:
+    <a id="name" href="#">Name</a>
+    <a id="abv" href="#">ABV</a>
+    <a id="complexity" href="#">Complexity</a>
+  </h4>
+  <div class="col-xs-12 col-md-6">
+    <h4 class="pull-left">Search for:</h4>
+    <div class="form-inline">
+      <input id="search_filter" name="search" type="text" class="form-control" placeholder="Search for...">
     </div>
   </div>
-  <hr>
-  <div class="row">
-      <div class="recipes">
-      {{ range $.Site.Data.recipes }}
-         {{ partial "recipe.html" . }}
-      {{ end }}
-      </div>
-  </div>
-  <script src="/js/recipes.js"></script>
-  {{ partial "footer.html" . }}
 </div>
-</body>
+
+<hr>
+
+<div class="row">
+    <div class="recipes">
+    {{ range $.Site.Data.recipes }}
+       {{ partial "recipe.html" . }}
+    {{ end }}
+    </div>
+</div>
+
+<script src="/js/recipes.js"></script>
+
+{{ partial "footer.html" . }}

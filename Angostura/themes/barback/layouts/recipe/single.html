@@ -1,67 +1,61 @@
 {{ partial "head.html" . }}
+{{ partial "header.html" . }}
 
-<body>
-<link rel="stylesheet" href="/css/recipe.css">
-<div class="container">
-  {{ partial "header.html" . }}
-
-  <div>
-    <h1>{{ .Params.name }}</h1>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="card">
-        <h2>Ingredients</h2>
-        <table class="ingredients">
-          {{ range .Params.ingredients }}
-            {{ partial "ingredient.html" . }}
-          {{ end }}
-        </table>
-        </div>
-            {{ if .Params.directions }}
-        <div class="card">
-          <h2>Directions</h2>
-          <p>{{ .Params.directions | markdownify }}</p>
+<div>
+  <h1>{{ .Params.name }}</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="card">
+      <h2>Ingredients</h2>
+      <table class="ingredients">
+        {{ range .Params.ingredients }}
+          {{ partial "ingredient.html" . }}
         {{ end }}
-        </div>
-
-      <div class="card" style="text-align: center">
-      {{ partial "tweet.html" . }}
+      </table>
       </div>
-
-      </div>
-      <div class="col-xs-12 col-md-6">
-
-        <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
-        <div id="diagram"></div>
-        </div>
-
-        <div class="card">
-      <h2>Data</h2>
-        <p>
-          Served in {{ .Params.glassware }}
-          <br /><span id='abv'></span>% ABV
-          {{ if .Params.garnish }}
-          <br />Garnish with {{ .Params.garnish }}
-          {{ end }}
-        </p>
-        </div>
-            {{ if .Params.information }}
-
-        <div class="card">
-        <h2>Information</h2>
-        <p>{{ .Params.information | markdownify }}</p>
-        </div>
+          {{ if .Params.directions }}
+      <div class="card">
+        <h2>Directions</h2>
+        <p>{{ .Params.directions | markdownify }}</p>
       {{ end }}
-
       </div>
+
+    <div class="card" style="text-align: center">
+    {{ partial "tweet.html" . }}
+    </div>
+
+    </div>
+    <div class="col-xs-12 col-md-6">
+
+      <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
+      <div id="diagram"></div>
+      </div>
+
+      <div class="card">
+    <h2>Data</h2>
+      <p>
+        Served in {{ .Params.glassware }}
+        <br /><span id='abv'></span>% ABV
+        {{ if .Params.garnish }}
+        <br />Garnish with {{ .Params.garnish }}
+        {{ end }}
+      </p>
+      </div>
+          {{ if .Params.information }}
+
+      <div class="card">
+      <h2>Information</h2>
+      <p>{{ .Params.information | markdownify }}</p>
+      </div>
+    {{ end }}
+
     </div>
   </div>
-
-  <script>
-    drawRecipe("{{ .Params.glassware }}", {{ .Params.ingredients }}, "diagram");
-    $("#abv").html(abv({{ .Params.ingredients }}));
-  </script>
-
-  {{ partial "footer.html" . }}
 </div>
-</body>
+
+<script>
+  drawRecipe("{{ .Params.glassware }}", {{ .Params.ingredients }}, "diagram");
+  $("#abv").html(abv({{ .Params.ingredients }}));
+</script>
+
+{{ partial "footer.html" . }}
