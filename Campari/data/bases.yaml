@@ -5,6 +5,7 @@
   name: Watermelon juice
   type: mixer
   color: "FF7287"
+  emoji: 🍉
 - abv: 0
   brands: []
   cocktaildb: ""
@@ -12,6 +13,7 @@
   name: Fresh yellow bell pepper juice
   type: mixer
   color: "FDD731"
+  emoji: 💛
 - abv: 0
   brands: []
   cocktaildb: ""
@@ -19,6 +21,7 @@
   name: Tea
   type: mixer
   color: "993300"
+  emoji: 🍵
 - abv: 24
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=138
@@ -26,6 +29,7 @@
   name: Apricot liqueur
   type: liqueur
   color: E8DF9B
+  emoji: 🌰
 - abv: 23
   brands: []
   cocktaildb: ""
@@ -40,6 +44,7 @@
   name: Rose water
   type: other
   color: FFF5FE
+  emoji: 🌹
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=623
@@ -68,6 +73,7 @@
   name: Pineapple syrup
   type: mixer
   color: FFF5C6
+  emoji: 🍍
 - abv: 16
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=445
@@ -89,6 +95,7 @@
   name: Maple syrup
   type: mixer
   color: C5906C
+  emoji: 🍁
 - abv: 15
   brands: []
   cocktaildb: http://cocktaildb.com/ingr_detail?id=437
@@ -200,6 +207,7 @@
   name: White wine
   type: mixer
   color: F2F0D3
+  emoji: 🍷
 - abv: 17.5
   brands: []
   cocktaildb: ''
@@ -212,6 +220,7 @@
   name: Sparkling wine
   type: other
   color: FFF7DB
+  emoji: 🍷
   information: ''
 - abv: 12
   brands: []
@@ -310,12 +319,14 @@
     \ and rum and raisin."
   name: "Orange Cura\xE7ao"
   type: liqueur
+  emoji: 🔶
   color: F9D9BE
 - abv: 0
   brands: []
   cocktaildb: ''
   information: ''
   name: Honey
+  emoji: 🍯🐝
   type: other
 - abv: 24
   brands: []
@@ -324,6 +335,7 @@
   name: Cherry liqueur
   type: liqueur
   color: DFAFAE
+  emoji: 🍒
 - abv: 25
   brands: []
   cocktaildb: ''
@@ -340,6 +352,7 @@
   name: Cherry brandy
   type: spirit
   color: DFAFAE
+  emoji: 🍒
 - abv: 0
   brands: []
   cocktaildb: ''
@@ -395,6 +408,7 @@
   information: It's water, preferably of the filtered variety.  That's all you need
     to know.
   name: Water
+  emoji: 🚰💧
   type: other
   color: BFCFE0
 - abv: 40
@@ -441,6 +455,7 @@
   information: Honey syrup is a syrup made from honey and water -- often used as a sweeter, fuller-bodied alternative to simple syrup.
   name: Honey syrup
   type: other
+  emoji: 🍯🐝
   color: F5DBAE
 - abv: 11
   brands: []
@@ -456,6 +471,7 @@
   information: Whiskey blended with honey, generally put out by mass-market brands
     (Evan Williams, Jack Daniels).
   name: Honey whiskey
+  emoji: 🍯🐝
   color: E4CF94
   type: liqueur
 - abv: 0
@@ -476,6 +492,7 @@
   information: ''
   name: Beer
   type: mixer
+  emoji: 🍺🍻
   color: E4CF94
 - abv: 0
   brands: []
@@ -495,6 +512,7 @@
     lemons a sour taste. The distinctive sour taste of lemon juice makes it a key
     ingredient in drinks and foods such as lemonade.
   name: Lemon juice
+  emoji: 🍋
   color: FFF9A8
   type: other
 - abv: 0
@@ -558,6 +576,7 @@
   name: Elderflower liqueur
   type: liqueur
   color: C3FFC2
+  emoji: 💐
 - abv: 15
   brands:
   - name: Martini & Rossi
@@ -649,6 +668,7 @@
   information: Cream is a dairy product that is composed of the higher-butterfat layer
     skimmed from the top of milk before homogenization.
   name: Cream
+  emoji: 🍼
   type: other
   color: FFFDE1
 - abv: 55
@@ -691,6 +711,7 @@
   color: fbff8c
   type: spirit
 - name: Applejack
+  emoji: 🍎🍏
   abv: 35
   cocktaildb: http://cocktaildb.com/ingr_detail?id=57
   information: "A strong flavored spirit produced from apples.  Like cider, it was immensely popular during the colonial period: during the American Revolution, George Washington reportedly asked Robert Laird for his renowned recipe for `cyder spirits.`"
@@ -715,6 +736,7 @@
   name: Irish cream liqueur
   type: liqueur
   color: F3F2D5
+  emoji: ☕️
 - abv: 0
   brands: []
   cocktaildb: ''
@@ -727,6 +749,7 @@
   information: The white part of the egg.
   name: Egg white
   type: other
+  emoji: 🍳
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=281
@@ -791,6 +814,7 @@
   cocktaildb: ''
   information: A sweet fortified wine, often consumed in conjunction with dessert.
   name: Port
+  emoji: 🛂🚢
   type: liqueur
   color: E4B3A7
 - abv: 25
@@ -818,6 +842,7 @@
   information: Schnapps is a term that refers to any kind of strong alcoholic beverage.  Peach
     schnapps involves peach flavoring or liqueur.
   name: Peach schnapps
+  emoji: 🍑
   type: liqueur
   color: FFE7AF
 - abv: 0
@@ -865,6 +890,7 @@
   name: Kirsch
   color: FEDBDB
   type: liqueur
+  emoji: 🍒
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=385
@@ -876,6 +902,7 @@
     it is also an ingredient in Michelada, the Mexican beer cocktail.
   name: Worcestershire sauce
   type: other
+  emoji: 🍔
 - abv: 40
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=61
@@ -909,6 +936,7 @@
   name: Pineapple juice
   type: mixer
   color: FFF5C6
+  emoji: 🍍
 - abv: 40
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=63
@@ -969,6 +997,7 @@
   information: Espresso is coffee brewed by forcing a small amount of nearly boiling
     water under pressure through finely ground coffee beans.
   name: Espresso
+  emoji: ☕️
   type: other
   color: DDC4AD
 - abv: 0
@@ -977,10 +1006,11 @@
     price: 8.99
     url: 'http://crowsfeetcommons.com/wp-content/uploads/2013/07/neilannestumptownlogo.gif'
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=300
-  information: Coffee is good, coffee is glory.
+  information: Coffee is good.  Coffee is glorious.
   name: Coffee
   type: other
   color: DDC4AD
+  emoji: ☕️
 - abv: 17.5
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=509
@@ -1030,6 +1060,7 @@
   name: Maraschino
   type: liqueur
   color: DFAFAE
+  emoji: 🍒
 - abv: 17.5
   brands: []
   cocktaildb: ''
@@ -1038,6 +1069,7 @@
   name: Coffee liqueur
   color: DDC4AD
   type: liqueur
+  emoji: ☕️
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=340
@@ -1047,6 +1079,7 @@
   name: Orange juice
   type: mixer
   color: FFCD7B
+  emoji: 🔶
 - abv: 0
   brands: []
   cocktaildb: ''
@@ -1060,6 +1093,7 @@
   name: Egg yolk
   type: other
   color: F5F298
+  emoji: 🍳
 - abv: 42
   brands: []
   cocktaildb: ''
@@ -1077,6 +1111,7 @@
     and frozen lemonade are also prepared. Limeade substitutes out the lemons for
     limes.
   name: Lemonade
+  emoji: 🍋
   type: mixer
   color: FFFDB3
 - abv: 0
@@ -1150,6 +1185,7 @@
   name: Tomato juice
   type: mixer
   color: F38888
+  emoji: 🍅
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=369
@@ -1157,6 +1193,7 @@
   name: Strawberry syrup
   type: other
   color: F38888
+  emoji: 🍓
 - abv: 40
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=415
@@ -1175,6 +1212,7 @@
     content. Most of the fat is saturated fat. Coconut milk is a very popular food
     ingredient used in Southeast Asia.
   name: Coconut milk
+  emoji: 🍼
   color: E9E0C0
   type: mixer
 - abv: 0
@@ -1192,6 +1230,7 @@
   information: 'Apple cider is similar to apple juice -- a less sweet variety, often infused with spices and cinnamon.  A huge hit in the fall.  (Be sure not to confuse this with hard cider, which is of the alcoholic variety.)'
   name: Apple cider
   type: mixer
+  emoji: 🍎🍏
   color: EDCE51
 - abv: 8
   brands: []
@@ -1199,4 +1238,5 @@
   name: Hard cider
   type: mixer
   color: EDCE51
+  emoji: 🍎🍏
   information: ''
