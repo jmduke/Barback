@@ -21,7 +21,15 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         for baseList in bases {
             baseList.filter({ !uniqueBases.contains($0) }).map({ uniqueBases.append($0) })
         }
-        return uniqueBases.filter({ !self.activeIngredients.contains($0) }).sort({ $0.name < $1.name }).filter({ self.searchController == nil || self.searchController!.searchBar.text == "" || $0.name.lowercaseString.rangeOfString(self.searchController!.searchBar.text!.lowercaseString) != nil })
+        return uniqueBases
+                .filter({!self.activeIngredients.contains($0) })
+                .sort({ $0.name < $1.name })
+                .filter({
+                    self.searchController == nil ||
+                    self.searchController!.searchBar.text == "" ||
+                    $0.name.lowercaseString.rangeOfString(self.searchController!.searchBar.text!.lowercaseString) != nil ||
+                    $0.emoji.rangeOfString(self.searchController!.searchBar.text!.lowercaseString) != nil
+                })
     }
     
     var recipeCountsForPossibleIngredients: [String:Int] = [:]

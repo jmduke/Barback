@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import RealmSwift
 
-public final class IngredientBase: Object, SpotlightIndexable {
+public final class IngredientBase: Object, SpotlightIndexable, Equatable {
 
     public dynamic var information: String = ""
     public dynamic var name: String = ""
@@ -18,6 +18,7 @@ public final class IngredientBase: Object, SpotlightIndexable {
     dynamic var cocktaildb: String = ""
     public dynamic var abv: Double = 0.0
     dynamic var color: String = ""
+    public dynamic var emoji: String = ""
     
     // Need to do it because of https://github.com/realm/realm-cocoa/issues/921.
     dynamic var type: String = ""
@@ -61,4 +62,8 @@ public final class IngredientBase: Object, SpotlightIndexable {
     func uniqueID() -> String {
         return name
     }
+}
+
+public func ==(lhs: IngredientBase, rhs: IngredientBase) -> Bool {
+    return lhs.name == rhs.name
 }
