@@ -3,7 +3,7 @@ import Foundation
 import Mustache
 import RealmSwift
 
-public final class Recipe: Object, SpotlightIndexable {
+public final class Recipe: Object, SpotlightIndexable, Equatable, Hashable {
 
     public dynamic var directions: String = ""
     public dynamic var glassware: String = ""
@@ -152,4 +152,8 @@ extension Recipe {
         
         return false
     }
+}
+
+public func ==(lhs: Recipe, rhs: Recipe) -> Bool {
+    return lhs.name == rhs.name
 }

@@ -12,14 +12,14 @@ struct RealmDataSource {
     func sync() {
             do {
                 let realm = try Realm()
-                realm.write {
+                try realm.write {
                     realm.deleteAll()
                 }
                 
                 let baseFilepath = NSBundle.mainBundle().pathForResource("bases", ofType: "json")!
                 let baseData = try NSData(contentsOfFile: baseFilepath, options: NSDataReadingOptions.DataReadingMappedAlways)
                 let baseDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(baseData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
-                realm.write {
+                try realm.write {
                     for object in baseDict {
                         let rawBase = NSMutableDictionary(dictionary: object)
                         let base = IngredientBase(value: rawBase)
@@ -52,7 +52,7 @@ struct RealmDataSource {
                 let recipeFilepath = NSBundle.mainBundle().pathForResource("recipes", ofType: "json")!
                 let recipeData = try NSData(contentsOfFile: recipeFilepath, options: NSDataReadingOptions.DataReadingMappedAlways)
                 let recipeDict: [NSDictionary] = try NSJSONSerialization.JSONObjectWithData(recipeData, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary]
-                realm.write {
+                try realm.write {
                     for object in recipeDict {
                         let recipe = Recipe(value: object)
                         realm.add(recipe)
