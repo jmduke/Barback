@@ -42,7 +42,7 @@
   ingredients:
   - 6cl Applejack
   - 1.5cl Pear Eau de Vie
-  - 1.5cl Allspice dram
+  - 1.5cl Allspice Dram
   - 1.5cl Sweet vermouth
   - Angostura bitters (One dash)
   directions: "The original recipe instructs to combine all ingredients with ice and “stir like hell for no less than 30 seconds.” This is not a step to be flippant about. The large dosage of spice in this drink can turn bitter if sufficient water is not released. It also has it’s fair share of esoteric ingredients, but isn’t delicate and could probably accommodate alterations. The original recipe calls for homemade dram, but we've made due with the retail versions added to shelves recently. It also recommends the bitter Punt e Mes as a vermouth, which is a great recommendation but not required."
@@ -67,7 +67,7 @@
   source: Tuxedo No. 2
   ingredients: 
   - 4.5cl Dark rum
-  - 2cl Light rum
+  - 2cl White rum
   - 1.5cl Falernum
   - 1.5cl Cointreau
   - 1.5cl Lime juice
@@ -110,7 +110,7 @@
   ingredients:
   - 4.5cl Rye
   - 4.5cl Hard cider
-  - 1.5cl Allspice dram
+  - 1.5cl Allspice Dram
   - 1.5cl Lemon juice
   - .75cl Demerara syrup
   directions: "Shake with ice and strain into a cocktail glass.  Garnish with apple slices."
@@ -176,7 +176,7 @@
   - 4.5cl Drambuie
   - 4.5cl Pineapple juice
   - 2cl Lime juice
-  - Fernet Branca (One tablespoon)
+  - Fernet-Branca (One tablespoon)
   - Angostura bitters (Three dashes)
   - 3cl Soda water
   directions: "Shake ingredients with ice and finish with 1 oz soda water. Strain mix over fresh ice into a chilled collins glass and garnish with an orange twist."
@@ -228,10 +228,10 @@
   - Cucumber (one half)
   - Lime (one half)
   - Tabasco
-  - Worchestershire sauce
+  - Worcestershire sauce
   - Salt
   - Pepper
-  directions: "Peel and slice the cucumber as well as slice the lime.  Muddle the cucumber with simple syrup in the bottom of a shaker.  Add gin, Worchestershire, tabasco, and shake.  Muddle the limes at the bottom of a highball, then spread them around the inside of the glass.  Fill the glass to the top with ice, then pour the drink.  Garnish with a lime wheel as well as salt and pepper (and more tabasco/Worchestershire, if you're so inclined.)"
+  directions: "Peel and slice the cucumber as well as slice the lime.  Muddle the cucumber with simple syrup in the bottom of a shaker.  Add gin, Worcestershire, tabasco, and shake.  Muddle the limes at the bottom of a highball, then spread them around the inside of the glass.  Fill the glass to the top with ice, then pour the drink.  Garnish with a lime wheel as well as salt and pepper (and more tabasco/Worcestershire, if you're so inclined.)"
   garnish: Lime wheel
   glassware: highball
   information: "If you're like me, you're not the hugest fan in the world of a Bloody Mary (sacrilege, I know!)  This cocktail is a great alternative for those boozy brunches: Gordon's Breakfast has a nice blend of sweet and spice, and lets you customize it to your liking by adding relative amounts of syrup or sauce."
@@ -291,7 +291,7 @@
   ingredients:
   - 6cl Scotch
   - Ginger ale
-  - Club soda
+  - Soda water
   directions: Add the Scotch to a Collins glass and fill with ice. Fill with equal amounts of ginger ale and soda.
   garnish: Candied ginger
   glassware: highball
@@ -1252,7 +1252,7 @@
   - amount: 1.5
     baseName: Lemon juice
   - baseName: Tabasco
-  - baseName: Worchestershire sauce
+  - baseName: Worcestershire sauce
     label: Two to three dashes
   - baseName: Celery salt
   name: Bloody Mary
@@ -1673,7 +1673,7 @@
     baseName: Tomato juice
   - amount: 1
     baseName: Lime juice
-  - baseName: Worchestershire sauce
+  - baseName: Worcestershire sauce
     label: Few dashes
   - baseName: Salt
   - baseName: Red chili peppers

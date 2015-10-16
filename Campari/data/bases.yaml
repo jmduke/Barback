@@ -184,18 +184,6 @@
   name: Vodka
   type: spirit
   color: F0EEED
-- abv: 0
-  brands: []
-  cocktaildb: ''
-  information: "Worcestershire sauce (/\u02C8w\u028Ast\u0259r\u0283\u0259r/), usually\
-    \ shortened to Worcester sauce (/\u02C8w\u028Ast\u0259r/), is a fermented liquid\
-    \ condiment. It is often an ingredient in Welsh rarebit, Caesar salad, Oysters\
-    \ Kirkpatrick, and sometimes added to chili con carne, beef stew, hamburgers,\
-    \ and other beef dishes. Worcestershire sauce is also used to flavour cocktails\
-    \ such as a Bloody Mary or Caesar. Known as salsa inglesa (English sauce) in Spanish,\
-    \ it is also an ingredient in Michelada, the Mexican beer cocktail."
-  name: Worchestershire sauce
-  type: other
 - abv: 12
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=468
@@ -296,6 +284,7 @@
     to Texas Pete.
   name: Tabasco
   type: garnish
+  color: ED380C
 - abv: 24
   brands: []
   cocktaildb: ''
@@ -327,6 +316,7 @@
   information: ''
   name: Honey
   emoji: 🍯🐝
+  color: F5DBAE
   type: other
 - abv: 24
   brands: []
@@ -359,6 +349,7 @@
   information: Run of the mill simple syrup, except made with cane sugar.
   name: Simple cane syrup
   type: mixer
+  color: FDEFFF
 - abv: 30
   brands:
   - name: Remy Martin VSOP
@@ -465,6 +456,7 @@
   name: Aperol
   color: EEACAC
   type: spirit
+  emoji: 🇮🇹
 - abv: 30
   brands: []
   cocktaildb: ''
@@ -486,6 +478,8 @@
   information: ''
   name: Peach bitters
   type: garnish
+  emoji: 🍑
+  color: FFE7AF
 - abv: 8
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=10
@@ -557,11 +551,13 @@
   name: Tequila
   color: CBE9CB
   type: spirit
+  emoji: 🇲🇽
 - abv: 0
   name: Peach puree
   type: mixer
   color: C3FFC2
   information: ''
+  emoji: 🍑
 - abv: 42
   name: Black sambuca
   type: liqueur
@@ -618,6 +614,7 @@
   cocktaildb: ''
   information: A particularly delicious Islay scotch known for its distinctive and overwhelming smokiness.
   name: Laphroaig
+  emoji: 🇬🇧
   color: D5C6A1
   type: spirit
 - abv: 43
@@ -635,6 +632,7 @@
   information: Scotch whisky, often simply called Scotch, is malt whisky or grain
     whisky made in Scotland. Scotch whisky must be made in a manner specified by law.
   name: Scotch
+  emoji: 🇬🇧
   color: D5C6A1
   type: spirit
 - abv: 0
@@ -704,6 +702,7 @@
     traditional dessert dishes.'
   name: Orange flower water
   type: garnish
+  color: EDB07E
 - name: Aquavit
   abv: 40
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=254
@@ -726,6 +725,7 @@
   name: Cynar
   color: BDD7C3
   type: liqueur
+  emoji: 🌿🇮🇹
 - abv: 17.5
   brands: []
   cocktaildb: ''
@@ -743,6 +743,7 @@
   information: ''
   name: White sugar
   type: other
+  color: FEFEFE
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=475
@@ -788,6 +789,7 @@
   name: "B\xE9n\xE9dictine"
   color: D2E1C2
   type: liqueur
+  emoji: 🇫🇷
 - abv: 40
   brands:
   - name: Pusser''s
@@ -809,6 +811,7 @@
   name: Soda water
   type: mixer
   color: EEEEEE
+  emoji: 💧
 - abv: 15
   brands: []
   cocktaildb: ''
@@ -836,6 +839,7 @@
   name: Agave nectar
   type: other
   color: FFF6AF
+  emoji: 🇲🇽🇿🇦
 - abv: 23
   brands: []
   cocktaildb: ''
@@ -902,6 +906,7 @@
     it is also an ingredient in Michelada, the Mexican beer cocktail.
   name: Worcestershire sauce
   type: other
+  color: EC975C
   emoji: 🍔
 - abv: 40
   brands: []
@@ -911,6 +916,7 @@
   name: Calvados
   type: spirit
   color: FEDBDB
+  emoji: 🇫🇷
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=372
@@ -929,6 +935,7 @@
   name: Prosecco
   type: mixer
   color: FEF3DB
+  emoji: 🇮🇹
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=350
@@ -946,6 +953,7 @@
   name: Cognac
   type: spirit
   color: FFC6C6
+  emoji: 🇫🇷
 - abv: 24
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=28
@@ -953,6 +961,7 @@
   name: Campari
   type: liqueur
   color: FF9A9A
+  emoji: 🌿🇮🇹
 - abv: 35
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=183
@@ -962,6 +971,7 @@
   name: Southern Comfort
   type: liqueur
   color: F9DA9F
+  emoji: ↘️↙️👎🇺🇸
 - abv: 45
   brands:
   - name: Gordon's Dry London
@@ -1019,6 +1029,7 @@
   name: Blackberry liqueur
   type: liqueur
   color: E9C8E2
+  emoji: ⚫️
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=328
@@ -1026,6 +1037,7 @@
   name: Lime juice
   type: other
   color: C8E9CE
+  emoji: 🌴
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=380
@@ -1033,6 +1045,7 @@
     as the primary ingredient. Pure vanilla extract is made by macerating and percolating
     vanilla beans in a solution of ethyl alcohol and water.
   name: Vanilla extract
+  color: A6390C
   type: other
 - abv: 40
   brands: []
@@ -1042,11 +1055,13 @@
   name: Pisco
   type: spirit
   color: C8E9CE
+  emoji: 🇵🇪🇨🇱
 - abv: 45
   brands: []
   cocktaildb: ''
   information: A potent Brazilian spirit distilled from sugarcane juice.
   name: Cachaca
+  emoji: 🇧🇷
   type: spirit
   color: C8D6E9
 - abv: 0
@@ -1086,6 +1101,8 @@
   information: The fresh kind, not the rock band kind.
   name: Red chili peppers
   type: other
+  color: FF4A41
+  emoji: 🔴
 - abv: 0
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=476
@@ -1120,6 +1137,8 @@
   information: They should be as fresh as possible, ideally picked that day.
   name: Mint leaves
   type: garnish
+  color: 9CBA7F
+  emoji: 🍂
 - abv: 25
   brands: []
   cocktaildb: http://www.cocktaildb.com/ingr_detail?id=231
@@ -1138,6 +1157,7 @@
     \ as the Margarita, White Lady, Long Island Iced Tea, and Cosmopolitan."
   name: Triple sec
   type: liqueur
+  emoji: 🕒
   color: FFC781
 - abv: 0
   brands: []
@@ -1167,6 +1187,7 @@
     \ as the Margarita, White Lady, Long Island Iced Tea, and Cosmopolitan."
   name: Triple sec
   type: liqueur
+  emoji: 🕒
   color: FFC781
 - abv: 0
   brands: []
