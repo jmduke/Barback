@@ -1,6 +1,7 @@
 import Foundation
-import UIKit
+import Popover
 import RealmSwift
+import UIKit
 
 public class SearchRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks {
 
@@ -57,11 +58,56 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         set { }
     }
     
+    
+    let popover = Popover()
+    var sortingMethod: IngredientBaseSortingMethod = IngredientBaseSortingMethod.NameDescending
+    
+    public func toggleSortingMethod() {
+        let startPoint = CGPoint(x: 40, y: 55)
+        let buttonHeight = CGFloat(60)
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width / 2, height: buttonHeight * 3))
+        
+        for (i, method) in sortingMethod.possibleMethods().enumerate() {
+            let button = SimpleButton(frame: CGRect(x: 0, y: CGFloat(i) * buttonHeight, width: self.view.frame.width / 2, height: buttonHeight))
+            button.setTitle(method.title(), forState: UIControlState.Normal)
+            button.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            button.tag = method.rawValue
+            button.addTarget(self, action: "changeSortingMethod:", forControlEvents: UIControlEvents.TouchUpInside)
+            aView.addSubview(button)
+            
+        }
+        
+        popover.show(aView, point: startPoint)
+    }
+    
+    public func changeSortingMethod(sender: UIButton) {
+        sortingMethod = IngredientBaseSortingMethod(rawValue: sender.tag)!
+        
+        possibleIngredients = possibleIngredients.sort(sortingMethod.sortFunction())
+        
+        // Override # of recipes to include what we know.
+        if (sortingMethod == .RecipeUsageAscending) {
+            possibleIngredients = possibleIngredients.sort({
+                recipeCountsForPossibleIngredients[$0.name] < recipeCountsForPossibleIngredients[$1.name]
+            })
+        } else if (sortingMethod == .RecipeUsageDescending) {
+            possibleIngredients = possibleIngredients.sort({
+                recipeCountsForPossibleIngredients[$0.name] > recipeCountsForPossibleIngredients[$1.name]
+            })
+        }
+        
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
+        popover.dismiss()
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         if !viewingRecipes {
             attachSearchBar()
         }
+        let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleSortingMethod")
+        self.navigationItem.leftBarButtonItem = sortButton
         runCoachMarks(view)
     }
 

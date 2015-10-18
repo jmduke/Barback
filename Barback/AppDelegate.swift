@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         styleApp()
         
         let dataSource = RealmDataSource()
-        if dataSource.needsSyncing() {
+        if dataSource.needsSyncing() || true {
             dataSource.sync()
         }
         return true

@@ -1,14 +1,6 @@
-//
-//  RecipeSortingMethod.swift
-//  Barback
-//
-//  Created by Justin Duke on 8/9/15.
-//  Copyright © 2015 Justin Duke. All rights reserved.
-//
-
 import Foundation
 
-enum RecipeSortingMethod: Int {
+enum RecipeSortingMethod: Int, SortingMethod {
     case ABVDescending = 0
     case ABVAscending
     case ComplexityDescending
@@ -16,12 +8,7 @@ enum RecipeSortingMethod: Int {
     case NameDescending
     case NameAscending
     
-    static func maximum() -> Int {
-        // from http://stackoverflow.com/questions/26261011/swift-chose-a-random-enumeration-value
-        var maxValue: Int = 0
-        while let _ = self.init(rawValue: ++maxValue as Int) {}
-        return maxValue
-    }
+    typealias SortedObject = Recipe
     
     func title() -> String {
         return ["ABV", "Complexity", "Name"][rawValue / 2] + ["↓", "↑"][rawValue % 2]
