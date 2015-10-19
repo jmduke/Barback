@@ -207,7 +207,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     
     func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int) {
         let coachMark = view.coachMarks[index].rect
-        let y = min(scrollView.contentSize.height - UIScreen.mainScreen().bounds.size.height, coachMark.origin.y - 50)
+        let y = min(scrollView.contentSize.height - UIScreen.mainScreen().bounds.size.height + 100, coachMark.origin.y - 50)
         scrollView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
     }
 
