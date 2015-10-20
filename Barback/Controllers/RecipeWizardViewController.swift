@@ -69,7 +69,14 @@ class RecipeWizardViewController: UIViewController {
     }
     
     func getRecipe() -> Recipe {
-        let candidates = candidateRecipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) }).filter({ secondAdjectiveSegmentedControl.selectedAdjective.describesRecipe($0) })
+        var candidates = candidateRecipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) }).filter({ secondAdjectiveSegmentedControl.selectedAdjective.describesRecipe($0) })
+        
+        // If there are recipes we haven't seen before, use 'em!
+        if (previousRecipes.count < candidates.count) {
+            candidates = candidates.filter({
+                !previousRecipes.contains($0)
+            })
+        }
         
         let recipe = candidates[Int(arc4random_uniform(UInt32(candidates.count)))]
         previousRecipes.append(recipe)
