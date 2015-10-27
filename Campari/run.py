@@ -16,6 +16,27 @@ def write_to_json(objects, filename):
 
 
 def write_to_markdown(recipes, bases, foldername):
+    for base in bases:
+
+        # Add uses for Angostura.
+        base["uses"] = []
+        for recipe in recipes:
+            for ingredient in recipe["ingredients"]:
+                if base["name"] == ingredient["baseName"]:
+                    base["uses"].append({
+                        'recipe': recipe['name'],
+                        'slug': recipe['slug'],
+                        'ingredient': ingredient
+                    })
+
+        json_base = json.dumps(base, sort_keys=True, indent=4, separators=(',', ': '))
+        base_filename = foldername + "base/" + base['slug'] + ".md"
+        with open(base_filename, "w") as outfile:
+            outfile.write(json_base)
+
+        # Delete this to avoid circular references.
+        del base["uses"]
+
     for recipe in recipes:
         for (i, ingredient) in enumerate(recipe["ingredients"]):
             base_name = recipe["ingredients"][i]["baseName"]
@@ -26,11 +47,6 @@ def write_to_markdown(recipes, bases, foldername):
         recipe_filename = foldername + "recipe/" + recipe['slug'] + ".md"
         with open(recipe_filename, "w") as outfile:
             outfile.write(json_recipe)
-    for base in bases:
-        json_base = json.dumps(base, sort_keys=True, indent=4, separators=(',', ': '))
-        base_filename = foldername + "base/" + base['slug'] + ".md"
-        with open(base_filename, "w") as outfile:
-            outfile.write(json_base)
 
 
 if __name__ == "__main__":
