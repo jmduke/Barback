@@ -6,8 +6,10 @@
 //
 //
 
-import Foundation
 import CoreData
+import CoreSpotlight
+import Foundation
+import MobileCoreServices
 import RealmSwift
 
 public final class IngredientBase: Object, SpotlightIndexable, Equatable {
@@ -61,6 +63,23 @@ public final class IngredientBase: Object, SpotlightIndexable, Equatable {
     
     func uniqueID() -> String {
         return name
+    }
+    
+    func toAttributeSet() -> CSSearchableItemAttributeSet {
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        
+        attributeSet.title = name
+        attributeSet.contentDescription = information
+        
+        let view = IngredientDiagramView(frame: CGRectMake(0, 0, 50, 50),ingredient: self)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let recipeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageData = NSData(data: UIImagePNGRepresentation(recipeImage)!)
+        attributeSet.thumbnailData = imageData
+        return attributeSet
     }
 }
 

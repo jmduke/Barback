@@ -1,3 +1,4 @@
+import CoreSpotlight
 import Foundation
 
 protocol SpotlightIndexable {
@@ -5,6 +6,7 @@ protocol SpotlightIndexable {
     func uniqueID() -> String
     func indexableID() -> String
     static func forIndexableID(indexableID: String) -> Self
+    func toAttributeSet() -> CSSearchableItemAttributeSet
     
 }
 

@@ -72,6 +72,8 @@ struct R {
       static var instance: UIStoryboard { return UIStoryboard(name: "Main", bundle: nil) }
       static var recipeDetail: Barback.RecipeDetailViewController? { return instance.instantiateViewControllerWithIdentifier("recipeDetail") as? Barback.RecipeDetailViewController }
       static var searchRecipeListViewController: Barback.SearchRecipeListViewController? { return instance.instantiateViewControllerWithIdentifier("SearchRecipeListViewController") as? Barback.SearchRecipeListViewController }
+      static var favoriteListViewController: Barback.FavoriteRecipeListViewController? { return instance.instantiateViewControllerWithIdentifier("FavoriteRecipeListViewController") as? Barback.FavoriteRecipeListViewController }
+      static var fullRecipeListViewController: Barback.FullRecipeListViewController? { return instance.instantiateViewControllerWithIdentifier("FullRecipeListViewController") as? Barback.FullRecipeListViewController }
       
       static func validateImages() {
         

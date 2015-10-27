@@ -2,6 +2,8 @@ import AdSupport
 import Appirater
 import CoreData
 import CoreSpotlight
+import Crashlytics
+import Fabric
 import JLRoutes
 import MBProgressHUD
 import MobileCoreServices
@@ -11,7 +13,7 @@ import UIKit
 
 func initializeDependencies(launchOptions: NSDictionary?) {
 
-    // Fabric.with([Crashlytics()])
+    Fabric.with([Crashlytics()])
 
     // Initialize Appirater.
     Appirater.setAppId("829469529")
@@ -27,31 +29,6 @@ func initializeDependencies(launchOptions: NSDictionary?) {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    func application(
-        application: UIApplication,
-        openURL url: NSURL,
-        sourceApplication: String?,
-        annotation: AnyObject) -> Bool {
-        return JLRoutes.routeURL(url)
-    }
-    
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        if userActivity.activityType == CSSearchableItemActionType {
-            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                if let _ = uniqueIdentifier.rangeOfString("ecipe") {
-                    let recipe = Recipe.forIndexableID(uniqueIdentifier)
-                    pushRecipeDetailController(recipe)
-                } else {
-                    let ingredient = IngredientBase.forIndexableID(uniqueIdentifier)
-                    pushIngredientDetailController(ingredient)
-                }
-                
-                }
-            }
-        
-        return true
-        }
-
     var tabBarItems: [UITabBarItem] {
         get {
             let tabBarController = self.window?.rootViewController as! UITabBarController
@@ -63,26 +40,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Needed to access UITabBarIcons.
     var window: UIWindow?
+    var controllerNavigator = ControllerNavigator() {
+        didSet {
+            controllerNavigator.application = self
+        }
+    }
+    
+    func application(
+        application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject) -> Bool {
+            return JLRoutes.routeURL(url)
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        if userActivity.activityType == CSSearchableItemActionType {
+            if let uniqueIdentifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                if let _ = uniqueIdentifier.rangeOfString("ecipe") {
+                    let recipe = Recipe.forIndexableID(uniqueIdentifier)
+                    controllerNavigator.pushRecipeDetailController(recipe)
+                } else {
+                    let ingredient = IngredientBase.forIndexableID(uniqueIdentifier)
+                    controllerNavigator.pushIngredientDetailController(ingredient)
+                }
+                
+            }
+        }
+        
+        return true
+    }
 
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         application.registerUserNotificationSettings(notificationSettings)
     }
-
-        
-    func pushRecipeDetailController(recipe: Recipe) {
-        let controller = R.storyboard.main.recipeDetail!
-        controller.setRecipeAs(recipe)
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-        navController.pushViewController(controller, animated: true)
-    }
     
-    func pushIngredientDetailController(ingredient: IngredientBase) {
-        let controller = R.storyboard.main.ingredientDetail!
-        controller.ingredient = ingredient
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-        navController.pushViewController(controller, animated: true)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let title = shortcutItem.localizedTitle
+        let quickActionShortcut = QuickActionShortcut.fromTitle(title)
+        quickActionShortcut.performQuickAction(self, shortcutItem: shortcutItem)
     }
 
     func registerPushNotifications(application: UIApplication) {
@@ -92,12 +88,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
     }
+    
+    func registerQuickActions() {
+        UIApplication.sharedApplication().shortcutItems = [
+            QuickActionShortcut.AllFavorites.toShortcutItem(),
+            QuickActionShortcut.MostRecentFavorite.toShortcutItem(),
+            QuickActionShortcut.MostRecentSearch.toShortcutItem(),
+            QuickActionShortcut.BartendersChoice.toShortcutItem()
+        ]
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 
         initializeRouting()
         initializeDependencies(launchOptions)
         registerPushNotifications(application)
+        registerQuickActions()
         styleApp()
         
         let dataSource = RealmDataSource()
@@ -108,23 +114,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initializeRouting() {
-        // Format of `barback://recipe/<RecipeName>`.
-        JLRoutes.addRoute("/recipe/:name", handler:
-            {
-                (params: [NSObject: AnyObject]!) -> Bool in
-                let recipe = Recipe.forName(params["name"] as! String)!
-                self.pushRecipeDetailController(recipe)
-                return true
+        URLRoute.all().map({
+            JLRoutes.addRoute($0.url, handler: $0.handler)
         })
-        // Format of `barback://recipe/<RecipeName>`.
-        JLRoutes.addRoute("/ingredient/:name", handler:
-            {
-                (params: [NSObject: AnyObject]!) -> Bool in
-                let base = IngredientBase.all().filter({ $0.name == (params["name"] as! String) }).first!
-                self.pushIngredientDetailController(base)
-                return true
-        })
-        
     }
 
     func styleApp() {

@@ -20,6 +20,11 @@ class AdjectivesSegmentControl: SegmentControl {
     }
     
     var selectedAdjective: Adjective {
-        return adjectives[selectedSegmentIndex]
+        get {
+            return adjectives[selectedSegmentIndex]
+        }
+        set {
+            selectedSegmentIndex = adjectives.indexOf(newValue)!
+        }
     }
 }

@@ -1,10 +1,10 @@
 import Foundation
 
-public enum IngredientBaseGroup {
-    case Whiskey
-    case Vodka
-    case Gin
-    case Tequila
+public enum IngredientBaseGroup: String {
+    case Whiskey = "Whiskey"
+    case Vodka = "Vodka"
+    case Gin = "Gin"
+    case Tequila = "Tequila"
     
     var bases: [IngredientBase] {
         switch self {

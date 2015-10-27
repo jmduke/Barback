@@ -12,6 +12,11 @@ class FlavorsSegmentControl: SegmentControl {
     }
     
     var selectedFlavor: Flavor {
-        return flavors[selectedSegmentIndex]
+        get {
+            return flavors[selectedSegmentIndex]
+        }
+        set {
+            selectedSegmentIndex = flavors.indexOf(newValue)!
+        }
     }
 }

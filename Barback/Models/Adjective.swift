@@ -1,9 +1,9 @@
-public enum Adjective: CustomStringConvertible {
-    case Bold
-    case Daring
-    case Quiet
-    case Silly
-    case Thirsty
+public enum Adjective: String {
+    case Bold = "Bold"
+    case Daring = "Daring"
+    case Quiet = "Quiet"
+    case Silly = "Silly"
+    case Thirsty = "Thirsty"
     
     public func describesRecipe(recipe: Recipe) -> Bool {
         switch self {

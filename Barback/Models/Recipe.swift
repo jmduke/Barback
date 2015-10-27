@@ -1,5 +1,7 @@
 import CoreData
+import CoreSpotlight
 import Foundation
+import MobileCoreServices
 import Mustache
 import RealmSwift
 
@@ -132,6 +134,26 @@ public final class Recipe: Object, SpotlightIndexable, Equatable, Hashable {
     
     class func forIndexableID(indexableID: String) -> Recipe {
         return forName(getUniqueIDFromIndexableID(indexableID))!
+    }
+    
+    func toAttributeSet() -> CSSearchableItemAttributeSet {
+        
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        
+        attributeSet.title = name
+        attributeSet.contentDescription = name + ": " + information
+        
+        let view = RecipeDiagramView(recipe: self)
+        view.diagramScale = 0.5
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let recipeImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageData = NSData(data: UIImagePNGRepresentation(recipeImage)!)
+        attributeSet.thumbnailData = imageData
+        
+        return attributeSet
     }
 }
 

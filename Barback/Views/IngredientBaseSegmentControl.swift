@@ -20,9 +20,13 @@ class IngredientBasesSegmentControl: SegmentControl {
     }
     
     var selectedBase: IngredientBaseGroup? {
-        if selectedSegmentIndex == -1 {
-            return nil
+        get {
+            if selectedSegmentIndex == -1 {
+                return nil
+            }
+            return baseGroups[selectedSegmentIndex]
+        } set {
+            selectedSegmentIndex = baseGroups.indexOf(newValue!)!
         }
-        return baseGroups[selectedSegmentIndex]
     }
 }
