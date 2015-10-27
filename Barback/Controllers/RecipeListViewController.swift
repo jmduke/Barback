@@ -28,10 +28,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
         tableView.backgroundView = nil
         tableView.backgroundColor = Color.Background.toUIColor()
 
-        tableView.sectionIndexBackgroundColor = Color.Background.toUIColor()
-        tableView.sectionIndexColor = Color.Dark.toUIColor()
-
-        tableView.sectionIndexBackgroundColor = UIColor.whiteColor()
+        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
         tableView.sectionIndexColor = Color.Dark.toUIColor()
 
         let fontSize = max(UIFontDescriptor
@@ -121,7 +118,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
         } else {
             recipes = Recipe.all()
         }
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        tableView.reloadData()
     }
 
     func filterContentForSearchText(searchText: String) {
@@ -142,6 +139,8 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
 
             return firstLocation?.startIndex < secondLocation?.startIndex
         })
+        setMostRecentSearch(searchText)
+        setMostRecentSearchTimestamp()
     }
 
     func attachSearchBar() {

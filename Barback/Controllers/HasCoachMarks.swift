@@ -30,7 +30,7 @@ extension UIViewController {
         let userDefaultsKey = "coachMarksFor\(prefix)"
         let haveCoachMarksBeenShown = NSUserDefaults.standardUserDefaults().boolForKey(userDefaultsKey)
         
-        if (haveCoachMarksBeenShown) {
+        if haveCoachMarksBeenShown {
             return
         }
 

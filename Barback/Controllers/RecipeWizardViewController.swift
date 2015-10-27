@@ -21,11 +21,7 @@ class RecipeWizardViewController: UIViewController {
 
     @IBOutlet weak var recipeSelectionButton: SimpleButton!
     
-    var candidateRecipes: [Recipe] {
-        let selectedBaseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
-        return selectedBaseGroup.recipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) })
-    }
-    var previousRecipes: [Recipe] = []
+    var recipeSelector: RecipeSelector = RecipeSelector()
     
     override func viewDidLoad() {
         firstBaseSegmentedControl.addTarget(self, action: "selectBase:", forControlEvents: UIControlEvents.ValueChanged)
@@ -45,17 +41,13 @@ class RecipeWizardViewController: UIViewController {
         updateAdjectives()
         
         styleController()
-        title = "Bartender"
+        title = "Barkeep"
     }
     
     func updateAdjectives() {
-        secondAdjectiveSegmentedControl.adjectives = Adjective.all().filter {
-            (adjective: Adjective) -> Bool in
-            candidateRecipes.filter {
-                (recipe: Recipe) -> Bool in
-                adjective.describesRecipe(recipe)
-                }.count > 0
-        }
+        let baseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
+        let flavor = firstAdjectiveSegmentedControl.selectedFlavor
+        secondAdjectiveSegmentedControl.adjectives = RecipeSelector().getPossibleAdjectives(baseGroup, flavor: flavor)
     }
 
     func selectBase(sender: SegmentControl) {
@@ -69,23 +61,18 @@ class RecipeWizardViewController: UIViewController {
     }
     
     func getRecipe() -> Recipe {
-        var candidates = candidateRecipes.filter({ self.firstAdjectiveSegmentedControl.selectedFlavor.describesRecipe($0) }).filter({ secondAdjectiveSegmentedControl.selectedAdjective.describesRecipe($0) })
         
-        // If there are recipes we haven't seen before, use 'em!
-        if (previousRecipes.count < candidates.count) {
-            candidates = candidates.filter({
-                !previousRecipes.contains($0)
-            })
-        }
+        let baseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
+        let adjective = secondAdjectiveSegmentedControl.selectedAdjective
+        let flavor = firstAdjectiveSegmentedControl.selectedFlavor
+        let recipes = recipeSelector.getRecipes(adjective, flavor: flavor, baseGroup: baseGroup)
         
-        let recipe = candidates[Int(arc4random_uniform(UInt32(candidates.count)))]
-        previousRecipes.append(recipe)
+        let recipe = recipes[Int(arc4random_uniform(UInt32(recipes.count)))]
+        recipeSelector.recipeBlacklist.append(recipe)
         return recipe
     }
     
     func pickRecipe() {
-        
-        
         let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
 
         Async.main {

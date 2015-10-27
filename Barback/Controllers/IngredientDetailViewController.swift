@@ -10,7 +10,7 @@ import RNBlurModalView
 import SafariServices
 import UIKit
 
-public class IngredientDetailViewController: UIViewController, SFSafariViewControllerDelegate, HasCoachMarks {
+public class IngredientDetailViewController: UIViewController, SFSafariViewControllerDelegate, HasCoachMarks, CoachMarksViewDelegate {
 
     @IBOutlet weak var brandsTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var drinksTableViewHeight: NSLayoutConstraint!
@@ -82,6 +82,10 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
         viewDidLayoutSubviews()
         view.layoutIfNeeded()
         styleController()
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         runCoachMarks(scrollView)
     }
 
@@ -138,7 +142,7 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
     }
     
     func coachMarksForController() -> [CoachMark] {
-        return [
+        var coachMarks = [
             CoachMark(rect: subheaderLabel.frame, caption: "Some details about the ingredient."),
             CoachMark(rect: diagramView.frame, caption: "This is the color of the ingredient. (Well, yknow, artistic license.)"),
             CoachMark(rect: descriptionView.frame, caption: "Here's some information about it."),
@@ -146,10 +150,17 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
             CoachMark(rect: wikipediaButton.frame, caption: "Get some more info here!"),
             CoachMark(rect: cocktailDBButton.frame, caption: "Or here!"),
         ]
+        
+        if ingredient.brands.isEmpty {
+            coachMarks.removeAtIndex(3)
+        }
+        
+        return coachMarks
     }
     
     func coachMarksViewWillNavigateToIndex(view: CoachMarksView, index: Int) {
         let coachMark = view.coachMarks[index].rect
-        scrollView.setContentOffset(CGPoint(x: 0, y: coachMark.origin.y - 50), animated: true)
+        let y = min(scrollView.contentSize.height - UIScreen.mainScreen().bounds.size.height + 100, coachMark.origin.y - 50)
+        scrollView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
     }
 }

@@ -29,53 +29,37 @@ enum IngredientBaseSortingMethod: Int, SortingMethod {
     }
     
     func sortFunction() -> ((IngredientBase, IngredientBase) -> Bool) {
-        func sortByName(isDescending: Bool) -> ((IngredientBase, two: IngredientBase) -> Bool) {
-            func ascending(one: IngredientBase, two: IngredientBase) -> Bool { return one.name < two.name }
-            func descending(one: IngredientBase, two: IngredientBase) -> Bool { return one.name > two.name }
-            return (isDescending ? descending : ascending)
-        }
-        func sortByRecipeUsage(isDescending: Bool) -> ((IngredientBase, two: IngredientBase) -> Bool) {
-            func ascending(one: IngredientBase, two: IngredientBase) -> Bool { return one.uses.count < two.uses.count }
-            func descending(one: IngredientBase, two: IngredientBase) -> Bool { return one.uses.count > two.uses.count }
-            return (isDescending ? descending : ascending)
-        }
-        func sortByColor(isDescending: Bool) -> ((IngredientBase, two: IngredientBase) -> Bool) {
-            func ascending(one: IngredientBase, two: IngredientBase) -> Bool {
-                var oneHue: CGFloat = 0
-                var twoHue: CGFloat = 0
-                var saturation: CGFloat = 0
-                var brightness: CGFloat = 0
-                var alpha: CGFloat = 0
-                one.uiColor.getHue(&oneHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-                two.uiColor.getHue(&twoHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-                return oneHue < twoHue
-            }
-            func descending(one: IngredientBase, two: IngredientBase) -> Bool {
-                var oneHue: CGFloat = 0
-                var twoHue: CGFloat = 0
-                var saturation: CGFloat = 0
-                var brightness: CGFloat = 0
-                var alpha: CGFloat = 0
-                one.uiColor.getHue(&oneHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-                two.uiColor.getHue(&twoHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-                return oneHue > twoHue
-            }
-            return (isDescending ? descending : ascending)
-        }
-        
         switch self {
         case .NameDescending:
-            return sortByName(true)
+            return ({ return $0.name.lowercaseString < $1.name.lowercaseString })
         case .NameAscending:
-            return sortByName(false)
+            return ({ return $0.name.lowercaseString > $1.name.lowercaseString })
         case .RecipeUsageDescending:
-            return sortByRecipeUsage(true)
+            return ({ return $0.uses.count < $1.uses.count })
         case .RecipeUsageAscending:
-            return sortByRecipeUsage(false)
+            return ({ return $0.uses.count > $1.uses.count })
         case .ColorDescending:
-            return sortByColor(true)
+            return ({
+                var oneHue: CGFloat = 0
+                var twoHue: CGFloat = 0
+                var saturation: CGFloat = 0
+                var brightness: CGFloat = 0
+                var alpha: CGFloat = 0
+                $0.uiColor.getHue(&oneHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+                $1.uiColor.getHue(&twoHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+                return oneHue < twoHue
+            })
         case .ColorAscending:
-            return sortByColor(false)
+            return ({
+                var oneHue: CGFloat = 0
+                var twoHue: CGFloat = 0
+                var saturation: CGFloat = 0
+                var brightness: CGFloat = 0
+                var alpha: CGFloat = 0
+                $0.uiColor.getHue(&oneHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+                $1.uiColor.getHue(&twoHue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+                return oneHue > twoHue
+            })
         }
     }
 }

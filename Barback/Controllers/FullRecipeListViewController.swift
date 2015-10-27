@@ -55,9 +55,26 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
         popover.show(aView, point: startPoint)
     }
     
+    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        return RecipeArranger().getSectionTitles(sortingMethod, recipes: recipes)
+    }
+    
+    public override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        return RecipeArranger().getSectionTitles(sortingMethod, recipes: recipes).indexOf(title)!
+    }
+    
+    public override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+        return RecipeArranger().getSectionSize(sortingMethod, recipes: recipes, sectionIndex: section)
+    }
+    
+    override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+        return RecipeArranger().getSectionCount(sortingMethod, recipes: recipes)
+    }
+    
     public func changeSortingMethod(sender: UIButton) {
         sortingMethod = RecipeSortingMethod(rawValue: sender.tag)!
         recipes = recipes.sort(sortingMethod.sortFunction())
+        tableView.reloadData()
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
         popover.dismiss()
@@ -78,12 +95,13 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
 
     override func getSelectedRecipe() -> Recipe {
         let selectedRow = tableView.indexPathForSelectedRow
-        let row = selectedRow?.row
-        return recipes[row!]
+        let recipe = RecipeArranger().getRecipesInSection(sortingMethod, recipes: recipes,sectionIndex: selectedRow!.section)[selectedRow!.row]
+        return recipe
     }
 
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = cellForRecipe(recipes[indexPath.row], andIndexPath: indexPath) as! RecipeCell
+        let recipe = RecipeArranger().getRecipesInSection(sortingMethod, recipes: recipes,sectionIndex: indexPath.section)[indexPath.row]
+        let cell = cellForRecipe(recipe, andIndexPath: indexPath) as! RecipeCell
         if (searchController!.active) {
             cell.highlightText(searchController!.searchBar.text!)
         }

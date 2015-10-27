@@ -29,35 +29,19 @@ enum RecipeSortingMethod: Int, SortingMethod {
     }
     
     func sortFunction() -> ((Recipe, Recipe) -> Bool) {
-        func sortByABV(isDescending: Bool) -> ((Recipe, two: Recipe) -> Bool) {
-            func ascending(one: Recipe, two: Recipe) -> Bool { return one.abv < two.abv }
-            func descending(one: Recipe, two: Recipe) -> Bool { return one.abv > two.abv }
-            return (isDescending ? descending : ascending)
-        }
-        func sortByComplexity(isDescending: Bool) -> ((Recipe, two: Recipe) -> Bool) {
-            func ascending(one: Recipe, two: Recipe) -> Bool { return one.ingredients.count < two.ingredients.count }
-            func descending(one: Recipe, two: Recipe) -> Bool { return one.ingredients.count > two.ingredients.count }
-            return (isDescending ? descending : ascending)
-        }
-        func sortByName(isDescending: Bool) -> ((Recipe, two: Recipe) -> Bool) {
-            func ascending(one: Recipe, two: Recipe) -> Bool { return one.name.lowercaseString > two.name.lowercaseString }
-            func descending(one: Recipe, two: Recipe) -> Bool { return one.name.lowercaseString < two.name.lowercaseString }
-            return (isDescending ? descending : ascending)
-        }
-        
         switch self {
         case .ABVDescending:
-            return sortByABV(true)
+            return ({ return $0.abv < $1.abv })
         case .ABVAscending:
-            return sortByABV(false)
+            return ({ return $0.abv > $1.abv })
         case .ComplexityDescending:
-            return sortByComplexity(true)
+            return ({ return $0.ingredients.count < $1.ingredients.count })
         case .ComplexityAscending:
-            return sortByComplexity(false)
+            return ({ return $0.ingredients.count > $1.ingredients.count })
         case .NameDescending:
-            return sortByName(true)
+            return ({ return $0.name.lowercaseString < $1.name.lowercaseString })
         case .NameAscending:
-            return sortByName(false)
+            return ({ return $0.name.lowercaseString > $1.name.lowercaseString })
         }
     }
 }

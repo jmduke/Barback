@@ -55,6 +55,11 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        // This should only happen when we're launching on an iPad.
+        if (recipe == nil) {
+            recipe = Recipe.random()
+        }
+        
         nameLabel.recipe = recipe!
         subheadLabel.recipe = recipe!
         informationLabel.recipe = recipe!
@@ -95,6 +100,10 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         }
         
         favoriteButton.selected = !favoriteButton.selected
+        if (recipe!.isFavorited) {
+            setMostRecentRecipeFavorited(recipe!.name)
+            setMostRecentRecipeFavoritedTimestamp()
+        }
     }
     
     func coachMarksForController() -> [CoachMark] {

@@ -63,7 +63,14 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
     var sortingMethod: IngredientBaseSortingMethod = IngredientBaseSortingMethod.NameDescending
     
     public func toggleSortingMethod() {
-        let startPoint = CGPoint(x: 40, y: 55)
+        var startPoint: CGPoint
+        
+        // The button gets pushed over when a back button appears.
+        if (activeIngredients.count > 0) {
+            startPoint = CGPoint(x: 140, y: 55)
+        } else {
+            startPoint = CGPoint(x: 40, y: 55)
+        }
         let buttonHeight = CGFloat(60)
         let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width / 2, height: buttonHeight * 3))
         
@@ -96,19 +103,39 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             })
         }
         
+        tableView.reloadData()
         tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
         popover.dismiss()
+    }
+    
+    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        if (viewingRecipes) {
+            return nil
+        }
+        return IngredientBaseArranger().getSectionTitles(sortingMethod, bases: possibleIngredients)
+    }
+    
+    public override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        return IngredientBaseArranger().getSectionTitles(sortingMethod, bases: possibleIngredients).indexOf(title)!
+    }
+
+    override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+        if (viewingRecipes) {
+            return 1
+        }
+        return IngredientBaseArranger().getSectionCount(sortingMethod, bases: possibleIngredients)
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         if !viewingRecipes {
             attachSearchBar()
+            
+            let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleSortingMethod")
+            self.navigationItem.leftItemsSupplementBackButton = true
+            self.navigationItem.leftBarButtonItems = [sortButton]
         }
-        let sortButton = UIBarButtonItem(title: sortingMethod.title(), style: UIBarButtonItemStyle.Plain, target: self, action: "toggleSortingMethod")
-        self.navigationItem.leftBarButtonItem = sortButton
-        runCoachMarks(view)
     }
 
     func showRecipes() {
@@ -155,6 +182,10 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             bartendersChoiceView.addSubview(bartendersChoiceButton)
             tableView.tableFooterView = bartendersChoiceView
         }
+        
+        if activeIngredients.isEmpty && !viewingRecipes {
+            runCoachMarks(view)
+        }
     }
 
     func pickRandomRecipe() {
@@ -171,7 +202,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         if (viewingRecipes) {
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
-        return possibleIngredients.count
+        return IngredientBaseArranger().getSectionSize(sortingMethod, bases: possibleIngredients, sectionIndex: section)
     }
 
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -184,7 +215,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             return
         }
         
-        let ingredient =  possibleIngredients[indexPath.row]
+        let ingredient = IngredientBaseArranger().getRecipesInSection(sortingMethod, bases: possibleIngredients, sectionIndex: indexPath.section)[indexPath.row]
         
         // If there's only one possible recipe, go ahead and show it.
         if recipeCountsForPossibleIngredients[ingredient.name] == 1 {
@@ -212,7 +243,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             return UITableViewCell(frame: CGRectZero)
         }
             
-        let ingredient = possibleIngredients[indexPath.row]
+        let ingredient = IngredientBaseArranger().getRecipesInSection(sortingMethod, bases: possibleIngredients, sectionIndex: indexPath.section)[indexPath.row]
         let cellIdentifier = "recipeCell"
         
         let cell = BaseCell(bases: activeIngredients + [ingredient], reuseIdentifier: cellIdentifier)
