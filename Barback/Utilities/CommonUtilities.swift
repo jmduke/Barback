@@ -14,7 +14,8 @@ func runningOnIPad() -> Bool {
 }
 
 func getRecipeDetailController(segue: UIStoryboardSegue?) -> RecipeDetailViewController {
-    return segue!.destinationViewController as! RecipeDetailViewController
+    return segue!.destinationViewController as? RecipeDetailViewController ??
+    (segue!.destinationViewController as! UINavigationController).viewControllers.first as! RecipeDetailViewController
 }
 
 let externalUrl = NSURL(scheme: "http", host: "getbarback.com", path: "/")
