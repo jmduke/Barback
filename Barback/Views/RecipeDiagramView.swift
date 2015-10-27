@@ -89,8 +89,9 @@ class RecipeDiagramView: UIView {
             subCanvas.stroke()
         }
 
-        let bottomLeft = CGPointMake(CGFloat(widthOffset + inset - strokeWidth), CGFloat(heightOffset + height + strokeWidth))
-        let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + strokeWidth), CGFloat(heightOffset + height + strokeWidth))
+        let bottomExtra = bottomWidth == 0 ? 0 : strokeWidth
+        let bottomLeft = CGPointMake(CGFloat(widthOffset + inset - bottomExtra), CGFloat(heightOffset + height + strokeWidth))
+        let bottomRight = CGPointMake(CGFloat(widthOffset + topWidth - inset + bottomExtra), CGFloat(heightOffset + height + strokeWidth))
         let topRight = CGPointMake(CGFloat(widthOffset + topWidth + strokeWidth), CGFloat(heightOffset - strokeWidth))
         let topLeft = CGPointMake(CGFloat(widthOffset - strokeWidth), CGFloat(heightOffset - strokeWidth))
 
