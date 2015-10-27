@@ -13,7 +13,12 @@ def get_text(recent_tweets):
     random.shuffle(urls)
 
     for feed_url in urls:
-        rss = feedparser.parse(feed_url)
+
+        if len(feed_url.split(",")) > 1:
+            rss, tag = feed_url.split(",")
+        else:
+            rss = feedparser.parse(feed_url)
+            tag = None
 
         for i in range(len(rss['entries'])):
             most_recent_entry = rss['entries'][i]
@@ -23,12 +28,17 @@ def get_text(recent_tweets):
                 most_recent_entry.get('tags', [])
             )
 
+            # If we specify a tag within the rss file, make sure this item has that tag.
+            terms = [tag["term"] for tag in tags]
+            if tag and tag not in terms:
+                continue
+
             # No idea why this is necessary, but we spam articles with ampersands.
             if "&" in title:
                 continue
 
             if len(tags) and tags[0]["term"].split():
-                tag = tags[0]['term']
+                tag = slugify(tags[0]['term'])
             else:
                 tag = "cocktails"
 

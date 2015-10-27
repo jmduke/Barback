@@ -34,3 +34,7 @@ http://therumhowlerblog.com/feed/
 http://thekrav.blogspot.com/feeds/posts/default
 http://theginisin.com/feed/
 http://www.bourbonblog.com/?feed=rss2
+http://www.kitchenriffs.com/feeds/posts/default,Cocktails
+http://www.drinkoftheweek.com/feed/
+http://feeds.feedburner.com/punchdrink?format=xml
+http://cocktailmusings.com/feed/
