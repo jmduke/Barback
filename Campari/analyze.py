@@ -1,3 +1,4 @@
+# This Python file uses the following encoding: utf-8
 from collections import namedtuple
 import argparse
 
@@ -13,12 +14,12 @@ KeyData = namedtuple('KeyData', ['key', 'count_with', 'count_without'])
 
 def get_data_for_key(object_list, key, verbose=False):
 
-    objects_with_key = [o for o in object_list if not o.get(key, None)]
+    objects_with_key = [o for o in object_list if o.get(key, None)]
     objects_without_key = [o for o in object_list if not o.get(key, None)]
 
     if verbose:
-        for obj in objects_without_key:
-            print " - {}".format(obj["name"])
+        for obj in sorted([obj["name"] for obj in objects_without_key]):
+            print " - {}".format(obj.encode('utf-8'))
 
     return KeyData(key,
                    len(objects_with_key),
@@ -42,8 +43,9 @@ if __name__ == "__main__":
         recipes = data['recipes']
         recipe_keys = [
             "emoji",
+            "information",
+            "ncotw",
             "source",
-            "information"
         ]
         recipe_data = [get_data_for_key(recipes, key, verbose=False) for key in recipe_keys]
 
@@ -54,6 +56,9 @@ if __name__ == "__main__":
 
         bases = data['bases']
         base_keys = [
+            "name",
+            "abv",
+            "cocktaildb",
             "color",
             "emoji",
             "information"
@@ -71,6 +76,7 @@ if __name__ == "__main__":
         base_names = [base["name"] for base in bases]
         ingredients_without_bases = [i for i in ingredient_names if i not in base_names]
         unique_ingredients_without_bases = list(set(ingredients_without_bases))
-        print "\nThere are {} ingredients without bases.".format(len(unique_ingredients_without_bases))
-
+        print "\nThere are {} ingredients without bases: ".format(len(unique_ingredients_without_bases)),
+        if False:
+            print "\n - ".join([""] + unique_ingredients_without_bases)
 
