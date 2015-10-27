@@ -2,35 +2,66 @@
 
 <body>
 <link rel="stylesheet" href="/css/recipe.css">
+
 <div class="container">
   {{ partial "header.html" . }}
 
   <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-        <h2>{{ .Params.name }}</h2>
-      <div class="col-xs-12 col-md-6">
-        {{ if .Params.information }}
-          <h3>Information</h3>
-          <p>{{ .Params.information | markdownify }}</p>
-        {{ end }}
+    
+    <h2>{{ .Params.name }}</h2>
+    <div class="col-xs-12 col-md-6">
 
-        {{ if .Params.directions }}
-          <h3>Directions</h3>
-          <p>{{ .Params.directions | markdownify }}</p>
-        {{ end }}
-
+      {{ if .Params.information }}
+        <h4>Information</h4>
+        <p>{{ .Params.information | markdownify }}</p>
         <hr />
-        {{ partial "tweet.html" . }}
-    </div>
-      <div class="col-xs-12 col-md-6">
-      <br />
-        <p>
-          A <strong>{{ .Type }}</strong>
-          <br />with <strong>{{ .Params.abv }}%</strong> ABV
-        </p>
-        <div id="diagram" style="width: 100px; height: 100px; border-radius: 50%; background-color: #{{ .Params.color }}; margin: 0 auto; border: 1px #333 solid"></div>
-      </div>
-  </div>
+      {{ end }}
 
-  {{ partial "footer.html" . }}
+      {{ if .Params.brands }}
+        <h4>Recommended brands</h4>
+        <table class="ingredients">
+        {{ range .Params.brands }}
+          <tr>
+            <td>{{ .name }}</td>
+            <td class="minor">${{ .price }}</td>
+        {{ end }}
+        </table>
+        <hr />
+      {{ end }}
+
+      <h4>Recipes which use {{ .Params.name }}</h4>
+      <table class="ingredients">
+        {{ range .Params.uses }}
+          <tr>
+            <td><a href="/recipe/{{ .slug }}">{{ .recipe }}</a></td>
+            {{ if .ingredient.amount }}
+            <td class="minor">{{ .ingredient.amount }}cl</td>
+            {{ else }}
+            <td class="minor">{{ .ingredient.label }}</td>
+            {{ end }}
+        {{ end }}
+      </table>
+      <hr />
+
+      {{ if .Params.cocktaildb }}
+        <h4>Elsewhere</h4>
+        <a href="{{ .Params.cocktaildb }}">CocktailDB</a>
+        <hr />
+      {{ end }}
+
+      {{ partial "tweet.html" . }}
+    </div>
+    
+    <div class="col-xs-12 col-md-6">
+      <br />
+      <p>
+        A <strong>{{ .Type }}</strong>
+        <br />with <strong>{{ .Params.abv }}%</strong> ABV
+      </p>
+      <div id="diagram" style="width: 100px; height: 100px; border-radius: 50%; background-color: #{{ .Params.color }}; margin: 0 auto; border: 1px #333 solid"></div>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
 </div>
 </body>
