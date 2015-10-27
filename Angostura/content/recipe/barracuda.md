@@ -1,5 +1,6 @@
 {
     "directions": "Pour all ingredients in a chilled glass.  Top with Prosecco.",
+    "emoji": "\ud83d\udc21\ud83d\udc1f",
     "garnish": "",
     "glassware": "margarita",
     "ingredients": [
@@ -42,6 +43,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
                 "color": "FFF5C6",
+                "emoji": "\ud83c\udf4d",
                 "information": "Juice, from a pineapple.  It should be fresh.",
                 "name": "Pineapple juice",
                 "slug": "pineapple-juice",
@@ -54,6 +56,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=444",
                 "color": "FEF3DB",
+                "emoji": "\ud83c\uddee\ud83c\uddf9",
                 "information": "Prosecco is an Italian sparkling white wine, generally a dry or extra dry wine. It is normally made from Glera (the grape formerly known, itself, as *Prosecco*) though other varieties, such as Bianchetta Trevigiana, are permitted to be included in the blend.",
                 "name": "Prosecco",
                 "slug": "prosecco",
@@ -66,6 +69,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",

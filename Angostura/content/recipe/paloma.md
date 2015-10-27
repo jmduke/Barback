@@ -1,5 +1,6 @@
 {
     "directions": "Add all the ingredients in an ice-filled glass and stir.",
+    "emoji": "\ud83c\uddf2\ud83c\uddfd",
     "garnish": "",
     "glassware": "collins",
     "information": "Little is known about the historical origin of the Paloma, the most popular tequila-based cocktail in Mexico. Some conjecture that it is named after La Paloma ('The Dove'), the popular folk song composed in the early 1860s.",
@@ -27,6 +28,7 @@
                 ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=4",
                 "color": "CBE9CB",
+                "emoji": "\ud83c\uddf2\ud83c\uddfd",
                 "information": "Generic distilled agave spirit from Jalisco, Mexico of the mezcal agave cactus. All Tequilas are Mezcal, but not all Mezcals are Tequila. The production characteristics of Tequila are very specific.",
                 "name": "Tequila",
                 "slug": "tequila",
@@ -53,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -79,6 +82,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEEEEE",
+                "emoji": "\ud83d\udca7",
                 "information": "Soda water is just carbonated water -- not tonic, which contains some other stuff too.",
                 "name": "Soda water",
                 "slug": "soda-water",
@@ -88,5 +92,5 @@
     ],
     "name": "Paloma",
     "slug": "paloma",
-    "source": ""
+    "source": "http://www.esquire.com/food-drink/drinks/recipes/a3752/la-paloma-drink-recipe/"
 }

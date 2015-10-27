@@ -1,5 +1,6 @@
 {
     "directions": "Dry shake the egg white and the lime juice. Add the remaining ingredients, ice and shake hard. Strain into chilled cocktail glass.",
+    "emoji": "\ud83d\udcef",
     "garnish": "",
     "glassware": "cocktail",
     "information": "This cocktail was created by Kirk Estopinal and published in the book *Beta Cocktails*, a variation on the Angostura Fizz, which itself was published in Charles Baker's [The Gentlemen's Companion](http://www.amazon.com/gp/product/1614273960?ie=UTF8&camp=1789&creativeASIN=1614273960&linkCode=xm2&tag=barback-20) in the 1930s, using half an ounce of bitters and additional rum.",
@@ -37,6 +38,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -48,6 +50,7 @@
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",
+                "emoji": "\ud83c\udf73",
                 "information": "The white part of the egg.",
                 "name": "Egg white",
                 "slug": "egg-white",

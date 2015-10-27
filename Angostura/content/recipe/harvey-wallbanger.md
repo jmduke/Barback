@@ -1,6 +1,7 @@
 {
     "directions": "Build vodka and orange juice into a highball glass filled with ice. Stir gently and float Galliano on top.",
-    "garnish": "Orance slice, cherry",
+    "emoji": "\ud83c\udff0",
+    "garnish": "Orange slice, cherry",
     "glassware": "highball",
     "ingredients": [
         {
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",
@@ -60,5 +62,5 @@
     ],
     "name": "Harvey Wallbanger",
     "slug": "harvey-wallbanger",
-    "source": ""
+    "source": "Duke Antone"
 }

@@ -1,5 +1,6 @@
 {
     "directions": "Shake all the ingredients with ice.",
+    "emoji": "\u26ab\ufe0f",
     "garnish": "Orange twist",
     "glassware": "martini",
     "information": "",

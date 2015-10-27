@@ -1,5 +1,6 @@
 {
     "directions": "Add all ingredients to shaker, fill completely with ice and shake vigorously.",
+    "emoji": "\ud83d\udc51",
     "garnish": "",
     "glassware": "cocktail",
     "information": "Autumn in a cocktail glass.",
@@ -37,10 +38,23 @@
             "amount": 2,
             "baseName": {
                 "abv": 0,
-                "brands": [],
+                "brands": [
+                    {
+                        "buy": "http://www.amazon.com/Roses-Grenadine-Syrup-12-Ounce/dp/B000ST05VM/ref=sr_1_1?s=grocery&ie=UTF8&qid=1445691372&sr=1-1&keywords=rose%27s+grenadine",
+                        "name": "Rose's",
+                        "price": 6.99,
+                        "url": "http://shake-it.dk/uploads/images/brands/roses-grenadine.png"
+                    },
+                    {
+                        "buy": "http://jackrudycocktailco.com/purchase/mixers/small-batch-grenadine/",
+                        "name": "Jack Rudy",
+                        "price": 16.0,
+                        "url": "http://jackrudycocktailco.com/wp-content/uploads/2013/06/grenadine-new@2x.jpg"
+                    }
+                ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=317",
                 "color": "C18A8A",
-                "information": "Grenadine is a commonly used bar syrup, characterized by a flavor that is both tart and sweet, and a deep red color. It is popular as an ingredient in cocktails, both for its flavor and to give a reddish/pink tint to mixed drinks.",
+                "information": "Grenadine is a commonly used bar syrup, characterized by a flavor that is both tart and sweet, and a deep red color. It is popular as an ingredient in cocktails, both for its flavor and to give a reddish/pink tint to mixed drinks.  You can purchase it from a few places, but its not particularly difficult to [make yourself](http://www.thekitchn.com/how-to-make-homemade-grenadine-cooking-lessons-from-the-kitchn-187983).",
                 "name": "Grenadine",
                 "slug": "grenadine",
                 "type": "other"
@@ -53,6 +67,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -65,6 +80,7 @@
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
+                "emoji": "\ud83c\udf4e\ud83c\udf4f",
                 "information": "A strong flavored spirit produced from apples.  Like cider, it was immensely popular during the colonial period: during the American Revolution, George Washington reportedly asked Robert Laird for his renowned recipe for `cyder spirits.`",
                 "name": "Applejack",
                 "slug": "applejack",
@@ -73,6 +89,7 @@
         }
     ],
     "name": "Royal Smile",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/2kphq0/not_cocktail_of_the_week_95_royal_smile/",
     "slug": "royal-smile",
-    "source": ""
+    "source": "The Savoy Cocktail Book"
 }

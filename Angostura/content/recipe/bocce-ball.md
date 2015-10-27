@@ -1,6 +1,7 @@
 {
     "directions": "Pour the vodka, amaretto, and orange juice into a glass filled with ice. Add a splash of soda water.",
-    "garnish": "Orance slice",
+    "emoji": "\ud83c\udfbe\ud83c\udfc0",
+    "garnish": "Orange slice",
     "glassware": "collins",
     "ingredients": [
         {
@@ -52,6 +53,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",
@@ -64,6 +66,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEEEEE",
+                "emoji": "\ud83d\udca7",
                 "information": "Soda water is just carbonated water -- not tonic, which contains some other stuff too.",
                 "name": "Soda water",
                 "slug": "soda-water",

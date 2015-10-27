@@ -1,5 +1,6 @@
 {
     "directions": "Mix all ingredients and carbonate. Pour over ice. Alternatively, shake and strain.",
+    "emoji": "\ud83c\udf05",
     "garnish": "Lemon twist and orange twist",
     "glassware": "old fashioned",
     "ingredients": [
@@ -40,6 +41,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=28",
                 "color": "FF9A9A",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "A potent, bright red Italian aperitif made from fruit, herbs and spices.",
                 "name": "Campari",
                 "slug": "campari",
@@ -53,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "C3FFC2",
+                "emoji": "\ud83d\udc90",
                 "information": "A French liqueur made by blending macerated elderflower blossoms with eau-de-vie. It has hints of pear, peach and grapefruit zest.",
                 "name": "Elderflower liqueur",
                 "slug": "elderflower-liqueur",

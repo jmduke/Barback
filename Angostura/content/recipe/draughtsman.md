@@ -1,5 +1,6 @@
 {
     "directions": "Shake first 3 ingredients with ice. Strain into a glass. Top with beer. Garnish with a lime wheel.",
+    "emoji": "\ud83c\udf7a",
     "garnish": "Lime wheel",
     "glassware": "highball",
     "information": "This is a *shandy* -- a beer cocktail -- created by the fine folks at [Boozenerds](http://boozenerds.com/2014/10/26/shandies/).  Generally, shandies are considered warm-weather drinks.",
@@ -11,6 +12,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -56,6 +58,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=10",
                 "color": "E4CF94",
+                "emoji": "\ud83c\udf7a\ud83c\udf7b",
                 "information": "",
                 "name": "Beer",
                 "slug": "beer",

@@ -1,5 +1,6 @@
 {
     "directions": "Build into glass filled with ice. Add rum first and top it with ginger beer.",
+    "emoji": "\u2601\ufe0f",
     "garnish": "Lime wedge",
     "glassware": "highball",
     "ingredients": [
@@ -37,6 +38,7 @@
         }
     ],
     "name": "Dark 'n' Stormy",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/1dy57g/not_cocktail_of_the_week_18_dark_n_stormy/",
     "slug": "dark-n-stormy",
-    "source": ""
+    "source": "The British Navy"
 }

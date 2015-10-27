@@ -1,5 +1,6 @@
 {
     "directions": "In a shaker, muddle the mint, lemon, simple syrup and water. Add the rye and fill with ice.  Shake and strain into a rocks-filled glass.",
+    "emoji": "\ud83c\udf1e",
     "garnish": "Mint sprig",
     "glassware": "old fashioned",
     "information": "Smashes are known for their refreshing quality -- generally heavy on fruit and ice compared to other classes of cocktail, giving them a certain flexibility: you can dress one up for a summer afternoon or an autumn night equally well.  *Imbibe* has a [great piece](http://imbibemagazine.com/history-of-the-smash/) on the history of the smash; for this Rye Smash, we recommend tinkering with the potency of the beverage to find your ideal level.",
@@ -30,6 +31,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=383",
                 "color": "BFCFE0",
+                "emoji": "\ud83d\udeb0\ud83d\udca7",
                 "information": "It's water, preferably of the filtered variety.  That's all you need to know.",
                 "name": "Water",
                 "slug": "water",
@@ -58,6 +60,8 @@
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
+                "color": "9CBA7F",
+                "emoji": "\ud83c\udf42",
                 "information": "They should be as fresh as possible, ideally picked that day.",
                 "name": "Mint leaves",
                 "slug": "mint-leaves",
@@ -68,5 +72,5 @@
     ],
     "name": "Rye Smash",
     "slug": "rye-smash",
-    "source": ""
+    "source": "How to Mix Drinks"
 }

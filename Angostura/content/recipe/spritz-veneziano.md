@@ -1,5 +1,6 @@
 {
     "directions": "Build into an old fashioned glass filled with ice. Top with a splash of soda water.",
+    "emoji": "\ud83c\uddee\ud83c\uddf9",
     "garnish": "0.5 orange slice",
     "glassware": "old fashioned",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=444",
                 "color": "FEF3DB",
+                "emoji": "\ud83c\uddee\ud83c\uddf9",
                 "information": "Prosecco is an Italian sparkling white wine, generally a dry or extra dry wine. It is normally made from Glera (the grape formerly known, itself, as *Prosecco*) though other varieties, such as Bianchetta Trevigiana, are permitted to be included in the blend.",
                 "name": "Prosecco",
                 "slug": "prosecco",
@@ -23,6 +25,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEACAC",
+                "emoji": "\ud83c\uddee\ud83c\uddf9",
                 "information": "A low-proof Italian aperitif flavored with bitter orange, rhubarb and gentian.",
                 "name": "Aperol",
                 "slug": "aperol",
@@ -35,6 +38,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEEEEE",
+                "emoji": "\ud83d\udca7",
                 "information": "Soda water is just carbonated water -- not tonic, which contains some other stuff too.",
                 "name": "Soda water",
                 "slug": "soda-water",

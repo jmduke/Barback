@@ -1,5 +1,6 @@
 {
     "directions": "Build all ingredients in a glass filled with ice.",
+    "emoji": "\ud83d\udca8",
     "garnish": "Lime wedge",
     "glassware": "highball",
     "ingredients": [

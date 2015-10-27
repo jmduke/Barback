@@ -1,5 +1,6 @@
 {
     "directions": "Dry shake, then shake on ice, and fine strain.",
+    "emoji": "\ud83d\ude86",
     "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
@@ -34,6 +35,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "D2E1C2",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "B\u00e9n\u00e9dictine is an herbal liqueur beverage developed by Alexandre Le Grand in the 19th century and produced in France.\nIt is claimed that at the Benedictine Abbey of F\u00e9camp in Normandy, monks had developed a medicinal aromatic herbal beverage which was produced until the abbey''s devastation during the French Revolution, but in fact Alexandre Le Grand invented the recipe himself, helped by a local chemist, and he told this story to connect the liqueur with the city history to increase sales.",
                 "name": "B\u00e9n\u00e9dictine",
                 "slug": "benedictine",
@@ -47,6 +49,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -84,6 +87,7 @@
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=475",
+                "emoji": "\ud83c\udf73",
                 "information": "The white part of the egg.",
                 "name": "Egg white",
                 "slug": "egg-white",
@@ -93,6 +97,7 @@
         }
     ],
     "name": "Brass Rail",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/21g5zr/not_cocktail_of_the_week_64_brass_rail/",
     "slug": "brass-rail",
-    "source": ""
+    "source": "http://www.diffordsguide.com/cocktails/recipe/564/brass-rail"
 }

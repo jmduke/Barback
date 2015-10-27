@@ -1,5 +1,6 @@
 {
     "directions": "Warm the Irish whiskey over a burner. Pour into the glass (for hot drink) hot coffee, and add a teaspoon of sugar. Float Cream on top.",
+    "emoji": "\u2615\ufe0f",
     "garnish": "",
     "glassware": "mug",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
                 "color": "FFFDE1",
+                "emoji": "\ud83c\udf7c",
                 "information": "Cream is a dairy product that is composed of the higher-butterfat layer skimmed from the top of milk before homogenization.",
                 "name": "Cream",
                 "slug": "cream",
@@ -54,7 +56,8 @@
                 ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=300",
                 "color": "DDC4AD",
-                "information": "Coffee is good, coffee is glory.",
+                "emoji": "\u2615\ufe0f",
+                "information": "Coffee is good.  Coffee is glorious.",
                 "name": "Coffee",
                 "slug": "coffee",
                 "type": "other"

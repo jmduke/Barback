@@ -1,5 +1,6 @@
 {
     "directions": "Stir to combine, strain and serve over one big ice cube.",
+    "emoji": "\ud83d\udd51",
     "garnish": "Orange peel",
     "glassware": "old fashioned",
     "information": "Comes from **Gwynnett St.** in Brooklyn.",
@@ -43,6 +44,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "BDD7C3",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "Cynar is an Italian bitter liqueur made from thirteen herbs and plants. Predominant amongst these is the artichoke (Cynara scolymus), from which the drink derives its name.",
                 "name": "Cynar",
                 "slug": "cynar",
@@ -56,6 +58,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
                 "color": "F5DBAE",
+                "emoji": "\ud83c\udf6f\ud83d\udc1d",
                 "information": "Honey syrup is a syrup made from honey and water -- often used as a sweeter, fuller-bodied alternative to simple syrup.",
                 "name": "Honey syrup",
                 "slug": "honey-syrup",
@@ -65,5 +68,5 @@
     ],
     "name": "The Second Year",
     "slug": "the-second-year",
-    "source": ""
+    "source": "Gwynnett St."
 }

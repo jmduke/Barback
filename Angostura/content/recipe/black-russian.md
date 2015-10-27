@@ -1,5 +1,6 @@
 {
     "directions": "Build into old fashioned glass filled with ice cubes. Stir gently. Note: for White Russian, float fresh cream on the top and stir gently.",
+    "emoji": "\u25fc\ufe0e\ud83c\uddf7\ud83c\uddfa",
     "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
@@ -39,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "DDC4AD",
+                "emoji": "\u2615\ufe0f",
                 "information": "Liqueurs are alcoholic beverages that are bottled with added sugar and have added flavors that are usually derived from fruits, herbs, or nuts.",
                 "name": "Coffee liqueur",
                 "slug": "coffee-liqueur",
@@ -48,5 +50,5 @@
     ],
     "name": "Black Russian",
     "slug": "black-russian",
-    "source": ""
+    "source": "Gustave Tops"
 }

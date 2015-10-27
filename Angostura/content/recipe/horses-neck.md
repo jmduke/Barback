@@ -1,5 +1,6 @@
 {
     "directions": "Build into highball glass with ice cubes. Stir gently. If required, add dashes of Angostura bitters.",
+    "emoji": "\ud83d\udc34\ud83c\udfa0",
     "garnish": "Lemon twist",
     "glassware": "highball",
     "ingredients": [
@@ -23,6 +24,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
                 "color": "FFC6C6",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "Cognac, named after the town of Cognac in France, is a variety of  brandy. It is produced in the wine-growing region surrounding the town from which it takes its name, in the French Departements of Charente and Charente-Maritime.",
                 "name": "Cognac",
                 "slug": "cognac",
@@ -45,5 +47,5 @@
     ],
     "name": "Horse's Neck",
     "slug": "horses-neck",
-    "source": ""
+    "source": "http://www.equitrekking.com/articles/entry/the_origin_of_the_cocktail_horses_recipes/"
 }

@@ -1,5 +1,6 @@
 {
     "directions": "Shake well and strain into cocktail glass.",
+    "emoji": "\ud83d\udc83",
     "garnish": "",
     "glassware": "martini",
     "information": "This cocktail is beloved at it's namesake: the [Savoy Hotel](http://en.wikipedia.org/wiki/Savoy_Hotel) in London, where it was invented.",
@@ -10,6 +11,7 @@
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
+                "emoji": "\ud83c\udf4e\ud83c\udf4f",
                 "information": "A strong flavored spirit produced from apples.  Like cider, it was immensely popular during the colonial period: during the American Revolution, George Washington reportedly asked Robert Laird for his renowned recipe for `cyder spirits.`",
                 "name": "Applejack",
                 "slug": "applejack",

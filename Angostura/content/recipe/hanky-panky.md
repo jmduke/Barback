@@ -1,5 +1,6 @@
 {
     "directions": "Combine ingredients in a mixing glass and fill with ice. Stir well for 20 seconds and strain into chilled cocktail glass.",
+    "emoji": "\ud83c\udf3b",
     "garnish": "Orange peel",
     "glassware": "cocktail",
     "information": "The Hanky Panky originated at the American Bar at the Savoy Hotel in London in the early 20th century. Developed by head bartender Ada Coleman, the Hanky Panky matches Fernet-Branca's distinctive character with the botanicals found in gin and sweet vermouth to create a rich blend of flavors--a blend that lets the pushy liqueur remind you of its better side.",

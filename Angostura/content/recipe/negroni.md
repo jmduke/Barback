@@ -1,5 +1,6 @@
 {
     "directions": "Build into old fashioned glass filled with ice. Stir gently.",
+    "emoji": "\ud83c\uddee\ud83c\uddf9",
     "garnish": "0.5 orange slice",
     "glassware": "old fashioned",
     "information": "While the drink's origins are unknown, the most widely reported account is that it was invented in Florence, Italy in 1919, at Cafe Casoni, ex Cafe Giacosa, now called Cafe Cavalli. Count Camillo Negroni invented it by asking the bartender, Fosco Scarselli, to strengthen his favorite cocktail, the Americano, by adding gin rather than the normal soda water. The bartender also added an orange garnish rather than the typical lemon garnish of the Americano to signify that it was a different drink.",
@@ -40,6 +41,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=28",
                 "color": "FF9A9A",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "A potent, bright red Italian aperitif made from fruit, herbs and spices.",
                 "name": "Campari",
                 "slug": "campari",
@@ -79,5 +81,5 @@
     ],
     "name": "Negroni",
     "slug": "negroni",
-    "source": ""
+    "source": "Fosco Scarselli"
 }

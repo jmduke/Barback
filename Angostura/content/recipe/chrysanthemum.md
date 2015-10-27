@@ -1,5 +1,6 @@
 {
     "directions": "Shake well and strain into cocktail glass. Squeeze orange peel on top.",
+    "emoji": "\ud83c\udf37",
     "garnish": "Orange peel",
     "glassware": "cocktail",
     "information": "A classic, usually credited to Harry Craddock and *The Savoy Cocktail Book* despite actually being from Hugo Ensslin\u2019s *Recipes for Mixed Drinks*.  An apparent favorite for post-Prohibition expats, the *Savoy Cocktail Book* notes that it was 'well-known and very popular in the American Bar of the S.S. Europa,' a German cruise liner that operated through the 1930s.",
@@ -41,6 +42,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "D2E1C2",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "B\u00e9n\u00e9dictine is an herbal liqueur beverage developed by Alexandre Le Grand in the 19th century and produced in France.\nIt is claimed that at the Benedictine Abbey of F\u00e9camp in Normandy, monks had developed a medicinal aromatic herbal beverage which was produced until the abbey''s devastation during the French Revolution, but in fact Alexandre Le Grand invented the recipe himself, helped by a local chemist, and he told this story to connect the liqueur with the city history to increase sales.",
                 "name": "B\u00e9n\u00e9dictine",
                 "slug": "benedictine",

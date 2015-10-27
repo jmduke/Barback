@@ -1,5 +1,6 @@
 {
     "directions": "Add both ingredients and stir.  Can be served up or down, and with or without ice.",
+    "emoji": "\ud83d\udc4a",
     "garnish": "Lime peel",
     "glassware": "old fashioned",
     "ingredients": [

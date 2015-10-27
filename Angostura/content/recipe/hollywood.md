@@ -1,5 +1,6 @@
 {
     "directions": "Pour the liquors into a glass filled with ice.  Fill with pineapple juice.",
+    "emoji": "\ud83c\udfa5",
     "garnish": "Pineapple chunk",
     "glassware": "highball",
     "ingredients": [
@@ -23,6 +24,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
                 "color": "FFF5C6",
+                "emoji": "\ud83c\udf4d",
                 "information": "Juice, from a pineapple.  It should be fresh.",
                 "name": "Pineapple juice",
                 "slug": "pineapple-juice",

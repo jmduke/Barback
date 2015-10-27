@@ -1,5 +1,6 @@
 {
     "directions": "Stir gently, pour all ingredients into glass.",
+    "emoji": "\ud83c\udf45",
     "garnish": "Celery, lemon wedge",
     "glassware": "highball",
     "ingredients": [
@@ -50,6 +51,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=377",
                 "color": "F38888",
+                "emoji": "\ud83c\udf45",
                 "information": "Tomato juice is a juice made from tomatoes. It is usually used as a beverage, either plain or in cocktails such as a Bloody Mary or Michelada.",
                 "name": "Tomato juice",
                 "slug": "tomato-juice",
@@ -63,6 +65,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -74,6 +77,7 @@
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
+                "color": "ED380C",
                 "information": "Hot sauce!  Swap it with something else if you want -- we're sympathetic to Texas Pete.",
                 "name": "Tabasco",
                 "slug": "tabasco",
@@ -84,10 +88,12 @@
             "baseName": {
                 "abv": 0,
                 "brands": [],
-                "cocktaildb": "",
-                "information": "Worcestershire sauce (/\u02c8w\u028ast\u0259r\u0283\u0259r/), usually shortened to Worcester sauce (/\u02c8w\u028ast\u0259r/), is a fermented liquid condiment. It is often an ingredient in Welsh rarebit, Caesar salad, Oysters Kirkpatrick, and sometimes added to chili con carne, beef stew, hamburgers, and other beef dishes. Worcestershire sauce is also used to flavour cocktails such as a Bloody Mary or Caesar. Known as salsa inglesa (English sauce) in Spanish, it is also an ingredient in Michelada, the Mexican beer cocktail.",
-                "name": "Worchestershire sauce",
-                "slug": "worchestershire-sauce",
+                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=385",
+                "color": "EC975C",
+                "emoji": "\ud83c\udf54",
+                "information": "Worcestershire sauce, usually shortened to Worcester sauce, is a fermented liquid condiment. It is often an ingredient in Welsh rarebit, Caesar salad, Oysters Kirkpatrick, and sometimes added to chili con carne, beef stew, hamburgers, and other beef dishes. Worcestershire sauce is also used to flavour cocktails such as a Bloody Mary or Caesar. Known as salsa inglesa (English sauce) in Spanish, it is also an ingredient in Michelada, the Mexican beer cocktail.",
+                "name": "Worcestershire sauce",
+                "slug": "worcestershire-sauce",
                 "type": "other"
             },
             "label": "Two to three dashes"

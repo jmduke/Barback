@@ -1,5 +1,6 @@
 {
     "directions": "Combine the vodka and ginger beer. Add lime juice.",
+    "emoji": "\ud83c\uddf7\ud83c\uddfa\ud83d\udc2a",
     "garnish": "Lime slice",
     "glassware": "highball",
     "ingredients": [
@@ -52,6 +53,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",

@@ -1,5 +1,6 @@
 {
     "directions": "Pour the Pimm's into a collins glass with ice cubes.  Add the lemonade and (if desired) a splash of club soda or lemon-lime soda.",
+    "emoji": "\ud83c\udf3f",
     "garnish": "Lemon twist, cucumber slice",
     "glassware": "collins",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=327",
                 "color": "FFFDB3",
+                "emoji": "\ud83c\udf4b",
                 "information": "Lemonade is a lemon-flavored drink sweetened with sugar. In different parts of the world, there are variations on the drink and its name. Pink lemonade and frozen lemonade are also prepared. Limeade substitutes out the lemons for limes.",
                 "name": "Lemonade",
                 "slug": "lemonade",
@@ -31,6 +33,7 @@
         }
     ],
     "name": "Pimm's Cup",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/1di1m4/not_cocktail_of_the_week_17_pimms_cup/",
     "slug": "pimms-cup",
-    "source": ""
+    "source": "James Pimm"
 }

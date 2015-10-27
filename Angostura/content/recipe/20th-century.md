@@ -1,8 +1,9 @@
 {
     "directions": "Shake in an iced cocktail shaker, and strain into a cocktail glass. Garnish with a lemon twist.",
+    "emoji": "\ud83d\udc74",
     "garnish": "Lemon twist",
     "glassware": "cocktail",
-    "information": "Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Caf\u00e9 Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Caf\u00e9 Royal.",
+    "information": "Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Cafe Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Cafe Royal.",
     "ingredients": [
         {
             "amount": 4.5,
@@ -66,6 +67,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",

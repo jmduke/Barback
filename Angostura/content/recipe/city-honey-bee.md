@@ -1,5 +1,6 @@
 {
     "directions": "Pour all ingredients into a shaker, shake, and strain into glass.",
+    "emoji": "\ud83d\udc1d",
     "garnish": "Cherry",
     "glassware": "martini",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "E4CF94",
+                "emoji": "\ud83c\udf6f\ud83d\udc1d",
                 "information": "Whiskey blended with honey, generally put out by mass-market brands (Evan Williams, Jack Daniels).",
                 "name": "Honey whiskey",
                 "slug": "honey-whiskey",

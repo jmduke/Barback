@@ -10,6 +10,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=185",
                 "color": "FFC781",
+                "emoji": "\ud83d\udd52",
                 "information": "Triple sec, originally Cura\u00e7ao triple sec, is a variety of Cura\u00e7ao liqueur, an orange-flavoured liqueur made from the dried peels of bitter and sweet orange.\nTriple sec may be consumed neat as a digestif or on the rocks, but is more likely to be used as an ingredient in a variety of cocktails such as the Margarita, White Lady, Long Island Iced Tea, and Cosmopolitan.",
                 "name": "Triple sec",
                 "slug": "triple-sec",
@@ -40,6 +41,7 @@
                 ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=4",
                 "color": "CBE9CB",
+                "emoji": "\ud83c\uddf2\ud83c\uddfd",
                 "information": "Generic distilled agave spirit from Jalisco, Mexico of the mezcal agave cactus. All Tequilas are Mezcal, but not all Mezcals are Tequila. The production characteristics of Tequila are very specific.",
                 "name": "Tequila",
                 "slug": "tequila",
@@ -53,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -62,5 +65,5 @@
     ],
     "name": "Margarita",
     "slug": "margarita",
-    "source": ""
+    "source": "Don Carlos Orozco"
 }

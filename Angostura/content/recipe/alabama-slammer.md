@@ -1,5 +1,6 @@
 {
     "directions": "Pour the liquors into a glass filled with ice.  Fill with orange juice.",
+    "emoji": "\ud83d\udc40",
     "garnish": "",
     "glassware": "highball",
     "information": "Think of it as a slightly classier, fruit-forward version of a Long Island.",
@@ -11,6 +12,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=183",
                 "color": "F9DA9F",
+                "emoji": "\u2198\ufe0f\u2199\ufe0f\ud83d\udc4e\ud83c\uddfa\ud83c\uddf8",
                 "information": "Southern Comfort is an American liqueur made from neutral spirits with fruit, spice and whiskey. The brand was originally created by bartender Martin Wilkes Heron in New Orleans in 1874, and is now owned by the Brown-Forman Corporation.",
                 "name": "Southern Comfort",
                 "slug": "southern-comfort",
@@ -85,6 +87,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",

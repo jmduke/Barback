@@ -1,5 +1,6 @@
 {
     "directions": "Shake and strain into glass.",
+    "emoji": "\u221e",
     "garnish": "Lemon twist",
     "glassware": "martini",
     "information": "\"A dry martini,\" [Bond] said. \"One. In a deep champagne goblet.\"\n\n\"Oui, monsieur.\"\n\n\"Just a moment. Three measures of Gordon's, one of vodka, half a measure of Kina Lillet. Shake it very well until it's ice-cold, then add a large thin slice of lemon peel. Got it?\"\n\n\"Certainly, monsieur.\" The barman seemed pleased with the idea.\n\n\"Gosh, that's certainly a drink,\" said Leiter.\n\nBond laughed. \n\"When I'm...er...concentrating,\" he explained, \"I never have more than one drink before dinner. But I do like that one to be large and very strong and very cold and very well-made. I hate small portions of anything, particularly when they taste bad. This drink's my own invention. I'm going to patent it when I can think of a good name.\"\n\n\u2014Ian Fleming, Casino Royale, Chapter 7, \"Rouge et Noir'",

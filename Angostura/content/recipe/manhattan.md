@@ -1,5 +1,6 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass.",
+    "emoji": "\ud83c\udf06",
     "garnish": "Cherry",
     "glassware": "martini",
     "information": "One of the most popular and classic cocktails; one of the six basic cocktails in [The Fine Art of Mixing Drinks](http://www.amazon.com/gp/product/1603111646?ie=UTF8&camp=1789&creativeASIN=1603111646&linkCode=xm2&tag=barback-20) by David A. Embury.  Try tinkering with the amount of vermouth or substituting the base liquor for something else in the whiskey family.",

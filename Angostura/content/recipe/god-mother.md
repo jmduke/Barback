@@ -1,5 +1,6 @@
 {
     "directions": "Build into old fashioned glass filled with ice cubes. Stir gently.",
+    "emoji": "\ud83d\udc6a",
     "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [

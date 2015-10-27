@@ -1,5 +1,6 @@
 {
     "directions": "Pour gin, Pimm\u2019s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices.",
+    "emoji": "\ud83c\udfe0",
     "garnish": "",
     "glassware": "highball",
     "information": "Straight-up (well, not literally) summertime.  This recipe comes to us from [smittenkitchen](http://smittenkitchen.com/blog/2010/07/porch-swing/), who credits [Porch Swing](http://www.bluesmoke.com/) with the original conception.",
@@ -54,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=327",
                 "color": "FFFDB3",
+                "emoji": "\ud83c\udf4b",
                 "information": "Lemonade is a lemon-flavored drink sweetened with sugar. In different parts of the world, there are variations on the drink and its name. Pink lemonade and frozen lemonade are also prepared. Limeade substitutes out the lemons for limes.",
                 "name": "Lemonade",
                 "slug": "lemonade",

@@ -1,6 +1,6 @@
 {
     "directions": "Build tequila and orange juice into a glass filled with ice. Stir gently and float Galliano on top.",
-    "garnish": "Orance slice, cherry",
+    "garnish": "Orange slice, cherry",
     "glassware": "highball",
     "ingredients": [
         {
@@ -26,6 +26,7 @@
                 ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=4",
                 "color": "CBE9CB",
+                "emoji": "\ud83c\uddf2\ud83c\uddfd",
                 "information": "Generic distilled agave spirit from Jalisco, Mexico of the mezcal agave cactus. All Tequilas are Mezcal, but not all Mezcals are Tequila. The production characteristics of Tequila are very specific.",
                 "name": "Tequila",
                 "slug": "tequila",
@@ -39,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",

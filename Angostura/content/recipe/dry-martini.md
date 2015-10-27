@@ -1,5 +1,6 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze oil from lemon peel onto the drink, or garnish with olive.",
+    "emoji": "\ud83c\udf78",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -65,5 +66,5 @@
     ],
     "name": "Dry Martini",
     "slug": "dry-martini",
-    "source": ""
+    "source": "Old Waldorf Bar Days"
 }

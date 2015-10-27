@@ -29,6 +29,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
                 "color": "FFC6C6",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "Cognac, named after the town of Cognac in France, is a variety of  brandy. It is produced in the wine-growing region surrounding the town from which it takes its name, in the French Departements of Charente and Charente-Maritime.",
                 "name": "Cognac",
                 "slug": "cognac",
@@ -72,6 +73,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "D2E1C2",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "B\u00e9n\u00e9dictine is an herbal liqueur beverage developed by Alexandre Le Grand in the 19th century and produced in France.\nIt is claimed that at the Benedictine Abbey of F\u00e9camp in Normandy, monks had developed a medicinal aromatic herbal beverage which was produced until the abbey''s devastation during the French Revolution, but in fact Alexandre Le Grand invented the recipe himself, helped by a local chemist, and he told this story to connect the liqueur with the city history to increase sales.",
                 "name": "B\u00e9n\u00e9dictine",
                 "slug": "benedictine",
@@ -79,7 +81,16 @@
             }
         },
         {
-            "baseName": "Peychaud\u2019s bitters",
+            "baseName": {
+                "abv": 45,
+                "brands": [],
+                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=41",
+                "color": "ADADAD",
+                "information": "It was originally created around 1830 by Antoine Am\u00e9d\u00e9e Peychaud, a Creole apothecary from the French colony of Saint-Domingue (now Haiti) who settled in New Orleans, Louisiana in 1795. It is a gentian-based bitters, comparable to Angostura bitters, but with a lighter body, sweeter taste, and more floral aroma. Peychaud's Bitters is the definitive component of the Sazerac cocktail.",
+                "name": "Peychaud's bitters",
+                "slug": "peychauds-bitters",
+                "type": "garnish"
+            },
             "label": "Two dashes"
         },
         {
@@ -97,6 +108,7 @@
         }
     ],
     "name": "Vieux Carr\u00e9",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/1a8cs5/not_cocktail_of_the_week_10_vieux_carr%C3%A9/",
     "slug": "vieux-carre",
-    "source": ""
+    "source": "Walter Bergeron"
 }

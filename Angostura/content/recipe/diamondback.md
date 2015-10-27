@@ -1,5 +1,6 @@
 {
     "directions": "Build in an old-fashioned glass over ice. Stir until chilled. Garnish with your own best wishes or deepest fears.",
+    "emoji": "\ud83d\udc0d",
     "garnish": "Cherry",
     "glassware": "cocktail",
     "information": "Ostensibly named after the Diamondback Lounge in the Lord Baltimore Hotel.  Has a bit more bite than the titular serpent, but with remarkably less poison.",
@@ -29,6 +30,7 @@
                 "abv": 35,
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=57",
                 "color": "E0C790",
+                "emoji": "\ud83c\udf4e\ud83c\udf4f",
                 "information": "A strong flavored spirit produced from apples.  Like cider, it was immensely popular during the colonial period: during the American Revolution, George Washington reportedly asked Robert Laird for his renowned recipe for `cyder spirits.`",
                 "name": "Applejack",
                 "slug": "applejack",
@@ -51,5 +53,5 @@
     ],
     "name": "Diamondback",
     "slug": "diamondback",
-    "source": ""
+    "source": "Bottoms Up"
 }

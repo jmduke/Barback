@@ -1,5 +1,6 @@
 {
     "directions": "Pour all ingredients into a cocktail shaker.  Shake and strain into a glass filled with ice.",
+    "emoji": "\ud83d\udca9\ud83c\udf04",
     "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "DDC4AD",
+                "emoji": "\u2615\ufe0f",
                 "information": "Liqueurs are alcoholic beverages that are bottled with added sugar and have added flavors that are usually derived from fruits, herbs, or nuts.",
                 "name": "Coffee liqueur",
                 "slug": "coffee-liqueur",
@@ -23,6 +25,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "F3F2D5",
+                "emoji": "\u2615\ufe0f",
                 "information": "Irish cream is a cream liqueur based on Irish whiskey, cream, and other ingredients such as coffee, which can be served on its own or used in mixed drinks or as part of a shot or a whole shot. Irish cream is very popular in the United Kingdom, Canada, and the United States.",
                 "name": "Irish cream liqueur",
                 "slug": "irish-cream-liqueur",

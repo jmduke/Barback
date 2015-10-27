@@ -1,5 +1,6 @@
 {
     "directions": "Stir and strain into a chilled glass.",
+    "emoji": "\u201c\ud83c\udf67\u201d",
     "garnish": "",
     "glassware": "cocktail",
     "information": "Oddly enough, there is very little known about the origins of the Alaska cocktail. The most that people seem to be able to ascertain is that this has nothing to do with Alaska or Eskimos, as seen from the description in [The Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20), and instead is attributed to originating in South Carolina.",

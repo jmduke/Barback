@@ -13,12 +13,13 @@
   width: 100%;
   margin-right: 0;
 }
-h1 {    background-color: #FF530D;
-    padding: 1em;
-    color: #fff;
-    border-radius: 10px;
-    display: inline-block;
-    margin-bottom: 1em;
+h1 {    
+  background-color: #FF530D;
+  padding: 1em;
+  color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 1em;
 }
 h2 {
   font-size: 20px;
@@ -43,8 +44,6 @@ td {
 }
 
 .card {
-  background-color: #fff;
   padding: 1em;
   margin-bottom: 1em;
-  border-radius: 10px;
 }

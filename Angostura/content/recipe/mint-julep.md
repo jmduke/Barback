@@ -1,5 +1,6 @@
 {
     "directions": "In the glass, gently muddle the mint, sugar and water. Fill the glass with cracked ice, add Bourbon and stir well until the glass is frost.",
+    "emoji": "\ud83c\udf89\ud83d\udc0e\ud83c\udfc7",
     "garnish": "Mint sprig",
     "glassware": "highball",
     "ingredients": [
@@ -22,6 +23,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=383",
                 "color": "BFCFE0",
+                "emoji": "\ud83d\udeb0\ud83d\udca7",
                 "information": "It's water, preferably of the filtered variety.  That's all you need to know.",
                 "name": "Water",
                 "slug": "water",
@@ -48,5 +50,5 @@
     ],
     "name": "Mint Julep",
     "slug": "mint-julep",
-    "source": ""
+    "source": "The Savoy Cocktail Book"
 }

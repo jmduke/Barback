@@ -1,5 +1,6 @@
 {
     "directions": "Build in glass with a large ice cube and then lightly stir to desired temperature.",
+    "emoji": "\ud83c\udf08",
     "garnish": "Orange twist",
     "glassware": "old fashioned",
     "information": "A mainstay cocktail from the 30's.  Essentially a twist on an old-fashioned; be sure to experiment with your amounts of each ingredient to find your personal balance of the competing flavors.",
@@ -33,8 +34,23 @@
         {
             "baseName": {
                 "abv": 45,
-                "brands": [],
+                "brands": [
+                    {
+                        "buy": "http://www.onlybitters.com/fee-brothers-peach-bitters-150ml/",
+                        "name": "Fee Brother's",
+                        "price": 20,
+                        "url": "http://www.feebrothers.com/uploads/products/bitters/bitters_peach.png"
+                    },
+                    {
+                        "buy": "http://www.onlybitters.com/the-bitter-truth-peach-bitters-200ml/",
+                        "name": "The Bitter Truth",
+                        "price": 23,
+                        "url": "http://the-bitter-truth.com/wp-content/uploads/2012/10/Peach-Bitters_Web.png"
+                    }
+                ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=38",
+                "color": "FFE7AF",
+                "emoji": "\ud83c\udf51",
                 "information": "",
                 "name": "Peach bitters",
                 "slug": "peach-bitters",

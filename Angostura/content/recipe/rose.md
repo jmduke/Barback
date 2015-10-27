@@ -1,5 +1,6 @@
 {
     "directions": "Stir all ingredients with ice and strain into a cocktail glass.  Add three dashes of syrup.",
+    "emoji": "\ud83c\udf39",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=74",
                 "color": "FEDBDB",
+                "emoji": "\ud83c\udf52",
                 "information": "A kirschwasser, German for *cherry water* or, Kirsch is a clear, colorless fruit brandy traditionally made from double distillation of morello cherries, a dark-colored cultivar of the sour cherry. However, it is now also made from other kinds of cherries.",
                 "name": "Kirsch",
                 "slug": "kirsch",
@@ -52,6 +54,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=369",
                 "color": "F38888",
+                "emoji": "\ud83c\udf53",
                 "information": "",
                 "name": "Strawberry syrup",
                 "slug": "strawberry-syrup",

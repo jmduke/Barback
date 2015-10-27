@@ -1,5 +1,6 @@
 {
     "directions": "Add all ingredients to a shaker and shake without ice, add ice and shake vigorously, strain into chilled cocktail glass.",
+    "emoji": "\u2712\ufe0f",
     "garnish": "",
     "glassware": "cocktail",
     "information": "",
@@ -24,6 +25,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -53,6 +55,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",

@@ -1,5 +1,6 @@
 {
     "directions": "Fill a mixing glass with ice, add Campari, Tanqueray, Cynar, Fernet, vermouth, and bitters. Stir until well chilled and strain into serving glass.",
+    "emoji": "\ud83d\udc94",
     "garnish": "Orange twist",
     "glassware": "cocktail",
     "information": "If you sat around naming all the bitter ingredients in your liquor cabinet, you might come close to the formula for this Anti-Valentine's Day tipple. Eeyore's Requiem, invented by Toby Maloney of Chicago's Violet Hour, starts with Campari, then adds a dose of Fernet-Branca, which is made with gentian, chamomile, bitter orange, myhrr, and saffron, among other things. Not bitter enough for your cynical heart? Maloney takes your Fernet and your Campari and raises you a quarter ounce of artichoke-and-herb based Cynar.",
@@ -11,6 +12,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=28",
                 "color": "FF9A9A",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "A potent, bright red Italian aperitif made from fruit, herbs and spices.",
                 "name": "Campari",
                 "slug": "campari",
@@ -53,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "BDD7C3",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "Cynar is an Italian bitter liqueur made from thirteen herbs and plants. Predominant amongst these is the artichoke (Cynara scolymus), from which the drink derives its name.",
                 "name": "Cynar",
                 "slug": "cynar",

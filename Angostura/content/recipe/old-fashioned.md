@@ -1,5 +1,6 @@
 {
     "directions": "Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolve. Fill the glass with ice cubes and add whisky.",
+    "emoji": "\ud83d\udc80",
     "garnish": "Orange slice, cherry",
     "glassware": "old fashioned",
     "ingredients": [

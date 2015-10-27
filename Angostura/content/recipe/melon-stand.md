@@ -1,5 +1,6 @@
 {
     "directions": "Shake with ice and strain into a chilled Collins glass filled with pebble ice. Garnish with three watermelon balls on a pick.",
+    "emoji": "\ud83c\udf49",
     "garnish": "3 watermelon balls",
     "glassware": "Collins",
     "information": "The Melon Stand is published in The PDT Cocktail Book and credited to Jane Danger in the summer of 2008. It is named after her Minnesota dream bar, Jane\u2019s Sweet Melon Stand, though I personally don\u2019t really get that as a name.",
@@ -36,7 +37,17 @@
         },
         {
             "amount": 3.0,
-            "baseName": "Watermelon juice"
+            "baseName": {
+                "abv": 0,
+                "brands": [],
+                "cocktaildb": "",
+                "color": "FF7287",
+                "emoji": "\ud83c\udf49",
+                "information": "",
+                "name": "Watermelon juice",
+                "slug": "watermelon-juice",
+                "type": "mixer"
+            }
         },
         {
             "amount": 2.0,
@@ -45,6 +56,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -58,6 +70,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEACAC",
+                "emoji": "\ud83c\uddee\ud83c\uddf9",
                 "information": "A low-proof Italian aperitif flavored with bitter orange, rhubarb and gentian.",
                 "name": "Aperol",
                 "slug": "aperol",

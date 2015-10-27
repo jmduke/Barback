@@ -1,5 +1,6 @@
 {
     "directions": "Build into old fashioned glass filled with ice. Stir gently.",
+    "emoji": "\ud83d\udc85",
     "garnish": "Lemon twist",
     "glassware": "old fashioned",
     "ingredients": [
@@ -26,6 +27,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",

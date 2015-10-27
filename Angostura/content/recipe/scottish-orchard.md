@@ -1,5 +1,6 @@
 {
     "directions": "In a mixing glass with ice, combine all ingredients except cider, stir it all up, and strain into glass.  Top with cider.",
+    "emoji": "\ud83c\udf32",
     "garnish": "Lemon peel, cherry",
     "glassware": "cocktail",
     "information": "Goes well with rich stews, crackling fires, and down vests.",
@@ -27,6 +28,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",
@@ -40,6 +42,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
                 "color": "F5DBAE",
+                "emoji": "\ud83c\udf6f\ud83d\udc1d",
                 "information": "Honey syrup is a syrup made from honey and water -- often used as a sweeter, fuller-bodied alternative to simple syrup.",
                 "name": "Honey syrup",
                 "slug": "honey-syrup",
@@ -66,6 +69,7 @@
                 "brands": [],
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=289",
                 "color": "EDCE51",
+                "emoji": "\ud83c\udf4e\ud83c\udf4f",
                 "information": "",
                 "name": "Hard cider",
                 "slug": "hard-cider",
@@ -75,5 +79,5 @@
     ],
     "name": "Scottish Orchard",
     "slug": "scottish-orchard",
-    "source": ""
+    "source": "http://www.foodandwine.com/fwx/drink/3-hard-cider-cocktails-your-fall-drinking-pleasure?adbid=10152369949912026&adbpl=fb&adbpr=17786732025&xid=FWx_20141104_34940247"
 }

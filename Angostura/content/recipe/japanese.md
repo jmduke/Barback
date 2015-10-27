@@ -1,5 +1,6 @@
 {
     "directions": "Stir on ice, serve on the rocks.",
+    "emoji": "\ud83c\uddef\ud83c\uddf5",
     "garnish": "lemon peel",
     "glassware": "cocktail",
     "information": "Described by the *Minneapolis Tribune* in 1886 as 'liquid attack of spinal meningitis. It is loaded with knock-kneed mental ceramics, and is apt to make a man throw stones at his grandfather'.",
@@ -23,6 +24,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
                 "color": "FFC6C6",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "Cognac, named after the town of Cognac in France, is a variety of  brandy. It is produced in the wine-growing region surrounding the town from which it takes its name, in the French Departements of Charente and Charente-Maritime.",
                 "name": "Cognac",
                 "slug": "cognac",
@@ -44,6 +46,7 @@
         }
     ],
     "name": "Japanese",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/1mnoih/not_cocktail_of_the_week_37_japanese/",
     "slug": "japanese",
-    "source": ""
+    "source": "How to Mix Drinks"
 }

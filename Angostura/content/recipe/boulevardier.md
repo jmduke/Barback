@@ -40,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=28",
                 "color": "FF9A9A",
+                "emoji": "\ud83c\udf3f\ud83c\uddee\ud83c\uddf9",
                 "information": "A potent, bright red Italian aperitif made from fruit, herbs and spices.",
                 "name": "Campari",
                 "slug": "campari",

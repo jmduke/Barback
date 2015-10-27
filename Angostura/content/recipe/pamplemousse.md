@@ -1,5 +1,6 @@
 {
     "directions": "Pour all ingredients into rinsed shaker, shake on ice and double strain into glass.",
+    "emoji": "\ud83d\udc2d",
     "garnish": "Basil leaves",
     "glassware": "cocktail",
     "ingredients": [
@@ -53,6 +54,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "C3FFC2",
+                "emoji": "\ud83d\udc90",
                 "information": "A French liqueur made by blending macerated elderflower blossoms with eau-de-vie. It has hints of pear, peach and grapefruit zest.",
                 "name": "Elderflower liqueur",
                 "slug": "elderflower-liqueur",
@@ -66,6 +68,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -75,5 +78,5 @@
     ],
     "name": "Pamplemousse",
     "slug": "pamplemousse",
-    "source": ""
+    "source": "Ryan Fitzgerald"
 }

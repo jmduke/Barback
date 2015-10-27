@@ -1,5 +1,6 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass.",
+    "emoji": "\ud83c\udf78",
     "garnish": "Olive",
     "glassware": "martini",
     "ingredients": [

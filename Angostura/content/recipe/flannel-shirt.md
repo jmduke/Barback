@@ -1,5 +1,6 @@
 {
     "directions": "Combine in a cocktail shaker or mixing glass. Shake with ice cubes and strain into old-fashioned glass with cracked ice. Twist an orange peel over the surface of the cocktail and drop in the drink to serve.",
+    "emoji": "\ud83c\udf42",
     "garnish": "Orange peel",
     "glassware": "rocks",
     "information": "Bartender Jeffrey Morgenthaler of the Clyde Common in Portland, Oregon, created the Flannel Shirt for an autumnal event. Using classic fall flavors -- apple, earth, spice and smoke -- he whipped up this fleecy, bone-warming drink with the bold backbone of Scotch and a wonderful supporting cast. Morgenthaler says, ''It reminds me of a hot drink that you''d have on Thanksgiving morning -- only served cold.''",
@@ -40,6 +41,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",
@@ -53,6 +55,7 @@
                 "brands": [],
                 "cocktaildb": "http://cocktaildb.com/ingr_detail?id=273",
                 "color": "EDCE51",
+                "emoji": "\ud83c\udf4e\ud83c\udf4f",
                 "information": "Apple cider is similar to apple juice -- a less sweet variety, often infused with spices and cinnamon.  A huge hit in the fall.  (Be sure not to confuse this with hard cider, which is of the alcoholic variety.)",
                 "name": "Apple cider",
                 "slug": "apple-cider",
@@ -79,6 +82,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -99,11 +103,20 @@
             "label": "One teaspoon"
         },
         {
-            "baseName": "Allspice Dram",
+            "baseName": {
+                "abv": 23,
+                "brands": [],
+                "cocktaildb": "",
+                "color": "993300",
+                "information": "Allspice Dram, also known as Pimento Dram, is an allspice flavored liqueur originally made in Jamaica. Wray and Nephew imported their version into the United Stated until the 1980's, then stopped. For years, Allspice Dram was almost impossible to find in the United States, leading to some people trying to recreate the liqueur. Many of these recipes are still available on the Internet.",
+                "name": "Allspice Dram",
+                "slug": "allspice-dram",
+                "type": "liqueur"
+            },
             "label": "Half teaspoon"
         }
     ],
     "name": "Flannel Shirt",
     "slug": "flannel-shirt",
-    "source": ""
+    "source": "Jeffrey Morgenthaler"
 }

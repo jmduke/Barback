@@ -1,5 +1,6 @@
 {
     "directions": "Build all ingredients in a glass filled with ice.",
+    "emoji": "\ud83c\udf0a",
     "garnish": "Orange slice",
     "glassware": "highball",
     "ingredients": [
@@ -52,6 +53,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "FFE7AF",
+                "emoji": "\ud83c\udf51",
                 "information": "Schnapps is a term that refers to any kind of strong alcoholic beverage.  Peach schnapps involves peach flavoring or liqueur.",
                 "name": "Peach schnapps",
                 "slug": "peach-schnapps",
@@ -65,6 +67,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",

@@ -1,5 +1,6 @@
 {
     "directions": "Shake and strain into a chilled glass.",
+    "emoji": "\u2615\ufe0f",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -39,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "DDC4AD",
+                "emoji": "\u2615\ufe0f",
                 "information": "Liqueurs are alcoholic beverages that are bottled with added sugar and have added flavors that are usually derived from fruits, herbs, or nuts.",
                 "name": "Coffee liqueur",
                 "slug": "coffee-liqueur",
@@ -64,6 +66,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=300",
                 "color": "DDC4AD",
+                "emoji": "\u2615\ufe0f",
                 "information": "Espresso is coffee brewed by forcing a small amount of nearly boiling water under pressure through finely ground coffee beans.",
                 "name": "Espresso",
                 "slug": "espresso",

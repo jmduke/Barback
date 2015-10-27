@@ -1,5 +1,6 @@
 {
     "directions": "Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice. Stir for 20 seconds and strain into chilled cocktail glass.",
+    "emoji": "\ud83c\udde8\ud83c\udde6",
     "garnish": "Orange peel",
     "glassware": "cocktail",
     "information": "Here's a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening.",
@@ -65,5 +66,5 @@
     ],
     "name": "Toronto",
     "slug": "toronto",
-    "source": ""
+    "source": "The Fine Art of Mixing Drinks"
 }

@@ -1,5 +1,6 @@
 {
     "directions": "Shake and strain into a chilled glass. Sprinkle with fresh ground nutmeg.",
+    "emoji": "\ud83c\udf66",
     "garnish": "",
     "glassware": "martini",
     "information": "One of the sweetest and creamiest IBA official cocktails, the Alexander acts as a nice palette cleanser or after-dinner dessert.  The original recipe back in 1915 subbed cognac for gin; the cognac variation has a number of conflicting origin stories, but the most likely source was Troy Alexander -- who created his eponymous concoction in order to serve a white drink at a dinner celebrating Phoebe Snow at Rector\u2019s, a premier pre-Prohibition lobster shop in New York.",
@@ -11,6 +12,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=63",
                 "color": "FFC6C6",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "Cognac, named after the town of Cognac in France, is a variety of  brandy. It is produced in the wine-growing region surrounding the town from which it takes its name, in the French Departements of Charente and Charente-Maritime.",
                 "name": "Cognac",
                 "slug": "cognac",
@@ -38,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=305",
                 "color": "FFFDE1",
+                "emoji": "\ud83c\udf7c",
                 "information": "Cream is a dairy product that is composed of the higher-butterfat layer skimmed from the top of milk before homogenization.",
                 "name": "Cream",
                 "slug": "cream",

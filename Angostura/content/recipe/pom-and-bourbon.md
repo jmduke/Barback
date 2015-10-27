@@ -1,16 +1,35 @@
 {
     "directions": "Fill a cocktail shaker with ice and add pomegranate molasses, pomegranate juice, orange juice, whiskey and bitters. Shake vigorously for 10 seconds. Strain into a cocktail glass. Gently squeeze together the orange peel to release the oils, then place into cocktail and serve.",
+    "emoji": "\ud83c\udf53",
     "garnish": "Orange twist",
     "glassware": "coupe",
     "information": "Delicious, warm, and a sweet choice for a quiet autumn evening.",
     "ingredients": [
         {
             "amount": 0.75,
-            "baseName": "Pomegranate molasses"
+            "baseName": {
+                "abv": 0,
+                "brands": [],
+                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=623",
+                "color": "955251",
+                "information": "",
+                "name": "Pomegranate molasses",
+                "slug": "pomegranate-molasses",
+                "type": "mixer"
+            }
         },
         {
             "amount": 1.5,
-            "baseName": "Pomegranate juice"
+            "baseName": {
+                "abv": 0,
+                "brands": [],
+                "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=623",
+                "color": "955251",
+                "information": "Pomegranate juice is made from the fruit of the pomegranate. It is used in cooking both as a fresh juice and as a concentrated syrup.",
+                "name": "Pomegranate juice",
+                "slug": "pomegranate-juice",
+                "type": "mixer"
+            }
         },
         {
             "amount": 1.5,
@@ -19,6 +38,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",

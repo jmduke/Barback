@@ -1,5 +1,6 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass. Squeeze oil from lemon peel onto the drink.",
+    "emoji": "\ud83c\uddeb\ud83c\uddf7",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -52,6 +53,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
                 "color": "FFF5C6",
+                "emoji": "\ud83c\udf4d",
                 "information": "Juice, from a pineapple.  It should be fresh.",
                 "name": "Pineapple juice",
                 "slug": "pineapple-juice",

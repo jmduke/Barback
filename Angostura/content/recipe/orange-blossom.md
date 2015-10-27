@@ -1,5 +1,6 @@
 {
     "directions": "Pour the ingredients into a mixing glass with ice cubes.  Stir well and strain into a chilled glass.",
+    "emoji": "\ud83d\udd36\ud83c\udf38",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -40,6 +41,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=340",
                 "color": "FFCD7B",
+                "emoji": "\ud83d\udd36",
                 "information": "Orange juice is juice from oranges. It is made by squeezing the fresh orange, by drying and later re-hydrating the juice, or by concentration of the juice and later adding water to the concentrate. (Use fresh OJ.)",
                 "name": "Orange juice",
                 "slug": "orange-juice",

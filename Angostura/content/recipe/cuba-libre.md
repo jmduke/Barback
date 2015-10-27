@@ -1,5 +1,6 @@
 {
     "directions": "Build all ingredients in a highball glass filled with ice.",
+    "emoji": "\ud83c\udd93",
     "garnish": "Lime wedge",
     "glassware": "highball",
     "ingredients": [
@@ -47,6 +48,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -56,5 +58,5 @@
     ],
     "name": "Cuba Libre",
     "slug": "cuba-libre",
-    "source": ""
+    "source": "The Gentlemen's Companion"
 }

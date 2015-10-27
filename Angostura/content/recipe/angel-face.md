@@ -1,5 +1,6 @@
 {
     "directions": "Shake with ice cubes. Strain into glass.",
+    "emoji": "\ud83d\udc7c",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -10,6 +11,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=61",
                 "color": "FEDBDB",
+                "emoji": "\ud83c\uddeb\ud83c\uddf7",
                 "information": "Calvados is an apple brandy from the French region of Lower Normandy (Basse-Normandie).",
                 "name": "Calvados",
                 "slug": "calvados",

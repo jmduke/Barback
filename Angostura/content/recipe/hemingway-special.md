@@ -1,5 +1,6 @@
 {
     "directions": "Shake with ice cubes. Strain into a double cocktail glass.",
+    "emoji": "\ud83d\udcdd\ud83d\udcd6",
     "garnish": "",
     "glassware": "martini",
     "ingredients": [
@@ -47,6 +48,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=150",
                 "color": "DFAFAE",
+                "emoji": "\ud83c\udf52",
                 "information": "",
                 "name": "Cherry liqueur",
                 "slug": "cherry-liqueur",
@@ -61,6 +63,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -70,5 +73,5 @@
     ],
     "name": "Hemingway Special",
     "slug": "hemingway-special",
-    "source": ""
+    "source": "El Floridita"
 }

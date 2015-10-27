@@ -1,5 +1,6 @@
 {
     "directions": "Pour the gin, lime juice, and framboise into a highball glass filled with ice. Top with ginger ale.",
+    "emoji": "\ud83c\udf3b",
     "garnish": "Lime wedge",
     "glassware": "highball",
     "ingredients": [
@@ -39,6 +40,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -73,5 +75,5 @@
     ],
     "name": "Floradora",
     "slug": "floradora",
-    "source": ""
+    "source": "Waldorf-Astoria"
 }

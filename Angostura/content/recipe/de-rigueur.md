@@ -1,5 +1,6 @@
 {
     "directions": "Shake well with ice and strain into a cocktail glass.",
+    "emoji": "\ud83c\udf6f",
     "garnish": "",
     "glassware": "cocktail",
     "information": "From [The Savoy Cocktail Book](http://www.amazon.com/gp/product/1862057729?ie=UTF8&camp=1789&creativeASIN=1862057729&linkCode=xm2&tag=barback-20).",
@@ -24,6 +25,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
                 "color": "F5DBAE",
+                "emoji": "\ud83c\udf6f\ud83d\udc1d",
                 "information": "Honey syrup is a syrup made from honey and water -- often used as a sweeter, fuller-bodied alternative to simple syrup.",
                 "name": "Honey syrup",
                 "slug": "honey-syrup",

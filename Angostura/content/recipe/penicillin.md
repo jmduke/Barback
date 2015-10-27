@@ -1,5 +1,6 @@
 {
     "directions": "Combine all ingredients in a shaker with ice. Stir gently and strain into a rocks glass with a large ice cube.",
+    "emoji": "\ud83d\udc89",
     "garnish": "Candied ginger",
     "glassware": "old fashioned",
     "information": "*There is a special rung in Hell reserved for people who waste good Scotch.* ~ Inglorious Basterds",
@@ -27,6 +28,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",
@@ -40,6 +42,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "A particularly delicious Islay scotch known for its distinctive and overwhelming smokiness.",
                 "name": "Laphroaig",
                 "slug": "laphroaig",
@@ -54,6 +57,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=363",
                 "color": "F5DBAE",
+                "emoji": "\ud83c\udf6f\ud83d\udc1d",
                 "information": "Honey syrup is a syrup made from honey and water -- often used as a sweeter, fuller-bodied alternative to simple syrup.",
                 "name": "Honey syrup",
                 "slug": "honey-syrup",
@@ -67,6 +71,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",
@@ -76,5 +81,5 @@
     ],
     "name": "Penicillin",
     "slug": "penicillin",
-    "source": ""
+    "source": "Milk & Honey"
 }

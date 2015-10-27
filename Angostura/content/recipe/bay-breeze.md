@@ -1,5 +1,6 @@
 {
     "directions": "Pour the vodka into a ice filled glass.  Fill with equal parts of both juices.",
+    "emoji": "\ud83d\udca8",
     "garnish": "Lime slice",
     "glassware": "highball",
     "ingredients": [
@@ -52,6 +53,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=350",
                 "color": "FFF5C6",
+                "emoji": "\ud83c\udf4d",
                 "information": "Juice, from a pineapple.  It should be fresh.",
                 "name": "Pineapple juice",
                 "slug": "pineapple-juice",

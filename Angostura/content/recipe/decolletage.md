@@ -1,5 +1,6 @@
 {
     "directions": "Stir over ice and strain into an ice-filled glass.",
+    "emoji": "\ud83c\udf39",
     "garnish": "Orange twist",
     "glassware": "old fashioned",
     "information": "This recipe from Chris Hannah of French 75 Bar in New Orleans was chosen as one of the 101 Best New Cocktails to be included in Gaz Regan's 2011 Annual Manual for Bartenders. It's fragrant and slightly mentholated, with hints of sweet orange and cinnamony spice. Not for the timid, but seductive all the same.",
@@ -27,6 +28,7 @@
                 ],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=4",
                 "color": "CBE9CB",
+                "emoji": "\ud83c\uddf2\ud83c\uddfd",
                 "information": "Generic distilled agave spirit from Jalisco, Mexico of the mezcal agave cactus. All Tequilas are Mezcal, but not all Mezcals are Tequila. The production characteristics of Tequila are very specific.",
                 "name": "Tequila",
                 "slug": "tequila",
@@ -55,6 +57,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEACAC",
+                "emoji": "\ud83c\uddee\ud83c\uddf9",
                 "information": "A low-proof Italian aperitif flavored with bitter orange, rhubarb and gentian.",
                 "name": "Aperol",
                 "slug": "aperol",

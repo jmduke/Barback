@@ -23,6 +23,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -56,5 +57,5 @@
     ],
     "name": "Daiquiri",
     "slug": "daiquiri",
-    "source": ""
+    "source": "Jennings Cox"
 }

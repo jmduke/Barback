@@ -1,5 +1,6 @@
 {
     "directions": "Stir all ingredients with ice. Strain into glass.",
+    "emoji": "\u201c&\u201d",
     "garnish": "",
     "glassware": "cocktail",
     "ingredients": [

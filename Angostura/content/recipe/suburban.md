@@ -1,5 +1,6 @@
 {
     "directions": "Stir well with cracked ice, then strain into a chilled glass.",
+    "emoji": "\ud83c\udfe0",
     "garnish": "",
     "glassware": "cocktail",
     "ingredients": [
@@ -48,6 +49,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "E4B3A7",
+                "emoji": "\ud83d\udec2\ud83d\udea2",
                 "information": "A sweet fortified wine, often consumed in conjunction with dessert.",
                 "name": "Port",
                 "slug": "port",

@@ -1,5 +1,6 @@
 {
     "directions": "Shake with ice cubes, except for champagne. Strain into a champagne flute. Top up with champagne. Stir gently.",
+    "emoji": "\ud83c\uddeb\ud83c\uddf7",
     "garnish": "",
     "glassware": "champagne flute",
     "information": "The drink was created in 1915 at the New York Bar in Paris (Harry's New York Bar) by barman Harry MacElhone. The combination was said to have such a kick that it felt like being shelled with the powerful French 75mm field gun, also called a *75 Cocktail*, or *Soixante Quinze* in French. The French 75 was popularized in America at the Stork Club in New York.",
@@ -40,6 +41,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=324",
                 "color": "FFF9A8",
+                "emoji": "\ud83c\udf4b",
                 "information": "The lemon is a small evergreen tree native to Asia. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, though the pulp and rind (zest) are also used in cooking and baking. The juice of the lemon is about 5% to 6% citric acid, which gives lemons a sour taste. The distinctive sour taste of lemon juice makes it a key ingredient in drinks and foods such as lemonade.",
                 "name": "Lemon juice",
                 "slug": "lemon-juice",

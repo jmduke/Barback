@@ -1,5 +1,6 @@
 {
     "directions": "Build into glass filled with ice cubes. Stir gently.",
+    "emoji": "\ud83c\udf85\ud83c\uddee\ud83c\uddf9",
     "garnish": "",
     "glassware": "old fashioned",
     "ingredients": [
@@ -26,6 +27,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",
@@ -48,5 +50,5 @@
     ],
     "name": "God Father",
     "slug": "god-father",
-    "source": ""
+    "source": "Craft of the Cocktail"
 }

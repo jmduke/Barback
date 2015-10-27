@@ -35,6 +35,7 @@
                 "brands": [],
                 "cocktaildb": "http://www.cocktaildb.com/ingr_detail?id=328",
                 "color": "C8E9CE",
+                "emoji": "\ud83c\udf34",
                 "information": "",
                 "name": "Lime juice",
                 "slug": "lime-juice",
@@ -46,6 +47,7 @@
                 "abv": 0,
                 "brands": [],
                 "cocktaildb": "",
+                "color": "FEFEFE",
                 "information": "",
                 "name": "White sugar",
                 "slug": "white-sugar",
@@ -59,6 +61,7 @@
                 "brands": [],
                 "cocktaildb": "",
                 "color": "EEEEEE",
+                "emoji": "\ud83d\udca7",
                 "information": "Soda water is just carbonated water -- not tonic, which contains some other stuff too.",
                 "name": "Soda water",
                 "slug": "soda-water",
@@ -71,6 +74,7 @@
         }
     ],
     "name": "Mojito",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/2aw7zg/not_cocktail_of_the_week_80_mojito/",
     "slug": "mojito",
-    "source": ""
+    "source": "Don Facundo Bacardi"
 }

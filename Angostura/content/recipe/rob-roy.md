@@ -1,5 +1,6 @@
 {
     "directions": "Stir in mixing glass with ice cubes. Strain into chilled glass.",
+    "emoji": "\ud83d\udd2e",
     "garnish": "Maraschino cherry, lemon twist",
     "glassware": "martini",
     "information": "If you think this sounds like a Manhattan except with scotch -- that's because it is.  (Except usually sweeter.).",
@@ -27,6 +28,7 @@
                 ],
                 "cocktaildb": "",
                 "color": "D5C6A1",
+                "emoji": "\ud83c\uddec\ud83c\udde7",
                 "information": "Scotch whisky, often simply called Scotch, is malt whisky or grain whisky made in Scotland. Scotch whisky must be made in a manner specified by law.",
                 "name": "Scotch",
                 "slug": "scotch",
@@ -78,6 +80,7 @@
         }
     ],
     "name": "Rob Roy",
+    "ncotw": "https://www.reddit.com/r/cocktails/comments/2owdug/not_cocktail_of_the_week_101_rob_roy/",
     "slug": "rob-roy",
-    "source": ""
+    "source": "The Waldorf-Astoria"
 }
