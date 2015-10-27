@@ -3,8 +3,8 @@
 
 <link rel="stylesheet" href="/css/recipe.css">
 
-<div>
-  <h1>{{ .Params.name }}</h1>
+<div itemscope itemtype="http://schema.org/Recipe">
+  <h1 itemprop="name">{{ .Params.name }}</h1>
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="card">
@@ -18,7 +18,7 @@
           {{ if .Params.directions }}
       <div class="card">
         <h2>Directions</h2>
-        <p>{{ .Params.directions | markdownify }}</p>
+        <p itemprop="recipeInstructions">{{ .Params.directions | markdownify }}</p>
       {{ end }}
       </div>
 
@@ -30,7 +30,7 @@
     <div class="col-xs-12 col-md-6">
 
       <div class="card"  style="float: right; margin: 1em; border: 1em #eee solid">
-      <div id="diagram"></div>
+      <div id="diagram" itemprop="image"></div>
       </div>
 
       <div class="card">
@@ -47,7 +47,7 @@
 
       <div class="card">
       <h2>Information</h2>
-      <p>{{ .Params.information | markdownify }}</p>
+      <p itemprop="description">{{ .Params.information | markdownify }}</p>
       </div>
     {{ end }}
 
