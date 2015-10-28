@@ -61,7 +61,8 @@ if __name__ == "__main__":
             "cocktaildb",
             "color",
             "emoji",
-            "information"
+            "information",
+            "brands"
         ]
         base_data = [get_data_for_key(bases, key, verbose=False) for key in base_keys]
 
