@@ -1,0 +1,21 @@
+folder: public
+
+tests:
+
+- url: /
+  status: 200
+  title: Barback
+
+- url: /recipe/english-garden/
+  status: 200
+  title: English Garden - Barback
+  content:
+  - selector: .ingredients
+    text:
+    - Gin
+    - Hendrick's
+  - text: Collins
+
+- url: /base/rye
+  status: 200
+  title: Rye - Barback
