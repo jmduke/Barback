@@ -103,13 +103,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeRouting()
         initializeDependencies(launchOptions)
         registerPushNotifications(application)
-        registerQuickActions()
         styleApp()
         
         let dataSource = RealmDataSource()
         if dataSource.needsSyncing() || true {
             dataSource.sync()
         }
+        
+        // Register quick actions after syncing since it requires certain stuff to be present.
+        registerQuickActions()
+        
         return true
     }
     
