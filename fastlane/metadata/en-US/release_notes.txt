@@ -1,0 +1,15 @@
+Wow y'all!  So much cool stuff in this update as we take ourselves to ~*~ 3.0 ~*~! 
+
+- New look.  New design.  New... font.  Everything looks better now.
+- Speaking of things looking better -- diagrams for recipes and ingredients!  Because sometimes visual cues are important.  Plus, it just looks nifty.
+- A bunch of boring random performance and architectural changes that should mean things work quicker and with less crashes.  (If you're a tech nerd: we migrated to Swift 2 and from Core Data to Realm.)
+- You can now sort your recipes by name, complexity, or ABV.
+- Searching is a lot better, too!  You can search via ingredient or recipe -- by name, description, or even emoji (!)
+- Speaking of recipes -- we've added like fifty of them!  They are all very tasty and refreshing.
+- Still speaking of recipes -- we continue to add more metadata and information about existing recipes!
+- Can't decide what you wanna make?  Ask the Bartender: give us a base liquor, a flavor, and a fun adjective and we'll recommend a recipe.
+- Bug fixes out the wazoo.
+
+Barback 3.0 works best while sipping either a barrel-aged Manhattan or something involving an herbal gin.  I'm getting really into Mezcal, though, so email me if you have any great mezcal recipes.  (Email me if you have any great recipes period.  Email me if you have any ideas or bugs or whatever.  I love hearing from y'all.)
+
+(Drink up!)

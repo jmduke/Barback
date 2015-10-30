@@ -2,8 +2,6 @@ import AdSupport
 import Appirater
 import CoreData
 import CoreSpotlight
-import Crashlytics
-import Fabric
 import JLRoutes
 import MBProgressHUD
 import MobileCoreServices
@@ -13,7 +11,7 @@ import UIKit
 
 func initializeDependencies(launchOptions: NSDictionary?) {
 
-    Fabric.with([Crashlytics()])
+    // Fabric.with([Crashlytics()])
 
     // Initialize Appirater.
     Appirater.setAppId("829469529")

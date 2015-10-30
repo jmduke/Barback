@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="fastlane">
+  <testsuite name="run">
+    
+      
+      <testcase name="0: Verifying required fastlane version" time="0.000285">
+        
+      </testcase>
+    
+      
+      <testcase name="1: default_platform" time="0.000157">
+        
+      </testcase>
+    
+      
+      <testcase name="2: cocoapods" time="13.190666">
+        
+      </testcase>
+    
+      
+      <testcase name="3: increment_build_number" time="3.035255">
+        
+      </testcase>
+    
+      
+      <testcase name="4: increment_build_number" time="2.100551">
+        
+      </testcase>
+    
+      
+      <testcase name="5: sigh" time="6.818246">
+        
+      </testcase>
+    
+      
+      <testcase name="6: gym" time="250.188438">
+        
+      </testcase>
+    
+      
+      <testcase name="7: deliver" time="249.13417">
+        
+      </testcase>
+    
+      
+      <testcase name="8: slack" time="0.80932">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
