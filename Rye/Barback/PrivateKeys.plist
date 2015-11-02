@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>matAdvertiserId</key>
+	<string>162628</string>
+	<key>matConversionKey</key>
+	<string>9f593a5abd5fdb2e30e6f4302cc9c86f</string>
+	<key>parseApplicationId</key>
+	<string>kLex39SyOKNG0pxpxWCjSRcUs0Vh8F0FY9zsu6N9</string>
+	<key>twitterConsumerKey</key>
+	<string>KZrKO1HFgqzrrLFoxCIaosBWm</string>
+	<key>twitterConsumerSecret</key>
+	<string>oJZU75WYN90AfJenzfd7kAuDctATEIKv5nTMWrPOemRQk19u8i</string>
+	<key>parseClientKey</key>
+	<string>6YzSkqZxxkrodKg7YLjMpmKtMbQajN7QQGLdtVOq</string>
+</dict>
+</plist>

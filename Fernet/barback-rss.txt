@@ -11,7 +11,7 @@ http://ratedrcocktails.com/feed/
 http://stirandstrain.com/feed/
 http://www.ginhound.com/feeds/posts/default
 http://temperedspirits.com/feed/
-http://sassandgin.blogspot.com/feeds/posts/default
+http://sassandgin.com/feed/
 http://www.lalovingcup.com/feed/
 http://www.abarabove.com/feed/
 http://onemartini.com/feed/
