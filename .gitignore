@@ -6,6 +6,8 @@ Campari/output
 */PrivateKeys.plist
 */parse_config.py
 */global.json
+*/recipes.json
+*/bases.json
 
 Fernet/barbackconfig.py
 

@@ -64,7 +64,7 @@ public enum SourceType {
         if recognizedBooks.keys.contains(sourceName) {
             return .Book
         }
-        if recognizedSites.keys.contains(sourceName) {
+        if recognizedSites.keys.contains(sourceName) || sourceName.rangeOfString("http") != nil {
             return .Site
         }
         return .Etc
@@ -90,7 +90,11 @@ public struct Source {
             case .Person:
                 return "was invented by *\(name)*"
             case .Site:
-                return "was found online at [\(name)](\(recognizedSites[name]!))"
+                if let url = recognizedSites[name] {
+                    return "was found online at [\(name)](\(url))"
+                } else {
+                    return "was found [online](\(name))"
+                }
             default:
                 return "came from *\(name)*"
         }
