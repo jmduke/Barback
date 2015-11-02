@@ -8,6 +8,12 @@ struct RecipeDiagramViewSegment {
     
 }
 
+extension Ingredient {
+    func getDisplayAmount() -> Double {
+        return Double(label == "Top" ? 5 : amount)
+    }
+}
+
 class RecipeDiagramView: UIView {
 
     var recipe: Recipe?  {
@@ -72,7 +78,7 @@ class RecipeDiagramView: UIView {
 
         let inset = (topWidth - bottomWidth) / 2
 
-        let totalVolume = recipe!.ingredients.map({ Double($0.amount) }).reduce(0.0, combine: +)
+        let totalVolume = recipe!.ingredients.map({ $0.getDisplayAmount() }).reduce(0.0, combine: +)
 
         var viewSegments: [RecipeDiagramViewSegment] = []
         
@@ -85,7 +91,8 @@ class RecipeDiagramView: UIView {
         // For each ingredient,
         let whitespaceModifier = (1.0 - EMPTY_SPACE_PROPORTION) / totalVolume
         for ingredient in sortedIngredients {
-            let ratioFraction =  Double(ingredient.amount) * whitespaceModifier
+            
+            let ratioFraction =  ingredient.getDisplayAmount() * whitespaceModifier
             
             // If the base doesn't actually exist, then there's no color.
             if let base = ingredient.base {
