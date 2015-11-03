@@ -113,7 +113,19 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         if (viewingRecipes) {
             return nil
         }
-        return IngredientBaseArranger().getSectionTitles(sortingMethod, bases: possibleIngredients)
+        let sectionTitles = IngredientBaseArranger().getSectionTitles(sortingMethod, bases: possibleIngredients)
+        
+        // Don't show the section titles if there's only one because it looks dumb.
+        if sectionTitles.count < 2 {
+            return nil
+        }
+        
+        // Don't show the section titles if there isn't enough recipes to scrub.
+        if possibleIngredients.count < 6 {
+            return nil
+        }
+
+        return sectionTitles
     }
     
     public override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {

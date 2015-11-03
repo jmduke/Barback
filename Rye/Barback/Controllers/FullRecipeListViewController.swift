@@ -56,7 +56,19 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
     }
     
     public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        return RecipeArranger().getSectionTitles(sortingMethod, recipes: recipes)
+        let sectionTitles = RecipeArranger().getSectionTitles(sortingMethod, recipes: recipes)
+        
+        // Don't show the section titles if there's only one because it looks dumb.
+        if sectionTitles.count < 2 {
+            return nil
+        }
+        
+        // Don't show the section titles if there isn't enough recipes to scrub.
+        if recipes.count < 6 {
+            return nil
+        }
+        
+        return sectionTitles
     }
     
     public override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
