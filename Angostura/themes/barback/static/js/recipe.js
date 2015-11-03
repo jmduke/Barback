@@ -74,7 +74,7 @@ function drawRecipe(glass, ingredients, selector) {
         }
         if (base && !isNaN(ratioFraction)) {
             var previousRatioFraction = viewSegments[viewSegments.length - 1][0];
-            viewSegments.push([ratioFraction + previousRatioFraction, base.color]);
+            viewSegments.push([ratioFraction + previousRatioFraction, base.color, base.slug]);
         }
     });
 
@@ -117,6 +117,12 @@ function drawRecipe(glass, ingredients, selector) {
             var strokeColor = "#FFF";
         }
         polygon.stroke({ width: strokeWidth, color: strokeColor });
+
+        var slug = viewSegment[2];
+        if (slug) {
+            var url = '/base/' + slug;
+            polygon.linkTo(url);
+        }
     });
 
     var strokeWidth = 3;
@@ -139,5 +145,5 @@ function drawRecipe(glass, ingredients, selector) {
     // And concatenate.
     var polygonString = coordinateStrings.join("");
 
-    canvas.polygon(polygonString).attr({'fill-opacity': 0}).stroke({ width: strokeWidth, color: '#666' });
+    canvas.polygon(polygonString).attr({'fill': 'none'}).stroke({ width: strokeWidth, color: '#666' });
 }

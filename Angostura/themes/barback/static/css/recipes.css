@@ -5,8 +5,8 @@
 .recipe-container h2 {
   transition: 0.2s;
 }
-.recipe-container:hover .diagram,
-.recipe-container:hover h2 {
+.recipes .recipe-container:hover .diagram,
+.recipes .recipe-container:hover h2 {
   -webkit-filter: blur(10px);
   transition: 0.2s;
 }
