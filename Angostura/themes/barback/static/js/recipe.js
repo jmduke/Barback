@@ -59,7 +59,7 @@ function drawRecipe(glass, ingredients, selector) {
     var viewSegments = []
     viewSegments.push([0.0, "000"]);
 
-    var sortedIngredients = _.sortBy(ingredients, "amount");
+    var sortedIngredients = _.sortBy(ingredients, "amount").reverse();
 
     var whitespaceModifier = (1.0 - EMPTY_SPACE_RATIO) / totalVolume;
     _.forEach(sortedIngredients, function(ingredient) {
