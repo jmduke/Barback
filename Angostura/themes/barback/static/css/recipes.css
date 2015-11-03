@@ -1,69 +1,38 @@
-.recipe-container h2:after {
-    content: " → ";
-    font-size: 0px;
-    transition: all 0.5s;
+.recipe-container {
+  overflow: hidden;
 }
-.recipe-container:hover h2:after {
-    transition: all 0.5s;
-    font-size: 14px;
+.recipe-container .diagram,
+.recipe-container h2 {
+  transition: 0.2s;
 }
-
-
-@-webkit-keyframes rotate_svg {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  20% {
-    transform: rotate(8deg);
-  }
-
-  40% {
-    transform: rotate(-6deg);
-  }
-
-  60% {
-    transform: rotate(4deg);
-  }
-
-  80% {
-    transform: rotate(-2deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+.recipe-container:hover .diagram,
+.recipe-container:hover h2 {
+  -webkit-filter: blur(10px);
+  transition: 0.2s;
 }
-@keyframes rotate_svg {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  20% {
-    transform: rotate(8deg);
-  }
-
-  40% {
-    transform: rotate(-6deg);
-  }
-
-  60% {
-    transform: rotate(4deg);
-  }
-
-  80% {
-    transform: rotate(-2deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+.recipe-container:hover .overlay {
+  opacity: 1;
+  transition: 0.2s;
 }
-.recipe-container:hover svg {
-  -webkit-animation-name: rotate_svg;
-  -webkit-animation-duration: 0.5s;
-  -webkit-animation-timing-function: ease;
-  animation-name: rotate_svg;
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
+.overlay {
+  color: #666;
+  position: absolute;
+  top: 0;
+  right: 15;
+  left: 15;
+  bottom: 30;
+  opacity: 0;
+  transition: 0.2s;
+  border-radius: 10px;
+}
+.overlay ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0 auto;
+  width: 50%;
+}
+.overlay li {
+  width: auto;
+  margin-top: 5px;
+  font-size: 18px;
 }

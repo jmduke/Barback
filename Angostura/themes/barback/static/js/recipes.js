@@ -71,3 +71,9 @@ $("h4 a").click(function(event) {
   $(this).text($(this).text() + sortDirection);
   container.isotope({ sortBy: sortBy, sortAscending: sortAscending });
 });
+
+$(".overlay ul").each(function() {
+  parentHeight = $(this).parent().parent().parent().height();
+  thisHeight = $(this).height();
+  $(this).css('margin-top', (parentHeight - $(this).height()) / 2);
+});
