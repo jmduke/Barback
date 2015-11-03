@@ -38,6 +38,8 @@ function drawRecipe(glass, ingredients, selector) {
     var BACKGROUND_COLOR = "#FFF";
     var EMPTY_SPACE_RATIO = 0.2;
     var PADDING = 3;
+    var heightOffset = 6;
+    var widthOffset = 6;
 
 
     // Get the dimensions and canvas size.
@@ -45,71 +47,97 @@ function drawRecipe(glass, ingredients, selector) {
     if (!dimensions) {
         dimensions = GLASSWARE[FALLBACK_GLASS];
     }
+
     var height = dimensions[0] * 2;
-    var width_1 = dimensions[1] * 2;
-    var width_2 = dimensions[2] * 2;
-    var inset = (width_2 - width_1) / 2;
+    var bottomWidth = dimensions[1] * 2;
+    var topWidth = dimensions[2] * 2;
+
+    var inset = (topWidth - bottomWidth) / 2;
     
+    var totalVolume = _.sum(_.map(ingredients, 'amount'));
+    
+    var viewSegments = []
+    viewSegments.push([0.0, "000"]);
 
-    // Total amount of cl/oz in the recipe.
-    var ingredientDenominator = 0;
-    for (i = 0; i < ingredients.length; i++) {
-        var ingredientAmount = ingredients[i].amount;
-        if (!ingredientAmount) {
-            ingredientAmount = 0;
+    var sortedIngredients = _.sortBy(ingredients, "amount");
+
+    var whitespaceModifier = (1.0 - EMPTY_SPACE_RATIO) / totalVolume;
+    _.forEach(sortedIngredients, function(ingredient) {
+        var ratioFraction = ingredient.amount * whitespaceModifier;
+
+        var base = ingredient.baseName;
+        if (!base.color) {
+            base = bases[ingredient.baseName];
         }
-        ingredientDenominator += ingredientAmount;
-    }
-     
-    // Ratios for each ingredient.  This is pretty gross.   
-    var ratios = [0.0, 0.0, EMPTY_SPACE_RATIO];
-    for (i = 0; i < ingredients.length; i++) {
-        var ingredientAmount = ingredients[i].amount;
-        if (!ingredientAmount) {
-            ingredientAmount = 0;
+        if (!base) {
+            base = {'color': "999"};
         }
-        ratios.push((1 - EMPTY_SPACE_RATIO) * ingredientAmount / ingredientDenominator + ratios[i+2]);
-    }
- 
-    var canvas = SVG(selector).size(width_2 + PADDING * 4, height + PADDING * ratios.length);
-    for (var i in ratios) {
-
-        var ratio = ratios[i];
-
-        // Subtract two because we add two empty elements to ratios.
-        var ingredient = ingredients[i - 2];
-        if (i > 1 && !ingredient) {
-            continue;
+        if (base && !isNaN(ratioFraction)) {
+            var previousRatioFraction = viewSegments[viewSegments.length - 1][0];
+            viewSegments.push([ratioFraction + previousRatioFraction, base.color]);
         }
+    });
 
-        // Get color for ratio.
-        var fill_color = BACKGROUND_COLOR;
-        if (i > 1) {
-            if (ingredient && ingredient.baseName && bases[ingredient.baseName]) {
-                fill_color = "#" + bases[ingredient.baseName].color;
-            } else if (ingredient && ingredient.baseName.color) {
-                fill_color = "#" + ingredient.baseName.color;
-            } else {
-                fill_color = FALLBACK_COLOR;
-            }
-        }
+    viewSegments.push([1.0, "fff"]);
 
-        var padding_offset = i > 1 ? PADDING * i : PADDING * (ratios.length - 2);
+    var canvas = SVG(selector).size(topWidth + PADDING * 4, height + PADDING * viewSegments.length);
+    
+    _.forEach(viewSegments, function(viewSegment, segmentIndex) {
 
-        var bottom_left = "" + (inset + PADDING) + ',' + (height +  padding_offset);
-        var bottom_right = "" + (width_2 - inset + PADDING) + ',' + (height + padding_offset);
-        var top_right = "" + (width_2 - (inset * ratio) + PADDING) + ',' + (height * ratio + padding_offset);
-        var top_left = "" + (inset * ratio + PADDING) + ',' + (height * ratio + padding_offset);
+        var ratio = viewSegment[0];
+        var previousRatio = segmentIndex > 0 ? viewSegments[segmentIndex - 1][0] : ratio;
 
-        var poly = canvas.polygon("" + bottom_left + ' ' + bottom_right + ' ' + top_right + ' ' + top_left).fill(fill_color);
-        
-        if (i == 0) {
+        var proportionOfSpaceBeforeSegment = 1 - previousRatio;
+        var proportionOfSpaceAfterSegment = 1 - ratio;
+
+        var bottomOfSegment = heightOffset + height * proportionOfSpaceBeforeSegment;
+        var topOfSegment = heightOffset + height * proportionOfSpaceAfterSegment;
+
+        var bottomLeft = [widthOffset + inset * proportionOfSpaceBeforeSegment, bottomOfSegment];
+        var bottomRight = [widthOffset + topWidth - (inset * proportionOfSpaceBeforeSegment), bottomOfSegment];
+        var topRight = [widthOffset + topWidth - (inset * proportionOfSpaceAfterSegment), topOfSegment];
+        var topLeft = [widthOffset + inset * proportionOfSpaceAfterSegment, topOfSegment];
+
+        // Convert into strings.
+        var coordinateStrings = _.map([bottomLeft, bottomRight, topRight, topLeft], function(coordinate) {
+            return " " + coordinate[0] + "," + coordinate[1]
+        })
+
+        // And concatenate.
+        var polygonString = coordinateStrings.join("");
+
+        var fillColor = "#" + viewSegment[1];
+        var polygon = canvas.polygon(polygonString).fill(fillColor);
+
+        if (segmentIndex == 0) {
             var strokeWidth = PADDING * 2;
             var strokeColor = "#000";
         } else {
             var strokeWidth = PADDING;
-            var strokeColor = "#fff";
+            var strokeColor = "#FFF";
         }
-        poly.stroke({ width: strokeWidth, color: strokeColor });
-    }
+        polygon.stroke({ width: strokeWidth, color: strokeColor });
+    });
+
+    var strokeWidth = 3;
+
+    var bottomOfGlass = heightOffset + height + strokeWidth;
+    var topOfGlass = heightOffset;
+
+    var bottomExtra = bottomWidth == 0 ? 0 : strokeWidth;
+
+    var bottomLeft = [widthOffset + inset - bottomExtra, bottomOfGlass];
+    var bottomRight = [widthOffset + topWidth - inset + bottomExtra, bottomOfGlass];
+    var topRight = [widthOffset + topWidth + strokeWidth, topOfGlass];
+    var topLeft = [widthOffset - strokeWidth, topOfGlass];
+
+    // Convert into strings.
+    var coordinateStrings = _.map([bottomLeft, bottomRight, topRight, topLeft], function(coordinate) {
+        return " " + coordinate[0] + "," + coordinate[1]
+    })
+
+    // And concatenate.
+    var polygonString = coordinateStrings.join("");
+
+    canvas.polygon(polygonString).attr({'fill-opacity': 0}).stroke({ width: strokeWidth, color: '#666' });
 }
