@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 import UIKit
 
 
@@ -22,6 +23,19 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
     override func filterRecipes(recipe: Recipe) -> Bool {
         return recipe.isFavorited
     }
+    
+    func populateFavoriteRecipes() {
+        let realm = try! Realm()
+        try? realm.write {
+            let recipeNames = ["Manhattan", "Negroni", "Suburban", "Flannel Shirt"]
+            for recipeName in recipeNames {
+                let recipe = Recipe.forName(recipeName)!
+                recipe.isFavorited = true
+                realm.add(recipe)
+            }
+        }
+        viewWillAppear(true)
+    }
 
     override public func viewWillAppear(animated: Bool) {
         // We manually reload each appearance to account for favorites in other tabs.
@@ -34,6 +48,13 @@ public class FavoriteRecipeListViewController: RecipeListViewController, HasCoac
             
             let emptyStateLabel = EmptyStateLabel(frame: tableView.frame)
             emptyStateLabel.text = "When you mark a recipe as a favorite, it'll show up here."
+            
+            let populateRecipesButton = SimpleButton(frame: tableView.frame)
+            populateRecipesButton.setTitle("Wanna know our favorites?", forState: UIControlState.Normal)
+            populateRecipesButton.setTitleColor(Color.Tint.toUIColor(), forState: UIControlState.Normal)
+            populateRecipesButton.addTarget(self, action: "populateFavoriteRecipes", forControlEvents: UIControlEvents.TouchUpInside)
+            emptyStateLabel.addSubview(populateRecipesButton)
+            emptyStateLabel.userInteractionEnabled = true
             
             tableView.backgroundView = emptyStateLabel
         } else {
