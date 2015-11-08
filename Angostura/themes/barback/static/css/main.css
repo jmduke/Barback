@@ -1,5 +1,5 @@
 body {
-    font-family: Avenir;
+    font-family: "Karla";
     color: #2B3A42;
     background-color: #eee;
     font-size: 16px;
@@ -160,24 +160,16 @@ h4 a {
   display: block;
 }
 
-@media all and (max-width: 660px) {
-  footer.grater > div {
-    margin-bottom: 0.5em; } }
-div.iphone {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url('/img/iphone.svg') no-repeat;
-  background-size: 387px 804px;
-  width: 387px;
-  height: 804px;
-  padding: 121px 0 0 36px; }
-  div.iphone div, div.iphone img {
-    background: #000;
-    width: 320px;
-    height: 568px;
-    overflow: hidden; }
-  @media all and (max-width: 990px) {
-    div.iphone {
-          margin-top: 1em;
-          margin-left: calc(50% - 190px); } }
+
+.footer {
+  background-color: #333;
+  color: #eee;
+  margin-top: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.footer a {
+  color: #eee;
+  font-weight: bold;
+}
