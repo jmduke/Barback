@@ -1,6 +1,7 @@
-{{ partial "head.html" . }}
-{{ partial "header.html" . }}
-{{ partial "jumbotron.html" . }}
+{{ partial "layout/head.html" . }}
+{{ partial "layout/header.html" . }}
+
+{{ partial "components/jumbotron.html" . }}
 
 <div class="row">
   <h4 class="col-xs-12 col-md-6"> Sort by:
@@ -21,11 +22,11 @@
 <div class="row">
     <div class="recipes">
     {{ range $.Site.Data.recipes }}
-       {{ partial "recipe.html" . }}
+       {{ partial "recipe/recipe.html" . }}
     {{ end }}
     </div>
 </div>
 
 <script src="/js/recipes.js"></script>
 
-{{ partial "footer.html" . }}
+{{ partial "layout/footer.html" . }}

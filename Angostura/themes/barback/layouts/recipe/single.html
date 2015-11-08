@@ -1,5 +1,5 @@
-{{ partial "head.html" . }}
-{{ partial "header.html" . }}
+{{ partial "layout/head.html" . }}
+{{ partial "layout/header.html" . }}
 
 <link rel="stylesheet" href="/css/recipe.css">
 
@@ -11,7 +11,7 @@
       <h2>Ingredients</h2>
       <table class="ingredients">
         {{ range .Params.ingredients }}
-          {{ partial "ingredient.html" . }}
+          {{ partial "recipe/ingredient.html" . }}
         {{ end }}
       </table>
       </div>
@@ -23,7 +23,7 @@
       </div>
 
     <div class="card" style="text-align: center">
-    {{ partial "tweet.html" . }}
+    {{ partial "components/tweet.html" . }}
     </div>
 
     </div>
@@ -60,4 +60,4 @@
   $("#abv").html(abv({{ .Params.ingredients }}));
 </script>
 
-{{ partial "footer.html" . }}
+{{ partial "layout/footer.html" . }}

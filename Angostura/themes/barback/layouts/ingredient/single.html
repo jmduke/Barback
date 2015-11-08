@@ -1,10 +1,9 @@
-{{ partial "head.html" . }}
+{{ partial "layout/head.html" . }}
+{{ partial "layout/header.html" . }}
 
-<body>
 <link rel="stylesheet" href="/css/recipe.css">
 
 <div class="container">
-  {{ partial "header.html" . }}
 
   <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     
@@ -49,7 +48,7 @@
         <hr />
       {{ end }}
 
-      {{ partial "tweet.html" . }}
+      {{ partial "components/tweet.html" . }}
     </div>
     
     <div class="col-xs-12 col-md-6">
@@ -62,6 +61,4 @@
     </div>
 </div>
 
-{{ partial "footer.html" . }}
-</div>
-</body>
+{{ partial "layout/footer.html" . }}
