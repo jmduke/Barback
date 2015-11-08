@@ -1,0 +1,21 @@
+{{ partial "layout/head.html" . }}
+{{ partial "layout/header.html" . }}
+
+<link rel="stylesheet" href="/css/post.css">
+
+<div class="post-header">
+    <h2>{{ .Title }}</h2>
+    <div class="post-date">
+      {{ .Date.Format "Mon, Jan 2, 2006" }} 
+    </div>
+    <div class="post-date tag">
+        <a href="/tags/{{ .Params.tags }}">{{ .Params.tags }}</a>
+    </div>
+</div>
+
+<div class="post-content">
+    {{ .Content }}
+</div>
+
+
+{{ partial "layout/footer.html" . }}
