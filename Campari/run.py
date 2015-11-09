@@ -7,6 +7,9 @@ from data import (
     load_bases_from_yaml,
     load_recipes_from_yaml
 )
+from utils import (
+    get_similar_recipes
+)
 
 
 def write_to_json(objects, filename):
@@ -16,6 +19,9 @@ def write_to_json(objects, filename):
 
 
 def write_to_markdown(recipes, bases, foldername):
+
+    uses_for_bases = {}
+
     for base in bases:
 
         # Add uses for Angostura.
@@ -35,14 +41,24 @@ def write_to_markdown(recipes, bases, foldername):
             outfile.write(json_base)
 
         # Delete this to avoid circular references.
+        uses_for_bases[base['name']] = base['uses']
         del base["uses"]
 
     for recipe in recipes:
+
+        recipe_bases = []
         for (i, ingredient) in enumerate(recipe["ingredients"]):
             base_name = recipe["ingredients"][i]["baseName"]
             base = next((base for base in bases if base['name'] == base_name), None)
             if base:
                 recipe["ingredients"][i]["baseName"] = base
+                recipe_bases.append(base['name'])
+
+
+        # Generate similar recipes.
+        recipe['similar_recipes'] = get_similar_recipes(recipe, recipe_bases, recipes, uses_for_bases)
+
+        # Actually write to file.
         json_recipe = json.dumps(recipe, sort_keys=True, indent=4, separators=(',', ': '))
         recipe_filename = foldername + "recipe/" + recipe['slug'] + ".md"
         with open(recipe_filename, "w") as outfile:
@@ -62,7 +78,7 @@ if __name__ == "__main__":
     for base in bases:
         base['slug'] = slugify(unicode(base['name']))
 
+    write_to_markdown(recipes, bases, "output/md/")
     write_to_json(recipes, "output/json/recipes.json")
     write_to_json(bases, "output/json/bases.json")
 
-    write_to_markdown(recipes, bases, "output/md/")
