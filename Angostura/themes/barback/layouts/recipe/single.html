@@ -34,21 +34,31 @@
       </div>
 
       <div class="card">
-    <h2>Data</h2>
-      <p>
-        Served in {{ .Params.glassware }}
-        <br /><span id='abv'></span>% ABV
-        {{ if .Params.garnish }}
-        <br />Garnish with {{ .Params.garnish }}
-        {{ end }}
-      </p>
+        <h2>Data</h2>
+        <p>
+          Served in {{ .Params.glassware }}
+          <br /><span id='abv'></span>% ABV
+          {{ if .Params.garnish }}
+          <br />Garnish with {{ .Params.garnish }}
+          {{ end }}
+        </p>
       </div>
           {{ if .Params.information }}
 
       <div class="card">
-      <h2>Information</h2>
-      <p itemprop="description">{{ .Params.information | markdownify }}</p>
+        <h2>Information</h2>
+        <p itemprop="description">{{ .Params.information | markdownify }}</p>
       </div>
+      
+      {{ if .Params.similar_recipes }}
+        <div class="card">
+          <h2>Similar Cocktails</h2>
+          {{ range .Params.similar_recipes }}
+          <a href="" class="similar-recipe">{{ . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
     {{ end }}
 
     </div>
@@ -58,6 +68,12 @@
 <script>
   drawRecipe("{{ .Params.glassware }}", {{ .Params.ingredients }}, "diagram");
   $("#abv").html(abv({{ .Params.ingredients }}));
+
+  $(".similar-recipe").each(function() {
+    var recipeName = $(this).text();
+    var recipeSlug = recipes[recipeName].slug;
+    $(this).attr('href', "/recipe/" + recipeSlug);
+  });
 </script>
 
 {{ partial "layout/footer.html" . }}
