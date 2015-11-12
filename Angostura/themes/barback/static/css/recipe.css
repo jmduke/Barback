@@ -44,6 +44,7 @@ h1 {
 h2 {
   font-size: 20px;
   margin-top: 0;
+  text-align: center;
 }
 .recipe-content {
   float: left;
@@ -66,4 +67,10 @@ td {
 .card {
   padding: 1em;
   margin-bottom: 1em;
+  text-align: center;
+}
+
+h4 {
+  font-weight: bold;
+  margin-top: 2em;
 }

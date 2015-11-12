@@ -3,38 +3,31 @@
 
 <link rel="stylesheet" href="/css/recipe.css">
 
-<div class="recipe" itemscope itemtype="http://schema.org/Recipe">
-  <h1 itemprop="name">{{ .Params.name }}</h1>
-  <div class="row">
+<div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" itemscope itemtype="http://schema.org/Recipe">
+  <h2 itemprop="name">{{ .Params.name }}</h2>
     <div class="col-xs-12 col-md-6">
-      <div class="card">
-      <h2>Ingredients</h2>
+
+      <div id="diagram" itemprop="image"></div>
+      
+      <h4>Ingredients</h4>
       <table class="ingredients">
         {{ range .Params.ingredients }}
           {{ partial "recipe/ingredient.html" . }}
         {{ end }}
       </table>
-      </div>
-          {{ if .Params.directions }}
-      <div class="card">
-        <h2>Directions</h2>
-        <p itemprop="recipeInstructions">{{ .Params.directions | markdownify }}</p>
+
+      {{ if .Params.directions }}
+      <h4>Directions</h4>
+      <p itemprop="recipeInstructions">{{ .Params.directions | markdownify }}</p>
       {{ end }}
-      </div>
 
-    <div class="card" style="text-align: center">
-    {{ partial "components/tweet.html" . }}
-    </div>
+      {{ partial "components/tweet.html" . }}
 
     </div>
+
     <div class="col-xs-12 col-md-6">
 
-      <div class="card"  style="float: right; margin: 1em;">
-      <div id="diagram" itemprop="image"></div>
-      </div>
-
-      <div class="card">
-        <h2>Data</h2>
+      <h4>Data</h4>
         <p>
           Served in {{ .Params.glassware }}
           <br /><span id='abv'></span>% ABV
@@ -42,27 +35,21 @@
           <br />Garnish with {{ .Params.garnish }}
           {{ end }}
         </p>
-      </div>
           {{ if .Params.information }}
 
-      <div class="card">
-        <h2>Information</h2>
-        <p itemprop="description">{{ .Params.information | markdownify }}</p>
-      </div>
+      <h4>Information</h4>
+      <p itemprop="description">{{ .Params.information | markdownify }}</p>
       
       {{ if .Params.similar_recipes }}
-        <div class="card">
-          <h2>Similar Cocktails</h2>
+          <h4>Similar Cocktails</h4>
           {{ range .Params.similar_recipes }}
-          <a href="" class="similar-recipe">{{ . }}</a>
+          <a href="" class="similar-recipe">{{ . }}</a><br />
           {{ end }}
-        </div>
       {{ end }}
 
     {{ end }}
 
     </div>
-  </div>
 </div>
 
 <script>
