@@ -120,7 +120,7 @@ function drawRecipe(glass, ingredients, selector) {
 
         var slug = viewSegment[2];
         if (slug) {
-            var url = '/base/' + slug;
+            var url = '/ingredient/' + slug;
             polygon.linkTo(url);
         }
     });

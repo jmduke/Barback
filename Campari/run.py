@@ -35,6 +35,11 @@ def write_to_markdown(recipes, bases, foldername):
                         'ingredient': ingredient
                     })
 
+
+        # 'type' is loaded in Hugo.
+        base['ingredient_type'] = base['type']
+        del base['type']
+
         json_base = json.dumps(base, sort_keys=True, indent=4, separators=(',', ': '))
         base_filename = foldername + "base/" + base['slug'] + ".md"
         with open(base_filename, "w") as outfile:
@@ -43,6 +48,9 @@ def write_to_markdown(recipes, bases, foldername):
         # Delete this to avoid circular references.
         uses_for_bases[base['name']] = base['uses']
         del base["uses"]
+
+        base['type'] = base['ingredient_type']
+
 
     for recipe in recipes:
 
