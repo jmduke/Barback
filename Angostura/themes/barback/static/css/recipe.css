@@ -22,7 +22,7 @@
   float: left;
   text-align: center;
 }
-.recipe-container h2 {
+.recipe-container h1 {
   background-color: #ff530d;
   color: #fff;
   padding: 1em;
@@ -33,15 +33,7 @@
   width: 100%;
   margin-right: 0;
 }
-h1 {    
-  background-color: #FF530D;
-  padding: 1em;
-  color: #fff;
-  border-radius: 10px;
-  display: inline-block;
-  margin-bottom: 1em;
-}
-h2 {
+h1 {
   font-size: 20px;
   margin-top: 0;
   text-align: center;
