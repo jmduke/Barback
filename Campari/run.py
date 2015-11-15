@@ -1,5 +1,6 @@
 # This Python file uses the following encoding: utf-8
 import json
+import sys
 
 from slugify import slugify
 
@@ -58,7 +59,7 @@ def write_to_markdown(recipes, bases, foldername):
         for (i, ingredient) in enumerate(recipe["ingredients"]):
             base_name = recipe["ingredients"][i]["baseName"]
             base = next((base for base in bases if base['name'] == base_name), None)
-            if base:
+            if base and 'Rye' not in sys.argv:
                 recipe["ingredients"][i]["baseName"] = base
                 recipe_bases.append(base['name'])
 

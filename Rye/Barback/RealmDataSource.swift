@@ -38,6 +38,8 @@ struct RealmDataSource {
             for object in deserializedBases {
                 let rawBase = NSMutableDictionary(dictionary: object)
                 let base = IngredientBase(value: rawBase)
+                
+                base.type = rawBase["ingredient_type"] as! String
                 realm.add(base)
                 self.indexItem(base)
             }
