@@ -8,6 +8,7 @@ from http.server import (
     SimpleHTTPRequestHandler,
     HTTPServer
 )
+import sys
 from _thread import start_new_thread
 
 import bs4
@@ -30,7 +31,7 @@ class Test:
         return (self.url, "failure", explanation)
 
 
-server_address = ('', 8000)
+server_address = ('', 6000)
 httpd = HTTPServer(server_address, SimpleHTTPRequestHandler)
 start_new_thread(httpd.serve_forever, ())
 
@@ -47,7 +48,7 @@ print("\n")
 results = []
 
 for test in tests:
-    response = requests.get("http://localhost:8000/" + folder_under_test + test.url)
+    response = requests.get("http://localhost:6000/" + folder_under_test + test.url)
     html = bs4.BeautifulSoup(response.text, "html.parser")
 
     # Test status code.
@@ -60,6 +61,10 @@ for test in tests:
             continue
 
     if test.title:
+        if not html.title:
+            results.append(test.fail("No title; expected {}".format(test.title)))
+            continue
+
         expected_title = test.title.strip()
         actual_title = html.title.text.strip()
         result = actual_title == expected_title
@@ -86,9 +91,12 @@ for test in tests:
                 if expected_text not in actual_text:
                     print("!?")
 
-
     results.append(test.succeed())
 
 print(tabulate([r for r in results],
       headers=['url', 'result', 'explanation'],
       tablefmt='psql'))
+
+failures = [r for r in results if r[1] == "failure"]
+if len(failures):
+    sys.exit(1)

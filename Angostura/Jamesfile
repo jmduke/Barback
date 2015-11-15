@@ -16,6 +16,6 @@ tests:
     - Hendrick's
   - text: Collins
 
-- url: /base/rye
+- url: /ingredient/rye
   status: 200
   title: Rye - Barback
