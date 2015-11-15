@@ -19,3 +19,10 @@ tests:
 - url: /ingredient/rye
   status: 200
   title: Rye - Barback
+
+- url: /page/notes/
+  content:
+  - selector: .post
+    text:
+    - Ping
+    - The Stack

@@ -86,10 +86,11 @@ for test in tests:
             if type(expected_text) is list:
                 for expectation in expected_text:
                     if expectation not in actual_text:
-                        print("!?")
+                        results.append(test.fail("{} not in {}".format(expectation, selector)))
+                        break
             else:
                 if expected_text not in actual_text:
-                    print("!?")
+                    results.append(test.fail("{} not in {}".format(expectation, selector)))
 
     results.append(test.succeed())
 
