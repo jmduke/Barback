@@ -2,6 +2,7 @@
 {{ partial "layout/header.html" . }}
 
 <link rel="stylesheet" href="/css/recipe.css">
+<link rel="stylesheet" href="/css/ingredient.css">
 
 <div class="container">
 
@@ -57,8 +58,9 @@
         A <strong>{{ .Params.ingredient_type }}</strong>
         <br />with <strong>{{ .Params.abv }}%</strong> ABV
       </p>
-      <div id="diagram" style="width: 100px; height: 100px; border-radius: 50%; background-color: #{{ .Params.color }}; margin: 0 auto; border: 1px #333 solid"></div>
+      <div id="diagram" style="background-color: #{{ .Params.color }};"></div>
     </div>
 </div>
 
+</div>
 {{ partial "layout/footer.html" . }}

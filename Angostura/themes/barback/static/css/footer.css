@@ -1,0 +1,21 @@
+footer {
+    padding-top: 3em;
+    padding-bottom: 2em;
+    z-index: 1;
+}
+
+.footer {
+  background-color: #333;
+  color: #eee;
+  margin-top: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.footer a {
+  color: #eee;
+  font-weight: bold;
+}
+
+.social a {
+    margin: 1em;
+}

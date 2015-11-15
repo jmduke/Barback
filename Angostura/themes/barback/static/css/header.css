@@ -1,0 +1,36 @@
+.navbar {
+  padding-bottom: 1em;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-style: italic;
+    padding-left: 0;
+    color: #2B3A42 !important;
+}
+.navbar-brand a {
+  color: inherit;
+}
+
+.navbar a.cta {
+  background-color: #FF530D;
+  color: #fff !important;
+  border-radius: 5px;
+}
+.navbar-nav>li>a.cta:hover {
+  background-color: #2B3A42;
+}
+
+
+.navbar-default .navbar-toggle {
+  margin-right: 0px;
+}
+.navbar-default {
+  background-color: #eee;
+  border: 0;
+}
+@media all and (min-width: 768px) {
+  .navbar-right {
+    margin-right: -30px !important;
+  }
+}

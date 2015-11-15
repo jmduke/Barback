@@ -41,3 +41,14 @@ h1 {
   font-weight: bold;
   margin-bottom: 1em;
 }
+
+#search_filter {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #search_filter {
+    margin-left: 1em;
+    margin-top: 2px;
+  }
+}

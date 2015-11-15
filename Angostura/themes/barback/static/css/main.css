@@ -11,27 +11,9 @@ body {
 a {
     color: #FF530D;
 }
-a.cta {
-  background-color: #FF530D;
-  color: #fff !important;
-  border-radius: 5px;
-}
-.nav>li>a.cta:hover {
-  background-color: #2B3A42;
-}
-
-footer {
-    padding-top: 3em;
-    padding-bottom: 2em;
-    z-index: 1;
-}
 
 hr {
     border: none;
-    margin: 2em;
-}
-
-#drawing {
     margin: 2em;
 }
 
@@ -58,33 +40,12 @@ hr {
   border-top-right-radius: 10px;
 }
 
-.navbar-brand {
-    font-size: 24px;
-    font-style: italic;
-    padding-left: 0;
-    color: #2B3A42 !important;
-}
-.navbar-default .navbar-toggle {
-  margin-right: 0px;
-}
-.navbar-default {
-  background-color: #eee;
-  border: 0;
-}
-@media all and (min-width: 768px) {
-  .navbar-right {
-    margin-right: -30px !important;
-  }
-}
-.navbar {
-  padding-bottom: 1em;
-}
 
 .jumbotron {
     background-color: #2B3A42;
     color: #fff;
     position: relative;
-    display: none; 
+    display: block;
 }
 
 .btn-primary, .btn-primary:hover {
@@ -95,81 +56,10 @@ hr {
     opacity: 0.8;
 }
 
-.social a {
-    margin: 1em;
-}
-
-/* APP STUFF */
-
-.app-description {
-  padding-top: 5em;
-  font-size: 1.2em;
-}
-
-#screenshots {
-  position: relative;
-}
-
-.app-store {
-  margin-top: 2em;
-}
-
-.detail-col {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 3em;
-}
-
 .recipe a {
   display: block;
 }
 
 h4 a {
   margin-left: 2em;
-}
-
-#search_filter {
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  #search_filter {
-    margin-left: 1em;
-    margin-top: 2px;
-  }
-}
-
-#data-ingredient-diagram {
-  width: 200px;
-  border-radius: 50%;
-  height: 200px;
-  margin: auto;
-  margin-top: 2em;
-  border: 1px #666 solid;
-}
-
-.quietlink {
-  text-decoration: none;
-  color: inherit;
-}
-.quietlink:hover {
-  border: none;
-}
-
-.jumbotron {
-  display: block;
-}
-
-
-.footer {
-  background-color: #333;
-  color: #eee;
-  margin-top: 2em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-.footer a {
-  color: #eee;
-  font-weight: bold;
 }
