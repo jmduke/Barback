@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+
+Sitemap: http://getbarback.com/sitemap.xml
+
