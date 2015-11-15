@@ -107,3 +107,17 @@ blockquote {
   text-decoration: none;
   border-bottom: 1px #fff solid;
 }
+
+img {
+  max-width: 100%;
+}
+
+code {
+  color: #666;
+  background-color: #DDD;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
