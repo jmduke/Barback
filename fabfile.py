@@ -3,9 +3,17 @@ import os
 from fabric.api import local, lcd
 import gzip
 
+
+def fernet():
+    pemfile_path = "~/Downloads/pugchalice.pem"
+    host = "ec2-52-8-80-68.us-west-1.compute.amazonaws.com"
+    local('scp -r -i {} Fernet ec2-user@{}:~/crons'.format(pemfile_path, host))
+
+
 def wimshurst():
     with lcd('Angostura'):
         local('python3 ./wimshurst.py')
+
 
 def gzip_directory(directory):
     for root, dirs, files in os.walk(directory):
@@ -16,6 +24,7 @@ def gzip_directory(directory):
                     with gzip.open(current_path + '.gz', 'wb') as f_out:
                         f_out.writelines(f_in)
                 os.rename(current_path + '.gz', current_path)
+
 
 def angostura(dry_run=False):
     site_directory = 'Angostura'
