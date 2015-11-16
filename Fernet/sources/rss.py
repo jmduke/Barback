@@ -20,6 +20,9 @@ def get_text(recent_tweets):
             rss = feedparser.parse(feed_url)
             tag = None
 
+        if 'entries' not in rss:
+            continue
+
         for i in range(len(rss['entries'])):
             most_recent_entry = rss['entries'][i]
             link, title, tags = (
@@ -29,8 +32,9 @@ def get_text(recent_tweets):
             )
 
             # If we specify a tag within the rss file, make sure this item has that tag.
-            terms = [tag["term"] for tag in tags]
+            terms = [included_tag["term"] for included_tag in tags]
             if tag and tag not in terms:
+                print(title, link, tag)
                 continue
 
             # No idea why this is necessary, but we spam articles with ampersands.
