@@ -28,7 +28,7 @@ def should_favorite_tweet(tweet, already_favorited_tweets=[], followers_ids=[], 
     return not (tweet.id in already_favorited_tweets or
                 tweet.user.id in api.followers_ids() or
                 any([term in tweet.user.screen_name.lower() for term in terms]) or
-                tweet.user.followers_count / tweet.user.friends_count > 3)
+                tweet.user.friends_count > 5 and tweet.user.followers_count / tweet.user.friends_count > 3)
 
 
 def unfavorite_tweets(count):
