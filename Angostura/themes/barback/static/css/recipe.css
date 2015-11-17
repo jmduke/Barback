@@ -71,6 +71,12 @@ h4 {
 #diagram {
   margin-top: 2em;
 }
+@media all and (max-width: 660px) {
+  #diagram {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
 
 .well {
   background-color: inherit;
@@ -78,9 +84,14 @@ h4 {
   margin-left: -15px;
   margin-right: -15px;
   margin-top: 2em;
-  padding-bottom: 0;
 }
 .well h4 {
   margin-top: 1em;
   border-bottom: none;
+}
+@media all and (max-width: 660px) {
+  .well {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

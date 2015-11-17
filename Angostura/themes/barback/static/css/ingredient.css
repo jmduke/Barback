@@ -7,3 +7,10 @@
     margin-top: 2em;
     padding-bottom: 100%;
 }
+@media all and (max-width: 660px) {
+  #diagram {
+    width: 50%;
+    margin-left: 25%;
+    padding-bottom: 50%;
+  }
+}

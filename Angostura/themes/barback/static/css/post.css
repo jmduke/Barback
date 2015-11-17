@@ -92,6 +92,10 @@ blockquote {
   border-left: 10px #ccc solid;
   margin: 10px;
   padding-left: 30px;
+  margin-top: 1.5em;
+}
+blockquote p:first-child {
+  margin-top: 0;
 }
 
 .jumbotron {

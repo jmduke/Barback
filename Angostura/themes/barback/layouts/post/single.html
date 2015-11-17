@@ -9,7 +9,9 @@
       {{ .Date.Format "Mon, Jan 2, 2006" }} 
     </div>
     <div class="post-date tag">
-        <a href="/tags/{{ .Params.tags }}">{{ .Params.tags }}</a>
+        {{ range .Params.tags }}
+        <a href="/tags/{{ . }}">{{ . }}</a>
+        {{ end }}
     </div>
 </div>
 
