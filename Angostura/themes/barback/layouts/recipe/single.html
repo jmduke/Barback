@@ -5,10 +5,24 @@
 
 <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2" itemscope itemtype="http://schema.org/Recipe">
   <h1 itemprop="name">{{ .Params.name }}</h1>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-3 col-md-offset-1">
 
       <div id="diagram" itemprop="image"></div>
       
+      <h4>Data</h4>
+        <p>
+          Served in {{ .Params.glassware }}
+          <br /><span id='abv'></span>% ABV
+          {{ if .Params.garnish }}
+          <br />Garnish with {{ .Params.garnish }}
+          {{ end }}
+        </p>
+          {{ if .Params.information }}
+
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
+
       <h4>Ingredients</h4>
       <table class="ingredients">
         {{ range .Params.ingredients }}
@@ -21,33 +35,23 @@
       <p itemprop="recipeInstructions">{{ .Params.directions | markdownify }}</p>
       {{ end }}
 
-      {{ partial "components/tweet.html" . }}
-
-    </div>
-
-    <div class="col-xs-12 col-md-6">
-
-      <h4>Data</h4>
-        <p>
-          Served in {{ .Params.glassware }}
-          <br /><span id='abv'></span>% ABV
-          {{ if .Params.garnish }}
-          <br />Garnish with {{ .Params.garnish }}
-          {{ end }}
-        </p>
-          {{ if .Params.information }}
 
       <h4>Information</h4>
       <p itemprop="description">{{ .Params.information | markdownify }}</p>
-      
+
       {{ if .Params.similar_recipes }}
+      <div class="well">
           <h4>Similar Cocktails</h4>
           {{ range .Params.similar_recipes }}
           <a href="" class="similar-recipe">{{ . }}</a><br />
           {{ end }}
+      </div>
       {{ end }}
 
     {{ end }}
+
+      <br />
+      {{ partial "components/tweet.html" . }}
 
     </div>
 </div>

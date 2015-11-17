@@ -20,7 +20,7 @@
 
 .recipe-container {
   float: left;
-  text-align: center;
+  text-align: left;
 }
 .recipe-container h1 {
   background-color: #ff530d;
@@ -59,10 +59,28 @@ td {
 .card {
   padding: 1em;
   margin-bottom: 1em;
-  text-align: center;
 }
 
 h4 {
   font-weight: bold;
   margin-top: 2em;
+  border-bottom: 3px #ff530d solid;
+  padding-bottom: 5px;
+}
+
+#diagram {
+  margin-top: 2em;
+}
+
+.well {
+  background-color: inherit;
+  padding-top: 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 2em;
+  padding-bottom: 0;
+}
+.well h4 {
+  margin-top: 1em;
+  border-bottom: none;
 }

@@ -52,3 +52,8 @@ h1 {
     margin-top: 2px;
   }
 }
+
+.recipe-container .diagram {
+  width: 50%;
+  margin-left: 25%;
+}

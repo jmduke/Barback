@@ -9,7 +9,16 @@
   <div class="recipe-container recipe-detail col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     
     <h1>{{ .Params.name }}</h1>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-3 col-md-offset-1">
+      <div id="diagram" style="background-color: #{{ .Params.color }};"></div>
+      <h4>Data</h4>
+      <p>
+        A <strong>{{ .Params.ingredient_type }}</strong>
+        <br />with <strong>{{ .Params.abv }}%</strong> ABV
+      </p>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-md-offset-1">
 
       {{ if .Params.information }}
         <h4>Information</h4>
@@ -29,6 +38,13 @@
         <hr />
       {{ end }}
 
+      {{ if .Params.cocktaildb }}
+        <h4>Elsewhere</h4>
+        <a href="{{ .Params.cocktaildb }}">CocktailDB</a>
+        <hr />
+      {{ end }}
+
+      <div class="well">
       <h4>Recipes which use {{ .Params.name }}</h4>
       <table class="ingredients">
         {{ range .Params.uses }}
@@ -42,23 +58,10 @@
         {{ end }}
       </table>
       <hr />
+      </div>
 
-      {{ if .Params.cocktaildb }}
-        <h4>Elsewhere</h4>
-        <a href="{{ .Params.cocktaildb }}">CocktailDB</a>
-        <hr />
-      {{ end }}
 
       {{ partial "components/tweet.html" . }}
-    </div>
-    
-    <div class="col-xs-12 col-md-6">
-      <br />
-      <p>
-        A <strong>{{ .Params.ingredient_type }}</strong>
-        <br />with <strong>{{ .Params.abv }}%</strong> ABV
-      </p>
-      <div id="diagram" style="background-color: #{{ .Params.color }};"></div>
     </div>
 </div>
 

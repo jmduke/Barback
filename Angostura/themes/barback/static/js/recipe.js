@@ -80,7 +80,11 @@ function drawRecipe(glass, ingredients, selector) {
 
     viewSegments.push([1.0, "fff"]);
 
-    var canvas = SVG(selector).size(topWidth + PADDING * 4, height + PADDING * viewSegments.length);
+    var canvas = SVG(selector)
+                 .viewbox(0, 0, topWidth + PADDING * 4, height + PADDING * viewSegments.length);
+
+    canvas.node.removeAttribute('height');
+    canvas.node.removeAttribute('width');
     
     _.forEach(viewSegments, function(viewSegment, segmentIndex) {
 
