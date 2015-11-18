@@ -17,7 +17,6 @@
           <br />Garnish with {{ .Params.garnish }}
           {{ end }}
         </p>
-          {{ if .Params.information }}
 
     </div>
 
@@ -36,8 +35,10 @@
       {{ end }}
 
 
+      {{ if .Params.information }}
       <h4>Information</h4>
       <p itemprop="description">{{ .Params.information | markdownify }}</p>
+      {{ end }}
 
       {{ if .Params.similar_recipes }}
       <div class="well">
@@ -47,8 +48,6 @@
           {{ end }}
       </div>
       {{ end }}
-
-    {{ end }}
 
       <br />
       {{ partial "components/tweet.html" . }}
