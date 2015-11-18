@@ -47,16 +47,22 @@
       <div class="well">
         <h4>Recipes which use {{ .Params.name }}</h4>
         <table class="ingredients">
-          {{ range .Params.uses }}
-            <tr>
-              <td><a href="/recipe/{{ .slug }}">{{ .recipe }}</a></td>
-              {{ if .ingredient.amount }}
-              <td class="minor">{{ .ingredient.amount }}cl</td>
+          {{ range $index, $use := .Params.uses }}
+            <tr {{ if ge $index 5 }}class="collapse"{{ end }}>
+              <td><a href="/recipe/{{ .slug }}">{{ $use.recipe }}</a></td>
+              {{ if $use.ingredient.amount }}
+              <td class="minor">{{ $use.ingredient.amount }}cl</td>
               {{ else }}
-              <td class="minor">{{ .ingredient.label }}</td>
+              <td class="minor">{{ $use.ingredient.label }}</td>
               {{ end }}
           {{ end }}
         </table>
+          {{ if ge (len .Params.uses) 5 }}
+            <br />
+            <a id="recipeToggle" class="btn btn-default" role="button" data-toggle="collapse" href=".collapse" aria-expanded="false">
+              Show more recipes
+            </a>
+          {{ end }}
       </div>
 
 
@@ -64,5 +70,14 @@
     </div>
 </div>
 
+<script>
+  $('#recipeToggle').click(function() {
+      if ($('.collapse').hasClass('in') ) {
+          $(this).text('Show more recipes');
+      } else {
+          $(this).text('Show fewer recipes');
+      }
+  });
+</script>
 </div>
 {{ partial "layout/footer.html" . }}

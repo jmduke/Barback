@@ -40,11 +40,24 @@
       <p itemprop="description">{{ .Params.information | markdownify }}</p>
       {{ end }}
 
+
+      {{ if .Params.ncotw }}
+        <h4>Elsewhere</h4>
+        <a href="{{ .Params.ncotw }}">Not Cocktail of the Week</a>
+        <hr />
+      {{ end }}
+
       {{ if .Params.similar_recipes }}
       <div class="well">
           <h4>Similar Cocktails</h4>
-          {{ range .Params.similar_recipes }}
-          <a href="" class="similar-recipe">{{ . }}</a><br />
+          {{ range $index, $recipe := .Params.similar_recipes }}
+          <a href="" class="similar-recipe{{ if ge $index 5 }} collapse"{{ else }}"{{ end }}>{{ $recipe }}<br /></a>
+          {{ end }}
+          {{ if ge (len .Params.similar_recipes) 5 }}
+            <br />
+            <a id="recipeToggle" class="btn btn-default" role="button" data-toggle="collapse" href=".collapse" aria-expanded="false">
+              Show more recipes
+            </a>
           {{ end }}
       </div>
       {{ end }}
@@ -63,6 +76,15 @@
     var recipeName = $(this).text();
     var recipeSlug = recipes[recipeName].slug;
     $(this).attr('href', "/recipe/" + recipeSlug);
+  });
+</script>
+<script>
+  $('#recipeToggle').click(function() {
+      if ($('.collapse').hasClass('in') ) {
+          $(this).text('Show more recipes');
+      } else {
+          $(this).text('Show fewer recipes');
+      }
   });
 </script>
 
