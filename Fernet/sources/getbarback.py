@@ -21,6 +21,6 @@ def get_text():
     random.shuffle(urls)
     recipe_url = urls[0]
     recipe_html = get_parsed_html(recipe_url)
-    recipe_name = recipe_html.find('h2').text
+    recipe_name = recipe_html.find('h1').text
 
     return "{} → {}".format(recipe_name, recipe_url)
