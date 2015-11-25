@@ -18,7 +18,7 @@ FAVORITE_SEARCH_TERMS = ["barback", "scotch", "cocktail"]
 
 
 def get_tweet_text(recent_tweets):
-    if random.random() > 2:
+    if random.random() > 0.7:
         return get_text_from_barback()
     return get_text_from_rss(recent_tweets)
 
