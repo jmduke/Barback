@@ -1,8 +1,9 @@
 import RealmSwift
+import SafariServices
 import Social
 import UIKit
 
-public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks, Shareable, CoachMarksViewDelegate {
+public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate, HasCoachMarks, Shareable, CoachMarksViewDelegate, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var recipeDiagramViewWidth: NSLayoutConstraint!
     @IBOutlet weak var recipeDiagramViewHeight: NSLayoutConstraint!
@@ -32,6 +33,8 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     @IBOutlet var similarDrinksTableView: SimilarRecipeTableView!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var ncotwButton: NCOTWButton!
+
     var shareOverride: String?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
@@ -51,6 +54,12 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         let activities = [printInfo, formatter, shareString, recipe!.url]
         return activities
     }
+    
+    
+    func openNCOTW() {
+        let url = NSURL(string: recipe!.ncotw)!
+        openUrl(url)
+    }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +75,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         ingredientsTableView.recipe = recipe
         similarDrinksTableView.recipe = recipe
         recipeDiagramView?.recipe = recipe!
+        ncotwButton.recipe = recipe
         
         ingredientsTableView.selectionAction = {
             (path: NSIndexPath) -> Void in
@@ -80,7 +90,10 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
 
         favoriteButton.selected = recipe!.isFavorited
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
-
+        
+        
+        ncotwButton.addTarget(self, action: "openNCOTW", forControlEvents: UIControlEvents.TouchUpInside)
+        
         directionsTextView.text = recipe!.directions
         
         scrollView.delegate = self

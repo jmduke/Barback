@@ -16,6 +16,7 @@ public final class Recipe: Object, SpotlightIndexable, Equatable, Hashable {
     public dynamic var information: String = ""
     public dynamic var isFavorited: Bool = false
     public dynamic var emoji: String = ""
+    public dynamic var ncotw: String = ""
 
     public var ingredients = List<Ingredient>()
 
