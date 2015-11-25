@@ -75,7 +75,7 @@
   $(".similar-recipe").each(function() {
     var recipeName = $(this).text();
     var recipeSlug = recipes[recipeName].slug;
-    $(this).attr('href', "/recipe/" + recipeSlug);
+    $(this).attr('href', "/recipe/" + recipeSlug + "/");
   });
 </script>
 <script>
