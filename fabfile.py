@@ -4,6 +4,14 @@ from fabric.api import local, lcd
 import gzip
 
 
+def campari():
+    with lcd('Campari'):
+        local("python run.py")
+        local("cp output/md/recipe/* ../Angostura/content/recipe/")
+        local("python run.py Rye")
+        local("cp output/json/* ../Angostura/data")
+
+
 def fernet():
     pemfile_path = "~/Downloads/pugchalice.pem"
     host = "ec2-52-8-80-68.us-west-1.compute.amazonaws.com"
@@ -29,6 +37,9 @@ def gzip_directory(directory):
 def angostura(dry_run=False):
     site_directory = 'Angostura'
     generated_site_directory = 'Angostura/public/'
+
+    # Get us new content.
+    campari()
 
     local('rm -rf {}*'.format(generated_site_directory))
     local('~/go/bin/hugo -s {} -d public --theme=barback'.format(site_directory, generated_site_directory))
