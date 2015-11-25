@@ -11,14 +11,12 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
     override public func viewDidAppear(animated: Bool)  {
         super.viewDidAppear(animated)
         title = viewTitle
-
-        // We reload this to remove isNew identifier after seeing recipe.
-        tableView.reloadData()
     }
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         styleController()
+        self.tableView.delegate = self
     }
 
     override func styleController() {
@@ -39,6 +37,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
 
         navigationItem.titleView?.tintColor = Color.Dark.toUIColor()
         navigationItem.titleView?.backgroundColor = Color.Dark.toUIColor()
+        
     }
 
     override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
@@ -142,6 +141,8 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
         setMostRecentSearch(searchText)
         setMostRecentSearchTimestamp()
     }
+    
+    var searchView: UIView?
 
     func attachSearchBar() {
         self.searchController = UISearchController(searchResultsController: nil)
@@ -150,9 +151,22 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
         self.searchController!.dimsBackgroundDuringPresentation = false
         self.searchController!.hidesNavigationBarDuringPresentation = false
         self.searchController!.searchBar.styleSearchBar()
-        self.tableView.tableHeaderView = UIView(frame: self.searchController!.searchBar.frame)
-        self.tableView.tableHeaderView!.addSubview(self.searchController!.searchBar)
+        
+        let rect = self.searchController!.searchBar.frame
+        searchView = UIView(frame: rect)
+        searchView!.addSubview(self.searchController!.searchBar)
+        self.view.addSubview(searchView!)
         self.searchController!.searchBar.sizeToFit()
+        self.tableView.contentInset = UIEdgeInsetsMake(45, 0, 0, 0)
+    }
+    
+    public override func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (searchView == nil) {
+            return
+        }
+        var rect = searchView!.frame
+        rect.origin.y = tableView.contentOffset.y + 64 - tableView.frame.origin.y
+        searchView!.frame = rect
     }
 
 }

@@ -177,7 +177,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             viewingRecipes = true
         }
 
-        if !activeIngredients.isEmpty && !viewingRecipes {
+        if !activeIngredients.isEmpty && !viewingRecipes && tableView.tableHeaderView == nil {
             let browseRecipesViewFrame = CGRectMake(0, 0, self.tableView.frame.size.width, 200)
             let browseRecipesView = BrowseRecipesView(frame: browseRecipesViewFrame)
             browseRecipesView.delegate = self
@@ -194,6 +194,8 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
             bartendersChoiceView.addSubview(bartendersChoiceButton)
             tableView.tableFooterView = bartendersChoiceView
         }
+        
+        tableView.reloadData()
         
         if activeIngredients.isEmpty && !viewingRecipes {
             runCoachMarks(view)
@@ -285,7 +287,7 @@ public class SearchRecipeListViewController: RecipeListViewController, UISearchB
         } else {
             tableView.backgroundView = nil
         }
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        tableView.reloadData()
     }
     
     func coachMarksForController() -> [CoachMark] {

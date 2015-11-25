@@ -91,7 +91,7 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
         self.navigationItem.leftBarButtonItem!.title = sortingMethod.title()
         popover.dismiss()
     }
-
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
 

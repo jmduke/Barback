@@ -95,17 +95,13 @@ public class IngredientDetailViewController: UIViewController, SFSafariViewContr
 
     func openCocktailDBPage() {
         let url = NSURL(string: ingredient.cocktaildb)!
-        let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
-        vc.delegate = self
-        navigationController!.presentViewController(vc, animated: true, completion: nil)
+        openUrl(url)
     }
 
     func openWikipediaPage() {
         let urlString = "http://en.wikipedia.org/wiki/\(ingredient.name)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         let url = NSURL(string: urlString!)!
-        let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
-        vc.delegate = self
-        navigationController!.presentViewController(vc, animated: true, completion: nil)
+        openUrl(url)
     }
 
     override public func didReceiveMemoryWarning() {

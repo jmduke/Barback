@@ -1,12 +1,5 @@
-//
-//  BarbackViewController.swift
-//  Barback
-//
-//  Created by Justin Duke on 6/25/14.
-//  Copyright (c) 2014 Justin Duke. All rights reserved.
-//
-
 import Foundation
+import SafariServices
 import UIKit
 
 extension UIViewController {
@@ -21,6 +14,16 @@ extension UIViewController {
         view.backgroundColor = Color.Dark.toUIColor()
     }
 
+}
+
+extension UIViewController {
+    func openUrl(url: NSURL) {
+        let vc = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
+        if (self as? SFSafariViewControllerDelegate) != nil {
+            vc.delegate = self as? SFSafariViewControllerDelegate
+            navigationController!.presentViewController(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 extension UINavigationController {

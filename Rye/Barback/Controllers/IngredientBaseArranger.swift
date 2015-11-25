@@ -25,6 +25,10 @@ struct IngredientBaseArranger {
     func getRecipesInSection(sortingMethod: IngredientBaseSortingMethod, bases: [IngredientBase], sectionIndex: Int) -> [IngredientBase] {
         let titles = getSectionTitles(sortingMethod, bases: bases)
         if (sortingMethod == .NameDescending || sortingMethod == .NameAscending) {
+            
+            if titles.count <= sectionIndex {
+                return []
+            }
             return bases.filter({ return String($0.name[$0.name.startIndex]) == titles[sectionIndex] })
         } else {
             return bases
