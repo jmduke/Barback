@@ -7,6 +7,7 @@ struct ControllerNavigator {
     func pushRecipeDetailController(recipe: Recipe) {
         let controller = R.storyboard.main.recipeDetail!
         controller.setRecipeAs(recipe)
+        print(application?.window?.rootViewController)
         let tabBarController = application?.window?.rootViewController as! UITabBarController
         let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
         navController.pushViewController(controller, animated: true)
@@ -15,14 +16,17 @@ struct ControllerNavigator {
     func pushFavoriteListViewController() {
         let tabBarController = application?.window?.rootViewController as! UITabBarController
         tabBarController.selectedIndex = 2
+        let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
+        navController.popToRootViewControllerAnimated(true)
     }
     
     func pushRecipeListViewController(searchTerm: String?) {
         let tabBarController = application?.window?.rootViewController as! UITabBarController
         tabBarController.selectedIndex = 0
         let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-        let controller = navController.visibleViewController as! FullRecipeListViewController
+        let controller = navController.viewControllers[0] as! FullRecipeListViewController
         controller.searchController?.searchBar.text = searchTerm
+        navController.popToRootViewControllerAnimated(true)
     }
     
     func pushIngredientDetailController(ingredient: IngredientBase) {
@@ -37,7 +41,7 @@ struct ControllerNavigator {
         let tabBarController = application?.window?.rootViewController as! UITabBarController
         tabBarController.selectedIndex = 3
         let navController: UINavigationController = tabBarController.selectedViewController as! UINavigationController
-        let controller = navController.visibleViewController as! RecipeWizardViewController
+        let controller = navController.viewControllers[0] as! RecipeWizardViewController
         controller.loadView()
         controller.viewDidLoad()
         
@@ -50,5 +54,6 @@ struct ControllerNavigator {
         
         controller.updateAdjectives()
         controller.secondAdjectiveSegmentedControl.selectedAdjective = adjective
+        navController.popToRootViewControllerAnimated(true)
     }
 }
