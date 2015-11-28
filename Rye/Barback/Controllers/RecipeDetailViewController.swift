@@ -33,7 +33,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
     @IBOutlet var similarDrinksTableView: SimilarRecipeTableView!
     @IBOutlet var similarDrinksTableViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var ncotwButton: NCOTWButton!
+    @IBOutlet weak var ncotwButton: NCOTWButton?
 
     var shareOverride: String?
 
@@ -75,7 +75,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         ingredientsTableView.recipe = recipe
         similarDrinksTableView.recipe = recipe
         recipeDiagramView?.recipe = recipe!
-        ncotwButton.recipe = recipe
+        ncotwButton?.recipe = recipe
         
         ingredientsTableView.selectionAction = {
             (path: NSIndexPath) -> Void in
@@ -92,7 +92,7 @@ public class RecipeDetailViewController: UIViewController, UIScrollViewDelegate,
         favoriteButton.addTarget(self, action: "markRecipeAsFavorite", forControlEvents: UIControlEvents.TouchUpInside)
         
         
-        ncotwButton.addTarget(self, action: "openNCOTW", forControlEvents: UIControlEvents.TouchUpInside)
+        ncotwButton?.addTarget(self, action: "openNCOTW", forControlEvents: UIControlEvents.TouchUpInside)
         
         directionsTextView.text = recipe!.directions
         

@@ -102,7 +102,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-Wv-43m" customClass="ScrollView" customModule="Barback" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="707"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="redraw" ambiguous="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tB5-qp-DsW">
+                                    <stackView opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tB5-qp-DsW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="13024"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="recipe.name" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-0i-cR3" customClass="RecipeHeaderLabel" customModule="Barback" customModuleProvider="target">
@@ -201,7 +201,7 @@
                                                 </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="RecipeInformationTextView" customModule="Barback" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P39-gZ-b5l" userLabel="recipe.description" customClass="RecipeInformationTextView" customModule="Barback" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="514" width="280" height="12277"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -393,10 +393,10 @@
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="brandCell" id="n1o-rR-anM">
-                                                        <rect key="frame" x="0.0" y="1" width="320" height="60"/>
+                                                        <rect key="frame" x="0.0" y="1" width="321" height="60"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n1o-rR-anM" id="Lnr-N5-6jW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <animations/>
                                                         </tableViewCellContentView>
@@ -413,10 +413,10 @@
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="drinkCell" textLabel="6nb-py-NZY" detailTextLabel="h3y-SC-xb4" style="IBUITableViewCellStyleSubtitle" id="GcH-dC-ThG">
-                                                        <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                                        <rect key="frame" x="0.0" y="22" width="321" height="60"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GcH-dC-ThG" id="IwY-U0-TEx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6nb-py-NZY">
