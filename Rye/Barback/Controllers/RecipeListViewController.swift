@@ -121,23 +121,7 @@ public class RecipeListViewController: UITableViewController, UISearchResultsUpd
     }
 
     func filterContentForSearchText(searchText: String) {
-        recipes = Recipe.all().filter({
-            $0.matchesText(searchText)
-        })
-        recipes.sortInPlace({
-            let firstLocation = $0.name.lowercaseString.rangeOfString(searchText.lowercaseString)
-            let secondLocation = $1.name.lowercaseString.rangeOfString(searchText.lowercaseString)
-            
-            if (secondLocation?.startIndex == nil) {
-                return true
-            }
-            
-            if (firstLocation?.startIndex == nil) {
-                return false
-            }
-
-            return firstLocation?.startIndex < secondLocation?.startIndex
-        })
+        recipes = RecipeSearcher().searchAndArrange(searchText)
         setMostRecentSearch(searchText)
         setMostRecentSearchTimestamp()
     }

@@ -10,7 +10,7 @@ import Foundation
 import Popover
 import UIKit
 
-public class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks {
+public class FullRecipeListViewController: RecipeListViewController, UISearchBarDelegate, HasCoachMarks, UINavigationControllerDelegate {
 
     override public var recipes : [Recipe] {
         didSet {
@@ -76,10 +76,16 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
     }
     
     public override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+        if !(searchController!.searchBar.text!.isEmpty) {
+            return recipes.count
+        }
         return RecipeArranger().getSectionSize(sortingMethod, recipes: recipes, sectionIndex: section)
     }
     
     override public func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+        if !(searchController!.searchBar.text!.isEmpty) {
+            return 1
+        }
         return RecipeArranger().getSectionCount(sortingMethod, recipes: recipes)
     }
     
@@ -92,10 +98,15 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
         popover.dismiss()
     }
     
+    public func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         self.definesPresentationContext = true
+        self.navigationController?.delegate = self
         
         attachSearchBar()
 
@@ -104,15 +115,20 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
 
         runCoachMarks(view)
     }
+    
+    func getRecipe(indexPath: NSIndexPath) -> Recipe {
+        if !(searchController!.searchBar.text!.isEmpty) {
+            return recipes[indexPath.row]
+        }
+        return RecipeArranger().getRecipesInSection(sortingMethod, recipes: recipes,sectionIndex: indexPath.section)[indexPath.row]
+    }
 
     override func getSelectedRecipe() -> Recipe {
-        let selectedRow = tableView.indexPathForSelectedRow
-        let recipe = RecipeArranger().getRecipesInSection(sortingMethod, recipes: recipes,sectionIndex: selectedRow!.section)[selectedRow!.row]
-        return recipe
+        return getRecipe(tableView.indexPathForSelectedRow!)
     }
 
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let recipe = RecipeArranger().getRecipesInSection(sortingMethod, recipes: recipes,sectionIndex: indexPath.section)[indexPath.row]
+        let recipe = getRecipe(indexPath)
         let cell = cellForRecipe(recipe, andIndexPath: indexPath) as! RecipeCell
         if (searchController!.active) {
             cell.highlightText(searchController!.searchBar.text!)
