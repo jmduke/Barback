@@ -138,8 +138,7 @@ public class FullRecipeListViewController: RecipeListViewController, UISearchBar
     
     func coachMarksForController() -> [CoachMark] {
         return [
-            CoachMark(rect: tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 3, inSection: 0)), caption: "Recipes.  (The good stuff.)"),
-            CoachMark(rect: (self.searchController?.searchBar.frame)!, caption: "Search recipes by name or description.")
+            // CoachMark(rect: (self.searchView?.frame)!, caption: "Search recipes by name or description.")
         ]
     }
 
