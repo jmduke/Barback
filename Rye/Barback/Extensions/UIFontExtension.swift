@@ -12,14 +12,14 @@ import UIKit
 extension UIFont {
 
     class func primaryFont() -> String {
-        return "Avenir"
+        return "Karla-Regular"
     }
 
     class func heavyFont() -> String {
-        return "Avenir-Heavy"
+        return "Karla-Bold"
     }
 
     class func emphasisFont() -> String {
-        return "Avenir-HeavyOblique"
+        return "Karla-BoldItalic"
     }
 }
