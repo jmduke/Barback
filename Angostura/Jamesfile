@@ -24,5 +24,25 @@ tests:
   content:
   - selector: .post
     text:
-    - Ping
+    - Barback 3
     - The Stack
+
+- url: /ingredient/mezcal
+  content:
+  - selector: a
+    text: Naked and Famous
+  - selector: strong
+    text: spirit
+
+- url: /page/about
+  status: 200
+  content:
+  - selector: em
+    text:
+    - App Store Rating
+
+- url: /post/gzip-and-s3/
+  content:
+  - selector: .jumbotron
+    text:
+    - download our app
