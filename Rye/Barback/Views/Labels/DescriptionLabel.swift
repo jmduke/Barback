@@ -31,6 +31,7 @@ public class DescriptionLabel : UILabel {
             .pointSize, 16)
         font = UIFont(name: UIFont.heavyFont(), size: fontSize)
         textAlignment = NSTextAlignment.Center
+        
         textColor = Color.Light.toUIColor()
         backgroundColor = Color.Background.toUIColor()
     }
