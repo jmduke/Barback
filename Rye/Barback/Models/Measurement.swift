@@ -13,7 +13,7 @@ public enum Measurement {
     case Metric
 
     func stringFromMetric(metricAmount: NSNumber) -> String {
-        if metricAmount.intValue == 0 {
+        if metricAmount == 0 {
             return ""
         }
 
