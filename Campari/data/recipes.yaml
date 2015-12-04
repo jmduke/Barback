@@ -1,3 +1,88 @@
+- name: Cienfuegos Shake
+  source: http://www.letsdrinkabout.it/sara-benincasa/
+  emoji: ""
+  ingredients:
+  - 6cl Dark rum (Aged)
+  - 3cl Lime juice
+  - 2cl Simple syrup
+  - amount: 1.5
+    baseName: "B\xE9n\xE9dictine"
+  - Angostura bitters (Three dashes)
+  - Mint leaves (Six)
+  directions: |
+    1. In a shaker, muddle the mint with the simple syrup.
+    2. Add the remaining ingredients.
+    3. Shake with ice to chill.
+    4. Double strain into a chilled coupe.
+  garnish: ""
+  glassware: coupe
+- name: Naked and Famous
+  source: http://www.letsdrinkabout.it/sara-benincasa/
+  ingredients:
+  - 2cl Aperol
+  - 2cl Mezcal
+  - 2cl Yellow Chartreuse
+  - 2cl Lime juice
+  directions: |
+    1. Combine all ingredients in a shaker.
+    2. Add ice and shake until well chilled.
+    3. Strain into a chilled cocktail glass.
+    4. Garnish with a lime wedge.
+  garnish: "lime wedge"
+  glassware: coupe
+- name: Fitzgerald
+  source: Dale DeGroff
+  emoji: ""
+  ingredients:
+  - 4.5cl Gin (Leopold's)
+  - 2cl Lemon juice
+  - 2cl Simple syrup
+  - Angostura bitters (Two dashes)
+  directions: |
+    1. Shake with ice and strain.
+    2. Garnish with lemon wheel or twist.
+  garnish: Lemon wheel
+  glassware: coupe
+  information: "[12 Bottle Bar](http://12bottlebar.com/2010/03/the-fitzgerald/) has the definitive writeup on this drink, a great introduction to sours."
+  ncotw: ""
+- name: "Curaçao Punch"
+  source: Dale DeGroff
+  emoji: ""
+  ingredients:
+  - "6cl Orange Cura\xE7ao"
+  - 3cl Cognac
+  - 3cl Soda water
+  - Lemon juice (Three dashes)
+  - Sugar (Half tablespoon)
+  directions: |
+    1. In a goblet, combine sugar, lemon juice, and soda.
+    2. Stir to dissolve.
+    3. Fill goblet with crushed or shaved ice.
+    4. Add remaining ingredients.
+    5. Stir well.
+  garnish: ""
+  glassware: "goblet"
+  information: "[12 Bottle Bar](http://12bottlebar.com/2010/10/curacao-punch/) has a glowing writeup of this Punch, describing it as *a Trojan Horse — beautiful to regard, it slips through the gates so easily that only later will you consider the army that lurks in wait*."
+  ncotw: ""
+- name: Conference
+  source: "Death & Co"
+  emoji: ""
+  ingredients:
+  - 0.75cl Rye
+  - 0.75cl Bourbon
+  - 0.75cl Calvados
+  - 0.75cl Cognac
+  - Demerara syrup (One teaspoon)
+  - Angostura bitters (Two dashes)
+  - Mole bitters (One dash)
+  directions: |
+    1. Stir all the ingredients over ice.
+    2. Strain into a double rocks glass over a large ice cube.
+    3. Garnish with the lemon and orange twists.
+  garnish: "Lemon twist, orange twist"
+  glassware: "old-fashioned"
+  information: "Utilizing four base spirits and two bitters, this is like every take on the Old-Fashioned rolled into one but ends up working surprisingly well."
+  ncotw: "https://www.reddit.com/r/cocktails/comments/35usdg/not_cocktail_of_the_week_114_conference/"
 - name: "Brandy Old Fashioned"
   source: http://www.jeffreymorgenthaler.com/2012/brandy-old-fashioned/
   emoji: 💐
@@ -7,11 +92,14 @@
   - Sugar cube
   - Orange wedge
   - Cherry
-  directions: "In a chilled old fashioned glass, muddle the sugar, bitters, orange wedge and cherry into a thick paste, careful not to work the orange peel. Add brandy or Cognac, stir, and fill glass with crushed ice and serve."
-  garnish: “”
+  directions: |
+    1. In a chilled old fashioned glass, muddle the sugar, bitters, orange wedge and cherry into a thick paste.
+    2. Add brandy or Cognac and stir.
+    3. Fill glass with crushed ice and serve.
+  garnish: ""
   glassware: old fashioned
   information: “Jeffery Morganthaler has the [definitive](http://www.jeffreymorgenthaler.com/2012/brandy-old-fashioned/) take on a Brandy Old Fashioned, which is an entirely different beast than the classic Old Fashioned you may be used to.”
-- name: “Saturn”
+- name: Saturn
   source: Beachbum Berry Remixed
   emoji: 🏄
   ingredients:
@@ -20,17 +108,20 @@
   - 0.75cl Falernum
   - 0.75cl Orgeat
   - 4cl Gin
-  directions: "Put everything in a blender. Blend until smooth. Pour unstrained into a pilsner glass."
+  directions: |
+    1. Put everything in a blender.
+    2. Blend until smooth.
+    3. Pour unstrained into a pilsner glass.
   glassware: pilsner
   information: "The Saturn was created at the Kona Kai in Huntington Beach by J. “Popo” Galsini, a well-respected Tiki bartender who worked at many Orange County Polynesian restaurants from the 1950s and 60s. The Saturn cocktail was originally known as the X-15, named after the rocket plane that still holds the world record for highest speed reached by a manned, powered aircraft at 4,520 miles per hour (7,274 km/h) or Mach 6.72. According to Beachbum Berry, J. “Popo” Galsini named the X-15 in honor of Douglas Aircraft engineers that drank at the Kona Kai, however according to the Wikipedia article on the X-15 rocket plane it was not manufactured by Douglas Aircraft, but North American Aviation in Los Angeles, CA and Reaction Motors in New Jersey. That said, North American Aviation was initially run by James H. “Dutch” Kindelberger, who was recruited from the Douglas Aircraft Company, so it seems possible that he brought a number of engineers along with him and that it is these engineers referenced in this story. J. “Popo” Galsini renamed the X-15 to the Saturn in 1967 following a tragic accident during X-15 Flight 191 resulting in the death of U.S. Air Force test pilot Major Michael J. Adams."
   ncotw: https://www.reddit.com/r/cocktails/comments/3nha24/not_cocktail_of_the_week_120_saturn/
-- name: “Jasmine”
+- name: Jasmine
   source: Paul Harrington
   emoji: 🌿
   ingredients:
   - 4.5cl Gin
   - 0.75cl Campari
-  - 0.75cl Orange liqueur
+  - 0.75cl Triple sec
   - 1.5cl Lemon juice
   directions: "Combine ingredients in a shaker with ice and shake to chill. Strain into a chilled glass and garnish."
   garnish: Lemon twist
@@ -49,7 +140,7 @@
   garnish: Cinnamon stick
   glassware: coupe
   information: "Historically, a Réveillon is a dinner held late the night before Christmas. They are decadent affairs that frequently (and sometimes deliberately) contend as parties. The drink described here—indulgent, nocturnal, and somewhat miraculous—could not have found a better partner to share a name with. Not all greatness is intuitive, however. In an article describing the origin of the drink, Chuck Taggart reveals the name he nearly gave it: “The Bingle.” Silly names have a long-standing and generally positive relationship with cocktails, but here, history was the victor."
-- name: "Pumpkin Spice ____"
+- name: Pumpkin Spice Cocktail
   source: /u/MoreDetailThanNeeded
   ingredients:
   - 3cl Tequila (Blanco)
@@ -58,7 +149,12 @@
   - 1.5cl Lemon juice
   - Egg white (One)
   - Angostura bitters (Two dashes)
-  directions: "Shake with just a few cubes of ice, double strain, dump out the ice, shake again in the tin with no ice and pour without straining again over a few rocks or a single big rock. The dry shake makes it super frothy and rich and extremely reminiscent of the mouthfeel of a latte."
+  directions: |
+    1. Shake with just a few cubes of ice.
+    2. Double strain.
+    3. Dump out the ice.
+    4. Shake again in the tin with no ice.
+    5. Pour without straining again over a few rocks or a single big rock. (The dry shake makes it super frothy and rich and extremely reminiscent of the mouthfeel of a latte.)"
   garnish: ""
   glassware: martini
   emoji: "🍂"
@@ -69,11 +165,14 @@
   - 4.5cl Dark rum
   - 2cl White rum
   - 1.5cl Falernum
-  - 1.5cl Cointreau
+  - 1.5cl Triple sec (Cointreau)
   - 1.5cl Lime juice
   - Angostura bitters (One dash)
   - Absinthe (One dash)
-  directions: "Combine all ingredients with 1 cup crushed ice in a blender. Blend for five seconds.  Pour, unstrained, over crushed ice."
+  directions: |
+    1. Combine all ingredients with a cup of crushed ice in a blender.
+    2. Blend for five seconds.
+    3. Pour, unstrained, over crushed ice.
   garnish: ""
   glassware: highball
   information: "The test pilot is complicated, but does not require finesse. So many voices are in this choir, a couple flat notes won’t be noticed. Light and dark rums are requested, but if this drink were prepared with only one rum, angels wouldn’t lose wings (though they might kindly recommend a second rum). For bigger bars, we prefer combining a smooth, team-playing label like Plantation 3-Star with something dark and buttery, such as Smith and Cross or Goslings. If this drink takes a nose dive, it will be with absinthe, so take it easy."
@@ -82,38 +181,45 @@
   source: Tuxedo No. 2
   ingredients: 
   - 3cl Bourbon
-  - 1.5cl Cointreau
+  - 1.5cl Triple sec (Cointreau)
   - Angostura bitters (Six dashes)
   - Peychaud's bitters (Six dashes)
   - Champagne
-  directions: "Combine bitters, bourbon, and cointreau with ice and stir. Strain into a chilled flute, coupe, or cocktail glass.   Top with champagne."
+  directions: |
+    1. Combine bitters, bourbon, and cointreau with ice and stir.
+    2. Strain into a chilled flute, coupe, or cocktail glass.
+    3. Top with champagne.
   garnish: ""
   glassware: coupe
   information: "A proper Seelbach is akin to a Champagne Cocktail, beefed up with some bourbon and a boatload of bitters. The amount of bitters requested in this recipe is bordering on wild, but we think it helps make sense of the bourbon, which otherwise feels a bit out of place. The finished product is spicy and effervescent, with gentian and floral notes bubbling upward over the bourbon and Cointreau. Honestly, the drink is a bit strange, but in a lovable way. Try it as a funky alternative to the traditional brunch cocktail, or to satisfy a craving for bitters and bubbly."
   emoji: 🎉
 - name: Northern Spy
   emoji: "🍅"
-  source: ""
+  source: "http://savoystomp.com/2008/09/02/josey-packard/"
   ingredients:
   - 6cl Apple brandy
   - 3cl Apple cider
   - 1.5cl Apricot liqueur
   - 1.5cl Lemon juice
   - Champagne
-  directions: Shake with ice and strain into cocktail glass.  Top with champagne and garnish with a cranberry.
+  directions: |
+    1. Shake with ice and strain into cocktail glass. 
+    2. Top with champagne and garnish with a cranberry.
   garnish: Cranberry
   glassware: cocktail
   information: ""
 - name: "Clove & Oak"
   emoji: 🍎
-  source: ""
+  source: "ri(1)"
   ingredients:
   - 4.5cl Rye
   - 4.5cl Hard cider
   - 1.5cl Allspice Dram
   - 1.5cl Lemon juice
   - .75cl Demerara syrup
-  directions: "Shake with ice and strain into a cocktail glass.  Garnish with apple slices."
+  directions: |
+    1. Shake with ice and strain into a cocktail glass.
+    2. Garnish with apple slices.
   garnish: "Apple slices"
   glassware: cocktail
   information: ""
@@ -127,7 +233,11 @@
   - Smoked salt (One dash)
   - Angostura bitters (One dash)
   - Beer (Hefeweizen)
-  directions: "Shake the juice, rye, simple syrup, and salt with ice. Strain into a pint glass. Top with the hefeweizen. You're going to want to pour it over a bar spoon to try and avoid some of the foam."
+  directions: |
+    1. Shake the juice, rye, simple syrup, and salt with ice.
+    2. Strain into a pint glass.
+    3. Top with the hefeweizen.
+    4. (You're going to want to pour it over a bar spoon to try and avoid some of the foam.)
   garnish: ""
   glassware: highball
   information: "" 
@@ -146,7 +256,7 @@
   information: "The drink's genesis can be traced to the Long Bar at the Shepheard Hotel in Cairo. As the story goes, in the late 1940s, the Shepheard's bar steward was Joe Scialom. One day in 1947, according to Esquire, Scialom was desperate for a hangover remedy and the Suffering Bar Steward (soon somewhat sloppily rechristened as the Suffering Bastard) was the result."
 - name: English Garden
   emoji: "🏡"
-  source: ""
+  source: "http://www.kindredcocktails.com/cocktail/english-garden"
   ingredients:
   - 4.5cl Gin (Hendrick's)
   - 1.5cl Elderflower liqueur
@@ -154,7 +264,13 @@
   - 1cl Simple syrup
   - 1cl Lime juice
   - Cucumber (one fourth)
-  directions: "Muddle cucmber, lime, syrup and rose water. Add gin and st germain. Shake with ice. Double strain over ice. Top with tonic. Garnish with cucumber."
+  directions: |
+    1. Muddle cucumber, lime, syrup and rose water.
+    2. Add gin and st germain.
+    3. Shake with ice.
+    4. Double strain over ice.
+    5. Top with tonic.
+    6. Garnish with cucumber.
   garnish: Cucumber slice
   glassware: Collins
   information: ""
@@ -165,7 +281,11 @@
   - 4.5cl Scotch
   - 2cl Coffee liqueur
   - Soda water
-  directions: "Build in chilled rocks glass over large ice. Add Scotch and Coffee Liqueur. Top with soda (optional). Garnish with Lemon Twist."
+  directions: |
+    1. Build in chilled rocks glass over large ice.
+    2. Add scotch and coffee liqueur.
+    3. Top with soda (optional).
+    4. Garnish with lemon twist.
   garnish: Lemon twist
   glassware: rocks
   information: "Like most Scotch cocktails, this one is usually made with a blended Scotch, but this one benefits from a Scotch with an emphasis on the smoky flavors.  Additionally, the liqueur you use will have a big impact on the drink, so choose wisely."
@@ -179,7 +299,10 @@
   - Fernet-Branca (One tablespoon)
   - Angostura bitters (Three dashes)
   - 3cl Soda water
-  directions: "Shake ingredients with ice and finish with 1 oz soda water. Strain mix over fresh ice into a chilled collins glass and garnish with an orange twist."
+  directions: |
+    1. Shake ingredients with ice and finish with 1 oz soda water.
+    2. Strain mix over fresh ice into a chilled collins glass.
+    3. Garnish with an orange twist.
   garnish: Orange twist
   glassware: Collins
   information: ""
@@ -191,7 +314,11 @@
   - 2cl Drambuie
   - 2cl Lime juice
   - Ginger beer
-  directions: "Shake first three ingredients with ice. Strain into an ice filled collins glass. Top with ginger beer.  Garnish with a lime wheel."
+  directions: |
+    1. Shake first three ingredients with ice.
+    2. Strain into an ice filled collins glass.
+    3. Top with ginger beer.
+    4. Garnish with a lime wheel.
   garnish: Lime wheel
   glassware: collins
   information: ""
@@ -203,7 +330,12 @@
   - Sugar (One teaspoon)
   - Honey (One tablespoon)
   - Lime (quartered)
-  directions: "Into a rocks glass place lime chunks, honey and sugar. Muddle just enough to release the lime juice and mix with the honey and sugar, but not so much as to mash the pith (that will release a bitter flavour). Add some crushed ice, then the vodka and stir to combine ingredients and bring up the lime from the bottom of the glass. Add more ice until the glass is full, then garnish with a lime wheel."
+  directions: |
+    1. Into a rocks glass place lime chunks, honey and sugar.
+    2. Muddle just enough to release the lime juice and mix with the honey and sugar, but not so much as to mash the pith (that will release a bitter flavour).
+    3. Add some crushed ice, then the vodka and stir to combine ingredients and bring up the lime from the bottom of the glass.
+    4. Add more ice until the glass is full.
+    5. Garnish with a lime wheel.
   garnish: Lime wheel
   glassware: old-fashioned
   information: "The word dawa is Swahili for medicine and after sampling the drink — a strong mixture of vodka, lime juice and honey — I can see it’s been appropriately named. The Dawa first made a name for itself in Kenya, where it’s as popular in Nairobi  as it is on safari as a sundowner cocktail. Since Tanzania borders Kenya, the drink is equally popular there."
@@ -215,13 +347,17 @@
   - 3cl Scotch
   - 2cl Apricot liqueur
   - Chocolate bitters (Three dashes)
-  directions: "Combine over ice. Stir. Strain into a chilled cocktail glass. No garnish. (Sometimes, garnishes just get in the way.)"
+  directions: |
+    1. Combine over ice.
+    2. Stir.
+    3. Strain into a chilled cocktail glass.
+    4. No garnish. (Sometimes, garnishes just get in the way.)"
   garnish: ""
   glassware: coupe
   information: "To quote Sean Becktel, our bartender who created the drink, 'It's called the Condor because it may not be the prettiest animal, but it's rare and graceful in flight.' The starting point was a smoky martini, which mixes gin and a Scotch. The problem was that not everyone appreciates such a spirit-forward drink, so we added a bit of apricot liqueur to soften the drink and make it more food-friendly. The molé bitters also add a bit of complexity and spice."
 - name: Gordon's Breakfast
   emoji: 🍳
-  source:
+  source: http://www.thedailydilk.com/2014/10/good-morning-with-gordons-breakfast.html
   ingredients:
   - 6cl Gin (Preferably Hendrick's)
   - 3cl Simple syrup
@@ -231,7 +367,13 @@
   - Worcestershire sauce
   - Salt
   - Pepper
-  directions: "Peel and slice the cucumber as well as slice the lime.  Muddle the cucumber with simple syrup in the bottom of a shaker.  Add gin, Worcestershire, tabasco, and shake.  Muddle the limes at the bottom of a highball, then spread them around the inside of the glass.  Fill the glass to the top with ice, then pour the drink.  Garnish with a lime wheel as well as salt and pepper (and more tabasco/Worcestershire, if you're so inclined.)"
+  directions: |
+                1. Peel and slice the cucumber as well as slice the lime.
+                2. Muddle the cucumber with simple syrup in the bottom of a shaker.
+                3. Add gin, Worcestershire, tabasco, and shake.
+                4. Muddle the limes at the bottom of a highball, then spread them around the inside of the glass.
+                5. Fill the glass to the top with ice, then pour the drink.
+                6. Garnish with a lime wheel as well as salt and pepper (and more tabasco/Worcestershire, if you're so inclined.)"
   garnish: Lime wheel
   glassware: highball
   information: "If you're like me, you're not the hugest fan in the world of a Bloody Mary (sacrilege, I know!)  This cocktail is a great alternative for those boozy brunches: Gordon's Breakfast has a nice blend of sweet and spice, and lets you customize it to your liking by adding relative amounts of syrup or sauce."
@@ -250,13 +392,15 @@
   information: "[Cocktail Chronicles](http://www.cocktailchronicles.com/2009/09/18/fernet-flip/), the blog from which this drink originates, does a great writeup.  Paul made it as a twist on a Cynar Flip, and he specifically recommends Bittermens Xocolatl Mole bitters."
 - name: Ashtray Heart
   emoji: 🚬
-  source: ""
+  source: "http://cocktailvirgin.blogspot.ie/2011/10/ashtray-heart.html"
   ingredients:
-  - '3cl Rum (Smith & Cross)'
+  - '3cl Dark rum (Smith & Cross)'
   - 3cl Vermouth (Dry)
   - 3cl Punt e Mes
   - .75cl Mezcal
-  directions: "Combine the three main ingredients in a shaker and shake dry, using Mezcal as a rinse.  Garnish with a grapefruit twist."
+  directions: |
+    1. Combine the three main ingredients in a shaker and shake dry, using Mezcal as a rinse.
+    2. Garnish with a grapefruit twist.
   garnish: Grapefruit twist
   glassware: coupe
 - name: Blackthorn
@@ -267,12 +411,14 @@
   - 2cl Sloe Gin
   - 2cl Vermouth (Sweet)
   - Orange bitters (Two dashes)
-  directions: "Stir with ice and stain into a chilled coupe. Garnish with an orange twist."
+  directions: |
+    1. Stir with ice and stain into a chilled coupe.
+    2. Garnish with an orange twist.
   garnish: Orange twist
   glassware: coupe
 - name: Bowery Fix
   emoji: 🌆
-  source: ""
+  source: "Saxon + Parole"
   ingredients:
   - 4.5cl Tequila (Blanco)
   - .75cl Yellow Chartreuse
@@ -282,7 +428,10 @@
   - 1.5cl Simple syrup
   - Chili tincture (Three dashes)
   - Citrus salt (One pinch)
-  directions: Shake with ice. Double strain. Garnish with chili oil drops.
+  directions: |
+    1. Shake with ice.
+    2. Double strain.
+    3. Garnish with chili oil drops.
   garnish:
   glassware: highball
 - name: Presbyterian
@@ -297,15 +446,19 @@
   glassware: highball
 - name: Chinook
   emoji: 🍃
-  source: ""
+  source: "http://chasingdelicious.com/allspice-dram-and-the-chinook"
   ingredients: 
   - 6cl Bourbon
   - 1.5cl Allspice Dram
-  - .75cl B\u00e9n\u00e9dictine
+  - amount: 0.75
+    baseName: "B\xE9n\xE9dictine"
   - .75cl Lemon juice
-  - Bitters (two dashes)
+  - Angostura bitters (two dashes)
   garnish: Lemon twist
-  directions: "Combine all the ingredients into the shaker tin, and fill with ice. Shake vigorously until cold (approximately 10-12 seconds), and strain."
+  directions: |
+    1. Combine all the ingredients into the shaker tin, and fill with ice.
+    2. Shake vigorously until cold (approximately 10-12 seconds).
+    3. Strain.
   glassware: coupe
   information: "Home-made allspice dram is a lot of effort, but makes this recipe shine.  [Chasing Delicious](http://chasingdelicious.com/allspice-dram-and-the-chinook/) has a great recipe for it."
 - name: Pom and Bourbon
@@ -318,25 +471,33 @@
   - 6cl Bourbon
   - Angostura bitters (Two dashes)
   garnish: Orange twist
-  directions: "Fill a cocktail shaker with ice and add pomegranate molasses, pomegranate juice, orange juice, whiskey and bitters. Shake vigorously for 10 seconds. Strain into a cocktail glass. Gently squeeze together the orange peel to release the oils, then place into cocktail and serve."
+  directions: |
+    1. Fill a cocktail shaker with ice and add pomegranate molasses, pomegranate juice, orange juice, whiskey and bitters.
+    2. Shake vigorously for 10 seconds.
+    3. Strain into a cocktail glass.
+    4. Gently squeeze together the orange peel to release the oils.
+    5. Place into cocktail and serve.
   glassware: coupe
   information: Delicious, warm, and a sweet choice for a quiet autumn evening.
 - name: PG Tipple
   emoji: 🐷
   source: The Spotted Pig
   ingredients:
-  - 9cl tea (black)
+  - 9cl Tea (black)
   - 1.5cl Lemon juice
   - 1.5cl Simple syrup
   - 6cl Bourbon
   - Orange marmalade (One barspoon)
   garnish: Lemon wedge
-  directions: "Combine ingredients in shaker and shake without ice. Fill a Collins glass with ice, pour cocktail (unstrained) into glass."
+  directions: |
+    1. Combine ingredients in shaker and shake without ice.
+    2. Fill a Collins glass with ice.
+    3. Pour cocktail (unstrained) into glass.
   glassware: collins
   information: "Refreshing with a bitter edge.  Alternatively, make it hot for a twist on a Toddy."
 - name: Paloma
   emoji: 🇲🇽
-  source: ""
+  source: "http://www.esquire.com/food-drink/drinks/recipes/a3752/la-paloma-drink-recipe/"
   ingredients:
   - 6cl Tequila
   - 3cl Grapefruit juice
@@ -349,14 +510,17 @@
   information: "Little is known about the historical origin of the Paloma, the most popular tequila-based cocktail in Mexico. Some conjecture that it is named after La Paloma ('The Dove'), the popular folk song composed in the early 1860s."
 - name: Old Smoke
   emoji: 🚬
-  source: ""
+  source: "/r/cocktails"
   ingredients:
   - 6cl Tequila (Reposado)
   - 3cl Mezcal
   - 1.5cl Grenadine
   - Angostura bitters (Four dashes)
   garnish: Orange twist
-  directions: "Add everything to a mixing glass, stir with ice as long as you would a negroni and single strain on fresh rocks."
+  directions: |
+    1. Add everything to a mixing glass.
+    2. Stir with ice as long as you would a Negroni.
+    3. Single strain on fresh rocks."
   glassware: old-fashioned
   information: "Not too heavy, but smoky and sumptious."
 - name: Royalist
@@ -365,14 +529,19 @@
   ingredients:
   - 4.5cl Vermouth (dry)
   - 2cl Whiskey
-  - 2cl B\u00e9n\u00e9dictine
+  - amount: 2
+    baseName: "B\xE9n\xE9dictine"
   - Peach bitters (Two dashes)
   garnish: ""
-  directions: Stir, strain, sip.
+  directions: |
+    1. Stir.
+    2. Strain.
+    3. Sip.
   glassware: coupe
   information: More like a Manhattan than you'd think -- the power of the dry vermouth (which is often shied away from) is well balanced and brought together by the novelty of peach bitters.  Robert Hess, patron saint of Seattle bartending, has a [great video tutorial](http://smallscreennetwork.com/video/634/cocktail_spirit_royalist/) explaining the Royalist.
 - name: Melon Stand
   source: The PDT Cocktail Book
+  ncotw: http://www.reddit.com/r/cocktails/comments/29o98j/not_cocktail_of_the_week_78_melon_stand/
   emoji: "🍉"
   ingredients:
   - 6cl Gin (Plymouth)
@@ -381,7 +550,10 @@
   - 1.5cl Aperol
   - 1.5cl Simple syrup
   garnish: 3 watermelon balls
-  directions: Shake with ice and strain into a chilled Collins glass filled with pebble ice. Garnish with three watermelon balls on a pick.
+  directions: |
+    1. Shake with ice.
+    2. Strain into a chilled Collins glass filled with pebble ice.
+    3. Garnish with three watermelon balls on a pick.
   glassware: Collins
   information: "The Melon Stand is published in The PDT Cocktail Book and credited to Jane Danger in the summer of 2008. It is named after her Minnesota dream bar, Jane’s Sweet Melon Stand, though I personally don’t really get that as a name."
 - name: Painkiller
@@ -393,7 +565,10 @@
   - 3cl Coconut milk
   source: The Complete Guide to Rum
   garnish: Nutmeg
-  directions: "Fill a big glass or goblet with ice and add the ingredients. To mix, pour once or twice back and forth into another glass. Grate fresh nutmeg on top."
+  directions: |
+    1. Fill a big glass or goblet with ice and add the ingredients.
+    2. To mix, pour once or twice back and forth into another glass.
+    3. Grate fresh nutmeg on top.
   glassware: hurricane
   information: "The official drink of *Pusser's Rum*, who has an [entertaining](http://pussersrum.com/rum-cocktails/the-pussers-painkiller/) origin story for the drink.  By default, the drink is weak -- depending on your flavor profile (and ideal level of sobriety) bump up the amount of rum."
 - name: Kentucky River
@@ -415,10 +590,13 @@
   - "2cl Cr\xE9me liqueur"
   - 2cl Lemon juice
   garnish: "Lemon twist"
-  directions: "Shake in an iced cocktail shaker, and strain into a cocktail glass. Garnish with a lemon twist."
+  directions: |
+    1. Shake in an iced cocktail shaker.
+    2. Strain into a cocktail glass.
+    3. Garnish with a lemon twist.
   glassware: cocktail
   source: C.A. Tuck
-  information: "Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Caf\xE9 Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Caf\xE9 Royal."
+  information: "Created in 1937 by a British bartender named C. A. Tuck, and named in honor of the celebrated Twentieth Century Limited train which ran between New York City and Chicago from 1902 until 1967. The recipe was first published in 1937 in the Cafe Royal Cocktail Book by William J. Tarling, President of the United Kingdom Bartenders' Guild and head bartender at the Cafe Royal."
 - name: Coney Island
   emoji: 🎢
   ingredients: 
@@ -427,7 +605,10 @@
   - "1.5cl Cr\xE9me liqueur"
   - Angostura bitters (One dash)
   garnish: Cherry
-  directions: "Stir with ice and strain into a cocktail glass. Garnish with a Maraschino cherry."
+  directions: |
+    1. Stir with ice.
+    2. Strain into a cocktail glass.
+    3. Garnish with a Maraschino cherry.
   glassware: cocktail
   source: cocktail virgin/slut
   information: "This sweet, robust drink comes to us from [cocktail virgin/slut](http://cocktailvirgin.blogspot.com/2011/10/coney-island.html)."
@@ -438,7 +619,10 @@
   - 4.5cl Sweet vermouth
   - Fernet-Branca (two dashes)
   garnish: Orange peel
-  directions: "Combine ingredients in a mixing glass and fill with ice. Stir well for 20 seconds and strain into chilled cocktail glass."
+  directions: |
+    1. Combine ingredients in a mixing glass and fill with ice.
+    2. Stir well for 20 seconds.
+    3. Strain into chilled cocktail glass.
   glassware: cocktail
   source: Ada Coleman
   information: "The Hanky Panky originated at the American Bar at the Savoy Hotel in London in the early 20th century. Developed by head bartender Ada Coleman, the Hanky Panky matches Fernet-Branca's distinctive character with the botanicals found in gin and sweet vermouth to create a rich blend of flavors--a blend that lets the pushy liqueur remind you of its better side."
@@ -456,6 +640,7 @@
   information: "This recipe from Chris Hannah of French 75 Bar in New Orleans was chosen as one of the 101 Best New Cocktails to be included in Gaz Regan's 2011 Annual Manual for Bartenders. It's fragrant and slightly mentholated, with hints of sweet orange and cinnamony spice. Not for the timid, but seductive all the same."
 - name: Toronto
   emoji: 🇨🇦
+  source: The Fine Art of Mixing Drinks
   ingredients:
   - 6cl Rye
   - 1cl Fernet-Branca
@@ -463,12 +648,19 @@
   - Angostura bitters (Two dashes)
   garnish: Orange peel
   glassware: cocktail
-  directions: "Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice. Stir for 20 seconds and strain into chilled cocktail glass."
+  directions: |
+    1. Combine rye, Fernet, simple syrup, and bitters in a mixing glass and fill with cracked ice.
+    2. Stir for 20 seconds.
+    3. Strain into chilled cocktail glass.
   information: "Here's a cocktail that helps the Fernet-Branca-curious start off gently. Pairing the Italian bitter with the crispness of rye whiskey and softening the blow with sugar, the Toronto Cocktail keeps the Fernet from dominating the show. In the same flavor realm as the Boulevardier, the Toronto is a richly flavored, mildly bitter cocktail that also pairs perfectly with a crisp autumn evening."
 - name: Eeyore's Requiem
   emoji: 💔
   glassware: cocktail
-  directions: "Fill a mixing glass with ice, add Campari, Tanqueray, Cynar, Fernet, vermouth, and bitters. Stir until well chilled and strain into serving glass."
+  directions: |
+    1. Fill a mixing glass with ice.
+    2. Add Campari, Tanqueray, Cynar, Fernet, vermouth, and bitters.
+    3. Stir until well chilled.
+    4. Strain into serving glass.
   source: Toby Maloney
   information: "If you sat around naming all the bitter ingredients in your liquor cabinet, you might come close to the formula for this Anti-Valentine's Day tipple. Eeyore's Requiem, invented by Toby Maloney of Chicago's Violet Hour, starts with Campari, then adds a dose of Fernet-Branca, which is made with gentian, chamomile, bitter orange, myhrr, and saffron, among other things. Not bitter enough for your cynical heart? Maloney takes your Fernet and your Campari and raises you a quarter ounce of artichoke-and-herb based Cynar."
   ingredients:
@@ -481,10 +673,12 @@
   garnish: Orange twist
 - name: Fanciulli
   emoji: 🇮🇹
+  source: Old Waldorf Bar Days
   glassware: cocktail
-  directions: 'Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice. Stir until outside of mixing glass is very cold to touch, about 15 seconds.'
+  directions: |
+    1. Pour the whiskey, sweet vermouth, and Fernet-Branca into a mixing glass filled with ice.
+    2. Stir until outside of mixing glass is very cold to touch, about 15 seconds.
   information: "The origins of the Fanciulli cocktail are somewhat dim, but the flavor certainly isn't. It's a Manhattan with a bitter menthol backbone. The drink first appears in the 1931 book, Old Waldorf Bar Days, by Albert Stevens Crockett, and Mr. Crockett states that the name is Italian slang for 'our boys'."
-  book: Old Waldorf Bar Days
   ingredients:
   - 4.5cl Bourbon (or Rye)
   - 2cl Sweet vermouth
@@ -497,22 +691,29 @@
   - 12cl Lemonade
   - 7-Up
   - Cucumber (half-moon slices)
-  directions: "Pour gin, Pimm’s and lemonade into tall Collins glass, then add a few ice cubes and a splash of 7-Up. Finish with cucumber slices."
+  directions: |
+    1. Pour gin, Pimm’s and lemonade into tall Collins glass.
+    2. Add a few ice cubes and a splash of 7-Up.
+    3. Finish with cucumber slices.
   glassware: highball
   source: Porch Swing
   information: "Straight-up (well, not literally) summertime.  This recipe comes to us from [smittenkitchen](http://smittenkitchen.com/blog/2010/07/porch-swing/), who credits [Porch Swing](http://www.bluesmoke.com/) with the original conception."
 - name: The Getaway
+  source: Columbia Room
   emoji: 🚋
   ingredients:
   - 4.5cl Dark rum (Blackstrap)
   - 1.5cl Cynar
   - 4.5cl Simple syrup
   - 3cl Lemon juice
-  directions: Mix all ingredients in an old fashioned glass over ice; stir.
+  directions: |
+    1. Mix all ingredients in an old fashioned glass over ice.
+    2. Stir.
   glassware: old fashioned
   information: 'Comes from **Columbia Room** in Washington, D.C.'
 - name: The Second Year
   emoji: 🕑
+  source: Gwynnett St.
   ingredients:
   - 6cl Rye
   - 3cl Punt e Mes
@@ -520,22 +721,33 @@
   - 3cl Honey syrup
   garnish: Orange peel
   glassware: old fashioned
-  directions: "Stir to combine, strain and serve over one big ice cube."
+  directions: |
+    1. Stir to combine.
+    2. Strain.
+    3. Serve over one big ice cube.
   information: "Comes from **Gwynnett St.** in Brooklyn."
 - name: Obituary
   emoji: ⚫️
   glassware: martini
-  directions: Combine ingredients with ice and stir until well-chilled. Strain into a chilled cocktail glass.
+  directions: |
+    1. Combine ingredients with ice and stir until well-chilled.
+    2. Strain into a chilled cocktail glass.
   information: 'The Obituary is an intriguing spin on a gin martini, probably getting its morbid name from the inclusion of absinthe (though a pastis like Pernod can be substituted). The result is a completely new drink; the introduction of an anise-y flavor highlights the aromatics already present in both gin and vermouth.'
   ingredients:
   - 6cl Gin
   - 1cl Vermouth (dry)
   - 1cl Absinthe
+  source: "Lafitte's Blacksmith Shop"
 - name: Intro to Aperol
+  ncotw: http://www.reddit.com/r/cocktails/comments/1eegsr/not_cocktail_of_the_week_19_intro_to_aperol/
   emoji: 💠
   garnish: Orange twist
   glassware: cocktail
-  directions: 'Fill a cocktail shaker with 2 cups ice. Add Aperol. gin, lemon juice, Simple Syrup and Angostura bitters ; cover and shake until chilled. Strain.'
+  directions: |
+    1. Fill a cocktail shaker with 2 cups ice.
+    2. Add Aperol. gin, lemon juice, Simple Syrup and Angostura bitters.
+    3. Cover and shake until chilled.
+    4. Strain.
   source: Audrey Sanders
   information: Audrey Saunders of Pegu Club in New York created this fruity and bittersweet drink to introduce customers to the flavor of Aperol.
   ingredients:
@@ -545,22 +757,29 @@
   - 1cl Simple syrup
   - Angostura bitters (One dash)
 - name: Rye Smash
+  source: How to Mix Drinks
   emoji: 🌞
   garnish: Mint sprig
   glassware: old fashioned
-  directions: 'In a shaker, muddle the mint, lemon, simple syrup and water. Add the rye and fill with ice.  Shake and strain into a rocks-filled glass.'
+  directions: |
+    1. In a shaker, muddle the mint, lemon, simple syrup and water.
+    2. Add the rye and fill with ice.
+    3. Shake and strain into a rocks-filled glass.
   ingredients:
   - 4.5cl Rye
   - 3cl Water
   - 2cl Simple syrup
   - Lemon wedges (Two)
-  - Mint leaves (Two)
+  - Mint sprigs (Two)
   information: 'Smashes are known for their refreshing quality -- generally heavy on fruit and ice compared to other classes of cocktail, giving them a certain flexibility: you can dress one up for a summer afternoon or an autumn night equally well.  *Imbibe* has a [great piece](http://imbibemagazine.com/history-of-the-smash/) on the history of the smash; for this Rye Smash, we recommend tinkering with the potency of the beverage to find your ideal level.'
 - name: Pisco Punch
   emoji: 🇵🇪
   garnish: Nutmeg zest
   glassware: cocktail
-  directions: 'Mix the Pisco, pineapple simple syrup, lime juice, and orange juice in a shaker. Add ice and shake for 30 seconds to chill. Serve strained in a glass with cracked ice and garnish with as much fruit as possible.'
+  directions: |
+    1. Mix the Pisco, pineapple simple syrup, lime juice, and orange juice in a shaker.
+    2. Add ice and shake for 30 seconds to chill.
+    3. Serve strained in a glass with cracked ice and garnish with as much fruit as possible.
   ingredients:
   - 6cl Pisco
   - 3cl Pineapple syrup
@@ -572,7 +791,10 @@
   emoji: 🇵🇪
   garnish: Orange peel
   glassware: cocktail
-  directions: "Mix the Pisco, chicha morada base, juice of 1/2 a lime, and simple syrup in a shaker. Add ice and shake for 30 seconds to chill. Serve strained."
+  directions: |
+    1. Mix the Pisco, chicha morada base, juice of 1/2 a lime, and simple syrup in a shaker.
+    2. Add ice and shake for 30 seconds to chill.
+    3. Serve strained.
   ingredients:
   - 6cl Pisco
   - 3cl Chicha Morada base
@@ -581,10 +803,13 @@
   information: "A cocktail with a distinctive taste and hue, due in no small part to the unique chicha base. Credit due to the fantastic [Pisco Trail](http://www.piscotrail.com/2012/10/31/cocktails/pisco-morado-purple-corn-pisco/), a great resource for the intersection of craft cocktails and Peruvian culture."
   source: Pisco Trail
 - name: Chrysanthemum
+  ncotw: http://www.reddit.com/r/cocktails/comments/2x6iww/ncotw_108_paper_plane/
   emoji: 🌷
   garnish: Orange peel
   glassware: cocktail
-  directions: Shake well and strain into cocktail glass. Squeeze orange peel on top.
+  directions: |
+    1. Shake well and strain into cocktail glass.
+    2. Squeeze orange peel on top.
   ingredients:
   - 3cl Vermouth (French)
   - amount: 1.5
@@ -594,9 +819,12 @@
   source: Recipes for Mixed Drinks
 - name: Ward 8
   emoji: 🕗
+  source: The Savoy Cocktail Book
   garnish: Maraschino cherry
   glassware: cocktail
-  directions: "Shake the rye whiskey, lemon juice, orange juice, and grenadine with ice; then strain into a chilled cocktail glass."
+  directions: |
+    1. Shake the rye whiskey, lemon juice, orange juice, and grenadine with ice.
+    2. Strain into a chilled cocktail glass.
   ingredients:
   - 3cl Rye
   - 1.5cl Lemon juice
@@ -605,10 +833,16 @@
   information: "In 1898 Democratic political czar Martin M. Lomasney hoped to capture a seat in the state's legislature, the General Court of Massachusetts. Lomasney held considerable power in the city for nearly 50 years. The story goes that the drink was created to honor his election, and the city's Ward 8 which historically delivered him a winning margin.  (You're supposed to garnish it with a miniature Massachusetts flag, too -- but those are kinda hard to chase down.)"
 - name: Chilcano
   emoji: 🌞
+  source: Peru
   garnish: Lime wheel
   glassware: highball
-  directions: "Mix the Pisco and juice of 1/2 a lime in a tall glass, add simple syrup if desired. Add 4 or more cubes of ice, and top off with ginger ale. Add 2 drops Angostura bitter, stir, and garnish."
-  information: 'January 11-17 is officially Chilcano week in Peru; the drinks are generally enjoyed socially, in a similar context as lemonade (or, more aptly, G&Ts.)'
+  directions: |
+    1. Mix the Pisco and juice of 1/2 a lime in a tall glass, add simple syrup if desired.
+    2. Add 4 or more cubes of ice, and top off with ginger ale.
+    3. Add 2 drops Angostura bitter.
+    4. Stir.
+    5. Garnish.
+  information: "January 11-17 is officially Chilcano week in Peru; the drinks are generally enjoyed socially, in a similar context as lemonade (or, more aptly, G&Ts.)  Peru this week has a [great writeup](http://www.peruthisweek.com/food-the-fascinating-origins-of-the-chilcano-cocktail-20265) of the drink's origin."
   ingredients:
   - 7.5cl Pisco
   - Lime (half)
@@ -624,10 +858,14 @@
   - 9cl Applejack (Can substitute Calvados)
   - 9cl Sloe Gin
   name: Savoy Tango
+  ncotw: http://www.reddit.com/r/cocktails/comments/2k0ksp/not_cocktail_of_the_week_94_savoy_tango/
   emoji: 💃
   source: The Savoy Cocktail Book
-- directions: Add all ingredients to a shaker and shake without ice, add ice and shake
-    vigorously, strain into glass.  Top with chilled soda.
+- directions: |
+    1. Add all ingredients to a shaker and shake without ice.
+    2. Add ice and shake vigorously.
+    3. Strain into glass.
+    4. Top with chilled soda.
   garnish: ''
   glassware: goblet
   source: Charles Baker
@@ -657,11 +895,12 @@
   - 6cl Gin
   - 1.5cl Lime juice
   name: Gimlet
-- directions: 'Make a large lemon twist, rub it on the glass rim, drop it into the
-    glass. Stir first two ingredients with ice. Strain into a glass. Top with beer
-    and and then sparkling wine.
-
-    '
+  ncotw: http://www.reddit.com/r/cocktails/comments/28i1dn/not_cocktail_of_the_week_76_gimlet/
+- directions: |
+    1. Make a large lemon twist, rub it on the glass rim, drop it into the glass.
+    2. Stir first two ingredients with ice.
+    3. Strain into a glass.
+    4. Top with beer and then sparkling wine.
   source: Boozenerds
   glassware: highball
   information: This is a *shandy* -- a beer cocktail -- created by the fine folks
@@ -674,7 +913,10 @@
   - 4.5cl Dark rum (Gold)
   name: Field & Cellar
   emoji: "🍺"
-- directions: Stir first 3 ingredients with ice. Strain into a glass. Top with beer.
+- directions: |
+    1. Stir first 3 ingredients with ice.
+    2. Strain into a glass.
+    3. Top with beer.
   glassware: highball
   source: Boozenerds
   information: This is a *shandy* -- a beer cocktail -- created by the fine folks
@@ -715,6 +957,7 @@
   - 2cl Campari
   - 3cl Bourbon
   name: Boulevardier
+  ncotw: http://www.reddit.com/r/cocktails/comments/180rvd/not_cocktail_of_the_week_5_boulevardier/
 - directions: Mix all ingredients in an old fashioned glass over ice; stir.
   glassware: old fashioned
   ingredients:
@@ -725,14 +968,19 @@
     label: Sweet
   - amount: 1
     baseName: "B\xE9n\xE9dictine"
-  - baseName: "Peychaud\u2019s bitters"
+  - baseName: "Peychaud's bitters"
     label: Two dashes
   - baseName: Angostura bitters
     label: Two dashes
   name: "Vieux Carr\xE9"
-- directions: Combine ingredients in shaker tin. Muddle kiwi until crushed. Add a
-    few pebbles of crushed ice and whip to froth pineapple juice. Dump into collins
-    glass 1/2 filled with crushed ice. Top with crushed ice.
+  ncotw: https://www.reddit.com/r/cocktails/comments/1a8cs5/not_cocktail_of_the_week_10_vieux_carr%C3%A9/
+  source: Walter Bergeron
+- directions: |
+    1. Combine ingredients in shaker tin.
+    2. Muddle kiwi until crushed.
+    3. Add a few pebbles of crushed ice and whip to froth pineapple juice.
+    4. Dump into collins glass 1/2 filled with crushed ice.
+    5. Top with crushed ice.
   garnish: Mint sprig
   glassware: collins
   ingredients:
@@ -758,8 +1006,11 @@
     baseName: Campari
   - amount: 3
     baseName: Elderflower liqueur
-  name: Apertif
+  name: Aperitif
+  source: Joy Napolitano
+  ncotw: https://www.reddit.com/r/cocktails/comments/1z1048/not_cocktail_of_the_week_60_aperitif/
   emoji: 🌅
+  information: "This drink was created for the Campari bartender competition in Italy. The mix of ingredients is really delicious. The Campari is the main element and the other ingredients exalts its flavor. The co2 will give us the freshness of this drink and the bubbles emanate a real fragrance of elderflower and citrus."
 - directions: Prepare glass by moistening the rim with lemon and dipping it in sugar,
     then carefully curling the lemon peel around the inside of the glass. Combine
     all ingredients in a shaker, shake and strain into glass and add 1 small cube
@@ -776,6 +1027,8 @@
   - baseName: Lemon juice
     label: Half teaspoon
   name: Brandy Crusta
+  source: How to Mix Drinks
+  information: http://cold-glass.com/2015/01/31/an-old-fashioned-the-hard-way-the-brandy-crusta/
   emoji: 🌄
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
@@ -848,6 +1101,8 @@
   - baseName: Mint sprigs
     label: Six
   name: Mojito
+  source: Don Facundo Bacardi
+  ncotw: https://www.reddit.com/r/cocktails/comments/2aw7zg/not_cocktail_of_the_week_80_mojito/
 - directions: Build into highball glass with ice cubes. Stir gently. If required,
     add dashes of Angostura bitters.
   garnish: Lemon twist
@@ -860,6 +1115,7 @@
   - baseName: Angostura bitters
     label: One dash
   name: Horse's Neck
+  source: http://www.equitrekking.com/articles/entry/the_origin_of_the_cocktail_horses_recipes/
   emoji: 🐴🎠
 - directions: Build all ingredients in a glass filled with ice.
   garnish: Lime wedge
@@ -908,6 +1164,7 @@
   - baseName: Cola
     label: One dash
   name: Long Island Iced Tea
+  source: Rosebud Butt
   emoji: 🍵
 - directions: Shake with ice cubes. Strain into glass.
   glassware: martini
@@ -965,6 +1222,7 @@
   - amount: 1
     baseName: Lime juice
   name: Cuba Libre
+  source: The Gentlemen's Companion
   emoji: 🆓
 - directions: Shake with ice cubes. Strain into cocktail glass. Sprinkle with fresh
     ground nutmeg.
@@ -977,6 +1235,7 @@
   - amount: 1
     baseName: Egg yolk
   name: Porto Flip
+  source: How to Mix Wines
   emoji: 🔄🔁
 - directions: Shake all ingredients with ice cubes, except soda water. Pour into glass.
     Top with soda water.
@@ -992,6 +1251,8 @@
   - amount: 8
     baseName: Soda water
   name: Gin Fizz
+  source: Henry C. Ramos
+  ncotw: https://www.reddit.com/r/cocktails/comments/18c2wl/not_cocktail_of_the_week_6_special_mardi_gras/
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
@@ -1017,6 +1278,7 @@
   - amount: 1.5
     baseName: Lime juice
   name: Margarita
+  source: Don Carlos Orozco
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
@@ -1029,6 +1291,7 @@
   - amount: 1.5
     baseName: Lime juice
   name: Yellow Bird
+  source: Bermuda
   emoji: 💛🐦
 - directions: Blend all the ingredients with ice in a electric blender, pour into
     a large goblet or Hurricane glass and serve with straws.
@@ -1067,7 +1330,9 @@
   name: Bellini
   emoji: 🍑
   source: Giuseppe Cipriani
-- directions: Shake with ice cubes. Strain into chilled glass.
+- directions: |
+    1. Shake with ice cubes.
+    2. Strain into chilled glass.
   glassware: martini
   ingredients:
   - amount: 3
@@ -1105,6 +1370,8 @@
   - amount: 4.5
     baseName: White rum
   name: Daiquiri
+  ncotw: http://www.reddit.com/r/cocktails/comments/1i0sbt/not_cocktail_of_the_week_27_daiquiri/
+  source: Jennings Cox
 - directions: "Layer ingredients one at a time starting with Kahl\xFAa, followed by\
     \ Baileys Irish Cream and top with Grand Marnier. Flame the Grand Marnier, serve\
     \ while the flame is still on, accompanied with a straw on side plate."
@@ -1120,6 +1387,7 @@
     baseName: Triple sec
     label: Grand Marnier
   name: B52
+  source: Peter Fich
   emoji: 💣✈︎
 - directions: Build into old fashioned glass filled with ice. Stir gently.
   garnish: Lemon twist
@@ -1130,6 +1398,7 @@
   - amount: 2.5
     baseName: Drambuie
   name: Rusty Nail
+  source: 21 Club
   emoji: "💅"
 - directions: Stir in mixing glass with ice cubes. Strain.
   glassware: martini
@@ -1175,6 +1444,7 @@
   - amount: 3.5
     baseName: Vodka
   name: God Mother
+  source: Craft of the Cocktail
   emoji: 👪
 - directions: Build over crushed ice. Stir, then pour the blackberry liqueur over
     the top of the drink in a circular fashion.
@@ -1239,6 +1509,7 @@
   - amount: 2
     baseName: Coffee liqueur
   name: Black Russian
+  source: Gustave Tops
   emoji: ◼︎🇷🇺
 - directions: Stir gently, pour all ingredients into glass.
   garnish: Celery, lemon wedge
@@ -1256,6 +1527,7 @@
     label: Two to three dashes
   - baseName: Celery salt
   name: Bloody Mary
+  source: Fernand Petiot
   emoji: "🍅"
 - directions: Shake and strain into glass. Serve with straw.
   garnish: Pineapple spear, mint leaves, lime wedge
@@ -1272,7 +1544,9 @@
     baseName: Orgeat
   - amount: 1
     baseName: Lime juice
-  name: Mai-tai
+  name: Mai Tai
+  source: Don the Beachcomber’s Q.B. Cooler
+  ncotw: https://www.reddit.com/r/cocktails/comments/1ii3l5/not_cocktail_of_the_week_28_mai_tai/
   emoji: 🇨🇳
 - directions: Pour all ingredients in a chilled glass.  Top with Prosecco.
   glassware: margarita
@@ -1315,6 +1589,7 @@
   - baseName: Absinthe
     label: Two drops
   name: Monkey Gland
+  source: Barflies and Cocktails
   emoji: 🐵🐒
 - directions: Stir in mixing glass with ice cubes. Strain into glass.
   garnish: Mint leaves
@@ -1324,7 +1599,7 @@
     baseName: Gin
   - baseName: Peach bitters
     label: Two drops
-  - baseName: Mint leaves
+  - baseName: Mint sprigs
     label: Two, fresh
   name: Derby
   emoji: 🏇🐎
@@ -1340,6 +1615,7 @@
   - amount: 2
     baseName: Lemon juice
   name: Sidecar
+  ncotw: http://www.reddit.com/r/cocktails/comments/19cmfw/not_cocktail_of_the_week_8_sidecar/
   emoji: 🚗🚘
   information: The exact origin of the Sidecar is unclear, but it is thought to have been invented around the end of World War I in either London or Paris. The drink was directly named for the motorcycle attachment, the drink appears in literature as early as 1907.
   source: Cocktails and How to Mix Them
@@ -1396,6 +1672,8 @@
   - baseName: Angostura bitters
     label: One dash
   name: Singapore Sling
+  ncotw: http://www.reddit.com/r/cocktails/comments/24z689/not_cocktail_of_the_week_70_singapore_sling/
+  source: The Savoy Cocktail Book
   emoji: 🌆
 - directions: Build into glass filled with ice cubes. Stir gently.
   glassware: old fashioned
@@ -1417,6 +1695,7 @@
   - amount: 0.5
     baseName: Lime juice
   name: Moscow Mule
+  source: John G. Martin
   emoji: 🇷🇺🐪
 - directions: 'Build into glass filled with ice. Stir gently. Add a dash of Angostura
     bitters. (Note: Use Old Tom Gin for Tom Collins)'
@@ -1443,6 +1722,7 @@
     baseName: "Cr\xE9me liqueur"
     label: "Cr\xE9me de Cassis"
   name: Kir
+  source: Felix Kir
 - directions: In the glass, gently muddle the mint, sugar and water. Fill the glass
     with cracked ice, add Bourbon and stir well until the glass is frost.
   garnish: Mint sprig
@@ -1457,6 +1737,7 @@
   - baseName: Mint sprigs
     label: Four
   name: Mint Julep
+  source: The Savoy Cocktail Book
   emoji: 🎉🐎🏇
 - directions: Shake and strain into a chilled glass.
   glassware: martini
@@ -1520,7 +1801,9 @@
   - amount: 1
     baseName: Grenadine
   name: Mary Pickford
+  ncotw: http://www.reddit.com/r/cocktails/comments/265iu6/not_cocktail_of_the_week_72_mary_pickford/
   emoji: 👩👯
+  source: The Savoy Cocktail Book
 - directions: Shake with ice cubes. Strain into a double cocktail glass.
   glassware: martini
   ingredients:
@@ -1534,6 +1817,7 @@
   - amount: 1.5
     baseName: Lime juice
   name: Hemingway Special
+  source: El Floridita
   emoji: 📝📖
 - directions: Build into glass filled with ice. Add rum first and top it with ginger
     beer.
@@ -1546,9 +1830,14 @@
     baseName: Ginger beer
   name: Dark 'n' Stormy
   emoji: "☁️"
-- directions: Pour all ingredients (except soda) in a mixing glass, dry shake (no
-    ice) for two minutes, add ice and hard shake for another minute. Strain into glass
-    without ice, top with soda.
+  ncotw: https://www.reddit.com/r/cocktails/comments/1dy57g/not_cocktail_of_the_week_18_dark_n_stormy/
+  source: The British Navy
+- directions: |
+    1. Pour all ingredients (except soda) in a mixing glass.
+    2. Dry shake (no ice) for two minutes.
+    3. Add ice and hard shake for another minute.
+    4. Strain into glass without ice
+    5. Top with soda.
   glassware: highball
   ingredients:
   - amount: 4.5
@@ -1591,6 +1880,7 @@
   - amount: 3.5
     baseName: Disaronno
   name: God Father
+  source: Craft of the Cocktail
   emoji: 🎅🇮🇹
 - directions: Shake with ice cubes. Strain into a large cocktail glass.
   garnish: Lime slice
@@ -1619,6 +1909,7 @@
     label: Dry
   name: Dry Martini
   emoji: "🍸"
+  source: Old Waldorf Bar Days
 - directions: Shake with ice cubes. Strain into chilled glass.
   glassware: martini
   ingredients:
@@ -1632,6 +1923,8 @@
     baseName: Triple sec
   name: Between the Sheets
   emoji: 💑
+  ncotw: https://www.reddit.com/r/cocktails/comments/1xqbox/not_cocktail_of_the_week_58_between_the_sheets/
+  source: Savoy Cocktail Book
 - directions: Shake with ice cubes. Strain into chilled glass.
   garnish: Lemon twist, cherry
   glassware: martini
@@ -1683,6 +1976,7 @@
     label: One teaspoon
   name: Vampiro
   emoji: 💉
+  source: Mexico
 - directions: Shake and strain into a chilled glass.
   glassware: martini
   ingredients:
@@ -1704,6 +1998,8 @@
   - amount: 2
     baseName: Lemon juice
   name: White Lady
+  source: The Savoy Cocktail Book
+  ncotw: https://www.reddit.com/r/cocktails/comments/1etvbw/not_cocktail_of_the_week_20_the_white_lady_guest/
   emoji: 👰
 - directions: Build vodka and orange juice into a highball glass filled with ice.
     Stir gently and float Galliano on top.
@@ -1718,6 +2014,7 @@
     baseName: Galliano
   name: Harvey Wallbanger
   emoji: 🏰
+  source: Duke Antone
 - directions: Pour all ingredients into a cocktail shaker.  Shake and strain into
     a glass filled with ice.
   glassware: old fashioned
@@ -1741,6 +2038,8 @@
   - amount: 12
     baseName: Soda water
   name: Smith & Kearns
+  information: "This sweet, egg cream of a cocktail actually comes from the petroleum industry (who would have guessed?).  Kitchen Riffs has a [great writeup](http://www.kitchenriffs.com/2015/01/the-smith-and-curran-cocktail.html) about it."
+  source: Blue Blazer
   emoji: 🔫
 - directions: Pour the ingredients into a mixing glass with ice cubes.  Stir well
     and strain into a chilled glass.
@@ -1754,6 +2053,8 @@
   - amount: 2
     baseName: Gin
   name: Orange Blossom
+  information: http://lukehoney.typepad.com/the_greasy_spoon/2012/08/orange-blossoms-and-the-mystery-of-william-desmond-taylor.html
+  source: The Old Waldorf Astoria Bar Book
   emoji: 🔶🌸
 - directions: Pour the liquors into a glass filled with ice.  Fill with pineapple
     juice.
@@ -1849,6 +2150,8 @@
   - amount: 1.5
     baseName: Lemon juice
   name: Pamplemousse
+  ncotw: http://www.reddit.com/r/cocktails/comments/1b4trm/not_cocktail_of_the_week_12_pamplemousse/
+  source: Ryan Fitzgerald
   emoji: 🐭
 - directions: Dry shake, then shake on ice, and fine strain.
   glassware: cocktail
@@ -1867,6 +2170,8 @@
     label: One half
   name: Brass Rail
   emoji: 🚆
+  ncotw: https://www.reddit.com/r/cocktails/comments/21g5zr/not_cocktail_of_the_week_64_brass_rail/
+  source: http://www.diffordsguide.com/cocktails/recipe/564/brass-rail
 - directions: Pour all ingredients into a shaker, shake, and strain into glass.
   garnish: Cherry
   glassware: martini
@@ -1894,6 +2199,9 @@
   - baseName: Peach bitters
     label: Two dashes
   name: Trident
+  information: "From Hess himself:
+  *I originally created this drink when I was working with Fee Brothers Peach Bitters. There were very few recipes which specifically called for it, and I felt that there was plenty of room therefore for a few more. I had recently found that switching in aquavit for the gin in a Negroni produced great results, and thought I'd take this a little further. Since I have a facination for slightly obscure ingredients, I decided to try a Negroni variation in which each ingredient was something you might not typically find in ordinary bars.*"
+  source: Robert Hess
   emoji: 🍴
 - directions: Stir well with cracked ice, then strain into a chilled glass.
   glassware: cocktail
@@ -1923,6 +2231,7 @@
   - amount: 1.5
     baseName: Framboise
   name: Floradora
+  source: Waldorf-Astoria
   emoji: 🌻
 - directions: Stir all ingredients with ice. Strain into glass.
   glassware: cocktail
@@ -1961,6 +2270,8 @@
   - amount: 6
     baseName: Pimm's No. 1
   name: Pimm's Cup
+  source: James Pimm
+  ncotw: https://www.reddit.com/r/cocktails/comments/1di1m4/not_cocktail_of_the_week_17_pimms_cup/
   emoji: 🌿
 - directions: Stir on ice, serve on the rocks.
   garnish: lemon peel
@@ -1977,6 +2288,8 @@
     label: Two dashes
   name: Japanese
   emoji: 🇯🇵
+  ncotw: https://www.reddit.com/r/cocktails/comments/1mnoih/not_cocktail_of_the_week_37_japanese/
+  source: How to Mix Drinks
 - directions: Shake well with ice and strain into a cocktail glass.
   garnish: ''
   glassware: cocktail
@@ -2005,11 +2318,14 @@
   - baseName: Angostura bitters
     label: One dash
   name: Rob Roy
+  source: The Waldorf-Astoria
+  ncotw: https://www.reddit.com/r/cocktails/comments/2owdug/not_cocktail_of_the_week_101_rob_roy/
   emoji: 🔮
 - directions: Combine all ingredients in a shaker with ice. Stir gently and strain
     into a rocks glass with a large ice cube.
   garnish: Candied ginger
   glassware: old fashioned
+  source: "Milk & Honey"
   information: '*There is a special rung in Hell reserved for people who waste good
     Scotch.* ~ Inglorious Basterds'
   ingredients:
@@ -2023,11 +2339,12 @@
   - amount: 2
     baseName: Lemon juice
   name: Penicillin
+  source: http://www.reddit.com/r/cocktails/comments/1ola4b/not_cocktail_of_the_week_41_penicillin/
   emoji: 💉
 - directions: Add all ingredients to a shaker and shake without ice, add ice and shake
     vigorously, strain into chilled cocktail glass.
   glassware: cocktail
-  information: ''
+  information: 'http://www.cocktailia.com/cocktail-recipes/mark-twain/'
   ingredients:
   - amount: 3
     baseName: Simple syrup
@@ -2038,6 +2355,7 @@
   - baseName: Angostura bitters
     label: Two dashes
   name: Mark Twain
+  source: Mark Twain
   emoji: ✒️
 - directions: Add all ingredients to shaker, fill completely with ice and shake vigorously.
   glassware: cocktail
@@ -2052,6 +2370,8 @@
   - amount: 2
     baseName: Applejack
   name: Royal Smile
+  source: The Savoy Cocktail Book
+  ncotw: https://www.reddit.com/r/cocktails/comments/2kphq0/not_cocktail_of_the_week_95_royal_smile/
   emoji: "👑"
 - directions: Add all ingredients to shaker, fill completely with ice and shake vigorously.
   garnish: Pineapple wedge
@@ -2069,7 +2389,9 @@
   - baseName: Angostura bitters
     label: One dash
   name: Jake Barnes
+  ncotw: http://www.reddit.com/r/cocktails/comments/23self/not_cocktail_of_the_week_68_jake_barnes/
   emoji: 🔱
+  source: Natalie Jacob
 - directions: Shake all the ingredients with ice.
   garnish: Orange twist
   glassware: martini
@@ -2099,6 +2421,7 @@
   - baseName: "B\xE9n\xE9dictine"
     label: Three dashes
   name: Bobby Burns
+  ncotw: http://www.reddit.com/r/cocktails/comments/169jv7/cocktail_of_the_week_3_bobby_burns/
   source: The Essential Cocktail
   emoji: 👦
 - directions: 'Rinse a chilled old fashioned glass with the absinthe, add crushed
@@ -2131,15 +2454,17 @@
   - amount: 1
     baseName: Absinthe
   - baseName: Sugar cube
-  - baseName: "Peychaud\u2019s bitters"
+  - baseName: "Peychaud's bitters"
     label: Two dashes
   name: Sazerac
+  ncotw: https://www.reddit.com/r/cocktails/comments/1zk37d/not_cocktail_of_the_week_61_special_mardi_gras/
   emoji: 🇳🇱
 - directions: Combine in a cocktail shaker or mixing glass. Shake with ice cubes and
     strain into old-fashioned glass with cracked ice. Twist an orange peel over the
     surface of the cocktail and drop in the drink to serve.
   garnish: Orange peel
   glassware: rocks
+  source: Jeffrey Morgenthaler
   information: Bartender Jeffrey Morgenthaler of the Clyde Common in Portland, Oregon,
     created the Flannel Shirt for an autumnal event. Using classic fall flavors --
     apple, earth, spice and smoke -- he whipped up this fleecy, bone-warming drink
@@ -2162,11 +2487,13 @@
   - baseName: Allspice Dram
     label: Half teaspoon
   name: Flannel Shirt
+  ncotw: http://www.reddit.com/r/cocktails/comments/2m3rsx/not_cocktail_of_the_week_97_flannel_shirt/
   emoji: 🍂
 - directions: In a mixing glass with ice, combine all ingredients except cider, stir
     it all up, and strain into glass.  Top with cider.
   garnish: Lemon peel, cherry
   glassware: cocktail
+  source: http://www.foodandwine.com/fwx/drink/3-hard-cider-cocktails-your-fall-drinking-pleasure?adbid=10152369949912026&adbpl=fb&adbpr=17786732025&xid=FWx_20141104_34940247
   information: Goes well with rich stews, crackling fires, and down vests.
   ingredients:
   - amount: 6
@@ -2194,6 +2521,8 @@
   - amount: 1.5
     baseName: Green Chartreuse
   name: Diamondback
+  ncotw: http://www.reddit.com/r/cocktails/comments/1pk1iv/not_cocktail_of_the_week_43_diamondback/
+  source: Bottoms Up
   emoji: 🐍
 - directions: Add all of the ingredients, save the flower water, to the mixing glass
     and stir for several minutes with plenty of cracked and non-cracked ice until
@@ -2244,6 +2573,7 @@
   - baseName: Angostura bitters
     label: Three to four dashes
   name: Planter's Punch
+  source: Planters Hotel
   emoji: 🍹👊
 - directions: Build into old fashioned glass filled with ice. Stir gently.
   garnish: 0.5 orange slice
@@ -2264,6 +2594,8 @@
     baseName: Vermouth
     label: Sweet/red
   name: Negroni
+  ncotw: http://www.reddit.com/r/cocktails/comments/1aoe1c/not_cocktail_of_the_week_11_negroni/
+  source: Fosco Scarselli
   emoji: 🇮🇹
 - directions: Shake and strain into glass.
   garnish: Lemon twist
@@ -2306,6 +2638,7 @@
   - baseName: Egg white
     label: Few drops
   name: Clover Club
+  ncotw: http://www.reddit.com/r/cocktails/comments/1go8m1/not_cocktail_of_the_week_24_clover_club/
   emoji: 🍀
 - directions: Shake with ice cubes, except for champagne. Strain into a champagne
     flute. Top up with champagne. Stir gently.
@@ -2414,6 +2747,7 @@
     baseName: Vermouth
     label: Italian
   name: Blood and Sand
+  ncotw: http://www.reddit.com/r/cocktails/comments/1yds2e/not_cocktail_of_the_week_59_blood_and_sand/
   emoji: “⏳”
 - directions: Shake and strain over rocks (use a fine strainer if you want a lot of
     froth).
@@ -2456,4 +2790,5 @@
   - baseName: Orange bitters
     label: Two dashes
   name: Alaska
+  ncotw: http://www.reddit.com/r/cocktails/comments/1vb2os/not_cocktail_of_the_week_54_alaska/
   emoji: “🍧”

@@ -1,7 +1,10 @@
 # This Python file uses the following encoding: utf-8
 import json
+import subprocess
 import sys
+import time
 
+import requests
 from slugify import slugify
 
 from data import (
@@ -91,3 +94,13 @@ if __name__ == "__main__":
     write_to_json(recipes, "output/json/recipes.json")
     write_to_json(bases, "output/json/bases.json")
 
+    pipe = subprocess.Popen(["phantomjs", "server.js"])
+    time.sleep(1)
+    for recipe in recipes:
+        recipe_json = json.dumps(recipe)
+        svg = requests.post("http://localhost:9494", data=recipe_json).content
+        outfilename = "output/svg/{}.svg".format(recipe['slug'])
+        with open(outfilename, 'w') as outfile:
+            outfile.write(svg)
+    pipe.kill()
+    pipe.terminate()
