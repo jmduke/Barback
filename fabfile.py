@@ -8,6 +8,9 @@ def campari():
     with lcd('Campari'):
         local("python run.py")
         local("cp output/md/recipe/* ../Angostura/content/recipe/")
+        local("cp -r output/svg ../Angostura/static/img")
+        local("cp -r output/png ../Angostura/static/img")
+        local("cp -r output/svg ../Rye")
         local("python run.py Rye")
         local("cp output/json/* ../Angostura/data")
 
