@@ -1,0 +1,32 @@
+= content main
+
+  link rel=stylesheet href=/css/post.css
+
+  .post-header
+    h2 {{ .Title }}
+    .post-date
+      {{ .Date.Format "Mon, Jan 2, 2006" }} 
+    .post-date.tag
+      {{ range .Params.tags }}
+        a href="/tags/{{ . }}"
+          {{ . }}
+      {{ end }}
+
+  .post-content
+    {{ .Content }}
+    hr
+    {{ partial "components/tweet.html" . }}
+
+  .jumbotron
+    h3 Liked this article?
+    h4..
+      You should obviously download our <a href='https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?mt=8'>app</a>.
+    h4 And probably sign up for our <a href="http://tinyletter.com/barback">newsletter</a>!
+    h4 And, uh, follow us on <a href="http://twitter.com/getbarback">Twitter</a>.
+    h4 &nbsp;
+    h4 That's probably all.
+    h4 &nbsp;
+    h4 Have a great day!
+
+  = javascript
+    $.bigfoot();

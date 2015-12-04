@@ -1,0 +1,6 @@
+.post-date.tag
+  {{ range .Params.tags }}
+    a href="/tags/{{ . }}" {{ . }}
+  {{ end }}
+.post-date
+  {{ .Date.Format "Mon, Jan 2, 2006" }} 

@@ -95,3 +95,26 @@ h4 {
     margin-right: 0;
   }
 }
+
+.instructions ol {
+  list-style-type: none;
+  padding-left: 0;
+  counter-reset:li;
+}
+.instructions li {
+  position: relative;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+.instructions li:before {
+  content: counter(li) ".";
+  counter-increment: li;
+  padding-right: 10px;
+  font-weight: bold;
+  opacity: 0.5;
+  width: 40px;
+  text-align: center;
+  width: 2em;
+  position: absolute;
+  left: -40px;
+}

@@ -1,0 +1,30 @@
+= content main
+
+  div
+    link rel="stylesheet" href="/css/page_about.css"
+
+    .col-xs-12.col-md-5.col-md-offset-1
+      .iphone.pull-left
+        #screenshots
+          img src="img/s1.jpg" srcset="/img/s1.jpg" width="320" height="480" style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;"
+          img src="img/s2.jpg" srcset="/img/s2.jpg" width="320" height="480" style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;"
+          img src="img/s3.jpg" srcset="/img/s3.jpg" width="320" height="480" style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;"
+          img src="img/s4.jpg" srcset="/img/s4.jpg" width="320" height="480" style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;"
+          img src="img/s5.jpg" srcset="/img/s5.jpg" width="320" height="480" style="position: absolute; top: 0px; z-index: 2; opacity: 1; display: block;"
+
+    .col-xs-12.col-md-5.col-md-offset-1.col-lg-offset-0
+      .app-description
+        h3 ★★★★★
+        em App Store Rating
+        hr
+        p barback (n.) — a bartender's assistant; they are there to simplify a bartender's job; bussing tables and dishwashing are common duties. In some establishments, barbacks may also be responsible for the safety of the bartender.
+        p Browse from a great selection of over one hundred cocktails, featuring recipes new and old.  Search by ingredients or by name; save your favorites and even generate a shopping list so you never go dry.
+        p New recipes added weekly -- and, like any good bartender, we're hard at work to make your next drink the best one.  (Not that anything will beat a Manhattan.)
+        p For connoisseurs and novices alike, filled to the brim with modern and classic cocktails — Barback.
+        p Happy bartending!
+        hr 
+        p.appstore
+          a.app-store href="https://itunes.apple.com/us/app/barback-classic-modern-cocktails/id829469529?ls=1&amp;mt=8"
+            img src="/img/app-store.svg"
+
+    script src="/js/about.js"

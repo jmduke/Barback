@@ -1,0 +1,25 @@
+= content main
+
+  {{ partial "components/jumbotron" . }}
+
+  h1 Recipes
+
+  .row
+    h4.col-xs-12.col-md-6 Sort by:
+      a#name href="#" Name
+      a#abv href="#" ABV
+      a#complexity href="#" Complexity
+    .col-xs-12.col-md-6
+    h4.pull-left Search for:
+    .form-inline
+      input#search_filter.form-control name="search" type="text" placehodler="Search for..."
+
+  hr
+
+  .row
+    .recipes
+      {{ range $.Site.Data.recipes }}
+         {{ partial "recipe/recipe" . }}
+      {{ end }}
+
+  script src="/js/recipes.js"

@@ -1,0 +1,75 @@
+= content main
+  
+  link rel="stylesheet" href="/css/recipe.css"
+  link rel="stylesheet" href="/css/ingredient.css"
+
+  .recipe-container.recipe-detail.col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+
+    h1 {{ .Params.name }}
+    .col-xs-12.col-md-3.col-md-offset-1
+      #diagram style="background-color: #{{ .Params.color }}"
+      h4 Data
+      p
+        span A &nbsp;
+        strong {{ .Params.ingredient_type }}
+        br 
+        span with &nbsp;
+        strong {{ .Params.abv }}% &nbsp;
+        span ABV
+
+    .col-xs-12.col-md-6.col-md-offset-1
+
+      {{ if .Params.information }}
+        h4 Information
+        p {{ .Params.information | markdownify }}
+        hr
+      {{ end }}
+
+      {{ if .Params.brands }}
+        h4 Recommended brands
+        table.ingredients
+          {{ range .Params.brands }}
+            tr
+              td {{ .name }}
+              td.minor ${{ .price }}
+          {{ end }}
+        hr
+      {{ end }}
+
+      {{ if .Params.cocktaildb }}
+        h4 Elsewhere
+        a href="{{ .Params.cocktaildb }}" CocktailDB
+        hr
+      {{ end }}
+
+      .well
+        h4 Recipes which use {{ .Params.name }}
+        table.ingredients
+          {{ range $index, $use := .Params.uses }}
+            tr
+              td
+                a href="/recipe/{{ .slug }}/" {{ $use.recipe }}
+              {{ if $use.ingredient.amount }}
+                td.minor {{ $use.ingredient.amount }}cl
+              {{ else }}
+                td.minor {{ $use.ingredient.label }}
+              {{ end }}
+          {{ end }}
+        {{ if ge (len .Params.uses) 5 }}
+          br
+          a#recipeToggle.btn.btn-default role="button" data-toggle="collapse" href=".collapse" aria-expanded="false" Show more recipes
+        {{ end }}
+
+
+      {{ partial "components/tweet" . }}
+
+    = javascript
+      $("tr:nth-child(5)").nextAll().addClass('collapse');
+      $('#recipeToggle').click(function() {
+          if ($('.collapse').hasClass('in') ) {
+      $("tr:nth-child(5)").nextAll().addClass('collapse');
+              $(this).text('Show more recipes');
+          } else {
+              $(this).text('Show fewer recipes');
+          }
+      });

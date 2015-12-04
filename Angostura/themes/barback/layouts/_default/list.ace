@@ -1,0 +1,26 @@
+= content main
+
+  link rel="stylesheet" href="/css/post.css"
+
+  br
+  br
+
+  .text-center
+    h2 Notes from the bar
+    h4 Essays tagged "{{ .Title }}".
+
+  br
+  br
+  br
+
+  .posts
+    {{ range .Data.Pages }}
+      .post
+        .post-link
+          a href="{{ .Permalink }}" {{ .Title }}
+        {{ partial "page_notes/page_metadata.html" . }} 
+    {{ end }}
+
+  br
+  br
+  br

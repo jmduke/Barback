@@ -1,0 +1,20 @@
+tr itemprop="recipeIngredient"
+  td
+    {{ if in .baseName "" }}
+      {{ .baseName }}
+    {{ else }}
+      a href="/ingredient/{{ .baseName.slug }}" {{ .baseName.name }}
+    {{ end }}
+  
+  td.minor
+    {{ if .label }}
+      span {{ .label }} &nbsp;
+    {{ end }}
+
+    {{ if and .label .amount }}
+      span x  &nbsp;
+    {{ end }}
+
+    {{ if .amount }}
+      span {{ .amount }}cl
+    {{ end }}

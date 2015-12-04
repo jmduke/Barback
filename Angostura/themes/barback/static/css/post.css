@@ -58,6 +58,7 @@ body {
   padding-right: 10px;
   border-radius: 3px;
   font-size: 14px;
+  margin-left: 5px;
 }
 
 .post-date a:hover {
@@ -96,6 +97,10 @@ blockquote {
 }
 blockquote p:first-child {
   margin-top: 0;
+}
+
+.post-header .post-date a {
+  margin-left: 0;
 }
 
 .jumbotron {

@@ -1,0 +1,104 @@
+= content twitter-image
+  meta name="twitter:image" content="http://getbarback.com/img/png/{{ .Slug }}.png"
+
+= content main
+  link href="/css/recipe.css" rel=stylesheet 
+
+  .recipe-container.recipe-detail.col-xs-12 itemscope="" itemtype="http://schema.org/Recipe"
+    h1 itemprop="name" {{ .Params.name }}
+
+    .col-xs-12.col-md-3.col-md-offset-1
+      img#diagram.hidden src="/img/png/{{ .Slug }}.png" itemprop="image"
+      img#diagram src="/img/svg/{{ .Slug }}.svg"
+
+      h4 Data
+      p
+        .. Served in {{ .Params.glassware }}
+        span#abv
+        span % ABV
+        {{ if .Params.garnish }}
+          br
+          br
+          .. Garnish with {{ .Params.garnish }}
+        {{ end }}
+
+      {{ if .Params.source }}
+        h4 Source
+        {{ if in .Params.source "http" }}
+          a href="{{ .Params.source }}" Source
+        {{ else }}
+          em {{ .Params.source }}
+        {{ end }}
+      {{ end }}
+
+    .col-xs-12.col-md-6.col-md-offset-1
+
+      h4 Ingredients
+      table.ingredients
+        {{ range .Params.ingredients }}
+          {{ partial "recipe/ingredient" . }}
+        {{ end }}
+
+      {{ if .Params.directions }}
+        h4 Directions
+        .instructions itemprop="recipeInstructions"
+          {{ .Params.directions | markdownify }}
+      {{ end }}
+
+      {{ if .Params.information }}
+        h4 Information
+        p itemprop="description"
+          {{ .Params.information | markdownify }}
+      {{ end }}
+
+      {{ if .Params.ncotw }}
+        h4 Elsewhere
+        a href="{{ .Params.ncotw }}" Not Cocktail of the Week
+        hr
+      {{ end }}
+
+      {{ if .Params.similar_recipes }}
+        .well
+          h4 Similar Cocktails
+          {{ range $index, $recipe := .Params.similar_recipes }}
+            a.similar-recipe href=""
+              {{ if ge $index 5 }}
+                .collapse
+                  {{ $recipe }}
+                  br
+              {{ else }}
+                {{ $recipe }}
+                br
+              {{ end }}
+          {{ end }}
+          {{ if ge (len .Params.similar_recipes) 5 }}
+            br
+            a#recipeToggle.btn.btn-default role="button" data-toggle="collapse" href=".collapse" aria-expanded="false" Show more recipes
+          {{ end }}
+      {{ end }}
+
+      br
+      
+      {{ partial "components/tweet" . }}
+
+
+  = javascript
+    $("#abv").html(abv({{ .Params.ingredients }}));
+
+    $(".similar-recipe").each(function() {
+      var recipeName = $(this).text();
+      if (!recipes[recipeName]) {
+        $(this).attr('href', null);
+      } else {
+        var recipeSlug = recipes[recipeName].slug;
+        $(this).attr('href', "/recipe/" + recipeSlug + "/");
+      }
+    });
+
+    $('#recipeToggle').click(function() {
+        if ($('.collapse').hasClass('in') ) {
+            $(this).text('Show more recipes');
+        } else {
+            $(this).text('Show fewer recipes');
+        }
+    });
