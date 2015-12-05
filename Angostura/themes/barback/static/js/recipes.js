@@ -47,6 +47,11 @@ $("#search_filter").on("keypress paste focus textInput input", function() {
       return searchTermInName || searchTermInIngredients;
     }
   });
+  if ( !container.data('isotope').filteredItems.length ) {
+    $('.container-empty-state').show();
+  } else {
+    $('.container-empty-state').hide();
+  }
 });
 
 $("h4 a").click(function(event) {

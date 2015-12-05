@@ -22,4 +22,7 @@
          {{ partial "recipe/recipe" . }}
       {{ end }}
 
+  .container-empty-state
+    h3 Sorry, we don't have any recipes that match your search term :(
+
   script src="/js/recipes.js"
