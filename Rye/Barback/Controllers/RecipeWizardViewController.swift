@@ -11,7 +11,8 @@ import MBProgressHUD
 import SafariServices
 import UIKit
 
-class RecipeWizardViewController: UIViewController {
+
+class RecipeWizardViewController: UIViewController, HasCoachMarks {
     
     @IBOutlet weak var secondBaseSegmentedControl: IngredientBasesSegmentControl!
     @IBOutlet weak var firstBaseSegmentedControl: IngredientBasesSegmentControl!
@@ -22,6 +23,15 @@ class RecipeWizardViewController: UIViewController {
     @IBOutlet weak var recipeSelectionButton: SimpleButton!
     
     var recipeSelector: RecipeSelector = RecipeSelector()
+    
+    func coachMarksForController() -> [CoachMark] {
+        return [
+            CoachMark(rect: firstBaseSegmentedControl.frame.union(secondBaseSegmentedControl.frame), caption: "Tell us a type of cocktail you're in the market for..."),
+            CoachMark(rect: firstAdjectiveSegmentedControl.frame, caption: "...and what flavor you're into..."),
+            CoachMark(rect: secondAdjectiveSegmentedControl.frame, caption: "...and what kinda mood you're in."),
+            CoachMark(rect: recipeSelectionButton.frame, caption: "Then we'll fix you up good.")
+        ]
+    }
     
     override func viewDidLoad() {
         firstBaseSegmentedControl.addTarget(self, action: "selectBase:", forControlEvents: UIControlEvents.ValueChanged)
@@ -42,6 +52,11 @@ class RecipeWizardViewController: UIViewController {
         
         styleController()
         title = "Barkeep"
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        runCoachMarks(view)
     }
     
     func updateAdjectives() {
@@ -101,6 +116,5 @@ class RecipeWizardViewController: UIViewController {
         
         let selectedBaseGroup = firstBaseSegmentedControl.selectedBase ?? secondBaseSegmentedControl.selectedBase!
         destinationController.shareOverride = "Asked @GetBarback to make me something \(firstAdjectiveSegmentedControl.selectedFlavor) and \(secondAdjectiveSegmentedControl.selectedAdjective) with \(selectedBaseGroup) -- they made me a \(destinationController.recipe!.name)!"
-        print(destinationController.shareOverride)
     }
 }
