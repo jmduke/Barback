@@ -16,5 +16,6 @@ tr itemprop="recipeIngredient"
     {{ end }}
 
     {{ if .amount }}
-      span {{ .amount }}cl
+      span.cl {{ .amount }} cl
+      span.oz {{ (div .amount 3) }} oz
     {{ end }}

@@ -38,6 +38,13 @@
         {{ range .Params.ingredients }}
           {{ partial "recipe/ingredient" . }}
         {{ end }}
+        tr
+          td
+            hr
+        tr 
+          td
+            .btn.btn-default.cl Use ounces
+            .btn.btn-default.oz Use centileters
 
       {{ if .Params.directions }}
         h4 Directions
@@ -101,4 +108,18 @@
         } else {
             $(this).text('Show fewer recipes');
         }
+    });
+
+    $('.minor .oz').each(function(a, b) {
+      $(b).text(parseFloat($(b).text().split(" ")[0]).toFixed(2) + " " + $(b).text().split(" ")[1]); 
+    });
+
+    $('.btn.cl').click(function() {
+      $('.cl').css('display', 'none');
+      $('.oz').css('display', 'inline-block');
+    });
+
+    $('.btn.oz').click(function() {
+      $('.oz').css('display', 'none');
+      $('.cl').css('display', 'inline-block');
     });
